@@ -106,7 +106,7 @@
       "displayName": "Dreamina Design",
       "repository": "full-aigc-plugins/dreamina-design-plugin",
       "localDirectory": "dreamina-design-plugin",
-      "version": "0.6.2",
+      "version": "0.7.0",
       "description": "Create and edit Dreamina images and videos with approval-aware, resumable operations and verified downloads.",
       "shortDescription": "Create images and videos with Dreamina",
       "category": "Creativity",
