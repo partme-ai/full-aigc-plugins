@@ -82,7 +82,7 @@ Open Settings → Plugins → Create → Add plugin marketplace, enter `partme-a
 | 🎞️ **Comfy Generation** | `comfy-design` | 0.2.0 | Comfy Cloud generation workflows (image / video / audio / 3D) | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
 | 🧪 **Content Factory (RC)** | `content-factory` | 1.0.0-rc.2 | Governed creation, review, formatting, and export for 16 channels; preview testing only, not production-ready | [content-factory-plugin](https://github.com/full-aigc-plugins/content-factory-plugin) |
 | 🎨 **Dreamina Canvas** | `dreamina-canvas` | 0.4.0 | Build and run structured Dreamina canvases and timelines (approval-aware, recoverable) | [dreamina-canvas-plugin](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) |
-| 🖼️ **Dreamina Design** | `dreamina-design` | 0.6.1 | Create images and videos with Dreamina | [dreamina-design-plugin](https://github.com/full-aigc-plugins/dreamina-design-plugin) |
+| 🖼️ **Dreamina Design** | `dreamina-design` | 0.6.2 | Create images and videos with Dreamina | [dreamina-design-plugin](https://github.com/full-aigc-plugins/dreamina-design-plugin) |
 | 🏭 **Image Factory** | `image-factory` | 0.6.0 | Discover, batch-produce, and evaluate images | [image-factory-plugin](https://github.com/full-aigc-plugins/image-factory-plugin) |
 | ✂️ **JianYing Edit** | `jianying-edit` | 0.27.5 | Rust-only JianYing workflow orchestration and editable drafts | [jianying-edit-plugin](https://github.com/full-aigc-plugins/jianying-edit-plugin) |
 | 🎬 **Maya Production** | `maya-design` | 0.1.5 | Inspect Maya scenes, create reversible Playblasts, produce verified Jimeng links | [maya-design-plugin](https://github.com/full-aigc-plugins/maya-design-plugin) |

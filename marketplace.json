@@ -98,10 +98,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/dreamina-design-plugin",
-        "ref": "v0.6.1"
+        "ref": "v0.6.2"
       },
       "description": "Create and edit Dreamina images and videos with approval-aware, resumable operations and verified downloads.",
-      "version": "0.6.1",
+      "version": "0.6.2",
       "category": "Creativity",
       "tags": [
         "dreamina",
