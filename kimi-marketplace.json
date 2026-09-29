@@ -29,7 +29,7 @@
       "id": "dreamina-canvas",
       "displayName": "Dreamina Canvas",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.3.0/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.4.0"
+      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.4.1"
     },
     {
       "id": "dreamina-design",
