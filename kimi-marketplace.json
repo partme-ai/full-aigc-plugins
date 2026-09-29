@@ -29,13 +29,13 @@
       "id": "dreamina-canvas",
       "displayName": "Dreamina Canvas",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.3.0/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.3.0"
+      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.4.0"
     },
     {
       "id": "dreamina-design",
       "displayName": "Dreamina Design",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.6.0/assets/logo-approved.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.6.0"
+      "source": "https://github.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.6.1"
     },
     {
       "id": "image-factory",

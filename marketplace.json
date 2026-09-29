@@ -80,10 +80,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/dreamina-canvas-plugin",
-        "ref": "v0.3.0"
+        "ref": "v0.4.0"
       },
       "description": "Build and run Dreamina Canvas node graphs and timelines with approval-aware execution, recovery, and verified assets.",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "category": "Creativity",
       "tags": [
         "dreamina",
@@ -98,10 +98,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/dreamina-design-plugin",
-        "ref": "v0.6.0"
+        "ref": "v0.6.1"
       },
       "description": "Create and edit Dreamina images and videos with approval-aware, resumable operations and verified downloads.",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "category": "Creativity",
       "tags": [
         "dreamina",
