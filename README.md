@@ -21,6 +21,15 @@
 
 </div>
 
+## 插件市场导航
+
+两个市场按用途分类，各自的插件仓库链接见对应市场的插件目录。
+
+| 分类 | 插件市场入口 | 用途 |
+| --- | --- | --- |
+| 全栈开发 | [Full Stack Plugins](https://github.com/partme-ai/full-stack-plugins) | 架构与 UI 设计、代码理解、质量检查、代码审查、流程治理与服务器运维 |
+| AIGC 内容创作 | [Full AIGC Plugins](https://github.com/partme-ai/full-aigc-plugins) | 图像、视频、音频、音乐、3D 与多模态内容创作 |
+
 ---
 
 ## 简介
@@ -76,20 +85,22 @@ codex plugin add volcengine-design@full-aigc-plugins
 
 ## 插件目录
 
+以下为 **AIGC** 插件；点击插件名称或仓库链接查看各插件文档，另一分类请使用上方市场入口。
+
 | 插件 | ID | 版本 | 定位 | 仓库 |
 |------|----|:----:|------|------|
-| 🧱 **Blender 制作** | `blender-design` | 0.15.0 | Blender 场景的受控设计、审阅与导出（四 Tab 工作台、供应商能力、视觉里程碑与恢复检查点）；新增 `blender-ai-replication`（LLM + VLM-critic 复刻参考图） | [blender-design-plugin](https://github.com/full-aigc-plugins/blender-design-plugin) |
-| 🎞️ **Comfy 生成** | `comfy-design` | 0.2.0 | Comfy Cloud 生成工作流（图像 / 视频 / 音频 / 3D） | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
-| 🧪 **内容工厂（RC）** | `content-factory` | 1.0.0-rc.2 | 16 渠道的受控内容创作、审阅、排版与导出；预发布测试版，非生产就绪 | [content-factory-plugin](https://github.com/full-aigc-plugins/content-factory-plugin) |
-| 🎨 **即梦画布** | `dreamina-canvas` | 0.4.2 | 结构化 Dreamina 画布与时间线的构建和运行（带审批与恢复） | [dreamina-canvas-plugin](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) |
-| 🖼️ **即梦设计** | `dreamina-design` | 0.7.0 | 即梦图像与视频创作 | [dreamina-design-plugin](https://github.com/full-aigc-plugins/dreamina-design-plugin) |
-| 🏭 **图片工厂** | `image-factory` | 0.6.0 | 图像的发现、批量生产与评估闭环 | [image-factory-plugin](https://github.com/full-aigc-plugins/image-factory-plugin) |
-| ✂️ **剪映剪辑** | `jianying-edit` | 0.27.5 | Rust-only 剪映工作流编排与可编辑草稿 | [jianying-edit-plugin](https://github.com/full-aigc-plugins/jianying-edit-plugin) |
-| 🎬 **Maya 制作** | `maya-design` | 0.1.5 | Maya 场景检查与可逆 Playblast，产出经核验的即梦链接 | [maya-design-plugin](https://github.com/full-aigc-plugins/maya-design-plugin) |
-| 🎵 **MiniMax 设计** | `minimax-design` | 0.4.3 | MiniMax H3 视频生成（白模首尾帧锚定） | [minimax-design-plugin](https://github.com/full-aigc-plugins/minimax-design-plugin) |
-| 🎥 **视频工厂** | `video-factory` | 0.3.1 | 视频的剪辑、合成、审校与校验 | [video-factory-plugin](https://github.com/full-aigc-plugins/video-factory-plugin) |
-| 🌋 **火山引擎设计** | `volcengine-design` | 0.1.2 | 豆包 ASR/TTS 与图像、视频生成工作流 | [volcengine-design-plugin](https://github.com/full-aigc-plugins/volcengine-design-plugin) |
-| 🔮 **玄机玄学** | `xuanji` | 0.1.1 | 娱乐向术数六科（八字/奇门/紫微/姻缘/风水/塔罗）+ AIGC 成象（观象环 ≤3 轮） | [xuanji-plugin](https://github.com/full-aigc-plugins/xuanji-plugin) |
+| [🧱 **Blender 制作**](https://github.com/full-aigc-plugins/blender-design-plugin) | `blender-design` | 0.15.0 | Blender 场景的受控设计、审阅与导出（四 Tab 工作台、供应商能力、视觉里程碑与恢复检查点）；新增 `blender-ai-replication`（LLM + VLM-critic 复刻参考图） | [blender-design-plugin](https://github.com/full-aigc-plugins/blender-design-plugin) |
+| [🎞️ **Comfy 生成**](https://github.com/full-aigc-plugins/comfy-design-plugin) | `comfy-design` | 0.5.0 | Comfy Cloud 生成工作流（图像 / 视频 / 音频 / 3D） | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
+| [🧪 **内容工厂（RC）**](https://github.com/full-aigc-plugins/content-factory-plugin) | `content-factory` | 1.0.0-rc.2 | 16 渠道的受控内容创作、审阅、排版与导出；预发布测试版，非生产就绪 | [content-factory-plugin](https://github.com/full-aigc-plugins/content-factory-plugin) |
+| [🎨 **即梦画布**](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) | `dreamina-canvas` | 0.4.2 | 结构化 Dreamina 画布与时间线的构建和运行（带审批与恢复） | [dreamina-canvas-plugin](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) |
+| [🖼️ **即梦设计**](https://github.com/full-aigc-plugins/dreamina-design-plugin) | `dreamina-design` | 0.7.0 | 即梦图像与视频创作 | [dreamina-design-plugin](https://github.com/full-aigc-plugins/dreamina-design-plugin) |
+| [🏭 **图片工厂**](https://github.com/full-aigc-plugins/image-factory-plugin) | `image-factory` | 0.8.0 | 图像的发现、批量生产与评估闭环 | [image-factory-plugin](https://github.com/full-aigc-plugins/image-factory-plugin) |
+| [✂️ **剪映剪辑**](https://github.com/full-aigc-plugins/jianying-edit-plugin) | `jianying-edit` | 0.27.9 | Rust-only 剪映工作流编排与可编辑草稿 | [jianying-edit-plugin](https://github.com/full-aigc-plugins/jianying-edit-plugin) |
+| [🎬 **Maya 制作**](https://github.com/full-aigc-plugins/maya-design-plugin) | `maya-design` | 0.1.5 | Maya 场景检查与可逆 Playblast，产出经核验的即梦链接 | [maya-design-plugin](https://github.com/full-aigc-plugins/maya-design-plugin) |
+| [🎵 **MiniMax 设计**](https://github.com/full-aigc-plugins/minimax-design-plugin) | `minimax-design` | 0.4.3 | MiniMax H3 视频生成（白模首尾帧锚定） | [minimax-design-plugin](https://github.com/full-aigc-plugins/minimax-design-plugin) |
+| [🎥 **视频工厂**](https://github.com/full-aigc-plugins/video-factory-plugin) | `video-factory` | 0.4.0 | 视频的剪辑、合成、审校与校验 | [video-factory-plugin](https://github.com/full-aigc-plugins/video-factory-plugin) |
+| [🌋 **火山引擎设计**](https://github.com/full-aigc-plugins/volcengine-design-plugin) | `volcengine-design` | 0.1.2 | 豆包 ASR/TTS 与图像、视频生成工作流 | [volcengine-design-plugin](https://github.com/full-aigc-plugins/volcengine-design-plugin) |
+| [🔮 **玄机玄学**](https://github.com/full-aigc-plugins/xuanji-plugin) | `xuanji` | 0.1.1 | 娱乐向术数六科（八字/奇门/紫微/姻缘/风水/塔罗）+ AIGC 成象（观象环 ≤3 轮） | [xuanji-plugin](https://github.com/full-aigc-plugins/xuanji-plugin) |
 
 > 规划仓 [`cine-planning`](https://github.com/full-aigc-plugins/cine-planning)（`director` / `script` / `storyboard` 纯规格）按 `design_baseline_not_released` 状态跟随本市场管理，在自身发布边界完成前不进入任何可安装清单。
 
@@ -133,7 +144,7 @@ full-aigc-plugins/
 |------|------|
 | **技能侧导航（AIGC）** | [partme-ai/full-aigc-skills](https://github.com/partme-ai/full-aigc-skills) |
 | **技能包组织（AIGC）** | [github.com/full-aigc-skills](https://github.com/full-aigc-skills) |
-| **研发侧插件市场** | [github.com/full-stack-plugins](https://github.com/full-stack-plugins) |
+| **研发侧插件市场** | [github.com/full-stack-plugins](https://github.com/partme-ai/full-stack-plugins) |
 | **研发侧技能导航** | [partme-ai/full-stack-skills](https://github.com/partme-ai/full-stack-skills) |
 | **Agent Skills 规范** | [agentskills.io](https://agentskills.io) |
 | **Skills CLI** | [github.com/vercel-labs/skills](https://github.com/vercel-labs/skills) |

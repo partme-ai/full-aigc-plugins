@@ -5,6 +5,7 @@ import path from "node:path";
 import process from "node:process";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { validatePortableMcp } from "./portable-mcp-config.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const workspace = path.resolve(root, "..", "full-aigc-plugins-repositories");
@@ -332,7 +333,10 @@ for (const candidate of candidatePlugins) {
       }
     }
   }
-  if (isInstallableCandidate(candidate)) validateSkills(candidate, repo);
+  if (isInstallableCandidate(candidate)) {
+    validateSkills(candidate, repo);
+    errors.push(...validatePortableMcp(repo).map(error => `${candidate.id}: ${error}`));
+  }
 
   const releaseGatePath = path.resolve(repo, candidate.releaseGate);
   if (!releaseGatePath.startsWith(`${repo}${path.sep}`)) {
@@ -408,6 +412,7 @@ for (let index = 0; index < catalog.plugins.length; index += 1) {
   const logo = path.join(repo, plugin.logo);
   if (!fs.existsSync(logo)) errors.push(`${plugin.id}: missing ${logo}`);
   validateSkills(plugin, repo);
+  errors.push(...validatePortableMcp(repo).map(error => `${plugin.id}: ${error}`));
   validateRemoteRelease(plugin, { expectedPrerelease: false });
 
   const repositoryMarketplacePath = path.join(repo, ".agents/plugins/marketplace.json");

@@ -21,6 +21,15 @@
 
 </div>
 
+## Plugin marketplaces
+
+The marketplaces are organized by purpose. Each marketplace lists links to its plugin repositories.
+
+| Category | Marketplace | Purpose |
+| --- | --- | --- |
+| Full-stack development | [Full Stack Plugins](https://github.com/partme-ai/full-stack-plugins) | Architecture and UI design, code understanding, quality checks, code review, workflow governance, and server operations |
+| AIGC content creation | [Full AIGC Plugins](https://github.com/partme-ai/full-aigc-plugins) | Image, video, audio, music, 3D, and multimodal content creation |
+
 ---
 
 ## About
@@ -76,20 +85,22 @@ Open Settings → Plugins → Create → Add plugin marketplace, enter `partme-a
 
 ## Plugin Catalog
 
+The plugins below belong to **AIGC**. Open a plugin name or repository link for its documentation; use the marketplace links above for the other category.
+
 | Plugin | ID | Version | Focus | Repository |
 |--------|----|:-------:|-------|------------|
-| 🧱 **Blender Production** | `blender-design` | 0.15.0 | Controlled Blender production with a four-tab workbench, provider capabilities, visual milestones, and recovery checkpoints; adds `blender-ai-replication` (LLM + VLM critic reference-image replication) | [blender-design-plugin](https://github.com/full-aigc-plugins/blender-design-plugin) |
-| 🎞️ **Comfy Generation** | `comfy-design` | 0.2.0 | Comfy Cloud generation workflows (image / video / audio / 3D) | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
-| 🧪 **Content Factory (RC)** | `content-factory` | 1.0.0-rc.2 | Governed creation, review, formatting, and export for 16 channels; preview testing only, not production-ready | [content-factory-plugin](https://github.com/full-aigc-plugins/content-factory-plugin) |
-| 🎨 **Dreamina Canvas** | `dreamina-canvas` | 0.4.2 | Build and run structured Dreamina canvases and timelines (approval-aware, recoverable) | [dreamina-canvas-plugin](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) |
-| 🖼️ **Dreamina Design** | `dreamina-design` | 0.7.0 | Create images and videos with Dreamina | [dreamina-design-plugin](https://github.com/full-aigc-plugins/dreamina-design-plugin) |
-| 🏭 **Image Factory** | `image-factory` | 0.6.0 | Discover, batch-produce, and evaluate images | [image-factory-plugin](https://github.com/full-aigc-plugins/image-factory-plugin) |
-| ✂️ **JianYing Edit** | `jianying-edit` | 0.27.5 | Rust-only JianYing workflow orchestration and editable drafts | [jianying-edit-plugin](https://github.com/full-aigc-plugins/jianying-edit-plugin) |
-| 🎬 **Maya Production** | `maya-design` | 0.1.5 | Inspect Maya scenes, create reversible Playblasts, produce verified Jimeng links | [maya-design-plugin](https://github.com/full-aigc-plugins/maya-design-plugin) |
-| 🎵 **MiniMax Design** | `minimax-design` | 0.4.3 | Generate H3 videos with MiniMax — white-model first/last-frame anchoring | [minimax-design-plugin](https://github.com/full-aigc-plugins/minimax-design-plugin) |
-| 🎥 **Video Factory** | `video-factory` | 0.3.1 | Edit, compose, review, and verify videos | [video-factory-plugin](https://github.com/full-aigc-plugins/video-factory-plugin) |
-| 🌋 **Volcengine Design** | `volcengine-design` | 0.1.2 | Doubao ASR/TTS plus image and video generation workflows | [volcengine-design-plugin](https://github.com/full-aigc-plugins/volcengine-design-plugin) |
-| 🔮 **Xuanji Metaphysics** | `xuanji` | 0.1.1 | Entertainment-oriented Chinese metaphysics and tarot workflows with bounded AIGC visualization | [xuanji-plugin](https://github.com/full-aigc-plugins/xuanji-plugin) |
+| [🧱 **Blender Production**](https://github.com/full-aigc-plugins/blender-design-plugin) | `blender-design` | 0.15.0 | Controlled Blender production with a four-tab workbench, provider capabilities, visual milestones, and recovery checkpoints; adds `blender-ai-replication` (LLM + VLM critic reference-image replication) | [blender-design-plugin](https://github.com/full-aigc-plugins/blender-design-plugin) |
+| [🎞️ **Comfy Generation**](https://github.com/full-aigc-plugins/comfy-design-plugin) | `comfy-design` | 0.5.0 | Comfy Cloud generation workflows (image / video / audio / 3D) | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
+| [🧪 **Content Factory (RC)**](https://github.com/full-aigc-plugins/content-factory-plugin) | `content-factory` | 1.0.0-rc.2 | Governed creation, review, formatting, and export for 16 channels; preview testing only, not production-ready | [content-factory-plugin](https://github.com/full-aigc-plugins/content-factory-plugin) |
+| [🎨 **Dreamina Canvas**](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) | `dreamina-canvas` | 0.4.2 | Build and run structured Dreamina canvases and timelines (approval-aware, recoverable) | [dreamina-canvas-plugin](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) |
+| [🖼️ **Dreamina Design**](https://github.com/full-aigc-plugins/dreamina-design-plugin) | `dreamina-design` | 0.7.0 | Create images and videos with Dreamina | [dreamina-design-plugin](https://github.com/full-aigc-plugins/dreamina-design-plugin) |
+| [🏭 **Image Factory**](https://github.com/full-aigc-plugins/image-factory-plugin) | `image-factory` | 0.8.0 | Discover, batch-produce, and evaluate images | [image-factory-plugin](https://github.com/full-aigc-plugins/image-factory-plugin) |
+| [✂️ **JianYing Edit**](https://github.com/full-aigc-plugins/jianying-edit-plugin) | `jianying-edit` | 0.27.9 | Rust-only JianYing workflow orchestration and editable drafts | [jianying-edit-plugin](https://github.com/full-aigc-plugins/jianying-edit-plugin) |
+| [🎬 **Maya Production**](https://github.com/full-aigc-plugins/maya-design-plugin) | `maya-design` | 0.1.5 | Inspect Maya scenes, create reversible Playblasts, produce verified Jimeng links | [maya-design-plugin](https://github.com/full-aigc-plugins/maya-design-plugin) |
+| [🎵 **MiniMax Design**](https://github.com/full-aigc-plugins/minimax-design-plugin) | `minimax-design` | 0.4.3 | Generate H3 videos with MiniMax — white-model first/last-frame anchoring | [minimax-design-plugin](https://github.com/full-aigc-plugins/minimax-design-plugin) |
+| [🎥 **Video Factory**](https://github.com/full-aigc-plugins/video-factory-plugin) | `video-factory` | 0.4.0 | Edit, compose, review, and verify videos | [video-factory-plugin](https://github.com/full-aigc-plugins/video-factory-plugin) |
+| [🌋 **Volcengine Design**](https://github.com/full-aigc-plugins/volcengine-design-plugin) | `volcengine-design` | 0.1.2 | Doubao ASR/TTS plus image and video generation workflows | [volcengine-design-plugin](https://github.com/full-aigc-plugins/volcengine-design-plugin) |
+| [🔮 **Xuanji Metaphysics**](https://github.com/full-aigc-plugins/xuanji-plugin) | `xuanji` | 0.1.1 | Entertainment-oriented Chinese metaphysics and tarot workflows with bounded AIGC visualization | [xuanji-plugin](https://github.com/full-aigc-plugins/xuanji-plugin) |
 
 > The planning repository [`cine-planning`](https://github.com/full-aigc-plugins/cine-planning) (`director` / `script` / `storyboard`, specifications only) is tracked by this marketplace under the `design_baseline_not_released` status and stays out of every installable manifest until its own release boundary is complete.
 
@@ -134,7 +145,7 @@ Skills inside plugins follow the [Agent Skills specification](https://agentskill
 |----------|------|
 | **Skills hub (AIGC)** | [partme-ai/full-aigc-skills](https://github.com/partme-ai/full-aigc-skills) |
 | **Skill packages org (AIGC)** | [github.com/full-aigc-skills](https://github.com/full-aigc-skills) |
-| **Dev-side plugin marketplace** | [github.com/full-stack-plugins](https://github.com/full-stack-plugins) |
+| **Dev-side plugin marketplace** | [github.com/full-stack-plugins](https://github.com/partme-ai/full-stack-plugins) |
 | **Skills hub (full stack)** | [partme-ai/full-stack-skills](https://github.com/partme-ai/full-stack-skills) |
 | **Agent Skills specification** | [agentskills.io](https://agentskills.io) |
 | **Skills CLI** | [github.com/vercel-labs/skills](https://github.com/vercel-labs/skills) |
