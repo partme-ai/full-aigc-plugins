@@ -21,20 +21,6 @@
 
 </div>
 
-<!-- ecosystem-navigation:start -->
-
-## Ecosystem navigation
-
-Choose the entry that matches your task: skills provide reusable guidance; plugins connect tools and workflows. Install only what you need.
-
-| Area | Use it for | Catalog / installation | Organization |
-| --- | --- | --- | --- |
-| Full Stack Skills | Software development, architecture, testing, and operations | [PartMe.AI / full-stack-skills](https://github.com/partme-ai/full-stack-skills) | [full-stack-skills](https://github.com/full-stack-skills) |
-| Full AIGC Skills | Image, video, audio, and other content creation | [PartMe.AI / full-aigc-skills](https://github.com/partme-ai/full-aigc-skills) | [full-aigc-skills](https://github.com/full-aigc-skills) |
-| Full Stack Plugins | Tools and workflows for development and operations | [PartMe.AI / full-stack-plugins](https://github.com/partme-ai/full-stack-plugins) | [full-stack-plugins](https://github.com/full-stack-plugins) |
-| Full AIGC Plugins | Tools and workflows for content production | [PartMe.AI / full-aigc-plugins](https://github.com/partme-ai/full-aigc-plugins) | [full-aigc-plugins](https://github.com/full-aigc-plugins) |
-
-<!-- ecosystem-navigation:end -->
 ---
 
 ## About
@@ -146,12 +132,21 @@ Skills inside plugins follow the [Agent Skills specification](https://agentskill
 
 ## Ecosystem
 
+<!-- ecosystem-navigation:start -->
+
+| Area | Use it for | Catalog / installation | Organization |
+| --- | --- | --- | --- |
+| Full Stack Skills | Software development, architecture, testing, and operations | [PartMe.AI / full-stack-skills](https://github.com/partme-ai/full-stack-skills) | [full-stack-skills](https://github.com/full-stack-skills) |
+| Full AIGC Skills | Image, video, audio, and other content creation | [PartMe.AI / full-aigc-skills](https://github.com/partme-ai/full-aigc-skills) | [full-aigc-skills](https://github.com/full-aigc-skills) |
+| Full Stack Plugins | Tools and workflows for development and operations | [PartMe.AI / full-stack-plugins](https://github.com/partme-ai/full-stack-plugins) | [full-stack-plugins](https://github.com/full-stack-plugins) |
+| Full AIGC Plugins | Tools and workflows for content production | [PartMe.AI / full-aigc-plugins](https://github.com/partme-ai/full-aigc-plugins) | [full-aigc-plugins](https://github.com/full-aigc-plugins) |
+
+<!-- ecosystem-navigation:end -->
+
+### Related resources
+
 | Resource | Link |
 |----------|------|
-| **Skills hub (AIGC)** | [partme-ai/full-aigc-skills](https://github.com/partme-ai/full-aigc-skills) |
-| **Skill packages org (AIGC)** | [github.com/full-aigc-skills](https://github.com/full-aigc-skills) |
-| **Dev-side plugin marketplace** | [github.com/full-stack-plugins](https://github.com/partme-ai/full-stack-plugins) |
-| **Skills hub (full stack)** | [partme-ai/full-stack-skills](https://github.com/partme-ai/full-stack-skills) |
 | **Agent Skills specification** | [agentskills.io](https://agentskills.io) |
 | **Skills CLI** | [github.com/vercel-labs/skills](https://github.com/vercel-labs/skills) |
 | **PartMe.AI** | [github.com/partme-ai](https://github.com/partme-ai) |
