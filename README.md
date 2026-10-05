@@ -7,29 +7,34 @@
 *图像 · 视频 · 音频 · 音乐 · 3D · 多模态 — 生产级品质，Codex / ZCode / Kimi 三平台独立安装。*
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-green)](LICENSE)
-[![Platforms](https://img.shields.io/badge/hosts-Codex%20%C2%B7%20ZCode%20%C2%B7%20Kimi-blue)](#-安装)
-[![Plugins](https://img.shields.io/badge/plugins-11-green)](#-插件目录)
+[![Platforms](https://img.shields.io/badge/hosts-Codex%20%C2%B7%20ZCode%20%C2%B7%20Kimi-blue)](#安装)
+[![Plugins](https://img.shields.io/badge/plugins-11-green)](#插件目录)
 
 [English](./README.en.md)
 
-[简介](#-简介) ·
-[安装](#-安装) ·
-[插件目录](#-插件目录) ·
-[架构](#-架构) ·
-[生态](#-生态) ·
-[贡献](#-贡献指南)
+[简介](#简介) ·
+[安装](#安装) ·
+[插件目录](#插件目录) ·
+[架构](#架构) ·
+[生态](#生态) ·
+[贡献](#贡献指南)
 
 </div>
 
-## 插件市场导航
+<!-- ecosystem-navigation:start -->
 
-两个市场按用途分类，各自的插件仓库链接见对应市场的插件目录。
+## 生态导航
 
-| 分类 | 插件市场入口 | 用途 |
-| --- | --- | --- |
-| 全栈开发 | [Full Stack Plugins](https://github.com/partme-ai/full-stack-plugins) | 架构与 UI 设计、代码理解、质量检查、代码审查、流程治理与服务器运维 |
-| AIGC 内容创作 | [Full AIGC Plugins](https://github.com/partme-ai/full-aigc-plugins) | 图像、视频、音频、音乐、3D 与多模态内容创作 |
+按当前任务选择入口：技能提供可复用的知识与操作指引，插件连接工具与工作流。各项目可以独立使用，按需安装即可。
 
+| 方向 | 适用任务 | 目录与安装 | 组织 |
+| --- | --- | --- | --- |
+| Full Stack Skills | 软件开发、架构设计、测试与运维 | [PartMe.AI / full-stack-skills](https://github.com/partme-ai/full-stack-skills) | [full-stack-skills](https://github.com/full-stack-skills) |
+| Full AIGC Skills | 图像、视频、音频等内容创作 | [PartMe.AI / full-aigc-skills](https://github.com/partme-ai/full-aigc-skills) | [full-aigc-skills](https://github.com/full-aigc-skills) |
+| Full Stack Plugins | 研发与运维的工具集成和工作流 | [PartMe.AI / full-stack-plugins](https://github.com/partme-ai/full-stack-plugins) | [full-stack-plugins](https://github.com/full-stack-plugins) |
+| Full AIGC Plugins | 内容制作的工具集成和生成工作流 | [PartMe.AI / full-aigc-plugins](https://github.com/partme-ai/full-aigc-plugins) | [full-aigc-plugins](https://github.com/full-aigc-plugins) |
+
+<!-- ecosystem-navigation:end -->
 ---
 
 ## 简介
