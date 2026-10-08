@@ -170,10 +170,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/printcraft-plugin",
-        "ref": "v0.1.0-dev.5"
+        "ref": "v0.1.0-dev.6"
       },
-      "description": "Release candidate for controlled testing; not production-ready. Inspect and edit PDFs with a pinned local runtime, single-session plans and digest-bound verification. Codex tested; ZCode/Kimi runtime acceptance not run.",
-      "version": "0.1.0-dev.5",
+      "description": "Release candidate for controlled testing; not production-ready. Inspect/edit PDFs and explicitly use optional Tesseract Chinese OCR on macOS arm64; native OCR remains English-only. PDF reading-order/full-phrase-search limitations apply. ZCode/Kimi runtime acceptance not run.",
+      "version": "0.1.0-dev.6",
       "category": "Productivity",
       "tags": [
         "pdf",
