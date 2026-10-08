@@ -90,7 +90,7 @@
       "displayName": "Dreamina Canvas",
       "repository": "full-aigc-plugins/dreamina-canvas-plugin",
       "localDirectory": "dreamina-canvas-plugin",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "description": "Build and run Dreamina Canvas node graphs and timelines with approval-aware execution, recovery, and verified assets.",
       "shortDescription": "Build and run structured Dreamina canvases",
       "category": "Creativity",
