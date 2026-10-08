@@ -81,6 +81,7 @@ codex plugin add image-factory@full-aigc-plugins
 codex plugin add jianying-edit@full-aigc-plugins
 codex plugin add maya-design@full-aigc-plugins
 codex plugin add minimax-design@full-aigc-plugins
+codex plugin add printcraft@full-aigc-plugins  # Development prerelease for controlled testing
 codex plugin add video-factory@full-aigc-plugins
 codex plugin add volcengine-design@full-aigc-plugins
 ```
@@ -106,12 +107,13 @@ The plugins below belong to **AIGC**. Open a plugin name or repository link for 
 | [🧱 **Blender Production**](https://github.com/full-aigc-plugins/blender-design-plugin) | `blender-design` | 0.15.0 | Controlled Blender production with a four-tab workbench, provider capabilities, visual milestones, and recovery checkpoints; adds `blender-ai-replication` (LLM + VLM critic reference-image replication) | [blender-design-plugin](https://github.com/full-aigc-plugins/blender-design-plugin) |
 | [🎞️ **Comfy Generation**](https://github.com/full-aigc-plugins/comfy-design-plugin) | `comfy-design` | 0.5.0 | Comfy Cloud generation workflows (image / video / audio / 3D) | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
 | [🧪 **Content Factory (RC)**](https://github.com/full-aigc-plugins/content-factory-plugin) | `content-factory` | 1.0.0-rc.2 | Governed creation, review, formatting, and export for 16 channels; preview testing only, not production-ready | [content-factory-plugin](https://github.com/full-aigc-plugins/content-factory-plugin) |
-| [🎨 **Dreamina Canvas**](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) | `dreamina-canvas` | 0.4.2 | Build and run structured Dreamina canvases and timelines (approval-aware, recoverable) | [dreamina-canvas-plugin](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) |
+| [🎨 **Dreamina Canvas**](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) | `dreamina-canvas` | 0.4.3 | Build and run structured Dreamina canvases and timelines (approval-aware, recoverable) | [dreamina-canvas-plugin](https://github.com/full-aigc-plugins/dreamina-canvas-plugin) |
 | [🖼️ **Dreamina Design**](https://github.com/full-aigc-plugins/dreamina-design-plugin) | `dreamina-design` | 0.7.0 | Create images and videos with Dreamina | [dreamina-design-plugin](https://github.com/full-aigc-plugins/dreamina-design-plugin) |
 | [🏭 **Image Factory**](https://github.com/full-aigc-plugins/image-factory-plugin) | `image-factory` | 0.8.0 | Discover, batch-produce, and evaluate images | [image-factory-plugin](https://github.com/full-aigc-plugins/image-factory-plugin) |
 | [✂️ **JianYing Edit**](https://github.com/full-aigc-plugins/jianying-edit-plugin) | `jianying-edit` | 0.27.9 | Rust-only JianYing workflow orchestration and editable drafts | [jianying-edit-plugin](https://github.com/full-aigc-plugins/jianying-edit-plugin) |
 | [🎬 **Maya Production**](https://github.com/full-aigc-plugins/maya-design-plugin) | `maya-design` | 0.1.5 | Inspect Maya scenes, create reversible Playblasts, produce verified Jimeng links | [maya-design-plugin](https://github.com/full-aigc-plugins/maya-design-plugin) |
 | [🎵 **MiniMax Design**](https://github.com/full-aigc-plugins/minimax-design-plugin) | `minimax-design` | 0.4.3 | Generate H3 videos with MiniMax — white-model first/last-frame anchoring | [minimax-design-plugin](https://github.com/full-aigc-plugins/minimax-design-plugin) |
+| [📄 **PrintCraft (Prerelease)**](https://github.com/full-aigc-plugins/printcraft-plugin) | `printcraft` | 0.1.0-dev.5 | Pinned macOS arm64 PDF inspection, page editing and digest-bound verification; Codex tested, ZCode/Kimi runtime and model acceptance NOT_RUN | [printcraft-plugin](https://github.com/full-aigc-plugins/printcraft-plugin) |
 | [🎥 **Video Factory**](https://github.com/full-aigc-plugins/video-factory-plugin) | `video-factory` | 0.4.0 | Edit, compose, review, and verify videos | [video-factory-plugin](https://github.com/full-aigc-plugins/video-factory-plugin) |
 | [🌋 **Volcengine Design**](https://github.com/full-aigc-plugins/volcengine-design-plugin) | `volcengine-design` | 0.1.2 | Doubao ASR/TTS plus image and video generation workflows | [volcengine-design-plugin](https://github.com/full-aigc-plugins/volcengine-design-plugin) |
 | [🔮 **Xuanji Metaphysics**](https://github.com/full-aigc-plugins/xuanji-plugin) | `xuanji` | 0.1.1 | Entertainment-oriented Chinese metaphysics and tarot workflows with bounded AIGC visualization | [xuanji-plugin](https://github.com/full-aigc-plugins/xuanji-plugin) |
@@ -186,3 +188,5 @@ Apache 2.0 — see [LICENSE](LICENSE).
 Made with ❤️ by PartMe.AI Team
 
 </div>
+
+> PrintCraft is an installable development candidate with production gates BLOCKED. Chinese OCR, other native platforms and mobile delivery remain open; marketplace metadata does not establish host acceptance.

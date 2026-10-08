@@ -166,6 +166,24 @@
       "strict": true
     },
     {
+      "name": "printcraft",
+      "source": {
+        "source": "github",
+        "repo": "full-aigc-plugins/printcraft-plugin",
+        "ref": "v0.1.0-dev.5"
+      },
+      "description": "Release candidate for controlled testing; not production-ready. Inspect and edit PDFs with a pinned local runtime, single-session plans and digest-bound verification. Codex tested; ZCode/Kimi runtime acceptance not run.",
+      "version": "0.1.0-dev.5",
+      "category": "Productivity",
+      "tags": [
+        "pdf",
+        "printcraft",
+        "verification",
+        "prerelease"
+      ],
+      "strict": true
+    },
+    {
       "name": "video-factory",
       "source": {
         "source": "github",

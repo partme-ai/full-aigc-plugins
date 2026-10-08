@@ -56,6 +56,11 @@
       "source": "https://github.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.4.3"
     },
     {
+      "id": "printcraft",
+      "displayName": "PrintCraft (RC)",
+      "source": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.5"
+    },
+    {
       "id": "video-factory",
       "displayName": "Video Factory",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.4.0/assets/logo-approved.png",
