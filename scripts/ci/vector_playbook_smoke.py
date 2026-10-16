@@ -1,6 +1,7 @@
 """原生VectorCraft场景保存重开，检查可编辑对象、几何与渲染像素。"""
 import json
 import math
+import hashlib
 from pathlib import Path
 import xml.etree.ElementTree as ET
 from photo_playbook_smoke import rgb_pixels
@@ -75,4 +76,46 @@ def run_playbooks(r,path):
         if a.get('outlinedRequired'):require(not any(e.tag.endswith('}text') for e in tree.iter()),'Outlined SVG has live text')
         png=recipe['id']+'.png';r.run('convert',target,png);verify_pixels(r.work/png,a)
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','editableGeometry':'PASS','pixelChecks':'PASS' if a.get('ringPixels') or a.get('cropPixels') else 'NOT_SELECTED','designReview':'NOT_TESTED'})
-    require(bool(records),'No Vector workflows selected');return records
+    require(bool(records),'No Vector workflows selected')
+    records.append(existing_document(r))
+    return records
+
+
+def existing_document(r):
+    def run(target,commands,source=None):
+        args=['run']+(['--in',source] if source else [])
+        for command,params in commands:args+=['--cmd',command,'--params',json.dumps(params,separators=(',',':'))]
+        rows=[json.loads(x) for x in r.run(*args,'--export',target).splitlines()]
+        return [x for x in rows if x.get('step')=='cmd']
+    run('existing-user.vectorcraft',[
+        ('file.new',{'width':520,'height':280,'units':'Pixels','backgroundContents':'white'}),
+        ('shape.rectangle',{'x':20,'y':20,'width':60,'height':50}),
+        ('paint.setFill',{'color':'#d97706'}),('paint.setStroke',{'none':True}),
+        ('text.create',{'x':20,'y':250,'text':'KEEP ME','size':24,'font':'Arial','color':'#172033'})])
+    original_hash=hashlib.sha256((r.work/'existing-user.vectorcraft').read_bytes()).hexdigest()
+    original=nodes(inspect(r,'existing-user.vectorcraft'));owned={n['id']:n for n in original if n['kind']!='Layer'}
+    created=run('existing-with-circles.vectorcraft',[
+        ('shape.ellipse',{'x':300,'y':60,'width':160,'height':160}),('paint.setFill',{'color':'#2563eb'}),('paint.setStroke',{'none':True}),
+        ('shape.ellipse',{'x':340,'y':100,'width':80,'height':80}),('paint.setFill',{'color':'#2563eb'}),('paint.setStroke',{'none':True})],'existing-user.vectorcraft')
+    circle_ids=[x['result']['id'] for x in created if x['command']=='shape.ellipse']
+    require(len(circle_ids)==2,'Actual circle IDs not captured')
+    created=run('existing-wordmark-live.vectorcraft',[
+        ('object.pathfinder.minusFront',{'ids':circle_ids}),
+        ('text.create',{'x':200,'y':250,'text':'CRAFT','size':32,'font':'Arial','color':'#172033'})],'existing-with-circles.vectorcraft')
+    target_id=next(x['result']['id'] for x in created if x['command']=='text.create')
+    run('existing-wordmark-outlined.vectorcraft',[
+        ('select.set',{'ids':[target_id]}),('type.createOutlines',{})],'existing-wordmark-live.vectorcraft')
+    for name in ['existing-wordmark-live.vectorcraft','existing-wordmark-outlined.vectorcraft']:
+        ns=nodes(inspect(r,name));now={n['id']:n for n in ns}
+        for id,before in owned.items():require(now.get(id)==before,'Pre-existing user object changed')
+        require(any('compound' in n['kind'].lower() for n in ns),'Owned ring geometry missing')
+        texts=[n.get('text') for n in ns if n['kind']=='Type']
+        require('KEEP ME' in texts,'User text outlined or lost')
+        require(('CRAFT' in texts)==('live' in name),'Target wordmark state incorrect')
+    r.run('convert','existing-wordmark-outlined.vectorcraft','existing-preserved.png')
+    w,h,p=rgb_pixels(r.work/'existing-preserved.png')
+    require((w,h)==(520,280),'Existing canvas changed')
+    for x,y,color in [(380,140,[255,255,255]),(320,140,[37,99,235])]:
+        require(list(p[(y*w+x)*3:(y*w+x)*3+3])==color,'Owned ring render incorrect')
+    require(hashlib.sha256((r.work/'existing-user.vectorcraft').read_bytes()).hexdigest()==original_hash,'Input file modified')
+    return {'id':'existing-user-content-preservation','technicalRoundtrip':'PASS','actualIdBinding':'PASS','preservedOriginalObjects':len(owned),'sourceUnchanged':'PASS','designReview':'NOT_TESTED'}
