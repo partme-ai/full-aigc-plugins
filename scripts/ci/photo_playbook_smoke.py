@@ -64,17 +64,18 @@ def run_playbooks(r, path):
     selected={'old-photo-conservative','hairline-scratch','fold-line-background','faded-gray-tones','red-cast-aging',
               'jpeg-block-reduction','portrait-small-blemish','portrait-white-balance','product-neutral-packshot',
               'scan-deskew-border','web-image-downsample','print-resolution-tag','duotone-editorial',
-              'window-highlight-local','portrait-subject-lift','background-desaturate-focus','selective-accent-color'}
+              'window-highlight-local','portrait-subject-lift','background-desaturate-focus','selective-accent-color',
+              'scan-four-side-crop'}
     recipes=json.loads(Path(path).read_text(encoding='utf-8'))['recipes']
     fixture(r.work/'场景原片.png')
     original_pixels=rgb_pixels(r.work/'场景原片.png')[2]
-    r.run('run','场景原片.png','--cmd','select.deselect','--params','{}','--out','baseline.pcraft')
+    r.run('run','场景原片.png','--cmd','layer.duplicate','--params','{}','--out','baseline.pcraft')
     r.run('convert','baseline.pcraft','baseline.png')
     baseline=rgb_pixels(r.work/'baseline.png')[2]
     regions={
         'window-highlight-local':((160,32,208,96),(0,128,128,192)),
         'portrait-subject-lift':((96,64,128,96),(0,0,32,32)),
-        'background-desaturate-focus':((8,8,32,32),(96,72,160,120)),
+        'background-desaturate-focus':((8,8,32,32),(64,48,192,144)),
         'selective-accent-color':((8,8,32,32),(104,72,152,136)),
     }
     records=[]
@@ -89,6 +90,13 @@ def run_playbooks(r, path):
         require(info['width']>0 and info['height']>0,'Saved document empty')
         if recipe['id']=='print-resolution-tag': require(info['resolution']==300,'Resolution metadata not saved')
         if recipe['id']=='scan-deskew-border': require((info['width'],info['height'])==(240,176),'Crop not saved')
+        if recipe['id']=='scan-four-side-crop':
+            require((info['width'],info['height'])==(240,176),'Nondestructive crop dimensions not saved')
+            r.run('run',target,'--cmd','image.revealAll','--params','{}','--out','revealed.pcraft')
+            restored=json.loads(r.run('info','revealed.pcraft'))
+            require((restored['width'],restored['height'])==(256,192),'Saved crop discarded original edge pixels')
+            r.run('convert','revealed.pcraft','revealed.png')
+            require(rgb_pixels(r.work/'revealed.png')[2]==baseline,'Revealed original edge pixels changed')
         if recipe['id']=='web-image-downsample': require((info['width'],info['height'])==(256,192),'Resize not saved')
         r.run('convert',target,png)
         data=(r.work/png).read_bytes()

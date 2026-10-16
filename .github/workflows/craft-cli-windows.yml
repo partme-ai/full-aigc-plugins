@@ -24,7 +24,7 @@ jobs:
         if: matrix.plugin == 'photocraft'
         with:
           repository: full-aigc-skills/photocraft-skills
-          ref: 42613849d7bcf1cc1c0708669e84c13e7a07421e
+          ref: 7829f6d3e8882c651a7175e8579d219eca58a938
           path: scene-source
       - name: Run native CLI business operations
         env:
