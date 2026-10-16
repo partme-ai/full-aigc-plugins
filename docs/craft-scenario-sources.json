@@ -181,6 +181,36 @@
           "path": "manual/man/license.html",
           "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/license.html",
           "bytes": 33735
+        },
+        {
+          "path": "manual/man/fades.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/fades.html",
+          "bytes": 18516
+        },
+        {
+          "path": "manual/man/reverse.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/reverse.html",
+          "bytes": 11689
+        },
+        {
+          "path": "manual/man/invert.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/invert.html",
+          "bytes": 12354
+        },
+        {
+          "path": "manual/man/dc_offset.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/dc_offset.html",
+          "bytes": 17019
+        },
+        {
+          "path": "manual/man/export_multiple.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/export_multiple.html",
+          "bytes": 30608
+        },
+        {
+          "path": "manual/man/selecting_audio_the_basics.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/selecting_audio_the_basics.html",
+          "bytes": 11742
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
@@ -447,6 +477,50 @@
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied",
       "licenseEvidence": "COPYING: GNU Free Documentation License 1.2; no manual text redistributed"
+    },
+    {
+      "repository": "darktable-org/dtdocs",
+      "commit": "2a1742f76f256b96a2e0ff9827240afd0b9a804a",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0",
+        "node_id": "MDc6TGljZW5zZTk="
+      },
+      "readFiles": [
+        {
+          "path": "content/module-reference/processing-modules/exposure.md",
+          "url": "https://github.com/darktable-org/dtdocs/blob/2a1742f76f256b96a2e0ff9827240afd0b9a804a/content/module-reference/processing-modules/exposure.md",
+          "bytes": 8398
+        },
+        {
+          "path": "content/module-reference/processing-modules/crop.md",
+          "url": "https://github.com/darktable-org/dtdocs/blob/2a1742f76f256b96a2e0ff9827240afd0b9a804a/content/module-reference/processing-modules/crop.md",
+          "bytes": 4488
+        },
+        {
+          "path": "content/module-reference/processing-modules/white-balance.md",
+          "url": "https://github.com/darktable-org/dtdocs/blob/2a1742f76f256b96a2e0ff9827240afd0b9a804a/content/module-reference/processing-modules/white-balance.md",
+          "bytes": 6612
+        },
+        {
+          "path": "content/module-reference/processing-modules/watermark.md",
+          "url": "https://github.com/darktable-org/dtdocs/blob/2a1742f76f256b96a2e0ff9827240afd0b9a804a/content/module-reference/processing-modules/watermark.md",
+          "bytes": 4659
+        },
+        {
+          "path": "content/overview/workflow/export.md",
+          "url": "https://github.com/darktable-org/dtdocs/blob/2a1742f76f256b96a2e0ff9827240afd0b9a804a/content/overview/workflow/export.md",
+          "bytes": 1693
+        },
+        {
+          "path": "content/guides-tutorials/monochrome.md",
+          "url": "https://github.com/darktable-org/dtdocs/blob/2a1742f76f256b96a2e0ff9827240afd0b9a804a/content/guides-tutorials/monochrome.md",
+          "bytes": 6630
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
     }
   ]
 }

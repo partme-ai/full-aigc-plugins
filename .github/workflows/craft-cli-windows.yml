@@ -44,13 +44,25 @@ jobs:
           repository: full-aigc-skills/deckcraft-skills
           ref: 0d0468eeebe81cd7a427ed1da102535498d286c7
           path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'soundcraft'
+        with:
+          repository: full-aigc-skills/soundcraft-skills
+          ref: b3fd6f2197533b68098c6ea939d1ee22c98f3650
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'lightcraft'
+        with:
+          repository: full-aigc-skills/lightcraft-skills
+          ref: 00ef2d690c3a9cf652679e3e910d250b1d476932
+          path: scene-source
       - name: Run native CLI business operations
         env:
           PYTHONUTF8: '1'
         shell: pwsh
         run: |
           $sceneArgs = @()
-          if (@("photocraft", "gridcraft", "wordcraft", "deckcraft") -contains "${{ matrix.plugin }}") { $sceneArgs = @("--playbook", "scene-source/skills/${{ matrix.plugin }}-scenario-playbooks/references/recipes.json") }
+          if (@("photocraft", "gridcraft", "wordcraft", "deckcraft", "soundcraft", "lightcraft") -contains "${{ matrix.plugin }}") { $sceneArgs = @("--playbook", "scene-source/skills/${{ matrix.plugin }}-scenario-playbooks/references/recipes.json") }
           python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.plugin }} --output cli-result @sceneArgs
           exit $LASTEXITCODE
       - uses: actions/upload-artifact@v4
@@ -62,4 +74,5 @@ jobs:
             cli-result/result.json
             cli-result/calls.json
             cli-result/commands.json
+            cli-result/develop-controls.json
             cli-result/中文 业务 workspace/**

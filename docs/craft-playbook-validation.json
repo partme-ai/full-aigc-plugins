@@ -33,8 +33,8 @@
     },
     {
       "application": "lightcraft",
-      "mappedScenes": 6,
-      "skills": 6
+      "mappedScenes": 14,
+      "skills": 7
     },
     {
       "application": "printcraft",
@@ -53,8 +53,8 @@
     },
     {
       "application": "soundcraft",
-      "mappedScenes": 6,
-      "skills": 6
+      "mappedScenes": 14,
+      "skills": 7
     },
     {
       "application": "gridcraft",
@@ -67,6 +67,6 @@
       "skills": 7
     }
   ],
-  "mappedScenes": 150,
+  "mappedScenes": 166,
   "errors": []
 }
