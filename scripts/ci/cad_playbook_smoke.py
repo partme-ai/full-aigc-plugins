@@ -63,7 +63,24 @@ def verify_dxf(text,a):
         require(sum(bool(int(number(e,70,0))&1) for e in polys)==a['closedPolylines'],'Border closure/count wrong')
     dims=[e for e in es if e['type']=='DIMENSION']
     if 'dimensions' in a:require(len(dims)==a['dimensions'],'Native dimension count changed')
+    if 'dimensionValues' in a:
+        values=[]
+        for e in dims:
+            require(not any(c==1 and v not in ('','<>') for c,v in e['groups']),'Dimension text override')
+            kind=int(number(e,70,0))&7
+            if kind==0:
+                angle=math.radians(number(e,50,0))
+                values.append(abs((number(e,14)-number(e,13))*math.cos(angle)+(number(e,24)-number(e,23))*math.sin(angle)))
+            elif kind==3:
+                values.append(math.dist([number(e,10),number(e,20)],[number(e,15),number(e,25)]))
+            else:raise AssertionError('Unexpected dimension type')
+        require(near(sorted(values),sorted(a['dimensionValues'])),'Dimension measured values changed')
     lines=[e for e in es if e['type']=='LINE']
+    if 'wallSegments' in a:
+        actual=[[number(e,c) for c in (10,20,11,21)] for e in lines]
+        for expected in a['wallSegments']+[a['doorLeaf']]:
+            require(any(near(v,expected) or near(v,expected[2:]+expected[:2]) for v in actual),'Wall/door segment missing')
+        require(len(actual)==len(a['wallSegments'])+1,'Unexpected wall/door lines')
     if 'doorGap' in a:
         lo,hi=a['doorGap']
         for e in lines:

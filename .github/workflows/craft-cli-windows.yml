@@ -60,7 +60,7 @@ jobs:
         if: matrix.plugin == 'cadcraft'
         with:
           repository: full-aigc-skills/cadcraft-skills
-          ref: 6da23965128f4f0ba212cc14d6e1422384c14ca7
+          ref: 0bc95f953514a4ceea9c10455be968ea692a8e0d
           path: scene-source
       - name: Run native CLI business operations
         env:
