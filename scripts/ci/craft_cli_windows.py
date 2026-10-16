@@ -22,7 +22,7 @@ def require(condition, message):
 def png_fixture(path):
     def chunk(kind, data):
         return struct.pack('>I', len(data)) + kind + data + struct.pack('>I', zlib.crc32(kind + data))
-    rows = b''.join(b'\0' + bytes([x * 4, y * 4, 80] for x in []) for y in []) if False else b''.join(b'\0' + b''.join(bytes((x * 4, y * 4, 80)) for x in range(64)) for y in range(48))
+    rows = b''.join(b'\0' + b''.join(bytes((x * 4, y * 4, 80)) for x in range(64)) for y in range(48))
     path.write_bytes(b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', 64, 48, 8, 2, 0, 0, 0)) + chunk(b'IDAT', zlib.compress(rows)) + chunk(b'IEND', b''))
 
 
@@ -48,6 +48,16 @@ class Runner:
         (self.output / 'calls.json').write_text(json.dumps(self.calls, ensure_ascii=False, indent=2), encoding='utf-8')
         require(result.returncode == 0, f'CLI failed ({result.returncode}): {args}; {result.stderr}')
         return result.stdout
+
+
+def verify_photo(info, filename, layer_name):
+    # 官方 0.9.0 Save As 将文档身份更新为目标文件名；内容由图层/几何单独核验。
+    require(info['name'] == filename, 'Saved document identity mismatch')
+    require((info['width'], info['height']) == (64, 48), 'Document dimensions lost')
+    layer = next((x for x in info['layers'] if x['name'] == layer_name), None)
+    require(layer is not None, 'Unicode layer name lost')
+    require(layer['kind'] == 'Pixel' and layer['bounds'][2] > 30 and layer['bounds'][3] > 20,
+            'Painted layer content bounds lost')
 
 
 def business(name, r):
@@ -77,9 +87,9 @@ def business(name, r):
         with zipfile.ZipFile(r.work/'演示.pptx') as z:
             require(any(marker in z.read(n).decode('utf-8') for n in z.namelist() if n.startswith('ppt/slides/slide') and n.endswith('.xml')), 'PPTX title missing')
     elif name == 'photocraft':
-        r.run('run','--new',j({'width':64,'height':48,'name':marker}),'--cmd','layer.new.layer','--params',j({'name':'Ink'}),'--cmd','paint.stroke','--params',j({'points':[[2,2,1],[40,30,1]],'size':5,'color':'#00ff00'}),'--out','图片.pcraft')
+        r.run('run','--new',j({'width':64,'height':48,'name':marker}),'--cmd','layer.new.layer','--params',j({'name':marker}),'--cmd','paint.stroke','--params',j({'points':[[2,2,1],[40,30,1]],'size':5,'color':'#00ff00'}),'--out','图片.pcraft')
         info=json.loads(r.run('info','图片.pcraft'))
-        require(info['name']==marker and any(x['name']=='Ink' for x in info['layers']), 'Layers/name lost')
+        verify_photo(info, '图片.pcraft', marker)
         r.run('convert','图片.pcraft','图片.png')
         require(struct.unpack('>II',(r.work/'图片.png').read_bytes()[16:24])==(64,48),'PNG dimensions mismatch')
     elif name == 'vectorcraft':
