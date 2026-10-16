@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前174条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft各14条，其余6应用各6条。不是174条都已通过完整效果验收。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前182条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/VectorCraft各14条，其余5应用各6条。不是182条都已通过完整效果验收。
 
 | 内容 | 当前事实 |
 | --- | --- |
 | GitHub来源 | 16个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 79个技能中落地174条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 80个技能中落地182条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -26,7 +26,7 @@ PhotoCraft从 `photocraft-scenario-playbooks` 选择修复、影调、人像、�
 
 - [13应用命令目录与原生业务](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883)
 - [PhotoCraft 18场景技术往返及局部像素](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38926679341)
-- 静态检查：`python3 scripts/validate-craft-playbooks.py`，覆盖174条；新技能格式检查通过；35项回归与OpenSpec严格检查通过。
+- 静态检查：`python3 scripts/validate-craft-playbooks.py`，覆盖182条；新技能格式检查通过；40项回归与OpenSpec严格检查通过。
 
 ## 继续工作
 
@@ -61,3 +61,11 @@ Windows运行38931238554的13应用业务矩阵通过，新增16条均通过样�
 CAD仓旧校验器仍要求早期MCP入口并把冻结基础技能和技能源HEAD等同，已改为核对实际editor入口、注册本地候选和冻结commit内容；冻结的三个基础技能及skills.lock.json保持不变。本地6项测试通过，2项可选macOS原生测试因未指定CLI跳过；Windows原生业务证据单独记录。累计174条映射中70条已执行并检查技术结果，另有Deck组合用例1条，剩余104条仍需逐项运行。目标保持实施中。
 
 技能源CI随后暴露旧清单只枚举最初3个技能的问题，现已把全部11个技能注册到来源仓.claude-plugin/plugin.json，并让格式校验接受license等可选元数据。插件同步检查仍以原锁定commit核验基础技能，允许同一来源继续新增场景；没有重写冻结快照。
+
+## Vector矢量场景扩展
+
+新增8条徽章、三项柱图、真实镂空、联系卡、色板、文字母版/轮廓、几何裁切、导视箭头流程。补读creold/illustrator-scripts的Path、Text、Export、Draw、Color文档，来源只借鉴操作事实，原创版式和原生命令映射分别说明。独立复核促成显式select.set参数、圆环ID范围和轮廓版另存步骤，避免整图处理或覆盖母版。
+
+Windows运行38934923269通过13应用业务矩阵，其中新增8条及1条既有图纸保护用例通过。8张实际PNG已查看，圆环中心和保留环带、半圆删去侧另有像素检查；既有图用真实返回ID执行布尔和文字轮廓，原有2个用户对象逐项保持，原文件SHA256不变。见craft-vector-playbook-validation.json。累计182条映射中78条完成技术回归，另有Deck组合和Vector既有图组合各1条，剩余104条仍待运行。
+
+Vector文档结构检查通过；插件既有OpenSpec严格检查因2条超过500字符的requirement警告未通过，相关规格未修改。技能源完整255项测试中196通过、11失败、48跳过；旧测试对新增场景目录仍强加旧Harness资源要求，尚未整理。技能源CI在新增前的运行38924359919和本轮38934678222均因vectorcraft-harness合同/策略文件漂移失败。本轮没有改写冻结基础技能或为凑绿补平台资源；这些失败不是本轮Windows新场景通过的替代证明，也没有报告整个仓库CI通过。宿主同步与真实品牌/印刷任务仍未验收。

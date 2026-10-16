@@ -59,6 +59,31 @@
           "path": "README.md",
           "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/README.md",
           "bytes": 22151
+        },
+        {
+          "path": "md/Path.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Path.md",
+          "bytes": 8854
+        },
+        {
+          "path": "md/Text.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Text.md",
+          "bytes": 9994
+        },
+        {
+          "path": "md/Export.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Export.md",
+          "bytes": 4073
+        },
+        {
+          "path": "md/Draw.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Draw.md",
+          "bytes": 7973
+        },
+        {
+          "path": "md/Color.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Color.md",
+          "bytes": 19113
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
