@@ -2,7 +2,7 @@
 import unittest
 from pathlib import Path
 import tempfile
-from photo_playbook_smoke import fixture, rgb_pixels
+from photo_playbook_smoke import fixture, rgb_pixels, local_effect
 from craft_cli_windows import verify_photo
 
 
@@ -37,5 +37,17 @@ class PngInspectionTests(unittest.TestCase):
             self.assertEqual(pixels[:3],bytes((50,50,100)))
             point=(30*w+40)*3
             self.assertEqual(pixels[point:point+3],b'\xff\xff\xff')
+
+class LocalityTests(unittest.TestCase):
+    def test_target_only_changes_pass(self):
+        local_effect(bytes([200,200,200,0,0,0]),bytes(6),2,(0,0,1,1),(1,0,2,1))
+
+    def test_protected_pixel_change_fails(self):
+        with self.assertRaisesRegex(ValueError,'protected pixels'):
+            local_effect(bytes([200,200,200,1,0,0]),bytes(6),2,(0,0,1,1),(1,0,2,1))
+
+    def test_unchanged_target_fails(self):
+        with self.assertRaisesRegex(ValueError,'no observable effect'):
+            local_effect(bytes(6),bytes(6),2,(0,0,1,1),(1,0,2,1))
 
 if __name__ == '__main__': unittest.main()

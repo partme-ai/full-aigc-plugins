@@ -48,14 +48,35 @@ def rgb_pixels(path):
     return width,height,bytes(result)
 
 
+def local_effect(pixels, baseline, width, target, protected):
+    """验证目标区确实变化且保护区逐像素保持；区域均为半开像素矩形。"""
+    def delta(rect):
+        x0,y0,x1,y1=rect
+        return sum(abs(pixels[(y*width+x)*3+c]-baseline[(y*width+x)*3+c])
+                   for y in range(y0,y1) for x in range(x0,x1) for c in range(3))
+    if len(pixels)!=len(baseline):raise ValueError('Local edit changed pixel dimensions')
+    if delta(target)<=100:raise ValueError('Local target had no observable effect')
+    if delta(protected)!=0:raise ValueError('Local operation changed protected pixels')
+
+
 def run_playbooks(r, path):
     from craft_cli_windows import require
     selected={'old-photo-conservative','hairline-scratch','fold-line-background','faded-gray-tones','red-cast-aging',
               'jpeg-block-reduction','portrait-small-blemish','portrait-white-balance','product-neutral-packshot',
-              'scan-deskew-border','web-image-downsample','print-resolution-tag','duotone-editorial'}
+              'scan-deskew-border','web-image-downsample','print-resolution-tag','duotone-editorial',
+              'window-highlight-local','portrait-subject-lift','background-desaturate-focus','selective-accent-color'}
     recipes=json.loads(Path(path).read_text(encoding='utf-8'))['recipes']
     fixture(r.work/'场景原片.png')
     original_pixels=rgb_pixels(r.work/'场景原片.png')[2]
+    r.run('run','场景原片.png','--cmd','select.deselect','--params','{}','--out','baseline.pcraft')
+    r.run('convert','baseline.pcraft','baseline.png')
+    baseline=rgb_pixels(r.work/'baseline.png')[2]
+    regions={
+        'window-highlight-local':((160,32,208,96),(0,128,128,192)),
+        'portrait-subject-lift':((96,64,128,96),(0,0,32,32)),
+        'background-desaturate-focus':((8,8,32,32),(96,72,160,120)),
+        'selective-accent-color':((8,8,32,32),(104,72,152,136)),
+    }
     records=[]
     for recipe in recipes:
         if recipe['id'] not in selected: continue
@@ -76,11 +97,18 @@ def run_playbooks(r, path):
         if recipe['id'] in {'old-photo-conservative','faded-gray-tones','red-cast-aging','duotone-editorial','portrait-white-balance'}:
             require(len(info['layers'])>=3,'Editable adjustment layer lost')
         pixel_check='NOT_APPLICABLE'
+        local_check='NOT_APPLICABLE'
         if recipe['id'] in {'old-photo-conservative','faded-gray-tones','red-cast-aging','duotone-editorial','portrait-white-balance','product-neutral-packshot'}:
             pixels=rgb_pixels(r.work/png)[2]
             require(len(pixels)==len(original_pixels),'Unexpected pixel size change')
             require(sum(abs(a-b) for a,b in zip(pixels,original_pixels))>100,'Color treatment had no observable pixel effect')
             pixel_check='PASS'
-        records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','pixelEffect':pixel_check,'creativeAcceptance':'NOT_TESTED'})
+        if recipe['id'] in regions:
+            require(len(info['layers'])>=3,'Masked adjustment layer lost')
+            target_rect,protected=regions[recipe['id']]
+            local_effect(rgb_pixels(r.work/png)[2],baseline,256,target_rect,protected)
+            local_check='PASS'
+        records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','pixelEffect':pixel_check,
+                        'locality':local_check,'creativeAcceptance':'NOT_TESTED'})
     require({x['id'] for x in records}==selected,'Missing required recipe')
     return records

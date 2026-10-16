@@ -18,7 +18,7 @@
     },
     {
       "application": "photocraft",
-      "mappedScenes": 30,
+      "mappedScenes": 50,
       "skills": 1
     },
     {
@@ -67,6 +67,6 @@
       "skills": 6
     }
   ],
-  "mappedScenes": 102,
+  "mappedScenes": 122,
   "errors": []
 }
