@@ -32,4 +32,5 @@ jobs:
           path: |
             cli-result/result.json
             cli-result/calls.json
+            cli-result/commands.json
             cli-result/中文 业务 workspace/**

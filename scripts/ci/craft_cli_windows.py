@@ -162,7 +162,14 @@ def main():
         matches=list(dest.rglob(lock['executable'])); require(len(matches)==1,'Expected one '+lock['executable'])
         exe=matches[0]; report['exeSha256']=hashlib.sha256(exe.read_bytes()).hexdigest()
         work=out/'中文 业务 workspace';work.mkdir(); r=Runner(exe,work,out)
-        r.run('--version'); business(a.plugin,r)
+        r.run('--version')
+        catalog_args = ['tools'] if a.plugin == 'printcraft' else ['commands']
+        if a.plugin in {'photocraft','figcraft','gridcraft','wordcraft','effectcraft','filmcraft','lightcraft'}:
+            catalog_args.append('--json')
+        catalog = json.loads(r.run(*catalog_args))
+        require(isinstance(catalog, (list, dict)) and bool(catalog), 'Empty command catalog')
+        (out/'commands.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2), encoding='utf-8')
+        business(a.plugin,r)
         report['business']='PASS';report['processCount']=len(r.calls)
         report['outputs']=[{'path':str(p.relative_to(work)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in work.rglob('*') if p.is_file()]
     except Exception as e:
