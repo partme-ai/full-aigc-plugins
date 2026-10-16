@@ -3,8 +3,8 @@
   "applications": [
     {
       "application": "cadcraft",
-      "mappedScenes": 6,
-      "skills": 6
+      "mappedScenes": 14,
+      "skills": 7
     },
     {
       "application": "designcraft",
@@ -67,6 +67,6 @@
       "skills": 7
     }
   ],
-  "mappedScenes": 166,
+  "mappedScenes": 174,
   "errors": []
 }

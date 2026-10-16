@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前166条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft各14条，其余7应用各6条。不是166条都已通过完整效果验收。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前174条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft各14条，其余6应用各6条。不是174条都已通过完整效果验收。
 
 | 内容 | 当前事实 |
 | --- | --- |
 | GitHub来源 | 16个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 78个技能中落地166条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 79个技能中落地174条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -26,7 +26,7 @@ PhotoCraft从 `photocraft-scenario-playbooks` 选择修复、影调、人像、�
 
 - [13应用命令目录与原生业务](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883)
 - [PhotoCraft 18场景技术往返及局部像素](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38926679341)
-- 静态检查：`python3 scripts/validate-craft-playbooks.py`，覆盖166条；新技能格式检查通过；28项回归与OpenSpec严格检查通过。
+- 静态检查：`python3 scripts/validate-craft-playbooks.py`，覆盖174条；新技能格式检查通过；35项回归与OpenSpec严格检查通过。
 
 ## 继续工作
 
@@ -51,3 +51,11 @@ PhotoCraft增加20条流程，含局部蒙版、硬边商品保色、背景柔�
 Windows运行38931238554的13应用业务矩阵通过，新增16条均通过样本/像素/结构检查；Sound保存重开再导出包含分轨，Light逐像素比较重开后的渲染。首次Sound测试误把分轨文件名前缀当轨名，已按实际命名规则修正后重跑。详细源提交、步骤摘要和检查范围见craft-media-playbook-validation.json。
 
 累计166条映射中62条已经执行对应步骤并检查技术结果，另有Deck组合用例1条。其余104条仍待逐项运行；真实音质、相机RAW画质和复杂版式没有用合成输入替代验收。现有目标继续推进，OpenSpec不归档。
+
+## CAD绘图场景扩展
+
+新增CADCraft8条：四孔安装板、法兰孔系、房间门洞、设备网格、折线路由、等距孔列、缺口面积和图框标题栏。按LibreCAD固定提交的单位、图层、标注工作流事实原创适配。每条包含具体方法与坐标，保留已批准尺寸约束；新图初始化与既有图纸操作分开，避免直接重标英寸图纸单位。
+
+运行38933489537通过13应用Windows原生业务矩阵，其中新增8条逐项检查保存DXF的实际圆心/半径、闭合顶点/面积、路由长度、尺寸定义与量测、门洞完整墙线、单位和标注比例。安装板与房间SVG已实际渲染查看，修正了房间默认尺寸文字过小与白底低对比度颜色；其余6张图未宣称已视觉验收。细节见craft-cad-playbook-validation.json。
+
+CAD仓旧校验器仍要求早期MCP入口并把冻结基础技能和技能源HEAD等同，已改为核对实际editor入口、注册本地候选和冻结commit内容；冻结的三个基础技能及skills.lock.json保持不变。本地6项测试通过，2项可选macOS原生测试因未指定CLI跳过；Windows原生业务证据单独记录。累计174条映射中70条已执行并检查技术结果，另有Deck组合用例1条，剩余104条仍需逐项运行。目标保持实施中。
