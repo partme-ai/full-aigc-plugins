@@ -1,0 +1,307 @@
+{
+  "scope": "Native Windows CLI on explicit fictional business records; document layout and host UI synchronization are not certified",
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38928803118",
+  "ciSourceCommit": "8c7341c100883aba63cfb406228ba0dd9f6a9cd3",
+  "applications": [
+    {
+      "application": "gridcraft",
+      "runtime": {
+        "version": "v0.7.0",
+        "url": "https://github.com/storytold/gridcraft/releases/download/v0.7.0/gridcraft-0.7.0-windows-x64-portable.zip",
+        "sha256": "24bf4ee129769268e27510a260de6c7fd7eded84ea541499132576e3d7ea6a86",
+        "executable": "gridcraft-cli.exe"
+      },
+      "resultSha256": "2a7130676196e10c5fa2265b19e826b76240d867d46c76cf1708fe297d62d7d3",
+      "technicalRoundtrip": {
+        "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38928803118",
+        "sourceCommit": "be98a0b0356f50f938502880469cc2412d45ff4a",
+        "recipes": [
+          "controlled-status-entry",
+          "delivery-acceptance-ratio",
+          "duplicate-order-review",
+          "expense-threshold-review",
+          "inventory-reorder",
+          "invoice-line-tax",
+          "margin-sensitivity",
+          "month-growth-guard",
+          "project-input-table",
+          "regional-sales-sum",
+          "sales-ranked-rows",
+          "weighted-vendor-score"
+        ],
+        "stepHashes": {
+          "invoice-line-tax": "2b63b99f0f4f430fa4d03bf561bb848650db8bc5ea30560491d04ccd6ea1dd09",
+          "inventory-reorder": "fb93e19a3285d6762ed18d172c929b00beb739a207e2eebffd7407d857183163",
+          "weighted-vendor-score": "db39b1bdcf6f1331d38f7ac09d53737be2026c1feb9944163d09261357149df8",
+          "margin-sensitivity": "e443e650eb4078151f5e41990afd5a130f3fe631449aa28a5e9735e08d542cb4",
+          "expense-threshold-review": "9498fa1324da6d2102974d9db6ab178c1634e3e8ea18326a16c3e227e7ac119d",
+          "duplicate-order-review": "9211d42cdafce5cc9a25c562af2b8a81e148b9cd8833094b846cdc3b978f0e57",
+          "controlled-status-entry": "ceb27f6260bcae6aecde16cc83527c4226f9653ed205fc584746c7896674a845",
+          "sales-ranked-rows": "075555d1d1e3bafbedb8b19a7931fe5fddbddadad6a63ad31b91a4967885a5c2",
+          "regional-sales-sum": "9252dcda4ef0e00fd0073bb5497d46a78a3f613754914b3db3b1e3b0e902962f",
+          "month-growth-guard": "adf0e526b6ec5a773e171711921dc03f7d1b857dc90455bd5e2a45ddefba2229",
+          "delivery-acceptance-ratio": "79dac8ed2cbd72668ffc1e846f09d0ca853261472e88337080aa46e92763d7a7",
+          "project-input-table": "7cd0afdaf30f276948bed3263b2e7dcf2bc618727a4a948c91b9ccab4e36704a"
+        },
+        "input": "fictional examples embedded in recipes.json; replace values for real tasks",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      "cases": [
+        {
+          "id": "invoice-line-tax",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "inventory-reorder",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "weighted-vendor-score",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "margin-sensitivity",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "expense-threshold-review",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "duplicate-order-review",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "controlled-status-entry",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "sales-ranked-rows",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "regional-sales-sum",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "month-growth-guard",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "delivery-acceptance-ratio",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "project-input-table",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        }
+      ]
+    },
+    {
+      "application": "wordcraft",
+      "runtime": {
+        "version": "v0.7.0",
+        "url": "https://github.com/storytold/wordcraft/releases/download/v0.7.0/wordcraft-0.7.0-windows-x64-portable.zip",
+        "sha256": "e6c8be9bb8ff815ed96974b8a25773d1e476301dcd5b242a267b88347185cc4f",
+        "executable": "wordcraft-cli.exe"
+      },
+      "resultSha256": "1f56cb34e21b89ffce6cf6b30d024ab70b973facf4e0701d504179b2e8129575",
+      "technicalRoundtrip": {
+        "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38928803118",
+        "sourceCommit": "b81c0401bed68b52cd569000987a1fad7fa84dbd",
+        "recipes": [
+          "decision-register-table",
+          "letter-header-footer",
+          "project-charter",
+          "release-bullet-notes",
+          "sop-numbered-steps",
+          "term-normalization-draft",
+          "training-exercise-handout",
+          "two-column-brief"
+        ],
+        "stepHashes": {
+          "project-charter": "a9e3617e53b414aba9730b9096a33968281a79c4c5e0fc122a9fd81ef4f064ec",
+          "sop-numbered-steps": "e6a6fda836f57824cade5c0a6f0909caa8269251482b58cfabc6e01031a09d9d",
+          "release-bullet-notes": "3c9f16567a1dadd3887098af8b14f19553caf9d9be11d5ccfa261d0e1487d3a3",
+          "decision-register-table": "780afc39c1bfc79a2cc7eb9d4ad82a80d7df12bae69fb551297070c2f439bc32",
+          "letter-header-footer": "650f0cca06f42e1ad74494a262db581bf92c1f20ae4ce67193f81c79dbd5d02d",
+          "training-exercise-handout": "7154ee3ab33dfee5866e3928de9a8a08b96585c310f38c514677f849efbf7fb2",
+          "term-normalization-draft": "0f1f929c2e8345c7a1f193764b433a3dd67772b4ca4562b7f9d3bac988fff170",
+          "two-column-brief": "1044a368be82e14c9e62daa5a13c3d563d8645c29aa99b4041a64f3d02ebe725"
+        },
+        "input": "fictional examples embedded in recipes.json; replace values for real tasks",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      "cases": [
+        {
+          "id": "project-charter",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "sop-numbered-steps",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "release-bullet-notes",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "decision-register-table",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "letter-header-footer",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "training-exercise-handout",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "term-normalization-draft",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "two-column-brief",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        }
+      ]
+    },
+    {
+      "application": "deckcraft",
+      "runtime": {
+        "version": "v0.7.0",
+        "url": "https://github.com/storytold/deckcraft/releases/download/v0.7.0/deckcraft-0.7.0-windows-x64-portable.zip",
+        "sha256": "3d67962a206af89d66ef443a042efcc5386a14d4e0d9c056bc1f62a84bd7954c",
+        "executable": "deckcraft-cli.exe"
+      },
+      "resultSha256": "0b468df1a21a604cef67176a14031871d5f498c3ebc2b35d2d182ddcfedc40f6",
+      "technicalRoundtrip": {
+        "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38928803118",
+        "sourceCommit": "0d0468eeebe81cd7a427ed1da102535498d286c7",
+        "recipes": [
+          "approval-flow-diagram",
+          "demo-problem-result",
+          "executive-metric-page",
+          "option-comparison-table",
+          "risk-quadrant",
+          "speaker-handoff-notes",
+          "training-hidden-answer",
+          "trend-actual-plan"
+        ],
+        "stepHashes": {
+          "executive-metric-page": "72908e7556b4620dac4e65cbefdd11f7550abc97a15fec68e5bc100ac8b55e7e",
+          "option-comparison-table": "4df1743407348497440b40bd927cc44cb87a109e40f07be8cc02d28f05ced42e",
+          "approval-flow-diagram": "617d4fade6c5b6fbd794084c6bc1a8f5cfb1f66fe47091bb614f33315883b708",
+          "risk-quadrant": "be0faa5296fbae8b5cead4705aa2a21360a3df0e561b1e8f854a632807a40791",
+          "trend-actual-plan": "1a961a80b842a2034b5f8d4f8f5b42739117d0b1db0b24e783f4174a1686e8ec",
+          "demo-problem-result": "631581a2f2151153b4310f63362d379a78cb94f6e10e9957844d99450d3a04e2",
+          "training-hidden-answer": "e89e9a039c98aa65debf58677e7741868213bd9321bb5712309069d007a4d59e",
+          "speaker-handoff-notes": "010aa6c787ca3863ab1840db42de78f3d22fda7aefaf16d9bac404667dad631c"
+        },
+        "input": "fictional examples embedded in recipes.json; replace values for real tasks",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED",
+        "combinationCheck": "comparison table + trend chart + per-slide notes preserved in one two-slide PPTX"
+      },
+      "cases": [
+        {
+          "id": "executive-metric-page",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "option-comparison-table",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "approval-flow-diagram",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "risk-quadrant",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "trend-actual-plan",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "demo-problem-result",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "training-hidden-answer",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "speaker-handoff-notes",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "combined-comparison-trend",
+          "technicalRoundtrip": "PASS",
+          "semanticChecks": "PASS",
+          "layoutAcceptance": "NOT_TESTED"
+        }
+      ]
+    }
+  ]
+}
