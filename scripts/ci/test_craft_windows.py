@@ -6,7 +6,9 @@ import tempfile
 import unittest
 import zipfile
 
-from craft_windows import extract_package
+from unittest.mock import Mock
+
+from craft_windows import extract_package, wait_connected
 
 
 class PackageTests(unittest.TestCase):
@@ -63,6 +65,31 @@ class PackageTests(unittest.TestCase):
             root = Path(tmp)
             with self.assertRaisesRegex(ValueError, 'collision'):
                 extract_package(self.make_archive(root, {'photocraft-plugin/PLUGIN.json': '{}'}), root / 'out', 'photocraft')
+
+
+class ConnectionTests(unittest.TestCase):
+    def test_starting_is_not_a_failure(self):
+        host = Mock()
+        host.call.side_effect = [
+            {'data': [{'name': 'gridcraft-editor', 'runtimeStatus': 'starting'}]},
+            {'data': [{'name': 'gridcraft-editor', 'runtimeStatus': 'connected',
+                       'tools': {'open_browser_editor': {}}}]},
+        ]
+        wait_connected(host, 'thread', 'gridcraft', delay=0)
+        self.assertEqual(host.call.call_count, 2)
+
+    def test_terminal_failure_is_not_retried(self):
+        host = Mock()
+        host.call.return_value = {'data': [{'name': 'gridcraft-editor', 'runtimeStatus': 'failed'}]}
+        with self.assertRaisesRegex(RuntimeError, 'failed'):
+            wait_connected(host, 'thread', 'gridcraft', delay=0)
+        self.assertEqual(host.call.call_count, 1)
+
+    def test_starting_has_a_deadline(self):
+        host = Mock()
+        host.call.return_value = {'data': [{'name': 'gridcraft-editor', 'runtimeStatus': 'starting'}]}
+        with self.assertRaises(TimeoutError):
+            wait_connected(host, 'thread', 'gridcraft', timeout=0, delay=0)
 
 
 if __name__ == '__main__':

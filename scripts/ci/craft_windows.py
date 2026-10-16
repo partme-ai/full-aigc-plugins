@@ -138,6 +138,24 @@ class NativeHost:
         self.stderr.close()
 
 
+def wait_connected(host, thread, name, timeout=60, delay=0.5):
+    """等待宿主完成异步 MCP 启动；终态错误立即失败，保留每次真实 RPC。"""
+    deadline = time.monotonic() + timeout
+    while True:
+        status = host.call('mcpServerStatus/list', {'threadId': thread})
+        server = next((s for s in status['data'] if s['name'] == name + '-editor'), None)
+        state = server.get('runtimeStatus') if server else None
+        if state == 'connected':
+            if 'open_browser_editor' not in server.get('tools', {}):
+                raise RuntimeError('Connected MCP is missing open_browser_editor')
+            return server
+        if state not in (None, 'starting'):
+            raise RuntimeError('Native MCP startup failed: ' + json.dumps(server))
+        if time.monotonic() >= deadline:
+            raise TimeoutError('Native MCP startup deadline exceeded: ' + str(state))
+        time.sleep(delay)
+
+
 def native_smoke(root, name, cli, output):
     market = output / '中文 插件市场'
     manifest = market / '.agents/plugins/marketplace.json'
@@ -167,10 +185,7 @@ def native_smoke(root, name, cli, output):
         host.process.stdin.write('{"method":"initialized"}\n')
         host.process.stdin.flush()
         thread = host.call('thread/start', {'cwd': str(workspace), 'approvalPolicy': 'never', 'sandbox': 'workspace-write'})['thread']['id']
-        status = host.call('mcpServerStatus/list', {'threadId': thread})
-        server = next((s for s in status['data'] if s['name'] == name + '-editor'), None)
-        if not server or server.get('runtimeStatus') != 'connected' or 'open_browser_editor' not in server.get('tools', {}):
-            raise RuntimeError('Native MCP not connected or tools missing')
+        wait_connected(host, thread, name)
         def tool(name_, arguments):
             value = host.call('mcpServer/tool/call', {'threadId': thread, 'server': name + '-editor',
                                                    'tool': name_, 'arguments': arguments})
