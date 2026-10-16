@@ -2,14 +2,16 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前150条命令映射：PhotoCraft手册50条，GridCraft18条，WordCraft14条，DeckCraft14条，其余9应用各6条。新增28条办公场景与原有技能互补，不是150条都已通过完整效果验收。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前166条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft各14条，其余7应用各6条。不是166条都已通过完整效果验收。
 
 | 内容 | 当前事实 |
 | --- | --- |
-| GitHub来源 | 15个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
+| GitHub来源 | 16个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 76个技能中落地150条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 78个技能中落地166条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
+| Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
+| 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
 | 画质与完整场景 | 合成输入证明技术链；真实损伤照片审阅和其余104条场景逐项业务验收尚未完成 |
 
 ## 用法
@@ -24,11 +26,11 @@ PhotoCraft从 `photocraft-scenario-playbooks` 选择修复、影调、人像、�
 
 - [13应用命令目录与原生业务](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883)
 - [PhotoCraft 18场景技术往返及局部像素](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38926679341)
-- 静态检查：`python3 scripts/validate-craft-playbooks.py`，覆盖150条；新技能格式检查通过；24项回归与OpenSpec严格检查通过。
+- 静态检查：`python3 scripts/validate-craft-playbooks.py`，覆盖166条；新技能格式检查通过；28项回归与OpenSpec严格检查通过。
 
 ## 继续工作
 
-继续扩展13应用的场景深度与数量，优先补足PhotoCraft修复/人像/商品等更细分流程和每应用的多步骤复杂案例。每条新增场景须有实际命令与参数、前置选择/对象ID和结果检查，不能靠参数排列组合凑数。随后逐批做真实文件/媒体运行和视觉/听觉审阅。当前OpenSpec保持实施中，不归档、不把剩余验收写成通过。
+继续扩展13应用的场景深度与数量，接下来补足CADCraft、DesignCraft、VectorCraft、FigCraft、EffectCraft、FilmCraft、PrintCraft等场景，并逐项验证尚未运行的既有流程。每条新增场景须有实际命令与参数、前置选择/对象ID和结果检查，不能靠参数排列组合凑数。随后逐批做真实文件/媒体运行和视觉/听觉审阅。当前OpenSpec保持实施中，不归档、不把剩余验收写成通过。
 
 ## 本轮局部操作扩展
 
@@ -40,4 +42,12 @@ PhotoCraft增加20条流程，含局部蒙版、硬边商品保色、背景柔�
 
 原生Windows首轮运行38928398377中，Word8条与Deck8条及1条组合用例通过；Grid在百分比显示值解析处失败。测试已改为通过sheet.read读取未格式化数值；运行38928803118的13应用业务矩阵通过，包含Grid12条、Word8条、Deck8条及1条组合用例。详细步骤摘要、技能源提交与参数检查见craft-office-playbook-validation.json。Word业务函和编号SOP的实际PDF已渲染查看，中文、页眉页脚和编号在这两份示例中正常；不将此视为全部文档版式验收。
 
-目前150条映射中，Photo18条与本轮Office28条已执行对应步骤并做技术结果检查，共46条；另有Deck组合用例1条。其他104条仍需逐项业务执行；真实媒体画质和复杂版式审阅仍独立于技术回归。13应用的场景扩展目标继续实施，不归档。
+办公批次完成时共有150条映射，其中46条完成技术检查；后续视听批次见下节。
+
+## 视听场景扩展
+
+新增SoundCraft8条、LightCraft8条并集成到插件。借鉴Audacity和darktable官方手册的工作流事实；新手册明确声道、时间单位、完整源图坐标、专用会话、Web/原生导出边界。
+
+Windows运行38931238554的13应用业务矩阵通过，新增16条均通过样本/像素/结构检查；Sound保存重开再导出包含分轨，Light逐像素比较重开后的渲染。首次Sound测试误把分轨文件名前缀当轨名，已按实际命名规则修正后重跑。详细源提交、步骤摘要和检查范围见craft-media-playbook-validation.json。
+
+累计166条映射中62条已经执行对应步骤并检查技术结果，另有Deck组合用例1条。其余104条仍待逐项运行；真实音质、相机RAW画质和复杂版式没有用合成输入替代验收。现有目标继续推进，OpenSpec不归档。
