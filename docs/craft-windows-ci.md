@@ -29,7 +29,11 @@ Windows 使用 `node <npm 全局目录>/@openai/codex/bin/codex.js` 调用 CLI�
 - 固定索引 SHA-256：`b2c04c7441c6cbc34cc9c4c608b6c31cb50367cddc13be82eb39f65fefe18c46`，各包摘要见测试制品 index.json。
 - 首轮 GridCraft、PrintCraft 在宿主 `starting` 状态下被脚本过早判错；修复为限时等待连接完成，终态失败仍立即失败。修复后全矩阵重新通过，未更换候选包。
 - 原生宿主为 Codex CLI 0.162.1；没有通过 MCP SDK 替代宿主加载。
-- Windows 桌面内嵌 UI、编辑同步、ZCode/Kimi 的 Windows 宿主、独立 `*craft-cli.exe` 及其业务操作仍未验证。这次通过不能直接证明用户尚未提供原文的 CLI 报错已经修复。
+- Windows 桌面内嵌 UI、编辑同步、ZCode/Kimi 的 Windows 宿主、全部 CLI 命令仍未穷举验证。这次通过不能直接证明用户尚未提供原文的 CLI 报错已经修复。
 - 插件内置 Web 运行包不自动安装各应用独立 CLI。独立 CLI 场景仍需相应可执行文件及其运行依赖；不能把插件安装成功等同于独立 CLI 已安装。
 
 文档内的成功结果只覆盖以上固定候选与固定 CI 提交。未来改动运行包后须更新测试制品索引并重跑。
+
+## Windows CLI 业务回归
+
+已增加独立的 13 应用 CLI 业务矩阵，真实 Windows `.exe` 操作与保存重开已通过。版本、场景、运行链接及旧技能安装器边界见 [CLI 业务验证](craft-windows-cli-business.md)。
