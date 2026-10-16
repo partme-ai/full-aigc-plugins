@@ -147,7 +147,7 @@ def business(name, r):
 
 
 def main():
-    parser=argparse.ArgumentParser(); parser.add_argument('--plugin',required=True); parser.add_argument('--output',type=Path,required=True)
+    parser=argparse.ArgumentParser(); parser.add_argument('--plugin',required=True); parser.add_argument('--output',type=Path,required=True); parser.add_argument('--playbook',type=Path)
     a=parser.parse_args(); out=a.output.resolve(); out.mkdir(parents=True,exist_ok=False)
     report={'plugin':a.plugin,'platform':sys.platform,'business':'FAIL'}
     try:
@@ -174,6 +174,10 @@ def main():
         require(isinstance(catalog, (list, dict)) and bool(catalog), 'Empty command catalog')
         (out/'commands.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2), encoding='utf-8')
         business(a.plugin,r)
+        if a.playbook:
+            require(a.plugin == 'photocraft', 'Playbook smoke currently belongs to PhotoCraft')
+            from photo_playbook_smoke import run_playbooks
+            report['playbooks'] = run_playbooks(r, a.playbook.resolve())
         report['business']='PASS';report['processCount']=len(r.calls)
         report['outputs']=[{'path':str(p.relative_to(work)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in work.rglob('*') if p.is_file()]
     except Exception as e:

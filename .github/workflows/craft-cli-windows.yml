@@ -20,10 +20,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'photocraft'
+        with:
+          repository: full-aigc-skills/photocraft-skills
+          ref: 7558efc
+          path: scene-source
       - name: Run native CLI business operations
         env:
           PYTHONUTF8: '1'
-        run: python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.plugin }} --output cli-result
+        shell: pwsh
+        run: |
+          $sceneArgs = @()
+          if ("${{ matrix.plugin }}" -eq "photocraft") { $sceneArgs = @("--playbook", "scene-source/skills/photocraft-scenario-playbooks/references/recipes.json") }
+          python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.plugin }} --output cli-result @sceneArgs
+          exit $LASTEXITCODE
       - uses: actions/upload-artifact@v4
         if: always()
         with:
