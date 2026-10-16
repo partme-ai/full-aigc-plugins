@@ -96,6 +96,8 @@ def verify_dxf(text,a):
     # Units are a real header setting, not inferred from the coordinates or a text label.
     raw=text.splitlines();pairs=[(raw[i].strip(),raw[i+1].strip()) for i in range(0,len(raw),2)]
     require(any(code=='9' and value=='$INSUNITS' and pairs[i+1]==('70','4') for i,(code,value) in enumerate(pairs[:-1])),'Millimetre unit lost')
+    if 'dimscale' in a:
+        require(any(code=='9' and value=='$DIMSCALE' and math.isclose(float(pairs[i+1][1]),a['dimscale']) for i,(code,value) in enumerate(pairs[:-1])),'Dimension display scale lost')
     return es
 
 
