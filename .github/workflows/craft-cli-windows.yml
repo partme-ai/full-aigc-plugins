@@ -1,0 +1,35 @@
+name: Craft Windows CLI business roundtrip
+on:
+  push:
+    paths: ['scripts/ci/**', '.github/workflows/craft-cli-windows.yml']
+  pull_request:
+    paths: ['scripts/ci/**', '.github/workflows/craft-cli-windows.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  business:
+    runs-on: windows-2022
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        plugin: [cadcraft, designcraft, effectcraft, photocraft, figcraft, filmcraft, lightcraft, printcraft, vectorcraft, deckcraft, soundcraft, gridcraft, wordcraft]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Run native CLI business operations
+        env:
+          PYTHONUTF8: '1'
+        run: python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.plugin }} --output cli-result
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-cli-${{ matrix.plugin }}
+          if-no-files-found: error
+          path: |
+            cli-result/result.json
+            cli-result/calls.json
+            cli-result/中文 业务 workspace/**
