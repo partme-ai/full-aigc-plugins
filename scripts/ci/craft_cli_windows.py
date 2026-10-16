@@ -166,7 +166,11 @@ def main():
         catalog_args = ['tools'] if a.plugin == 'printcraft' else ['commands']
         if a.plugin in {'photocraft','figcraft','gridcraft','wordcraft','effectcraft','filmcraft','lightcraft'}:
             catalog_args.append('--json')
-        catalog = json.loads(r.run(*catalog_args))
+        if a.plugin == 'soundcraft':
+            ids = [line.split()[0] for line in r.run('commands').splitlines() if line.strip()]
+            catalog = [json.loads(r.run('describe', command)) for command in ids]
+        else:
+            catalog = json.loads(r.run(*catalog_args))
         require(isinstance(catalog, (list, dict)) and bool(catalog), 'Empty command catalog')
         (out/'commands.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2), encoding='utf-8')
         business(a.plugin,r)
