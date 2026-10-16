@@ -1,0 +1,802 @@
+{
+  "date": "2026-10-16",
+  "status": "local-candidate-validated-not-installed",
+  "branch": "feature/REQ-20261016-wandl-craft-ui-skills",
+  "marketplace": ".local/Craft Use Market",
+  "archives": ".local/craft-editor-candidates-portable/index.json",
+  "hosts": {
+    "claudeVersion": "2.1.273",
+    "codexVersion": "0.162.1",
+    "nodeVersion": "24.18.0",
+    "pluginManifestsStrict": [
+      {
+        "plugin": "cadcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "designcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "effectcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "photocraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "figcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "filmcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "lightcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "printcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "vectorcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "deckcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "soundcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "gridcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "plugin": "wordcraft",
+        "success": true,
+        "errors": [],
+        "warnings": []
+      }
+    ],
+    "marketplaceStrict": true,
+    "relocatedEntryChecks": [
+      {
+        "plugin": "cadcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "cadcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "cadcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "designcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "designcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "designcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "effectcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "effectcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "effectcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "photocraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "photocraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "photocraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "figcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "figcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "figcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "filmcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "filmcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "filmcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "lightcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "lightcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "lightcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "printcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "printcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "printcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "vectorcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "vectorcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "vectorcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "deckcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "deckcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "deckcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "soundcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "soundcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "soundcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "gridcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "gridcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "gridcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "wordcraft",
+        "host": "standard",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "wordcraft",
+        "host": "claude",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      },
+      {
+        "plugin": "wordcraft",
+        "host": "codex",
+        "stdioStartup": true,
+        "workspaceProvided": true,
+        "mcpAppsResource": true
+      }
+    ],
+    "pathResolution": "host rules simulated; actual bundled stdio processes started; no host installation"
+  },
+  "runtime": {
+    "builds": [
+      {
+        "plugin": "figcraft",
+        "rebuiltWasm": false,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "photocraft",
+        "rebuiltWasm": true,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "soundcraft",
+        "rebuiltWasm": true,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "printcraft",
+        "rebuiltWasm": false,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "cadcraft",
+        "rebuiltWasm": true,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "designcraft",
+        "rebuiltWasm": true,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "vectorcraft",
+        "rebuiltWasm": true,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "deckcraft",
+        "rebuiltWasm": true,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "gridcraft",
+        "rebuiltWasm": true,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "wordcraft",
+        "rebuiltWasm": true,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "effectcraft",
+        "rebuiltWasm": false,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "filmcraft",
+        "rebuiltWasm": false,
+        "rebuiltAdapter": true
+      },
+      {
+        "plugin": "lightcraft",
+        "rebuiltWasm": false,
+        "rebuiltAdapter": true
+      }
+    ],
+    "enhancedSameSession": [
+      {
+        "name": "cadcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/cadcraft-suite-jlTbVJ",
+        "pass": true,
+        "tools": 15,
+        "calls": [
+          "new_drawing",
+          "execute",
+          "query_entities",
+          "save",
+          "new_drawing",
+          "open",
+          "query_entities",
+          "render",
+          "ui_inspect",
+          "screenshot"
+        ]
+      },
+      {
+        "name": "deckcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/deckcraft-suite-BJ6Jp0",
+        "pass": true,
+        "tools": 25,
+        "calls": [
+          "new_presentation",
+          "add_slide",
+          "inspect_slide",
+          "save_presentation",
+          "new_presentation",
+          "open_presentation",
+          "inspect_document",
+          "screenshot"
+        ]
+      },
+      {
+        "name": "designcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/designcraft-suite-oj4MGO",
+        "pass": true,
+        "tools": 25,
+        "calls": [
+          "new_document",
+          "execute",
+          "get_story",
+          "save_document",
+          "new_document",
+          "open_document",
+          "inspect_document",
+          "render_page",
+          "ui_inspect",
+          "screenshot"
+        ]
+      },
+      {
+        "name": "photocraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/photocraft-suite-qdwH5V",
+        "pass": true,
+        "tools": 25,
+        "calls": [
+          "doc_new",
+          "command_run",
+          "doc_inspect",
+          "doc_save",
+          "doc_close",
+          "doc_open",
+          "doc_inspect",
+          "doc_export",
+          "doc_export_layers",
+          "render_preview",
+          "ui_inspect",
+          "ui_screenshot"
+        ]
+      },
+      {
+        "name": "soundcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/soundcraft-suite-38TpXK",
+        "pass": true,
+        "tools": 17,
+        "calls": [
+          "new_session",
+          "inspect_session",
+          "import_audio",
+          "bounce_mix",
+          "save_session",
+          "new_session",
+          "open_session",
+          "inspect_session",
+          "ui_inspect",
+          "screenshot"
+        ]
+      },
+      {
+        "name": "pdfcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/pdfcraft-suite-jUaXbD",
+        "pass": true,
+        "tools": 170,
+        "calls": [
+          "doc_create",
+          "doc_set_info",
+          "doc_save",
+          "doc_close",
+          "doc_open",
+          "doc_info",
+          "page_render",
+          "doc_print"
+        ]
+      },
+      {
+        "name": "gridcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/gridcraft-suite-5PQxgG",
+        "pass": true,
+        "tools": 21,
+        "calls": [
+          "new_workbook",
+          "set_cell",
+          "read_range",
+          "undo",
+          "read_range",
+          "redo",
+          "save_workbook",
+          "new_workbook",
+          "open_workbook",
+          "read_range",
+          "screenshot"
+        ]
+      },
+      {
+        "name": "vectorcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/vectorcraft-suite-Y8JMDH",
+        "pass": true,
+        "tools": 32,
+        "calls": [
+          "run_command",
+          "draw_shape",
+          "inspect_document",
+          "save_file",
+          "run_command",
+          "open_file",
+          "inspect_document",
+          "screenshot",
+          "ui_inspect",
+          "ui_screenshot"
+        ]
+      },
+      {
+        "name": "wordcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/wordcraft-suite-14wY9Q",
+        "pass": true,
+        "tools": 16,
+        "calls": [
+          "new_document",
+          "type_text",
+          "get_text",
+          "save_document",
+          "new_document",
+          "open_document",
+          "get_text",
+          "render_page",
+          "ui_inspect",
+          "screenshot"
+        ]
+      }
+    ],
+    "figcraft": {
+      "pass": true,
+      "editSaveReopen": true,
+      "exportPng": true,
+      "reload": true,
+      "detach": true,
+      "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/figcraft-editor-smoke-C1qbkq"
+    },
+    "officialWeb": [
+      {
+        "name": "effectcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/effectcraft-web-smoke-H1r2Qf",
+        "editorReady": true,
+        "inspect": true,
+        "workspaceSave": true
+      },
+      {
+        "name": "filmcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/filmcraft-web-smoke-pNwhzt",
+        "editorReady": true,
+        "inspect": true,
+        "workspaceSave": true
+      },
+      {
+        "name": "lightcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/lightcraft-web-smoke-X2ALIG",
+        "editorReady": true,
+        "inspect": true,
+        "workspaceSave": true
+      }
+    ]
+  },
+  "tests": {
+    "updateAndSecurity": 15,
+    "printcraftManifest": 6,
+    "scenarioSnapshot": 2
+  },
+  "packagedContent": [
+    {
+      "plugin": "cadcraft",
+      "lockedFiles": 35,
+      "matchesTestedRuntimeFiles": 38,
+      "unexpectedNaming": [],
+      "retainedAttribution": [
+        "assets/THIRD-PARTY-SOURCE.md",
+        "ui/runtime/NOTICE.md",
+        "ui/dist/editor/licenses/NOTICE.md",
+        "licenses/NOTICE.md"
+      ],
+      "skills": 10
+    },
+    {
+      "plugin": "deckcraft",
+      "lockedFiles": 35,
+      "matchesTestedRuntimeFiles": 38,
+      "unexpectedNaming": [],
+      "retainedAttribution": [
+        "assets/THIRD-PARTY-SOURCE.md",
+        "ui/runtime/NOTICE.md",
+        "ui/dist/editor/licenses/NOTICE.md",
+        "licenses/NOTICE.md"
+      ],
+      "skills": 8
+    },
+    {
+      "plugin": "designcraft",
+      "lockedFiles": 42,
+      "matchesTestedRuntimeFiles": 45,
+      "unexpectedNaming": [],
+      "retainedAttribution": [
+        "assets/THIRD-PARTY-SOURCE.md",
+        "ui/runtime/NOTICE.md",
+        "ui/dist/editor/licenses/NOTICE.md",
+        "licenses/NOTICE.md"
+      ],
+      "skills": 14
+    },
+    {
+      "plugin": "effectcraft",
+      "lockedFiles": 0,
+      "matchesTestedRuntimeFiles": 124,
+      "unexpectedNaming": [],
+      "retainedAttribution": [],
+      "skills": 23
+    },
+    {
+      "plugin": "figcraft",
+      "lockedFiles": 37,
+      "matchesTestedRuntimeFiles": 40,
+      "unexpectedNaming": [],
+      "retainedAttribution": [
+        "ui/runtime/NOTICE.md",
+        "ui/dist/editor/licenses/NOTICE.md",
+        "licenses/NOTICE.md"
+      ],
+      "skills": 7
+    },
+    {
+      "plugin": "filmcraft",
+      "lockedFiles": 0,
+      "matchesTestedRuntimeFiles": 118,
+      "unexpectedNaming": [],
+      "retainedAttribution": [],
+      "skills": 21
+    },
+    {
+      "plugin": "gridcraft",
+      "lockedFiles": 29,
+      "matchesTestedRuntimeFiles": 32,
+      "unexpectedNaming": [],
+      "retainedAttribution": [
+        "assets/THIRD-PARTY-SOURCE.md",
+        "ui/runtime/NOTICE.md",
+        "ui/dist/editor/licenses/NOTICE.md",
+        "licenses/NOTICE.md"
+      ],
+      "skills": 7
+    },
+    {
+      "plugin": "lightcraft",
+      "lockedFiles": 0,
+      "matchesTestedRuntimeFiles": 134,
+      "unexpectedNaming": [],
+      "retainedAttribution": [],
+      "skills": 13
+    },
+    {
+      "plugin": "photocraft",
+      "lockedFiles": 41,
+      "matchesTestedRuntimeFiles": 44,
+      "unexpectedNaming": [],
+      "retainedAttribution": [
+        "assets/THIRD-PARTY-SOURCE.md",
+        "ui/runtime/NOTICE.md",
+        "ui/dist/editor/licenses/NOTICE.md",
+        "licenses/NOTICE.md"
+      ],
+      "skills": 21
+    },
+    {
+      "plugin": "printcraft",
+      "lockedFiles": 48,
+      "matchesTestedRuntimeFiles": 51,
+      "unexpectedNaming": [],
+      "retainedAttribution": [
+        "assets/THIRD-PARTY-SOURCE.md",
+        "ui/runtime/NOTICE.md",
+        "ui/dist/editor/licenses/NOTICE.md",
+        "licenses/NOTICE.md"
+      ],
+      "skills": 14
+    },
+    {
+      "plugin": "soundcraft",
+      "lockedFiles": 27,
+      "matchesTestedRuntimeFiles": 30,
+      "unexpectedNaming": [],
+      "retainedAttribution": [
+        "assets/THIRD-PARTY-SOURCE.md",
+        "ui/runtime/NOTICE.md",
+        "ui/dist/editor/licenses/NOTICE.md",
+        "licenses/NOTICE.md"
+      ],
+      "skills": 7
+    },
+    {
+      "plugin": "vectorcraft",
+      "lockedFiles": 44,
+      "matchesTestedRuntimeFiles": 47,
+      "unexpectedNaming": [],
+      "retainedAttribution": [
+        "assets/THIRD-PARTY-SOURCE.md",
+        "ui/runtime/NOTICE.md",
+        "ui/dist/editor/licenses/NOTICE.md",
+        "licenses/NOTICE.md"
+      ],
+      "skills": 21
+    },
+    {
+      "plugin": "wordcraft",
+      "lockedFiles": 42,
+      "matchesTestedRuntimeFiles": 45,
+      "unexpectedNaming": [],
+      "retainedAttribution": [
+        "assets/THIRD-PARTY-SOURCE.md",
+        "ui/runtime/NOTICE.md",
+        "ui/dist/editor/licenses/ATTRIBUTION.md",
+        "ui/dist/editor/licenses/NOTICE.md",
+        "licenses/ATTRIBUTION.md",
+        "licenses/NOTICE.md"
+      ],
+      "skills": 7
+    }
+  ],
+  "skills": 173,
+  "limits": [
+    "No global plugin installation, native host load, CI, commit or publication this round.",
+    "LightCraft backup export tested; import/restore not tested.",
+    "Third-party attribution and original historical evidence retained.",
+    "Existing active demo files retained; use the new portable package for this revision.",
+    "Scenario skills are not all individually evaluated for creative output quality."
+  ]
+}

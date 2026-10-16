@@ -1,0 +1,243 @@
+{
+  "date": "2026-10-16",
+  "scope": "Local Chrome and MCP, not all-host certification",
+  "zcodeBundleEditors": [
+    {
+      "name": "photocraft",
+      "pass": true,
+      "tools": 25,
+      "calls": [
+        "doc_new",
+        "command_run",
+        "doc_inspect",
+        "doc_save",
+        "doc_close",
+        "doc_open",
+        "doc_inspect",
+        "doc_export",
+        "doc_export_layers",
+        "render_preview",
+        "ui_inspect",
+        "ui_screenshot"
+      ]
+    },
+    {
+      "name": "cadcraft",
+      "pass": true,
+      "tools": 14,
+      "calls": [
+        "new_drawing",
+        "execute",
+        "query_entities",
+        "save",
+        "new_drawing",
+        "open",
+        "query_entities",
+        "render",
+        "ui_inspect",
+        "screenshot"
+      ]
+    },
+    {
+      "name": "designcraft",
+      "pass": true,
+      "tools": 25,
+      "calls": [
+        "new_document",
+        "execute",
+        "get_story",
+        "save_document",
+        "new_document",
+        "open_document",
+        "inspect_document",
+        "render_page",
+        "ui_inspect",
+        "screenshot"
+      ]
+    },
+    {
+      "name": "vectorcraft",
+      "pass": true,
+      "tools": 32,
+      "calls": [
+        "run_command",
+        "draw_shape",
+        "inspect_document",
+        "save_file",
+        "run_command",
+        "open_file",
+        "inspect_document",
+        "screenshot",
+        "ui_inspect",
+        "ui_screenshot"
+      ]
+    },
+    {
+      "name": "deckcraft",
+      "pass": true,
+      "tools": 25,
+      "calls": [
+        "new_presentation",
+        "add_slide",
+        "inspect_slide",
+        "save_presentation",
+        "new_presentation",
+        "open_presentation",
+        "inspect_document",
+        "screenshot"
+      ]
+    },
+    {
+      "name": "pdfcraft",
+      "pass": true,
+      "tools": 159,
+      "calls": [
+        "doc_create",
+        "doc_set_info",
+        "doc_save",
+        "doc_close",
+        "doc_open",
+        "doc_info",
+        "page_render",
+        "doc_print"
+      ]
+    },
+    {
+      "name": "soundcraft",
+      "pass": true,
+      "tools": 17,
+      "calls": [
+        "new_session",
+        "inspect_session",
+        "import_audio",
+        "bounce_mix",
+        "save_session",
+        "new_session",
+        "open_session",
+        "inspect_session",
+        "ui_inspect",
+        "screenshot"
+      ]
+    },
+    {
+      "name": "gridcraft",
+      "pass": true,
+      "tools": 21,
+      "calls": [
+        "new_workbook",
+        "set_cell",
+        "read_range",
+        "undo",
+        "read_range",
+        "redo",
+        "save_workbook",
+        "new_workbook",
+        "open_workbook",
+        "read_range",
+        "screenshot"
+      ]
+    },
+    {
+      "name": "wordcraft",
+      "pass": true,
+      "tools": 16,
+      "calls": [
+        "new_document",
+        "type_text",
+        "get_text",
+        "save_document",
+        "new_document",
+        "open_document",
+        "get_text",
+        "render_page",
+        "ui_inspect",
+        "screenshot"
+      ]
+    }
+  ],
+  "webEditors": {
+    "effectcraft": "project save/open/resave content PASS",
+    "filmcraft": "project save/open/resave content PASS",
+    "lightcraft": "library inspect and backup ZIP PASS; import and restore not tested"
+  },
+  "photocraftLifecycle": "reload, reopen saved document, close and detach PASS",
+  "codexBuiltInBrowser": "PhotoCraft rendered and opened saved layered project",
+  "nativeMcpAppsHosts": "NOT_RUN",
+  "scenarioQuality": "72 authored workflows; real media quality acceptance NOT_RUN",
+  "isolatedArchives": [
+    {
+      "plugin": "cadcraft",
+      "isolatedMcpStartup": true,
+      "tools": 22,
+      "pageServed": true
+    },
+    {
+      "plugin": "designcraft",
+      "isolatedMcpStartup": true,
+      "tools": 33,
+      "pageServed": true
+    },
+    {
+      "plugin": "effectcraft",
+      "isolatedMcpStartup": true,
+      "tools": 11,
+      "pageServed": true
+    },
+    {
+      "plugin": "photocraft",
+      "isolatedMcpStartup": true,
+      "tools": 33,
+      "pageServed": true
+    },
+    {
+      "plugin": "filmcraft",
+      "isolatedMcpStartup": true,
+      "tools": 11,
+      "pageServed": true
+    },
+    {
+      "plugin": "lightcraft",
+      "isolatedMcpStartup": true,
+      "tools": 11,
+      "pageServed": true
+    },
+    {
+      "plugin": "printcraft",
+      "isolatedMcpStartup": true,
+      "tools": 167,
+      "pageServed": true
+    },
+    {
+      "plugin": "vectorcraft",
+      "isolatedMcpStartup": true,
+      "tools": 40,
+      "pageServed": true
+    },
+    {
+      "plugin": "deckcraft",
+      "isolatedMcpStartup": true,
+      "tools": 33,
+      "pageServed": true
+    },
+    {
+      "plugin": "soundcraft",
+      "isolatedMcpStartup": true,
+      "tools": 25,
+      "pageServed": true
+    },
+    {
+      "plugin": "gridcraft",
+      "isolatedMcpStartup": true,
+      "tools": 29,
+      "pageServed": true
+    },
+    {
+      "plugin": "wordcraft",
+      "isolatedMcpStartup": true,
+      "tools": 24,
+      "pageServed": true
+    }
+  ],
+  "archiveIntegrity": "12 SHA-256 and ZIP CRC checks PASS",
+  "officialSchemas": "12 plugin.json + 12 mcp.json validated against https://agent-plugins.org/schemas/1.0.0/ using jsonschema: PASS"
+}

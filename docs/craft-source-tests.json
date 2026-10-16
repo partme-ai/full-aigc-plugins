@@ -1,0 +1,792 @@
+{
+  "date": "2026-10-16",
+  "scope": "13 local candidates, 10 source-built enhanced runtimes, not all-host installation acceptance",
+  "sourceBuilt": [
+    {
+      "plugin": "cadcraft",
+      "source": {
+        "name": "cadcraft",
+        "title": "CadCraft",
+        "repository": "https://github.com/storytold/cadcraft",
+        "commit": "fc4e98315a8d771b5ab832f0ade0b5e7b106df7f",
+        "version": "0.7.0",
+        "sourceStatus": "upstream-until-fork-exists",
+        "releaseRepository": "full-aigc-plugins/cadcraft-plugin",
+        "patches": [],
+        "fontInput": "fonts.lock.json"
+      },
+      "runtimeManifestSha256": "7538c2b7d35ed8e56f96ce9c4dace259117226610b7fea13bf4726f4177cd4dc",
+      "localMainline": {
+        "name": "cadcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/cadcraft-suite-xP0luw",
+        "pass": true,
+        "tools": 15,
+        "calls": [
+          "new_drawing",
+          "execute",
+          "query_entities",
+          "save",
+          "new_drawing",
+          "open",
+          "query_entities",
+          "render",
+          "ui_inspect",
+          "screenshot"
+        ]
+      },
+      "sourceOverlayCheck": {
+        "plugin": "cadcraft",
+        "cleanSourceOverlayMatchesCompiledSource": true,
+        "comparedFiles": 607,
+        "differences": [],
+        "sourceArchiveSha256": "039ee54bfbf6c25f49a24770a5ba0ef4c2d3125c26fa88bafa06da4048b34d17"
+      }
+    },
+    {
+      "plugin": "designcraft",
+      "source": {
+        "name": "designcraft",
+        "title": "DesignCraft",
+        "repository": "https://github.com/full-aigc-plugins/designcraft",
+        "commit": "a184db6f8f2d11bc20832c70ac438576d3d2dd1e",
+        "version": "0.8.0",
+        "sourceStatus": "fork",
+        "releaseRepository": "full-aigc-plugins/designcraft-plugin",
+        "patches": [],
+        "fontInput": "fonts.lock.json"
+      },
+      "runtimeManifestSha256": "7a6d40245f09aefcd1651cebf77527b0feba01c31151731e607f9779961271c1",
+      "localMainline": {
+        "name": "designcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/designcraft-suite-EwtEm3",
+        "pass": true,
+        "tools": 25,
+        "calls": [
+          "new_document",
+          "execute",
+          "get_story",
+          "save_document",
+          "new_document",
+          "open_document",
+          "inspect_document",
+          "render_page",
+          "ui_inspect",
+          "screenshot"
+        ]
+      },
+      "sourceOverlayCheck": {
+        "plugin": "designcraft",
+        "cleanSourceOverlayMatchesCompiledSource": true,
+        "comparedFiles": 370,
+        "differences": [],
+        "sourceArchiveSha256": "2db15101ecf8c5715f210a5a628301353359e00a1ea8c07224177060f706603a"
+      }
+    },
+    {
+      "plugin": "photocraft",
+      "source": {
+        "name": "photocraft",
+        "title": "PhotoCraft",
+        "repository": "https://github.com/full-aigc-plugins/photocraft",
+        "commit": "3cb3580a46ba080d7ce4a037efc0a921724bd939",
+        "version": "0.9.0",
+        "releaseRepository": "full-aigc-plugins/photocraft-plugin",
+        "patches": []
+      },
+      "runtimeManifestSha256": "30d2456d63839a4524cabce857504275b824c3e17ec5f5cfc702ee94710ac8dd",
+      "localMainline": {
+        "name": "photocraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/photocraft-suite-VTBC3r",
+        "pass": true,
+        "tools": 25,
+        "calls": [
+          "doc_new",
+          "command_run",
+          "doc_inspect",
+          "doc_save",
+          "doc_close",
+          "doc_open",
+          "doc_inspect",
+          "doc_export",
+          "doc_export_layers",
+          "render_preview",
+          "ui_inspect",
+          "ui_screenshot"
+        ]
+      },
+      "sourceOverlayCheck": {
+        "plugin": "photocraft",
+        "cleanSourceOverlayMatchesCompiledSource": true,
+        "comparedFiles": 1416,
+        "differences": [],
+        "sourceArchiveSha256": "0775457e2f7bcb2c8a7e13790b64421f0b49f0c76ab6b90acee1a3f0b3564b53"
+      }
+    },
+    {
+      "plugin": "figcraft",
+      "source": {
+        "repository": "https://github.com/storytold/figcraft",
+        "commit": "833f0d2c27f0acbae5394848930ae531fc89c724",
+        "version": "0.6.0",
+        "name": "figcraft",
+        "title": "FigCraft",
+        "releaseRepository": "full-aigc-plugins/figcraft-plugin",
+        "sourceStatus": "upstream-until-fork-exists",
+        "patches": [],
+        "fontInput": "fonts.lock.json"
+      },
+      "runtimeManifestSha256": "1ec37b4bbbd819c3db864a582d372b761029265f31f6644b39e0c7615dfe4346",
+      "localMainline": {
+        "pass": true,
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/figcraft-editor-smoke-0mb14z",
+        "sourceBuild": true,
+        "tools": 26,
+        "editSaveReopen": true,
+        "exportPng": true,
+        "reload": true,
+        "detach": true
+      },
+      "sourceOverlayCheck": {
+        "plugin": "figcraft",
+        "cleanSourceOverlayMatchesCompiledSource": true,
+        "comparedFiles": 692,
+        "differences": [],
+        "sourceArchiveSha256": "f327701beaf7a025a0f124c8551472ab998d2b07baf3949c8a2d86ebcf457e59"
+      }
+    },
+    {
+      "plugin": "printcraft",
+      "source": {
+        "name": "pdfcraft",
+        "title": "PdfCraft",
+        "repository": "https://github.com/full-aigc-plugins/printcraft",
+        "commit": "5fdd820bdb1ab9705bd2c5d956d32d195140c7d8",
+        "version": "0.8.0",
+        "sourceStatus": "fork",
+        "releaseRepository": "full-aigc-plugins/printcraft-plugin",
+        "patches": [],
+        "fontInput": "fonts.lock.json"
+      },
+      "runtimeManifestSha256": "499bdec19ede89829cdf933843f433ad8dc6aaabd7a1750425511d4aaabf12a8",
+      "localMainline": {
+        "name": "pdfcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/pdfcraft-suite-TR81TN",
+        "pass": true,
+        "tools": 170,
+        "calls": [
+          "doc_create",
+          "doc_set_info",
+          "doc_save",
+          "doc_close",
+          "doc_open",
+          "doc_info",
+          "page_render",
+          "doc_print"
+        ]
+      },
+      "sourceOverlayCheck": {
+        "plugin": "printcraft",
+        "cleanSourceOverlayMatchesCompiledSource": true,
+        "comparedFiles": 964,
+        "differences": [],
+        "sourceArchiveSha256": "13fdcda4a4e22fd5fec33838117e4e0f69500b2d7ffe975b64073f27748335bb"
+      }
+    },
+    {
+      "plugin": "vectorcraft",
+      "source": {
+        "name": "vectorcraft",
+        "title": "VectorCraft",
+        "repository": "https://github.com/full-aigc-plugins/vectorcraft",
+        "commit": "deff5b8f4295b18e6ae3d3c3021bc5a9eb48db02",
+        "version": "0.11.0",
+        "sourceStatus": "fork",
+        "releaseRepository": "full-aigc-plugins/vectorcraft-plugin",
+        "patches": [],
+        "fontInput": "fonts.lock.json"
+      },
+      "runtimeManifestSha256": "835f5f43aa872f3f65f74dfcf643396bc290022914aa0991dbf07f0190a546e4",
+      "localMainline": {
+        "name": "vectorcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/vectorcraft-suite-SyRM9R",
+        "pass": true,
+        "tools": 32,
+        "calls": [
+          "run_command",
+          "draw_shape",
+          "inspect_document",
+          "save_file",
+          "run_command",
+          "open_file",
+          "inspect_document",
+          "screenshot",
+          "ui_inspect",
+          "ui_screenshot"
+        ]
+      },
+      "sourceOverlayCheck": {
+        "plugin": "vectorcraft",
+        "cleanSourceOverlayMatchesCompiledSource": true,
+        "comparedFiles": 1285,
+        "differences": [],
+        "sourceArchiveSha256": "7fe1bd7c8bf255a07d9070958e021a793a8892708db7cfa9a4a902b42cdd7a83"
+      }
+    },
+    {
+      "plugin": "deckcraft",
+      "source": {
+        "name": "deckcraft",
+        "title": "DeckCraft",
+        "repository": "https://github.com/storytold/deckcraft",
+        "commit": "d78e657e4cb1e490ceb5445785c052d9cf5ad963",
+        "version": "0.7.0",
+        "sourceStatus": "upstream-until-fork-exists",
+        "releaseRepository": "full-aigc-plugins/deckcraft-plugin",
+        "patches": [],
+        "fontInput": "fonts.lock.json"
+      },
+      "runtimeManifestSha256": "e9c9214248bddcdf9743aae26035b4080f5aff86da460df5b727055f39819856",
+      "localMainline": {
+        "name": "deckcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/deckcraft-suite-R8t3mt",
+        "pass": true,
+        "tools": 25,
+        "calls": [
+          "new_presentation",
+          "add_slide",
+          "inspect_slide",
+          "save_presentation",
+          "new_presentation",
+          "open_presentation",
+          "inspect_document",
+          "screenshot"
+        ]
+      },
+      "sourceOverlayCheck": {
+        "plugin": "deckcraft",
+        "cleanSourceOverlayMatchesCompiledSource": true,
+        "comparedFiles": 348,
+        "differences": [],
+        "sourceArchiveSha256": "e5dfbccdcbfe7d36566299e3d396bae606d49013fbfe8b2bb8afbfeda62a3f55"
+      }
+    },
+    {
+      "plugin": "soundcraft",
+      "source": {
+        "name": "soundcraft",
+        "title": "SoundCraft",
+        "repository": "https://github.com/storytold/soundcraft",
+        "commit": "3a28a657692c1b98b28c276d8f61df9471074f0f",
+        "version": "0.7.0",
+        "sourceStatus": "upstream-until-fork-exists",
+        "releaseRepository": "full-aigc-plugins/soundcraft-plugin",
+        "patches": []
+      },
+      "runtimeManifestSha256": "cf5cd3ab9548e30fa45b35296de93793cd18b4f0c0585903bbf87aeff6f348e0",
+      "localMainline": {
+        "name": "soundcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/soundcraft-suite-C2kPKH",
+        "pass": true,
+        "tools": 17,
+        "calls": [
+          "new_session",
+          "inspect_session",
+          "import_audio",
+          "bounce_mix",
+          "save_session",
+          "new_session",
+          "open_session",
+          "inspect_session",
+          "ui_inspect",
+          "screenshot"
+        ]
+      },
+      "sourceOverlayCheck": {
+        "plugin": "soundcraft",
+        "cleanSourceOverlayMatchesCompiledSource": true,
+        "comparedFiles": 332,
+        "differences": [],
+        "sourceArchiveSha256": "72a936c404b66a1210a74d3f81142910e868ea51150edd6bee10e6faba5d0325"
+      }
+    },
+    {
+      "plugin": "gridcraft",
+      "source": {
+        "name": "gridcraft",
+        "title": "GridCraft",
+        "repository": "https://github.com/storytold/gridcraft",
+        "commit": "d9d09f0baa912e88c5111107903fc8c640214b57",
+        "version": "0.7.0",
+        "sourceStatus": "upstream-until-fork-exists",
+        "releaseRepository": "full-aigc-plugins/gridcraft-plugin",
+        "patches": []
+      },
+      "runtimeManifestSha256": "f658f80f9e5dba0d14739acbc6967d4a6cbb2a26ca2a2d77b0a88fd8150c5202",
+      "localMainline": {
+        "name": "gridcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/gridcraft-suite-UJrAsf",
+        "pass": true,
+        "tools": 21,
+        "calls": [
+          "new_workbook",
+          "set_cell",
+          "read_range",
+          "undo",
+          "read_range",
+          "redo",
+          "save_workbook",
+          "new_workbook",
+          "open_workbook",
+          "read_range",
+          "screenshot"
+        ]
+      },
+      "sourceOverlayCheck": {
+        "plugin": "gridcraft",
+        "cleanSourceOverlayMatchesCompiledSource": true,
+        "comparedFiles": 310,
+        "differences": [],
+        "sourceArchiveSha256": "3f4fc387e910a3a4c6e435f33b9b123abb6d3347399d589f9b791a9f53c50b25"
+      }
+    },
+    {
+      "plugin": "wordcraft",
+      "source": {
+        "name": "wordcraft",
+        "title": "WordCraft",
+        "repository": "https://github.com/storytold/wordcraft",
+        "commit": "fc41918814f62645b6746ed68e71e8c2c2e85d6f",
+        "version": "0.7.0",
+        "sourceStatus": "upstream-until-fork-exists",
+        "releaseRepository": "full-aigc-plugins/wordcraft-plugin",
+        "patches": [],
+        "fontInput": "fonts.lock.json"
+      },
+      "runtimeManifestSha256": "23fb7323640a091df0b175cb810d95143cc20ca74f9d8ac17f988bcbb3c07d73",
+      "localMainline": {
+        "name": "wordcraft",
+        "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/wordcraft-suite-fuWoTE",
+        "pass": true,
+        "tools": 16,
+        "calls": [
+          "new_document",
+          "type_text",
+          "get_text",
+          "save_document",
+          "new_document",
+          "open_document",
+          "get_text",
+          "render_page",
+          "ui_inspect",
+          "screenshot"
+        ]
+      },
+      "sourceOverlayCheck": {
+        "plugin": "wordcraft",
+        "cleanSourceOverlayMatchesCompiledSource": true,
+        "comparedFiles": 391,
+        "differences": [],
+        "sourceArchiveSha256": "ea7a64508f9df85878481f41ad961f8396be0e6a4cf0f9842844a86dc7a48fb6"
+      }
+    }
+  ],
+  "unchangedOfficialWeb": {
+    "effectcraft": "0.10.0 project save/open/resave PASS in this task",
+    "filmcraft": "0.8.0 project save/open/resave PASS in this task",
+    "lightcraft": "0.8.0 library inspect and backup ZIP PASS; import/restore unverified"
+  },
+  "skills": {
+    "localCandidateTotal": 91,
+    "allPackagedSkills": 173,
+    "editorEntry": 13,
+    "scenario": 78,
+    "contentQuality": "individual scenario outputs not comprehensively tested"
+  },
+  "schemasAndIcons": [
+    {
+      "plugin": "cadcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "designcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "effectcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "photocraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "figcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "filmcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "lightcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "printcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "vectorcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "deckcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "soundcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "gridcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    },
+    {
+      "plugin": "wordcraft",
+      "plugin.json": "PASS",
+      "mcp.json": "PASS",
+      "pngIcons": "PASS"
+    }
+  ],
+  "updaterAndSecurityTests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "liveUpdateProbe": [
+    {
+      "plugin": "cadcraft",
+      "path": "<workspace>/full-aigc-plugins-repositories/cadcraft-plugin/ui/dist/editor",
+      "source": "bundled",
+      "version": "0.0.0",
+      "reason": "Download HTTP 403"
+    },
+    {
+      "plugin": "designcraft",
+      "path": "<workspace>/full-aigc-plugins-repositories/designcraft-plugin/ui/dist/editor",
+      "source": "bundled",
+      "version": "0.0.0",
+      "reason": "Download HTTP 403"
+    },
+    {
+      "plugin": "photocraft",
+      "path": "<workspace>/full-aigc-plugins-repositories/photocraft-plugin/ui/dist/editor",
+      "source": "bundled",
+      "version": "0.0.0",
+      "reason": "Download HTTP 403"
+    },
+    {
+      "plugin": "figcraft",
+      "path": "<workspace>/full-aigc-plugins-repositories/figcraft-plugin/ui/dist/editor",
+      "source": "bundled",
+      "version": "0.0.0",
+      "reason": "Download HTTP 403"
+    },
+    {
+      "plugin": "printcraft",
+      "path": "<workspace>/full-aigc-plugins-repositories/printcraft-plugin/ui/dist/editor",
+      "source": "bundled",
+      "version": "0.0.0",
+      "reason": "Download HTTP 403"
+    },
+    {
+      "plugin": "vectorcraft",
+      "path": "<workspace>/full-aigc-plugins-repositories/vectorcraft-plugin/ui/dist/editor",
+      "source": "bundled",
+      "version": "0.0.0",
+      "reason": "Download HTTP 403"
+    },
+    {
+      "plugin": "deckcraft",
+      "path": "<workspace>/full-aigc-plugins-repositories/deckcraft-plugin/ui/dist/editor",
+      "source": "bundled",
+      "version": "0.0.0",
+      "reason": "Download HTTP 403"
+    },
+    {
+      "plugin": "soundcraft",
+      "path": "<workspace>/full-aigc-plugins-repositories/soundcraft-plugin/ui/dist/editor",
+      "source": "bundled",
+      "version": "0.0.0",
+      "reason": "Download HTTP 403"
+    },
+    {
+      "plugin": "gridcraft",
+      "path": "<workspace>/full-aigc-plugins-repositories/gridcraft-plugin/ui/dist/editor",
+      "source": "bundled",
+      "version": "0.0.0",
+      "reason": "Download HTTP 403"
+    },
+    {
+      "plugin": "wordcraft",
+      "path": "<workspace>/full-aigc-plugins-repositories/wordcraft-plugin/ui/dist/editor",
+      "source": "bundled",
+      "version": "0.0.0",
+      "reason": "Download HTTP 403"
+    }
+  ],
+  "visualChecks": {
+    "figcraft": {
+      "englishAndChineseVisible": true,
+      "fontMetricsRegressionPassed": true,
+      "hostDemo": "<workspace>/full-aigc-plugins/.local/craft-source-demo-fonts/result.json",
+      "screenshot": "<workspace>/full-aigc-plugins/.local/craft-source-demo-fonts/codex-editor.png"
+    },
+    "designcraft": {
+      "renderedTextVisible": true,
+      "image": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/designcraft-suite-EwtEm3/render_page-8-0.png"
+    },
+    "wordcraft": {
+      "renderedTextVisible": true,
+      "image": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/wordcraft-suite-fuWoTE/render_page-8-0.png"
+    },
+    "printcraft": {
+      "renderedTextVisible": true,
+      "image": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/pdfcraft-suite-TR81TN/editor.png"
+    },
+    "deckcraft": {
+      "textVisibleInSlideThumbnail": true,
+      "fontSubstitutionWarning": "Arial not bundled; editor uses a similar font",
+      "image": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/deckcraft-suite-R8t3mt/editor.png"
+    }
+  },
+  "hosts": {
+    "codexBuiltInBrowser": "PhotoCraft visible; FigCraft same-session MCP edit, bilingual text, save and export verified in Codex built-in browser",
+    "codexNativeApps": "not verified",
+    "zcodeInstall": "not performed",
+    "workbuddyInstall": "not performed"
+  },
+  "limitations": [
+    "PhotoCraft source build uses default features; optional HEIF/HEIC decoder is not enabled",
+    "Seven font-dependent enhanced builds include pinned Inter, BIZ UDPGothic and LXGW WenKai inputs with OFL licenses; FigCraft bilingual output visually verified; other complex typography needs content validation",
+    "Raw formats, long media, OCR, redaction, complex layout and 78 scene output quality not comprehensively tested"
+  ],
+  "otherRepositoryChecks": {
+    "photocraftFullDocs": "Pre-existing validate_docs.py rejects product-docs/.DS_Store as an extra documentation root; not changed in this task"
+  },
+  "packagedAcceptance": [
+    {
+      "plugin": "cadcraft",
+      "isolatedMcpStartup": true,
+      "tools": 23,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "designcraft",
+      "isolatedMcpStartup": true,
+      "tools": 33,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "effectcraft",
+      "isolatedMcpStartup": true,
+      "tools": 11,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "photocraft",
+      "isolatedMcpStartup": true,
+      "tools": 33,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "figcraft",
+      "isolatedMcpStartup": true,
+      "tools": 26,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "filmcraft",
+      "isolatedMcpStartup": true,
+      "tools": 11,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "lightcraft",
+      "isolatedMcpStartup": true,
+      "tools": 11,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "printcraft",
+      "isolatedMcpStartup": true,
+      "tools": 178,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "vectorcraft",
+      "isolatedMcpStartup": true,
+      "tools": 40,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "deckcraft",
+      "isolatedMcpStartup": true,
+      "tools": 33,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "soundcraft",
+      "isolatedMcpStartup": true,
+      "tools": 25,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "gridcraft",
+      "isolatedMcpStartup": true,
+      "tools": 29,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "wordcraft",
+      "isolatedMcpStartup": true,
+      "tools": 24,
+      "mcpAppsResource": true,
+      "pageServed": true
+    }
+  ],
+  "archiveValidation": [
+    {
+      "plugin": "cadcraft",
+      "archiveSha256": "9e9c1aed8bb502f5c70c1137e1d8d7935ec3ed2da95169d3c96f9cdd3bfdf80b",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "designcraft",
+      "archiveSha256": "9063ad96517c221e5d2449fa7b0caba3213f6f835715901652e62bef02957e19",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "effectcraft",
+      "archiveSha256": "5da6a9b9df0535f9dc3bac63d9c782abfb5bbafa9bb0ce91bcdd840f90542889",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": false
+    },
+    {
+      "plugin": "photocraft",
+      "archiveSha256": "b00d276279e27567c13a7d9724f65dad4401cddabead59933d39cb08499821f0",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "figcraft",
+      "archiveSha256": "133cc097271ecd18e22a69307fcfb1312ad4ca459b25497f4797ad70297f9f21",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "filmcraft",
+      "archiveSha256": "c84e85f7c03ebe5a1e6867f8eab31941ce7a0aed50e3c3c464bfc4398da06567",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": false
+    },
+    {
+      "plugin": "lightcraft",
+      "archiveSha256": "5825db777d32004989502a521e4fb22ec7bba149084b5d6892c7699d9dbe2660",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": false
+    },
+    {
+      "plugin": "printcraft",
+      "archiveSha256": "aaaae2c57e301ad1140a3614e3647c86e1337814ff132305bfaf5563271db00e",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "vectorcraft",
+      "archiveSha256": "11c0100462e3d48ec04726c2055f9fccf38dafca073e28e32a2c83a7fb33c741",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "deckcraft",
+      "archiveSha256": "725ddb3551117962a9adec1ae814bfa57d6451af8643ba89116f0f7301ea6f0f",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "soundcraft",
+      "archiveSha256": "b049070caaaa27ef6936e8f4e8b6a5340acd2a4baa8120ea176e2db12fd27545",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "gridcraft",
+      "archiveSha256": "d305205eea5fef8b9be8046e022b9be6d935ab499bb72bf374690f95017ef2bb",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "wordcraft",
+      "archiveSha256": "0913a426950d12f3711b18b8935463ad01d03235b4db72857b4abc2116d932c5",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    }
+  ],
+  "generatedHostConfigs": {
+    "codexEntries": 13,
+    "workbuddyEntries": 13,
+    "pathsExist": true,
+    "installed": false
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "date": "2026-10-16",
+  "hostVersions": {
+    "codex": "0.162.1",
+    "panelHost": "0.16.9",
+    "kimi": "0.43.1"
+  },
+  "officialSchemaChecks": 26,
+  "regressions": {
+    "updaterAndSecurity": 15,
+    "printManifest": 6
+  },
+  "plugins": [
+    {
+      "plugin": "cadcraft",
+      "version": "0.1.0-dev.0",
+      "skills": 10,
+      "adapterSha256": "16406bbd3e12ad47b63eb85bb44096461690444519778d99737079d7e477ccb6",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "designcraft",
+      "version": "0.1.0-dev.1",
+      "skills": 14,
+      "adapterSha256": "16406bbd3e12ad47b63eb85bb44096461690444519778d99737079d7e477ccb6",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "effectcraft",
+      "version": "0.1.0-dev.70",
+      "skills": 23,
+      "adapterSha256": "7ae29453e60f80da39dfbb44a98b1c9590b95ccadd47344f45303445d6ab4846",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "photocraft",
+      "version": "0.1.0-dev.77",
+      "skills": 21,
+      "adapterSha256": "16406bbd3e12ad47b63eb85bb44096461690444519778d99737079d7e477ccb6",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "figcraft",
+      "version": "0.1.0-dev.1",
+      "skills": 7,
+      "adapterSha256": "16406bbd3e12ad47b63eb85bb44096461690444519778d99737079d7e477ccb6",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "filmcraft",
+      "version": "0.1.0-dev.81",
+      "skills": 21,
+      "adapterSha256": "7ae29453e60f80da39dfbb44a98b1c9590b95ccadd47344f45303445d6ab4846",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "lightcraft",
+      "version": "0.1.0-dev.3",
+      "skills": 13,
+      "adapterSha256": "7ae29453e60f80da39dfbb44a98b1c9590b95ccadd47344f45303445d6ab4846",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "printcraft",
+      "version": "0.1.0-dev.6",
+      "skills": 14,
+      "adapterSha256": "16406bbd3e12ad47b63eb85bb44096461690444519778d99737079d7e477ccb6",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "vectorcraft",
+      "version": "0.1.0-dev.64",
+      "skills": 21,
+      "adapterSha256": "16406bbd3e12ad47b63eb85bb44096461690444519778d99737079d7e477ccb6",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "deckcraft",
+      "version": "0.1.0-dev.0",
+      "skills": 8,
+      "adapterSha256": "16406bbd3e12ad47b63eb85bb44096461690444519778d99737079d7e477ccb6",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "soundcraft",
+      "version": "0.1.0-dev.0",
+      "skills": 7,
+      "adapterSha256": "16406bbd3e12ad47b63eb85bb44096461690444519778d99737079d7e477ccb6",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "gridcraft",
+      "version": "0.1.0-dev.0",
+      "skills": 7,
+      "adapterSha256": "16406bbd3e12ad47b63eb85bb44096461690444519778d99737079d7e477ccb6",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    },
+    {
+      "plugin": "wordcraft",
+      "version": "0.1.0-dev.0",
+      "skills": 7,
+      "adapterSha256": "16406bbd3e12ad47b63eb85bb44096461690444519778d99737079d7e477ccb6",
+      "nativeInstall": {
+        "codex": true,
+        "panelHost": true,
+        "kimi": true
+      },
+      "actualCalls": [
+        "editor_status",
+        "open_browser_editor"
+      ],
+      "codexNativeAppServerCalls": true,
+      "otherInstalledPackagesSdkCalls": true
+    }
+  ],
+  "limitations": [
+    "Kimi and panel-host tool calls used SDK against actual native-installed packages; model-driven dispatch is not tested.",
+    "Panel-host headless app-server MCP App connection was unavailable; desktop embedded rendering is not accepted by this test.",
+    "Native platform tests ran on macOS only.",
+    "Candidate has not been published or pushed."
+  ],
+  "runtimeBrandingHits": 0
+}
