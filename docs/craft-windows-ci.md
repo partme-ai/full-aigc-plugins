@@ -19,12 +19,17 @@ Windows 使用 `node <npm 全局目录>/@openai/codex/bin/codex.js` 调用 CLI�
 - index 使用 `scripts/package-craft-editors.py` 输出的格式；ZIP 与 index.json 放在同一下载目录，文件名、plugin、sha256 均从该索引读取。
 - 没有提供完整包来源时，安装任务显示 skipped；路径单测绿色不代表 Windows 安装通过。
 
-当前完整候选位于本机 `.local/craft-host-recovered-final/`，尚未上传给 GitHub runner。源码 checkout 没有完整 dist，不能拿源码包替代可安装包，也不能依赖临时下载官方包掩盖发行物缺件。
+完整候选位于本机 `.local/craft-host-recovered-final/`，并已上传为[测试预发布制品](https://github.com/partme-ai/full-aigc-plugins/releases/tag/craft-windows-test-20261016-905f7aa)。源码 checkout 没有完整 dist，不能拿源码包替代可安装包，也不能依赖临时下载官方包掩盖发行物缺件。
 
 ## 本轮状态
 
-2026-10-16：actionlint 通过；5 项离线回归通过；13 个真实 ZIP 的预检查通过，执行平台为 macOS。Windows runner 未运行，Windows 桌面 UI 未验证。未提交、推送或发布。
+2026-10-16：在用户授权下提交、推送并上传 13 个候选 ZIP。真实 Windows Server 2022 x64 runner 上，8 项回归测试及 13/13 个插件原生安装、MCP 调用、编辑器 HTML 访问全部通过。
 
-同一 CI 驱动在 macOS 上已完成 CADCraft（增强运行包）和 EffectCraft（官方 Web 运行包）的隔离原生安装、app-server MCP 调用和页面资源检查，用于排除脚本自身的流程错误；这两项结果仍不是 Windows 验收。
+- [成功运行 38914576783](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38914576783)，测试代码提交 `59a18fd0d937e872aeaaa9d7ff967467f596cc8b`。
+- 固定索引 SHA-256：`b2c04c7441c6cbc34cc9c4c608b6c31cb50367cddc13be82eb39f65fefe18c46`，各包摘要见测试制品 index.json。
+- 首轮 GridCraft、PrintCraft 在宿主 `starting` 状态下被脚本过早判错；修复为限时等待连接完成，终态失败仍立即失败。修复后全矩阵重新通过，未更换候选包。
+- 原生宿主为 Codex CLI 0.162.1；没有通过 MCP SDK 替代宿主加载。
+- Windows 桌面内嵌 UI、编辑同步、ZCode/Kimi 的 Windows 宿主、独立 `*craft-cli.exe` 及其业务操作仍未验证。这次通过不能直接证明用户尚未提供原文的 CLI 报错已经修复。
+- 插件内置 Web 运行包不自动安装各应用独立 CLI。独立 CLI 场景仍需相应可执行文件及其运行依赖；不能把插件安装成功等同于独立 CLI 已安装。
 
-要取得 Windows CI 结果，需要先将本次 CI 文件提交到可运行分支，并提供 runner 可访问的候选包与固定摘要。继续沿用既有不提交推送边界，未自行发布候选包。
+文档内的成功结果只覆盖以上固定候选与固定 CI 提交。未来改动运行包后须更新测试制品索引并重跑。
