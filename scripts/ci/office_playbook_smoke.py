@@ -63,13 +63,19 @@ def verify_deck(z, assertion):
 
 
 def verify_grid(r, target, assertion):
+    def read(cell,formulas=False):
+        params={'range':cell,'formulas':formulas,'formatted':False}
+        rows=r.run('run','--in',target,'--cmd','sheet.read='+json.dumps(params,separators=(',',':'))).splitlines()
+        result=next(json.loads(row)['result'] for row in rows if json.loads(row).get('command')=='sheet.read')
+        return result['values'][0][0]
     for cell, expected in assertion.get('cells',{}).items():
-        actual=float(r.run('cat',target,'--range',cell).strip())
+        actual=read(cell)
+        require(type(actual) in (int,float),'Computed cell is not a number: '+cell)
         require(math.isclose(actual,expected,rel_tol=1e-8,abs_tol=1e-8),'Computed value mismatch '+cell+': '+str(actual))
     for cell, expected in assertion.get('texts',{}).items():
-        require(r.run('cat',target,'--range',cell).strip()==expected,'Cell text mismatch '+cell)
+        require(read(cell)==expected,'Cell text mismatch '+cell)
     for cell, expected in assertion.get('formulas',{}).items():
-        require(expected in r.run('cat',target,'--range',cell,'--formulas'),'Formula missing '+cell)
+        require(expected in str(read(cell,formulas=True)),'Formula missing '+cell)
     with zipfile.ZipFile(r.work/target) as z:
         sheet=z.read('xl/worksheets/sheet1.xml').decode('utf-8')
         for value in assertion.get('xmlContains',[]):require(value in sheet,'Worksheet rule/structure lost: '+value)

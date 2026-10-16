@@ -26,7 +26,7 @@ class OfficeResultTests(unittest.TestCase):
 
     def test_formula_text_does_not_substitute_computed_value(self):
         class Runner:
-            def run(self,*args):return '21'
+            def run(self,*args):return '{"command":"sheet.read","result":{"values":[[21]]}}'
         with self.assertRaisesRegex(AssertionError,'Computed value mismatch'):
             verify_grid(Runner(),'test.xlsx',{'cells':{'B2':42}})
 
