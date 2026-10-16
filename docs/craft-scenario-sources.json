@@ -1,0 +1,337 @@
+{
+  "schema": "craft-scenario-sources/v1",
+  "policy": "只借鉴工作流事实，场景正文与命令例子原创编写，不复制外部代码、正文或素材。许可不明的来源仅作为参考。",
+  "sources": [
+    {
+      "repository": "qzfcoder/photo-retouch-pro",
+      "commit": "bd963066b15f9dda1f46b10e63427f1046b57acc",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "SKILL.md",
+          "url": "https://github.com/qzfcoder/photo-retouch-pro/blob/bd963066b15f9dda1f46b10e63427f1046b57acc/SKILL.md",
+          "bytes": 7755
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "creold/photoshop-scripts",
+      "commit": "9a2a54cab1b4f737f86513fce0329d9e168dddb4",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/creold/photoshop-scripts/blob/9a2a54cab1b4f737f86513fce0329d9e168dddb4/README.md",
+          "bytes": 11295
+        },
+        {
+          "path": "jsx/ArtboardsFromCSV.jsx",
+          "url": "https://github.com/creold/photoshop-scripts/blob/9a2a54cab1b4f737f86513fce0329d9e168dddb4/jsx/ArtboardsFromCSV.jsx",
+          "bytes": 12696
+        },
+        {
+          "path": "jsx/TIFF2Print.jsx",
+          "url": "https://github.com/creold/photoshop-scripts/blob/9a2a54cab1b4f737f86513fce0329d9e168dddb4/jsx/TIFF2Print.jsx",
+          "bytes": 13784
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "creold/illustrator-scripts",
+      "commit": "9b3e3eeade9ba748f41612ec4697bb6a5c2489c2",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/README.md",
+          "bytes": 22151
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "le-tex/InDesignScripts",
+      "commit": "b0fd4bbc49f33f860361736a702c1ed5c3e4ac95",
+      "license": {
+        "key": "bsd-2-clause",
+        "name": "BSD 2-Clause \"Simplified\" License",
+        "spdx_id": "BSD-2-Clause",
+        "url": "https://api.github.com/licenses/bsd-2-clause",
+        "node_id": "MDc6TGljZW5zZTQ="
+      },
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/README.md",
+          "bytes": 162
+        },
+        {
+          "path": "image-export/README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/image-export/README.md",
+          "bytes": 1411
+        },
+        {
+          "path": "insert-alt-text/README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/insert-alt-text/README.md",
+          "bytes": 1148
+        },
+        {
+          "path": "link-endnotes/README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/link-endnotes/README.md",
+          "bytes": 680
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "docsforadobe/after-effects-scripting-guide",
+      "commit": "7137a990db4bd8dc9f5869b8ca431c7dfed52bdc",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "readme.md",
+          "url": "https://github.com/docsforadobe/after-effects-scripting-guide/blob/7137a990db4bd8dc9f5869b8ca431c7dfed52bdc/readme.md",
+          "bytes": 773
+        },
+        {
+          "path": "docs/property/property.md",
+          "url": "https://github.com/docsforadobe/after-effects-scripting-guide/blob/7137a990db4bd8dc9f5869b8ca431c7dfed52bdc/docs/property/property.md",
+          "bytes": 78645
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "docsforadobe/premiere-scripting-guide",
+      "commit": "cbe15d746c7717832a82c02c4b994f8da7d75c39",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/docsforadobe/premiere-scripting-guide/blob/cbe15d746c7717832a82c02c4b994f8da7d75c39/README.md",
+          "bytes": 612
+        },
+        {
+          "path": "docs/item/trackitem.md",
+          "url": "https://github.com/docsforadobe/premiere-scripting-guide/blob/cbe15d746c7717832a82c02c4b994f8da7d75c39/docs/item/trackitem.md",
+          "bytes": 10453
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "dpnkrpl/awesome-lightroom-presets",
+      "commit": "c9671b6857acc6dd660e85fe2c29d05188df7ffe",
+      "license": {
+        "key": "unlicense",
+        "name": "The Unlicense",
+        "spdx_id": "Unlicense",
+        "url": "https://api.github.com/licenses/unlicense",
+        "node_id": "MDc6TGljZW5zZTE1"
+      },
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/dpnkrpl/awesome-lightroom-presets/blob/c9671b6857acc6dd660e85fe2c29d05188df7ffe/README.md",
+          "bytes": 228
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/dpnkrpl/awesome-lightroom-presets/blob/c9671b6857acc6dd660e85fe2c29d05188df7ffe/LICENSE",
+          "bytes": 1211
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "audacity/audacity-manual",
+      "commit": "92794e43861704433b0af65dbe503ef9253ff4e4",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "manual/man/noise_reduction.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/noise_reduction.html",
+          "bytes": 25937
+        },
+        {
+          "path": "manual/man/normalize.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/normalize.html",
+          "bytes": 17644
+        },
+        {
+          "path": "manual/man/tutorial_click_and_pop_removal_techniques.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/tutorial_click_and_pop_removal_techniques.html",
+          "bytes": 9617
+        },
+        {
+          "path": "manual/man/license.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/license.html",
+          "bytes": 33735
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "LibreCAD/docs",
+      "commit": "94801d0c38e9e1a5a7919a1397ac50570eadad3b",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "guides/dwg-setup.rst",
+          "url": "https://github.com/LibreCAD/docs/blob/94801d0c38e9e1a5a7919a1397ac50570eadad3b/guides/dwg-setup.rst",
+          "bytes": 10738
+        },
+        {
+          "path": "guides/annotate.rst",
+          "url": "https://github.com/LibreCAD/docs/blob/94801d0c38e9e1a5a7919a1397ac50570eadad3b/guides/annotate.rst",
+          "bytes": 15087
+        },
+        {
+          "path": "guides/blocks.rst",
+          "url": "https://github.com/LibreCAD/docs/blob/94801d0c38e9e1a5a7919a1397ac50570eadad3b/guides/blocks.rst",
+          "bytes": 15715
+        },
+        {
+          "path": "appx/licenses.rst",
+          "url": "https://github.com/LibreCAD/docs/blob/94801d0c38e9e1a5a7919a1397ac50570eadad3b/appx/licenses.rst",
+          "bytes": 4081
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "figma/plugin-samples",
+      "commit": "03131bef561eb25ee2b704e3b39e40acc70330e0",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/README.md",
+          "bytes": 12929
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "scanny/python-pptx",
+      "commit": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "readFiles": [
+        {
+          "path": "docs/user/quickstart.rst",
+          "url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/docs/user/quickstart.rst",
+          "bytes": 6082
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "python-openxml/python-docx",
+      "commit": "e45454602b53e8e572b179ccf1c91093ec9f4ed7",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "readFiles": [
+        {
+          "path": "docs/user/quickstart.rst",
+          "url": "https://github.com/python-openxml/python-docx/blob/e45454602b53e8e572b179ccf1c91093ec9f4ed7/docs/user/quickstart.rst",
+          "bytes": 11875
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "py-pdf/pypdf",
+      "commit": "1145329e8c80e1f72fbbb4001460fb8553236aeb",
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "readFiles": [
+        {
+          "path": "docs/user/merging-pdfs.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/docs/user/merging-pdfs.md",
+          "bytes": 5734
+        },
+        {
+          "path": "docs/user/cropping-and-transforming.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/docs/user/cropping-and-transforming.md",
+          "bytes": 7316
+        },
+        {
+          "path": "docs/user/metadata.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/docs/user/metadata.md",
+          "bytes": 7736
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/LICENSE",
+          "bytes": 1605
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "jmcnamara/XlsxWriter",
+      "commit": "5d4606d89a955226d2d0825a0f44309043ae7251",
+      "license": {
+        "key": "bsd-2-clause",
+        "name": "BSD 2-Clause \"Simplified\" License",
+        "spdx_id": "BSD-2-Clause",
+        "url": "https://api.github.com/licenses/bsd-2-clause",
+        "node_id": "MDc6TGljZW5zZTQ="
+      },
+      "readFiles": [
+        {
+          "path": "examples/pandas_simple.py",
+          "url": "https://github.com/jmcnamara/XlsxWriter/blob/5d4606d89a955226d2d0825a0f44309043ae7251/examples/pandas_simple.py",
+          "bytes": 714
+        },
+        {
+          "path": "examples/chart_column.py",
+          "url": "https://github.com/jmcnamara/XlsxWriter/blob/5d4606d89a955226d2d0825a0f44309043ae7251/examples/chart_column.py",
+          "bytes": 3525
+        },
+        {
+          "path": "examples/conditional_format.py",
+          "url": "https://github.com/jmcnamara/XlsxWriter/blob/5d4606d89a955226d2d0825a0f44309043ae7251/examples/conditional_format.py",
+          "bytes": 9075
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    }
+  ]
+}
