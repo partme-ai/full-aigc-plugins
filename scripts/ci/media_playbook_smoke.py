@@ -82,12 +82,18 @@ def sound(r,data):
         assertion=recipe['assertions']
         if assertion['check']=='stems':
             files=sorted((r.work/'stems').glob('*.wav'))
-            require(len(files)==2 and {p.stem.lower() for p in files}=={'voice','bed'},'Stem track-name set mismatch')
+            track_name=lambda p:p.stem.rsplit(' - ',1)[-1].lower()
+            require(len(files)==2 and {track_name(p) for p in files}=={'voice','bed'},'Stem track-name set mismatch')
             for p in files:
                 rate,ch=wave_data(p);require(rate==48000 and all(len(x)==192000 for x in ch),'Stem rate/duration changed')
-                if p.stem.lower()=='bed':require(len(ch)==2 and sum(abs(a-b) for a,b in zip(*ch))/len(ch[0])>0.01,'Stereo bed collapsed')
+                if track_name(p)=='bed':require(len(ch)==2 and sum(abs(a-b) for a,b in zip(*ch))/len(ch[0])>0.01,'Stereo bed collapsed')
             r.run('run','--in',target,'--cmd','file.bounce_stems='+json.dumps({'dir':'reopened-stems','format':'wav','bit_depth':16,'start':{'seconds':0},'end':{'seconds':4}}))
-            require({p.stem.lower() for p in (r.work/'reopened-stems').glob('*.wav')}=={'voice','bed'},'Reopened stem tracks lost')
+            reopened=sorted((r.work/'reopened-stems').glob('*.wav'))
+            require({track_name(p) for p in reopened}=={'voice','bed'},'Reopened stem tracks lost')
+            for first,second in zip(files,reopened):
+                rate,a=wave_data(first);other_rate,b=wave_data(second)
+                require(rate==other_rate and len(a)==len(b) and all(len(x)==len(y) for x,y in zip(a,b)),'Reopened stem geometry changed')
+                require(max(sum(abs(x-y) for x,y in zip(c,d))/len(c) for c,d in zip(a,b))<0.00015,'Reopened stem content changed beyond dither tolerance')
         else:
             first=wave_data(r.work/'result.wav');verify_audio(first,baseline,original,assertion)
             a=bounce('reopened.wav',assertion.get('offset',0),assertion.get('offset',0)+assertion['seconds'])
@@ -153,6 +159,11 @@ def light(r,data):
                 x,y=a['neutralPoint'];idx=(y*w+x)*3
                 old=base[2][idx:idx+3];new=pixels[idx:idx+3]
                 require(max(new)-min(new)<max(old)-min(old)-5,'Gray-card correction did not reduce channel imbalance')
+            export=next(x for x in recipe['steps'] if x['command']=='app.export')
+            reopened_path='reopened-'+recipe['id']+'.png'
+            params=dict(export['params'],path=reopened_path)
+            run(library,[{'command':'app.export','params':params}])
+            require(rgb_pixels(r.work/reopened_path)==(w,h,pixels),'Saved photo edit changed after library reopen')
             (r.work/'result.png').replace(r.work/(recipe['id']+'.png'))
         require(hashlib.sha256((r.work/'input.png').read_bytes()).hexdigest()==input_hash,'Original photo changed')
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','renderOrStructureChecks':'PASS','creativeAcceptance':'NOT_TESTED'})
