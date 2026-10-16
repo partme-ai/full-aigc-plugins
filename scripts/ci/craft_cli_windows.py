@@ -175,9 +175,14 @@ def main():
         (out/'commands.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2), encoding='utf-8')
         business(a.plugin,r)
         if a.playbook:
-            require(a.plugin == 'photocraft', 'Playbook smoke currently belongs to PhotoCraft')
-            from photo_playbook_smoke import run_playbooks
-            report['playbooks'] = run_playbooks(r, a.playbook.resolve())
+            if a.plugin == 'photocraft':
+                from photo_playbook_smoke import run_playbooks
+                report['playbooks'] = run_playbooks(r, a.playbook.resolve())
+            elif a.plugin in {'gridcraft','wordcraft','deckcraft'}:
+                from office_playbook_smoke import run_playbooks
+                report['playbooks'] = run_playbooks(r, a.playbook.resolve(), a.plugin)
+            else:
+                raise ValueError('No playbook driver for '+a.plugin)
         report['business']='PASS';report['processCount']=len(r.calls)
         report['outputs']=[{'path':str(p.relative_to(work)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in work.rglob('*') if p.is_file()]
     except Exception as e:

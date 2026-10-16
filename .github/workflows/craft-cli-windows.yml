@@ -26,13 +26,31 @@ jobs:
           repository: full-aigc-skills/photocraft-skills
           ref: 7829f6d3e8882c651a7175e8579d219eca58a938
           path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'gridcraft'
+        with:
+          repository: full-aigc-skills/gridcraft-skills
+          ref: be98a0b0356f50f938502880469cc2412d45ff4a
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'wordcraft'
+        with:
+          repository: full-aigc-skills/wordcraft-skills
+          ref: b81c0401bed68b52cd569000987a1fad7fa84dbd
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'deckcraft'
+        with:
+          repository: full-aigc-skills/deckcraft-skills
+          ref: 0d0468eeebe81cd7a427ed1da102535498d286c7
+          path: scene-source
       - name: Run native CLI business operations
         env:
           PYTHONUTF8: '1'
         shell: pwsh
         run: |
           $sceneArgs = @()
-          if ("${{ matrix.plugin }}" -eq "photocraft") { $sceneArgs = @("--playbook", "scene-source/skills/photocraft-scenario-playbooks/references/recipes.json") }
+          if (@("photocraft", "gridcraft", "wordcraft", "deckcraft") -contains "${{ matrix.plugin }}") { $sceneArgs = @("--playbook", "scene-source/skills/${{ matrix.plugin }}-scenario-playbooks/references/recipes.json") }
           python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.plugin }} --output cli-result @sceneArgs
           exit $LASTEXITCODE
       - uses: actions/upload-artifact@v4

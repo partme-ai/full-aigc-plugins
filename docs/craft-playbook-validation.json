@@ -48,8 +48,8 @@
     },
     {
       "application": "deckcraft",
-      "mappedScenes": 6,
-      "skills": 6
+      "mappedScenes": 14,
+      "skills": 7
     },
     {
       "application": "soundcraft",
@@ -58,15 +58,15 @@
     },
     {
       "application": "gridcraft",
-      "mappedScenes": 6,
-      "skills": 6
+      "mappedScenes": 18,
+      "skills": 7
     },
     {
       "application": "wordcraft",
-      "mappedScenes": 6,
-      "skills": 6
+      "mappedScenes": 14,
+      "skills": 7
     }
   ],
-  "mappedScenes": 122,
+  "mappedScenes": 150,
   "errors": []
 }

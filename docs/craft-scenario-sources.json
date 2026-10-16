@@ -247,6 +247,16 @@
           "path": "docs/user/quickstart.rst",
           "url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/docs/user/quickstart.rst",
           "bytes": 6082
+        },
+        {
+          "path": "docs/user/charts.rst",
+          "url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/docs/user/charts.rst",
+          "bytes": 9269
+        },
+        {
+          "path": "docs/user/notes.rst",
+          "url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/docs/user/notes.rst",
+          "bytes": 5768
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
@@ -266,6 +276,16 @@
           "path": "docs/user/quickstart.rst",
           "url": "https://github.com/python-openxml/python-docx/blob/e45454602b53e8e572b179ccf1c91093ec9f4ed7/docs/user/quickstart.rst",
           "bytes": 11875
+        },
+        {
+          "path": "docs/user/hdrftr.rst",
+          "url": "https://github.com/python-openxml/python-docx/blob/e45454602b53e8e572b179ccf1c91093ec9f4ed7/docs/user/hdrftr.rst",
+          "bytes": 6897
+        },
+        {
+          "path": "docs/user/text.rst",
+          "url": "https://github.com/python-openxml/python-docx/blob/e45454602b53e8e572b179ccf1c91093ec9f4ed7/docs/user/text.rst",
+          "bytes": 14125
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
@@ -329,6 +349,21 @@
           "path": "examples/conditional_format.py",
           "url": "https://github.com/jmcnamara/XlsxWriter/blob/5d4606d89a955226d2d0825a0f44309043ae7251/examples/conditional_format.py",
           "bytes": 9075
+        },
+        {
+          "path": "examples/data_validate.py",
+          "url": "https://github.com/jmcnamara/XlsxWriter/blob/5d4606d89a955226d2d0825a0f44309043ae7251/examples/data_validate.py",
+          "bytes": 6000
+        },
+        {
+          "path": "examples/autofilter.py",
+          "url": "https://github.com/jmcnamara/XlsxWriter/blob/5d4606d89a955226d2d0825a0f44309043ae7251/examples/autofilter.py",
+          "bytes": 7131
+        },
+        {
+          "path": "examples/tables.py",
+          "url": "https://github.com/jmcnamara/XlsxWriter/blob/5d4606d89a955226d2d0825a0f44309043ae7251/examples/tables.py",
+          "bytes": 10256
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
