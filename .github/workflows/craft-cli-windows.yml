@@ -56,13 +56,19 @@ jobs:
           repository: full-aigc-skills/lightcraft-skills
           ref: 00ef2d690c3a9cf652679e3e910d250b1d476932
           path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'cadcraft'
+        with:
+          repository: full-aigc-skills/cadcraft-skills
+          ref: 6da23965128f4f0ba212cc14d6e1422384c14ca7
+          path: scene-source
       - name: Run native CLI business operations
         env:
           PYTHONUTF8: '1'
         shell: pwsh
         run: |
           $sceneArgs = @()
-          if (@("photocraft", "gridcraft", "wordcraft", "deckcraft", "soundcraft", "lightcraft") -contains "${{ matrix.plugin }}") { $sceneArgs = @("--playbook", "scene-source/skills/${{ matrix.plugin }}-scenario-playbooks/references/recipes.json") }
+          if (@("photocraft", "gridcraft", "wordcraft", "deckcraft", "soundcraft", "lightcraft", "cadcraft") -contains "${{ matrix.plugin }}") { $sceneArgs = @("--playbook", "scene-source/skills/${{ matrix.plugin }}-scenario-playbooks/references/recipes.json") }
           python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.plugin }} --output cli-result @sceneArgs
           exit $LASTEXITCODE
       - uses: actions/upload-artifact@v4

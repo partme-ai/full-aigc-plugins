@@ -181,6 +181,9 @@ def main():
             elif a.plugin in {'gridcraft','wordcraft','deckcraft'}:
                 from office_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve(), a.plugin)
+            elif a.plugin == 'cadcraft':
+                from cad_playbook_smoke import run_playbooks
+                report['playbooks'] = run_playbooks(r, a.playbook.resolve())
             elif a.plugin in {'soundcraft','lightcraft'}:
                 from media_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve(), a.plugin)

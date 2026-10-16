@@ -1,0 +1,103 @@
+"""执行真实 CADCraft CLI 场景并解析保存后的DXF几何；不替代成图审阅。"""
+import json
+import math
+from pathlib import Path
+import xml.etree.ElementTree as ET
+
+
+def require(ok,message):
+    if not ok:raise AssertionError(message)
+
+
+def entities(text):
+    lines=text.splitlines(); require(len(lines)%2==0,'Odd DXF group lines')
+    pairs=[(int(lines[i].strip()),lines[i+1].strip()) for i in range(0,len(lines),2)]
+    result=[]; section=None;current=None
+    for i,(code,value) in enumerate(pairs):
+        if code==0 and value=='SECTION':
+            section=pairs[i+1][1];continue
+        if code==0 and value=='ENDSEC':
+            if section=='ENTITIES' and current:result.append(current)
+            section=None;current=None;continue
+        if section!='ENTITIES':continue
+        if code==0:
+            if current:result.append(current)
+            current={'type':value,'groups':[]}
+        elif current:current['groups'].append((code,value))
+    return result
+
+
+def number(e,code,default=None):
+    return next((float(v) for c,v in e['groups'] if c==code),default)
+
+
+def vertices(e):
+    xs=[float(v) for c,v in e['groups'] if c==10];ys=[float(v) for c,v in e['groups'] if c==20]
+    require(len(xs)==len(ys),'Unequal vertex coordinates')
+    return list(map(list,zip(xs,ys)))
+
+
+def near(a,b):
+    return len(a)==len(b) and all(math.isclose(x,y,abs_tol=1e-7) for x,y in zip(a,b))
+
+
+def verify_dxf(text,a):
+    es=entities(text)
+    circles=sorted([number(e,10),number(e,20),number(e,40)] for e in es if e['type']=='CIRCLE')
+    if 'circles' in a:
+        expected=sorted(a['circles']);require(len(circles)==len(expected),'Circle count changed')
+        require(all(near(x,y) for x,y in zip(circles,expected)),'Circle center/radius changed')
+    polys=[e for e in es if e['type']=='LWPOLYLINE']
+    if 'polygon' in a:
+        matches=[e for e in polys if vertices(e)==a['polygon']]
+        require(len(matches)==1,'Polygon vertices changed')
+        require(int(number(matches[0],70,0))&1,'Polygon is open')
+        v=vertices(matches[0]);area=abs(sum(x*y1-x1*y for (x,y),(x1,y1) in zip(v,v[1:]+v[:1])))/2
+        require(math.isclose(area,a['area'],abs_tol=1e-7),'Polygon area changed')
+    if 'openPolyline' in a:
+        matches=[e for e in polys if vertices(e)==a['openPolyline']]
+        require(len(matches)==1 and not int(number(matches[0],70,0))&1,'Route missing or closed')
+        v=vertices(matches[0]);length=sum(math.dist(p,q) for p,q in zip(v,v[1:]))
+        require(math.isclose(length,a['length'],abs_tol=1e-7),'Route length changed')
+    if 'closedPolylines' in a:
+        require(sum(bool(int(number(e,70,0))&1) for e in polys)==a['closedPolylines'],'Border closure/count wrong')
+    dims=[e for e in es if e['type']=='DIMENSION']
+    if 'dimensions' in a:require(len(dims)==a['dimensions'],'Native dimension count changed')
+    lines=[e for e in es if e['type']=='LINE']
+    if 'doorGap' in a:
+        lo,hi=a['doorGap']
+        for e in lines:
+            if number(e,20)==number(e,21)==0:
+                x1,x2=sorted((number(e,10),number(e,11)))
+                require(min(x2,hi)<=max(x1,lo),'Wall crosses doorway')
+        arcs=[e for e in es if e['type']=='ARC']
+        require(any(near([number(e,c) for c in (10,20,40,50,51)],a['arc']) for e in arcs),'Door swing arc changed')
+    if 'gridCoordinates' in a:
+        for v in a['gridCoordinates']:
+            require(any(near([number(e,c) for c in (10,20,11,21)],[v,0,v,3000]) for e in lines),'Vertical grid line missing')
+            require(any(near([number(e,c) for c in (10,20,11,21)],[0,v,3000,v]) for e in lines),'Horizontal grid line missing')
+    # Units are a real header setting, not inferred from the coordinates or a text label.
+    raw=text.splitlines();pairs=[(raw[i].strip(),raw[i+1].strip()) for i in range(0,len(raw),2)]
+    require(any(code=='9' and value=='$INSUNITS' and pairs[i+1]==('70','4') for i,(code,value) in enumerate(pairs[:-1])),'Millimetre unit lost')
+    return es
+
+
+def run_playbooks(r,path):
+    data=json.loads(Path(path).read_text(encoding='utf-8'));require(data['application']=='cadcraft','Wrong app')
+    records=[]
+    for recipe in data['recipes']:
+        args=['run','--metric']
+        for s in recipe['steps']:args+=['--cmd',s['command']+' '+json.dumps(s['params'],ensure_ascii=False,separators=(',',':'))]
+        target=recipe['id']+'.dxf';r.run(*args,'--save',target)
+        assertion=recipe['assertions'];verify_dxf((r.work/target).read_text(encoding='utf-8'),assertion)
+        reopened=json.loads(r.run('info',target));require(reopened['entityCount']>0,'Empty reopened drawing')
+        inspected=r.run('run',target,'--cmd','drawing.inspect {"entities":true,"limit":200}')
+        info=json.loads(inspected.splitlines()[0]);require(len(info['entities'])>0,'No reopened entity geometry')
+        if assertion.get('texts'):
+            texts=r.run('run',target,'--cmd','texts {}')
+            for text in assertion['texts']:require(text in texts,'Reopened label missing: '+text)
+        svg=recipe['id']+'.svg';r.run('convert',target,svg)
+        ET.fromstring((r.work/svg).read_bytes())
+        records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','geometryChecks':'PASS','drawingReview':'NOT_TESTED'})
+    require(bool(records),'No CAD scenarios selected')
+    return records
