@@ -12,12 +12,12 @@ module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 class PlaybookContractTests(unittest.TestCase):
     def fixture(self,path):
         (path/'references').mkdir()
-        (path/'SKILL.md').write_text('---\nname: pdf-test\ndescription: test\n---\n[步骤](references/craft-steps.json)\n')
+        (path/'SKILL.md').write_text('---\nname: pdf-test\ndescription: test\n---\n[步骤](references/craft-steps.json)\n', encoding='utf-8')
         step={'id':'pdf-edit','check':'reopen','boundary':'preserve original','steps':[{'command':'doc_info','params':{'doc':1}}]}
-        (path/'references/craft-steps.json').write_text(json.dumps(step))
+        (path/'references/craft-steps.json').write_text(json.dumps(step), encoding='utf-8')
         evidence={'observedCommands':{'doc_info':{'input_schema':{'type':'object','properties':{'doc':{'type':'integer'}},'required':['doc'],'additionalProperties':False}}}}
-        (path/'references/craft-command-evidence.json').write_text(json.dumps(evidence))
-        (path/'references/workflow-sources.json').write_text(json.dumps({'sources':[{'commit':'a'*40,'readFiles':[{'path':'docs.md'}]}]}))
+        (path/'references/craft-command-evidence.json').write_text(json.dumps(evidence), encoding='utf-8')
+        (path/'references/workflow-sources.json').write_text(json.dumps({'sources':[{'commit':'a'*40,'readFiles':[{'path':'docs.md'}]}]}), encoding='utf-8')
 
     def test_valid_self_contained_recipe(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -26,17 +26,17 @@ class PlaybookContractTests(unittest.TestCase):
 
     def test_unknown_method_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
-            p=Path(tmp);self.fixture(p);f=p/'references/craft-steps.json';d=json.loads(f.read_text());d['steps'][0]['command']='photoshop.fakeRepair';f.write_text(json.dumps(d))
+            p=Path(tmp);self.fixture(p);f=p/'references/craft-steps.json';d=json.loads(f.read_text(encoding='utf-8'));d['steps'][0]['command']='photoshop.fakeRepair';f.write_text(json.dumps(d), encoding='utf-8')
             errors,_=module.validate_skill(p);self.assertTrue(any('unknown method' in e for e in errors))
 
     def test_document_id_parameter_cannot_be_guessed(self):
         with tempfile.TemporaryDirectory() as tmp:
-            p=Path(tmp);self.fixture(p);f=p/'references/craft-steps.json';d=json.loads(f.read_text());d['steps'][0]['params']={'document':1};f.write_text(json.dumps(d))
+            p=Path(tmp);self.fixture(p);f=p/'references/craft-steps.json';d=json.loads(f.read_text(encoding='utf-8'));d['steps'][0]['params']={'document':1};f.write_text(json.dumps(d), encoding='utf-8')
             errors,_=module.validate_skill(p);self.assertTrue(any('parameters mismatch' in e for e in errors))
 
     def test_cross_skill_reference_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
-            p=Path(tmp);self.fixture(p);(p/'SKILL.md').write_text('[wrong](../other/SKILL.md)')
+            p=Path(tmp);self.fixture(p);(p/'SKILL.md').write_text('[wrong](../other/SKILL.md)', encoding='utf-8')
             errors,_=module.validate_skill(p);self.assertTrue(any('invalid local reference' in e for e in errors))
 
 if __name__=='__main__':unittest.main()
