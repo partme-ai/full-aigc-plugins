@@ -120,6 +120,9 @@ def run_playbooks(r,path,app):
             with zipfile.ZipFile(r.work/pptx) as z:verify_deck(z,assertion)
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','semanticChecks':'PASS','layoutAcceptance':'NOT_TESTED'})
     require(bool(records),'No Office scenarios selected')
+    if app=='gridcraft':
+        from grid_core_smoke import run_playbooks as run_core
+        records.extend(run_core(r, Path(path).resolve().parents[2]))
     if app=='deckcraft':
         # 真实组合两条手册，防止后一个file.new清空已有页。
         combined=[next(x for x in data['recipes'] if x['id']==id) for id in ['option-comparison-table','trend-actual-plan']]
