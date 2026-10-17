@@ -262,7 +262,8 @@
     "immutableRelease": "PUBLISHED",
     "publicZipNativeInstallAndMcp": "PASS",
     "validation": "craft-v6-installation-validation.json",
-    "subscribedMarketplace": "PENDING_MAIN_MERGE"
+    "subscribedMarketplace": "PUBLISHED_MAIN_AND_NATIVE_LIST_VERIFIED",
+    "mainCommit": "46078cf39601f800030028cae727aaac827d4f5d"
   },
   "visualReview": {
     "scope": "Synthetic A3 sample only; not commercial event materials or print certification",

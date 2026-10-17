@@ -352,7 +352,8 @@
     "immutableRelease": "PUBLISHED",
     "publicZipNativeInstallAndMcp": "PASS",
     "validation": "craft-v6-installation-validation.json",
-    "subscribedMarketplace": "PENDING_MAIN_MERGE"
+    "subscribedMarketplace": "PUBLISHED_MAIN_AND_NATIVE_LIST_VERIFIED",
+    "mainCommit": "46078cf39601f800030028cae727aaac827d4f5d"
   },
   "pluginValidation": {
     "sourceLockHistoricalPluginVersion": "0.1.0-dev.6",

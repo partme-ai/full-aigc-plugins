@@ -29,5 +29,41 @@
     }
   ],
   "sourceSnapshots": "plugins/source-lock.json",
-  "remoteTagsAndAssetDigests": "docs/craft-marketplace-candidate-releases.json"
+  "remoteTagsAndAssetDigests": "docs/craft-marketplace-candidate-releases.json",
+  "mainPublicationCommit": "46078cf39601f800030028cae727aaac827d4f5d",
+  "subscribedMarketplaceRefresh": {
+    "errors": [],
+    "nativeHostListing": [
+      {
+        "plugin": "designcraft",
+        "marketVersion": "0.1.0-dev.20261017.6",
+        "available": "AVAILABLE",
+        "skillsInMarketPackage": 15,
+        "nativeLogoAndComposerIcon": "PASS",
+        "installedInUserProfile": false
+      },
+      {
+        "plugin": "printcraft",
+        "marketVersion": "0.1.0-dev.20261017.6",
+        "available": "AVAILABLE",
+        "skillsInMarketPackage": 20,
+        "nativeLogoAndComposerIcon": "PASS",
+        "installedInUserProfile": false
+      }
+    ]
+  },
+  "testCI": {
+    "marketGitZip27Jobs": 39033505149,
+    "windowsInstallMcp": 39033505148,
+    "windowsCliBusiness13Apps": 39033505189,
+    "conclusion": "success"
+  },
+  "mainCI": {
+    "commit": "46078cf39601f800030028cae727aaac827d4f5d",
+    "marketGitZip27Jobs": 39033717411,
+    "windowsInstallMcp14Jobs": 39033717426,
+    "windowsCliBusiness13Apps": 39033717250,
+    "conclusion": "success"
+  },
+  "snapshotTreeDigests13Apps": "PASS"
 }
