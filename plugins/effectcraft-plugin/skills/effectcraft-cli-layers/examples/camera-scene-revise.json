@@ -1,0 +1,81 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "tool": "open_project",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          "Primary camera"
+        ]
+      }
+    },
+    {
+      "command": "view.set3DView",
+      "params": {
+        "view": "activeCamera"
+      }
+    },
+    {
+      "command": "camera.dolly",
+      "params": {
+        "layer": "Primary camera",
+        "amount": -25
+      },
+      "as": "dolly"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Primary camera"
+      },
+      "as": "cameraProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Hero cube"
+      },
+      "as": "subjectProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Fill light"
+      },
+      "as": "lightProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Control"
+      },
+      "as": "controlProperties"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "path": {
+          "$output": "preview.png"
+        },
+        "time": 0,
+        "inline": false
+      }
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "project.ecproj"
+        }
+      }
+    }
+  ]
+}

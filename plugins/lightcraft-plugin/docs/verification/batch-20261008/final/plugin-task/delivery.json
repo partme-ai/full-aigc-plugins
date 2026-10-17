@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "taskId": "8fe90b2f-1d71-4a61-95ea-e52eb357ecb7",
+  "runId": "a25ca190-7eb4-4869-8ab2-5b6a54d116be",
+  "acceptance": {
+    "execution": "NATIVE_EXIT_ZERO_REVIEW_REQUIRED",
+    "persistence": "PASS",
+    "artifacts": "PASS",
+    "reopen": "PASS",
+    "visual": "PASS"
+  },
+  "artifacts": [
+    {
+      "schemaVersion": 1,
+      "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008-final/exports/plugin-initial-2.png",
+      "bytes": 4406,
+      "sha256": "d4c5a2426a28ab91c14eafd07dfde51f1512fc3160bb63592630ba8fbe7ed4ac",
+      "format": "png",
+      "width": 60,
+      "height": 40,
+      "bitDepth": 8,
+      "colorProfile": "sRGB",
+      "iccSha256": null,
+      "decoder": "macOS sips",
+      "decodable": true,
+      "technicalStatus": "PASS",
+      "differences": {},
+      "visualAcceptance": "NOT_RUN"
+    },
+    {
+      "schemaVersion": 1,
+      "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008-final/exports/plugin-revision-3.png",
+      "bytes": 1783,
+      "sha256": "febd3e0c0a1808cdf3a7646a7c74d33abcb570d59b798edcf691ce5c869f9b4e",
+      "format": "png",
+      "width": 60,
+      "height": 40,
+      "bitDepth": 8,
+      "colorProfile": "sRGB",
+      "iccSha256": null,
+      "decoder": "macOS sips",
+      "decodable": true,
+      "technicalStatus": "PASS",
+      "differences": {},
+      "visualAcceptance": "NOT_RUN"
+    }
+  ],
+  "reviewReceipt": {
+    "schemaVersion": 1,
+    "requestId": "070def25-8a45-47ae-9cf4-7db8996d8d28",
+    "bindingSha256": "531062d202f097431368eeb96e6b776f540c818c283275af02c0bfba55a7cc0b",
+    "source": "host-model",
+    "reviewer": "Codex actual final-run image inspection 2026-10-08",
+    "verdict": "PASS",
+    "observations": [
+      "已查看本次 final 运行的第一张原候选与第二张修订 PNG；修订后第二张亮部降低，梯度连续，无黑块、撕裂或异常边界。第一张继续使用原候选且摘要未改变。完整设置回执满足曝光 0.75/0.125；仅覆盖本组合成梯度目标，不外推 RAW 或真实照片审美。"
+    ]
+  },
+  "reopenEvidence": {
+    "receiptPath": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008-final/plugin-reopen/receipt.json"
+  },
+  "unverified": [
+    "other RAW variants",
+    "other platforms",
+    "remote CI"
+  ]
+}

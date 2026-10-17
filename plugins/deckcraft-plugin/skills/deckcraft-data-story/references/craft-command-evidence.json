@@ -1,0 +1,43 @@
+{
+  "runtime": {
+    "versionReported": "deckcraft-cli 0.7.0",
+    "repository": "storytold/deckcraft",
+    "commit": "1dc69720db64323370dda061226becb09ad79fd4",
+    "exeSha256": "aec949e6253ca3df96473042e7f736233fae32c3ff9ef6e67e870650b0e81cb9",
+    "artifactRun": 39007814128
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014846480",
+  "observedCommands": {
+    "file.new": {
+      "id": "file.new",
+      "catalogLine": "file.new — New Presentation: {theme?: name, template?: starter name, size?: [w,h] pt, blank?: bool}",
+      "params": "{theme?: name, template?: starter name, size?: [w,h] pt, blank?: bool}"
+    },
+    "slide.new": {
+      "id": "slide.new",
+      "catalogLine": "slide.new — New Slide: {layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}",
+      "params": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+    },
+    "insert.chart": {
+      "id": "insert.chart",
+      "catalogLine": "insert.chart — Chart…: {type?: column|bar|line|pie|doughnut|area|scatter|stackedColumn|…, rect?, categories?: [..], series?: [{name, values}]}",
+      "params": "{type?: column|bar|line|pie|doughnut|area|scatter|stackedColumn|…, rect?, categories?: [..], series?: [{name, values}]}"
+    },
+    "slide.notes": {
+      "id": "slide.notes",
+      "catalogLine": "slide.notes — Notes: {text | body: formatted notes (as in slide.inspect's notesBody), index?} (text as typed: untouched notes keep their formatting)",
+      "params": "{text | body: formatted notes (as in slide.inspect's notesBody), index?} (text as typed: untouched notes keep their formatting)"
+    }
+  },
+  "sceneAcceptance": "LIMITED_TECHNICAL_PASS",
+  "baselineRuntime": {
+    "version": "v0.7.0",
+    "url": "https://github.com/storytold/deckcraft/releases/download/v0.7.0/deckcraft-0.7.0-windows-x64-portable.zip",
+    "sha256": "3d67962a206af89d66ef443a042efcc5386a14d4e0d9c056bc1f62a84bd7954c",
+    "executable": "deckcraft-cli.exe"
+  },
+  "limits": [
+    "Native and PPTX editable structure only",
+    "Visual layout and installed-host synchronization not tested"
+  ]
+}

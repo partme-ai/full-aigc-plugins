@@ -1,0 +1,13 @@
+{
+  "name": "vectorcraft",
+  "icon": "vectorcraft/icon.png",
+  "source": "https://raw.githubusercontent.com/storytold/vectorcraft/a06717777828867557d759c674283304f63c04ae/assets/app-icon/vectorcraft.svg",
+  "homepage": "https://github.com/storytold/vectorcraft",
+  "matchedBy": "upstream-app-icon",
+  "mimeType": "image/png",
+  "license": "MIT",
+  "modifications": "Square full-bleed background; 256px PNG. Artwork preserved; corner rounding delegated to client.",
+  "sha256": "fcc18fe26422fce4d645ba7e40badb760468638920d38940c3f65e100fdbc9b8",
+  "localFile": "./assets/official-logo.png",
+  "displayName": "VectorCraft Use"
+}

@@ -1,0 +1,50 @@
+{
+  "status": "local-unreleased",
+  "sourcePackage": "full-aigc-skills/wordcraft-skills",
+  "skills": [
+    {
+      "name": "wordcraft-editor",
+      "sha256": "1a2492416c341b0967a65dd8a66deb017b44bdef9e9bd0d8eec0ff6a7b16a5c3"
+    },
+    {
+      "name": "wordcraft-business-proposal",
+      "sha256": "a68a9f8ec9013bf24ba319514a59abc13be892efc86eb754f32f6561c78e5399"
+    },
+    {
+      "name": "wordcraft-meeting-minutes",
+      "sha256": "15d5c27f8047e3ee5b2e6ad1fec0e2569eec23024d5e0fe90b98f76cde420806"
+    },
+    {
+      "name": "wordcraft-research-report",
+      "sha256": "d8e0ef7ef455aaa0e93dd26c147aa12a43f7605749568c97e0f571714e792ace"
+    },
+    {
+      "name": "wordcraft-resume-layout",
+      "sha256": "e14cce8984350b0f6058b72ce9a586f3dfd040e969317d7694fe1f5ad7f595b7"
+    },
+    {
+      "name": "wordcraft-document-style",
+      "sha256": "18bec47c9bd4a64156440397bad79e3401005fe1b34018ece01853f1310734b8"
+    },
+    {
+      "name": "wordcraft-document-comparison",
+      "sha256": "5fda05dac8977c6f74ed7d837d6812f788901463fcf5e89d6b7d3dda3c59e00f"
+    },
+    {
+      "name": "wordcraft-weekly-report",
+      "sha256": "38e77c6d0fd5ac3dae08329af1b22ce78b9dcb767c30d47c659a3d744bf9d6ce"
+    },
+    {
+      "name": "wordcraft-requirements-document",
+      "sha256": "2e5a8096b6362d29aeb851c5dde1de92c503734bb19dac9b98730c4ffa93cb44"
+    },
+    {
+      "name": "wordcraft-acceptance-report",
+      "sha256": "1efcfc271ad42fad6c64db988884d0c179b4fb5067f20999174c674ba4bc8b91"
+    },
+    {
+      "name": "wordcraft-business-letter",
+      "sha256": "f14b9b9f29c53b6a5c2a1896615f3689a3c1dd0dd30e119307592f0d2683a072"
+    }
+  ]
+}

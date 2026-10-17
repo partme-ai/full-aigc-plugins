@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "sourceFingerprint": "6cd09b5e38c502a0547e3fbd70f125dc070bf01440b6cf5a4da5e64f9e5b135f",
+  "layers": {
+    "structure": {
+      "status": "PASS",
+      "evidence": [
+        "../../../scripts/validate_package.py",
+        "README.md"
+      ]
+    },
+    "mock": {
+      "status": "PASS",
+      "evidence": [
+        "unittest-python-3.12.log",
+        "unittest-python-3.13.log"
+      ]
+    },
+    "native": {
+      "status": "PASS",
+      "evidence": [
+        "final/plugin-task/delivery.json",
+        "final/plugin-task/state.json",
+        "final/plugin-reopen/receipt.json"
+      ],
+      "scope": "three synthetic photos, fixed CLI 0.2.1 macOS arm64; batch and selective revision only"
+    },
+    "host": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "visual": {
+      "status": "PASS",
+      "evidence": [
+        "final/plugin-task/state.json",
+        "final/exports/plugin-initial-2.png",
+        "final/exports/plugin-revision-3.png"
+      ],
+      "scope": "actual host-model image inspection of synthetic gradient goal; not Codex CLI plugin loading"
+    },
+    "platform": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "remoteCI": {
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  },
+  "scope": "SEXT2-1/PEXT2-1 batch-only development evidence; other gates remain OPEN",
+  "completeAcceptance": false
+}

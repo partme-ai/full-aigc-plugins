@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "dest": "skills/",
+  "skills": [
+    "figcraft-design-system",
+    "figcraft-dev-handoff",
+    "figcraft-editor",
+    "figcraft-import-fig",
+    "figcraft-prototype-flow",
+    "figcraft-responsive-layout",
+    "figcraft-scenario-playbooks",
+    "figcraft-wireframe"
+  ]
+}

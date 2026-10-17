@@ -1,0 +1,70 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "effectcraft",
+  "runtimeVersion": "0.2.0",
+  "upstreamRepository": "https://github.com/storytold/effectcraft",
+  "upstreamCommit": "f5ebe5f6c5e887dddda4a2be1fcb47154e959b81",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "puppet.addPin",
+      "label": "Add Puppet Pin",
+      "params": "{layer?, kind?: position|advanced|bend|starch|overlap, position: [x,y] (layer space), time? (s) | frame?, mesh?: uid, newMesh?, density?, expansion?, triangles?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "puppet.movePin",
+      "label": "Move Puppet Pin",
+      "params": "{layer?, pin: uid | name, position: [x,y], time? | frame?, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "puppet.setPin",
+      "label": "Edit Puppet Pin",
+      "params": "{layer?, pin: uid | name, position?, scale? (%), rotation? (°), amount? (%), extent? (px), inFront?, time? | frame?, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "puppet.removePin",
+      "label": "Delete Puppet Pin",
+      "params": "{layer?, pin?: uid | name, pins?: [uid | name…]} (default: the selected pins)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "puppet.selectPins",
+      "label": "Select Puppet Pins",
+      "params": "{layer?, pins: [uid | name…] ([] deselects), add?, toggle?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "puppet.mesh",
+      "label": "Puppet Mesh Options",
+      "params": "{layer?, mesh?: uid, density?, expansion?, triangles?, showMesh?, time?, merge?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "puppet.info",
+      "label": "Puppet Mesh Info",
+      "params": "{layer?, time? | frame?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "puppet.recordPin",
+      "label": "Record Puppet Pin",
+      "params": "{layer?, pin: uid | name, samples: [[t, x, y]…] (t = seconds since the drag began, layer space), pins?: [uid | name…] (more pins that move by the same displacement), start? (s, default current time), speed? (%, Record Options), smoothing? (Record Options)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "puppet.follow",
+      "label": "Follow-Through...",
+      "params": "{layer?, leader?: uid | name (default: the first selected pin), pins?: [uid | name…] (default: the other selected pins), delay? (s, 0.1), amount? (%, 100), cascade? (true: the k-th nearest pin trails k × delay)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "puppet.recordOptions",
+      "label": "Record Options...",
+      "params": "{speed? (%, 100), smoothing? (0-100), useDraftDeformation?, showMesh?}",
+      "enabledAtEmptySession": true
+    }
+  ]
+}

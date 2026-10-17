@@ -1,0 +1,232 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "effectcraft",
+  "runtimeVersion": "0.2.0",
+  "upstreamRepository": "https://github.com/storytold/effectcraft",
+  "upstreamCommit": "f5ebe5f6c5e887dddda4a2be1fcb47154e959b81",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "roto.models",
+      "label": "Roto Brush Models",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "roto.model.select",
+      "label": "Use Roto Brush Model",
+      "params": "{id: classical|mobilesam, wait?} (Roto Brush 2.0 / 3.0 use it; wait: loaded before returning)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "roto.model.install",
+      "label": "Install Roto Brush Model",
+      "params": "{path: weights file, id?, wait?} — verified against the registry's SHA-256",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "roto.model.download",
+      "label": "Download Roto Brush Model",
+      "params": "{id, wait?} — the official weights, verified (desktop; uses the system curl)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "roto.model.remove",
+      "label": "Remove Roto Brush Model",
+      "params": "{id}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "mask.new",
+      "label": "New Mask from Points",
+      "params": "{layer?, vertices: [[x,y]…], inTangents?, outTangents?, closed?, mode?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.addVertex",
+      "label": "Add Mask Vertex",
+      "params": "{layer?, mask, point: [x,y], in?, out?, index?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.setVertex",
+      "label": "Set Mask Vertex",
+      "params": "{layer?, mask, index, point?, in?, out?, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.setClosed",
+      "label": "Closed",
+      "params": "{layer?, mask, closed?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.selectVertices",
+      "label": "Select Mask Vertices",
+      "params": "{vertices: [{layer, mask, index}], add?, toggle?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.moveVertices",
+      "label": "Move Mask Vertices",
+      "params": "{vertices?: [{layer, mask, index}], delta: [dx,dy], merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.deleteVertices",
+      "label": "Delete Mask Vertices",
+      "params": "{vertices?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.convertVertex",
+      "label": "Convert Vertex",
+      "params": "{layer?, mask: uid (mask or shape Path item), index, smooth?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.insertVertex",
+      "label": "Add Vertex",
+      "params": "{layer?, mask: uid (mask or shape Path item), segment, t?: 0..1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.featherPoint.add",
+      "label": "Add Mask Feather Point",
+      "params": "{layer?, mask, segment?, t?: 0..1, point?: [x,y] (layer space), radius? (px, negative = inner), tension? (%)} → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.featherPoint.set",
+      "label": "Move Mask Feather Point",
+      "params": "{layer?, mask, index, segment?, t?, point? (slide along the path), radius?, toward?: [x,y] (radius from the drag point, layer space), tension? (%), merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.featherPoint.remove",
+      "label": "Delete Mask Feather Point",
+      "params": "{layer?, mask, index? | all?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.featherPoint.list",
+      "label": "Mask Feather Points",
+      "params": "{layer?, mask}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "mask.remove",
+      "label": "Remove Mask",
+      "params": "{layer?, mask}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.removeAll",
+      "label": "Remove All Masks",
+      "params": "{layer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.rotoBezier",
+      "label": "RotoBezier",
+      "params": "{layer?, mask?, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.convertToBezier",
+      "label": "Convert To Bezier Path",
+      "params": "{layer?, mask?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.groupShapes",
+      "label": "Group Shapes",
+      "params": "{layer?, items?: [uid]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.ungroupShapes",
+      "label": "Ungroup Shapes",
+      "params": "{layer?, items?: [group uid]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.setFirstVertex",
+      "label": "Set First Vertex",
+      "params": "{layer?, mask?: uid, index?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.freeTransform",
+      "label": "Free Transform Points",
+      "params": "{layer?, mask?, scale?: % | [x%, y%], rotation?: deg, offset?: [dx, dy], anchor?: [x, y]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.interpolate",
+      "label": "Apply Mask Interpolation",
+      "params": "{layer?, mask?, times?: [from, to] (s; default the selected Mask Path keys), keyframeRate?: n|auto, keyframeFields?, linearVertexPaths?, bendingResistance? (0-100), quality? (0-100), addVertices?: n|false, addVerticesUnit?: pixels|total|percent, matchingMethod?: auto|curve|polyline, oneToOne?, firstVerticesMatch?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mask.interpolationOptions",
+      "label": "Mask Interpolation Options",
+      "params": "{keyframeRate?: n|auto, keyframeFields?, linearVertexPaths?, bendingResistance?, quality?, addVertices?: n|false, addVerticesUnit?: pixels|total|percent, matchingMethod?: auto|curve|polyline, oneToOne?, firstVerticesMatch?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "roto.stroke",
+      "label": "Roto Brush Stroke",
+      "params": "{layer?, kind?: fg|bg|refine|refineErase, points: [[x, y], …] (layer pixels), frame? (layer frame; default current), radius? (layer px; default the tool's diameter / 2), effect?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "roto.propagate",
+      "label": "Propagate Roto Brush",
+      "params": "{layer?, effect?, direction?: forward|backward|both, to? (layer frame: extend the span), wait?: block until done}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "roto.span",
+      "label": "Set Segmentation Span",
+      "params": "{layer?, effect?, start?, end? (layer frames)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "roto.freeze",
+      "label": "Freeze",
+      "params": "{layer?, effect?, wait?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "roto.unfreeze",
+      "label": "Unfreeze",
+      "params": "{layer?, effect?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "roto.clearStrokes",
+      "label": "Remove Roto Brush Strokes",
+      "params": "{layer?, effect?, frame? (only this layer frame), kind?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "roto.cancel",
+      "label": "Stop Roto Brush",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "roto.options",
+      "label": "Roto Brush Options",
+      "params": "{diameter?, refineDiameter?, view?: alphaBoundary|alpha|alphaOverlay|none, overlayColor?: [r,g,b], overlayOpacity?, boundaryColor?: [r,g,b], autoPropagate?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "roto.status",
+      "label": "Roto Brush Status",
+      "params": "{layer?, effect?, frame? (layer frame: also report its matte), matte?: include the matte (RLE, base64), compute?: compute the frame if needed, compareTo?: RLE matte to report the IoU against}",
+      "enabledAtEmptySession": true
+    }
+  ]
+}

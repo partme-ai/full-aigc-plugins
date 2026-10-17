@@ -1,0 +1,519 @@
+{
+  "baselineCount": 234,
+  "mainCount": 321,
+  "added": [
+    "comment.next",
+    "comment.prev",
+    "design.applyIdea",
+    "design.browseTheme",
+    "design.effects",
+    "design.ideas",
+    "design.variant",
+    "design.variants",
+    "draw.inkToShape",
+    "edit.pasteSpecial",
+    "file.adopt",
+    "file.templates",
+    "font.add",
+    "font.replace",
+    "font.rescan",
+    "font.used",
+    "format.fontDialog",
+    "format.language",
+    "format.paragraphDialog",
+    "format.ruler",
+    "format.tabs",
+    "format.textTransparency",
+    "format.textWarp",
+    "guide.add",
+    "guide.delete",
+    "guide.list",
+    "guide.move",
+    "handout.placeholders",
+    "insert.icon",
+    "insert.icons",
+    "insert.photoAlbum",
+    "insert.photoAlbumEdit",
+    "insert.zoom",
+    "master.placeholders",
+    "master.preserve",
+    "notes.placeholders",
+    "picture.artisticEffect",
+    "picture.compress",
+    "picture.recolor",
+    "picture.recolors",
+    "picture.removeBackground",
+    "picture.style",
+    "picture.styles",
+    "picture.transparentColor",
+    "review.accept",
+    "review.addToDictionary",
+    "review.compare",
+    "review.dictionary",
+    "review.endCompare",
+    "review.replaceWord",
+    "review.revisions",
+    "review.spellingChange",
+    "review.thesaurus",
+    "shape.action",
+    "shape.addPoint",
+    "shape.deletePoint",
+    "shape.editPoints",
+    "shape.moveHandle",
+    "shape.movePoint",
+    "shape.pointType",
+    "shape.points",
+    "shape.sizePosition",
+    "shape.smoothCorners",
+    "slide.colorAt",
+    "slide.reuse",
+    "smartArt.addNode",
+    "smartArt.colors",
+    "smartArt.demote",
+    "smartArt.fromText",
+    "smartArt.layout",
+    "smartArt.nodes",
+    "smartArt.picture",
+    "smartArt.promote",
+    "smartArt.removeNode",
+    "smartArt.setNodes",
+    "smartArt.style",
+    "smartArt.toShapes",
+    "smartArt.toText",
+    "table.borders",
+    "table.cellAlign",
+    "table.cellMargins",
+    "table.drawLine",
+    "table.eraseLine",
+    "text.autocorrect",
+    "text.find",
+    "text.replace",
+    "transition.sound",
+    "view.handoutMaster",
+    "view.notesMaster"
+  ],
+  "removed": [],
+  "contractsChanged": [
+    {
+      "id": "animation.remove",
+      "baseline": {
+        "params": "{index} | {ids?} (all of the shapes' animations)"
+      },
+      "main": {
+        "params": "{index} | {ids? (all of the shapes' animations)}"
+      }
+    },
+    {
+      "id": "chart.data",
+      "baseline": {
+        "params": "{categories?: [..], series?: [{name, values}], id?}"
+      },
+      "main": {
+        "params": "{categories?: [..], levels?: [[..]] (outer category levels, innermost first), series?: [{name, values}], id?}"
+      }
+    },
+    {
+      "id": "chart.options",
+      "baseline": {
+        "params": "{title?: string|null, legend?: b|t|l|r|null, dataLabels?: bool, gridlines?: bool, palette?, id?}"
+      },
+      "main": {
+        "params": "{title?: string|null, legend?: b|t|l|r|null, dataLabels?: bool, gridlines?: bool, palette?, binCount?: n|null, binSize?: n|null, subtotals?: [point index], quartiles?: exclusive|inclusive, upDownBars?: bool, id?}"
+      }
+    },
+    {
+      "id": "design.background",
+      "baseline": {
+        "params": "{color? | gradient? | picture?: base64 | style?: 1..12 | reset?, all?: bool (apply to all), index?}"
+      },
+      "main": {
+        "params": "{color? | gradient? | picture?: base64 | pattern? | style?: 1..12 | reset?, all?: bool, index?, transparency?: 0..1, pictureProps?: {tile?, offsetX?, offsetY?: pt, scaleX?, scaleY?: 0.01..10, align?, mirror?, stretch?: [l,t,r,b], rotateWithShape?}, copy?: bool}"
+      }
+    },
+    {
+      "id": "design.colors",
+      "baseline": {
+        "params": "{name} | {colors: {accent1: #RRGGBB, …}}"
+      },
+      "main": {
+        "params": "{} opens Create New Theme Colors | {name} | {colors: {dk1|lt1|dk2|lt2|accent1..6|hlink|folHlink: #RRGGBB}}"
+      }
+    },
+    {
+      "id": "design.fonts",
+      "baseline": {
+        "params": "{name} | {major, minor}"
+      },
+      "main": {
+        "params": "{} opens Create New Theme Fonts | {name} | {major, minor}"
+      }
+    },
+    {
+      "id": "design.slideSize",
+      "baseline": {
+        "params": "{preset?: widescreen|standard|… | w, h: pt, scale?: maximize|ensureFit|none}"
+      },
+      "main": {
+        "params": "{preset: widescreen|standard|…, orientation?: portrait|landscape, scale?: maximize|ensureFit|none} | {w: pt, h: pt, orientation?: portrait|landscape, scale?: maximize|ensureFit|none}"
+      }
+    },
+    {
+      "id": "design.themes",
+      "baseline": {
+        "params": "{} → themes, colour schemes and font schemes"
+      },
+      "main": {
+        "params": "{} → themes, colour schemes, font schemes and effect schemes"
+      }
+    },
+    {
+      "id": "edit.copy",
+      "baseline": {
+        "params": "{scope?: slides} → {text}"
+      },
+      "main": {
+        "params": "{scope?: slides} → {text, html?}"
+      }
+    },
+    {
+      "id": "edit.cut",
+      "baseline": {
+        "params": "{scope?: slides}"
+      },
+      "main": {
+        "params": "{scope?: slides} → {text, html?}"
+      }
+    },
+    {
+      "id": "edit.paste",
+      "baseline": {
+        "params": "{text?: plain text to paste, scope?: slides}"
+      },
+      "main": {
+        "params": "{text?: plain text to paste, html?: rich text from another app, scope?: slides}"
+      }
+    },
+    {
+      "id": "edit.selectAll",
+      "baseline": {
+        "params": "{}"
+      },
+      "main": {
+        "params": "{scope?: slides}"
+      }
+    },
+    {
+      "id": "file.export",
+      "baseline": {
+        "params": "{path, format: png|jpeg|pptx|deckcraft|outline|pdf, slide?: index, all?: bool, scale?: px per pt; pdf: layout?: slides|notes|handouts, perPage?: 1|2|3|4|6|9, dpi?, slides?: [index] | \"1-3,5\", includeHidden?, textLayer?, frame?}"
+      },
+      "main": {
+        "params": "{path, format?: png|jpeg|pptx|deckcraft|outline|pdf|gif (else by path), slide?: index, all?: bool, scale?: px per pt, layout?: slides|notes|handouts (pdf), perPage?: 1|2|3|4|6|9, paper?: letter|a4|legal|a3 (pdf), orientation?: portrait|landscape (pdf), dpi?, slides?: [index]|range (\"1-3,5\"), includeHidden?, textLayer?, frame?, width?: px 16-3840|small|medium|large|extraLarge (gif), secondsPerSlide?: 0.1-600 (gif; 5), loop?: bool (gif; true: forever)} → {path, bytes} or {files} (png, jpeg); gif adds frames, width, height, secondsPerSlide"
+      }
+    },
+    {
+      "id": "file.new",
+      "baseline": {
+        "params": "{theme?: name, size?: [w,h] pt, blank?: bool}"
+      },
+      "main": {
+        "params": "{theme?: name, template?: starter name, size?: [w,h] pt, blank?: bool}"
+      }
+    },
+    {
+      "id": "file.recovery.discard",
+      "baseline": {
+        "params": "{uid?: one entry, else all}"
+      },
+      "main": {
+        "params": "{uid?: one entry (else all)}"
+      }
+    },
+    {
+      "id": "format.color",
+      "baseline": {
+        "params": "{color: #RRGGBB | accent1..6 | tx1… | {scheme, lumMod…}}"
+      },
+      "main": {
+        "params": "{color: #RRGGBB|accent1..6|tx1…|{scheme, lumMod…}}"
+      }
+    },
+    {
+      "id": "format.margins",
+      "baseline": {
+        "params": "{left?, top?, right?, bottom?: pt}"
+      },
+      "main": {
+        "params": "{left?: pt, top?: pt, right?: pt, bottom?: pt}"
+      }
+    },
+    {
+      "id": "format.numbering",
+      "baseline": {
+        "params": "{on?: bool, scheme?: arabicPeriod|arabicParenR|romanUcPeriod|romanLcPeriod|alphaUcPeriod|alphaLcParenR|alphaLcPeriod, start?: n}"
+      },
+      "main": {
+        "params": "{on?: bool, scheme?: arabicPeriod|arabicParenR|romanUcPeriod|romanLcPeriod|alphaUcPeriod|alphaLcParenR|alphaLcPeriod, start?: n, color?, size?: % of text}"
+      }
+    },
+    {
+      "id": "insert.dateTime",
+      "baseline": {
+        "params": "{format?: datetime1..}"
+      },
+      "main": {
+        "params": "{format?: datetime1..datetime13, update?: bool, language?: en-US|en-GB|fr-FR|ja-JP|sv-SE} — no keys opens the dialog"
+      }
+    },
+    {
+      "id": "insert.hyperlink",
+      "baseline": {
+        "params": "{url? | slide?: index, tooltip?, text?: shown when nothing is selected, ids?}"
+      },
+      "main": {
+        "params": "{url? | slide?: index, tooltip?, text?: shown when nothing is selected, highlightClick?, ids?}"
+      }
+    },
+    {
+      "id": "insert.smartArt",
+      "baseline": {
+        "params": "{kind: list|process|cycle|hierarchy|pyramid|matrix, items: [text]}"
+      },
+      "main": {
+        "params": "{kind: list|process|cycle|hierarchy|pyramid|matrix, items?: [text] (leading tabs = sub-points), nodes?: [{text, level}]} → {id}"
+      }
+    },
+    {
+      "id": "picture.crop",
+      "baseline": {
+        "params": "{left?, top?, right?, bottom?: fraction 0..1, ids?}"
+      },
+      "main": {
+        "params": "{left?: fraction 0..1, top?: fraction 0..1, right?: fraction 0..1, bottom?: fraction 0..1, ids?}"
+      }
+    },
+    {
+      "id": "review.spelling",
+      "baseline": {
+        "params": "{} → [{slide, shape, word}] (words not in the built-in list)"
+      },
+      "main": {
+        "params": "{lang?, ignore?:[word]} → [{slide, shape?, row?, col?, notes?, para, start, end, word, lang, suggestions}] (shapes, table cells and notes; repeated words as {repeated, deleteFrom}; runs marked noProof skipped; each run in its own language, lang? for runs without one; Hunspell dictionaries installed on the system, else a built-in list of common misspellings)"
+      }
+    },
+    {
+      "id": "shape.effects",
+      "baseline": {
+        "params": "{shadow?: none|outer|inner|perspective|{color, blur, dist, dir}, glow?: none|{color, radius}, softEdges?: pt, reflection?: none|tight|half|full, bevel?: none|circle|…, reset?, ids?}"
+      },
+      "main": {
+        "params": "{shadow?: none|outer|inner|perspective|{color, blur, dist, dir}, glow?: none|{color, radius}, softEdges?: pt, reflection?: none|tight|half|full, bevel?: none|circle|…, threeD?: {camera?: preset, rotX?, rotY?, rotZ?: deg, z?: pt, bevelTop?, bevelBottom?: none|circle|…, bevelTopW?, bevelTopH?, bevelBottomW?, bevelBottomH?, depth?, contour?: pt, material?, lighting?, reset?: true}, shadowProps?: {color?, transparency?: 0..1, blur?: pt, dist?: pt, dir?: deg}, glowProps?: {color?, transparency?, radius?: pt}, reflectionProps?: {transparency?, size?: 0..1, dist?: pt, blur?: pt}, reset?, ids?} (the *Props keys adjust the current effect, adding a default one when there is none)"
+      }
+    },
+    {
+      "id": "shape.fill",
+      "baseline": {
+        "params": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+      },
+      "main": {
+        "params": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}; pictureProps?: {tile?: bool, offsetX?, offsetY?: pt, scaleX?, scaleY?: 0..10, align?: tl|t|tr|l|ctr|r|bl|b|br, mirror?: none|x|y|xy, stretch?: [l, t, r, b] fractions, rotateWithShape?: bool} adjusts a picture fill"
+      }
+    },
+    {
+      "id": "shape.line",
+      "baseline": {
+        "params": "{color?, none?, width?: pt, dash?: solid|dot|dash|lgDash|dashDot|sysDot|sysDash, cap?, join?, head?: none|triangle|stealth|diamond|oval|arrow, tail?, reset?, ids?}"
+      },
+      "main": {
+        "params": "{color?, none?, width?: pt, dash?: solid|dot|dash|lgDash|dashDot|sysDot|sysDash, cap?: flat|round|square, join?: round|bevel|miter, compound?: single|double|thickThin|thinThick|triple, head?: none|triangle|stealth|diamond|oval|arrow, tail?, headSize?: sm|med|lg, tailSize?, reset?, ids?}"
+      }
+    },
+    {
+      "id": "shape.move",
+      "baseline": {
+        "params": "{dx?, dy?: pt (relative) | x?, y?: pt (absolute), ids?}"
+      },
+      "main": {
+        "params": "{dx?: pt (relative), dy?: pt (relative), ids?} | {x?: pt (absolute), y?: pt (absolute), ids?}"
+      }
+    },
+    {
+      "id": "shape.resize",
+      "baseline": {
+        "params": "{w?, h?: pt, lockAspect?: bool, ids?}"
+      },
+      "main": {
+        "params": "{w?: pt, h?: pt, lockAspect?: bool, ids?}"
+      }
+    },
+    {
+      "id": "shape.rotate",
+      "baseline": {
+        "params": "{deg?: absolute, by?: relative, ids?}"
+      },
+      "main": {
+        "params": "{deg?: absolute, by?: relative, ids?, gesture?: move|end}"
+      }
+    },
+    {
+      "id": "show.setup",
+      "baseline": {
+        "params": "{type?: speaker|browsed|kiosk, loop?: bool, noNarration?, noAnimation?, useTimings?, from?, to?}"
+      },
+      "main": {
+        "params": "{type?: speaker|browsed|kiosk, loop?: bool, noNarration?, noAnimation?, useTimings?, showMediaControls?, from?, to?, custom?: name}"
+      }
+    },
+    {
+      "id": "slide.fromOutline",
+      "baseline": {
+        "params": "{text}"
+      },
+      "main": {
+        "params": "{text, markdown?: bool (headings are slides, list items bullets)}"
+      }
+    },
+    {
+      "id": "slide.inspect",
+      "baseline": {
+        "params": "{index?} → the slide's shapes with ids, kinds, boxes, text, fills, animations, transition, notes"
+      },
+      "main": {
+        "params": "{index?} → the slide's shapes with ids, kinds, boxes, text, fills, animations, transition, notes (text, and notesBody with its formatting)"
+      }
+    },
+    {
+      "id": "slide.notes",
+      "baseline": {
+        "params": "{text, index?}"
+      },
+      "main": {
+        "params": "{text | body: formatted notes (as in slide.inspect's notesBody), index?} (text as typed: untouched notes keep their formatting)"
+      }
+    },
+    {
+      "id": "table.columnWidth",
+      "baseline": {
+        "params": "{col, width: pt, id?}"
+      },
+      "main": {
+        "params": "{col, width: pt, keepTotal?: bool (the next column absorbs the change), id?}"
+      }
+    },
+    {
+      "id": "table.options",
+      "baseline": {
+        "params": "{headerRow?, totalRow?, bandedRows?, firstColumn?, lastColumn?, bandedColumns?: bool, id?}"
+      },
+      "main": {
+        "params": "{headerRow?: bool, totalRow?: bool, bandedRows?: bool, firstColumn?: bool, lastColumn?: bool, bandedColumns?: bool, id?}"
+      }
+    },
+    {
+      "id": "table.split",
+      "baseline": {
+        "params": "{cell: [r, c], id?}"
+      },
+      "main": {
+        "params": "{cell?: [r, c] (else the edited cell), id?} | {row?: index, col?: index, id?}"
+      }
+    }
+  ],
+  "baselineUniqueCount": 232,
+  "comparisonStatus": "PARTIAL_DUPLICATE_BASELINE",
+  "ambiguousContracts": [
+    {
+      "id": "text.delete",
+      "baseline": [
+        {
+          "disabled_reason": "no presentation open",
+          "enabled": false,
+          "id": "text.delete",
+          "label": "Delete Text",
+          "menu": [],
+          "params": "{dir?: backward|forward|wordBackward|wordForward}",
+          "shortcut": "Backspace"
+        },
+        {
+          "disabled_reason": "no presentation open",
+          "enabled": false,
+          "id": "text.delete",
+          "label": "Delete Text",
+          "menu": [],
+          "params": "{dir?: backward|forward|wordBackward|wordForward} — the word directions are Ctrl+Backspace/Delete: they work from the start of a selection without deleting it",
+          "shortcut": "Backspace"
+        }
+      ],
+      "main": [
+        {
+          "disabled_reason": "no presentation open",
+          "enabled": false,
+          "id": "text.delete",
+          "label": "Delete Text",
+          "menu": [],
+          "params": "{dir?: backward|forward|wordBackward|wordForward} — the word directions are Ctrl+Backspace/Delete: they work from the start of a selection without deleting it",
+          "shortcut": "Backspace"
+        }
+      ]
+    },
+    {
+      "id": "text.move",
+      "baseline": [
+        {
+          "disabled_reason": "no presentation open",
+          "enabled": false,
+          "id": "text.move",
+          "label": "Move Insertion Point",
+          "menu": [],
+          "params": "{to: left|right|up|down|wordLeft|wordRight|lineStart|lineEnd|paraStart|paraEnd|start|end, extend?: bool}",
+          "shortcut": null
+        },
+        {
+          "disabled_reason": "no presentation open",
+          "enabled": false,
+          "id": "text.move",
+          "label": "Move Insertion Point",
+          "menu": [],
+          "params": "{to: left|right|up|down|wordLeft|wordRight|lineStart|lineEnd|paraStart|paraEnd|paraUp|paraDown|start|end, extend?: bool} — left/right are on screen: in a right-to-left paragraph left goes forward",
+          "shortcut": null
+        }
+      ],
+      "main": [
+        {
+          "disabled_reason": "no presentation open",
+          "enabled": false,
+          "id": "text.move",
+          "label": "Move Insertion Point",
+          "menu": [],
+          "params": "{to: left|right|up|down|wordLeft|wordRight|lineStart|lineEnd|paraStart|paraEnd|paraUp|paraDown|start|end, extend?: bool} — left/right are on screen: in a right-to-left paragraph left goes forward",
+          "shortcut": null
+        }
+      ]
+    }
+  ],
+  "app": "deckcraft",
+  "run": 39007814128,
+  "sourceCommit": "1dc69720db64323370dda061226becb09ad79fd4",
+  "baselineSha256": "0a73942eb220fc1229185f22c60cf6e93dd55ace0b9c84d025563a3fd5d4ae5b",
+  "mainSha256": "b8041420449b8fbdf0c20a6c88822cc5d973888a3934b1ed475ca1d31adf456b",
+  "baselineScope": "observed stable native CLI catalog; not old embedded engine",
+  "catalogKind": "native-engine-commands",
+  "calls": 32,
+  "records": 9,
+  "verifiedOutputs": 20,
+  "mainCapabilities": null,
+  "upstreamCapabilities": null,
+  "runtimeValidation": "existing eight workflows PASS; new template/reuse workflow NOT_TESTED",
+  "newTemplateWorkflow": {
+    "run": 39010982169,
+    "status": "PASS_NATIVE_WINDOWS",
+    "actualStarterTemplate": "PASS",
+    "selectedBrandPagesInOrder": "PASS",
+    "destinationAndSourcePreserved": "PASS",
+    "editablePptxText": "PASS",
+    "complexFormattingPreservation": "NOT_TESTED",
+    "externalPowerPointRendering": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED",
+    "templatesActualResponse": "object with templates array; help declares array"
+  }
+}

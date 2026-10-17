@@ -1,0 +1,24 @@
+✔ version bump synchronizes README versions and invalidates host acceptance (103.943542ms)
+✔ Content Factory RC is visible and test-installable without becoming a production plugin (50.363875ms)
+✔ README.md keeps catalog plugin counts and versions synchronized (3.282833ms)
+✔ README.en.md keeps catalog plugin counts and versions synchronized (0.46525ms)
+✔ skills-only plugins may omit mcp.json (3.239833ms)
+✔ host declarations require mcp.json across all supported hosts (4.040792ms)
+✔ native MCP config and string references require portable configuration (2.351416ms)
+✔ portable services cover host declarations without requiring identical native fields (1.382292ms)
+✔ empty portable configuration cannot hide native services (1.93ms)
+✔ malformed documents and nonstandard transports fail without throwing (4.445708ms)
+✔ invalid command, cwd and reserved environment names are rejected (1.843875ms)
+✔ remote endpoints require secure URLs and valid header fields (6.709084ms)
+✔ MCP and plugin schema versions must match (0.91325ms)
+✔ creates missing AGENTS.md (0.349125ms)
+✔ preserves a customized AGENTS.md unless refresh is explicit (0.055958ms)
+✔ does not rewrite an identical AGENTS.md (0.0445ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 153.631916

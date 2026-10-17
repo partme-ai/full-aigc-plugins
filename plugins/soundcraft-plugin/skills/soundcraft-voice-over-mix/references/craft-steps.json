@@ -1,0 +1,66 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "soundcraft",
+  "id": "voice-over-mix",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "读取实际轨道名/ID，确认配音Voice与音乐Bed分别存在",
+      "command": "session.inspect",
+      "params": {
+        "detail": "full"
+      }
+    },
+    {
+      "purpose": "仅降低音乐Bed，示例-18dB需要按配音与音乐实测重算",
+      "command": "mix.volume",
+      "params": {
+        "tracks": [
+          "Bed"
+        ],
+        "db": -18
+      }
+    },
+    {
+      "purpose": "明确将配音Voice居中，不沿用音乐轨的当前选择",
+      "command": "mix.pan",
+      "params": {
+        "tracks": [
+          "Voice"
+        ],
+        "pan": 0
+      }
+    },
+    {
+      "purpose": "导出明确四秒的24位审核母版",
+      "command": "file.bounce_mix",
+      "params": {
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        },
+        "format": "wav",
+        "bit_depth": 24,
+        "normalize": false,
+        "dither": false,
+        "path": "output/voice-mix.wav"
+      }
+    }
+  ],
+  "check": "单独听人声、音乐和混合结果，讲话期间字句清楚，输出无削波。",
+  "boundary": "Voice/Bed为示例轨道名；先由inspect匹配真实ID/名称，缺失或同名歧义时停止，不能新建同名轨代替用户素材。-18dB是测量起点，不是自动ducking或LUFS标准化；逐句试听音乐是否遮住配音。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "limitedTechnicalValidation": {
+    "run": 39011827930,
+    "nativeMainCommit": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+    "fixture": "4-second 48kHz synthetic mono sources; rendering to 24-bit stereo PCM",
+    "trackOrSegmentSignalChecks": "PASS",
+    "saveReopenRenderedSamples": "PASS",
+    "inputSessionAndSourcesUnchanged": "PASS",
+    "auditoryAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

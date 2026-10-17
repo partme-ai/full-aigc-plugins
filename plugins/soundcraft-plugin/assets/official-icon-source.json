@@ -1,0 +1,13 @@
+{
+  "name": "soundcraft",
+  "icon": "soundcraft/icon.png",
+  "source": "https://raw.githubusercontent.com/storytold/soundcraft/c0cb99340891d306e216582db465f3594b89dc1d/assets/app-icon/icon.svg",
+  "homepage": "https://github.com/storytold/soundcraft",
+  "matchedBy": "upstream-app-icon",
+  "mimeType": "image/png",
+  "license": "MIT",
+  "modifications": "Square full-bleed background; 256px PNG. Artwork preserved; corner rounding delegated to client.",
+  "sha256": "f5780e9b7af3f1d624481e72cfe6e5cdd0367458f58c661538c1f67041800673",
+  "localFile": "./assets/official-logo.png",
+  "displayName": "SoundCraft Use"
+}

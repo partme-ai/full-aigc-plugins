@@ -55,11 +55,9 @@ const codex = {
   owner: { name: "PartMe.AI", url: "https://github.com/partme-ai" },
   plugins: marketplacePlugins.map((plugin) => ({
     name: plugin.id,
-    source: {
-      source: "url",
-      url: `https://github.com/${plugin.repository}.git`,
-      ref: releaseRef(plugin)
-    },
+    source: plugin.codexSourcePath
+      ? { source: "local", path: plugin.codexSourcePath }
+      : { source: "url", url: `https://github.com/${plugin.repository}.git`, ref: releaseRef(plugin) },
     policy: { installation: "AVAILABLE", authentication: "ON_USE" },
     category: plugin.category,
     version: plugin.version,
@@ -116,6 +114,20 @@ const outputs = new Map([
   [path.join(root, "marketplace.json"), zcode],
   [path.join(root, "kimi-marketplace.json"), kimi]
 ]);
+
+// 候选库保留同版本的独立Git来源；主库包路径不能越过候选市场根。
+for (const [file, value] of [...outputs]) {
+  const candidateFile = path.join(root, "candidate-marketplace", path.relative(root, file));
+  if (!fs.existsSync(candidateFile)) continue;
+  const previous = JSON.parse(fs.readFileSync(candidateFile, "utf8"));
+  const entries = value.plugins.filter(entry => installableCandidates.some(candidate => candidate.id === (entry.name ?? entry.id)))
+    .map(entry => {
+      if (entry.source?.source !== "local") return entry;
+      const candidate = installableCandidates.find(plugin => plugin.id === entry.name);
+      return { ...entry, source: { source: "url", url: `https://github.com/${candidate.repository}.git`, ref: releaseRef(candidate) } };
+    });
+  outputs.set(candidateFile, { ...previous, plugins: entries });
+}
 
 const errors = [];
 const format = (value) => `${JSON.stringify(value, null, 2)}\n`;

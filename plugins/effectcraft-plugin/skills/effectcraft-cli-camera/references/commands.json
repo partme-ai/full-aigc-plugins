@@ -1,0 +1,292 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "effectcraft",
+  "runtimeVersion": "0.2.0",
+  "upstreamRepository": "https://github.com/storytold/effectcraft",
+  "upstreamCommit": "f5ebe5f6c5e887dddda4a2be1fcb47154e959b81",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "layer.setSwitch",
+      "label": "Layer Switch",
+      "params": "{layers?, switch: video|audio|solo|lock|shy|collapse|quality|fx|frameBlend|motionBlur|adjustment|threeD|guide|preserveTransparency, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newLight",
+      "label": "Light...",
+      "params": "{kind?: Parallel|Spot|Point|Ambient (default Spot), name?, color?, intensity?, coneAngle?, coneFeather?, falloff?: None|Smooth|Inverse Square Clamped, radius?, falloffDistance?, castsShadows?, shadowDarkness?, shadowDiffusion?, position? [x,y,z], poi? [x,y,z]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newCamera",
+      "label": "Camera...",
+      "params": "{name?, type?: oneNode|twoNode (default twoNode), preset?: 15mm|20mm|24mm|28mm|35mm|50mm|80mm|135mm|200mm, zoom?, focalLength? mm, angleOfView? deg, dof?, focusDistance?, aperture?, fStop?, blurLevel?, lockToZoom?, position? [x,y,z], poi? [x,y,z]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.cameraSettings",
+      "label": "Camera Settings...",
+      "params": "{layer?, name?, type?, preset?, zoom?, focalLength?, angleOfView?, dof?, focusDistance?, aperture?, fStop?, blurLevel?, position?, poi?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.set3DView",
+      "label": "Switch 3D View",
+      "params": "{view: activeCamera|default|front|left|top|back|right|bottom|custom1|custom2|custom3, comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.activeCamera",
+      "label": "Active Camera",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.default",
+      "label": "Default",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.front",
+      "label": "Front",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.left",
+      "label": "Left",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.top",
+      "label": "Top",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.back",
+      "label": "Back",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.right",
+      "label": "Right",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.bottom",
+      "label": "Bottom",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.custom1",
+      "label": "Custom View 1",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.custom2",
+      "label": "Custom View 2",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.custom3",
+      "label": "Custom View 3",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.3d.last",
+      "label": "Switch to Last 3D View",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.fromView",
+      "label": "Create Camera from 3D View",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.reset3DView",
+      "label": "Reset 3D View",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.set3DViewCamera",
+      "label": "Set 3D View Camera",
+      "params": "{view, eye? [x,y,z], poi? [x,y,z], zoom?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.orbit",
+      "label": "Orbit Camera",
+      "params": "{yaw|dx deg, pitch|dy deg, layer?, merge?} — current 3D view (camera layer in Active Camera)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.pan",
+      "label": "Pan Camera",
+      "params": "{dx, dy (comp px), layer?, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.dolly",
+      "label": "Dolly Camera",
+      "params": "{amount (px, + = forward), layer?, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.get3D",
+      "label": "3D View State",
+      "params": "{comp?} → current 3D view, view camera, active camera layer, lights",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "layer.new3dPrimitive",
+      "label": "3D Primitive",
+      "params": "{kind: cube|sphere|plane|torus|cone|cylinder, name?, width?, height?, depth?, radius?, tubeRadius?, segments?, rings?, position? [x,y,z], baseColor?, metallic?, roughness?, emissive?, castsShadows?, acceptsShadows?, acceptsLights?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "material.set",
+      "label": "Material Options",
+      "params": "{layers?, castsShadows?: off|on|only, acceptsShadows?: off|on|only, acceptsLights?, appearsInReflections?, lightTransmission?, ambient?, diffuse?, specularIntensity?, specularShininess?, metal?, baseColor?, metallic?, roughness?, emissive?, time?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "material.revealSource",
+      "label": "Reveal Material Source in Project",
+      "params": "{layer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "material.reset",
+      "label": "Reset Material",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "material.duplicateAssign",
+      "label": "Duplicate and Assign Material",
+      "params": "{layers? (first = source)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.stereoRig",
+      "label": "Create Stereo 3D Rig",
+      "params": "{comp?, configuration?: stereoPair|centerRight|centerLeft, sceneDepth? (% of comp width, default 3), convergence?: bool, convergenceOf?: poi|zoom, zOffset?, view3d?: 3D Glasses view index (default 5 Balanced Colored Red Blue)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.orbitNull",
+      "label": "Create Orbit Null",
+      "params": "{comp?, layer?: camera (default selected/active)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.fromModel",
+      "label": "Create Cameras from 3D Model",
+      "params": "{comp?, layers?: 3D model layers (default selected)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "light.fromModel",
+      "label": "Create Lights from 3D Model",
+      "params": "{comp?, layers?: 3D model layers (default selected)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "light.controlWithCamera",
+      "label": "Control Light with Camera",
+      "params": "{comp?, layers?: lights (default selected), camera? (default active), on?: bool (default toggle)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "light.environmentBackground",
+      "label": "Create Environment Light Background Layer",
+      "params": "{comp?, layer?: environment light (default selected / first)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.linkFocusToPoi",
+      "label": "Link Focus Distance to Point of Interest",
+      "params": "{comp?, camera?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.linkFocusToLayer",
+      "label": "Link Focus Distance to Layer",
+      "params": "{comp?, camera?, layer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.setFocusToLayer",
+      "label": "Set Focus Distance to Layer",
+      "params": "{comp?, camera?, layer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.analyze",
+      "label": "Analyze",
+      "params": "{layer?, effect?: uid|name|index, wait?: block until done}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.cancel",
+      "label": "Cancel",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.solveStatus",
+      "label": "3D Camera Tracker Status",
+      "params": "{layer?, effect?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "camera.points",
+      "label": "3D Camera Tracker Points",
+      "params": "{layer?, effect?, time?: comp seconds} → visible solved points",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "camera.selectPoints",
+      "label": "Select Track Points",
+      "params": "{points: [id], add?, toggle?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.createFromSolve",
+      "label": "Create from Camera Solve",
+      "params": "{kind: text|solid|null|shadowCatcher|camera, points?: [id] (default: selected), target?: {center, normal, size?} (comp world), multiple?, layer?, effect?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.create",
+      "label": "Create Camera",
+      "params": "{layer?, effect?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.setGroundPlane",
+      "label": "Set Ground Plane and Origin",
+      "params": "{points?: [id] (default: selected), layer?, effect?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "camera.deletePoints",
+      "label": "Delete Selected Points",
+      "params": "{points?: [id] (default: selected), layer?, effect?, wait?}",
+      "enabledAtEmptySession": false
+    }
+  ]
+}

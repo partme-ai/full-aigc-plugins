@@ -1,0 +1,58 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "printcraft",
+  "id": "redact-pdf",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "检查隐藏信息，按已授权范围另行处理元数据/附件等残留",
+      "command": "doc_hidden_info",
+      "params": {
+        "doc": 1
+      }
+    },
+    {
+      "purpose": "标记已经确认需遮盖的字符串",
+      "command": "redact_mark",
+      "params": {
+        "doc": 1,
+        "find": "CONFIDENTIAL",
+        "whole_words": true
+      }
+    },
+    {
+      "purpose": "核对标记后实际应用脱敏",
+      "command": "redact_apply",
+      "params": {
+        "doc": 1
+      }
+    },
+    {
+      "purpose": "审计内容移除结果",
+      "command": "doc_audit_redactions",
+      "params": {
+        "doc": 1
+      }
+    },
+    {
+      "purpose": "完整重写到新文件",
+      "command": "doc_save",
+      "params": {
+        "doc": 1,
+        "path": "output/redacted.pdf",
+        "full": true
+      }
+    },
+    {
+      "purpose": "重新抽取文本核查残留",
+      "command": "text_extract",
+      "params": {
+        "doc": 1
+      }
+    }
+  ],
+  "check": "新进程重开后搜索目标词、复制文字、检查元数据与图像内敏感内容。",
+  "boundary": "仅画黑框不算脱敏；find示例必须替换为实际授权范围，不误删相似非敏感内容。 doc_audit_redactions只审计假遮盖，不能证明所有元数据、附件、表单或像素内秘密都消失；隐藏信息须按已授权类别另行处理，不能无条件删除全部内容。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "effectcraft-capability-diff/v1",
+  "from": "0.2.0",
+  "to": "0.4.0",
+  "added": [
+    "face.model.download",
+    "face.model.install",
+    "face.model.remove",
+    "face.model.select",
+    "face.models",
+    "markers.nested",
+    "playback.scrubAudio",
+    "project.usage",
+    "roto.model.download",
+    "roto.model.install",
+    "roto.model.remove",
+    "roto.model.select",
+    "roto.models",
+    "text.fonts",
+    "view.newViewer"
+  ],
+  "removed": [],
+  "parametersChanged": [
+    "layer.newModel",
+    "layer.addItem",
+    "comp.settings",
+    "comp.new",
+    "file.import",
+    "mediaBrowser.import"
+  ],
+  "executionAcceptance": "NOT_RUN"
+}

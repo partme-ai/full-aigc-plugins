@@ -1,0 +1,41 @@
+{
+  "protocol": "printcraft.verification/1",
+  "ruleVersion": 1,
+  "runId": "5bac03a2-cc5e-40e8-a515-f7ddbada3e7a",
+  "inputSha256": {
+    "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-handoff-dev3-artifacts/source.pdf": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a"
+  },
+  "visualReviewRequired": true,
+  "outputs": [
+    {
+      "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-handoff-dev3-artifacts/result.pdf",
+      "sha256": "9df027ccb21e6bb31ec9c49215e3dcaf84753b7e229772bb63f7ada9e9ab919a",
+      "pages": 3,
+      "pageText": [
+        "GAMMA",
+        "ALPHA",
+        "BETA"
+      ],
+      "textPolicy": "required",
+      "sourcePages": [
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-handoff-dev3-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 3
+        },
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-handoff-dev3-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 1
+        },
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-handoff-dev3-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 2
+        }
+      ],
+      "role": "delivery",
+      "mediaType": "application/pdf"
+    }
+  ]
+}

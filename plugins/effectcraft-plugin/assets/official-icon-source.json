@@ -1,0 +1,10 @@
+{
+  "name": "effectcraft",
+  "source": "https://raw.githubusercontent.com/storytold/effectcraft/5d1b818fa1150ebc09607cdae060cd406253563c/assets/app-icon/effectcraft-1024.png",
+  "homepage": "https://github.com/storytold/effectcraft",
+  "license": "MIT OR Apache-2.0",
+  "modifications": "None; original upstream PNG",
+  "sha256": "2f1eec28b8b2ae8397a5c3517a74d1771fdd521fdc9d673918be35834fd935ae",
+  "localFile": "./assets/official-logo.png",
+  "displayName": "EffectCraft Use"
+}

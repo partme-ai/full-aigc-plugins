@@ -1,0 +1,39 @@
+{
+  "policy": "只借鉴工作流事实，场景正文与命令例子原创编写，不复制外部代码、正文或素材。许可不明的来源仅作为参考。",
+  "sources": [
+    {
+      "repository": "py-pdf/pypdf",
+      "commit": "1145329e8c80e1f72fbbb4001460fb8553236aeb",
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "readFiles": [
+        {
+          "path": "docs/user/merging-pdfs.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/docs/user/merging-pdfs.md",
+          "bytes": 5734
+        },
+        {
+          "path": "docs/user/cropping-and-transforming.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/docs/user/cropping-and-transforming.md",
+          "bytes": 7316
+        },
+        {
+          "path": "docs/user/metadata.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/docs/user/metadata.md",
+          "bytes": 7736
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/LICENSE",
+          "bytes": 1605
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    }
+  ]
+}

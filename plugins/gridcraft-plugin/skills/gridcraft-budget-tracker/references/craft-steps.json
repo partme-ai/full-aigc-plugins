@@ -1,0 +1,49 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "gridcraft",
+  "id": "budget-tracker",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "设置预算结构示例",
+      "command": "range.setValues",
+      "params": {
+        "range": "A1",
+        "values": [
+          [
+            "项目",
+            "预算",
+            "实际",
+            "差额"
+          ],
+          [
+            "示例项目",
+            100,
+            80,
+            "=IF(ISNUMBER(B2),IF(ISNUMBER(C2),B2-C2,\"待确认实际\"),\"待确认预算\")"
+          ]
+        ]
+      }
+    },
+    {
+      "purpose": "统一金额格式",
+      "command": "home.numberFormat",
+      "params": {
+        "range": "B2:D100",
+        "format": "0.00"
+      }
+    },
+    {
+      "purpose": "核对差额与原数",
+      "command": "sheet.read",
+      "params": {
+        "range": "A1:D2",
+        "formulas": true
+      }
+    }
+  ],
+  "check": "预算-实际的符号定义固定，空预算不当零预算，数值与凭据对应。",
+  "boundary": "示例金额应在真实任务中替换，日期、币种与审批状态另行保留。 空预算或空实际先显示待确认，数值0仍作为有效预算。批量时按实际数据范围填充相对行引用，不能只改显示格式掩盖缺值。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

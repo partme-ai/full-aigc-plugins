@@ -1,0 +1,199 @@
+{
+  "schema": "craft-bridge-tools/v1",
+  "pluginId": "effectcraft",
+  "mode": "bridge",
+  "runtimeSha256": "c1717eb87e5b57b3ed88c6a78047268a5afa566beb36104fdcc05dc8634a01c1",
+  "desktopBinarySha256": "703c02246cc17a3412c307c97ac8a8cfa912bd7cda68d5f817ea1763aa297bb6",
+  "tools": [
+    {
+      "description": "Screenshot of the live app window, or one panel (`Composition`, `Timeline`, `EffectControls`, `Project`, ...) or element id, as PNG (longest side `max_side`, default 1600). Use it to check what the UI looks like after an action.",
+      "inputSchema": {
+        "properties": {
+          "id": {
+            "description": "Element id (from ui_elements) to crop to.",
+            "type": "string"
+          },
+          "max_side": {
+            "type": "integer"
+          },
+          "panel": {
+            "description": "Panel to crop to.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Keep the full-size PNG at this path.",
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "screenshot"
+    },
+    {
+      "description": "UI state: window size, tool, workspace, panels, viewer and timeline view state, playback, active comp, selection, open dialog, render time.",
+      "inputSchema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "ui_inspect"
+    },
+    {
+      "description": "Interactive elements drawn in the last frame: id, label, rect [x,y,w,h] in points. Stable ids such as `tools.Selection`, `panel.Timeline`, `panel.tab.EffectControls`, `project.item.<id>`, `viewer.comp`, `timeline.layer.<id>.bar`, `timeline.prop.<uid>.stopwatch`, `timeline.cti`, `effects.item.<name>`. Filter with `prefix`.",
+      "inputSchema": {
+        "properties": {
+          "prefix": {
+            "description": "Only ids starting with this, e.g. `tools.`, `timeline.layer.`.",
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "ui_elements"
+    },
+    {
+      "description": "Click an element by `id` (from ui_elements) or at `x`,`y` (points). `button`: left|right|middle, `count`: 2 for double-click, `modifiers`: {shift, alt, command, ctrl}.",
+      "inputSchema": {
+        "properties": {
+          "button": {
+            "enum": [
+              "left",
+              "right",
+              "middle"
+            ],
+            "type": "string"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "id": {
+            "type": "string"
+          },
+          "modifiers": {
+            "type": "object"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "ui_click"
+    },
+    {
+      "description": "Press-move-release from `from` to `to`; each is {\"id\": element} (add fx/fy 0-1 for a spot inside it) or {\"x\",\"y\"}. Moves layers in the viewer, drags layer bars/keyframes/the CTI (`timeline.cti`), scrubs values, draws shapes with a shape tool.",
+      "inputSchema": {
+        "properties": {
+          "from": {
+            "type": "object"
+          },
+          "modifiers": {
+            "type": "object"
+          },
+          "steps": {
+            "type": "integer"
+          },
+          "to": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "from",
+          "to"
+        ],
+        "type": "object"
+      },
+      "name": "ui_drag"
+    },
+    {
+      "description": "Press a key or shortcut: `Space` (play), `F9` (Easy Ease), `Cmd+Z`, `Cmd+N`, `PageDown`, `Escape`, `Enter` (`Cmd` = Ctrl off macOS).",
+      "inputSchema": {
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "type": "object"
+      },
+      "name": "ui_key"
+    },
+    {
+      "description": "Type text into the focused field (text layer editing, search boxes, value fields).",
+      "inputSchema": {
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "type": "object"
+      },
+      "name": "ui_type"
+    },
+    {
+      "description": "Set UI state directly: tool, workspace, theme (dark|darker|light), focused panel, viewer {zoom, res, pan, grid, rulers, safeMargins, transparencyGrid}, timeline {pps, start, graphEditor, showModes, openLayers, openGroups}, menuBar, home.",
+      "inputSchema": {
+        "properties": {
+          "focused": {
+            "type": "string"
+          },
+          "home": {
+            "type": "boolean"
+          },
+          "menuBar": {
+            "type": "boolean"
+          },
+          "theme": {
+            "type": "string"
+          },
+          "timeline": {
+            "type": "object"
+          },
+          "tool": {
+            "type": "string"
+          },
+          "viewer": {
+            "type": "object"
+          },
+          "workspace": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "name": "ui_set"
+    },
+    {
+      "description": "Call any control-channel method (docs/control-protocol.md) with its params, e.g. ui.menu.list, ui.menu.invoke {id}, ui.panel.show {panel}, ui.scroll, ui.viewer.locate {x,y}, ui.timeline.locate {layer,time}, ui.playback {action}, ui.resize.",
+      "inputSchema": {
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "params": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "required": [
+          "method"
+        ],
+        "type": "object"
+      },
+      "name": "control"
+    }
+  ],
+  "scope": "CLI 0.4.0 bridge tool reflection; desktop invocation acceptance is separate"
+}

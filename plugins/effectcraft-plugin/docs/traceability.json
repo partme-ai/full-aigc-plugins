@@ -1,0 +1,223 @@
+{
+  "authority": "openspec/changes/establish-v1-plugin",
+  "entries": [
+    {
+      "requirement": "EC-SK-001",
+      "capability": "skills-distribution",
+      "tasks": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.12"
+      ],
+      "owner": "Skills owner",
+      "status": "planned"
+    },
+    {
+      "requirement": "EC-SK-002",
+      "capability": "skills-distribution",
+      "tasks": [
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "owner": "Skills owner",
+      "status": "planned"
+    },
+    {
+      "requirement": "EC-RT-001",
+      "capability": "runtime-distribution",
+      "tasks": [
+        "2.1",
+        "2.2",
+        "2.3"
+      ],
+      "owner": "Runtime owner",
+      "status": "verified",
+      "evidence": "docs/evidence/craft-fixed-runtime-integrity-20261008.json",
+      "scope": "current pinned macOS arm64 CLI matrix; all current requirement scenarios",
+      "runtimeUpgradeComponentCandidateEvidence": "docs/evidence/runtime-upgrade-component-candidate-20261009.json"
+    },
+    {
+      "requirement": "EC-RT-002",
+      "capability": "runtime-distribution",
+      "tasks": [
+        "2.9",
+        "2.10"
+      ],
+      "owner": "Runtime owner",
+      "status": "in-progress",
+      "candidateEvidence": "docs/evidence/effectcraft-native-download-candidate-20261007.json",
+      "fixedNativeDownloadEvidence": "docs/evidence/codex-native-download-first-use-20261007.json",
+      "commandCatalogDiffCandidateEvidence": "docs/evidence/command-catalog-diff-candidate-20261008.json",
+      "doctorCapabilitiesCandidateEvidence": "docs/evidence/doctor-capabilities-candidate-20261008.json",
+      "taskExecutionBindingCandidateEvidence": "docs/evidence/task-execution-binding-candidate-20261009.json",
+      "runtimeUpgradeComponentCandidateEvidence": "docs/evidence/runtime-upgrade-component-candidate-20261009.json"
+    },
+    {
+      "requirement": "EC-DM-001",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.1",
+        "4.2"
+      ],
+      "owner": "Domain owner",
+      "status": "in-progress",
+      "evidence": "docs/evidence/effect-assets-tests.json",
+      "testEvidence": "docs/evidence/release68-validation-20261009.json",
+      "remaining": [
+        "4.2 complete command/desktop domain mapping"
+      ]
+    },
+    {
+      "requirement": "EC-DM-002",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.5"
+      ],
+      "owner": "Domain owner",
+      "status": "in-progress",
+      "evidence": "docs/evidence/effect-assets-tests.json"
+    },
+    {
+      "requirement": "EC-DM-003",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.8",
+        "4.19"
+      ],
+      "owner": "Domain owner",
+      "status": "in-progress",
+      "evidence": "docs/evidence/effect-assets-tests.json"
+    },
+    {
+      "requirement": "EC-DM-004",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.11",
+        "4.20"
+      ],
+      "owner": "Domain owner",
+      "status": "in-progress",
+      "evidence": "docs/evidence/effect-assets-tests.json"
+    },
+    {
+      "requirement": "EC-DM-005",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.14",
+        "4.25",
+        "4.26",
+        "4.27"
+      ],
+      "owner": "Domain owner",
+      "status": "in-progress",
+      "evidence": "docs/evidence/effect-assets-tests.json"
+    },
+    {
+      "requirement": "EC-DM-006",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.17"
+      ],
+      "owner": "Domain owner",
+      "status": "in-progress",
+      "evidence": "docs/evidence/effect-assets-tests.json"
+    },
+    {
+      "requirement": "EC-AR-002",
+      "capability": "artifact-delivery",
+      "tasks": [
+        "5.4",
+        "5.5"
+      ],
+      "owner": "Harness owner",
+      "status": "planned"
+    },
+    {
+      "requirement": "EC-QA-002",
+      "capability": "quality-review",
+      "tasks": [],
+      "owner": "Harness owner",
+      "status": "planned"
+    },
+    {
+      "requirement": "EC-RL-001",
+      "capability": "release-compatibility",
+      "tasks": [
+        "10.1"
+      ],
+      "owner": "Release owner",
+      "status": "planned"
+    },
+    {
+      "requirement": "EC-SK-003",
+      "capability": "skills-distribution",
+      "tasks": [
+        "1.7",
+        "1.8",
+        "1.9",
+        "1.10",
+        "1.11",
+        "10.2",
+        "10.2.1"
+      ],
+      "owner": "Skills owner",
+      "status": "partial-macOS-packaging-passed; domain and target-platform gates open",
+      "evidence": "docs/evidence/skill-suite.json",
+      "independentOfflineSkillsCandidateEvidence": "docs/evidence/independent-offline15-candidate-20261009.json"
+    },
+    {
+      "requirement": "EC-CM-001",
+      "capability": "domain-workflow",
+      "tasks": [
+        "8.1",
+        "8.2",
+        "8.4",
+        "8.5",
+        "8.6",
+        "8.7",
+        "8.8",
+        "8.9",
+        "8.10",
+        "8.11",
+        "8.12",
+        "8.13",
+        "8.14",
+        "8.15"
+      ],
+      "owner": "Skills owner",
+      "status": "in-progress",
+      "evidence": "docs/evidence/codex-complete-command-revision-first-use-20261007.json",
+      "revisionEvidence": "docs/evidence/complete-command-revision-first-use-20261007.json",
+      "revisionHostEvidence": "docs/evidence/codex-complete-command-revision-first-use-20261007.json",
+      "protocolFaultCandidateEvidence": "docs/evidence/protocol-fault-first-use-20261007.json",
+      "protocolFaultHostEvidence": "docs/evidence/codex-protocol-fault-first-use-20261007.json",
+      "publicWorkflowCandidateEvidence": "docs/evidence/public-workflow-session-candidate-20261007.json",
+      "publicWorkflowFixedHostEvidence": "docs/evidence/codex-public-workflow-session-first-use-20261007.json",
+      "fixedNativeDownloadEvidence": "docs/evidence/codex-native-download-first-use-20261007.json"
+    },
+    {
+      "requirement": "EC-TX-004",
+      "capability": "task-execution",
+      "tasks": [],
+      "owner": "Harness owner",
+      "status": "verified-darwin-arm64",
+      "candidateEvidence": "docs/evidence/failed-stage-candidate-20261007.json",
+      "fixedHostEvidence": "docs/evidence/codex-failed-stage-first-use-20261007.json"
+    },
+    {
+      "requirement": "EC-DS-001",
+      "capability": "runtime-distribution",
+      "tasks": [
+        "8.16",
+        "8.17",
+        "8.20",
+        "8.21"
+      ],
+      "owner": "Desktop runtime owner",
+      "status": "verified-bounded-darwin-arm64",
+      "evidence": "docs/evidence/craft-full-command-fixed-first-use-20261007.json"
+    }
+  ]
+}

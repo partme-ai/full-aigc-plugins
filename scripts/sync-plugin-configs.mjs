@@ -69,6 +69,8 @@ for (const plugin of selectedPlugins) {
   codex.interface.shortDescription = plugin.shortDescription;
   codex.interface.logo = `./${plugin.logo}`;
   codex.interface.logoDark = `./${plugin.logo}`;
+  codex.interface.composerIcon = `./${plugin.logo}`;
+  codex.interface.composerIconDark = `./${plugin.logo}`;
   if ("websiteURL" in codex.interface) codex.interface.websiteURL = repositoryUrl;
   if ("privacyPolicyURL" in codex.interface) {
     codex.interface.privacyPolicyURL = `${repositoryUrl}/blob/main/PRIVACY.md`;

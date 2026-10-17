@@ -1,0 +1,118 @@
+{
+  "schema": "craft-market-adaptations/v1",
+  "application": "effectcraft",
+  "skill": "effectcraft-logo-reveal",
+  "counting": "existing recipes with adapted task guidance; not additional mapped scenes",
+  "sources": [
+    {
+      "id": "dylantarre/animation-principles/after-effects",
+      "repository": "dylantarre/animation-principles",
+      "commit": "83597134ba8ff59838270f94d7ac7282ffa3b54d",
+      "path": "skills/09-by-tool-framework/after-effects/SKILL.md",
+      "url": "https://github.com/dylantarre/animation-principles/blob/83597134ba8ff59838270f94d7ac7282ffa3b54d/skills/09-by-tool-framework/after-effects/SKILL.md",
+      "sha256": "a12145d1469ff81476d3953769ea5b3ab57c245d8e06e3a4ac9fe17d1b0f572c",
+      "bytes": 3655,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/dylantarre/animation-principles/after-effects",
+      "repositoryLicense": "MIT",
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "61ec27e9b1ee198dec3e3f7907fe66b190ab0bf0f5b56fab9b929fa6eb888040"
+    }
+  ],
+  "adaptations": [
+    {
+      "id": "logo-reveal",
+      "title": "有目的的标志进入",
+      "sourceIds": [
+        "dylantarre/animation-principles/after-effects"
+      ],
+      "adaptation": "确认标志文字和画布，再安排进入与停留；先用明确的首末关键姿态建立节奏，只有实际支持的插值参数经过查询后才调整缓动。",
+      "taskCheck": "首帧、完全显示帧和尾帧符合目标，停留可读。",
+      "capabilityBoundary": "示例透明度变化不等于弹性表达式；不宣称兼容loopOut、MOGRT或Lottie。",
+      "existingRecipe": "skills/effectcraft-logo-reveal/references/craft-steps.json",
+      "recipe": {
+        "schema": "craft-scenario-playbooks/v1",
+        "application": "effectcraft",
+        "id": "logo-reveal",
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+        "steps": [
+          {
+            "purpose": "建立与目标规格一致的合成",
+            "command": "comp.new",
+            "params": {
+              "name": "Logo",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": 25,
+              "duration": 4
+            }
+          },
+          {
+            "purpose": "示例先建标题层，真实任务替换为标志素材",
+            "command": "layer.newText",
+            "params": {
+              "text": "品牌名称",
+              "name": "LogoTitle"
+            }
+          },
+          {
+            "purpose": "设置首帧透明度关键帧",
+            "command": "prop.addKey",
+            "params": {
+              "path": "transform/opacity",
+              "time": 0,
+              "value": 0
+            }
+          },
+          {
+            "purpose": "在1秒达到完全显示",
+            "command": "prop.addKey",
+            "params": {
+              "path": "transform/opacity",
+              "time": 1,
+              "value": 100
+            }
+          }
+        ],
+        "check": "预览0、0.5、1与末帧，标志比例不变且停留足够。",
+        "boundary": "真实标志应由layer.addItem引用已导入素材ID；文字示例不替代品牌标志。",
+        "templateOnly": true,
+        "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    }
+  ],
+  "observedCommands": {
+    "comp.new": {
+      "enabled": true,
+      "id": "comp.new",
+      "label": "New Composition...",
+      "menu": [
+        "Composition"
+      ],
+      "params": "{name?, width?, height?, frameRate?, duration? (s), startTime? (s) | startTimecode?, background? [r,g,b]|#hex, pixelAspect?, shutterAngle?, shutterPhase?, motionBlurSamples?, adaptiveSampleLimit? (16–256), preserveFrameRate?: bool, preserveResolution?: bool, renderer?: classic3D|advanced3D, anchor?, open?}",
+      "shortcut": "Cmd+N"
+    },
+    "layer.newText": {
+      "enabled": false,
+      "id": "layer.newText",
+      "label": "Text",
+      "menu": [
+        "Layer",
+        "New"
+      ],
+      "params": "{text?, name? (layer name; default the text), position? [x,y], box? [x,y,w,h] (paragraph text, comp space), vertical?, edit? (start editing), font?, style?, size?, fill?, stroke?, applyFill?, applyStroke?, strokeWidth?, tracking?, leading?, baselineShift?, hScale?, vScale?, tsume?, fauxBold?, fauxItalic?, allCaps?, smallCaps?, baseline?, superscript?, subscript?, kerning?, ligatures?, justify?, indentLeft?, indentRight?, indentFirst?, spaceBefore?, spaceAfter?, direction?, composer?, hangingPunctuation?, strokeOverFill?} (attributes as layer.setText)",
+      "shortcut": "Cmd+Alt+Shift+T",
+      "why": "no composition is open"
+    },
+    "prop.addKey": {
+      "enabled": false,
+      "id": "prop.addKey",
+      "label": "Add Keyframe",
+      "params": "{layer?, path|prop, time? (layer s by default), timeBase?: layer|comp, value?}",
+      "why": "no composition is open"
+    }
+  }
+}

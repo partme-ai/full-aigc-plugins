@@ -1,0 +1,51 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "document.open",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "command": "document.json",
+      "params": {},
+      "as": "before"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": [
+          {
+            "$ref": "target.id"
+          }
+        ],
+        "color": "#175cce"
+      }
+    },
+    {
+      "command": "document.json",
+      "params": {},
+      "as": "after"
+    },
+    {
+      "command": "document.save",
+      "params": {
+        "path": {
+          "$output": "project.vectorcraft"
+        }
+      }
+    },
+    {
+      "command": "document.export",
+      "params": {
+        "path": {
+          "$output": "revised.png"
+        },
+        "format": "png"
+      }
+    }
+  ]
+}

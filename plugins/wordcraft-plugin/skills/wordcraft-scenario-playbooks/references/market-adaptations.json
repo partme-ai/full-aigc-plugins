@@ -1,0 +1,502 @@
+{
+  "schema": "craft-market-adaptations/v1",
+  "application": "wordcraft",
+  "skill": "wordcraft-scenario-playbooks",
+  "counting": "existing recipes with adapted task guidance; not additional mapped scenes",
+  "sources": [
+    {
+      "id": "skillhub:word-docx",
+      "market": "SkillHub",
+      "marketUrl": "https://skillhub.cn/",
+      "downloadUrl": "https://api.skillhub.cn/api/v1/download?slug=word-docx",
+      "slug": "word-docx",
+      "version": "1.0.2",
+      "sha256": "c766da489810acf03290283780ba9d3be798678d689255ace34477caeb6d7541",
+      "bytes": 7887,
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections"
+    },
+    {
+      "id": "anthropics/skills/docx",
+      "repository": "anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "path": "skills/docx/SKILL.md",
+      "url": "https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/docx/SKILL.md",
+      "sha256": "8017469ea95fb7d28225c62daf8e2f3492a7b516fc64c18c28977cbf8980b7fe",
+      "bytes": 6911,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/anthropics/skills/docx",
+      "repositoryLicense": "UNDECLARED",
+      "declaredSkillLicense": "Proprietary. LICENSE.txt has complete terms",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "ae73add31fd871d0033f5751f6fcfb04edc7d519925645460096b973f92750e3"
+    },
+    {
+      "id": "skillhub:moways-doc",
+      "market": "SkillHub",
+      "marketUrl": "https://skillhub.cn/",
+      "downloadUrl": "https://api.skillhub.cn/api/v1/download?slug=moways-doc",
+      "slug": "moways-doc",
+      "version": "2.7.4",
+      "sha256": "820fe8189ba384aab8afad9a5205b0abe569b99ffc9aa5690417138e05b3dfa3",
+      "bytes": 21422,
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections"
+    }
+  ],
+  "adaptations": [
+    {
+      "id": "sop-numbered-steps",
+      "title": "编号是文档结构",
+      "sourceIds": [
+        "skillhub:word-docx",
+        "anthropics/skills/docx"
+      ],
+      "adaptation": "按实际动作组织步骤，用原生编号而不是手写数字；每步有可观察结果，必要位置注明停止条件。插入新步骤后检查编号连续性与缩进。",
+      "taskCheck": "编号可继续编辑，新增一步后顺序正确，分页处可读。",
+      "capabilityBoundary": "不把字符1.当成原生编号，也不要求上游固定字体。",
+      "existingRecipe": "skills/wordcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "sop-numbered-steps",
+        "title": "可执行SOP与停止条件",
+        "category": "procedure",
+        "inputs": "已有操作顺序、必要输入与停止条件。",
+        "steps": [
+          {
+            "purpose": "使用A4页面规格",
+            "command": "layout.size",
+            "params": {
+              "name": "A4"
+            },
+            "parameterReference": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}"
+          },
+          {
+            "purpose": "设置本段为一级标题",
+            "command": "para.heading1",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "写入本节标题",
+            "command": "text.insert",
+            "params": {
+              "text": "资料归档SOP"
+            },
+            "parameterReference": "{\"text\": string}"
+          },
+          {
+            "purpose": "新建正文段落",
+            "command": "text.newParagraph",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "恢复正文样式，避免正文进入目录",
+            "command": "para.normal",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "开启当前段落的有序步骤列表",
+            "command": "para.numbering",
+            "params": {
+              "kind": "numbered"
+            },
+            "parameterReference": "{\"kind\"?: \"numbered|numberedParen|upperLetter|lowerLetter|lowerRoman|outline\", \"off\"?: bool}"
+          },
+          {
+            "purpose": "写入经核实的正文",
+            "command": "text.insert",
+            "params": {
+              "text": "核对原件编号"
+            },
+            "parameterReference": "{\"text\": string}"
+          },
+          {
+            "purpose": "段后另起一段",
+            "command": "text.newParagraph",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "写入经核实的正文",
+            "command": "text.insert",
+            "params": {
+              "text": "登记目录与存放位置"
+            },
+            "parameterReference": "{\"text\": string}"
+          },
+          {
+            "purpose": "段后另起一段",
+            "command": "text.newParagraph",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "写入经核实的正文",
+            "command": "text.insert",
+            "params": {
+              "text": "复核后归档"
+            },
+            "parameterReference": "{\"text\": string}"
+          },
+          {
+            "purpose": "段后另起一段",
+            "command": "text.newParagraph",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "退出列表，后续内容使用正文",
+            "command": "para.numbering",
+            "params": {
+              "off": true
+            },
+            "parameterReference": "{\"kind\"?: \"numbered|numberedParen|upperLetter|lowerLetter|lowerRoman|outline\", \"off\"?: bool}"
+          },
+          {
+            "purpose": "写入经核实的正文",
+            "command": "text.insert",
+            "params": {
+              "text": "停止条件：编号冲突或原件缺失时，暂停归档并报告负责人。"
+            },
+            "parameterReference": "{\"text\": string}"
+          },
+          {
+            "purpose": "段后另起一段",
+            "command": "text.newParagraph",
+            "params": {},
+            "parameterReference": "{}"
+          }
+        ],
+        "checks": [
+          "正文包含输入事实",
+          "标题样式与正文分离",
+          "保存DOCX后重开并导出PDF检查分页"
+        ],
+        "limits": "不得把这些示例步骤用于无关高风险设备操作；编号连续性需看实际DOCX与PDF。",
+        "assertions": {
+          "textContains": [
+            "核对原件编号",
+            "编号冲突或原件缺失"
+          ],
+          "headingRequired": true,
+          "numberingRequired": true
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "letter-header-footer",
+      "title": "正文与节布局分开处理",
+      "sourceIds": [
+        "skillhub:word-docx",
+        "skillhub:moways-doc"
+      ],
+      "adaptation": "先确认纸张、页边距和页眉页脚属于哪一节，再写本次业务函；长正文后检查跨页和页码，避免只对第一页截图作判断。",
+      "taskCheck": "所有页的页眉页脚、正文和分页正确，中文字体可用。",
+      "capabilityBoundary": "不采用商业机构的专有排版标准，不以示例声明国标或公文合规。",
+      "existingRecipe": "skills/wordcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "letter-header-footer",
+        "title": "带页眉页脚的业务函",
+        "category": "business",
+        "inputs": "已确认的发文单位、收件人和正文；不自动发送。",
+        "steps": [
+          {
+            "purpose": "使用A4页面规格",
+            "command": "layout.size",
+            "params": {
+              "name": "A4"
+            },
+            "parameterReference": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}"
+          },
+          {
+            "purpose": "设置适中的页边距",
+            "command": "layout.margins",
+            "params": {
+              "preset": "normal"
+            },
+            "parameterReference": "{\"preset\"?: \"normal|narrow|moderate|wide|mirrored|office2003\", \"top\"?: pt, \"bottom\"?: pt, \"left\"?: pt, \"right\"?: pt, \"gutter\"?: pt}"
+          },
+          {
+            "purpose": "插入单位页眉",
+            "command": "insert.header",
+            "params": {
+              "text": "示例单位 · 项目办公室"
+            },
+            "parameterReference": "{\"text\"?: string, \"preset\"?: \"blank|blankThree|title\"}"
+          },
+          {
+            "purpose": "退出页眉回到正文",
+            "command": "insert.closeHeader",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "设置本段为一级标题",
+            "command": "para.heading1",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "写入本节标题",
+            "command": "text.insert",
+            "params": {
+              "text": "资料补充函"
+            },
+            "parameterReference": "{\"text\": string}"
+          },
+          {
+            "purpose": "新建正文段落",
+            "command": "text.newParagraph",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "恢复正文样式，避免正文进入目录",
+            "command": "para.normal",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "写入经核实的正文",
+            "command": "text.insert",
+            "params": {
+              "text": "收件人：项目联系人。\n请补充缺失的归档目录与版本说明。"
+            },
+            "parameterReference": "{\"text\": string}"
+          },
+          {
+            "purpose": "段后另起一段",
+            "command": "text.newParagraph",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "插入仅供草稿流转的页脚",
+            "command": "insert.footer",
+            "params": {
+              "text": "草稿 · 待审核"
+            },
+            "parameterReference": "{\"text\"?: string, \"preset\"?: \"blank|blankThree|pageNumber\"}"
+          },
+          {
+            "purpose": "退出页脚回到正文",
+            "command": "insert.closeHeader",
+            "params": {},
+            "parameterReference": "{}"
+          }
+        ],
+        "checks": [
+          "正文包含输入事实",
+          "标题样式与正文分离",
+          "保存DOCX后重开并导出PDF检查分页"
+        ],
+        "limits": "姓名、单位、落款必须来自真实输入；本技能不发送函件。",
+        "assertions": {
+          "textContains": [
+            "资料补充函",
+            "项目联系人"
+          ],
+          "headingRequired": true,
+          "headerContains": "示例单位",
+          "footerContains": "待审核"
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "term-normalization-draft",
+      "title": "修订副本保留上下文",
+      "sourceIds": [
+        "anthropics/skills/docx",
+        "skillhub:word-docx"
+      ],
+      "adaptation": "先列术语替换表和不应改动的引用、编号与原话，在副本中按范围替换；回读命中数量，检查段落样式和附近文本。",
+      "taskCheck": "替换只覆盖约定范围，段落结构保留，原文件不被覆盖。",
+      "capabilityBoundary": "普通替换不等于保留修订痕迹、评论锚点或所有复杂OOXML结构；按当前能力说明限制。",
+      "existingRecipe": "skills/wordcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "term-normalization-draft",
+        "title": "术语统一的编辑副本",
+        "category": "editing",
+        "inputs": "原文与经批准的术语映射；替换前先审查上下文。",
+        "steps": [
+          {
+            "purpose": "使用A4页面规格",
+            "command": "layout.size",
+            "params": {
+              "name": "A4"
+            },
+            "parameterReference": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}"
+          },
+          {
+            "purpose": "设置本段为一级标题",
+            "command": "para.heading1",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "写入本节标题",
+            "command": "text.insert",
+            "params": {
+              "text": "术语统一稿"
+            },
+            "parameterReference": "{\"text\": string}"
+          },
+          {
+            "purpose": "新建正文段落",
+            "command": "text.newParagraph",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "恢复正文样式，避免正文进入目录",
+            "command": "para.normal",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "写入经核实的正文",
+            "command": "text.insert",
+            "params": {
+              "text": "旧称：资料包。请将资料包提交至资料包目录。"
+            },
+            "parameterReference": "{\"text\": string}"
+          },
+          {
+            "purpose": "段后另起一段",
+            "command": "text.newParagraph",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "按整词匹配替换术语，保留原文副本",
+            "command": "edit.replaceAll",
+            "params": {
+              "text": "资料包",
+              "matchCase": false,
+              "wholeWord": false,
+              "with": "档案包"
+            },
+            "parameterReference": "{\"text\": string, \"with\": string (^p ^t ^& ^c …; \\\\1 with wildcards), …options of edit.find}"
+          }
+        ],
+        "checks": [
+          "正文包含输入事实",
+          "标题样式与正文分离",
+          "保存DOCX后重开并导出PDF检查分页"
+        ],
+        "limits": "真实任务先保留原文件；不对机构名称、引用或专有名称做未授权全局替换。",
+        "assertions": {
+          "textContains": [
+            "术语统一稿",
+            "档案包"
+          ],
+          "headingRequired": true,
+          "textAbsent": [
+            "资料包"
+          ]
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    }
+  ],
+  "observedCommands": {
+    "layout.size": {
+      "id": "layout.size",
+      "label": "Size",
+      "location": "Layout › Page Setup",
+      "mutates": true,
+      "params": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}",
+      "shortcut": ""
+    },
+    "para.heading1": {
+      "id": "para.heading1",
+      "label": "Heading 1",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Alt+1"
+    },
+    "text.insert": {
+      "id": "text.insert",
+      "label": "Type Text",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{\"text\": string}",
+      "shortcut": ""
+    },
+    "text.newParagraph": {
+      "id": "text.newParagraph",
+      "label": "New Paragraph",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Enter"
+    },
+    "para.normal": {
+      "id": "para.normal",
+      "label": "Normal Style",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Shift+N"
+    },
+    "para.numbering": {
+      "id": "para.numbering",
+      "label": "Numbering",
+      "location": "Home › Paragraph",
+      "mutates": true,
+      "params": "{\"kind\"?: \"numbered|numberedParen|upperLetter|lowerLetter|lowerRoman|outline\", \"off\"?: bool}",
+      "shortcut": ""
+    },
+    "layout.margins": {
+      "id": "layout.margins",
+      "label": "Margins",
+      "location": "Layout › Page Setup",
+      "mutates": true,
+      "params": "{\"preset\"?: \"normal|narrow|moderate|wide|mirrored|office2003\", \"top\"?: pt, \"bottom\"?: pt, \"left\"?: pt, \"right\"?: pt, \"gutter\"?: pt}",
+      "shortcut": ""
+    },
+    "insert.header": {
+      "id": "insert.header",
+      "label": "Header",
+      "location": "Insert › Header & Footer",
+      "mutates": true,
+      "params": "{\"text\"?: string, \"preset\"?: \"blank|blankThree|title\"}",
+      "shortcut": ""
+    },
+    "insert.closeHeader": {
+      "id": "insert.closeHeader",
+      "label": "Close Header and Footer",
+      "location": "Header & Footer",
+      "mutates": false,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "insert.footer": {
+      "id": "insert.footer",
+      "label": "Footer",
+      "location": "Insert › Header & Footer",
+      "mutates": true,
+      "params": "{\"text\"?: string, \"preset\"?: \"blank|blankThree|pageNumber\"}",
+      "shortcut": ""
+    },
+    "edit.replaceAll": {
+      "id": "edit.replaceAll",
+      "label": "Replace All",
+      "location": "Home › Editing › Replace",
+      "mutates": true,
+      "params": "{\"text\": string, \"with\": string (^p ^t ^& ^c …; \\\\1 with wildcards), …options of edit.find}",
+      "shortcut": ""
+    }
+  }
+}

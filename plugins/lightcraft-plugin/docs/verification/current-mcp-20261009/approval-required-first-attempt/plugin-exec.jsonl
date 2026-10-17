@@ -1,0 +1,7 @@
+{"type":"thread.started","thread_id":"01a11c3c-399a-7f73-9656-d0865c509e65"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"我会仅调用指定的 `lightcraft_readonly.query_photos`，并报告实际返回的照片数量。"}}
+{"type":"item.started","item":{"id":"item_1","type":"mcp_tool_call","server":"lightcraft_readonly","tool":"query_photos","arguments":{"limit":2,"offset":0},"result":null,"error":null,"status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_1","type":"mcp_tool_call","server":"lightcraft_readonly","tool":"query_photos","arguments":{"limit":2,"offset":0},"result":null,"error":{"message":"MCP tool call requires approval, but approval policy is never"},"status":"failed"}}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"查询失败：已尝试调用 `lightcraft_readonly.query_photos`（`limit=2, offset=0`），但 MCP 返回“需要审批，当前审批策略为 never”。\n\n未返回照片数据，无法报告实际数量；不能将失败视为返回 0 张。"}}
+{"type":"turn.completed","usage":{"input_tokens":37249,"cached_input_tokens":30592,"cache_write_input_tokens":0,"output_tokens":205,"reasoning_output_tokens":0}}

@@ -1,0 +1,52 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "printcraft",
+  "id": "organize-pdf",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "确认文档与页数",
+      "command": "doc_info",
+      "params": {
+        "doc": 1
+      }
+    },
+    {
+      "purpose": "把指定页移到正确位置",
+      "command": "page_move",
+      "params": {
+        "doc": 1,
+        "pages": [
+          3
+        ],
+        "to": 1
+      }
+    },
+    {
+      "purpose": "抽取独立交付页而不删除原件",
+      "command": "page_extract",
+      "params": {
+        "doc": 1,
+        "pages": [
+          1,
+          2
+        ],
+        "out": "output/selected.pdf",
+        "delete": false
+      }
+    },
+    {
+      "purpose": "完整保存整理副本",
+      "command": "doc_save",
+      "params": {
+        "doc": 1,
+        "path": "output/organized.pdf",
+        "full": true
+      }
+    }
+  ],
+  "check": "对照页缩略图核对顺序、旋转、空白页和页数，重开两个输出。",
+  "boundary": "doc=1仅为示例，实际取doc_open返回值；原文少于3页时须换成有效页码。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

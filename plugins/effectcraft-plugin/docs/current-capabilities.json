@@ -1,0 +1,131 @@
+{
+  "schema": "effectcraft-capability-matrix/v2",
+  "evidenceBinding": {
+    "file": "docs/evidence/current-capability-evidence.json",
+    "sha256": "e61020769f65f105bf601c23aa76980e2adb7cec1964f452ee4efe1675cbdec3",
+    "current": false,
+    "reason": "skill_payload_changed"
+  },
+  "platforms": [
+    {
+      "platform": "darwin-arm64",
+      "python": "3.13.16",
+      "runtime": "0.4.0",
+      "pythonMinimum": {
+        "macOS": "11.0",
+        "source": "pinned archive _sysconfigdata MACOSX_DEPLOYMENT_TARGET"
+      },
+      "runtimeMinimum": {
+        "macOS": "11.0",
+        "evidence": "pinned app Info.plist LSMinimumSystemVersion; CLI architecture validated at execution"
+      },
+      "nativeRepresentative": "NOT_RUN",
+      "scope": "native technical sample only; not domain, cold-install, creative or host acceptance",
+      "completePlatformAcceptance": "NOT_RUN"
+    },
+    {
+      "platform": "darwin-x86_64",
+      "python": "3.13.16",
+      "runtime": "0.4.0",
+      "pythonMinimum": {
+        "macOS": "10.15",
+        "source": "pinned archive _sysconfigdata MACOSX_DEPLOYMENT_TARGET"
+      },
+      "runtimeMinimum": {
+        "macOS": "11.0",
+        "evidence": "pinned app Info.plist LSMinimumSystemVersion; CLI architecture validated at execution"
+      },
+      "nativeRepresentative": "NOT_RUN",
+      "scope": "native technical sample only; not domain, cold-install, creative or host acceptance",
+      "completePlatformAcceptance": "NOT_RUN"
+    },
+    {
+      "platform": "windows-x86",
+      "python": "3.13.16",
+      "runtime": "0.4.0",
+      "pythonMinimum": {
+        "windows": "6.3",
+        "source": "https://docs.python.org/3.13/using/windows.html"
+      },
+      "runtimeMinimum": {
+        "windows": "10.0",
+        "evidence": "conservative portable-runtime baseline; exact minimum remains target acceptance gate"
+      },
+      "nativeRepresentative": "NOT_RUN",
+      "scope": "native technical sample only; not domain, cold-install, creative or host acceptance",
+      "completePlatformAcceptance": "NOT_RUN"
+    },
+    {
+      "platform": "windows-x86_64",
+      "python": "3.13.16",
+      "runtime": "0.4.0",
+      "pythonMinimum": {
+        "windows": "6.3",
+        "source": "https://docs.python.org/3.13/using/windows.html"
+      },
+      "runtimeMinimum": {
+        "windows": "10.0",
+        "evidence": "conservative portable-runtime baseline; exact minimum remains target acceptance gate"
+      },
+      "nativeRepresentative": "NOT_RUN",
+      "scope": "native technical sample only; not domain, cold-install, creative or host acceptance",
+      "completePlatformAcceptance": "NOT_RUN"
+    },
+    {
+      "platform": "windows-arm64",
+      "python": "3.13.16",
+      "runtime": "0.4.0",
+      "pythonMinimum": {
+        "windows": "6.3",
+        "source": "https://docs.python.org/3.13/using/windows.html"
+      },
+      "runtimeMinimum": {
+        "windows": "10.0",
+        "evidence": "conservative portable-runtime baseline; exact minimum remains target acceptance gate"
+      },
+      "nativeRepresentative": "NOT_RUN",
+      "scope": "native technical sample only; not domain, cold-install, creative or host acceptance",
+      "completePlatformAcceptance": "NOT_RUN"
+    },
+    {
+      "platform": "linux-x86_64",
+      "python": "3.13.16",
+      "runtime": "0.4.0",
+      "pythonMinimum": {
+        "glibc": "2.17",
+        "source": "maximum pinned ELF GLIBC symbol requirement"
+      },
+      "runtimeMinimum": {
+        "glibc": "2.35",
+        "evidence": "maximum GLIBC version symbol in all pinned ELF payloads; conservative requirement"
+      },
+      "nativeRepresentative": "NOT_RUN",
+      "scope": "native technical sample only; not domain, cold-install, creative or host acceptance",
+      "completePlatformAcceptance": "NOT_RUN"
+    },
+    {
+      "platform": "linux-aarch64",
+      "python": "3.13.16",
+      "runtime": "0.4.0",
+      "pythonMinimum": {
+        "glibc": "2.17",
+        "source": "maximum pinned ELF GLIBC symbol requirement"
+      },
+      "runtimeMinimum": {
+        "glibc": "2.35",
+        "evidence": "maximum GLIBC version symbol in all pinned ELF payloads; conservative requirement"
+      },
+      "nativeRepresentative": "NOT_RUN",
+      "scope": "native technical sample only; not domain, cold-install, creative or host acceptance",
+      "completePlatformAcceptance": "NOT_RUN"
+    }
+  ],
+  "web": {
+    "installation": "NOT_RUN",
+    "browserTask": "NOT_RUN"
+  },
+  "freebsd": {
+    "sourceBuild": "NOT_RUN"
+  },
+  "fullV1": "NOT_RUN"
+}

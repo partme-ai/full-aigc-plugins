@@ -1,0 +1,198 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "vectorcraft",
+  "runtimeVersion": "0.2.0-craft.2",
+  "upstreamRepository": "https://github.com/storytold/vectorcraft",
+  "upstreamCommit": "90e022b0c05f12171a4e9bebe0894fa62f7bc95c",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "select.set",
+      "label": "Select Objects",
+      "params": "{ids: [id…]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "imageTrace.make",
+      "label": "Make",
+      "params": "{id?: image or Image Trace group (default: selection), preset?: name (imageTrace.presets), params?: {mode: \"blackAndWhite\"|\"grayscale\"|\"color\", threshold: 0-255, colors: 2-256, paths: 0-100, corners: 0-100, noise: px, method: \"abutting\"|\"overlapping\", ignoreWhite, snapCurvesToLines}} → {id, paths, anchors, colors}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "imageTrace.makeAndExpand",
+      "label": "Make and Expand",
+      "params": "same as imageTrace.make, then expand → {id, paths, anchors, colors}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "imageTrace.release",
+      "label": "Release",
+      "params": "{id?} put the source image back in place of Image Trace groups → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "imageTrace.expand",
+      "label": "Expand",
+      "params": "{id?} keep only the traced paths (drop the source image) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "imageTrace.presets",
+      "label": "Image Trace Presets",
+      "params": "{} → {presets: [{name, params}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "symbol.list",
+      "label": "Symbols",
+      "params": "{} → {symbols: [{name, instances, size: [w,h]}], current}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.new",
+      "label": "New Symbol…",
+      "params": "{name?, ids?} make a symbol from the selection and replace it with an instance → {name, id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.place",
+      "label": "Place Symbol Instance",
+      "params": "{name?, x?, y?} place an instance centred at (x, y) (default: artboard centre; name default: current) → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.breakLink",
+      "label": "Break Link to Symbol",
+      "params": "{ids?} expand selected instances into plain art → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.edit",
+      "label": "Edit Symbol",
+      "params": "{id?} break the link of the selected instance so its art can be edited; finish with symbol.update → {name, ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.update",
+      "label": "Redefine Symbol",
+      "params": "{name, ids?} replace the symbol's art with the selection (instances update; the selection becomes an instance) → {name, id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.delete",
+      "label": "Delete Symbol",
+      "params": "{name, expandInstances?: true} delete a symbol; its instances are expanded (or deleted with false)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.duplicate",
+      "label": "Duplicate Symbol",
+      "params": "{name, newName?} → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.replace",
+      "label": "Replace Symbol",
+      "params": "{name, ids?} swap the symbol of the selected instances → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.setCurrent",
+      "label": "Current Symbol",
+      "params": "{name} the symbol the symbolism tools spray (not an undo step)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.selectInstances",
+      "label": "Select All Instances",
+      "params": "{name} select every instance of a symbol → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.spray",
+      "label": "Symbol Sprayer",
+      "params": "{points: [[x,y]…], name?, radius?: 40, density?: 1..10 (5), scale?: 1, alt?: bool (remove instances)} spray instances into a symbol set → {id, count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.adjust",
+      "label": "Symbolism Tool",
+      "params": "{tool: shift|scrunch|size|spin|stain|screen|style, points: [[x,y]…], radius?: 40, intensity?: 1..10 (5), alt?: bool, color?, style?: name} adjust instances near the points (selection, else all) → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.place",
+      "label": "Place…",
+      "params": "{path | name+dataBase64, link?: true (a raster image keeps its file's path; other files are embedded), text?: {characterSet?: \"unicode\" (UTF-8, or UTF-16 with a byte-order mark; other bytes as the platform's 8-bit set) | \"ansi\" (the platform's 8-bit set), platform?: \"windows\" (Windows-1252) | \"mac\" (Mac Roman), removeLineReturns?: false (each block of lines becomes one paragraph; blank lines end paragraphs), removeParagraphReturns?: false (drop blank lines), replaceSpaces?: n (runs of n ≥ 2 spaces become a tab)} (a .txt file, placed as area type filling rect, the replaced object's bounds, or else the artboard less a 36 pt margin), template?: false (onto a new locked template layer below the current layer), replace?: false (swap the one selected object, keeping its stacking place and transform; no at/rect), at?: [x, y] centre (default: the first artboard's centre), rect?: [x, y, width, height] fit inside, aspect kept (wins over at), page?: 1 (PDF/.ai page, or a native document's artboard), crop?: \"crop\" (clipped to that page or artboard, default) | \"bounding\" (the art's bounds) | \"art\" | \"trim\" | \"bleed\" | \"media\" (a PDF page's boxes), password? (an encrypted PDF)} → {ids, name, format, linked, width, height, warnings}. Raster images come in at 100% of their physical size (the file's ppi, else 72); SVG, PDF/.ai and native documents as one group, with the images, symbols, patterns and swatches they use. One undo step; selects what it placed (unless on a template layer); never touches the clipboard",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.place.info",
+      "label": "Placed File Info",
+      "params": "{path | name+dataBase64, page?, crop?, password?, thumbnail?: px} what file.place would place, without placing it → {name, format, width, height (pt at 100%), pixelWidth?, pixelHeight?, ppi?: [x, y], colorMode?: RGB|Grayscale|CMYK (raster images), warnings, thumbnailBase64?: PNG of at most `thumbnail` (≤ 512) px on its longer side}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.place.queue",
+      "label": "Load Place Cursor",
+      "params": "{paths?: [path…], files?: [{name, dataBase64}…], link?, template?, page?, crop?, text?, thumbnail?: px} load the place cursor (the `place` tool) with up to 100 files (as file.place reads them): a click places the current file at 100% with its top-left corner there, a drag places it at the dragged size (aspect kept), ←/→ and ↑/↓ cycle the files, Esc discards the current one; each placement is a file.place, and the previous tool returns after the last → {count, files: [{name, format, width, height, thumbnailBase64?}], skipped: [{name, error}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.check",
+      "label": "Check Links",
+      "params": "{ids?: [image ids] (default: every linked image)} where each linked file is and whether it changed since it was read → {links: [{name, path, status: ok|modified|missing, ids, found?: path (found away from its path: relative to the document, or by name in its folder), preview: true (showing the low-resolution preview, not the file)}], missing, modified}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.update",
+      "label": "Update Links",
+      "params": "{ids?: [image ids] (default: the linked images whose file was modified or is showing its preview)} read their linked files again; each image keeps its bounds. One undo step → {updated: [ids], missing: [ids]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.relink",
+      "label": "Relink",
+      "params": "{ids?: [image ids] (default: the selected images; with folder and nothing selected, every missing link), path | folder} link images to the file at path, or each to the file of its link's name in folder; embedded images become linked; each keeps its bounds. One undo step → {relinked: [ids], notFound: [file names]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.list",
+      "label": "Links",
+      "params": "{show?: all (default)|missing|modified|embedded, sort?: name|kind (file format)|status (missing, modified, ok, embedded); default: stacking order, top first} every image object in the layers, as the Links panel lists them → {links: [{id, name, linked, status: ok|modified|missing|embedded, format, pixelWidth, pixelHeight, path?, found?: path (found away from its path), page?, preview?: true (showing the saved preview)}], missing, modified, embedded}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.goTo",
+      "label": "Go To Link",
+      "params": "{id?} select image `id` (default: the first selected image); the Links panel scrolls it into view → {id, bounds: [x0, y0, x1, y1]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.embed",
+      "label": "Embed Image",
+      "params": "{ids?: [image ids] (default: the selected linked images)} keep the linked files' pixels in the document and drop the links (an image whose file can't be found and that shows the saved preview stays linked: relink it first). One undo step → {embedded: [ids], missing: [ids]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.unembed",
+      "label": "Unembed",
+      "params": "{id?: an embedded image (default: the one selected), path?} write the image's pixels to the file at path (PNG, JPEG, GIF or WebP as stored, other images as PNG; a path ending in .png/.jpg/.jpeg/.gif/.webp/.tif/.tiff/.bmp converts them) and link the image to it, keeping its bounds. One undo step → {id, path}; no path → {name, dataBase64} (nothing changes: there is no file to link to)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.info",
+      "label": "Link Info",
+      "params": "{id?} an image's Link Info (default: the one selected) → image.info's fields (id, name, linked, link, colorMode, pixelWidth, pixelHeight, width, height) and status: ok|modified|missing|embedded, format, ppi: [x, y] (the file's), effectivePpi: [x, y] (at its placed size), scale: [x%, y%] (of its 100% size), rotation (degrees, counter-clockwise), placement: {preserve, align, clip}; linked images also fileName, location (its folder), page?, fileSize? (bytes), modified?, created? (ms since the Unix epoch)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.placementOptions",
+      "label": "Placement Options",
+      "params": "{ids?: [image ids] (default: the selected images), preserve?: transforms|bounds (default)|fileDimensions|fit|fill, align?: topLeft|top|topRight|left|center (default)|right|bottomLeft|bottom|bottomRight (where the new art sits; not for bounds), clip?: false (clip it to the old bounds where it is larger)} how a file read again (links.relink, links.update) takes each image's place: transforms keeps its scale (relative to each file's 100% size), rotation and position; bounds stretches it into the old bounds; fileDimensions puts it at 100%, unrotated; fit and fill scale it proportionally to fit inside or cover the old bounds. Without options → {placement} of the first image; else one undo step → {ids, placement}",
+      "enabledAtEmptySession": false
+    }
+  ],
+  "runtimePatchSourceCommit": "402de7b5f698797af9195cbd380cc97716883bc8",
+  "analysisCommit": "36a6a8ae49f0e2d1059361ab1f842b1ec172bc9e"
+}

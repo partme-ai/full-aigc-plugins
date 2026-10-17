@@ -1,0 +1,100 @@
+{
+  "schema": "wordcraft-document-template/v1",
+  "id": "requirements-document",
+  "name": "需求说明",
+  "scope": "新建文档模板；已有文档先定位目标区域，不全篇覆盖",
+  "fields": {
+    "title": {
+      "label": "文档标题",
+      "type": "text",
+      "required": true,
+      "guidance": "按具体对象命名"
+    },
+    "document_date": {
+      "label": "文档日期",
+      "type": "text",
+      "required": false,
+      "guidance": "不确定时待确认"
+    },
+    "author": {
+      "label": "编写人",
+      "type": "text",
+      "required": false,
+      "guidance": "不推断责任归属"
+    },
+    "context": {
+      "label": "业务背景与用户",
+      "type": "text",
+      "required": true,
+      "guidance": "说明服务对象、使用情境与当前问题"
+    },
+    "scope": {
+      "label": "本期范围与非目标",
+      "type": "text",
+      "required": true,
+      "guidance": "明确包含和不包含的场景"
+    },
+    "rules": {
+      "label": "业务规则与约束",
+      "type": "text",
+      "required": true,
+      "guidance": "列明确规则、权限、边界与依赖"
+    },
+    "quality": {
+      "label": "质量要求",
+      "type": "text",
+      "required": true,
+      "guidance": "只记录有依据的性能、可用性和兼容目标"
+    },
+    "open_issues": {
+      "label": "待确认事项",
+      "type": "text",
+      "required": true,
+      "guidance": "列出影响实施的未决问题"
+    },
+    "records": {
+      "label": "需求与验收条件",
+      "type": "rows",
+      "required": true,
+      "guidance": "二维字符串数组，按表头列顺序；未知单元格写待确认，不使用制表符或换行"
+    }
+  },
+  "sections": [
+    {
+      "title": "业务背景与用户",
+      "field": "context"
+    },
+    {
+      "title": "本期范围与非目标",
+      "field": "scope"
+    },
+    {
+      "title": "业务规则与约束",
+      "field": "rules"
+    },
+    {
+      "title": "质量要求",
+      "field": "quality"
+    },
+    {
+      "title": "待确认事项",
+      "field": "open_issues"
+    }
+  ],
+  "table": {
+    "title": "需求与验收条件",
+    "headers": [
+      "编号",
+      "需求",
+      "验收条件",
+      "优先级"
+    ],
+    "field": "records"
+  },
+  "contentRule": "需求、解决方案和未决问题分开；每项需求有编号和可观察验收条件。",
+  "reviewChecks": [
+    "正文来自本次输入，示例文字已替换",
+    "标题与正文样式分离，表格为原生可编辑对象",
+    "重开核对字段和表格，再逐页审阅PDF"
+  ]
+}

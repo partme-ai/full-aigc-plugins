@@ -1,0 +1,6 @@
+interface:
+  display_name: "vectorcraft-harness"
+  short_description: "VectorCraft 内置执行 harness：统一安装、原生命令、工作流与桌面桥接通道"
+  default_prompt: "使用 $vectorcraft-harness 作为所有 VectorCraft 技能的执行通道，经由本技能入口安装依赖、执行并核验。"
+policy:
+  allow_implicit_invocation: true

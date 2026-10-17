@@ -1,0 +1,13 @@
+{
+  "name": "deckcraft",
+  "icon": "deckcraft/icon.png",
+  "source": "https://raw.githubusercontent.com/storytold/deckcraft/457406a7a5b62425e915926c8ccb0984e61a198c/assets/app-icon/hicolor/scalable/apps/ai.storyteller.deckcraft.svg",
+  "homepage": "https://github.com/storytold/deckcraft",
+  "matchedBy": "upstream-app-icon",
+  "mimeType": "image/png",
+  "license": "MIT",
+  "modifications": "Square full-bleed background; 256px PNG. Artwork preserved; corner rounding delegated to client.",
+  "sha256": "2c1fe6f69085de7a989d50d5425c07a6fb7abab65a72ed979c1c500d93051e6a",
+  "localFile": "./assets/official-logo.png",
+  "displayName": "DeckCraft Use"
+}

@@ -1,0 +1,38 @@
+{
+  "status": "local-unreleased",
+  "sourcePackage": "full-aigc-skills/gridcraft-skills",
+  "skills": [
+    {
+      "name": "gridcraft-editor",
+      "sha256": "da361446b53e1c72d44fece99a0627bb3d381525cfe349ad79f39bab7bab77b2"
+    },
+    {
+      "name": "gridcraft-clean-table",
+      "sha256": "732270ef8af8a2c1f089d94221771f2d5497c970b39f984bae1d50e3e3bc0f6f"
+    },
+    {
+      "name": "gridcraft-sales-summary",
+      "sha256": "9ce454c0c5afa6ef7fd96addd128573ad0cc11ec89d9f0b254a50fb73a92b314"
+    },
+    {
+      "name": "gridcraft-budget-tracker",
+      "sha256": "76d113d17132c97adcbb92a429845a84a53596347e5e89cd7a8e9ec6feef4d8d"
+    },
+    {
+      "name": "gridcraft-reconcile-data",
+      "sha256": "361c04ce2bd6e298db6a2a13266b0a2c75354fc1235dd65e9a96be89d9096a63"
+    },
+    {
+      "name": "gridcraft-formula-audit",
+      "sha256": "02a5d53c0a60480131e3aad2930a9f83886a270c993a32fa21d9366c897afcd0"
+    },
+    {
+      "name": "gridcraft-dashboard",
+      "sha256": "a424c76ba6e5a474d643f1411e183e34caed22c7ebd8c6badec944b95cdb3b44"
+    },
+    {
+      "name": "gridcraft-scenario-playbooks",
+      "sha256": "7c0966f2802e0f85bb31bc1453153b6d0d34266ae27215d573201923bbffb79d"
+    }
+  ]
+}

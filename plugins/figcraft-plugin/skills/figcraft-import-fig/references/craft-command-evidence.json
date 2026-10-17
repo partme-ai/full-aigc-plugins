@@ -1,0 +1,42 @@
+{
+  "runtime": {
+    "repository": "storytold/figcraft",
+    "commit": "d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08",
+    "exeSha256": "258ebcacd03404ab15e627b0a6c1a654b4f7f54336f4c6f4b48351abc0bb945e",
+    "artifactRun": 39007496391
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218",
+  "observedCommands": {
+    "file.open": {
+      "id": "file.open",
+      "label": "Open",
+      "menu": "File",
+      "params": "{path | data (base64) + name (tells the format; opens as a new unsaved document), variables? (REST: the local variables JSON as an object, JSON text or a path; default `<name>.variables.json` or `variables.json` next to the file)} (.figcraft, .json: FigCraft or REST API file JSON, .fig (best effort), .svg, .png, .jpg …); REST and .fig imports return `warnings`",
+      "shortcut": "Cmd+O",
+      "undoable": false
+    },
+    "component.list": {
+      "id": "component.list",
+      "label": "List components",
+      "menu": null,
+      "params": "{} → [{id, name, type, page, instances, folder (the Assets panel's folders: page, frames, slash names), label, library?}]",
+      "shortcut": null,
+      "undoable": false
+    },
+    "file.exportSvg": {
+      "id": "file.exportSvg",
+      "label": "Export selection as SVG",
+      "menu": "File",
+      "params": "{ids?, path?}",
+      "shortcut": null,
+      "undoable": false
+    }
+  },
+  "sceneAcceptance": "LIMITED_TECHNICAL_PASS",
+  "baselineRuntime": {
+    "version": "v0.6.0",
+    "url": "https://github.com/storytold/figcraft/releases/download/v0.6.0/figcraft-0.6.0-windows-x64-portable.zip",
+    "sha256": "87cc2191f2b00c7701fed7db88222d227488e6f50963b24f61e46fed42a565ce",
+    "executable": "figcraft-cli.exe"
+  }
+}

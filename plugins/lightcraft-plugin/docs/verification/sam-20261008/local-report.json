@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourceFingerprint": "f63d4bd97494aa790142bb54399b53106ab1260255f75025bbe8597b2b108c32",
+  "layers": {
+    "structure": {
+      "status": "PASS",
+      "evidence": [
+        "../../../scripts/validate_package.py",
+        "README.md"
+      ]
+    },
+    "mock": {
+      "status": "PASS",
+      "evidence": [
+        "unittest-python-3.12.log",
+        "unittest-python-3.13.log"
+      ]
+    },
+    "native": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "host": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "visual": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "platform": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "remoteCI": {
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  },
+  "scope": "SAM read-only prerequisites only; catalog discovery is not segmentation acceptance",
+  "completeAcceptance": false
+}

@@ -1,0 +1,2018 @@
+{
+  "baselineCount": 163,
+  "mainCount": 170,
+  "added": [
+    "accessibility_autotag_form_fields",
+    "accessibility_find_untagged",
+    "accessibility_mark_tag_artifact",
+    "accessibility_tag_content",
+    "page_transition_set",
+    "text_word_count",
+    "xfa_to_static"
+  ],
+  "removed": [],
+  "contractsChanged": [
+    {
+      "id": "accessibility_tags",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": "a11y.tags",
+        "description": "List reachable indirect structure tags in document order with PDF object number, generation, nearest indirect parent, depth, page, type, title, actual text, alternate text and language. Inline tag dictionaries have no stable object reference and are not listed.",
+        "read_only": true
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "limit": {
+              "description": "Tags in the page (default 200)",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "max_depth": {
+              "description": "Only tags at most this deep (0 = top level)",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "offset": {
+              "description": "Where the page starts, counted from 0 (the previous page's next)",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "pages": {
+              "description": "Only tags on these pages",
+              "items": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "types": {
+              "description": "Only tags of these types, as listed in type (such as H1, H2, Table)",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": "a11y.tags",
+        "description": "List reachable indirect structure tags in document order with PDF object number, generation, nearest indirect parent, depth, page, type, title, actual text, alternate text and language, one page at a time: count is how many tags match, next the offset of the following page (null at the end). types, pages and max_depth keep only some tags. Inline tag dictionaries have no stable object reference and are not listed.",
+        "read_only": true
+      }
+    },
+    {
+      "id": "comment_edit",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "description": "#RRGGBB or a name: yellow, red, orange, green, blue, purple, pink, black, gray, white.",
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "fill": {
+              "description": "Interior colour of a rectangle, oval or polygon: #RRGGBB, a colour name, or \"none\" for no fill.",
+              "type": "string"
+            },
+            "id": {
+              "description": "The comment's id (from comment_list).",
+              "type": "string"
+            },
+            "index": {
+              "description": "1-based position on the page, as comment_list reports.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "move": {
+              "description": "[x, y] in points from the top-left of the displayed page.",
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "opacity": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "page": {
+              "description": "With `index`, instead of `id`.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "rect": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            },
+            "width": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Change a comment's text, colour, opacity, line width, fill (rectangle/oval/polygon; \"none\" removes it), rectangle (rectangle/oval/text box/stamp) or position (`move` [dx, dy] in points). Stamps keep their original appearance when resized. One undo step.",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "description": "#RRGGBB or a name: yellow, red, orange, green, blue, purple, pink, black, gray, white.",
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "fill": {
+              "description": "Interior colour of a rectangle, oval or polygon: #RRGGBB, a colour name, or \"none\" for no fill.",
+              "type": "string"
+            },
+            "font_size": {
+              "description": "Font size in points of a text box, typewriter text or callout; the box grows to hold the text.",
+              "maximum": 400,
+              "minimum": 1,
+              "type": "number"
+            },
+            "id": {
+              "description": "The comment's id (from comment_list).",
+              "type": "string"
+            },
+            "index": {
+              "description": "1-based position on the page, as comment_list reports.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "move": {
+              "description": "[x, y] in points from the top-left of the displayed page.",
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "opacity": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "page": {
+              "description": "With `index`, instead of `id`.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "rect": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            },
+            "width": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Change a comment's text, colour, opacity, line width, font size (text box/typewriter/callout), fill (rectangle/oval/polygon; \"none\" removes it), rectangle (rectangle/oval/text box/stamp) or position (`move` [dx, dy] in points). Stamps keep their original appearance when resized. One undo step.",
+        "read_only": false
+      }
+    },
+    {
+      "id": "doc_audit_redactions",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Find faux redactions: opaque filled rectangles painted over text that is still extractable, and /Redact annotations that were marked but never applied. Paint-order and colour-aware: a rectangle counts only when painted after the text and dark enough to hide it (page backgrounds and light shading are not flagged). Each finding reports the 1-based page, the kind (covered-text or unapplied-mark), the rectangle, and the hidden text. Fails closed: unreadable content is an error, never a clean bill. A properly applied redaction removes the text and never flags.",
+        "read_only": true
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Find faux redactions: opaque filled rectangles painted over text that is still extractable, and /Redact annotations that were marked but never applied. Paint-order and colour-aware: a rectangle counts only when painted after the text and dark enough to hide it (page backgrounds and light shading are not flagged). Each finding reports the 1-based page, the kind (covered-text or unapplied-mark), the rectangle (points from the top-left of the displayed page, like comment_list), and the hidden text. Fails closed: unreadable content is an error, never a clean bill. A properly applied redaction removes the text and never flags.",
+        "read_only": true
+      }
+    },
+    {
+      "id": "doc_export_all_images",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "folder": {
+              "type": "string"
+            },
+            "min_size": {
+              "description": "Skip images smaller than this many pixels on their shorter side (default 0).",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "pages": {
+              "description": "1-based page numbers whose images to export (default: all).",
+              "items": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "doc",
+            "folder"
+          ],
+          "type": "object"
+        },
+        "command": "export.all_images",
+        "description": "Write the images that pages use into a folder (`<name>_Page_<n>_Image_<k>.jpg|png`), each once: JPEG images unchanged, others as PNG with their soft mask as alpha. min_size skips images with fewer pixels on their shorter side. Images that can't be decoded yet (JPEG 2000, JBIG2, CCITT, separations) are listed under skipped. Includes unsaved edits.",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "folder": {
+              "type": "string"
+            },
+            "min_size": {
+              "description": "Skip images smaller than this many pixels on their shorter side (default 0).",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "pages": {
+              "description": "1-based page numbers whose images to export (default: all).",
+              "items": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "doc",
+            "folder"
+          ],
+          "type": "object"
+        },
+        "command": "export.all_images",
+        "description": "Write the images that pages use into a folder (`<name>_Page_<n>_Image_<k>.jpg|png`, n zero-padded to the page count's digits), each once: JPEG images unchanged, others as PNG with their soft mask as alpha. min_size skips images with fewer pixels on their shorter side. Images that can't be decoded yet (JPEG 2000, JBIG2, CCITT, separations) are listed under skipped. Includes unsaved edits.",
+        "read_only": false
+      }
+    },
+    {
+      "id": "doc_flatten",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "comments": {
+              "description": "Default true.",
+              "type": "boolean"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "fields": {
+              "description": "Default true.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Merge comment and/or form field appearances into the page content, so they print and display everywhere but can no longer be edited. Undoable until saved.",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "comments": {
+              "description": "Default true.",
+              "type": "boolean"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "fields": {
+              "description": "Default true.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Merge comment and/or form field appearances into the page content, so they print and display everywhere but can no longer be edited. Flattening the fields of an XFA form also takes the XFA out (its template, data and scripts), so Adobe's viewers show the baked pages rather than laying the form out again. Undoable until saved.",
+        "read_only": false
+      }
+    },
+    {
+      "id": "doc_info",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": "file.properties",
+        "description": "Metadata, page sizes and labels, bookmarks, annotations, form fields, links, layers, attachments, fonts, security and repair notes.",
+        "read_only": true
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": "file.properties",
+        "description": "Metadata, page sizes and labels, bookmarks, annotations, form fields, links, layers, page transitions and display times, attachments, fonts, security and repair notes.",
+        "read_only": true
+      }
+    },
+    {
+      "id": "doc_optimize",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "type": "object"
+            },
+            "discard": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "discard_alternate_images": {
+              "type": "boolean"
+            },
+            "discard_print_settings": {
+              "type": "boolean"
+            },
+            "discard_tags": {
+              "type": "boolean"
+            },
+            "discard_thumbnails": {
+              "type": "boolean"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "flate_unencoded": {
+              "type": "boolean"
+            },
+            "gray": {
+              "type": "object"
+            },
+            "path": {
+              "type": "string"
+            },
+            "remove_invalid_links": {
+              "type": "boolean"
+            },
+            "remove_unreferenced_dests": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "doc",
+            "path"
+          ],
+          "type": "object"
+        },
+        "command": "optimize.advanced",
+        "description": "Write an optimized copy to `path` (Acrobat's PDF Optimizer). color / gray: { downsample, ppi, above_ppi, compression: jpeg|zip|retain, quality 1–100 } (defaults: downsample to 150 ppi above 225, JPEG 60). Images are measured where pages draw them and replaced only when smaller. discard_*: thumbnails (default true), alternate_images (true), tags, print_settings; flate_unencoded (true); remove_invalid_links and remove_unreferenced_dests (true); images and forms the pages list but never draw are always dropped (unused_xobjects). discard: Remove Hidden Information categories (metadata, attachments, comments, form-fields, hidden-text, hidden-layers, bookmarks, links-actions-scripts, private-data). Signed documents are refused. The open document is unchanged.",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "type": "object"
+            },
+            "discard": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "discard_alternate_images": {
+              "type": "boolean"
+            },
+            "discard_print_settings": {
+              "type": "boolean"
+            },
+            "discard_tags": {
+              "type": "boolean"
+            },
+            "discard_thumbnails": {
+              "type": "boolean"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "flate_unencoded": {
+              "type": "boolean"
+            },
+            "gray": {
+              "type": "object"
+            },
+            "merge_fragments": {
+              "type": "boolean"
+            },
+            "path": {
+              "type": "string"
+            },
+            "preset": {
+              "enum": [
+                "standard",
+                "mobile"
+              ],
+              "type": "string"
+            },
+            "remove_invalid_links": {
+              "type": "boolean"
+            },
+            "remove_unreferenced_dests": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "doc",
+            "path"
+          ],
+          "type": "object"
+        },
+        "command": "optimize.advanced",
+        "description": "Write an optimized copy to `path` (Acrobat's PDF Optimizer). preset: standard (default; Reduce File Size's choices) or mobile (images to 96 ppi above 144, JPEG high quality); the options below change it. merge_fragments (default true) first puts a page picture drawn as many stacked image strips (as some PDF printers write it) back together into one image, so it can be resampled (merged_images, fragments_merged). color / gray: { downsample, ppi, above_ppi, compression: jpeg|zip|retain, quality 1–100 } (defaults: downsample to 150 ppi above 225, JPEG 60). Images are measured where pages draw them and replaced only when smaller. discard_*: thumbnails (default true), alternate_images (true), tags, print_settings; flate_unencoded (true); remove_invalid_links and remove_unreferenced_dests (true); images and forms the pages list but never draw are always dropped (unused_xobjects). discard: Remove Hidden Information categories (metadata, attachments, comments, form-fields, hidden-text, hidden-layers, bookmarks, links-actions-scripts, private-data). Signed documents are refused. The open document is unchanged.",
+        "read_only": false
+      }
+    },
+    {
+      "id": "doc_print",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "auto_rotate": {
+              "type": "boolean"
+            },
+            "binding": {
+              "enum": [
+                "left",
+                "right"
+              ],
+              "type": "string"
+            },
+            "booklet_subset": {
+              "enum": [
+                "both",
+                "front",
+                "back"
+              ],
+              "type": "string"
+            },
+            "border": {
+              "type": "boolean"
+            },
+            "collate": {
+              "type": "boolean"
+            },
+            "comments_forms": {
+              "enum": [
+                "document",
+                "document-and-markups",
+                "document-and-stamps",
+                "form-fields-only"
+              ],
+              "type": "string"
+            },
+            "copies": {
+              "maximum": 999,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "cut_marks": {
+              "type": "boolean"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "duplex": {
+              "enum": [
+                "off",
+                "long-edge",
+                "short-edge"
+              ],
+              "type": "string"
+            },
+            "grayscale": {
+              "type": "boolean"
+            },
+            "layout": {
+              "enum": [
+                "fit",
+                "actual",
+                "shrink",
+                "custom",
+                "multiple",
+                "booklet",
+                "poster"
+              ],
+              "type": "string"
+            },
+            "options": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Printer driver options from printer_options: key → choice value.",
+              "type": "object"
+            },
+            "order": {
+              "enum": [
+                "horizontal",
+                "horizontal-reversed",
+                "vertical",
+                "vertical-reversed",
+                "cut-stack"
+              ],
+              "type": "string"
+            },
+            "orientation": {
+              "enum": [
+                "auto",
+                "portrait",
+                "landscape"
+              ],
+              "type": "string"
+            },
+            "overlap": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "pages": {
+              "type": "string"
+            },
+            "paper": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "per_sheet": {
+              "maximum": 256,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "printer": {
+              "type": "string"
+            },
+            "reverse": {
+              "type": "boolean"
+            },
+            "scale": {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            "subset": {
+              "enum": [
+                "all",
+                "odd",
+                "even"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Print with Acrobat's Print dialog options, or save the print-ready PDF. pages: a range such as \"1-3, 6, 9-\" (page labels allowed; default all); subset odd/even; reverse. layout: fit (default), actual, shrink, custom (scale %), multiple (per_sheet 2/4/6/9/16, order, border, auto_rotate; cut-stack order arranges single-sided sheets for cutting into piles and stacking left to right, top to bottom, keeping sheet order within each pile; duplex must be off), booklet (booklet_subset both/front/back, binding left/right), poster (scale %, overlap pt, cut_marks). orientation auto/portrait/landscape; comments_forms document / document-and-markups (default) / document-and-stamps / form-fields-only; paper Letter/Legal/Tabloid, ARCH A/B/C/D/E1/E, ANSI C/D/E, or A0/A1/A2/A3/A4/A5 (short names or full preset labels); use layout actual for 100% in the print-ready PDF; printer drivers may still substitute paper or scale. Then path (save) or printer (a name or \"default\") with copies, collate, duplex off/long-edge/short-edge, grayscale, and options (driver options from printer_options, CUPS).",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "as_image": {
+              "description": "Print as image (Acrobat's Advanced Print Setup): every page rendered to a picture at dpi before it is placed on the paper, for printers that skip text, shading or transparency; the print is no longer searchable text, and with grayscale the pictures are grey.",
+              "type": "boolean"
+            },
+            "auto_rotate": {
+              "type": "boolean"
+            },
+            "binding": {
+              "enum": [
+                "left",
+                "right"
+              ],
+              "type": "string"
+            },
+            "booklet_subset": {
+              "enum": [
+                "both",
+                "front",
+                "back"
+              ],
+              "type": "string"
+            },
+            "border": {
+              "type": "boolean"
+            },
+            "collate": {
+              "type": "boolean"
+            },
+            "comments_forms": {
+              "enum": [
+                "document",
+                "document-and-markups",
+                "document-and-stamps",
+                "form-fields-only"
+              ],
+              "type": "string"
+            },
+            "copies": {
+              "maximum": 999,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "cut_marks": {
+              "type": "boolean"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "dpi": {
+              "description": "Resolution for as_image (default 300).",
+              "maximum": 600,
+              "minimum": 72,
+              "type": "number"
+            },
+            "duplex": {
+              "enum": [
+                "off",
+                "long-edge",
+                "short-edge"
+              ],
+              "type": "string"
+            },
+            "grayscale": {
+              "type": "boolean"
+            },
+            "layout": {
+              "enum": [
+                "fit",
+                "actual",
+                "shrink",
+                "custom",
+                "multiple",
+                "booklet",
+                "poster"
+              ],
+              "type": "string"
+            },
+            "options": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Printer driver options from printer_options: key → choice value.",
+              "type": "object"
+            },
+            "order": {
+              "enum": [
+                "horizontal",
+                "horizontal-reversed",
+                "vertical",
+                "vertical-reversed",
+                "cut-stack"
+              ],
+              "type": "string"
+            },
+            "orientation": {
+              "enum": [
+                "auto",
+                "portrait",
+                "landscape"
+              ],
+              "type": "string"
+            },
+            "overlap": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "pages": {
+              "type": "string"
+            },
+            "paper": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "per_sheet": {
+              "maximum": 256,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "printer": {
+              "type": "string"
+            },
+            "reverse": {
+              "type": "boolean"
+            },
+            "scale": {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            "subset": {
+              "enum": [
+                "all",
+                "odd",
+                "even"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Print with Acrobat's Print dialog options, or save the print-ready PDF. pages: a range such as \"1-3, 6, 9-\" (page labels allowed; default all); subset odd/even; reverse. layout: fit (default), actual, shrink, custom (scale %), multiple (per_sheet 2/4/6/9/16, order, border, auto_rotate; cut-stack order arranges single-sided sheets for cutting into piles and stacking left to right, top to bottom, keeping sheet order within each pile; duplex must be off), booklet (booklet_subset both/front/back, binding left/right), poster (scale %, overlap pt, cut_marks). orientation auto/portrait/landscape; comments_forms document / document-and-markups (default) / document-and-stamps / form-fields-only; paper Letter/Legal/Tabloid, ARCH A/B/C/D/E1/E, ANSI C/D/E, or A0/A1/A2/A3/A4/A5/A6 (short names or full preset labels); use layout actual for 100% in the print-ready PDF; printer drivers may still substitute paper or scale. Then path (save) or printer (a name or \"default\") with copies, collate, duplex off/long-edge/short-edge, grayscale, and options (driver options from printer_options, CUPS).",
+        "read_only": false
+      }
+    },
+    {
+      "id": "form_detect_fields",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "add": {
+              "type": "boolean"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "pages": {
+              "description": "1-based page numbers to look at (default: all).",
+              "items": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": "form.detect",
+        "description": "Prepare a form ▸ automatic field detection: find the blanks a printed form asks to be filled (underscore runs, lines, empty boxes, small squares for check boxes) and name each field from its label. With add (default true) the fields are created as one undoable step; otherwise they are only proposed. Returns page (1-based), kind, name and rect (points, origin bottom-left).",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "add": {
+              "type": "boolean"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "pages": {
+              "description": "1-based page numbers to look at (default: all).",
+              "items": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": "form.detect",
+        "description": "Prepare a form ▸ automatic field detection: find the blanks a printed form asks to be filled (underscore runs, lines, empty boxes, small squares for check boxes; on scanned pages read from the pixels) and name each field from its label. With add (default true) the fields are created as one undoable step; otherwise they are only proposed. Returns page (1-based), kind, name and rect (points, origin bottom-left).",
+        "read_only": false
+      }
+    },
+    {
+      "id": "form_set_props",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "oneOf": [
+            {
+              "required": [
+                "field"
+              ]
+            },
+            {
+              "required": [
+                "fields"
+              ]
+            }
+          ],
+          "properties": {
+            "align": {
+              "enum": [
+                "left",
+                "center",
+                "right"
+              ],
+              "type": "string"
+            },
+            "appearance": {
+              "description": "Appearance tab: border, fill, text_color (#RRGGBB, a name or \"none\"), width (0–12 points; 1 thin, 2 medium, 3 thick), style (solid, dashed, beveled, inset, underline), font (helvetica, times, courier).",
+              "type": "object"
+            },
+            "calculate": {
+              "description": "Calculate tab: {\"op\": \"sum\"|\"product\"|\"average\"|\"min\"|\"max\", \"fields\": [\"a\", \"b\"]}, {\"notation\": \"Price * Qty\"} (simplified field notation), or \"none\"."
+            },
+            "check_style": {
+              "description": "Check boxes and radio buttons: the mark shown when on.",
+              "enum": [
+                "check",
+                "circle",
+                "cross",
+                "diamond",
+                "square",
+                "star"
+              ],
+              "type": "string"
+            },
+            "default": {
+              "type": "string"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "field": {
+              "description": "The field's current name.",
+              "type": "string"
+            },
+            "fields": {
+              "description": "Apply the same changes to these fields in one atomic edit. Use either field or fields.",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 1000,
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "flags": {
+              "additionalProperties": {
+                "type": "boolean"
+              },
+              "type": "object"
+            },
+            "font_size": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "format": {
+              "description": "Format tab: {\"type\": \"number\", \"decimals\": 2, \"currency\": \"$\", \"separator\": 0-4, \"negative\": 0-3}, {\"type\": \"percent\"}, {\"type\": \"date\"|\"time\", \"pattern\": \"mm/dd/yyyy\"}, {\"type\": \"zip\"|\"zip4\"|\"phone\"|\"ssn\"}, {\"type\": \"mask\", \"mask\": \"AA-9999\"}, or \"none\"."
+            },
+            "locked": {
+              "description": "Lock the field's properties (only unlocking is accepted while locked).",
+              "type": "boolean"
+            },
+            "max_length": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "multiline": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "options": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "read_only": {
+              "type": "boolean"
+            },
+            "rect": {
+              "description": "Move/resize: points from the top-left of the displayed page.",
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "rotation": {
+              "description": "Widget rotation in degrees, counterclockwise. Changing between horizontal and vertical swaps the rectangle around its center.",
+              "enum": [
+                0,
+                90,
+                180,
+                270
+              ],
+              "type": "integer"
+            },
+            "tooltip": {
+              "type": "string"
+            },
+            "validate": {
+              "description": "Validate tab: {\"min\": 0, \"max\": 100} (either may be left out) or \"none\"."
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Change field properties: give field for one field, or fields for a list of unique field names (1–1000). A bulk change is atomic and one Undo step; an invalid or locked field leaves every field unchanged. Only the given properties change, and partial appearance changes preserve each field's other colours and font. name (rename), rect (position) and rotation require a single field. General and Options: tooltip, read_only, required, multiline, max_length (0 = no limit), options (combo/list items), font_size (0 = auto), format, validate, calculate (Acrobat's native AF rules). Options: align (left, center, right), default (Reset form's value; check boxes/radio buttons use their on state, \"\" for off), flags { scroll, rich_text, password, file_select, spell_check, comb (needs max_length), sort, editable, multi_select, commit_immediately }, check_style (check boxes/radio buttons: check, circle, cross, diamond, square, star). rotation is 0, 90, 180 or 270 degrees counterclockwise and swaps width/height when the axis changes. Undoable.",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "align": {
+              "enum": [
+                "left",
+                "center",
+                "right"
+              ],
+              "type": "string"
+            },
+            "appearance": {
+              "description": "Appearance tab: border, fill, text_color (#RRGGBB, a name or \"none\"), width (0–12 points; 1 thin, 2 medium, 3 thick), style (solid, dashed, beveled, inset, underline), font (helvetica, times, courier).",
+              "type": "object"
+            },
+            "calculate": {
+              "description": "Calculate tab: {\"op\": \"sum\"|\"product\"|\"average\"|\"min\"|\"max\", \"fields\": [\"a\", \"b\"]}, {\"notation\": \"Price * Qty\"} (simplified field notation), or \"none\"."
+            },
+            "check_style": {
+              "description": "Check boxes and radio buttons: the mark shown when on.",
+              "enum": [
+                "check",
+                "circle",
+                "cross",
+                "diamond",
+                "square",
+                "star"
+              ],
+              "type": "string"
+            },
+            "default": {
+              "type": "string"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "field": {
+              "description": "The field's current name.",
+              "type": "string"
+            },
+            "fields": {
+              "description": "Apply the same changes to these fields in one atomic edit. Use either field or fields.",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 1000,
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "flags": {
+              "additionalProperties": {
+                "type": "boolean"
+              },
+              "type": "object"
+            },
+            "font_size": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "format": {
+              "description": "Format tab: {\"type\": \"number\", \"decimals\": 2, \"currency\": \"$\", \"separator\": 0-4, \"negative\": 0-3}, {\"type\": \"percent\"}, {\"type\": \"date\"|\"time\", \"pattern\": \"mm/dd/yyyy\"}, {\"type\": \"zip\"|\"zip4\"|\"phone\"|\"ssn\"}, {\"type\": \"mask\", \"mask\": \"AA-9999\"}, or \"none\"."
+            },
+            "locked": {
+              "description": "Lock the field's properties (only unlocking is accepted while locked).",
+              "type": "boolean"
+            },
+            "max_length": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "multiline": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "options": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "read_only": {
+              "type": "boolean"
+            },
+            "rect": {
+              "description": "Move/resize: points from the top-left of the displayed page.",
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "rotation": {
+              "description": "Widget rotation in degrees, counterclockwise. Changing between horizontal and vertical swaps the rectangle around its center.",
+              "enum": [
+                0,
+                90,
+                180,
+                270
+              ],
+              "type": "integer"
+            },
+            "tooltip": {
+              "type": "string"
+            },
+            "validate": {
+              "description": "Validate tab: {\"min\": 0, \"max\": 100} (either may be left out) or \"none\"."
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Change field properties: give field for one field, or fields for a list of unique field names (1–1000). A bulk change is atomic and one Undo step; an invalid or locked field leaves every field unchanged. Only the given properties change, and partial appearance changes preserve each field's other colours and font. name (rename), rect (position) and rotation require a single field. General and Options: tooltip, read_only, required, multiline, max_length (0 = no limit), options (combo/list items), font_size (0 = auto), format, validate, calculate (Acrobat's native AF rules). Options: align (left, center, right), default (Reset form's value; check boxes/radio buttons use their on state, \"\" for off), flags { scroll, rich_text, password, file_select, spell_check, comb (needs max_length), sort, editable, multi_select, commit_immediately }, check_style (check boxes/radio buttons: check, circle, cross, diamond, square, star). rotation is 0, 90, 180 or 270 degrees counterclockwise and swaps width/height when the axis changes. Undoable.",
+        "read_only": false
+      }
+    },
+    {
+      "id": "image_edit",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "enum": [
+                "move",
+                "rotate",
+                "flip_horizontal",
+                "flip_vertical",
+                "replace",
+                "delete"
+              ],
+              "type": "string"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "image": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "page": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "path": {
+              "type": "string"
+            },
+            "quarters": {
+              "type": "integer"
+            },
+            "rect": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            }
+          },
+          "required": [
+            "doc",
+            "page",
+            "image",
+            "action"
+          ],
+          "type": "object"
+        },
+        "command": "edit.edit_text",
+        "description": "Change one of a page's images (number from page_images): action move (rect: new full placement box in top-left-origin points, based on page_images.rect), rotate (quarters clockwise, default 1), flip_horizontal, flip_vertical, replace (path: an image file, drawn in the same place) or delete. Undoable. The selected image crop transforms with its pixels, isolating shared path scopes while retaining neighboring painting. Text-outline clips return a clear error. Rotation/flip use the visible centre. Form artwork supports move/resize/rotate/flip/delete as a group; replace and image_save only support raster images.",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "enum": [
+                "move",
+                "crop",
+                "rotate",
+                "flip_horizontal",
+                "flip_vertical",
+                "replace",
+                "delete"
+              ],
+              "type": "string"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "image": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "page": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "path": {
+              "type": "string"
+            },
+            "quarters": {
+              "type": "integer"
+            },
+            "rect": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            }
+          },
+          "required": [
+            "doc",
+            "page",
+            "image",
+            "action"
+          ],
+          "type": "object"
+        },
+        "command": "edit.edit_text",
+        "description": "Change one of a page's images (number from page_images): action move (rect: new full placement box in top-left-origin points, based on page_images.rect), crop (rect: the part to keep, top-left-origin points; the pixels stay in place and page_images.visible_rect shows the result; a later move carries the crop along), rotate (quarters clockwise, default 1), flip_horizontal, flip_vertical, replace (path: an image file, drawn in the same place) or delete. Undoable. The selected image crop transforms with its pixels, isolating shared path scopes while retaining neighboring painting. Text-outline clips return a clear error. Rotation/flip use the visible centre. Form artwork supports move/resize/rotate/flip/delete as a group; replace and image_save only support raster images.",
+        "read_only": false
+      }
+    },
+    {
+      "id": "page_add_text",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "align": {
+              "enum": [
+                "left",
+                "center",
+                "right",
+                "justify"
+              ],
+              "type": "string"
+            },
+            "at": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "bold": {
+              "type": "boolean"
+            },
+            "color": {
+              "type": "string"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "font": {
+              "enum": [
+                "helvetica",
+                "times",
+                "courier"
+              ],
+              "type": "string"
+            },
+            "italic": {
+              "type": "boolean"
+            },
+            "page": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "rect": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            },
+            "size": {
+              "maximum": 500,
+              "minimum": 1,
+              "type": "number"
+            },
+            "text": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "width": {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "doc",
+            "page",
+            "text"
+          ],
+          "type": "object"
+        },
+        "command": "edit.text",
+        "description": "Add text as page content (not a comment). Place it with at [x, y] (top-left, points from the top-left of the displayed page) and width (wrap width, default 200), or rect. Newlines start new lines; long lines wrap. Style: font helvetica/times/courier, size, bold, italic, color (#RRGGBB or a name), align left/center/right. Text must be Western European (WinAnsi) characters; others are refused. It stays editable with content_update. Undoable.",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "align": {
+              "enum": [
+                "left",
+                "center",
+                "right",
+                "justify"
+              ],
+              "type": "string"
+            },
+            "at": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "bold": {
+              "type": "boolean"
+            },
+            "color": {
+              "type": "string"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "font": {
+              "enum": [
+                "helvetica",
+                "times",
+                "courier"
+              ],
+              "type": "string"
+            },
+            "italic": {
+              "type": "boolean"
+            },
+            "page": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "rect": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            },
+            "size": {
+              "maximum": 500,
+              "minimum": 1,
+              "type": "number"
+            },
+            "text": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "width": {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "doc",
+            "page",
+            "text"
+          ],
+          "type": "object"
+        },
+        "command": "edit.text",
+        "description": "Add text as page content (not a comment). Place it with at [x, y] (top-left, points from the top-left of the displayed page) and width (wrap width, default 200), or rect. Newlines start new lines; long lines wrap. Style: font helvetica/times/courier, size, bold, italic, color (#RRGGBB or a name), align left/center/right. Text must be Western European (WinAnsi) characters, or Arabic, Hebrew or Thai when the build has their craft-fonts faces (drawn right to left where the text is); others are refused. It stays editable with content_update. Undoable.",
+        "read_only": false
+      }
+    },
+    {
+      "id": "page_insert_file",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "at": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "pages": {
+              "description": "1-based page numbers of the source file (default: all).",
+              "items": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "doc",
+            "path",
+            "at"
+          ],
+          "type": "object"
+        },
+        "command": "page.insert",
+        "description": "Insert pages of another PDF so the first becomes page `at`. Undoable.",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "at": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "pages": {
+              "description": "1-based page numbers of the source file (default: all).",
+              "items": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "doc",
+            "path",
+            "at"
+          ],
+          "type": "object"
+        },
+        "command": "page.insert",
+        "description": "Insert pages of another PDF so the first becomes page `at`. Its bookmarks come along, collapsed under one bookmark named after the file, placed among the document's bookmarks where the pages went. Undoable.",
+        "read_only": false
+      }
+    },
+    {
+      "id": "page_render",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "dpi": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "number"
+            },
+            "hide_text_block": {
+              "description": "Render an inline editor background without this paragraph (index from text_paragraphs). Does not modify the document.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "page": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "doc",
+            "page"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Render one page to a PNG image (default 96 dpi, at most 600).",
+        "read_only": true
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "dpi": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "number"
+            },
+            "hide_added_text": {
+              "description": "Render a retyping background without this added text item (added index from object_list). Mutually exclusive with hide_text_block. Does not modify the document.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "hide_text_block": {
+              "description": "Render an inline editor background without this paragraph (index from text_paragraphs). Does not modify the document.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "page": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "doc",
+            "page"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Render one page to a PNG image (default 96 dpi, at most 600).",
+        "read_only": true
+      }
+    },
+    {
+      "id": "sign_document",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "certify": {
+              "enum": [
+                "no_changes",
+                "form_fill",
+                "comments"
+              ],
+              "type": "string"
+            },
+            "contact": {
+              "type": "string"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "field": {
+              "type": "string"
+            },
+            "graphic": {
+              "description": "Exactly one of image, text or strokes.",
+              "maxProperties": 1,
+              "minProperties": 1,
+              "properties": {
+                "image": {
+                  "description": "A PNG or JPEG file.",
+                  "type": "string"
+                },
+                "strokes": {
+                  "items": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "text": {
+                  "description": "Typed in the script font.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "id": {
+              "description": "Digital ID file (.p12 / .pfx), keychain: reference on macOS, or windows: reference on Windows.",
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "out": {
+              "description": "Where to save the signed document.",
+              "type": "string"
+            },
+            "page": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "password": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "rect": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            }
+          },
+          "required": [
+            "doc",
+            "id",
+            "out"
+          ],
+          "type": "object"
+        },
+        "command": "sign.digital",
+        "description": "Sign with a digital ID (a .p12/.pfx path, or on macOS a Keychain identity: \"keychain:<common name or fingerprint>\" from sign_keychain_ids, or on Windows a store identity: \"windows:<common name or fingerprint>\" from sign_windows_ids) and save the signed file to `out` (signing always saves, as in Acrobat; the document then shows the signed file). Sign an existing empty signature field (`field`), or a new one on `page` at `rect` (omit rect for an invisible signature). certify: no_changes, form_fill or comments makes a certification signature. graphic shows a picture where the signer's name would be large (Acrobat: Configure Signature Appearance): {\"image\": path} (PNG or JPEG), {\"text\": name} (typed in the Fill & Sign script font) or {\"strokes\": [[[x, y], …], …]} (y up, the drawing pad 1 wide); it needs a visible signature. PAdES B-B, SHA-256 (SHA-384 for P-384 keys).",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "appearance": {
+              "additionalProperties": false,
+              "description": "What a visible signature shows; items not given keep their default.",
+              "properties": {
+                "date": {
+                  "description": "Default true.",
+                  "type": "boolean"
+                },
+                "distinguished_name": {
+                  "description": "Default false.",
+                  "type": "boolean"
+                },
+                "labels": {
+                  "description": "Default true.",
+                  "type": "boolean"
+                },
+                "location": {
+                  "description": "Default false.",
+                  "type": "boolean"
+                },
+                "name": {
+                  "description": "Default true.",
+                  "type": "boolean"
+                },
+                "reason": {
+                  "description": "Default false.",
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            },
+            "certify": {
+              "enum": [
+                "no_changes",
+                "form_fill",
+                "comments"
+              ],
+              "type": "string"
+            },
+            "contact": {
+              "type": "string"
+            },
+            "doc": {
+              "description": "Document id from doc_open or doc_list.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "field": {
+              "type": "string"
+            },
+            "graphic": {
+              "description": "Exactly one of image, text or strokes.",
+              "maxProperties": 1,
+              "minProperties": 1,
+              "properties": {
+                "image": {
+                  "description": "A PNG or JPEG file.",
+                  "type": "string"
+                },
+                "strokes": {
+                  "items": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "text": {
+                  "description": "Typed in the script font.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "id": {
+              "description": "Digital ID file (.p12 / .pfx), keychain: reference on macOS, or windows: reference on Windows.",
+              "type": "string"
+            },
+            "labels": {
+              "additionalProperties": false,
+              "description": "The words of a visible signature's labels (at most 200 characters each, Western European characters only); labels not given stay English.",
+              "properties": {
+                "date": {
+                  "description": "Default \"Date: \".",
+                  "type": "string"
+                },
+                "distinguished_name": {
+                  "description": "Before the certificate's subject. Default \"DN: \".",
+                  "type": "string"
+                },
+                "location": {
+                  "description": "Default \"Location: \".",
+                  "type": "string"
+                },
+                "reason": {
+                  "description": "Default \"Reason: \".",
+                  "type": "string"
+                },
+                "signed_by": {
+                  "description": "Above the name. Default \"Digitally signed by\".",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "location": {
+              "type": "string"
+            },
+            "out": {
+              "description": "Where to save the signed document.",
+              "type": "string"
+            },
+            "page": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "password": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "rect": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            }
+          },
+          "required": [
+            "doc",
+            "id",
+            "out"
+          ],
+          "type": "object"
+        },
+        "command": "sign.digital",
+        "description": "Sign with a digital ID (a .p12/.pfx path, or on macOS a Keychain identity: \"keychain:<common name or fingerprint>\" from sign_keychain_ids, or on Windows a store identity: \"windows:<common name or fingerprint>\" from sign_windows_ids) and save the signed file to `out` (signing always saves, as in Acrobat; the document then shows the signed file). Sign an existing empty signature field (`field`), or a new one on `page` at `rect` (omit rect for an invisible signature). certify: no_changes, form_fill or comments makes a certification signature. graphic shows a picture where the signer's name would be large (Acrobat: Configure Signature Appearance): {\"image\": path} (PNG or JPEG), {\"text\": name} (typed in the Fill & Sign script font) or {\"strokes\": [[[x, y], …], …]} (y up, the drawing pad 1 wide); it needs a visible signature. appearance chooses what a visible signature shows (default: name, date and labels; reason, location and distinguished_name are off unless turned on). labels gives the words of its labels, e.g. in another language (default English: \"Digitally signed by\", \"DN: \", \"Reason: \", \"Location: \", \"Date: \"; include the separator); each must be in Western European characters (Windows-1252), the only ones the signature's font draws, or the call is refused naming the label and character. PAdES B-B, SHA-256 (SHA-384 for P-384 keys).",
+        "read_only": false
+      }
+    },
+    {
+      "id": "sign_id_create",
+      "baseline": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "country": {
+              "description": "Two-letter country code.",
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "key": {
+              "enum": [
+                "rsa2048",
+                "rsa3072",
+                "rsa4096",
+                "p256"
+              ],
+              "type": "string"
+            },
+            "name": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "organization": {
+              "type": "string"
+            },
+            "password": {
+              "minLength": 6,
+              "type": "string"
+            },
+            "path": {
+              "description": "The .p12 file to write.",
+              "type": "string"
+            },
+            "unit": {
+              "type": "string"
+            },
+            "years": {
+              "maximum": 50,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "name",
+            "password",
+            "path"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Create a self-signed digital ID and save it as a password-protected .p12 file (Acrobat: Configure a new digital ID ▸ Create a new digital ID ▸ Save to file). Default key: 2048-bit RSA, valid 5 years.",
+        "read_only": false
+      },
+      "main": {
+        "input_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "country": {
+              "description": "Two-letter country code.",
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "key": {
+              "enum": [
+                "rsa2048",
+                "rsa3072",
+                "rsa4096",
+                "p256"
+              ],
+              "type": "string"
+            },
+            "name": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "organization": {
+              "type": "string"
+            },
+            "password": {
+              "minLength": 8,
+              "type": "string"
+            },
+            "path": {
+              "description": "The .p12 file to write.",
+              "type": "string"
+            },
+            "unit": {
+              "type": "string"
+            },
+            "years": {
+              "maximum": 50,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "name",
+            "password",
+            "path"
+          ],
+          "type": "object"
+        },
+        "command": null,
+        "description": "Create a self-signed digital ID and save it as a password-protected .p12 file (Acrobat: Configure a new digital ID ▸ Create a new digital ID ▸ Save to file). Default key: 2048-bit RSA, valid 5 years.",
+        "read_only": false
+      }
+    }
+  ],
+  "upstreamCommit": "924c4da4ac2879ac9107c6c82e20ac6be5570f0a",
+  "observedNativeRun": 39007949879,
+  "catalogKind": "native MCP tools, not raw engine commands",
+  "runtimeValidation": "new mapped main checks PASS; other added commands and installed host sync not inferred",
+  "mainWorkflowRun": 39008588714,
+  "validatedSkillsCommit": "4999ae4d873f9085dac1a9ee052fa318bfc191e2",
+  "mainCapabilities": {
+    "unicodeWordCountAndPageDedup": "PASS",
+    "untaggedContentFound": "PASS",
+    "sourceUnchanged": "PASS",
+    "fullAccessibilityCertification": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

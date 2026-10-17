@@ -1,0 +1,387 @@
+{
+  "schema": "craft-market-adaptations/v1",
+  "application": "gridcraft",
+  "skill": "gridcraft-scenario-playbooks",
+  "counting": "existing recipes with adapted task guidance; not additional mapped scenes",
+  "sources": [
+    {
+      "id": "skillhub:excel-xlsx",
+      "market": "SkillHub",
+      "marketUrl": "https://skillhub.cn/",
+      "downloadUrl": "https://api.skillhub.cn/api/v1/download?slug=excel-xlsx",
+      "slug": "excel-xlsx",
+      "version": "1.0.2",
+      "sha256": "52421d9fba8fdb64124416c450849434f3639e7b95249ce10fecd209aa90f038",
+      "bytes": 6960,
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections"
+    },
+    {
+      "id": "anthropics/skills/xlsx",
+      "repository": "anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "path": "skills/xlsx/SKILL.md",
+      "url": "https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/xlsx/SKILL.md",
+      "sha256": "6712b39718fe815054abca9c3ee72f989613e6f771c8a5c58f30a65a6c905622",
+      "bytes": 8598,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/anthropics/skills/xlsx",
+      "repositoryLicense": "UNDECLARED",
+      "declaredSkillLicense": "Proprietary. LICENSE.txt has complete terms",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "0baa335724f235d5e54fb94b44691611ba0424426310122609acb83165cae700"
+    }
+  ],
+  "adaptations": [
+    {
+      "id": "invoice-line-tax",
+      "title": "保留可重算的报价模型",
+      "sourceIds": [
+        "skillhub:excel-xlsx",
+        "anthropics/skills/xlsx"
+      ],
+      "adaptation": "把数量、单价、折扣和税率作为输入，计算列保持公式；核对税率单位和舍入口径。先测正常值，再测零数量与折扣边界，保存后读取公式和实际数值。",
+      "taskCheck": "公式仍存在且结果符合独立算例，不能只比较显示字符串。",
+      "capabilityBoundary": "不引入openpyxl或LibreOffice执行链；不把CSV当成有格式和公式的完整工作簿。",
+      "existingRecipe": "skills/gridcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "invoice-line-tax",
+        "title": "报价明细、折扣与税额",
+        "category": "finance",
+        "inputs": "新建报价表；数量、单价、折扣与税率由任务提供，不内置现实税制。",
+        "steps": [
+          {
+            "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+            "command": "range.setValues",
+            "params": {
+              "range": "A1",
+              "values": [
+                [
+                  "项目",
+                  "数量",
+                  "单价",
+                  "折扣",
+                  "未税金额",
+                  "税率",
+                  "税额",
+                  "含税金额"
+                ],
+                [
+                  "服务A",
+                  2,
+                  100,
+                  0.1,
+                  "=B2*C2*(1-D2)",
+                  0.06,
+                  "=E2*F2",
+                  "=E2+G2"
+                ],
+                [
+                  "服务B",
+                  1,
+                  50,
+                  0,
+                  "=B3*C3*(1-D3)",
+                  0.06,
+                  "=E3*F3",
+                  "=E3+G3"
+                ],
+                [
+                  "合计",
+                  null,
+                  null,
+                  null,
+                  "=SUM(E2:E3)",
+                  null,
+                  "=SUM(G2:G3)",
+                  "=SUM(H2:H3)"
+                ]
+              ]
+            },
+            "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+          },
+          {
+            "purpose": "对金额列设显示格式，不把金额转成字符串",
+            "command": "home.numberFormat",
+            "params": {
+              "range": "E2:H4",
+              "format": "0.00"
+            },
+            "parameterReference": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}"
+          },
+          {
+            "purpose": "检查公式与原始数据位置",
+            "command": "sheet.read",
+            "params": {
+              "range": "A1:H4",
+              "formulas": true
+            },
+            "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+          },
+          {
+            "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+            "command": "sheet.read",
+            "params": {
+              "range": "A1:H4",
+              "formulas": false,
+              "formatted": false
+            },
+            "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+          }
+        ],
+        "checks": [
+          "E4未税230，G4税额13.8，H4含税243.8",
+          "数量与单价仍为数值",
+          "税率与币种在交付中明确"
+        ],
+        "limits": "示例不是现实税务规则；舍入方式需按具体业务规定补充。",
+        "assertions": {
+          "cells": {
+            "E2": 180,
+            "E4": 230,
+            "G2": 10.8,
+            "G3": 3,
+            "G4": 13.8,
+            "H4": 243.8
+          },
+          "formulas": {
+            "H4": "SUM(H2:H3)"
+          }
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "duplicate-order-review",
+      "title": "标记重复而不丢失记录",
+      "sourceIds": [
+        "skillhub:excel-xlsx"
+      ],
+      "adaptation": "先明确订单键是否含店铺、日期或版本；保留原行，用辅助列标记重复并审阅。真正删除重复项需要确认业务保留规则，排序须整行一起移动。",
+      "taskCheck": "重复标志对应实际键，原始记录和关联列保持。",
+      "capabilityBoundary": "长编号按文本保真；不能用数值显示相同来断定原始订单号相同。",
+      "existingRecipe": "skills/gridcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "duplicate-order-review",
+        "title": "订单重复键标记而不删记录",
+        "category": "quality",
+        "inputs": "重复键只表示需要复核；同一订单允许多行明细的场景应先定义复合键。",
+        "steps": [
+          {
+            "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+            "command": "range.setValues",
+            "params": {
+              "range": "A1",
+              "values": [
+                [
+                  "订单号",
+                  "金额",
+                  "键计数"
+                ],
+                [
+                  "O01",
+                  100,
+                  "=COUNTIF($A$2:$A$4,A2)"
+                ],
+                [
+                  "O02",
+                  70,
+                  "=COUNTIF($A$2:$A$4,A3)"
+                ],
+                [
+                  "O01",
+                  100,
+                  "=COUNTIF($A$2:$A$4,A4)"
+                ]
+              ]
+            },
+            "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+          },
+          {
+            "purpose": "仅高亮重复订单键，不调用删除命令",
+            "command": "home.conditionalFormat",
+            "params": {
+              "range": "A2:A4",
+              "rule": {
+                "type": "duplicate",
+                "preset": "yellowFill"
+              }
+            },
+            "parameterReference": "{range?, rule: {type: cellIs|expression|containsText|beginsWith|endsWith|blanks|noBlanks|errors|noErrors|duplicate|unique|top10|aboveAverage|timePeriod|colorScale|dataBar|iconSet, operator?, value?, value2?, formula?, text?, rank?, bottom?, percent?, below?, period?, colors?: [..], color?, set?, style?: {font..fill..}|preset: lightRedFill|redText|yellowFill|greenFill|redBorder|lightRedFillDarkRedText…}}"
+          },
+          {
+            "purpose": "检查公式与原始数据位置",
+            "command": "sheet.read",
+            "params": {
+              "range": "A1:C4",
+              "formulas": true
+            },
+            "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+          },
+          {
+            "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+            "command": "sheet.read",
+            "params": {
+              "range": "A1:C4",
+              "formulas": false,
+              "formatted": false
+            },
+            "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+          }
+        ],
+        "checks": [
+          "C2=2，C3=1，C4=2",
+          "原始三行仍保留",
+          "先核查真实业务是否一单多行"
+        ],
+        "limits": "不能仅因键重复就删除；需要去重时另存副本并明确保留规则。",
+        "assertions": {
+          "cells": {
+            "C2": 2,
+            "C3": 1,
+            "C4": 2
+          },
+          "xmlContains": [
+            "conditionalFormatting"
+          ]
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "month-growth-guard",
+      "title": "增长率的零基期边界",
+      "sourceIds": [
+        "anthropics/skills/xlsx",
+        "skillhub:excel-xlsx"
+      ],
+      "adaptation": "明确比较基期和百分比显示，零基期用约定的空值或说明处理，不能产生除零错误。保存后分别读公式、未格式化数值和显示格式。",
+      "taskCheck": "正常月份与零基期各有算例，缺失值与零值不混为一谈。",
+      "capabilityBoundary": "这里沿用示例的业务口径，真实报表先确定零基期政策；不假称所有Excel函数兼容。",
+      "existingRecipe": "skills/gridcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "month-growth-guard",
+        "title": "月度增长率与零基期处理",
+        "category": "analysis",
+        "inputs": "月份已按时间顺序排列；0基期采用明确的示例规则。",
+        "steps": [
+          {
+            "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+            "command": "range.setValues",
+            "params": {
+              "range": "A1",
+              "values": [
+                [
+                  "月份",
+                  "金额",
+                  "环比"
+                ],
+                [
+                  "2026-01",
+                  0,
+                  null
+                ],
+                [
+                  "2026-02",
+                  120,
+                  "=IF(B2=0,0,B3/B2-1)"
+                ],
+                [
+                  "2026-03",
+                  150,
+                  "=IF(B3=0,0,B4/B3-1)"
+                ]
+              ]
+            },
+            "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+          },
+          {
+            "purpose": "将增长率显示为百分比",
+            "command": "home.numberFormat",
+            "params": {
+              "range": "C3:C4",
+              "format": "0.0%"
+            },
+            "parameterReference": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}"
+          },
+          {
+            "purpose": "检查公式与原始数据位置",
+            "command": "sheet.read",
+            "params": {
+              "range": "A1:C4",
+              "formulas": true
+            },
+            "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+          },
+          {
+            "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+            "command": "sheet.read",
+            "params": {
+              "range": "A1:C4",
+              "formulas": false,
+              "formatted": false
+            },
+            "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+          }
+        ],
+        "checks": [
+          "C3=0，C4=0.25",
+          "第一期无伪造增长率",
+          "月份顺序没有按金额重排"
+        ],
+        "limits": "零基期的0不是自然增长率；真实交付须标注为不可比或按业务定义处理。",
+        "assertions": {
+          "cells": {
+            "C3": 0,
+            "C4": 0.25
+          },
+          "formulas": {
+            "C4": "IF(B3=0"
+          }
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    }
+  ],
+  "observedCommands": {
+    "range.setValues": {
+      "id": "range.setValues",
+      "label": "Set Values",
+      "menu": [],
+      "params": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}",
+      "shortcut": null
+    },
+    "home.numberFormat": {
+      "id": "home.numberFormat",
+      "label": "Number Format",
+      "menu": [
+        "Home",
+        "Number"
+      ],
+      "params": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}",
+      "shortcut": null
+    },
+    "sheet.read": {
+      "id": "sheet.read",
+      "label": "Read Range",
+      "menu": [],
+      "params": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values",
+      "shortcut": null
+    },
+    "home.conditionalFormat": {
+      "id": "home.conditionalFormat",
+      "label": "Conditional Formatting",
+      "menu": [
+        "Home",
+        "Styles"
+      ],
+      "params": "{range?, rule: {type: cellIs|expression|containsText|beginsWith|endsWith|blanks|noBlanks|errors|noErrors|duplicate|unique|top10|aboveAverage|timePeriod|colorScale|dataBar|iconSet, operator?, value?, value2?, formula?, text?, rank?, bottom?, percent?, below?, period?, colors?: [..], color?, set?, style?: {font..fill..}|preset: lightRedFill|redText|yellowFill|greenFill|redBorder|lightRedFillDarkRedText…}}",
+      "shortcut": null
+    }
+  }
+}

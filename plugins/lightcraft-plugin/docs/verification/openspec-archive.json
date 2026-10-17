@@ -1,0 +1,18 @@
+{
+  "archive": {
+    "change": "harden-lightcraft-plugin-delivery",
+    "archivedAs": "2026-10-08-harden-lightcraft-plugin-delivery",
+    "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/lightcraft-plugin/openspec/changes/archive/2026-10-08-harden-lightcraft-plugin-delivery",
+    "specsUpdated": true,
+    "totals": {
+      "added": 12,
+      "modified": 0,
+      "removed": 0,
+      "renamed": 0
+    }
+  },
+  "root": {
+    "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/lightcraft-plugin",
+    "source": "nearest"
+  }
+}

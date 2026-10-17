@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/full-aigc-plugins/figcraft",
+  "commit": "833f0d2c27f0acbae5394848930ae531fc89c724",
+  "version": "0.6.0",
+  "name": "figcraft",
+  "title": "FigCraft",
+  "releaseRepository": "full-aigc-plugins/figcraft-plugin",
+  "sourceStatus": "fork",
+  "patches": [],
+  "fontInput": "fonts.lock.json"
+}

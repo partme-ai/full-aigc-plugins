@@ -1,0 +1,352 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "effectcraft",
+  "runtimeVersion": "0.2.0",
+  "upstreamRepository": "https://github.com/storytold/effectcraft",
+  "upstreamCommit": "f5ebe5f6c5e887dddda4a2be1fcb47154e959b81",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "prop.get",
+      "label": "Get Property",
+      "params": "{layer?, path|prop, time? (comp s)}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "prop.set",
+      "label": "Set Property Value",
+      "params": "{layer?, path|prop, value, time?, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.toggleAnimation",
+      "label": "Toggle Stopwatch",
+      "params": "{layer?, path|prop, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.addKey",
+      "label": "Add Keyframe",
+      "params": "{layer?, path|prop, time?, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.toggleKey",
+      "label": "Add or Remove Keyframe at Current Time",
+      "params": "{layer?, path|prop}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.toggleTransform",
+      "label": "Add or Remove Transform Keyframe",
+      "params": "{layers?, prop: anchor|position|scale|rotation|opacity} (Alt+Shift+A/P/S/R/T)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.setExpression",
+      "label": "Add Expression",
+      "params": "{layer?, path|prop, expression?, enabled?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.reset",
+      "label": "Reset Property",
+      "params": "{layer?, path|prop, default?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.select",
+      "label": "Select Property",
+      "params": "{layer?, path|prop, add?, selectKeys?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.convertExpressionToKeyframes",
+      "label": "Convert Expression to Keyframes",
+      "params": "{layer?, path|prop}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.select",
+      "label": "Select Keyframes",
+      "params": "{keys: [{layer, prop: uid | path (or `path`), time (layer s)}], add?, toggle?: bool (Shift+click: in or out of the selection)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.move",
+      "label": "Move Keyframes",
+      "params": "{delta (s), merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.delete",
+      "label": "Delete Keyframes",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.easyEase",
+      "label": "Easy Ease",
+      "params": "{which?: both|in|out}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.easyEaseIn",
+      "label": "Easy Ease In",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.easyEaseOut",
+      "label": "Easy Ease Out",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.toggleHold",
+      "label": "Toggle Hold Keyframe",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.interpolation",
+      "label": "Keyframe Interpolation...",
+      "params": "{interpolation?: linear|bezier|continuousBezier|autoBezier|hold, in?|out?: linear|bezier|hold, autoBezier?, continuous?, spatial?: linear|bezier|continuousBezier|autoBezier, roving?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.velocity",
+      "label": "Keyframe Velocity...",
+      "params": "{inSpeed?, inInfluence? %, outSpeed?, outInfluence? % (numbers or per-dimension arrays), continuous?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.renameGroup",
+      "label": "Rename Property Group",
+      "params": "{layer?, prop: uid, name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.setGroupEnabled",
+      "label": "Enable Property Group",
+      "params": "{layer?, prop: uid, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.removeGroup",
+      "label": "Delete Property Group",
+      "params": "{layer?, prop: uid}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.duplicateGroup",
+      "label": "Duplicate Property Group",
+      "params": "{layer?, prop: uid} → {prop: new uid}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.moveGroup",
+      "label": "Reorder Property Group",
+      "params": "{layer?, prop: uid, index (1-based among its siblings)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.copy",
+      "label": "Copy Keyframes",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.paste",
+      "label": "Paste Keyframes",
+      "params": "{layers?, prop?|path?, time?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.selectAll",
+      "label": "Select All Keyframes",
+      "params": "{layers?, visible?: [{layer, prop}] (every key of these properties)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.nudge",
+      "label": "Nudge Keyframes",
+      "params": "{frames, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.nudgeForward",
+      "label": "Move Keyframes 1 Frame Later",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.nudgeBackward",
+      "label": "Move Keyframes 1 Frame Earlier",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.nudgeForward10",
+      "label": "Move Keyframes 10 Frames Later",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.nudgeBackward10",
+      "label": "Move Keyframes 10 Frames Earlier",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.set",
+      "label": "Edit Keyframe",
+      "params": "{layer?, path|prop, time (layer s), newTime?, value?, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.selectEqual",
+      "label": "Select Equal Keyframes",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.selectPrevious",
+      "label": "Select Previous Keyframes",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.selectFollowing",
+      "label": "Select Following Keyframes",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.setEase",
+      "label": "Set Keyframe Ease",
+      "params": "{layer?, path|prop, time (layer s), side: in|out, dim?, speed?, influence? %, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.timeReverse",
+      "label": "Time-Reverse Keyframes",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.info",
+      "label": "Keyframe Info",
+      "params": "{keys?: [{layer, prop, time}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "keys.wiggle",
+      "label": "Wiggler",
+      "params": "{apply?: spatial|temporal, noise?: smooth|jagged, dimensions?: one|same|independent, dimension? (index for `one`), frequency? (keys/s, 5), magnitude?, seed?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.smooth",
+      "label": "Smoother",
+      "params": "{tolerance? (property units, 1)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.separateDimensions",
+      "label": "Separate Dimensions",
+      "params": "{layer?, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prop.pickWhip",
+      "label": "Pick Whip (Link Property)",
+      "params": "{layer?, path|prop, target: {layer, path|prop}} → sets an AE reference expression",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "anim.savePreset",
+      "label": "Save Animation Preset...",
+      "params": "{path (.ecpreset), name?} — saves the selected properties/effects",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "anim.applyPreset",
+      "label": "Apply Animation Preset...",
+      "params": "{path | preset, layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "anim.addKeyframe",
+      "label": "Add Keyframe",
+      "params": "{} — keys the selected properties at the CTI",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.exponentialScale",
+      "label": "Exponential Scale",
+      "params": "{} — two selected Scale keys",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "anim.reveal",
+      "label": "Reveal Properties",
+      "params": "{kind: keyframes|animation|modified}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.setLabel",
+      "label": "Keyframe Label",
+      "params": "{label: name|none|0–16}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.selectLabelGroup",
+      "label": "Select Keyframe Label Group",
+      "params": "{scope: selected|all|visibleSelected|visibleAll, visible?: [prop uid]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.transform",
+      "label": "Transform Keyframes",
+      "params": "{timeScale?, timeAnchor? (comp s), timeOffset? (s), valueScale?, valueAnchor?, valueOffset?, dim? | dims?: [d…], merge?, fromStart?: bool (with merge: values are the whole transform since the drag started)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.setSpatialTangents",
+      "label": "Edit Spatial Tangents",
+      "params": "{layer?, path|prop, time (layer s), in?: [dx,dy,dz?], out?, break?, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "anim.browsePresets",
+      "label": "Browse Presets...",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "anim.applyRecentPreset",
+      "label": "Recent Animation Presets",
+      "params": "{index? | path?, layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "anim.clearRecentPresets",
+      "label": "Clear Recent Presets",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.audioToKeyframes",
+      "label": "Convert Audio to Keyframes",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "keys.rpfCameraImport",
+      "label": "RPF Camera Import",
+      "params": "{path: .json|.csv camera data, comp?}",
+      "enabledAtEmptySession": false
+    }
+  ]
+}

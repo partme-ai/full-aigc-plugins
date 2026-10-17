@@ -1,0 +1,750 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "soundcraft",
+  "templateOnly": true,
+  "argumentPolicy": "示例为4秒48kHz音频或64×48图像；按输入重新测量时长、坐标和对象选择。新建动作仅执行一次，不覆盖原工程。",
+  "recipes": [
+    {
+      "id": "voice-headroom",
+      "title": "配音剪辑保留混音余量",
+      "category": "voice",
+      "inputs": "Voice示例为单声道；实际先probe输入声道并将track.new的format设为mono或stereo，多声道超出当前手册范围时停止。有合法源录音；先probe采样率、声道和时长，示例为4秒。",
+      "steps": [
+        {
+          "purpose": "仅在新建副本任务中创建48kHz空会话",
+          "command": "session.new",
+          "params": {
+            "name": "Audio work copy",
+            "sample_rate": 48000,
+            "bit_depth": 24,
+            "template": "blank"
+          },
+          "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立已知名称的单声道人声轨",
+          "command": "track.new",
+          "params": {
+            "name": "Voice",
+            "format": "mono",
+            "kind": "audio"
+          },
+          "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+        },
+        {
+          "purpose": "把源音频放到指定轨道零点，保持原文件",
+          "command": "file.import_audio",
+          "params": {
+            "path": "input.wav",
+            "track": "Voice",
+            "new_tracks": false,
+            "at": {
+              "seconds": 0
+            }
+          },
+          "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+        },
+        {
+          "purpose": "选择导入的整段片段与轨道",
+          "command": "edit.select_all",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "以绝对片段增益降低6dB，保持可编辑而非重复叠加",
+          "command": "clip.gain",
+          "params": {
+            "db": -6
+          },
+          "parameterReference": "{clips?, db | delta_db}"
+        },
+        {
+          "purpose": "导出新文件，不覆盖源音频；区间秒数按实际片段重算",
+          "command": "file.bounce_mix",
+          "params": {
+            "path": "result.wav",
+            "format": "wav",
+            "bit_depth": 16,
+            "start": {
+              "seconds": 0
+            },
+            "end": {
+              "seconds": 4
+            },
+            "normalize": false,
+            "dither": false
+          },
+          "parameterReference": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}"
+        }
+      ],
+      "checks": [
+        "时长、内容与原始剪辑一致",
+        "相对未处理混音的峰值约下降6dB",
+        "重新打开工程后增益仍在"
+      ],
+      "limits": "这是电平整理，不是压缩、降噪或LUFS归一；真实语音必须试听尾音。",
+      "assertions": {
+        "seconds": 4,
+        "check": "gain",
+        "db": -6
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "peak-normalized-preview",
+      "title": "单片段峰值标准化预览",
+      "category": "voice",
+      "inputs": "Voice示例为单声道；实际先probe输入声道并将track.new的format设为mono或stereo，多声道超出当前手册范围时停止。输入未剪切，峰值目标由用途提供；不要把峰值等同感知响度。",
+      "steps": [
+        {
+          "purpose": "仅在新建副本任务中创建48kHz空会话",
+          "command": "session.new",
+          "params": {
+            "name": "Audio work copy",
+            "sample_rate": 48000,
+            "bit_depth": 24,
+            "template": "blank"
+          },
+          "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立已知名称的单声道人声轨",
+          "command": "track.new",
+          "params": {
+            "name": "Voice",
+            "format": "mono",
+            "kind": "audio"
+          },
+          "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+        },
+        {
+          "purpose": "把源音频放到指定轨道零点，保持原文件",
+          "command": "file.import_audio",
+          "params": {
+            "path": "input.wav",
+            "track": "Voice",
+            "new_tracks": false,
+            "at": {
+              "seconds": 0
+            }
+          },
+          "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+        },
+        {
+          "purpose": "选择导入的整段片段与轨道",
+          "command": "edit.select_all",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "将选中片段峰值对齐到-3dBFS，生成可回退的新音源",
+          "command": "audiosuite.process",
+          "params": {
+            "process": "normalize",
+            "params": {
+              "target_db": -3
+            }
+          },
+          "parameterReference": "{process: <plugin id> | normalize | reverse | invert | gain | duplicate | time_stretch | pitch_shift | varispeed | signal_generator, params?: {..}, clips?, tracks?, start?, end?} — signal_generator fills start..end (default: the selection) with a new clip on each audio track in `tracks` (default: the selected tracks)"
+        },
+        {
+          "purpose": "导出新文件，不覆盖源音频；区间秒数按实际片段重算",
+          "command": "file.bounce_mix",
+          "params": {
+            "path": "result.wav",
+            "format": "wav",
+            "bit_depth": 16,
+            "start": {
+              "seconds": 0
+            },
+            "end": {
+              "seconds": 4
+            },
+            "normalize": false,
+            "dither": false
+          },
+          "parameterReference": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}"
+        }
+      ],
+      "checks": [
+        "片段输出相对原峰值达到目标增益",
+        "时长不变且无削波",
+        "源文件哈希不变"
+      ],
+      "limits": "主总线声像定律会影响每个输出声道的峰值；此例不是ITU/EBU响度达标流程。",
+      "assertions": {
+        "seconds": 4,
+        "check": "normalize",
+        "targetDb": -3
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "voice-edge-fades",
+      "title": "配音切口的短淡入淡出",
+      "category": "voice",
+      "inputs": "Voice示例为单声道；实际先probe输入声道并将track.new的format设为mono或stereo，多声道超出当前手册范围时停止。切口两端无需保留尖锐瞬态；示例片段4秒，头尾各100ms。",
+      "steps": [
+        {
+          "purpose": "仅在新建副本任务中创建48kHz空会话",
+          "command": "session.new",
+          "params": {
+            "name": "Audio work copy",
+            "sample_rate": 48000,
+            "bit_depth": 24,
+            "template": "blank"
+          },
+          "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立已知名称的单声道人声轨",
+          "command": "track.new",
+          "params": {
+            "name": "Voice",
+            "format": "mono",
+            "kind": "audio"
+          },
+          "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+        },
+        {
+          "purpose": "把源音频放到指定轨道零点，保持原文件",
+          "command": "file.import_audio",
+          "params": {
+            "path": "input.wav",
+            "track": "Voice",
+            "new_tracks": false,
+            "at": {
+              "seconds": 0
+            }
+          },
+          "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+        },
+        {
+          "purpose": "选择导入的整段片段与轨道",
+          "command": "edit.select_all",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "仅在片段起点建立100ms线性淡入",
+          "command": "edit.fades_create",
+          "params": {
+            "tracks": [
+              "Voice"
+            ],
+            "start": {
+              "seconds": 0
+            },
+            "end": {
+              "seconds": 0.1
+            },
+            "shape": "linear"
+          },
+          "parameterReference": "{shape?: linear|equal power|s-curve|exponential|logarithmic, tracks?, start?, end?} or {clip: id, side: in|out, length: samples, shape?, curvature?: -1..1}"
+        },
+        {
+          "purpose": "在片段尾部建立100ms线性淡出",
+          "command": "edit.fades_create",
+          "params": {
+            "tracks": [
+              "Voice"
+            ],
+            "start": {
+              "seconds": 3.9
+            },
+            "end": {
+              "seconds": 4
+            },
+            "shape": "linear"
+          },
+          "parameterReference": "{shape?: linear|equal power|s-curve|exponential|logarithmic, tracks?, start?, end?} or {clip: id, side: in|out, length: samples, shape?, curvature?: -1..1}"
+        },
+        {
+          "purpose": "导出新文件，不覆盖源音频；区间秒数按实际片段重算",
+          "command": "file.bounce_mix",
+          "params": {
+            "path": "result.wav",
+            "format": "wav",
+            "bit_depth": 16,
+            "start": {
+              "seconds": 0
+            },
+            "end": {
+              "seconds": 4
+            },
+            "normalize": false,
+            "dither": false
+          },
+          "parameterReference": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}"
+        }
+      ],
+      "checks": [
+        "头尾波形渐入渐出而非突切",
+        "中间内容基本不变",
+        "首辅音、呼吸和尾音未被吞掉"
+      ],
+      "limits": "淡变区间必须据真实录音定位；不能把头尾时刻原样用于任意录音。",
+      "assertions": {
+        "seconds": 4,
+        "check": "fades"
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "interview-excerpt",
+      "title": "从长采访导出指定引用段",
+      "category": "editing",
+      "inputs": "Voice示例为单声道；实际先probe输入声道并将track.new的format设为mono或stereo，多声道超出当前手册范围时停止。已确认引用的起止时间并有使用权；示例从1秒到3秒。",
+      "steps": [
+        {
+          "purpose": "仅在新建副本任务中创建48kHz空会话",
+          "command": "session.new",
+          "params": {
+            "name": "Audio work copy",
+            "sample_rate": 48000,
+            "bit_depth": 24,
+            "template": "blank"
+          },
+          "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立已知名称的单声道人声轨",
+          "command": "track.new",
+          "params": {
+            "name": "Voice",
+            "format": "mono",
+            "kind": "audio"
+          },
+          "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+        },
+        {
+          "purpose": "把源音频放到指定轨道零点，保持原文件",
+          "command": "file.import_audio",
+          "params": {
+            "path": "input.wav",
+            "track": "Voice",
+            "new_tracks": false,
+            "at": {
+              "seconds": 0
+            }
+          },
+          "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+        },
+        {
+          "purpose": "选择导入的整段片段与轨道",
+          "command": "edit.select_all",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "明确引用选区，保留源工程完整片段",
+          "command": "edit.select",
+          "params": {
+            "tracks": [
+              "Voice"
+            ],
+            "start": {
+              "seconds": 1
+            },
+            "end": {
+              "seconds": 3
+            }
+          },
+          "parameterReference": "{tracks?: [id|name], start?, end?, clips?: [id], sources?: [id] (Clip List files), exact?: bool (ignore edit groups)}"
+        },
+        {
+          "purpose": "导出新文件，不覆盖源音频；区间秒数按实际片段重算",
+          "command": "file.bounce_mix",
+          "params": {
+            "path": "result.wav",
+            "format": "wav",
+            "bit_depth": 16,
+            "start": {
+              "seconds": 1
+            },
+            "end": {
+              "seconds": 3
+            },
+            "normalize": false,
+            "dither": false
+          },
+          "parameterReference": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}"
+        }
+      ],
+      "checks": [
+        "导出时长2秒",
+        "导出的样本对应原录音1到3秒",
+        "原会话保留完整4秒录音"
+      ],
+      "limits": "切口是否落在词句边界需试听；不把2秒样例当任意任务时长。",
+      "assertions": {
+        "seconds": 2,
+        "check": "excerpt",
+        "offset": 1
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "two-track-stems",
+      "title": "人声与背景素材分轨交付",
+      "category": "delivery",
+      "inputs": "仅在专用两轨副本会话执行；示例Voice为mono，Bed为stereo。实际先probe两个输入声道，按其结果建轨，不静默降为mono。",
+      "steps": [
+        {
+          "purpose": "仅在新建副本任务中创建48kHz空会话",
+          "command": "session.new",
+          "params": {
+            "name": "Audio work copy",
+            "sample_rate": 48000,
+            "bit_depth": 24,
+            "template": "blank"
+          },
+          "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立已知名称的单声道人声轨",
+          "command": "track.new",
+          "params": {
+            "name": "Voice",
+            "format": "mono",
+            "kind": "audio"
+          },
+          "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+        },
+        {
+          "purpose": "把源音频放到指定轨道零点，保持原文件",
+          "command": "file.import_audio",
+          "params": {
+            "path": "input.wav",
+            "track": "Voice",
+            "new_tracks": false,
+            "at": {
+              "seconds": 0
+            }
+          },
+          "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+        },
+        {
+          "purpose": "选择导入的整段片段与轨道",
+          "command": "edit.select_all",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "建立独立背景轨",
+          "command": "track.new",
+          "params": {
+            "name": "Bed",
+            "format": "stereo",
+            "kind": "audio"
+          },
+          "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+        },
+        {
+          "purpose": "将背景素材放在零点，不改变人声轨",
+          "command": "file.import_audio",
+          "params": {
+            "path": "bed.wav",
+            "track": "Bed",
+            "new_tracks": false,
+            "at": {
+              "seconds": 0
+            }
+          },
+          "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+        },
+        {
+          "purpose": "导出两个音频轨的独立文件，统一起止区间",
+          "command": "file.bounce_stems",
+          "params": {
+            "dir": "stems",
+            "format": "wav",
+            "bit_depth": 16,
+            "start": {
+              "seconds": 0
+            },
+            "end": {
+              "seconds": 4
+            }
+          },
+          "parameterReference": "{dir, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, fold_down?: stereo}"
+        }
+      ],
+      "checks": [
+        "输出轨名集合恰为Voice与Bed，两个stem均为4秒",
+        "Bed左右保留不同内容，不能静默变单声道",
+        "原始输入文件哈希保持"
+      ],
+      "limits": "bounce_stems导出所有未静音活动音轨，不受编辑选区限制。此例仅用于专用两轨会话；已有工程先在副本中核实所有活动轨道，不能只选择两轨就假定仅导出两轨。当前16位stem编码会抖动，样本比较需允许量化噪声。",
+      "assertions": {
+        "seconds": 4,
+        "check": "stems",
+        "files": 2
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "reverse-transition",
+      "title": "环境声倒放转场素材",
+      "category": "sound-design",
+      "inputs": "Voice示例为单声道；实际先probe输入声道并将track.new的format设为mono或stereo，多声道超出当前手册范围时停止。有授权的环境声素材；创建独立效果版，不覆盖原录音。",
+      "steps": [
+        {
+          "purpose": "仅在新建副本任务中创建48kHz空会话",
+          "command": "session.new",
+          "params": {
+            "name": "Audio work copy",
+            "sample_rate": 48000,
+            "bit_depth": 24,
+            "template": "blank"
+          },
+          "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立已知名称的单声道人声轨",
+          "command": "track.new",
+          "params": {
+            "name": "Voice",
+            "format": "mono",
+            "kind": "audio"
+          },
+          "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+        },
+        {
+          "purpose": "把源音频放到指定轨道零点，保持原文件",
+          "command": "file.import_audio",
+          "params": {
+            "path": "input.wav",
+            "track": "Voice",
+            "new_tracks": false,
+            "at": {
+              "seconds": 0
+            }
+          },
+          "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+        },
+        {
+          "purpose": "选择导入的整段片段与轨道",
+          "command": "edit.select_all",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "倒放选中片段，保持其可追溯来源",
+          "command": "audiosuite.process",
+          "params": {
+            "process": "reverse"
+          },
+          "parameterReference": "{process: <plugin id> | normalize | reverse | invert | gain | duplicate | time_stretch | pitch_shift | varispeed | signal_generator, params?: {..}, clips?, tracks?, start?, end?} — signal_generator fills start..end (default: the selection) with a new clip on each audio track in `tracks` (default: the selected tracks)"
+        },
+        {
+          "purpose": "导出新文件，不覆盖源音频；区间秒数按实际片段重算",
+          "command": "file.bounce_mix",
+          "params": {
+            "path": "result.wav",
+            "format": "wav",
+            "bit_depth": 16,
+            "start": {
+              "seconds": 0
+            },
+            "end": {
+              "seconds": 4
+            },
+            "normalize": false,
+            "dither": false
+          },
+          "parameterReference": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}"
+        }
+      ],
+      "checks": [
+        "片段时长不变",
+        "导出样本时间顺序与基准相反",
+        "试听接入点是否需要淡变"
+      ],
+      "limits": "不要用倒放掩盖未经确认的语音内容；需要过渡淡变时另用切口流程。",
+      "assertions": {
+        "seconds": 4,
+        "check": "reverse"
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "dc-offset-cleanup",
+      "title": "录音直流偏置清理副本",
+      "category": "repair",
+      "inputs": "Voice示例为单声道；实际先probe输入声道并将track.new的format设为mono或stereo，多声道超出当前手册范围时停止。测量发现波形基线偏移；不能把低频乐器声音误当直流偏置。",
+      "steps": [
+        {
+          "purpose": "仅在新建副本任务中创建48kHz空会话",
+          "command": "session.new",
+          "params": {
+            "name": "Audio work copy",
+            "sample_rate": 48000,
+            "bit_depth": 24,
+            "template": "blank"
+          },
+          "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立已知名称的单声道人声轨",
+          "command": "track.new",
+          "params": {
+            "name": "Voice",
+            "format": "mono",
+            "kind": "audio"
+          },
+          "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+        },
+        {
+          "purpose": "把源音频放到指定轨道零点，保持原文件",
+          "command": "file.import_audio",
+          "params": {
+            "path": "input.wav",
+            "track": "Voice",
+            "new_tracks": false,
+            "at": {
+              "seconds": 0
+            }
+          },
+          "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+        },
+        {
+          "purpose": "选择导入的整段片段与轨道",
+          "command": "edit.select_all",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "运行已核实的直流偏置移除处理",
+          "command": "audiosuite.process",
+          "params": {
+            "process": "dc_offset_removal"
+          },
+          "parameterReference": "{process: <plugin id> | normalize | reverse | invert | gain | duplicate | time_stretch | pitch_shift | varispeed | signal_generator, params?: {..}, clips?, tracks?, start?, end?} — signal_generator fills start..end (default: the selection) with a new clip on each audio track in `tracks` (default: the selected tracks)"
+        },
+        {
+          "purpose": "导出新文件，不覆盖源音频；区间秒数按实际片段重算",
+          "command": "file.bounce_mix",
+          "params": {
+            "path": "result.wav",
+            "format": "wav",
+            "bit_depth": 16,
+            "start": {
+              "seconds": 0
+            },
+            "end": {
+              "seconds": 4
+            },
+            "normalize": false,
+            "dither": false
+          },
+          "parameterReference": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}"
+        }
+      ],
+      "checks": [
+        "稳定段样本均值更接近0",
+        "保留音高与时长",
+        "没有误称底噪已被移除"
+      ],
+      "limits": "高通/去直流的启动瞬态需试听；不等于降噪、去嗡声或修复削波。",
+      "assertions": {
+        "seconds": 4,
+        "check": "dc-offset"
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "polarity-diagnostic-copy",
+      "title": "制作极性反转诊断副本",
+      "category": "diagnostic",
+      "inputs": "Voice示例为单声道；实际先probe输入声道并将track.new的format设为mono或stereo，多声道超出当前手册范围时停止。用于与同源等时信号作相消诊断；不自动改变正式混音。",
+      "steps": [
+        {
+          "purpose": "仅在新建副本任务中创建48kHz空会话",
+          "command": "session.new",
+          "params": {
+            "name": "Audio work copy",
+            "sample_rate": 48000,
+            "bit_depth": 24,
+            "template": "blank"
+          },
+          "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立已知名称的单声道人声轨",
+          "command": "track.new",
+          "params": {
+            "name": "Voice",
+            "format": "mono",
+            "kind": "audio"
+          },
+          "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+        },
+        {
+          "purpose": "把源音频放到指定轨道零点，保持原文件",
+          "command": "file.import_audio",
+          "params": {
+            "path": "input.wav",
+            "track": "Voice",
+            "new_tracks": false,
+            "at": {
+              "seconds": 0
+            }
+          },
+          "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+        },
+        {
+          "purpose": "选择导入的整段片段与轨道",
+          "command": "edit.select_all",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "仅在副本中反转样本正负极性",
+          "command": "audiosuite.process",
+          "params": {
+            "process": "invert"
+          },
+          "parameterReference": "{process: <plugin id> | normalize | reverse | invert | gain | duplicate | time_stretch | pitch_shift | varispeed | signal_generator, params?: {..}, clips?, tracks?, start?, end?} — signal_generator fills start..end (default: the selection) with a new clip on each audio track in `tracks` (default: the selected tracks)"
+        },
+        {
+          "purpose": "导出新文件，不覆盖源音频；区间秒数按实际片段重算",
+          "command": "file.bounce_mix",
+          "params": {
+            "path": "result.wav",
+            "format": "wav",
+            "bit_depth": 16,
+            "start": {
+              "seconds": 0
+            },
+            "end": {
+              "seconds": 4
+            },
+            "normalize": false,
+            "dither": false
+          },
+          "parameterReference": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}"
+        }
+      ],
+      "checks": [
+        "输出样本约等于基准样本取负",
+        "时长和峰值绝对值保持",
+        "文件名注明诊断用途"
+      ],
+      "limits": "极性反转不是时间对齐；若信号有延迟或处理差异，不能期待完全相消。",
+      "assertions": {
+        "seconds": 4,
+        "check": "invert"
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    }
+  ]
+}

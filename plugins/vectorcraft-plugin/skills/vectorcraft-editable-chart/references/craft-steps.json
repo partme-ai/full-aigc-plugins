@@ -1,0 +1,51 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "vectorcraft",
+  "id": "editable-chart",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "创建有数据模型的图表",
+      "command": "graph.create",
+      "params": {
+        "type": "bar",
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 200,
+        "categories": [
+          "A",
+          "B"
+        ],
+        "series": [
+          "收入"
+        ],
+        "rows": [
+          [
+            21
+          ],
+          [
+            42
+          ]
+        ]
+      }
+    },
+    {
+      "purpose": "修改图表类型保持数据",
+      "command": "graph.setType",
+      "params": {
+        "type": "column",
+        "legend": true
+      }
+    },
+    {
+      "purpose": "读取当前数据做核对",
+      "command": "graph.setData",
+      "params": {}
+    }
+  ],
+  "check": "核对类别顺序、缺失值、单位、轴范围；保留可编辑graph对象。",
+  "boundary": "不要先转曲或解组图表；graph.setData 空参只查询当前选中图表。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

@@ -1,0 +1,41 @@
+{
+  "protocol": "printcraft.verification/1",
+  "ruleVersion": 1,
+  "runId": "005c5a98-0751-4ccf-ab57-984d157799bc",
+  "visualReviewRequired": true,
+  "inputSha256": {
+    "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/source.pdf": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a"
+  },
+  "outputs": [
+    {
+      "path": "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/result-dev5.pdf",
+      "sha256": "77fdadab2c4ac498b0836b340ef0f1ab0c4a29f3fb294f02d73f59a6b0cefac0",
+      "pages": 3,
+      "pageText": [
+        "PAGE-GAMMA",
+        "PAGE-ALPHA",
+        "PAGE-BETA"
+      ],
+      "textPolicy": "required",
+      "sourcePages": [
+        {
+          "path": "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 3
+        },
+        {
+          "path": "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 1
+        },
+        {
+          "path": "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 2
+        }
+      ],
+      "role": "delivery",
+      "mediaType": "application/pdf"
+    }
+  ]
+}

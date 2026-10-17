@@ -1,0 +1,133 @@
+{
+  "schema": "craft-market-adaptations/v1",
+  "application": "effectcraft",
+  "skill": "effectcraft-kinetic-type",
+  "counting": "existing recipes with adapted task guidance; not additional mapped scenes",
+  "sources": [
+    {
+      "id": "dylantarre/animation-principles/video-motion-graphics",
+      "repository": "dylantarre/animation-principles",
+      "commit": "83597134ba8ff59838270f94d7ac7282ffa3b54d",
+      "path": "skills/01-by-domain/video-motion-graphics/SKILL.md",
+      "url": "https://github.com/dylantarre/animation-principles/blob/83597134ba8ff59838270f94d7ac7282ffa3b54d/skills/01-by-domain/video-motion-graphics/SKILL.md",
+      "sha256": "8d6f0936a39f0bbc184efb88e8e47df3f0fee03c0ac31164bb7a616b4ec79b4c",
+      "bytes": 4331,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/dylantarre/animation-principles/video-motion-graphics",
+      "repositoryLicense": "MIT",
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "2aca28aa2643bf87267e7138923769e38489ee2e2a70252688c98da37000ae1a"
+    },
+    {
+      "id": "skillhub:motion-graphics",
+      "market": "SkillHub",
+      "marketUrl": "https://skillhub.cn/",
+      "downloadUrl": "https://api.skillhub.cn/api/v1/download?slug=motion-graphics",
+      "slug": "motion-graphics",
+      "version": "1.0.10",
+      "sha256": "8e0524d817222c262c41a00757a186dbf9dfc9689338dd87d81296f0601ca887",
+      "bytes": 15626,
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections"
+    }
+  ],
+  "adaptations": [
+    {
+      "id": "kinetic-type",
+      "title": "先保证读懂再安排动画",
+      "sourceIds": [
+        "dylantarre/animation-principles/video-motion-graphics",
+        "skillhub:motion-graphics"
+      ],
+      "adaptation": "把文案按语义拆组，为每组安排进入、停留和离开；先确定可读停留，再写透明度关键帧。不同组错开时间，按原速度播放检查。",
+      "taskCheck": "文案能读完，动作服务信息层级，关键帧时间与合成帧率一致。",
+      "capabilityBoundary": "不移植Hyperframes构建流程或AE表达式；本例只映射已知关键帧能力。",
+      "existingRecipe": "skills/effectcraft-kinetic-type/references/craft-steps.json",
+      "recipe": {
+        "schema": "craft-scenario-playbooks/v1",
+        "application": "effectcraft",
+        "id": "kinetic-type",
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+        "steps": [
+          {
+            "purpose": "建立文字动画合成",
+            "command": "comp.new",
+            "params": {
+              "name": "Type",
+              "width": 1080,
+              "height": 1920,
+              "duration": 5,
+              "frameRate": 30
+            }
+          },
+          {
+            "purpose": "按语义建立一组可读文案",
+            "command": "layer.newText",
+            "params": {
+              "text": "准确的短文案",
+              "name": "Phrase",
+              "size": 64
+            }
+          },
+          {
+            "purpose": "为当前文本创建首末透明度",
+            "command": "prop.addKey",
+            "params": {
+              "path": "transform/opacity",
+              "time": 0,
+              "value": 0
+            }
+          },
+          {
+            "purpose": "留足可读停留时长",
+            "command": "prop.addKey",
+            "params": {
+              "path": "transform/opacity",
+              "time": 0.5,
+              "value": 100
+            }
+          }
+        ],
+        "check": "按真实播放速度检查字词顺序、标点与停留，不只看静止帧。",
+        "boundary": "多个词组分别建层和错开时间，不能同时闪入再称为节奏排版。",
+        "templateOnly": true,
+        "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    }
+  ],
+  "observedCommands": {
+    "comp.new": {
+      "enabled": true,
+      "id": "comp.new",
+      "label": "New Composition...",
+      "menu": [
+        "Composition"
+      ],
+      "params": "{name?, width?, height?, frameRate?, duration? (s), startTime? (s) | startTimecode?, background? [r,g,b]|#hex, pixelAspect?, shutterAngle?, shutterPhase?, motionBlurSamples?, adaptiveSampleLimit? (16–256), preserveFrameRate?: bool, preserveResolution?: bool, renderer?: classic3D|advanced3D, anchor?, open?}",
+      "shortcut": "Cmd+N"
+    },
+    "layer.newText": {
+      "enabled": false,
+      "id": "layer.newText",
+      "label": "Text",
+      "menu": [
+        "Layer",
+        "New"
+      ],
+      "params": "{text?, name? (layer name; default the text), position? [x,y], box? [x,y,w,h] (paragraph text, comp space), vertical?, edit? (start editing), font?, style?, size?, fill?, stroke?, applyFill?, applyStroke?, strokeWidth?, tracking?, leading?, baselineShift?, hScale?, vScale?, tsume?, fauxBold?, fauxItalic?, allCaps?, smallCaps?, baseline?, superscript?, subscript?, kerning?, ligatures?, justify?, indentLeft?, indentRight?, indentFirst?, spaceBefore?, spaceAfter?, direction?, composer?, hangingPunctuation?, strokeOverFill?} (attributes as layer.setText)",
+      "shortcut": "Cmd+Alt+Shift+T",
+      "why": "no composition is open"
+    },
+    "prop.addKey": {
+      "enabled": false,
+      "id": "prop.addKey",
+      "label": "Add Keyframe",
+      "params": "{layer?, path|prop, time? (layer s by default), timeBase?: layer|comp, value?}",
+      "why": "no composition is open"
+    }
+  }
+}

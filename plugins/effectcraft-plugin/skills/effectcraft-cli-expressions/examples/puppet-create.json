@@ -1,0 +1,119 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "comp.new",
+      "params": {
+        "name": "Puppet",
+        "width": 96,
+        "height": 64,
+        "duration": 1,
+        "frameRate": 12
+      }
+    },
+    {
+      "command": "layer.newSolid",
+      "params": {
+        "name": "Deform subject",
+        "width": 64,
+        "height": 48,
+        "color": "#ff0000"
+      },
+      "as": "subject"
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          {
+            "$ref": "subject.layer"
+          }
+        ]
+      }
+    },
+    {
+      "command": "puppet.addPin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "kind": "position",
+        "position": [
+          16,
+          24
+        ],
+        "time": 0
+      },
+      "as": "anchor"
+    },
+    {
+      "command": "puppet.addPin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "kind": "position",
+        "position": [
+          48,
+          24
+        ],
+        "time": 0
+      },
+      "as": "moving"
+    },
+    {
+      "command": "puppet.movePin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "pin": {
+          "$ref": "moving.pin"
+        },
+        "position": [
+          48,
+          8
+        ],
+        "time": 0.5
+      }
+    },
+    {
+      "command": "puppet.info",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "time": 0.5
+      },
+      "as": "puppet"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "time": 0,
+        "path": {
+          "$output": "initial.png"
+        },
+        "inline": false
+      }
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "time": 0.5,
+        "path": {
+          "$output": "moved.png"
+        },
+        "inline": false
+      }
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "project.ecproj"
+        }
+      }
+    }
+  ]
+}

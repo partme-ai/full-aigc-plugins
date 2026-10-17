@@ -1,0 +1,17 @@
+{
+  "schema": "craft-runtime-lock/v1",
+  "artifact": "vectorcraft-cli",
+  "resolvedVersion": "0.2.0-craft.2",
+  "releaseRef": "runtime-v0.2.0-craft.2",
+  "repository": "https://github.com/full-aigc-skills/vectorcraft-skills",
+  "artifacts": {
+    "darwin-arm64": {
+      "url": "https://github.com/full-aigc-skills/vectorcraft-skills/releases/download/runtime-v0.2.0-craft.2/vectorcraft-cli-0.2.0-craft.2-darwin-arm64.zip",
+      "archiveSha256": "0e3402b6c810551075183471f07cf05f925e3a91337cc188dd1f5b3ada6108de",
+      "binarySha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+      "versionOutput": "vectorcraft-cli 0.2.0-craft.2",
+      "evidenceScope": "maintained native SVG isolation and stable explicit PDF date; native engine and CLI tests"
+    }
+  },
+  "supportedPluginWorkflows": []
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "wordcraft-document-template/v1",
+  "id": "weekly-report",
+  "name": "工作周报",
+  "scope": "新建文档模板；已有文档先定位目标区域，不全篇覆盖",
+  "fields": {
+    "title": {
+      "label": "文档标题",
+      "type": "text",
+      "required": true,
+      "guidance": "按具体对象命名"
+    },
+    "document_date": {
+      "label": "文档日期",
+      "type": "text",
+      "required": false,
+      "guidance": "不确定时待确认"
+    },
+    "author": {
+      "label": "编写人",
+      "type": "text",
+      "required": false,
+      "guidance": "不推断责任归属"
+    },
+    "period": {
+      "label": "报告周期与职责",
+      "type": "text",
+      "required": true,
+      "guidance": "明确起止日期、项目或岗位范围"
+    },
+    "completed": {
+      "label": "本周完成与成果",
+      "type": "text",
+      "required": true,
+      "guidance": "每项说明可核对的成果或链接，不编造比例"
+    },
+    "in_progress": {
+      "label": "进行中与当前状态",
+      "type": "text",
+      "required": true,
+      "guidance": "写真实当前阶段及剩余动作"
+    },
+    "risks": {
+      "label": "问题、风险与所需支持",
+      "type": "text",
+      "required": true,
+      "guidance": "说明影响和需谁支持，未知结论标待确认"
+    },
+    "records": {
+      "label": "下周计划与支持",
+      "type": "rows",
+      "required": true,
+      "guidance": "二维字符串数组，按表头列顺序；未知单元格写待确认，不使用制表符或换行"
+    }
+  },
+  "sections": [
+    {
+      "title": "报告周期与职责",
+      "field": "period"
+    },
+    {
+      "title": "本周完成与成果",
+      "field": "completed"
+    },
+    {
+      "title": "进行中与当前状态",
+      "field": "in_progress"
+    },
+    {
+      "title": "问题、风险与所需支持",
+      "field": "risks"
+    }
+  ],
+  "table": {
+    "title": "下周计划与支持",
+    "headers": [
+      "行动",
+      "负责人",
+      "预计时间",
+      "交付/支持"
+    ],
+    "field": "records"
+  },
+  "contentRule": "完成、进行中与受阻分开；不把下周计划写成完成成果。",
+  "reviewChecks": [
+    "正文来自本次输入，示例文字已替换",
+    "标题与正文样式分离，表格为原生可编辑对象",
+    "重开核对字段和表格，再逐页审阅PDF"
+  ]
+}

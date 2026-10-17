@@ -1,0 +1,38 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "effectcraft",
+  "id": "screen-composite",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "在已导入且已选择的屏幕内容层创建矩形遮罩",
+      "command": "layer.addMask",
+      "params": {
+        "rect": [
+          100,
+          100,
+          600,
+          350
+        ],
+        "shape": "rect"
+      }
+    },
+    {
+      "purpose": "匹配当前层不透明度",
+      "command": "prop.set",
+      "params": {
+        "path": "transform/opacity",
+        "value": 90
+      }
+    },
+    {
+      "purpose": "根据实际透视逐层检查",
+      "command": "project.summary",
+      "params": {}
+    }
+  ],
+  "check": "逐关键帧检查边缘漂移、遮挡、反光与亮度，保留原镜头。",
+  "boundary": "矩形蒙版例子仅适合正面屏幕；真实透视需当前transform/角点能力，不能用矩形蒙版冒充自动追踪。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

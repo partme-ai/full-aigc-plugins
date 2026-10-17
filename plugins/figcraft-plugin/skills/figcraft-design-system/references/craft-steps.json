@@ -1,0 +1,133 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "figcraft",
+  "id": "design-system",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "仅新建任务初始化，已有工程不能清空",
+      "command": "file.new",
+      "params": {
+        "name": "Component library"
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "创建Button/Primary，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Button/Primary",
+        "x": 0,
+        "y": 0,
+        "width": 240,
+        "height": 48,
+        "props": {
+          "fill": "#2563eb",
+          "layout": "horizontal",
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
+          "crossAlign": "center",
+          "gap": 8,
+          "cornerRadius": 8
+        }
+      },
+      "capture": "root"
+    },
+    {
+      "purpose": "创建Label，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Label",
+        "x": 0,
+        "y": 0,
+        "width": 208,
+        "height": 24,
+        "parent": "$root.id",
+        "text": "Continue",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fill": "#ffffff",
+          "textAutoResize": "height",
+          "sizingH": "fill",
+          "textAlign": "center"
+        }
+      },
+      "capture": "label"
+    },
+    {
+      "purpose": "明确组件底稿ID，不依赖当前文字选择",
+      "command": "component.create",
+      "params": {
+        "ids": [
+          "$root.id"
+        ]
+      },
+      "capture": "component"
+    },
+    {
+      "purpose": "给文字建立可覆盖属性",
+      "command": "component.addProperty",
+      "params": {
+        "id": "$root.id",
+        "name": "Label",
+        "type": "text",
+        "default": "Continue",
+        "layer": "$label.id"
+      }
+    },
+    {
+      "purpose": "创建真实关联实例",
+      "command": "instance.create",
+      "params": {
+        "component": "$root.id",
+        "x": 280,
+        "y": 0
+      },
+      "capture": "instance"
+    },
+    {
+      "purpose": "只覆盖实例文字",
+      "command": "instance.setProperties",
+      "params": {
+        "ids": [
+          "$instance.id"
+        ],
+        "properties": {
+          "Label": "Proceed"
+        }
+      }
+    },
+    {
+      "purpose": "检查主组件注册",
+      "command": "component.list",
+      "params": {},
+      "capture": "components"
+    },
+    {
+      "purpose": "检查实例可暴露属性",
+      "command": "component.properties",
+      "params": {
+        "id": "$instance.id"
+      },
+      "capture": "properties"
+    }
+  ],
+  "check": "存在主组件和真实关联实例；实例Label为Proceed、主文字仍Continue；调整主宽度后实例尺寸跟随且文字覆盖保留。",
+  "boundary": "数值是原创示例，按真实输入、节点和目标替换；capture/$变量只是手册绑定标记，原生CLI不会自动替换。默认创建会改变选择，后续操作必须传真实id/ids。新建步骤仅用于新任务；已有工程另存并保护已有节点。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "validation": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218",
+    "sceneSourceCommit": "997b6f9ee9dba5ca38da893ba7284e26388e95e0",
+    "platform": "Windows x64",
+    "fullSceneAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

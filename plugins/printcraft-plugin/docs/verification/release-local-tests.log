@@ -1,0 +1,20 @@
+test_public_delegate_preserves_read_only_result (test_handoff_delegate.HandoffDelegate.test_public_delegate_preserves_read_only_result) ... ok
+test_explicit_skill_is_honored_by_cli (test_harness.ExplicitCLI.test_explicit_skill_is_honored_by_cli) ... ok
+test_explicit_route_and_authority_reuse (test_harness.Harness.test_explicit_route_and_authority_reuse) ... ok
+test_public_delegate_works_from_space_chinese_path (test_harness.Harness.test_public_delegate_works_from_space_chinese_path) ... ok
+test_unknown_partial_and_zero_exit_never_trigger_replay (test_harness.Harness.test_unknown_partial_and_zero_exit_never_trigger_replay) ... ok
+test_unknown_protocol_and_missing_run_id_fail (test_harness.Harness.test_unknown_protocol_and_missing_run_id_fail) ... ok
+test_formal_lock_format_never_claims_remote_verification (test_provenance.FormalOfflineIdentity.test_formal_lock_format_never_claims_remote_verification) ... ok
+test_reject_false_identity_and_invalid_manifest (test_provenance.Provenance.test_reject_false_identity_and_invalid_manifest) ... ok
+test_formal_source_needs_independent_repository_bound_release_lock (test_provenance.PublishedSourceLock.test_formal_source_needs_independent_repository_bound_release_lock) ... ok
+test_self_contained_snapshot_and_unpublished_identity (test_snapshot.SnapshotContract.test_self_contained_snapshot_and_unpublished_identity) ... ok
+test_generated_host_identity_drift_blocks_packaging (test_update_and_manifest.ReleaseHostManifests.test_generated_host_identity_drift_blocks_packaging) ... ok
+test_marketplace_host_metadata_is_generated_without_identity_drift (test_update_and_manifest.ReleaseHostManifests.test_marketplace_host_metadata_is_generated_without_identity_drift) ... ok
+test_compatibility_manifest_is_generated_from_portable (test_update_and_manifest.Updates.test_compatibility_manifest_is_generated_from_portable) ... ok
+test_missing_replaced_component_rejected (test_update_and_manifest.Updates.test_missing_replaced_component_rejected) ... ok
+test_update_preserves_user_data_rejects_rollback_and_legacy (test_update_and_manifest.Updates.test_update_preserves_user_data_rejects_rollback_and_legacy) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.149s
+
+OK

@@ -1,0 +1,146 @@
+{
+  "runtime": {
+    "version": "v0.8.0",
+    "url": "https://github.com/storytold/pdfcraft/releases/download/v0.8.0/pdfcraft-0.8.0-windows-x64-portable.zip",
+    "sha256": "cd7b7fca39bf8fe477e230f40c35291a9a37ecc9175db34ff1c2ef94f785ddfb",
+    "executable": "pdfcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "doc_info": {
+      "command": "file.properties",
+      "description": "Metadata, page sizes and labels, bookmarks, annotations, form fields, links, layers, attachments, fonts, security and repair notes.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "doc"
+        ],
+        "type": "object"
+      },
+      "name": "doc_info",
+      "read_only": true
+    },
+    "page_move": {
+      "command": null,
+      "description": "Move pages so the first of them lands at position `to` (1-based, counted before the move). Undoable.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "pages": {
+            "description": "1-based page numbers to move.",
+            "items": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "to": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "doc",
+          "pages",
+          "to"
+        ],
+        "type": "object"
+      },
+      "name": "page_move",
+      "read_only": false
+    },
+    "page_extract": {
+      "command": "page.extract",
+      "description": "Copy pages into a new PDF (links, bookmarks, fields and layers that belong to them come along). separate: true writes each page as its own file into out_dir; delete: true removes the pages from this document afterwards (undoable).",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "delete": {
+            "type": "boolean"
+          },
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "open": {
+            "description": "Also open the result as a new document (default: only when out is omitted).",
+            "type": "boolean"
+          },
+          "out": {
+            "description": "File to write. Omit to open the result as a new unsaved document instead.",
+            "type": "string"
+          },
+          "out_dir": {
+            "type": "string"
+          },
+          "pages": {
+            "description": "1-based page numbers to extract.",
+            "items": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "separate": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "doc",
+          "pages"
+        ],
+        "type": "object"
+      },
+      "name": "page_extract",
+      "read_only": false
+    },
+    "doc_save": {
+      "command": "file.save",
+      "description": "Save to its own file (an incremental update, which keeps signatures valid) or to a new path (a full rewrite). The write is atomic. flatten_fill_sign bakes Fill & Sign text, marks and signatures into the page first and removes those annotations; other comments and form fields stay. Omit it, or pass false, to leave them editable.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "flatten_fill_sign": {
+            "description": "Bake Fill & Sign marks into the page before writing. Default false.",
+            "type": "boolean"
+          },
+          "full": {
+            "description": "Force a full rewrite (or, with false, an incremental update).",
+            "type": "boolean"
+          },
+          "path": {
+            "description": "Save as this file. Omit to save in place.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "doc"
+        ],
+        "type": "object"
+      },
+      "name": "doc_save",
+      "read_only": false
+    }
+  },
+  "sceneAcceptance": "NOT_RUN"
+}

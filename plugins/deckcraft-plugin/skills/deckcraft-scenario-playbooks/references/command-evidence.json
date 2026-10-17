@@ -1,0 +1,163 @@
+{
+  "runtime": "deckcraft-cli 0.7.0 Windows x64",
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "sceneAcceptance": "TECHNICAL_PASS_LAYOUT_NOT_RUN",
+  "observedCommands": {
+    "chart.options": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "chart.options",
+      "label": "Chart Elements",
+      "menu": [
+        "Chart Design",
+        "Chart Layouts"
+      ],
+      "params": "{title?: string|null, legend?: b|t|l|r|null, dataLabels?: bool, gridlines?: bool, palette?, id?}",
+      "shortcut": null
+    },
+    "file.new": {
+      "enabled": true,
+      "id": "file.new",
+      "label": "New Presentation",
+      "menu": [
+        "File"
+      ],
+      "params": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+      "shortcut": "Cmd+N"
+    },
+    "insert.chart": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "insert.chart",
+      "label": "Chart…",
+      "menu": [
+        "Insert",
+        "Illustrations"
+      ],
+      "params": "{type?: column|bar|line|pie|doughnut|area|scatter|stackedColumn|…, rect?, categories?: [..], series?: [{name, values}]}",
+      "shortcut": null
+    },
+    "insert.table": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "insert.table",
+      "label": "Table…",
+      "menu": [
+        "Insert",
+        "Tables"
+      ],
+      "params": "{rows, cols, rect?}",
+      "shortcut": null
+    },
+    "shape.fill": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "shape.fill",
+      "label": "Shape Fill",
+      "menu": [
+        "Shape Format",
+        "Shape Styles"
+      ],
+      "params": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}",
+      "shortcut": null
+    },
+    "shape.insert": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "shape.insert",
+      "label": "Shapes",
+      "menu": [
+        "Insert",
+        "Illustrations"
+      ],
+      "params": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}",
+      "shortcut": null
+    },
+    "slide.hide": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "slide.hide",
+      "label": "Hide Slide",
+      "menu": [
+        "Slide Show",
+        "Set Up"
+      ],
+      "params": "{index?, hidden?: bool}",
+      "shortcut": null
+    },
+    "slide.new": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "slide.new",
+      "label": "New Slide",
+      "menu": [
+        "Home",
+        "Slides"
+      ],
+      "params": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}",
+      "shortcut": "Cmd+Shift+N"
+    },
+    "slide.notes": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "slide.notes",
+      "label": "Notes",
+      "menu": [
+        "View"
+      ],
+      "params": "{text, index?}",
+      "shortcut": null
+    },
+    "table.options": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "table.options",
+      "label": "Table Style Options",
+      "menu": [
+        "Table Design",
+        "Table Style Options"
+      ],
+      "params": "{headerRow?, totalRow?, bandedRows?, firstColumn?, lastColumn?, bandedColumns?: bool, id?}",
+      "shortcut": null
+    },
+    "text.set": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "text.set",
+      "label": "Set Text",
+      "menu": [],
+      "params": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting",
+      "shortcut": null
+    }
+  },
+  "technicalRoundtrip": {
+    "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38928803118",
+    "sourceCommit": "0d0468eeebe81cd7a427ed1da102535498d286c7",
+    "recipes": [
+      "approval-flow-diagram",
+      "demo-problem-result",
+      "executive-metric-page",
+      "option-comparison-table",
+      "risk-quadrant",
+      "speaker-handoff-notes",
+      "training-hidden-answer",
+      "trend-actual-plan"
+    ],
+    "stepHashes": {
+      "executive-metric-page": "72908e7556b4620dac4e65cbefdd11f7550abc97a15fec68e5bc100ac8b55e7e",
+      "option-comparison-table": "4df1743407348497440b40bd927cc44cb87a109e40f07be8cc02d28f05ced42e",
+      "approval-flow-diagram": "617d4fade6c5b6fbd794084c6bc1a8f5cfb1f66fe47091bb614f33315883b708",
+      "risk-quadrant": "be0faa5296fbae8b5cead4705aa2a21360a3df0e561b1e8f854a632807a40791",
+      "trend-actual-plan": "1a961a80b842a2034b5f8d4f8f5b42739117d0b1db0b24e783f4174a1686e8ec",
+      "demo-problem-result": "631581a2f2151153b4310f63362d379a78cb94f6e10e9957844d99450d3a04e2",
+      "training-hidden-answer": "e89e9a039c98aa65debf58677e7741868213bd9321bb5712309069d007a4d59e",
+      "speaker-handoff-notes": "010aa6c787ca3863ab1840db42de78f3d22fda7aefaf16d9bac404667dad631c"
+    },
+    "input": "fictional examples embedded in recipes.json; replace values for real tasks",
+    "semanticChecks": "PASS",
+    "layoutAcceptance": "NOT_TESTED",
+    "combinationCheck": "comparison table + trend chart + per-slide notes preserved in one two-slide PPTX"
+  },
+  "archiveSha256": "3d67962a206af89d66ef443a042efcc5386a14d4e0d9c056bc1f62a84bd7954c",
+  "executableSha256": "3b4c1ab6e0ecefa53a99ea35ac570ddf86e35527ab631bee407e6e4d9c531a4a"
+}

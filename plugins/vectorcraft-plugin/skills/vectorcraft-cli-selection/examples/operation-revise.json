@@ -1,0 +1,14 @@
+{
+  "expectedProjectSha256": "REPLACE_WITH_CURRENT_MANIFEST_PROJECT_SHA256",
+  "operations": [
+    {
+      "command": "swatch.edit",
+      "params": {
+        "name": {
+          "$ref": "primary.name"
+        },
+        "color": "#175cce"
+      }
+    }
+  ]
+}

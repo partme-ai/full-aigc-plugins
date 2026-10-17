@@ -1,0 +1,151 @@
+{
+  "runtime": "soundcraft-cli 0.7.0 Windows x64",
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "sceneAcceptance": "TECHNICAL_PASS_CREATIVE_NOT_RUN",
+  "observedCommands": {
+    "audiosuite.process": {
+      "id": "audiosuite.process",
+      "label": "AudioSuite Process",
+      "menu": [],
+      "shortcut": null,
+      "params": "{process: <plugin id> | normalize | reverse | invert | gain | duplicate | time_stretch | pitch_shift | varispeed | signal_generator, params?: {..}, clips?, tracks?, start?, end?} — signal_generator fills start..end (default: the selection) with a new clip on each audio track in `tracks` (default: the selected tracks)",
+      "enabled": false,
+      "disabled_reason": "nothing is selected"
+    },
+    "clip.gain": {
+      "id": "clip.gain",
+      "label": "Clip Gain",
+      "menu": [],
+      "shortcut": null,
+      "params": "{clips?, db | delta_db}",
+      "enabled": false,
+      "disabled_reason": "nothing is selected"
+    },
+    "edit.fades_create": {
+      "id": "edit.fades_create",
+      "label": "Create...",
+      "menu": [
+        "Edit",
+        "Fades"
+      ],
+      "shortcut": "Cmd+F",
+      "params": "{shape?: linear|equal power|s-curve|exponential|logarithmic, tracks?, start?, end?} or {clip: id, side: in|out, length: samples, shape?, curvature?: -1..1}",
+      "enabled": false,
+      "disabled_reason": "make an edit selection first"
+    },
+    "edit.select": {
+      "id": "edit.select",
+      "label": "Set Edit Selection",
+      "menu": [],
+      "shortcut": null,
+      "params": "{tracks?: [id|name], start?, end?, clips?: [id], sources?: [id] (Clip List files), exact?: bool (ignore edit groups)}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "edit.select_all": {
+      "id": "edit.select_all",
+      "label": "Select All",
+      "menu": [
+        "Edit"
+      ],
+      "shortcut": "Cmd+A",
+      "params": "{}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "file.bounce_mix": {
+      "id": "file.bounce_mix",
+      "label": "Bounce Mix...",
+      "menu": [
+        "File"
+      ],
+      "shortcut": "Cmd+Alt+B",
+      "params": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "file.bounce_stems": {
+      "id": "file.bounce_stems",
+      "label": "Bounce Stems...",
+      "menu": [],
+      "shortcut": null,
+      "params": "{dir, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, fold_down?: stereo}",
+      "enabled": false,
+      "disabled_reason": "the session has no tracks"
+    },
+    "file.import_audio": {
+      "id": "file.import_audio",
+      "label": "Audio...",
+      "menu": [
+        "File",
+        "Import"
+      ],
+      "shortcut": "Cmd+Shift+I",
+      "params": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "session.new": {
+      "id": "session.new",
+      "label": "New...",
+      "menu": [
+        "File"
+      ],
+      "shortcut": "Cmd+N",
+      "params": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "track.new": {
+      "id": "track.new",
+      "label": "New...",
+      "menu": [
+        "Track"
+      ],
+      "shortcut": "Cmd+Shift+N",
+      "params": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}",
+      "enabled": true,
+      "disabled_reason": null
+    }
+  },
+  "archiveSha256": "8ef3c5fd89c5a3e797b01afdcf3398a81743f518d8978cac766cbd3665e6861d",
+  "executableSha256": "f3523dc9fb654288e2398ff95ddc4164a190aabaa0625103fc64d96f7f9320b8",
+  "technicalRoundtrip": {
+    "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38931238554",
+    "sourceCommit": "b3fd6f2197533b68098c6ea939d1ee22c98f3650",
+    "input": "deterministic synthetic 4-second 48kHz audio",
+    "recipes": [
+      "voice-headroom",
+      "peak-normalized-preview",
+      "voice-edge-fades",
+      "interview-excerpt",
+      "two-track-stems",
+      "reverse-transition",
+      "dc-offset-cleanup",
+      "polarity-diagnostic-copy"
+    ],
+    "stepHashes": {
+      "voice-headroom": "3f9faddf12b7ddbd423c8d644dedd13a048591d27aeb38482bb69a8a920f7f46",
+      "peak-normalized-preview": "f6550874aeca03efa60a2af4e4e040934d3c93fff82d338a9ba7635485a00091",
+      "voice-edge-fades": "684b3a25751c1c5ec1800c09745c00f12bca479ee48ad0d1cdc9f6916721c7c3",
+      "interview-excerpt": "56c705fcd172b42b2782d610b3c553b0bdb58f9991ea20e967efc53c5d9b63d6",
+      "two-track-stems": "6f62477c55948f9896bf935a7e676b70222554dec8b82849f9671d6fa1987e49",
+      "reverse-transition": "06214fa54d60993ad8df97d328a7d9bb59602d2f8d86c865d8073547507b6df7",
+      "dc-offset-cleanup": "56f89c6669cfb5dfc0c751c41a592188d1ef6da30b55f521499f661e3670531e",
+      "polarity-diagnostic-copy": "e150384097b66a36e6aa3a02bbbd905f842d488712eb6df3f88e24ce601b105f"
+    },
+    "checks": [
+      "clip gain ratio",
+      "peak normalize ratio",
+      "head and tail fade with protected middle",
+      "exact excerpt time range",
+      "stereo stem track set and channel difference",
+      "reversed samples",
+      "DC mean reduction",
+      "inverted polarity",
+      "save-reopen-rerender including stems within dither tolerance",
+      "input files unchanged"
+    ],
+    "creativeAcceptance": "NOT_TESTED"
+  }
+}

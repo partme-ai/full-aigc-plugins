@@ -1,0 +1,54 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "effectcraft",
+  "id": "lower-thirds",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "创建人物条合成",
+      "command": "comp.new",
+      "params": {
+        "name": "LowerThird",
+        "width": 1920,
+        "height": 1080,
+        "frameRate": 25,
+        "duration": 6
+      }
+    },
+    {
+      "purpose": "建立姓名文本",
+      "command": "layer.newText",
+      "params": {
+        "text": "真实姓名",
+        "name": "Name",
+        "position": [
+          180,
+          880
+        ],
+        "size": 48
+      }
+    },
+    {
+      "purpose": "建立职位文本",
+      "command": "layer.newText",
+      "params": {
+        "text": "真实职位",
+        "name": "Role",
+        "position": [
+          180,
+          940
+        ],
+        "size": 28
+      }
+    },
+    {
+      "purpose": "核对图层与文本",
+      "command": "project.summary",
+      "params": {}
+    }
+  ],
+  "check": "最长姓名、职位、安全区与透明背景正确，入退场时文字不截断。",
+  "boundary": "以实际文本与返回层ID布局；姓名职位不能凭空补全。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

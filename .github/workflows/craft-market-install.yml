@@ -8,6 +8,10 @@ permissions:
 jobs:
   windows:
     runs-on: windows-2022
+    env:
+      GIT_CONFIG_COUNT: '1'
+      GIT_CONFIG_KEY_0: core.longpaths
+      GIT_CONFIG_VALUE_0: 'true'
     timeout-minutes: 20
     strategy:
       fail-fast: false
@@ -32,12 +36,12 @@ jobs:
           "CODEX_CI_JS=$root/@openai/codex/bin/codex.js" >> $env:GITHUB_ENV
       - name: Bootstrap archive and portable MCP regressions
         run: node --test scripts/craft-runtime-bootstrap.test.mjs scripts/portable-mcp-config.test.mjs
-      - name: Actual Git install, first download and native MCP calls
+      - name: Actual marketplace package install, icon listing and native MCP calls
         shell: pwsh
         env:
           PYTHONUTF8: '1'
         run: |
-          python scripts/verify-craft-market-install.py candidate-marketplace "中文 市场验收" --marketplace-name full-aigc-craft-candidates --app ${{ matrix.app }} --codex-js $env:CODEX_CI_JS
+          python scripts/verify-craft-market-install.py . "中文 市场验收" --marketplace-name full-aigc-plugins --app ${{ matrix.app }} --codex-js $env:CODEX_CI_JS
           exit $LASTEXITCODE
       - uses: actions/upload-artifact@v4
         if: always()
@@ -46,6 +50,7 @@ jobs:
           path: |
             中文 市场验收/*.json
             中文 市场验收/*.log
+            中文 市场验收/listing-before-install/*.json
   linux-all-cold:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -59,8 +64,8 @@ jobs:
           node-version: '24.18.0'
       - name: Install pinned Codex host
         run: npm install --global @openai/codex@0.162.1
-      - name: Install all 13 Git candidates and call real native MCP from cold cache
-        run: python3 scripts/verify-craft-market-install.py candidate-marketplace cold-acceptance --marketplace-name full-aigc-craft-candidates
+      - name: Install all 13 marketplace candidates, check icons and call native MCP from cold cache
+        run: python3 scripts/verify-craft-market-install.py . cold-acceptance --marketplace-name full-aigc-plugins
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -68,8 +73,13 @@ jobs:
           path: |
             cold-acceptance/*.json
             cold-acceptance/*.log
+            cold-acceptance/listing-before-install/*.json
   windows-release-zip:
     runs-on: windows-2022
+    env:
+      GIT_CONFIG_COUNT: '1'
+      GIT_CONFIG_KEY_0: core.longpaths
+      GIT_CONFIG_VALUE_0: 'true'
     timeout-minutes: 20
     strategy:
       fail-fast: false

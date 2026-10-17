@@ -11,3 +11,5 @@
 - [x] 复核各仓已有高级任务：五个 `establish-v1-plugin` 长任务表补充分界；DesignCraft、LightCraft、PrintCraft 的现有 harden/extend 变更继续独立开放；CADCraft 无此类变更。未删改原任务和证据，Harness 的用途另行讨论。
 
 - [x] 将13个开发候选以固定标签和校验和发行资源接入三宿主市场，验证干净Git安装、首次启动和真实Codex MCP调用；保留稳定发布及未验收能力的限制。
+
+- [ ] 以固定发行提交生成13个Codex市场内薄包快照，验证安装前官方图标路径、实际安装/MCP与发布后市场发现，保留独立源码仓及其他宿主发行。

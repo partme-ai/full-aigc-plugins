@@ -1,0 +1,148 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "figcraft",
+  "id": "dev-handoff",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "仅新建任务初始化，已有工程不能清空",
+      "command": "file.new",
+      "params": {
+        "name": "Developer handoff"
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "创建Handoff，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Handoff",
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 884,
+        "props": {
+          "fill": "#ffffff"
+        }
+      },
+      "capture": "root"
+    },
+    {
+      "purpose": "创建Heading，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Heading",
+        "x": 24,
+        "y": 40,
+        "width": 342,
+        "height": 36,
+        "parent": "$root.id",
+        "text": "交付说明",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 24,
+          "fill": "#172033",
+          "textAutoResize": "height"
+        }
+      },
+      "capture": "title"
+    },
+    {
+      "purpose": "创建Icon/Primary，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "rectangle",
+        "name": "Icon/Primary",
+        "x": 24,
+        "y": 120,
+        "width": 24,
+        "height": 24,
+        "parent": "$root.id",
+        "props": {
+          "fill": "#2563eb",
+          "cornerRadius": 4
+        }
+      },
+      "capture": "icon"
+    },
+    {
+      "purpose": "指定1倍PNG导出",
+      "command": "export.add",
+      "params": {
+        "ids": [
+          "$icon.id"
+        ],
+        "setting": {
+          "size": "1x",
+          "format": "png"
+        }
+      }
+    },
+    {
+      "purpose": "指定2倍PNG导出",
+      "command": "export.add",
+      "params": {
+        "ids": [
+          "$icon.id"
+        ],
+        "setting": {
+          "size": "2x",
+          "format": "png"
+        }
+      }
+    },
+    {
+      "purpose": "读取真实尺寸、颜色和样式",
+      "command": "inspect.properties",
+      "params": {
+        "id": "$icon.id",
+        "colorFormat": "hex"
+      },
+      "capture": "properties"
+    },
+    {
+      "purpose": "获取该图层CSS作为开发参考",
+      "command": "inspect.code",
+      "params": {
+        "id": "$icon.id",
+        "language": "css",
+        "unit": "px"
+      },
+      "capture": "code"
+    },
+    {
+      "purpose": "发现此画板下可交付资产",
+      "command": "inspect.assets",
+      "params": {
+        "ids": [
+          "$root.id"
+        ]
+      },
+      "capture": "assets"
+    },
+    {
+      "purpose": "仅导出明确图标的真实设置",
+      "command": "file.exportLayers",
+      "params": {
+        "ids": [
+          "$icon.id"
+        ],
+        "dir": "handoff-assets"
+      },
+      "capture": "exports"
+    }
+  ],
+  "check": "读取真实CSS与属性；明确图标两组导出设置，实际PNG分别24×24和48×48，文件可解码。",
+  "boundary": "数值是原创示例，按真实输入、节点和目标替换；capture/$变量只是手册绑定标记，原生CLI不会自动替换。默认创建会改变选择，后续操作必须传真实id/ids。新建步骤仅用于新任务；已有工程另存并保护已有节点。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "validation": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218",
+    "sceneSourceCommit": "997b6f9ee9dba5ca38da893ba7284e26388e95e0",
+    "platform": "Windows x64",
+    "fullSceneAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

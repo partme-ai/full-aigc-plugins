@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VectorCraft bounded revision policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "maxRounds",
+    "stagnationLimit",
+    "minImprovement"
+  ],
+  "properties": {
+    "maxRounds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "stagnationLimit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "minImprovement": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 4
+    }
+  }
+}

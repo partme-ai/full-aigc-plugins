@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourceFingerprint": "0cbcdf40ea46f53fe41ce2fded6ce1b3908e5ac0187eef010654f1a160ff4853",
+  "layers": {
+    "structure": {
+      "status": "PASS",
+      "evidence": [
+        "README.md",
+        "../../../scripts/validate_package.py"
+      ],
+      "scope": "package structure; not host loading"
+    },
+    "mock": {
+      "status": "PASS",
+      "evidence": [
+        "unittest-python-3.12.log",
+        "unittest-python-3.13.log"
+      ]
+    },
+    "native": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "host": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "visual": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "platform": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "remoteCI": {
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  },
+  "scope": "Connect/MCP development increment; extension requirements remain OPEN; historical release evidence not reused",
+  "completeAcceptance": false
+}

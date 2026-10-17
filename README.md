@@ -1,5 +1,7 @@
 <div align="center">
 
+Craft 插件的 `plugins/` 为固定独立仓发行提交生成的 Codex 分发快照，保证安装前图标可读；技能及代码仍在各独立插件仓维护，不在目录仓手工修改快照。
+
 ## Craft 可安装开发候选
 
 13 个 Craft 编辑器候选已登记为 `0.1.0-dev.20261017.4`，名称为 `PhotoCraft Use (RC)` 等，使用官方图标。它们是开发预发布；生产与全部场景验收尚未完成。安装要求 Node.js 24。Git 安装首次启动会下载固定摘要的编辑器资源；完整发行 ZIP 自带资源。详见 [安装与验证状态](docs/craft-marketplace-release.md)。 交付参考 ZCode 的已构建 ZIP 分发方式：支持该协议的宿主绑定完整包、摘要和包内目录。当前 EffectCraft 超出 ZCode 单文件解包上限，显式使用 Git 入口兼容；Codex 原生 Git 入口单独验收。
@@ -109,19 +111,19 @@ codex plugin add volcengine-design@full-aigc-plugins
 
 | 插件 | ID | 版本 | 定位 | 仓库 |
 |------|----|:----:|------|------|
-| [**CADCraft Use (RC)**](https://github.com/full-aigc-plugins/cadcraft-plugin) | `cadcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [cadcraft-plugin](https://github.com/full-aigc-plugins/cadcraft-plugin) |
-| [**DeckCraft Use (RC)**](https://github.com/full-aigc-plugins/deckcraft-plugin) | `deckcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [deckcraft-plugin](https://github.com/full-aigc-plugins/deckcraft-plugin) |
-| [**DesignCraft Use (RC)**](https://github.com/full-aigc-plugins/designcraft-plugin) | `designcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [designcraft-plugin](https://github.com/full-aigc-plugins/designcraft-plugin) |
-| [**EffectCraft Use (RC)**](https://github.com/full-aigc-plugins/effectcraft-plugin) | `effectcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [effectcraft-plugin](https://github.com/full-aigc-plugins/effectcraft-plugin) |
-| [**FigCraft Use (RC)**](https://github.com/full-aigc-plugins/figcraft-plugin) | `figcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [figcraft-plugin](https://github.com/full-aigc-plugins/figcraft-plugin) |
-| [**FilmCraft Use (RC)**](https://github.com/full-aigc-plugins/filmcraft-plugin) | `filmcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [filmcraft-plugin](https://github.com/full-aigc-plugins/filmcraft-plugin) |
-| [**GridCraft Use (RC)**](https://github.com/full-aigc-plugins/gridcraft-plugin) | `gridcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [gridcraft-plugin](https://github.com/full-aigc-plugins/gridcraft-plugin) |
-| [**LightCraft Use (RC)**](https://github.com/full-aigc-plugins/lightcraft-plugin) | `lightcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [lightcraft-plugin](https://github.com/full-aigc-plugins/lightcraft-plugin) |
-| [**PhotoCraft Use (RC)**](https://github.com/full-aigc-plugins/photocraft-plugin) | `photocraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [photocraft-plugin](https://github.com/full-aigc-plugins/photocraft-plugin) |
-| [**PdfCraft Use (RC)**](https://github.com/full-aigc-plugins/printcraft-plugin) | `printcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [printcraft-plugin](https://github.com/full-aigc-plugins/printcraft-plugin) |
-| [**SoundCraft Use (RC)**](https://github.com/full-aigc-plugins/soundcraft-plugin) | `soundcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [soundcraft-plugin](https://github.com/full-aigc-plugins/soundcraft-plugin) |
-| [**VectorCraft Use (RC)**](https://github.com/full-aigc-plugins/vectorcraft-plugin) | `vectorcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [vectorcraft-plugin](https://github.com/full-aigc-plugins/vectorcraft-plugin) |
-| [**WordCraft Use (RC)**](https://github.com/full-aigc-plugins/wordcraft-plugin) | `wordcraft` | 0.1.0-dev.20261017.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [wordcraft-plugin](https://github.com/full-aigc-plugins/wordcraft-plugin) |
+| [**CADCraft Use (RC)**](https://github.com/full-aigc-plugins/cadcraft-plugin) | `cadcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [cadcraft-plugin](https://github.com/full-aigc-plugins/cadcraft-plugin) |
+| [**DeckCraft Use (RC)**](https://github.com/full-aigc-plugins/deckcraft-plugin) | `deckcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [deckcraft-plugin](https://github.com/full-aigc-plugins/deckcraft-plugin) |
+| [**DesignCraft Use (RC)**](https://github.com/full-aigc-plugins/designcraft-plugin) | `designcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [designcraft-plugin](https://github.com/full-aigc-plugins/designcraft-plugin) |
+| [**EffectCraft Use (RC)**](https://github.com/full-aigc-plugins/effectcraft-plugin) | `effectcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [effectcraft-plugin](https://github.com/full-aigc-plugins/effectcraft-plugin) |
+| [**FigCraft Use (RC)**](https://github.com/full-aigc-plugins/figcraft-plugin) | `figcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [figcraft-plugin](https://github.com/full-aigc-plugins/figcraft-plugin) |
+| [**FilmCraft Use (RC)**](https://github.com/full-aigc-plugins/filmcraft-plugin) | `filmcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [filmcraft-plugin](https://github.com/full-aigc-plugins/filmcraft-plugin) |
+| [**GridCraft Use (RC)**](https://github.com/full-aigc-plugins/gridcraft-plugin) | `gridcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [gridcraft-plugin](https://github.com/full-aigc-plugins/gridcraft-plugin) |
+| [**LightCraft Use (RC)**](https://github.com/full-aigc-plugins/lightcraft-plugin) | `lightcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [lightcraft-plugin](https://github.com/full-aigc-plugins/lightcraft-plugin) |
+| [**PhotoCraft Use (RC)**](https://github.com/full-aigc-plugins/photocraft-plugin) | `photocraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [photocraft-plugin](https://github.com/full-aigc-plugins/photocraft-plugin) |
+| [**PdfCraft Use (RC)**](https://github.com/full-aigc-plugins/printcraft-plugin) | `printcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [printcraft-plugin](https://github.com/full-aigc-plugins/printcraft-plugin) |
+| [**SoundCraft Use (RC)**](https://github.com/full-aigc-plugins/soundcraft-plugin) | `soundcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [soundcraft-plugin](https://github.com/full-aigc-plugins/soundcraft-plugin) |
+| [**VectorCraft Use (RC)**](https://github.com/full-aigc-plugins/vectorcraft-plugin) | `vectorcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [vectorcraft-plugin](https://github.com/full-aigc-plugins/vectorcraft-plugin) |
+| [**WordCraft Use (RC)**](https://github.com/full-aigc-plugins/wordcraft-plugin) | `wordcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [wordcraft-plugin](https://github.com/full-aigc-plugins/wordcraft-plugin) |
 | [🧱 **Blender 制作**](https://github.com/full-aigc-plugins/blender-design-plugin) | `blender-design` | 0.15.0 | Blender 场景的受控设计、审阅与导出（四 Tab 工作台、供应商能力、视觉里程碑与恢复检查点）；新增 `blender-ai-replication`（LLM + VLM-critic 复刻参考图） | [blender-design-plugin](https://github.com/full-aigc-plugins/blender-design-plugin) |
 | [🎞️ **Comfy 生成**](https://github.com/full-aigc-plugins/comfy-design-plugin) | `comfy-design` | 0.5.0 | Comfy Cloud 生成工作流（图像 / 视频 / 音频 / 3D） | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
 | [🧪 **内容工厂（RC）**](https://github.com/full-aigc-plugins/content-factory-plugin) | `content-factory` | 1.0.0-rc.2 | 16 渠道的受控内容创作、审阅、排版与导出；预发布测试版，非生产就绪 | [content-factory-plugin](https://github.com/full-aigc-plugins/content-factory-plugin) |

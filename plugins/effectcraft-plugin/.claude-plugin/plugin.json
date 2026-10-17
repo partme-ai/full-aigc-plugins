@@ -1,0 +1,13 @@
+{
+  "name": "effectcraft",
+  "version": "0.1.0-dev.20261017.5",
+  "description": "EffectCraft creative workflows with pinned first-use installation and independent skill snapshots; development release, full domain and host acceptance pending.",
+  "author": {
+    "name": "Full AIGC Plugins",
+    "url": "https://github.com/full-aigc-plugins"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/effectcraft-plugin",
+  "repository": "https://github.com/full-aigc-plugins/effectcraft-plugin",
+  "license": "Apache-2.0",
+  "skills": "./skills/"
+}

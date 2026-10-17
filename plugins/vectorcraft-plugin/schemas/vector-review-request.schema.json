@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VectorCraft domain single-round review request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "bindingHash",
+    "input",
+    "fingerprints",
+    "state"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vectorcraft-review-request/v1"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bindingHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "input": {
+      "type": "object",
+      "required": [
+        "projectRevision",
+        "runtimeIdentity",
+        "native",
+        "candidates",
+        "targets",
+        "rubric",
+        "technicalStatus",
+        "authorization",
+        "exchangeLoss"
+      ],
+      "properties": {
+        "projectRevision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runtimeIdentity": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "native": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "role"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "role": {
+                "enum": [
+                  "target",
+                  "judge-reference"
+                ]
+              }
+            }
+          }
+        },
+        "rubric": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technicalStatus": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_RUN"
+          ]
+        },
+        "authorization": {
+          "type": "object",
+          "required": [
+            "objects",
+            "fields",
+            "deadline",
+            "maxAttempts",
+            "maxBytes"
+          ],
+          "properties": {
+            "objects": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "deadline": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "maxAttempts": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "maxBytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "budgetId": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "exchangeLoss": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technicalEvidenceOrigin": {
+          "enum": [
+            "caller_unverified",
+            "checked-decoder"
+          ]
+        },
+        "technicalCheckId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technicalEvidence": {
+          "type": "object",
+          "description": "Only generated from a persisted verified decoder check; rejected at the caller JSON entry."
+        }
+      }
+    },
+    "fingerprints": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "state": {
+      "const": "pending"
+    }
+  }
+}

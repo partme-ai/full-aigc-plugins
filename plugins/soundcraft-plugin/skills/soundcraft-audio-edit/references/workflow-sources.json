@@ -1,0 +1,76 @@
+{
+  "policy": "只借鉴工作流事实，场景正文与命令例子原创编写，不复制外部代码、正文或素材。许可不明的来源仅作为参考。",
+  "sources": [
+    {
+      "repository": "audacity/audacity-manual",
+      "commit": "92794e43861704433b0af65dbe503ef9253ff4e4",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "manual/man/noise_reduction.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/noise_reduction.html",
+          "bytes": 25937
+        },
+        {
+          "path": "manual/man/normalize.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/normalize.html",
+          "bytes": 17644
+        },
+        {
+          "path": "manual/man/tutorial_click_and_pop_removal_techniques.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/tutorial_click_and_pop_removal_techniques.html",
+          "bytes": 9617
+        },
+        {
+          "path": "manual/man/license.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/license.html",
+          "bytes": 33735
+        },
+        {
+          "path": "manual/man/crossfade_clips.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/crossfade_clips.html",
+          "sha256": "f1fc22f539ab3281139e887e6d7f4d3c4991c8f594508bedda0fbc837eded8c2",
+          "bytes": 14280
+        },
+        {
+          "path": "manual/man/export_multiple.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/export_multiple.html",
+          "sha256": "480ae9bea5b1408e5eb3304fd2678c86312596a7e3005b7da5a86337b1f6a170",
+          "bytes": 30608
+        },
+        {
+          "path": "manual/man/fades.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/fades.html",
+          "sha256": "40ed570be9b76ff5392ea814555a7c520df8cf85286fa7f8ff909bf1e51626e8",
+          "bytes": 18516
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "storytold/soundcraft",
+      "commit": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+      "readFiles": [
+        {
+          "path": "crates/engine/src/io.rs",
+          "url": "https://github.com/storytold/soundcraft/blob/f3a19480d8cc2d7a98cda492f5464d8c54558c9f/crates/engine/src/io.rs",
+          "bytes": 91612,
+          "sha256": "f67862acb61622ba391fa10fed44b8f2215af4022782a174ea20b9efc9a55d03"
+        },
+        {
+          "path": "crates/engine/src/edit.rs",
+          "url": "https://github.com/storytold/soundcraft/blob/f3a19480d8cc2d7a98cda492f5464d8c54558c9f/crates/engine/src/edit.rs",
+          "bytes": 44610,
+          "sha256": "2cbf27aca8f281222015d6317112e51cc14d2f2756f387be42e286f7341bd79d"
+        },
+        {
+          "path": "crates/engine/src/cmd/edit.rs",
+          "url": "https://github.com/storytold/soundcraft/blob/f3a19480d8cc2d7a98cda492f5464d8c54558c9f/crates/engine/src/cmd/edit.rs",
+          "bytes": 55082,
+          "sha256": "369b5f7855408764dffd02013ff1d2e9827a34ec5b91bc697f006b80dbda1b62"
+        }
+      ],
+      "reuse": "Observed engine semantics only; no source copied into skill"
+    }
+  ]
+}

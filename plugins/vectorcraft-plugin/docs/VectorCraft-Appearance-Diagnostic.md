@@ -1,0 +1,15 @@
+# Appearance command QA diagnostic checkpoint
+
+The original checkpoint delivers candidate QA code and retained failures; later fixed acceptance is recorded below. It does not qualify appearance commands. OpenSpec VC-CM-001 remains authoritative; task8.3 stays open,121/127 tasks are complete and6 remain open. Coverage at that historical checkpoint was110/585.
+
+The [sanitized diagnostic](evidence/vectorcraft-appearance-diagnostic-fixed64-20261009.json) preserves the owned synthetic stage,original record hashes and unknown request. In run a2,paint.setFill followed by edit.undo restored the in-memory document,while save/reopen lost object2 and retained text3. In-memory equality does not prove file preservation. Fresh run a3 stopped at an effect.apply request with an unknown result; it must not be replayed. Both runs stopped their owned processes. The cause remains unassigned to the engine,GUI synchronization or QA fixture.
+
+No completed family proof was emitted and the original driver identity was not recorded. The candidate hash identifies later code only. Private raw logs,projects and images remain local; the public diagnostic contains no personal absolute paths or user media.
+
+Candidate probes now save an owned checkpoint,perform the actual edit/create probe,save its result and reopen the checkpoint. This restoration is unqualified: the complete16-command,32-stage,64-export and48-image-comparison run has not passed. Neither completed prefixes of failed runs nor stack unit tests count as acceptance.
+
+The regular regression suite tests independent stack formulas and retained failure facts. All18 positive/tamper evidence tests remain in`scripts/qa/pending/test_command_appearance_evidence.py`; the fixed PASS report is missing and aggregate validation does not yet support this family. Before moving those tests into regular discovery,complete a fresh owned native run,generate identity-bound evidence and wire aggregate verification. Skipping tests or weakening their assertions cannot qualify the family.
+
+This supplements the dev.64 development release with QA diagnostics only. Product tag,13 locked skills and independent source46 remain unchanged. Model routing,host secret references,preference restart persistence,exhaustive GUI and completeV1 remain open. [中文流程图](VectorCraft-Appearance-Diagnostic.zh-CN.md).
+
+Later fixed acceptance:a6 passes all16 commands,32 native save/reopen stages,64 decoded exports,32 actual1440x900 windows and48 image comparisons. The cross-layer mask fixture made the source into mask contents;source-layer creation plus explicit IDs now passes two red-to-green fixture tests. All18 previously pending evidence tests now reside in`tests/test_command_appearance_evidence.py`,with2 further tamper tests,all passing;aggregate verification supports appearance. Coverage is126/585,459 NOT_RUN. Original failure JSON,candidate bytes and110-command matrix remain preserved. Checkpoint-restored probes do not qualify undo or application preference restarts. Task8.3 and completeV1 remain open. [Fixed evidence](evidence/vectorcraft-command-appearance-fixed64-20261009.json).

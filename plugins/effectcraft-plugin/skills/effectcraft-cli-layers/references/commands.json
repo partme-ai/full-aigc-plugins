@@ -1,0 +1,748 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "effectcraft",
+  "runtimeVersion": "0.2.0",
+  "upstreamRepository": "https://github.com/storytold/effectcraft",
+  "upstreamCommit": "f5ebe5f6c5e887dddda4a2be1fcb47154e959b81",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "layer.newText",
+      "label": "Text",
+      "params": "{text?, name? (layer name; default the text), position? [x,y], box? [x,y,w,h] (paragraph text, comp space), vertical?, edit? (start editing), font?, style?, size?, fill?, stroke?, applyFill?, applyStroke?, strokeWidth?, tracking?, leading?, baselineShift?, hScale?, vScale?, tsume?, fauxBold?, fauxItalic?, allCaps?, smallCaps?, baseline?, superscript?, subscript?, kerning?, ligatures?, justify?, indentLeft?, indentRight?, indentFirst?, spaceBefore?, spaceAfter?, direction?, composer?, hangingPunctuation?, strokeOverFill?} (attributes as layer.setText)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newSolid",
+      "label": "Solid...",
+      "params": "{name?, color? #hex|[r,g,b], width?, height?, pixelAspect?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newNull",
+      "label": "Null Object",
+      "params": "{name?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newShape",
+      "label": "Shape Layer",
+      "params": "{kind?: rect|rounded|ellipse|star|polygon|none, name?, size?, fill?, stroke?, strokeWidth?, position?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newAdjustment",
+      "label": "Adjustment Layer",
+      "params": "{name?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.settings",
+      "label": "Layer Settings...",
+      "params": "{layer?, name?, color?, width?, height?, pixelAspect?, affectAll?: bool (default true; false gives this layer its own copy of a solid other layers use)} → {layer, solid?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.addItem",
+      "label": "Add Footage to Comp",
+      "params": "{item: id|name, time? (s, the In point), index? (1-based stack position; default above the selected layer), position? ([x, y] comp px; default the centre), duration? (s, for a still)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.select",
+      "label": "Select Layers",
+      "params": "{layers: [id|name|#n], add?, toggle?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.selectNext",
+      "label": "Select Next Layer",
+      "params": "{add?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.selectPrevious",
+      "label": "Select Previous Layer",
+      "params": "{add?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setSwitch",
+      "label": "Layer Switch",
+      "params": "{layers?, switch: video|audio|solo|lock|shy|collapse|quality|fx|frameBlend|motionBlur|adjustment|threeD|guide|preserveTransparency, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.rename",
+      "label": "Rename",
+      "params": "{layer?, name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setComment",
+      "label": "Layer Comment",
+      "params": "{layers?, comment}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setBlendMode",
+      "label": "Blending Mode",
+      "params": "{layers?, mode?: Normal|Multiply|Screen|…, step?: ±1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setTrackMatte",
+      "label": "Track Matte",
+      "params": "{layer?, matte: layer|null, kind?: alpha|alphaInverted|luma|lumaInverted}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setParent",
+      "label": "Parent",
+      "params": "{layers?, parent: layer|null}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.timing",
+      "label": "Layer Timing",
+      "params": "{layers?, op?: moveInToTime|moveOutToTime|trimInToTime|trimOutToTime, delta?, start?, in?, out?, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.slip",
+      "label": "Slip Edit",
+      "params": "{layers?, delta? (seconds) | frames?, merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.slipBack",
+      "label": "Slip Edit 1 Frame Earlier",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.slipForward",
+      "label": "Slip Edit 1 Frame Later",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.arrange",
+      "label": "Arrange",
+      "params": "{layers?, to: front|forward|backward|back, index?, above?: layer}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.precompose",
+      "label": "Pre-compose...",
+      "params": "{layers?, name?, mode?: move|leave, adjustDuration?, open?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.addMask",
+      "label": "New Mask",
+      "params": "{layer?, shape?: rect|ellipse, rect? [x,y,w,h], mode?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setMask",
+      "label": "Mask Mode",
+      "params": "{layer?, mask: index|uid|name, mode?, inverted?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.addShapeItem",
+      "label": "Add (Shape)",
+      "params": "{layer?, kind: group|rect|ellipse|star|polygon|fill|stroke|gfill|trim|repeater|round|offset|pucker|twist|zigzag|wiggle|merge, group?: uid|path} → {uid, path}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setText",
+      "label": "Edit Text",
+      "params": "{layer?, range?: [start, end] (characters; default all), text?, font?, style?, size?, fill?, stroke?, applyFill?, applyStroke?, strokeWidth?, tracking?, leading?: px|\"auto\", baselineShift? px, hScale? %, vScale? %, tsume? %, fauxBold?, fauxItalic?, allCaps?, smallCaps?, baseline?: normal|superscript|subscript, superscript?, subscript?, kerning?: metrics|optical|number, ligatures?, OpenType: discretionaryLigatures?, contextualAlternates?, stylisticAlternates?, stylisticSets?: [1–20], ss01…ss20?, swash?, titling?, ordinals?, fractions?, allSmallCaps?, figureStyle?: default|lining|oldStyle, figureWidth?: default|proportional|tabular, figures?, variations?: {tag: value} (variable font axes; null resets), justify?: left|center|right|justifyLeft|justifyCenter|justifyRight|justifyAll, indentLeft?, indentRight?, indentFirst?, spaceBefore?, spaceAfter?, direction?: ltr|rtl, composer?: everyLine|singleLine, hangingPunctuation?, strokeOverFill?, box?: [x,y,w,h]|null (layer space), vertical?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.transform",
+      "label": "Transform",
+      "params": "{layers?, op: reset|center|fit|fitWidth|fitHeight|flipH|flipV}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.convertToEditable",
+      "label": "Convert to Editable Styles",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.showAll",
+      "label": "Show All",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.removeAll",
+      "label": "Remove All",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.dropShadow",
+      "label": "Drop Shadow",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.innerShadow",
+      "label": "Inner Shadow",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.outerGlow",
+      "label": "Outer Glow",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.innerGlow",
+      "label": "Inner Glow",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.bevelEmboss",
+      "label": "Bevel and Emboss",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.satin",
+      "label": "Satin",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.colorOverlay",
+      "label": "Color Overlay",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.gradientOverlay",
+      "label": "Gradient Overlay",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.stroke",
+      "label": "Stroke",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.add",
+      "label": "Add Layer Style",
+      "params": "{style: dropShadow|innerShadow|outerGlow|innerGlow|bevelEmboss|satin|colorOverlay|gradientOverlay|stroke (or display name), layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.remove",
+      "label": "Remove Layer Style",
+      "params": "{layer?, style: id|name|uid|layerStyles}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.toggle",
+      "label": "Toggle Layer Style",
+      "params": "{layer?, style: id|name|uid|layerStyles, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.globalLight",
+      "label": "Global Light",
+      "params": "{comp?, angle? (deg), altitude? (deg, 0..90), time? (s)} — no values returns the current setting",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.list",
+      "label": "List Layer Styles",
+      "params": "{layer?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "layer.autoOrient",
+      "label": "Auto-Orient...",
+      "params": "{mode: off|alongPath|towardsCamera|towardsPointOfInterest, layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newLight",
+      "label": "Light...",
+      "params": "{kind?: Parallel|Spot|Point|Ambient (default Spot), name?, color?, intensity?, coneAngle?, coneFeather?, falloff?: None|Smooth|Inverse Square Clamped, radius?, falloffDistance?, castsShadows?, shadowDarkness?, shadowDiffusion?, position? [x,y,z], poi? [x,y,z]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newCamera",
+      "label": "Camera...",
+      "params": "{name?, type?: oneNode|twoNode (default twoNode), preset?: 15mm|20mm|24mm|28mm|35mm|50mm|80mm|135mm|200mm, zoom?, focalLength? mm, angleOfView? deg, dof?, focusDistance?, aperture?, fStop?, blurLevel?, lockToZoom?, position? [x,y,z], poi? [x,y,z]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.cameraSettings",
+      "label": "Camera Settings...",
+      "params": "{layer?, name?, type?, preset?, zoom?, focalLength?, angleOfView?, dof?, focusDistance?, aperture?, fStop?, blurLevel?, position?, poi?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.lightSettings",
+      "label": "Light Settings...",
+      "params": "{layer?, name?, kind?, color?, intensity?, coneAngle?, coneFeather?, falloff?, radius?, falloffDistance?, castsShadows?, shadowDarkness?, shadowDiffusion?, position?, poi?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newModel",
+      "label": "3D Model Layer",
+      "params": "{item?: id or name of a 3D model footage item, path?: a .gltf, .glb or .obj file to import, name?, time? (s), index? (1-based stack position), position? ([x, y] comp px)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.new3dPrimitive",
+      "label": "3D Primitive",
+      "params": "{kind: cube|sphere|plane|torus|cone|cylinder, name?, width?, height?, depth?, radius?, tubeRadius?, segments?, rings?, position? [x,y,z], baseColor?, metallic?, roughness?, emissive?, castsShadows?, acceptsShadows?, acceptsLights?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newPrimitive",
+      "label": "New 3D Primitive",
+      "params": "{kind: cube|sphere|plane|torus|cone|cylinder, name?, width?, height?, depth?, radius?, tubeRadius?, segments?, rings?, position? [x,y,z], baseColor?, metallic?, roughness?, emissive?, castsShadows?, acceptsShadows?, acceptsLights?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.environment",
+      "label": "Environment Layer",
+      "params": "{layers?, on?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.addTextAnimator",
+      "label": "Animate Text",
+      "params": "{layer?, properties: [anchor|position|scale|skew|rotation|opacity|transformAll|lineAnchor|lineSpacing|characterOffset|characterValue|blur|fillColor|fillHue|fillSaturation|fillBrightness|fillOpacity|strokeColor|strokeHue|strokeSaturation|strokeBrightness|strokeOpacity|strokeWidth|tracking|perChar3d], name?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.addTextAnimatorProperty",
+      "label": "Add Property",
+      "params": "{layer?, animator?: uid|index, property: (see layer.addTextAnimator)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.addTextSelector",
+      "label": "Add Text Selector",
+      "params": "{layer?, animator?: uid|index, kind: range|wiggly|expression}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.enablePerChar3D",
+      "label": "Enable Per-character 3D",
+      "params": "{layer?, enabled?: bool, toggle?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.applyTextPreset",
+      "label": "Apply Text Animation Preset",
+      "params": "{layer?, preset: typewriter|fadeUpCharacters|bounceInWords|trackingIn|scramble|blurIn|jitter|dropInLines}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.animatorFontAxes",
+      "label": "Variable Font Axes",
+      "params": "{layer?, axis?: tag|name (omit to list the font's axes), animator?: uid|index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.presets",
+      "label": "Text Animation Presets",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "text.animatorProperties",
+      "label": "Text Animator Properties",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "text.edit",
+      "label": "Edit Text",
+      "params": "{layer?, select?: [anchor, caret]|\"none\", caret?, created?} → {layer, anchor, caret}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.endEdit",
+      "label": "Exit Text Editing",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "text.fontFeatures",
+      "label": "OpenType Features",
+      "params": "{layer?, font?, style?} → {family, style, features: [tags], options: {smallCaps, superscript, stylisticSets: [n], fractions, …}} (what the font sets with its own glyphs)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "text.fonts",
+      "label": "List Fonts",
+      "params": "{query?, rescan?} → {count, families: [{family, styles, origin: bundled|system|user, nativeName?}], added} (rescan picks up fonts installed since launch)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "text.setSelection",
+      "label": "Set Text Selection",
+      "params": "{layer?, start, end?} | {anchor, caret} | {select: \"all\"} (character indices)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.moveCaret",
+      "label": "Move Text Caret",
+      "params": "{to: left|right|wordLeft|wordRight|lineStart|lineEnd|up|down|paraStart|paraEnd|start|end, extend?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.insert",
+      "label": "Type Text",
+      "params": "{layer?, text, range?: [start, end], merge?} (replaces the selection)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.delete",
+      "label": "Delete Text",
+      "params": "{layer?, direction?: backward|forward, word?, range?: [start, end], merge?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.timeStretch",
+      "label": "Time Stretch...",
+      "params": "{layers?, percent?|duration? (s), hold?: in|current|out, op?: reverse}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.timeReverse",
+      "label": "Time-Reverse Layer",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.enableTimeRemap",
+      "label": "Enable Time Remapping",
+      "params": "{layers?, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.freezeFrame",
+      "label": "Freeze Frame",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.freezeOnLastFrame",
+      "label": "Freeze On Last Frame",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.updateMarkersFromSource",
+      "label": "Update Markers From Source",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.motionBlur",
+      "label": "Motion Blur",
+      "params": "{layer?, mask?, mode: sameAsLayer|on|off}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.featherFalloff",
+      "label": "Feather Falloff",
+      "params": "{layer?, mask?, mode: smooth|linear}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.hideLocked",
+      "label": "Hide Locked Masks",
+      "params": "{value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.tree",
+      "label": "Layer Property Tree",
+      "params": "{layer?, comp?, depth?, time? (comp s)} → nodes with `path`",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "layer.quality",
+      "label": "Quality",
+      "params": "{layers?, quality: best|draft|wireframe}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.sampling",
+      "label": "Sampling",
+      "params": "{layers?, sampling: bilinear|bicubic}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.frameBlending",
+      "label": "Frame Blending",
+      "params": "{layers?, mode: off|frameMix|pixelMotion}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.hideOtherVideo",
+      "label": "Hide Other Video",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.showAllVideo",
+      "label": "Show All Video",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.unlockAll",
+      "label": "Unlock All Layers",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.expressions",
+      "label": "Enable/Disable Expressions",
+      "params": "{layers?, enabled: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setTransform",
+      "label": "Transform Value",
+      "params": "{layers?, prop: anchor|position|scale|orientation|rotation|opacity, value}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.centerAnchor",
+      "label": "Center Anchor Point in Layer Content",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.shape",
+      "label": "Mask Shape...",
+      "params": "{layer?, mask?, rect: [x, y, w, h], shape?: rect|ellipse}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.set",
+      "label": "Mask Settings",
+      "params": "{layer?, mask?, field: feather|opacity|expansion, value}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.reset",
+      "label": "Reset Mask",
+      "params": "{layer?, mask?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.remove",
+      "label": "Remove Mask",
+      "params": "{layer?, mask?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.removeAll",
+      "label": "Remove All Masks",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.mode",
+      "label": "Mask Mode",
+      "params": "{layer?, mask?, mode: None|Add|Subtract|Intersect|Lighten|Darken|Difference}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.invert",
+      "label": "Inverted",
+      "params": "{layer?, mask?, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.lock",
+      "label": "Locked",
+      "params": "{layer?, mask?, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.unlockAll",
+      "label": "Unlock All Masks",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.mask.lockOthers",
+      "label": "Lock Other Masks",
+      "params": "{layer?, mask?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.addMarker",
+      "label": "Add Marker",
+      "params": "{layers?, time?, comment?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.markersLock",
+      "label": "Lock Markers",
+      "params": "{layers?, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.deleteAllMarkers",
+      "label": "Delete All Markers",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.trackMatte",
+      "label": "Track Matte",
+      "params": "{layers?, op: none|alpha|alphaInverted|luma|lumaInverted|above|below}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.openSource",
+      "label": "Open Layer Source",
+      "params": "{layer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.revealInFinder",
+      "label": "Reveal in Finder",
+      "params": "{layer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.revealSource",
+      "label": "Reveal Layer Source in Project",
+      "params": "{layer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.revealExpressionErrors",
+      "label": "Reveal Expression Errors",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.sequence",
+      "label": "Sequence Layers...",
+      "params": "{layers? (in order), overlap?: bool, duration? (s), transition?: off|dissolveFront|crossDissolve}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.create",
+      "label": "Create",
+      "params": "{op: editableText|shapesFromText|masksFromText|shapesFromVector, layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.addSelector",
+      "label": "Add Text Selector",
+      "params": "{layer?, animator?: uid|index, kind: range|wiggly|expression}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.removeAllAnimators",
+      "label": "Remove All Text Animators",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.newPath",
+      "label": "Pen Tool (Shape Path)",
+      "params": "{layer?, vertices: [[x,y]…], inTangents?, outTangents?, closed?, space?: comp|layer, fill?: [r,g,b]|#hex|false, stroke?, strokeWidth?, name?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.dashes.add",
+      "label": "Add Dash or Gap",
+      "params": "{layer?, prop?: stroke uid}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.dashes.remove",
+      "label": "Remove Dash or Gap",
+      "params": "{layer?, prop?: stroke uid}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.stroke.taper",
+      "label": "Stroke Taper",
+      "params": "{layer?, prop?: stroke uid, units?: pixels|percent, startLength?, endLength?, startWidth? (%), endWidth? (%), startEase? (%), endEase? (%)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.stroke.wave",
+      "label": "Stroke Wave",
+      "params": "{layer?, prop?: stroke uid, amount? (%), units?: pixels|cycles, wavelength?, cycles?, phase? (°)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.style.options",
+      "label": "Layer Style Options...",
+      "params": "{layer?, style?: blendingOptions|dropShadow|…}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.openLayer",
+      "label": "Open Layer",
+      "params": "{layer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.autoTrace",
+      "label": "Auto-trace...",
+      "params": "{layer?, timeSpan?: currentFrame|workArea, channel?: alpha|red|green|blue|luminance, invert?, blur? (px, 1), tolerance? (px, 1), threshold? (%, 50), minimumArea? (px, 10), cornerRoundness? (%, 50), applyToNewLayer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.sceneEditDetection",
+      "label": "Scene Edit Detection...",
+      "params": "{layer?, mode?: markers|split|splitPrecompose, threshold? (0…1, 0.25), wait?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.alignVideoToData",
+      "label": "Align Video to Data",
+      "params": "{layer?, data?: data footage id|name, key?: time field, videoStart?: ISO date-time | hh:mm:ss | timecode | seconds (default: file creation time), dataStart? (comp s of the first sample, 0)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.align",
+      "label": "Align Layers",
+      "params": "{edge: left|hcenter|right|top|vcenter|bottom, to?: composition|selection (default composition), layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.distribute",
+      "label": "Distribute Layers",
+      "params": "{mode: left|hcenter|right|top|vcenter|bottom (edges or centres), layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newContentAwareFill",
+      "label": "Content-Aware Fill Layer...",
+      "params": "{layer?, method?: object|surface|edgeBlend, range?: workArea|entire, alphaExpansion? (px), lightingCorrection?: none|subtle|moderate|strong, referenceLayer?, referenceTime? (s), outputDir?, wait?: bool}",
+      "enabledAtEmptySession": true
+    }
+  ]
+}

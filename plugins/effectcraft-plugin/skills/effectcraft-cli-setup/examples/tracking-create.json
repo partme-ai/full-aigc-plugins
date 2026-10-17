@@ -1,0 +1,136 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "comp.new",
+      "params": {
+        "name": "Tracking",
+        "width": 128,
+        "height": 96,
+        "duration": 1,
+        "frameRate": 12
+      }
+    },
+    {
+      "command": "file.import",
+      "params": {
+        "paths": [
+          {
+            "$ref": "shot.path"
+          }
+        ]
+      },
+      "as": "footage"
+    },
+    {
+      "command": "layer.addItem",
+      "params": {
+        "item": {
+          "$ref": "footage.items.0"
+        }
+      },
+      "as": "source"
+    },
+    {
+      "command": "layer.newNull",
+      "params": {
+        "name": "Tracked target"
+      },
+      "as": "target"
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          {
+            "$ref": "source.layer"
+          }
+        ]
+      }
+    },
+    {
+      "command": "track.new",
+      "params": {
+        "layer": {
+          "$ref": "source.layer"
+        },
+        "kind": "transform",
+        "position": true,
+        "target": {
+          "$ref": "target.layer"
+        }
+      },
+      "as": "tracker"
+    },
+    {
+      "command": "track.setPoint",
+      "params": {
+        "layer": {
+          "$ref": "source.layer"
+        },
+        "point": 1,
+        "center": [
+          20,
+          40
+        ],
+        "featureSize": [
+          24,
+          24
+        ],
+        "searchSize": [
+          48,
+          48
+        ],
+        "time": 0
+      }
+    },
+    {
+      "command": "track.analyze",
+      "params": {
+        "layer": {
+          "$ref": "source.layer"
+        },
+        "start": 0,
+        "end": 0.9,
+        "direction": "forward",
+        "wait": true
+      },
+      "as": "analysis"
+    },
+    {
+      "command": "track.status",
+      "params": {
+        "layer": {
+          "$ref": "source.layer"
+        }
+      },
+      "as": "trackedStatus"
+    },
+    {
+      "command": "track.apply",
+      "params": {
+        "layer": {
+          "$ref": "source.layer"
+        },
+        "dimensions": "xy"
+      }
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": {
+          "$ref": "target.layer"
+        }
+      },
+      "as": "targetState"
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "project.ecproj"
+        }
+      }
+    }
+  ]
+}

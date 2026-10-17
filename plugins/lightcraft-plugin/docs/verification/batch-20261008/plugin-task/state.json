@@ -1,0 +1,1326 @@
+{
+  "schemaVersion": 1,
+  "taskId": "a33aa12a-1ad4-494f-8d43-35393ab15a84",
+  "status": "COMPLETED",
+  "goal": {
+    "request": "第一张曝光 0.75，第二张曝光 0.125；初始批量候选故意以 0.75 验证失败后选择性修订"
+  },
+  "goalSha256": "b226789fa7f99346fcbfc662fb466b9f78f45ab8a9fdceaf22dae8520dfdb723",
+  "plan": {
+    "domain": "lightcraft",
+    "steps": [
+      {
+        "command": "photo.inspect",
+        "params": {
+          "id": 1
+        }
+      },
+      {
+        "command": "develop.get",
+        "params": {
+          "id": 1
+        }
+      },
+      {
+        "command": "photo.inspect",
+        "params": {
+          "id": 2
+        }
+      },
+      {
+        "command": "develop.get",
+        "params": {
+          "id": 2
+        }
+      },
+      {
+        "command": "photo.inspect",
+        "params": {
+          "id": 3
+        }
+      },
+      {
+        "command": "develop.get",
+        "params": {
+          "id": 3
+        }
+      },
+      {
+        "command": "develop.set",
+        "params": {
+          "ids": [
+            3
+          ],
+          "values": {
+            "light.exposure": 0.125
+          }
+        }
+      },
+      {
+        "command": "photo.inspect",
+        "params": {
+          "id": 1
+        }
+      },
+      {
+        "command": "develop.get",
+        "params": {
+          "id": 1
+        }
+      },
+      {
+        "command": "photo.inspect",
+        "params": {
+          "id": 2
+        }
+      },
+      {
+        "command": "develop.get",
+        "params": {
+          "id": 2
+        }
+      },
+      {
+        "command": "photo.inspect",
+        "params": {
+          "id": 3
+        }
+      },
+      {
+        "command": "develop.get",
+        "params": {
+          "id": 3
+        }
+      },
+      {
+        "command": "library.info",
+        "params": {}
+      },
+      {
+        "command": "library.select",
+        "params": {
+          "ids": [
+            3
+          ],
+          "active": 3
+        }
+      },
+      {
+        "command": "app.export",
+        "params": {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/exports/plugin-revision-3.png",
+          "format": "png",
+          "width": 60
+        }
+      }
+    ]
+  },
+  "planSha256": "305acfcea68e9ee2f65636c237a60e03f872b382bad68cc5f43430030371039f",
+  "originals": {
+    "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/control.png": "e77449aa05cd38cdc19804faa1923fa7dc6b2fbe673a779c57a281f81e0c0359",
+    "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/gradient.jpg": "df3bf90373918e63cee83ca39d7a2d83945d075255747de3a1af66d95d07c5af",
+    "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/gradient.png": "5612321bb2a2d8a9739a9318884b3dc2cafa05d2d105a136509db9e896d32b8f"
+  },
+  "inputRoots": [
+    "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals"
+  ],
+  "library": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/library",
+  "outputRoot": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/exports",
+  "revision": 1,
+  "maxRevisions": 3,
+  "history": [
+    {
+      "event": "created",
+      "at": "2026-10-08T13:39:41.334507+00:00",
+      "status": "PLANNED",
+      "revision": 0
+    },
+    {
+      "event": "native_requested",
+      "at": "2026-10-08T13:39:41.361616+00:00",
+      "status": "RUNNING",
+      "revision": 0
+    },
+    {
+      "event": "execution_recorded",
+      "at": "2026-10-08T13:39:41.704442+00:00",
+      "status": "VERIFYING",
+      "revision": 0
+    },
+    {
+      "event": "review_requested",
+      "at": "2026-10-08T13:39:41.799325+00:00",
+      "status": "AWAITING_REVIEW",
+      "revision": 0
+    },
+    {
+      "event": "review_recorded",
+      "at": "2026-10-08T13:40:24.229211+00:00",
+      "status": "AWAITING_REVIEW",
+      "revision": 0
+    },
+    {
+      "event": "revision_planned",
+      "at": "2026-10-08T13:40:24.264226+00:00",
+      "status": "PLANNED",
+      "revision": 1
+    },
+    {
+      "event": "native_requested",
+      "at": "2026-10-08T13:40:24.292047+00:00",
+      "status": "RUNNING",
+      "revision": 1
+    },
+    {
+      "event": "execution_recorded",
+      "at": "2026-10-08T13:40:24.622508+00:00",
+      "status": "VERIFYING",
+      "revision": 1
+    },
+    {
+      "event": "review_requested",
+      "at": "2026-10-08T13:40:24.982405+00:00",
+      "status": "AWAITING_REVIEW",
+      "revision": 1
+    },
+    {
+      "event": "review_recorded",
+      "at": "2026-10-08T13:40:43.544727+00:00",
+      "status": "AWAITING_REVIEW",
+      "revision": 1
+    },
+    {
+      "event": "delivered",
+      "at": "2026-10-08T13:40:43.583988+00:00",
+      "status": "COMPLETED",
+      "revision": 1
+    }
+  ],
+  "automaticReplay": false,
+  "createdAt": "2026-10-08T13:39:41.333838+00:00",
+  "acceptance": {
+    "execution": "NATIVE_EXIT_ZERO_REVIEW_REQUIRED",
+    "persistence": "PASS",
+    "artifacts": "PASS",
+    "reopen": "PASS",
+    "visual": "PASS"
+  },
+  "batchScope": {
+    "targetIds": [
+      2,
+      3
+    ],
+    "observedIds": [
+      1,
+      2,
+      3
+    ],
+    "allowedFields": [
+      "light.exposure"
+    ]
+  },
+  "batchScopeSha256": "daea4440a3ee00e7d56886723bb0e6f5b0f81a85cca386d1b7bdfcc87b47203b",
+  "updatedAt": "2026-10-08T13:40:43.583988+00:00",
+  "revisions": [
+    {
+      "revision": 0,
+      "request": {
+        "schemaVersion": 1,
+        "requestId": "184e74a8-8845-456a-a5d0-1ce246eb1e83",
+        "taskId": "a33aa12a-1ad4-494f-8d43-35393ab15a84",
+        "binding": {
+          "goalSha256": "b226789fa7f99346fcbfc662fb466b9f78f45ab8a9fdceaf22dae8520dfdb723",
+          "originals": {
+            "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/control.png": "e77449aa05cd38cdc19804faa1923fa7dc6b2fbe673a779c57a281f81e0c0359",
+            "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/gradient.jpg": "df3bf90373918e63cee83ca39d7a2d83945d075255747de3a1af66d95d07c5af",
+            "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/gradient.png": "5612321bb2a2d8a9739a9318884b3dc2cafa05d2d105a136509db9e896d32b8f"
+          },
+          "candidates": [
+            {
+              "schemaVersion": 1,
+              "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/exports/plugin-initial-2.png",
+              "bytes": 4406,
+              "sha256": "731d74f3566cdc9f59a9e9853701e69817b67ecebb466a8ca2f336e5706d8e05",
+              "format": "png",
+              "width": 60,
+              "height": 40,
+              "bitDepth": 8,
+              "colorProfile": "sRGB",
+              "iccSha256": null,
+              "decoder": "macOS sips",
+              "decodable": true,
+              "technicalStatus": "PASS",
+              "differences": {},
+              "visualAcceptance": "NOT_RUN"
+            },
+            {
+              "schemaVersion": 1,
+              "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/exports/plugin-initial-3.png",
+              "bytes": 1784,
+              "sha256": "20f1b70ef1a878bf046c3f8aed3b3240c11ec42da99e354bfcf28ba2fa0bdb45",
+              "format": "png",
+              "width": 60,
+              "height": 40,
+              "bitDepth": 8,
+              "colorProfile": "sRGB",
+              "iccSha256": null,
+              "decoder": "macOS sips",
+              "decodable": true,
+              "technicalStatus": "PASS",
+              "differences": {},
+              "visualAcceptance": "NOT_RUN"
+            }
+          ],
+          "settings": {
+            "2": {
+              "bw_mix": {
+                "aqua": 0.0,
+                "blue": 0.0,
+                "green": 0.0,
+                "magenta": 0.0,
+                "orange": 0.0,
+                "purple": 0.0,
+                "red": 0.0,
+                "yellow": 0.0
+              },
+              "calibration": {
+                "blue_hue": 0.0,
+                "blue_sat": 0.0,
+                "green_hue": 0.0,
+                "green_sat": 0.0,
+                "red_hue": 0.0,
+                "red_sat": 0.0,
+                "shadows_tint": 0.0
+              },
+              "color": {
+                "saturation": 0.0,
+                "vibrance": 0.0
+              },
+              "crop": {
+                "aspect": null,
+                "flip_h": false,
+                "flip_v": false,
+                "geometry": {
+                  "angle": 0.0,
+                  "rect": {
+                    "x0": 0.0,
+                    "x1": 1.0,
+                    "y0": 0.0,
+                    "y1": 1.0
+                  }
+                }
+              },
+              "curve": {
+                "blue": [],
+                "darks": 0.0,
+                "green": [],
+                "highlights": 0.0,
+                "lights": 0.0,
+                "master": [],
+                "red": [],
+                "refine_saturation": 100.0,
+                "shadows": 0.0,
+                "split_highlights": 75.0,
+                "split_mid": 50.0,
+                "split_shadows": 25.0
+              },
+              "detail": {
+                "nr_color": 0.0,
+                "nr_color_detail": 50.0,
+                "nr_color_smoothness": 50.0,
+                "nr_contrast": 0.0,
+                "nr_detail": 50.0,
+                "nr_luminance": 0.0,
+                "sharpen_amount": 0.0,
+                "sharpen_detail": 25.0,
+                "sharpen_masking": 0.0,
+                "sharpen_radius": 1.0
+              },
+              "disabled_sections": [],
+              "effects": {
+                "clarity": 0.0,
+                "dehaze": 0.0,
+                "texture": 0.0
+              },
+              "enhance": {
+                "denoise": 0.0,
+                "raw_details": false,
+                "super_resolution": false
+              },
+              "geometry": {
+                "aspect": 0.0,
+                "constrain_crop": false,
+                "guides": [],
+                "horizontal": 0.0,
+                "offset_x": 0.0,
+                "offset_y": 0.0,
+                "rotate": 0.0,
+                "scale": 100.0,
+                "upright": "off",
+                "upright_transform": null,
+                "vertical": 0.0
+              },
+              "grading": {
+                "balance": 0.0,
+                "blending": 50.0,
+                "global": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "highlights": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "midtones": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "shadows": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                }
+              },
+              "grain": {
+                "amount": 0.0,
+                "roughness": 50.0,
+                "seed": 0,
+                "size": 25.0
+              },
+              "lens_blur": {
+                "amount": 0.0,
+                "enabled": false,
+                "focal_distance": 0.0,
+                "focal_range": 0.0
+              },
+              "light": {
+                "blacks": 0.0,
+                "contrast": 0.0,
+                "exposure": 0.75,
+                "highlights": 0.0,
+                "shadows": 0.0,
+                "whites": 0.0
+              },
+              "masks": [],
+              "mixer": {
+                "aqua": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "blue": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "green": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "magenta": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "orange": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "purple": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "red": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "yellow": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                }
+              },
+              "optics": {
+                "ca_blue": 0.0,
+                "ca_red": 0.0,
+                "defringe_green_amount": 0.0,
+                "defringe_green_hue_hi": 60.0,
+                "defringe_green_hue_lo": 40.0,
+                "defringe_purple_amount": 0.0,
+                "defringe_purple_hue_hi": 70.0,
+                "defringe_purple_hue_lo": 30.0,
+                "distortion": 0.0,
+                "lens_profile": false,
+                "profile_distortion": 100.0,
+                "profile_vignetting": 100.0,
+                "remove_ca": false,
+                "vignetting": 0.0,
+                "vignetting_midpoint": 50.0
+              },
+              "orientation": "Normal",
+              "point_colors": [],
+              "profile": {
+                "amount": 100.0,
+                "id": "lc.color"
+              },
+              "red_eye": [],
+              "spots": [],
+              "treatment": "color",
+              "version": 1,
+              "vignette": {
+                "amount": 0.0,
+                "feather": 50.0,
+                "highlights": 0.0,
+                "midpoint": 50.0,
+                "roundness": 0.0,
+                "style": "highlightPriority"
+              },
+              "wb": {
+                "mode": "asShot",
+                "temp": 6500.0,
+                "tint": 0.0
+              }
+            },
+            "3": {
+              "bw_mix": {
+                "aqua": 0.0,
+                "blue": 0.0,
+                "green": 0.0,
+                "magenta": 0.0,
+                "orange": 0.0,
+                "purple": 0.0,
+                "red": 0.0,
+                "yellow": 0.0
+              },
+              "calibration": {
+                "blue_hue": 0.0,
+                "blue_sat": 0.0,
+                "green_hue": 0.0,
+                "green_sat": 0.0,
+                "red_hue": 0.0,
+                "red_sat": 0.0,
+                "shadows_tint": 0.0
+              },
+              "color": {
+                "saturation": 0.0,
+                "vibrance": 0.0
+              },
+              "crop": {
+                "aspect": null,
+                "flip_h": false,
+                "flip_v": false,
+                "geometry": {
+                  "angle": 0.0,
+                  "rect": {
+                    "x0": 0.0,
+                    "x1": 1.0,
+                    "y0": 0.0,
+                    "y1": 1.0
+                  }
+                }
+              },
+              "curve": {
+                "blue": [],
+                "darks": 0.0,
+                "green": [],
+                "highlights": 0.0,
+                "lights": 0.0,
+                "master": [],
+                "red": [],
+                "refine_saturation": 100.0,
+                "shadows": 0.0,
+                "split_highlights": 75.0,
+                "split_mid": 50.0,
+                "split_shadows": 25.0
+              },
+              "detail": {
+                "nr_color": 0.0,
+                "nr_color_detail": 50.0,
+                "nr_color_smoothness": 50.0,
+                "nr_contrast": 0.0,
+                "nr_detail": 50.0,
+                "nr_luminance": 0.0,
+                "sharpen_amount": 0.0,
+                "sharpen_detail": 25.0,
+                "sharpen_masking": 0.0,
+                "sharpen_radius": 1.0
+              },
+              "disabled_sections": [],
+              "effects": {
+                "clarity": 0.0,
+                "dehaze": 0.0,
+                "texture": 0.0
+              },
+              "enhance": {
+                "denoise": 0.0,
+                "raw_details": false,
+                "super_resolution": false
+              },
+              "geometry": {
+                "aspect": 0.0,
+                "constrain_crop": false,
+                "guides": [],
+                "horizontal": 0.0,
+                "offset_x": 0.0,
+                "offset_y": 0.0,
+                "rotate": 0.0,
+                "scale": 100.0,
+                "upright": "off",
+                "upright_transform": null,
+                "vertical": 0.0
+              },
+              "grading": {
+                "balance": 0.0,
+                "blending": 50.0,
+                "global": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "highlights": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "midtones": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "shadows": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                }
+              },
+              "grain": {
+                "amount": 0.0,
+                "roughness": 50.0,
+                "seed": 0,
+                "size": 25.0
+              },
+              "lens_blur": {
+                "amount": 0.0,
+                "enabled": false,
+                "focal_distance": 0.0,
+                "focal_range": 0.0
+              },
+              "light": {
+                "blacks": 0.0,
+                "contrast": 0.0,
+                "exposure": 0.75,
+                "highlights": 0.0,
+                "shadows": 0.0,
+                "whites": 0.0
+              },
+              "masks": [],
+              "mixer": {
+                "aqua": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "blue": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "green": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "magenta": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "orange": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "purple": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "red": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                },
+                "yellow": {
+                  "hue": 0.0,
+                  "lum": 0.0,
+                  "sat": 0.0
+                }
+              },
+              "optics": {
+                "ca_blue": 0.0,
+                "ca_red": 0.0,
+                "defringe_green_amount": 0.0,
+                "defringe_green_hue_hi": 60.0,
+                "defringe_green_hue_lo": 40.0,
+                "defringe_purple_amount": 0.0,
+                "defringe_purple_hue_hi": 70.0,
+                "defringe_purple_hue_lo": 30.0,
+                "distortion": 0.0,
+                "lens_profile": false,
+                "profile_distortion": 100.0,
+                "profile_vignetting": 100.0,
+                "remove_ca": false,
+                "vignetting": 0.0,
+                "vignetting_midpoint": 50.0
+              },
+              "orientation": "Normal",
+              "point_colors": [],
+              "profile": {
+                "amount": 100.0,
+                "id": "lc.color"
+              },
+              "red_eye": [],
+              "spots": [],
+              "treatment": "color",
+              "version": 1,
+              "vignette": {
+                "amount": 0.0,
+                "feather": 50.0,
+                "highlights": 0.0,
+                "midpoint": 50.0,
+                "roundness": 0.0,
+                "style": "highlightPriority"
+              },
+              "wb": {
+                "mode": "asShot",
+                "temp": 6500.0,
+                "tint": 0.0
+              }
+            }
+          },
+          "settingsSha256": "ada1ebc24f9d569581f1b885ff08a8a91676325585e62a3f23a0d7b2b6521555",
+          "photos": [
+            {
+              "id": 2,
+              "source": {
+                "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/gradient.jpg",
+                "type": "file"
+              }
+            },
+            {
+              "id": 3,
+              "source": {
+                "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/gradient.png",
+                "type": "file"
+              }
+            }
+          ],
+          "rubricVersion": "batch-selective-v1",
+          "revision": 0
+        },
+        "bindingSha256": "61b5359136b8b420bde79712f5add196f199227e132042c502e8a9ba92c39159"
+      },
+      "receipt": {
+        "schemaVersion": 1,
+        "requestId": "184e74a8-8845-456a-a5d0-1ce246eb1e83",
+        "bindingSha256": "61b5359136b8b420bde79712f5add196f199227e132042c502e8a9ba92c39159",
+        "source": "host-model",
+        "reviewer": "Codex actual image inspection 2026-10-08",
+        "verdict": "FAIL",
+        "observations": [
+          "已查看原始梯度和两张实际候选；第二张的亮部明显抬升，当前曝光 0.75 未满足该照片 0.125 的任务目标。第一张保留，只允许修订第二张 light.exposure。此结果只覆盖合成梯度验收。"
+        ]
+      },
+      "issue": "第二张曝光降低到任务目标，仅修订允许的字段",
+      "scope": {
+        "targetIds": [
+          3
+        ],
+        "allowedFields": [
+          "light.exposure"
+        ]
+      }
+    }
+  ],
+  "revisionScope": {
+    "targetIds": [
+      3
+    ],
+    "allowedFields": [
+      "light.exposure"
+    ]
+  },
+  "receiptPath": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/plugin-task/runs/31bdfe31-f98f-4141-a206-dc5a707b82de/receipt.json",
+  "runId": "c292eb09-017f-4886-8db2-c08533dbbfae",
+  "batchObservation": {
+    "status": "PASS",
+    "observedIds": [
+      1,
+      2,
+      3
+    ],
+    "beforeSha256": "71899a3853b1484ff4a03c0786feaaeb8611ab6af365705eae8cd84cf040894b",
+    "afterSha256": "1a130cebcf33428bb9a7c77302ebde42b1c948b7a090da204b8282180f1d7c67",
+    "automaticReplay": false
+  },
+  "reviewRequest": {
+    "schemaVersion": 1,
+    "requestId": "e08ec5cc-02f6-4934-b113-3a89beff41a8",
+    "taskId": "a33aa12a-1ad4-494f-8d43-35393ab15a84",
+    "binding": {
+      "goalSha256": "b226789fa7f99346fcbfc662fb466b9f78f45ab8a9fdceaf22dae8520dfdb723",
+      "originals": {
+        "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/control.png": "e77449aa05cd38cdc19804faa1923fa7dc6b2fbe673a779c57a281f81e0c0359",
+        "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/gradient.jpg": "df3bf90373918e63cee83ca39d7a2d83945d075255747de3a1af66d95d07c5af",
+        "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/gradient.png": "5612321bb2a2d8a9739a9318884b3dc2cafa05d2d105a136509db9e896d32b8f"
+      },
+      "candidates": [
+        {
+          "schemaVersion": 1,
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/exports/plugin-initial-2.png",
+          "bytes": 4406,
+          "sha256": "731d74f3566cdc9f59a9e9853701e69817b67ecebb466a8ca2f336e5706d8e05",
+          "format": "png",
+          "width": 60,
+          "height": 40,
+          "bitDepth": 8,
+          "colorProfile": "sRGB",
+          "iccSha256": null,
+          "decoder": "macOS sips",
+          "decodable": true,
+          "technicalStatus": "PASS",
+          "differences": {},
+          "visualAcceptance": "NOT_RUN"
+        },
+        {
+          "schemaVersion": 1,
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/exports/plugin-revision-3.png",
+          "bytes": 1783,
+          "sha256": "a43e2ba8ac9d42717c36b09ecad8138e7fcfa8cca3982974f11a9d50d497f47a",
+          "format": "png",
+          "width": 60,
+          "height": 40,
+          "bitDepth": 8,
+          "colorProfile": "sRGB",
+          "iccSha256": null,
+          "decoder": "macOS sips",
+          "decodable": true,
+          "technicalStatus": "PASS",
+          "differences": {},
+          "visualAcceptance": "NOT_RUN"
+        }
+      ],
+      "settings": {
+        "2": {
+          "bw_mix": {
+            "aqua": 0.0,
+            "blue": 0.0,
+            "green": 0.0,
+            "magenta": 0.0,
+            "orange": 0.0,
+            "purple": 0.0,
+            "red": 0.0,
+            "yellow": 0.0
+          },
+          "calibration": {
+            "blue_hue": 0.0,
+            "blue_sat": 0.0,
+            "green_hue": 0.0,
+            "green_sat": 0.0,
+            "red_hue": 0.0,
+            "red_sat": 0.0,
+            "shadows_tint": 0.0
+          },
+          "color": {
+            "saturation": 0.0,
+            "vibrance": 0.0
+          },
+          "crop": {
+            "aspect": null,
+            "flip_h": false,
+            "flip_v": false,
+            "geometry": {
+              "angle": 0.0,
+              "rect": {
+                "x0": 0.0,
+                "x1": 1.0,
+                "y0": 0.0,
+                "y1": 1.0
+              }
+            }
+          },
+          "curve": {
+            "blue": [],
+            "darks": 0.0,
+            "green": [],
+            "highlights": 0.0,
+            "lights": 0.0,
+            "master": [],
+            "red": [],
+            "refine_saturation": 100.0,
+            "shadows": 0.0,
+            "split_highlights": 75.0,
+            "split_mid": 50.0,
+            "split_shadows": 25.0
+          },
+          "detail": {
+            "nr_color": 0.0,
+            "nr_color_detail": 50.0,
+            "nr_color_smoothness": 50.0,
+            "nr_contrast": 0.0,
+            "nr_detail": 50.0,
+            "nr_luminance": 0.0,
+            "sharpen_amount": 0.0,
+            "sharpen_detail": 25.0,
+            "sharpen_masking": 0.0,
+            "sharpen_radius": 1.0
+          },
+          "disabled_sections": [],
+          "effects": {
+            "clarity": 0.0,
+            "dehaze": 0.0,
+            "texture": 0.0
+          },
+          "enhance": {
+            "denoise": 0.0,
+            "raw_details": false,
+            "super_resolution": false
+          },
+          "geometry": {
+            "aspect": 0.0,
+            "constrain_crop": false,
+            "guides": [],
+            "horizontal": 0.0,
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotate": 0.0,
+            "scale": 100.0,
+            "upright": "off",
+            "upright_transform": null,
+            "vertical": 0.0
+          },
+          "grading": {
+            "balance": 0.0,
+            "blending": 50.0,
+            "global": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "highlights": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "midtones": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "shadows": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            }
+          },
+          "grain": {
+            "amount": 0.0,
+            "roughness": 50.0,
+            "seed": 0,
+            "size": 25.0
+          },
+          "lens_blur": {
+            "amount": 0.0,
+            "enabled": false,
+            "focal_distance": 0.0,
+            "focal_range": 0.0
+          },
+          "light": {
+            "blacks": 0.0,
+            "contrast": 0.0,
+            "exposure": 0.75,
+            "highlights": 0.0,
+            "shadows": 0.0,
+            "whites": 0.0
+          },
+          "masks": [],
+          "mixer": {
+            "aqua": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "blue": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "green": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "magenta": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "orange": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "purple": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "red": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "yellow": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            }
+          },
+          "optics": {
+            "ca_blue": 0.0,
+            "ca_red": 0.0,
+            "defringe_green_amount": 0.0,
+            "defringe_green_hue_hi": 60.0,
+            "defringe_green_hue_lo": 40.0,
+            "defringe_purple_amount": 0.0,
+            "defringe_purple_hue_hi": 70.0,
+            "defringe_purple_hue_lo": 30.0,
+            "distortion": 0.0,
+            "lens_profile": false,
+            "profile_distortion": 100.0,
+            "profile_vignetting": 100.0,
+            "remove_ca": false,
+            "vignetting": 0.0,
+            "vignetting_midpoint": 50.0
+          },
+          "orientation": "Normal",
+          "point_colors": [],
+          "profile": {
+            "amount": 100.0,
+            "id": "lc.color"
+          },
+          "red_eye": [],
+          "spots": [],
+          "treatment": "color",
+          "version": 1,
+          "vignette": {
+            "amount": 0.0,
+            "feather": 50.0,
+            "highlights": 0.0,
+            "midpoint": 50.0,
+            "roundness": 0.0,
+            "style": "highlightPriority"
+          },
+          "wb": {
+            "mode": "asShot",
+            "temp": 6500.0,
+            "tint": 0.0
+          }
+        },
+        "3": {
+          "bw_mix": {
+            "aqua": 0.0,
+            "blue": 0.0,
+            "green": 0.0,
+            "magenta": 0.0,
+            "orange": 0.0,
+            "purple": 0.0,
+            "red": 0.0,
+            "yellow": 0.0
+          },
+          "calibration": {
+            "blue_hue": 0.0,
+            "blue_sat": 0.0,
+            "green_hue": 0.0,
+            "green_sat": 0.0,
+            "red_hue": 0.0,
+            "red_sat": 0.0,
+            "shadows_tint": 0.0
+          },
+          "color": {
+            "saturation": 0.0,
+            "vibrance": 0.0
+          },
+          "crop": {
+            "aspect": null,
+            "flip_h": false,
+            "flip_v": false,
+            "geometry": {
+              "angle": 0.0,
+              "rect": {
+                "x0": 0.0,
+                "x1": 1.0,
+                "y0": 0.0,
+                "y1": 1.0
+              }
+            }
+          },
+          "curve": {
+            "blue": [],
+            "darks": 0.0,
+            "green": [],
+            "highlights": 0.0,
+            "lights": 0.0,
+            "master": [],
+            "red": [],
+            "refine_saturation": 100.0,
+            "shadows": 0.0,
+            "split_highlights": 75.0,
+            "split_mid": 50.0,
+            "split_shadows": 25.0
+          },
+          "detail": {
+            "nr_color": 0.0,
+            "nr_color_detail": 50.0,
+            "nr_color_smoothness": 50.0,
+            "nr_contrast": 0.0,
+            "nr_detail": 50.0,
+            "nr_luminance": 0.0,
+            "sharpen_amount": 0.0,
+            "sharpen_detail": 25.0,
+            "sharpen_masking": 0.0,
+            "sharpen_radius": 1.0
+          },
+          "disabled_sections": [],
+          "effects": {
+            "clarity": 0.0,
+            "dehaze": 0.0,
+            "texture": 0.0
+          },
+          "enhance": {
+            "denoise": 0.0,
+            "raw_details": false,
+            "super_resolution": false
+          },
+          "geometry": {
+            "aspect": 0.0,
+            "constrain_crop": false,
+            "guides": [],
+            "horizontal": 0.0,
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotate": 0.0,
+            "scale": 100.0,
+            "upright": "off",
+            "upright_transform": null,
+            "vertical": 0.0
+          },
+          "grading": {
+            "balance": 0.0,
+            "blending": 50.0,
+            "global": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "highlights": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "midtones": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "shadows": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            }
+          },
+          "grain": {
+            "amount": 0.0,
+            "roughness": 50.0,
+            "seed": 0,
+            "size": 25.0
+          },
+          "lens_blur": {
+            "amount": 0.0,
+            "enabled": false,
+            "focal_distance": 0.0,
+            "focal_range": 0.0
+          },
+          "light": {
+            "blacks": 0.0,
+            "contrast": 0.0,
+            "exposure": 0.125,
+            "highlights": 0.0,
+            "shadows": 0.0,
+            "whites": 0.0
+          },
+          "masks": [],
+          "mixer": {
+            "aqua": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "blue": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "green": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "magenta": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "orange": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "purple": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "red": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            },
+            "yellow": {
+              "hue": 0.0,
+              "lum": 0.0,
+              "sat": 0.0
+            }
+          },
+          "optics": {
+            "ca_blue": 0.0,
+            "ca_red": 0.0,
+            "defringe_green_amount": 0.0,
+            "defringe_green_hue_hi": 60.0,
+            "defringe_green_hue_lo": 40.0,
+            "defringe_purple_amount": 0.0,
+            "defringe_purple_hue_hi": 70.0,
+            "defringe_purple_hue_lo": 30.0,
+            "distortion": 0.0,
+            "lens_profile": false,
+            "profile_distortion": 100.0,
+            "profile_vignetting": 100.0,
+            "remove_ca": false,
+            "vignetting": 0.0,
+            "vignetting_midpoint": 50.0
+          },
+          "orientation": "Normal",
+          "point_colors": [],
+          "profile": {
+            "amount": 100.0,
+            "id": "lc.color"
+          },
+          "red_eye": [],
+          "spots": [],
+          "treatment": "color",
+          "version": 1,
+          "vignette": {
+            "amount": 0.0,
+            "feather": 50.0,
+            "highlights": 0.0,
+            "midpoint": 50.0,
+            "roundness": 0.0,
+            "style": "highlightPriority"
+          },
+          "wb": {
+            "mode": "asShot",
+            "temp": 6500.0,
+            "tint": 0.0
+          }
+        }
+      },
+      "settingsSha256": "8d0cb670bf9162b5702684a51d962684b0054dbc75f1c67216a16011d6005852",
+      "photos": [
+        {
+          "id": 2,
+          "source": {
+            "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/gradient.jpg",
+            "type": "file"
+          }
+        },
+        {
+          "id": 3,
+          "source": {
+            "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/originals/gradient.png",
+            "type": "file"
+          }
+        }
+      ],
+      "rubricVersion": "batch-selective-v1",
+      "revision": 1
+    },
+    "bindingSha256": "b4f561915c88e176812e054cf4324913651e11e5c7ccad72d286164e92092f22"
+  },
+  "artifacts": [
+    {
+      "schemaVersion": 1,
+      "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/exports/plugin-initial-2.png",
+      "bytes": 4406,
+      "sha256": "731d74f3566cdc9f59a9e9853701e69817b67ecebb466a8ca2f336e5706d8e05",
+      "format": "png",
+      "width": 60,
+      "height": 40,
+      "bitDepth": 8,
+      "colorProfile": "sRGB",
+      "iccSha256": null,
+      "decoder": "macOS sips",
+      "decodable": true,
+      "technicalStatus": "PASS",
+      "differences": {},
+      "visualAcceptance": "NOT_RUN"
+    },
+    {
+      "schemaVersion": 1,
+      "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/exports/plugin-revision-3.png",
+      "bytes": 1783,
+      "sha256": "a43e2ba8ac9d42717c36b09ecad8138e7fcfa8cca3982974f11a9d50d497f47a",
+      "format": "png",
+      "width": 60,
+      "height": 40,
+      "bitDepth": 8,
+      "colorProfile": "sRGB",
+      "iccSha256": null,
+      "decoder": "macOS sips",
+      "decodable": true,
+      "technicalStatus": "PASS",
+      "differences": {},
+      "visualAcceptance": "NOT_RUN"
+    }
+  ],
+  "reopenEvidence": {
+    "receiptPath": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/plugin-reopen/receipt.json"
+  },
+  "reviewReceipt": {
+    "schemaVersion": 1,
+    "requestId": "e08ec5cc-02f6-4934-b113-3a89beff41a8",
+    "bindingSha256": "b4f561915c88e176812e054cf4324913651e11e5c7ccad72d286164e92092f22",
+    "source": "host-model",
+    "reviewer": "Codex actual image inspection 2026-10-08",
+    "verdict": "PASS",
+    "observations": [
+      "已查看初次两张实际 PNG 与第二张修订 PNG；修订后第二张亮部降低，梯度连续，无黑块、撕裂或异常边界。第一张继续使用原候选且摘要未改变。实际设置回执满足第一张曝光 0.75、第二张 0.125；仅覆盖本组合成梯度目标，不外推 RAW 或生产审美。"
+    ]
+  }
+}

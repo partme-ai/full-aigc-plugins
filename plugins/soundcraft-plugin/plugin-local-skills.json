@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "dest": "skills/",
+  "skills": [
+    "soundcraft-audio-delivery",
+    "soundcraft-audio-edit",
+    "soundcraft-dialogue-leveling",
+    "soundcraft-editor",
+    "soundcraft-music-demo",
+    "soundcraft-podcast-cleanup",
+    "soundcraft-scenario-playbooks",
+    "soundcraft-voice-over-mix"
+  ]
+}

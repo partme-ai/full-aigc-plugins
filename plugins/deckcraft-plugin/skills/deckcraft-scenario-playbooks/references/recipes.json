@@ -1,0 +1,1033 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "deckcraft",
+  "templateOnly": true,
+  "argumentPolicy": "从新建空文件开始；示例内容必须由真实输入替换。已有文件先定位目标区域，不能整篇重建或无条件全选。CLI使用argv，不插入shell。",
+  "recipes": [
+    {
+      "id": "executive-metric-page",
+      "title": "管理层一页指标简报",
+      "category": "report",
+      "inputs": "提供三项指标的时间范围、口径、单位与来源。",
+      "steps": [
+        {
+          "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+          "command": "file.new",
+          "params": {
+            "size": [
+              960,
+              540
+            ],
+            "blank": true
+          },
+          "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立空白版心",
+          "command": "slide.new",
+          "params": {
+            "layout": "blank"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              48,
+              24,
+              864,
+              64
+            ],
+            "text": "本月经营摘要"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#dce6f4"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              48,
+              130,
+              264,
+              160
+            ],
+            "text": "交付 12 项"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#e8f0fe"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              348,
+              130,
+              264,
+              160
+            ],
+            "text": "待核验 3 项"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#fff4d6"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              648,
+              130,
+              264,
+              160
+            ],
+            "text": "完成率 80%"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#e4f4e7"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "备注保留数据口径，不把示例当真实业绩",
+          "command": "slide.notes",
+          "params": {
+            "text": "示例数据；正式交付替换为有来源的统计口径。"
+          },
+          "parameterReference": "{text, index?}"
+        }
+      ],
+      "checks": [
+        "版心内无溢出与遮挡",
+        "备注记录来源与待确认假设",
+        "保存源工程、导出PPTX后核对可编辑对象"
+      ],
+      "limits": "不要用指标卡掩盖缺失分母或不同周期；示例值不构成实际经营结果。",
+      "assertions": {
+        "slides": 1,
+        "textContains": [
+          "本月经营摘要",
+          "完成率 80%"
+        ],
+        "notesContains": [
+          "统计口径"
+        ]
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "option-comparison-table",
+      "title": "可编辑方案比较表",
+      "category": "decision",
+      "inputs": "提供相同维度的候选方案，禁止把不等口径数字直接并列。",
+      "steps": [
+        {
+          "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+          "command": "file.new",
+          "params": {
+            "size": [
+              960,
+              540
+            ],
+            "blank": true
+          },
+          "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立按信息结构选择的标题内容页",
+          "command": "slide.new",
+          "params": {
+            "layout": "titleAndContent",
+            "title": "方案比较",
+            "body": ""
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "建立3×3可编辑比较表",
+          "command": "insert.table",
+          "params": {
+            "rows": 3,
+            "cols": 3,
+            "rect": [
+              48,
+              130,
+              864,
+              280
+            ]
+          },
+          "parameterReference": "{rows, cols, rect?}"
+        },
+        {
+          "purpose": "设置当前比较表的单元格文字",
+          "command": "text.set",
+          "params": {
+            "cell": [
+              0,
+              0
+            ],
+            "text": "维度"
+          },
+          "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+        },
+        {
+          "purpose": "设置当前比较表的单元格文字",
+          "command": "text.set",
+          "params": {
+            "cell": [
+              0,
+              1
+            ],
+            "text": "方案A"
+          },
+          "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+        },
+        {
+          "purpose": "设置当前比较表的单元格文字",
+          "command": "text.set",
+          "params": {
+            "cell": [
+              0,
+              2
+            ],
+            "text": "方案B"
+          },
+          "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+        },
+        {
+          "purpose": "设置当前比较表的单元格文字",
+          "command": "text.set",
+          "params": {
+            "cell": [
+              1,
+              0
+            ],
+            "text": "交付"
+          },
+          "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+        },
+        {
+          "purpose": "设置当前比较表的单元格文字",
+          "command": "text.set",
+          "params": {
+            "cell": [
+              1,
+              1
+            ],
+            "text": "快速试点"
+          },
+          "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+        },
+        {
+          "purpose": "设置当前比较表的单元格文字",
+          "command": "text.set",
+          "params": {
+            "cell": [
+              1,
+              2
+            ],
+            "text": "完整建设"
+          },
+          "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+        },
+        {
+          "purpose": "设置当前比较表的单元格文字",
+          "command": "text.set",
+          "params": {
+            "cell": [
+              2,
+              0
+            ],
+            "text": "约束"
+          },
+          "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+        },
+        {
+          "purpose": "设置当前比较表的单元格文字",
+          "command": "text.set",
+          "params": {
+            "cell": [
+              2,
+              1
+            ],
+            "text": "人工复核"
+          },
+          "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+        },
+        {
+          "purpose": "设置当前比较表的单元格文字",
+          "command": "text.set",
+          "params": {
+            "cell": [
+              2,
+              2
+            ],
+            "text": "实施周期"
+          },
+          "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+        },
+        {
+          "purpose": "明确首行为表头",
+          "command": "table.options",
+          "params": {
+            "headerRow": true
+          },
+          "parameterReference": "{headerRow?, totalRow?, bandedRows?, firstColumn?, lastColumn?, bandedColumns?: bool, id?}"
+        },
+        {
+          "purpose": "补充比较结论适用条件",
+          "command": "slide.notes",
+          "params": {
+            "text": "比较依据：当前范围与资源。最终选择由决策人确认。"
+          },
+          "parameterReference": "{text, index?}"
+        }
+      ],
+      "checks": [
+        "版心内无溢出与遮挡",
+        "备注记录来源与待确认假设",
+        "保存源工程、导出PPTX后核对可编辑对象"
+      ],
+      "limits": "此处不自动作商业决策；真实任务应补充来源与决策条件。",
+      "assertions": {
+        "slides": 1,
+        "textContains": [
+          "方案比较",
+          "方案A",
+          "方案B",
+          "人工复核"
+        ],
+        "tableCount": 1
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "approval-flow-diagram",
+      "title": "审批步骤流程图",
+      "category": "diagram",
+      "inputs": "流程与责任角色已由输入确认，异常路径需在备注中保留。",
+      "steps": [
+        {
+          "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+          "command": "file.new",
+          "params": {
+            "size": [
+              960,
+              540
+            ],
+            "blank": true
+          },
+          "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立流程图空白页",
+          "command": "slide.new",
+          "params": {
+            "layout": "blank"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              48,
+              180,
+              180,
+              90
+            ],
+            "text": "申请"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#e8f0fe"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "插入独立箭头标注下一步",
+          "command": "shape.insert",
+          "params": {
+            "preset": "rightArrow",
+            "rect": [
+              232,
+              208,
+              40,
+              32
+            ]
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              276,
+              180,
+              180,
+              90
+            ],
+            "text": "复核"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#e8f0fe"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "插入独立箭头标注下一步",
+          "command": "shape.insert",
+          "params": {
+            "preset": "rightArrow",
+            "rect": [
+              460,
+              208,
+              40,
+              32
+            ]
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              504,
+              180,
+              180,
+              90
+            ],
+            "text": "批准"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#e8f0fe"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "插入独立箭头标注下一步",
+          "command": "shape.insert",
+          "params": {
+            "preset": "rightArrow",
+            "rect": [
+              688,
+              208,
+              40,
+              32
+            ]
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              732,
+              180,
+              180,
+              90
+            ],
+            "text": "归档"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#e8f0fe"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "备注说明角色与异常流",
+          "command": "slide.notes",
+          "params": {
+            "text": "申请人提交；复核人核验；批准人确认；编号冲突则返回申请。箭头为独立图形，移动节点后需重对齐。"
+          },
+          "parameterReference": "{text, index?}"
+        }
+      ],
+      "checks": [
+        "版心内无溢出与遮挡",
+        "备注记录来源与待确认假设",
+        "保存源工程、导出PPTX后核对可编辑对象"
+      ],
+      "limits": "独立箭头不是动态连接器；移动节点后重新检查对齐，未绘制的异常边必须明确说明。",
+      "assertions": {
+        "slides": 1,
+        "textContains": [
+          "申请",
+          "复核",
+          "批准",
+          "归档"
+        ],
+        "shapeMinimum": 7
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "risk-quadrant",
+      "title": "风险四象限汇报页",
+      "category": "report",
+      "inputs": "概率与影响评级口径已确认；矩阵只是表达，不替代风险判断。",
+      "steps": [
+        {
+          "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+          "command": "file.new",
+          "params": {
+            "size": [
+              960,
+              540
+            ],
+            "blank": true
+          },
+          "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立风险矩阵版心",
+          "command": "slide.new",
+          "params": {
+            "layout": "blank"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              48,
+              24,
+              864,
+              60
+            ],
+            "text": "影响 ↑ / 概率 →"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#dce6f4"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              160,
+              110,
+              300,
+              150
+            ],
+            "text": "低概率·高影响\n原件遗失：备份核验"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#fff4d6"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              480,
+              110,
+              300,
+              150
+            ],
+            "text": "高概率·高影响\n输入延期：逐项补齐"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#f8d7da"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              160,
+              280,
+              300,
+              150
+            ],
+            "text": "低概率·低影响\n编号笔误：二次校验"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#e4f4e7"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "插入指定版心位置的可编辑文本图形",
+          "command": "shape.insert",
+          "params": {
+            "preset": "roundRect",
+            "rect": [
+              480,
+              280,
+              300,
+              150
+            ],
+            "text": "高概率·低影响\n录入返工：模板约束"
+          },
+          "parameterReference": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+        },
+        {
+          "purpose": "只填充刚插入的当前图形",
+          "command": "shape.fill",
+          "params": {
+            "color": "#fff4d6"
+          },
+          "parameterReference": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}"
+        },
+        {
+          "purpose": "记录风险评估依据与待补充事项",
+          "command": "slide.notes",
+          "params": {
+            "text": "先定概率与影响口径，再将真实风险放到对应象限；仅颜色不能表达全部风险。"
+          },
+          "parameterReference": "{text, index?}"
+        }
+      ],
+      "checks": [
+        "版心内无溢出与遮挡",
+        "备注记录来源与待确认假设",
+        "保存源工程、导出PPTX后核对可编辑对象"
+      ],
+      "limits": "示例风险、概率影响口径、责任人与缓解措施必须替换为真实输入；颜色与位置不能替代风险判断。",
+      "assertions": {
+        "slides": 1,
+        "textContains": [
+          "高概率·高影响",
+          "低概率·低影响"
+        ],
+        "shapeMinimum": 5
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "trend-actual-plan",
+      "title": "实际与计划趋势图",
+      "category": "data",
+      "inputs": "相同周期、同单位的实际与计划数据，明确无数据月份。",
+      "steps": [
+        {
+          "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+          "command": "file.new",
+          "params": {
+            "size": [
+              960,
+              540
+            ],
+            "blank": true
+          },
+          "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立按信息结构选择的标题内容页",
+          "command": "slide.new",
+          "params": {
+            "layout": "titleAndContent",
+            "title": "实际与计划",
+            "body": "单位：件；示例数据"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "插入两序列可编辑折线图",
+          "command": "insert.chart",
+          "params": {
+            "type": "line",
+            "rect": [
+              80,
+              150,
+              800,
+              300
+            ],
+            "categories": [
+              "一月",
+              "二月",
+              "三月"
+            ],
+            "series": [
+              {
+                "name": "实际",
+                "values": [
+                  80,
+                  95,
+                  110
+                ]
+              },
+              {
+                "name": "计划",
+                "values": [
+                  90,
+                  100,
+                  105
+                ]
+              }
+            ]
+          },
+          "parameterReference": "{type?: column|bar|line|pie|doughnut|area|scatter|stackedColumn|…, rect?, categories?: [..], series?: [{name, values}]}"
+        },
+        {
+          "purpose": "设置图例和标题以分清两组数据",
+          "command": "chart.options",
+          "params": {
+            "title": "交付量趋势",
+            "legend": "b",
+            "dataLabels": true
+          },
+          "parameterReference": "{title?: string|null, legend?: b|t|l|r|null, dataLabels?: bool, gridlines?: bool, palette?, id?}"
+        },
+        {
+          "purpose": "注明来源与结论边界",
+          "command": "slide.notes",
+          "params": {
+            "text": "数据来源待替换；三个月趋势不支持全年预测。"
+          },
+          "parameterReference": "{text, index?}"
+        }
+      ],
+      "checks": [
+        "版心内无溢出与遮挡",
+        "备注记录来源与待确认假设",
+        "保存源工程、导出PPTX后核对可编辑对象"
+      ],
+      "limits": "不能将缺失值填为零或把计划当实际；图表视觉检查轴与图例。",
+      "assertions": {
+        "slides": 1,
+        "textContains": [
+          "实际与计划"
+        ],
+        "chartCount": 1,
+        "chartValues": [
+          80,
+          95,
+          110,
+          90,
+          100,
+          105
+        ]
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "demo-problem-result",
+      "title": "产品演示的问题与结果叙事",
+      "category": "presentation",
+      "inputs": "已验证的用户问题、演示步骤与可观察结果；保留已知限制。",
+      "steps": [
+        {
+          "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+          "command": "file.new",
+          "params": {
+            "size": [
+              960,
+              540
+            ],
+            "blank": true
+          },
+          "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立按信息结构选择的标题内容页",
+          "command": "slide.new",
+          "params": {
+            "layout": "titleAndContent",
+            "title": "用户问题",
+            "body": "资料编号重复，人工核对成本高。"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "记录首屏讲述目标",
+          "command": "slide.notes",
+          "params": {
+            "text": "先解释输入与问题，不先堆功能。"
+          },
+          "parameterReference": "{text, index?}"
+        },
+        {
+          "purpose": "建立按信息结构选择的标题内容页",
+          "command": "slide.new",
+          "params": {
+            "layout": "titleAndContent",
+            "title": "演示步骤",
+            "body": "导入资料 → 检查编号 → 定位重复项。"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "记录演示输入与预期",
+          "command": "slide.notes",
+          "params": {
+            "text": "使用已授权的演示数据，不展示私人资料。"
+          },
+          "parameterReference": "{text, index?}"
+        },
+        {
+          "purpose": "建立按信息结构选择的标题内容页",
+          "command": "slide.new",
+          "params": {
+            "layout": "titleAndContent",
+            "title": "结果与限制",
+            "body": "定位重复项；是否删除由使用者复核。"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        }
+      ],
+      "checks": [
+        "版心内无溢出与遮挡",
+        "备注记录来源与待确认假设",
+        "保存源工程、导出PPTX后核对可编辑对象"
+      ],
+      "limits": "不能把计划能力写成已完成结果；实际演示需预演并检查页面信息密度。",
+      "assertions": {
+        "slides": 3,
+        "textContains": [
+          "用户问题",
+          "演示步骤",
+          "结果与限制"
+        ]
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "training-hidden-answer",
+      "title": "培训问答与隐藏答案页",
+      "category": "education",
+      "inputs": "问题与答案已由讲师确认，隐藏页不是保密机制。",
+      "steps": [
+        {
+          "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+          "command": "file.new",
+          "params": {
+            "size": [
+              960,
+              540
+            ],
+            "blank": true
+          },
+          "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立按信息结构选择的标题内容页",
+          "command": "slide.new",
+          "params": {
+            "layout": "titleAndContent",
+            "title": "练习：如何处理重复编号",
+            "body": "A 直接删除；B 先核验来源与业务含义。"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "将讲解要点放演讲者备注",
+          "command": "slide.notes",
+          "params": {
+            "text": "给学员30秒讨论后，再解释为什么选B。"
+          },
+          "parameterReference": "{text, index?}"
+        },
+        {
+          "purpose": "建立按信息结构选择的标题内容页",
+          "command": "slide.new",
+          "params": {
+            "layout": "titleAndContent",
+            "title": "答案与解析",
+            "body": "B：先核验，再依业务规则处理。"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "默认放映隐藏答案，讲师按需进入",
+          "command": "slide.hide",
+          "params": {
+            "hidden": true
+          },
+          "parameterReference": "{index?, hidden?: bool}"
+        }
+      ],
+      "checks": [
+        "版心内无溢出与遮挡",
+        "备注记录来源与待确认假设",
+        "保存源工程、导出PPTX后核对可编辑对象"
+      ],
+      "limits": "隐藏页仍包含在PPTX中，不用于存放敏感信息；正式播放前检查跳页方式。",
+      "assertions": {
+        "slides": 2,
+        "textContains": [
+          "练习：如何处理重复编号",
+          "答案与解析"
+        ],
+        "hiddenSlides": 1
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "speaker-handoff-notes",
+      "title": "可交接的演讲备注稿",
+      "category": "presentation",
+      "inputs": "讲者需接手演示，提供每页目标、用时、来源与转场提示。",
+      "steps": [
+        {
+          "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+          "command": "file.new",
+          "params": {
+            "size": [
+              960,
+              540
+            ],
+            "blank": true
+          },
+          "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "建立按信息结构选择的标题内容页",
+          "command": "slide.new",
+          "params": {
+            "layout": "titleAndContent",
+            "title": "项目进展",
+            "body": "本期完成目录整理。"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "备注明确目标和转场",
+          "command": "slide.notes",
+          "params": {
+            "text": "目标：说明范围。用时：1分钟。来源：项目台账。转场：解释剩余缺件。"
+          },
+          "parameterReference": "{text, index?}"
+        },
+        {
+          "purpose": "建立按信息结构选择的标题内容页",
+          "command": "slide.new",
+          "params": {
+            "layout": "titleAndContent",
+            "title": "风险与下一步",
+            "body": "缺件核验完成后进入最终复核。"
+          },
+          "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+        },
+        {
+          "purpose": "备注保留行动与责任边界",
+          "command": "slide.notes",
+          "params": {
+            "text": "目标：请求补齐输入。用时：1分钟。来源：缺件清单。结尾：确认负责人和期限。"
+          },
+          "parameterReference": "{text, index?}"
+        }
+      ],
+      "checks": [
+        "版心内无溢出与遮挡",
+        "备注记录来源与待确认假设",
+        "保存源工程、导出PPTX后核对可编辑对象"
+      ],
+      "limits": "备注不是已发送通知或批准事项；责任人与期限必须现场或从真实输入确认。",
+      "assertions": {
+        "slides": 2,
+        "textContains": [
+          "项目进展",
+          "风险与下一步"
+        ],
+        "notesContains": [
+          "转场",
+          "负责人和期限"
+        ]
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "document": {
+    "name": "NOVA brand assets",
+    "width": 256,
+    "height": 256,
+    "units": "Pixels"
+  },
+  "operations": [
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 48,
+        "y": 48,
+        "width": 90,
+        "height": 90,
+        "radius": 12
+      },
+      "as": "square"
+    },
+    {
+      "command": "shape.ellipse",
+      "params": {
+        "x": 100,
+        "y": 48,
+        "width": 90,
+        "height": 90
+      },
+      "as": "circle"
+    },
+    {
+      "command": "select.set",
+      "params": {
+        "ids": [
+          {
+            "$ref": "square.id"
+          },
+          {
+            "$ref": "circle.id"
+          }
+        ]
+      }
+    },
+    {
+      "command": "object.pathfinder.unite",
+      "as": "logo"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "color": "#ef5b36"
+      }
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "none": true
+      }
+    },
+    {
+      "command": "text.create",
+      "params": {
+        "x": 48,
+        "y": 192,
+        "text": "NOVA",
+        "size": 32,
+        "font": "Source Sans 3",
+        "color": "#ef5b36"
+      },
+      "as": "wordmark"
+    },
+    {
+      "command": "artboard.new",
+      "params": {
+        "x": 288,
+        "y": 0,
+        "width": 256,
+        "height": 256,
+        "name": "Icon"
+      }
+    },
+    {
+      "command": "path.create",
+      "params": {
+        "anchors": [
+          {
+            "x": 344,
+            "y": 64
+          },
+          {
+            "x": 456,
+            "y": 64
+          },
+          {
+            "x": 400,
+            "y": 176
+          }
+        ],
+        "closed": true
+      },
+      "as": "icon"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "color": "#ef5b36"
+      }
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "none": true
+      }
+    }
+  ],
+  "exports": [
+    {
+      "format": "svg",
+      "artboard": 0
+    },
+    {
+      "format": "png",
+      "artboard": 0
+    },
+    {
+      "format": "pdf",
+      "artboard": 0
+    },
+    {
+      "format": "svg",
+      "artboard": 1
+    },
+    {
+      "format": "png",
+      "artboard": 1
+    },
+    {
+      "format": "pdf",
+      "artboard": 1
+    }
+  ]
+}

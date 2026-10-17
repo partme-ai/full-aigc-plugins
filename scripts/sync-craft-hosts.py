@@ -10,7 +10,10 @@ def sync(root):
   return json.loads((root/p).read_text()) if (root/p).exists() else {k:v for k,v in base.items() if k not in ('$schema','extensions')}
  for path in ['.codex-plugin/plugin.json','.claude-plugin/plugin.json','.zcode-plugin/plugin.json','kimi.plugin.json']:
   data=existing(path);data.update(name=base['name'],version=base['version'],skills='./skills/')
-  if path.startswith('.codex'):data['mcpServers']='./.codex-plugin/mcp.json'
+  if path.startswith('.codex'):
+   data['mcpServers']='./.codex-plugin/mcp.json'
+   for key in ['composerIcon','composerIconDark']:
+    if key in interface:data.setdefault('interface',{})[key]=interface[key]
   if path.startswith('.zcode'):
    data.update(displayName=interface.get('displayName',base['name']),icon=interface.get('logo','./assets/official-logo.png'),mcpServers='./.mcp.json')
   if path=='kimi.plugin.json':

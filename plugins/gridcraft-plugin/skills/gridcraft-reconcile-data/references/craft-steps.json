@@ -1,0 +1,118 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "gridcraft",
+  "id": "reconcile-data",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "读取本方主键与金额",
+      "command": "sheet.read",
+      "params": {
+        "range": "A1:D100",
+        "formulas": true
+      }
+    },
+    {
+      "purpose": "实际读取对方工作表字段和主键范围，不凭名称假设结构",
+      "command": "sheet.read",
+      "params": {
+        "sheet": "Sheet2",
+        "range": "A1:B100",
+        "formulas": true
+      }
+    },
+    {
+      "purpose": "确认对方空白辅助列；非空时更换列并同步公式范围",
+      "command": "sheet.read",
+      "params": {
+        "sheet": "Sheet2",
+        "range": "D1:E100",
+        "formulas": true
+      }
+    },
+    {
+      "purpose": "切换到对方表建立工作副本辅助索引",
+      "command": "sheet.activate",
+      "params": {
+        "sheet": "Sheet2"
+      }
+    },
+    {
+      "purpose": "在空白列写辅助表头，保留原A:B",
+      "command": "range.setValues",
+      "params": {
+        "range": "D1",
+        "values": [
+          [
+            "匹配键",
+            "对方金额"
+          ]
+        ]
+      }
+    },
+    {
+      "purpose": "为键加非数字前缀，避免COUNTIF把001与1合并",
+      "command": "cell.set",
+      "params": {
+        "cell": "D2",
+        "input": "=IF(A2=\"\",\"\",\"KEY:\"&A2)"
+      }
+    },
+    {
+      "purpose": "保留有效金额并标识缺失，不把空金额变成0",
+      "command": "cell.set",
+      "params": {
+        "cell": "E2",
+        "input": "=IF(A2=\"\",\"\",IF(ISNUMBER(B2),B2,\"待确认对方金额\"))"
+      }
+    },
+    {
+      "purpose": "按实际末行填充辅助索引",
+      "command": "edit.fillDown",
+      "params": {
+        "range": "D2:E100"
+      }
+    },
+    {
+      "purpose": "返回本方表写匹配结果",
+      "command": "sheet.activate",
+      "params": {
+        "sheet": "Sheet1"
+      }
+    },
+    {
+      "purpose": "使用同一前缀计数并只提取唯一匹配",
+      "command": "cell.set",
+      "params": {
+        "cell": "E2",
+        "input": "=IF(A2=\"\",IF(B2=\"\",\"\",\"缺少主键\"),IF(COUNTIF(Sheet2!$D$2:$D$100,\"KEY:\"&A2)=0,\"未匹配\",IF(COUNTIF(Sheet2!$D$2:$D$100,\"KEY:\"&A2)=1,VLOOKUP(\"KEY:\"&A2,Sheet2!$D$2:$E$100,2,FALSE),\"重复键\")))"
+      }
+    },
+    {
+      "purpose": "仅对双方有效数字计算金额差",
+      "command": "cell.set",
+      "params": {
+        "cell": "F2",
+        "input": "=IF(AND(ISNUMBER(B2),ISNUMBER(E2)),B2-E2,\"\")"
+      }
+    },
+    {
+      "purpose": "按实际末行填充，固定对方索引范围",
+      "command": "edit.fillDown",
+      "params": {
+        "range": "E2:F100"
+      }
+    },
+    {
+      "purpose": "核对全部状态和差额",
+      "command": "sheet.read",
+      "params": {
+        "range": "A2:F10"
+      }
+    }
+  ],
+  "check": "分别列出缺失、多对一和金额差异，不通过删除未匹配行让总数相等。",
+  "boundary": "工作表名、键列和重复键必须先查；VLOOKUP只取首条，不适合未处理的多对多。 当前示例先COUNTIF分流重复键，不使用IFERROR把重复键隐藏成首条金额。示例100替换为真实范围，双方原始键/金额及所有未匹配行保留。 原生COUNTIF对纯数字文本条件会合并001/1，示例改为KEY:前缀索引；须先确认Sheet2的D:E以及Sheet1的E:F为空并按实际表名/列/末行替换。前缀不恢复原来已经丢失的零；原始主键须先按文本读取核对。本例验证字母/数字业务键，不推断大小写敏感或通配符键规则。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

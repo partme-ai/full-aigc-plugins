@@ -1,0 +1,174 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "file.new",
+      "params": {
+        "name": "Object layout",
+        "width": 96,
+        "height": 64,
+        "units": "Pixels"
+      }
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 8,
+        "y": 8,
+        "width": 12,
+        "height": 8
+      },
+      "as": "first"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": [
+          {
+            "$ref": "first.id"
+          }
+        ],
+        "color": "#ff0000"
+      }
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "ids": [
+          {
+            "$ref": "first.id"
+          }
+        ],
+        "none": true
+      }
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 40,
+        "y": 24,
+        "width": 12,
+        "height": 8
+      },
+      "as": "second"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": [
+          {
+            "$ref": "second.id"
+          }
+        ],
+        "color": "#0000ff"
+      }
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "ids": [
+          {
+            "$ref": "second.id"
+          }
+        ],
+        "none": true
+      }
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 72,
+        "y": 40,
+        "width": 12,
+        "height": 8
+      },
+      "as": "control"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": [
+          {
+            "$ref": "control.id"
+          }
+        ],
+        "color": "#00ff00"
+      }
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "ids": [
+          {
+            "$ref": "control.id"
+          }
+        ],
+        "none": true
+      }
+    },
+    {
+      "command": "document.json",
+      "params": {},
+      "as": "before"
+    },
+    {
+      "command": "document.save",
+      "params": {
+        "path": {
+          "$output": "original.vectorcraft"
+        }
+      }
+    },
+    {
+      "command": "select.set",
+      "params": {
+        "ids": [
+          {
+            "$ref": "first.id"
+          },
+          {
+            "$ref": "second.id"
+          }
+        ]
+      }
+    },
+    {
+      "command": "object.align",
+      "params": {
+        "vertical": "top",
+        "to": "selection",
+        "bounds": "geometric"
+      }
+    },
+    {
+      "command": "object.distributeSpacing",
+      "params": {
+        "axis": "horizontal",
+        "spacing": 4,
+        "bounds": "geometric"
+      }
+    },
+    {
+      "command": "document.json",
+      "params": {},
+      "as": "after"
+    },
+    {
+      "command": "document.save",
+      "params": {
+        "path": {
+          "$output": "project.vectorcraft"
+        }
+      }
+    },
+    {
+      "command": "document.export",
+      "params": {
+        "path": {
+          "$output": "preview.png"
+        },
+        "format": "png"
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "wordcraft-document-templates/v1",
+  "templates": [
+    {
+      "skill": "wordcraft-meeting-minutes",
+      "id": "meeting-minutes",
+      "name": "会议纪要",
+      "sectionCount": 4,
+      "tableColumns": [
+        "任务",
+        "负责人",
+        "期限",
+        "状态"
+      ],
+      "sha256": "15d5c27f8047e3ee5b2e6ad1fec0e2569eec23024d5e0fe90b98f76cde420806"
+    },
+    {
+      "skill": "wordcraft-weekly-report",
+      "id": "weekly-report",
+      "name": "工作周报",
+      "sectionCount": 4,
+      "tableColumns": [
+        "行动",
+        "负责人",
+        "预计时间",
+        "交付/支持"
+      ],
+      "sha256": "38e77c6d0fd5ac3dae08329af1b22ce78b9dcb767c30d47c659a3d744bf9d6ce"
+    },
+    {
+      "skill": "wordcraft-business-proposal",
+      "id": "business-proposal",
+      "name": "项目方案",
+      "sectionCount": 5,
+      "tableColumns": [
+        "阶段",
+        "交付物",
+        "负责人",
+        "计划日期"
+      ],
+      "sha256": "a68a9f8ec9013bf24ba319514a59abc13be892efc86eb754f32f6561c78e5399"
+    },
+    {
+      "skill": "wordcraft-requirements-document",
+      "id": "requirements-document",
+      "name": "需求说明",
+      "sectionCount": 5,
+      "tableColumns": [
+        "编号",
+        "需求",
+        "验收条件",
+        "优先级"
+      ],
+      "sha256": "2e5a8096b6362d29aeb851c5dde1de92c503734bb19dac9b98730c4ffa93cb44"
+    },
+    {
+      "skill": "wordcraft-acceptance-report",
+      "id": "acceptance-report",
+      "name": "验收报告",
+      "sectionCount": 5,
+      "tableColumns": [
+        "编号",
+        "检查项",
+        "预期",
+        "实际/结论"
+      ],
+      "sha256": "1efcfc271ad42fad6c64db988884d0c179b4fb5067f20999174c674ba4bc8b91"
+    },
+    {
+      "skill": "wordcraft-business-letter",
+      "id": "business-letter",
+      "name": "业务函",
+      "sectionCount": 5,
+      "tableColumns": [
+        "序号",
+        "事项",
+        "所需材料",
+        "当前状态"
+      ],
+      "sha256": "f14b9b9f29c53b6a5c2a1896615f3689a3c1dd0dd30e119307592f0d2683a072"
+    }
+  ],
+  "scope": "6常用文档类型；2既有技能增强、4新技能；填写示例为虚构数据"
+}

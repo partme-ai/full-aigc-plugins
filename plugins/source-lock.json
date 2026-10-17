@@ -1,0 +1,210 @@
+[
+  {
+    "plugin": "cadcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/cadcraft-plugin",
+    "commit": "56c54d7dbd8582507e6721b7195518c59d5b3fbe",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 119,
+    "treeSha256": "b5cde11e9ec27f72cf261c6740632a09c1822f3fafe304ad97997f091c71bd75",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "designcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/designcraft-plugin",
+    "commit": "e82e8c84559ea2fb084a2fb636d42fe9f7235ea2",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 250,
+    "treeSha256": "f7bfec446243d1c6a6d15376ea3d2cd991ba4c03c0ebae2ebc70101a65a10ee4",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "effectcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/effectcraft-plugin",
+    "commit": "fa8b36708ad103336eb5b4c7d33b394f66f12712",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 961,
+    "treeSha256": "ce89388801006362a8b0ae759baa9c1f512564a0abd49c9641ad2d651b316685",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "photocraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/photocraft-plugin",
+    "commit": "4a45544313259badc7f0fb4cdff5d7f8bc4823be",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 1157,
+    "treeSha256": "bd1dc516129829bb8e659334cc9e21176cfab62f43d4661c83b5ac98ac77e89b",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "figcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/figcraft-plugin",
+    "commit": "89c2d95bfd34237fa64ba8d146691339cfda9cca",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 102,
+    "treeSha256": "7b2ed958aae7fa9a261bab046276ad8eb6814df3add07f753c6cdf9e2a4bc4d8",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "filmcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/filmcraft-plugin",
+    "commit": "f721323b9ecb65f3e55eb6466916ed7d87357ce4",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 886,
+    "treeSha256": "be87fbe8359f00b92b125fa97215854cc07d181beef0c9a4a9c123266c1bb121",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "lightcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/lightcraft-plugin",
+    "commit": "c24d91fff2d8809b72b9d618f63e8ae0ee5dc578",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 1385,
+    "treeSha256": "6e69587dd3fecb7819f5eb28296c321498c80be94e9ede17d011109cda966a72",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "printcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/printcraft-plugin",
+    "commit": "6222b5c167ae94c9b57eed4c3da1e594e5c94cad",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 329,
+    "treeSha256": "ab096b66d56b52ed989af2d0ffbf822ed4d76f84ee03a313bcbecf7d3b966f60",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "vectorcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/vectorcraft-plugin",
+    "commit": "834a45923ca8183cdc218013f63e3cadc3912866",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 1104,
+    "treeSha256": "f5a416b00e97f8fb91218191e8864746b99aeff889a1f647c26ab782429f4585",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "deckcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/deckcraft-plugin",
+    "commit": "82ad412685f22da4547840645abac14bef907780",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 129,
+    "treeSha256": "cab422fb80a047ffb1a3973eab87485005653b7fb121e56b8b521f06db3dbca3",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "soundcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/soundcraft-plugin",
+    "commit": "11ff39d92e554b4e4dfa04e30180f471b57ea477",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 97,
+    "treeSha256": "354c177e41cea8e2c826ac726bf8fcf8020475002b9ffc73d0f0fcfdd546f8e3",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "gridcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/gridcraft-plugin",
+    "commit": "ea995605082a3262c935d929bb6169835de01b2a",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 101,
+    "treeSha256": "67ac9bf83844e97e5331af176a920f804dd5a4fade89db4a39db5afe8ae99971",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  },
+  {
+    "plugin": "wordcraft",
+    "version": "0.1.0-dev.20261017.5",
+    "repository": "full-aigc-plugins/wordcraft-plugin",
+    "commit": "3fa332cf5de31c210a200985f5b652ed5f047a44",
+    "tag": "v0.1.0-dev.20261017.5",
+    "fileCount": 150,
+    "treeSha256": "2ab54fd8a61a5830d958916da2dfa188e398766fdd5556ffb0ae4cc46ff5910a",
+    "excluded": [
+      "evidence/",
+      "docs/evidence/",
+      ".github/",
+      "**/.gitignore"
+    ],
+    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+  }
+]

@@ -1,0 +1,550 @@
+{
+  "schema": "craft-market-adaptations/v1",
+  "application": "figcraft",
+  "skill": "figcraft-scenario-playbooks",
+  "counting": "existing recipes with adapted task guidance; not additional mapped scenes",
+  "sources": [
+    {
+      "id": "figma/mcp-server-guide/figma-generate-library",
+      "repository": "figma/mcp-server-guide",
+      "commit": "f2789420e7e8b4e2465dfeb1e12e1fc6a31397e5",
+      "path": "skills/figma-generate-library/SKILL.md",
+      "url": "https://github.com/figma/mcp-server-guide/blob/f2789420e7e8b4e2465dfeb1e12e1fc6a31397e5/skills/figma-generate-library/SKILL.md",
+      "sha256": "65ee2aa9fd565b47bf627b773986f3c121616825d01c9ded78ea314532f5d10c",
+      "bytes": 24944,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/figma/mcp-server-guide/figma-generate-library",
+      "repositoryLicense": "UNDECLARED",
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "fc7db1b334e8b07f00cec5da433b713107038490d7d279b31a2d19edb6617fe5"
+    },
+    {
+      "id": "figma/mcp-server-guide/figma-use",
+      "repository": "figma/mcp-server-guide",
+      "commit": "f2789420e7e8b4e2465dfeb1e12e1fc6a31397e5",
+      "path": "skills/figma-use/SKILL.md",
+      "url": "https://github.com/figma/mcp-server-guide/blob/f2789420e7e8b4e2465dfeb1e12e1fc6a31397e5/skills/figma-use/SKILL.md",
+      "sha256": "d6ea4d37b2cde6aed0f0ff908cf0b47696f36aa0104413c25291940cf50ef822",
+      "bytes": 34270,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/figma/mcp-server-guide/figma-use",
+      "repositoryLicense": "UNDECLARED",
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "fb87096abc6ef3d9d5cfadf8af7758fa60247e9d79b1bdc5aa01e948cb6fef71"
+    },
+    {
+      "id": "figma/mcp-server-guide/figma-generate-design",
+      "repository": "figma/mcp-server-guide",
+      "commit": "f2789420e7e8b4e2465dfeb1e12e1fc6a31397e5",
+      "path": "skills/figma-generate-design/SKILL.md",
+      "url": "https://github.com/figma/mcp-server-guide/blob/f2789420e7e8b4e2465dfeb1e12e1fc6a31397e5/skills/figma-generate-design/SKILL.md",
+      "sha256": "5abb19ad5950d315d08c3d27f9c8b3d307ade6c18baf208a03fad65a307b6516",
+      "bytes": 39148,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/figma/mcp-server-guide/figma-generate-design",
+      "repositoryLicense": "UNDECLARED",
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "aadbf42c67c6d2761aee57770fa057654c8aa96c5c05d3e8f01750ac3e6ac609"
+    }
+  ],
+  "adaptations": [
+    {
+      "id": "metric-card-component",
+      "title": "组件复用而非重复绘制",
+      "sourceIds": [
+        "figma/mcp-server-guide/figma-generate-library"
+      ],
+      "adaptation": "先确认只需一组指标卡还是完整设计系统；本任务只建立所需组件，再放实例展示数据。修改组件或实例之前取实际ID，避免把展示页当成组件库完成。",
+      "taskCheck": "实例仍关联组件，数据差异在正确实例中，原有节点保持。",
+      "capabilityBoundary": "不宣称Craft支持Figma发布库、全部变量作用域或Code Connect。",
+      "existingRecipe": "skills/figcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "metric-card-component",
+        "title": "复用指标卡组件",
+        "category": "interface-design",
+        "inputs": "320×180指标卡，标题、数值和变化说明，转换为本地组件。",
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+        "steps": [
+          {
+            "purpose": "仅新建独立文件时初始化",
+            "command": "file.new",
+            "params": {
+              "name": "复用指标卡组件"
+            },
+            "parameterReference": "command-evidence.json#file.new",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "创建Metrics/Revenue并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "frame",
+              "name": "Metrics/Revenue",
+              "x": 0,
+              "y": 0,
+              "width": 320,
+              "height": 180,
+              "props": {
+                "fill": "#ffffff",
+                "clip": true,
+                "cornerRadius": 12
+              }
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "root"
+          },
+          {
+            "purpose": "创建MetricName并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "text",
+              "name": "MetricName",
+              "x": 24,
+              "y": 22,
+              "width": 272,
+              "height": 30,
+              "props": {
+                "fontFamily": "Inter",
+                "fontSize": 18,
+                "fill": "#172033",
+                "textAutoResize": "height"
+              },
+              "parent": {
+                "$ref": "root.id"
+              },
+              "text": "Revenue"
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "metric"
+          },
+          {
+            "purpose": "创建MetricValue并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "text",
+              "name": "MetricValue",
+              "x": 24,
+              "y": 60,
+              "width": 272,
+              "height": 30,
+              "props": {
+                "fontFamily": "Inter",
+                "fontSize": 36,
+                "fill": "#172033",
+                "textAutoResize": "height"
+              },
+              "parent": {
+                "$ref": "root.id"
+              },
+              "text": "$12,480"
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "value"
+          },
+          {
+            "purpose": "创建MetricDelta并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "text",
+              "name": "MetricDelta",
+              "x": 24,
+              "y": 120,
+              "width": 272,
+              "height": 30,
+              "props": {
+                "fontFamily": "Inter",
+                "fontSize": 16,
+                "fill": "#16804a",
+                "textAutoResize": "height"
+              },
+              "parent": {
+                "$ref": "root.id"
+              },
+              "text": "+8.2% vs last month"
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "delta"
+          },
+          {
+            "purpose": "仅将本次卡片转为组件",
+            "command": "component.create",
+            "params": {
+              "ids": [
+                {
+                  "$ref": "root.id"
+                }
+              ]
+            },
+            "parameterReference": "command-evidence.json#component.create",
+            "capture": "component"
+          }
+        ],
+        "assertions": {
+          "rootSize": [
+            320,
+            180
+          ],
+          "texts": [
+            "Revenue",
+            "$12,480",
+            "+8.2% vs last month"
+          ],
+          "children": [
+            "metric",
+            "value",
+            "delta"
+          ],
+          "component": true
+        },
+        "checks": [
+          "组件清单含该卡片",
+          "标题数值与比较周期保留",
+          "子文字仍可编辑"
+        ],
+        "limits": "没有绑定实时业务数据；百分比须由实际数据计算，不能凭颜色宣称增长。"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "responsive-fill-resize",
+      "title": "尺寸变化后再验收布局",
+      "sourceIds": [
+        "figma/mcp-server-guide/figma-use"
+      ],
+      "adaptation": "先明确容器与子节点的父子关系，再设置实际支持的布局和填充。用两个真实容器宽度观察文本、按钮与间距，不靠静态截图推断响应行为。",
+      "taskCheck": "变宽后内容跟随且无裁切；关键节点ID和边界可查询。",
+      "capabilityBoundary": "不发送Figma Plugin API代码；Figma的HUG/FILL取值不直接当Craft参数。",
+      "existingRecipe": "skills/figcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "responsive-fill-resize",
+        "title": "容器变宽后的自适应内容",
+        "category": "interface-design",
+        "inputs": "先建360宽卡片，再改为640；左右内边距24，内容应填满592。",
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+        "steps": [
+          {
+            "purpose": "仅新建独立文件时初始化",
+            "command": "file.new",
+            "params": {
+              "name": "容器变宽后的自适应内容"
+            },
+            "parameterReference": "command-evidence.json#file.new",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "创建ResponsiveCard并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "frame",
+              "name": "ResponsiveCard",
+              "x": 0,
+              "y": 0,
+              "width": 360,
+              "height": 220,
+              "props": {
+                "fill": "#ffffff",
+                "clip": true,
+                "layout": "vertical",
+                "padding": 24,
+                "gap": 16
+              }
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "root"
+          },
+          {
+            "purpose": "创建ResponsiveHeading并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "text",
+              "name": "ResponsiveHeading",
+              "x": 0,
+              "y": 0,
+              "width": 312,
+              "height": 30,
+              "props": {
+                "fontFamily": "Inter",
+                "fontSize": 22,
+                "fill": "#172033",
+                "textAutoResize": "height",
+                "sizingH": "fill"
+              },
+              "parent": {
+                "$ref": "root.id"
+              },
+              "text": "One layout, flexible width"
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "heading"
+          },
+          {
+            "purpose": "创建ContentArea并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "rectangle",
+              "name": "ContentArea",
+              "x": 0,
+              "y": 0,
+              "width": 312,
+              "height": 90,
+              "props": {
+                "fill": "#f1f5f9",
+                "cornerRadius": 8,
+                "sizingH": "fill"
+              },
+              "parent": {
+                "$ref": "root.id"
+              }
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "content"
+          },
+          {
+            "purpose": "只修改本次根画板宽度",
+            "command": "node.set",
+            "params": {
+              "id": {
+                "$ref": "root.id"
+              },
+              "props": {
+                "width": 640
+              }
+            },
+            "parameterReference": "command-evidence.json#node.set"
+          }
+        ],
+        "assertions": {
+          "rootSize": [
+            640,
+            220
+          ],
+          "texts": [
+            "One layout, flexible width"
+          ],
+          "children": [
+            "heading",
+            "content"
+          ],
+          "fillWidths": {
+            "heading": 592,
+            "content": 592
+          }
+        },
+        "checks": [
+          "实际画板宽640",
+          "内容与标题宽592且保留左右24间距",
+          "文字未因绝对坐标放大而拉伸"
+        ],
+        "limits": "这是一次指定宽度的布局回归，不能据此承诺任意设备与任意文案都自适应。"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "field-error-state",
+      "title": "有下一步的表单错误状态",
+      "sourceIds": [
+        "figma/mcp-server-guide/figma-generate-design"
+      ],
+      "adaptation": "从真实字段错误和可采取的修正动作组织界面，保留标签、用户输入和可读错误提示；确认提示出现后不遮住按钮或改变阅读顺序。",
+      "taskCheck": "错误内容具体、文本未截断、操作按钮仍可见。",
+      "capabilityBoundary": "这里只制作可编辑视觉状态，不声称已连后端验证或实现真实表单行为。",
+      "existingRecipe": "skills/figcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "field-error-state",
+        "title": "带明确错误信息的字段状态",
+        "category": "interface-design",
+        "inputs": "420×240表单片段，字段标签、无效输入与可读错误说明。",
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+        "steps": [
+          {
+            "purpose": "仅新建独立文件时初始化",
+            "command": "file.new",
+            "params": {
+              "name": "带明确错误信息的字段状态"
+            },
+            "parameterReference": "command-evidence.json#file.new",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "创建EmailError并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "frame",
+              "name": "EmailError",
+              "x": 0,
+              "y": 0,
+              "width": 420,
+              "height": 240,
+              "props": {
+                "fill": "#ffffff",
+                "clip": true
+              }
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "root"
+          },
+          {
+            "purpose": "创建FieldLabel并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "text",
+              "name": "FieldLabel",
+              "x": 24,
+              "y": 24,
+              "width": 372,
+              "height": 30,
+              "props": {
+                "fontFamily": "Inter",
+                "fontSize": 18,
+                "fill": "#172033",
+                "textAutoResize": "height"
+              },
+              "parent": {
+                "$ref": "root.id"
+              },
+              "text": "Email address"
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "label"
+          },
+          {
+            "purpose": "创建InvalidEmailField并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "rectangle",
+              "name": "InvalidEmailField",
+              "x": 24,
+              "y": 70,
+              "width": 372,
+              "height": 52,
+              "props": {
+                "fill": "#ffffff",
+                "cornerRadius": 8,
+                "stroke": "#b91c1c",
+                "strokeWeight": 2
+              },
+              "parent": {
+                "$ref": "root.id"
+              }
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "field"
+          },
+          {
+            "purpose": "创建InvalidValue并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "text",
+              "name": "InvalidValue",
+              "x": 40,
+              "y": 84,
+              "width": 340,
+              "height": 30,
+              "props": {
+                "fontFamily": "Inter",
+                "fontSize": 16,
+                "fill": "#172033",
+                "textAutoResize": "height"
+              },
+              "parent": {
+                "$ref": "root.id"
+              },
+              "text": "not-an-email"
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "value"
+          },
+          {
+            "purpose": "创建ErrorMessage并保留真实返回ID",
+            "command": "node.create",
+            "params": {
+              "type": "text",
+              "name": "ErrorMessage",
+              "x": 24,
+              "y": 140,
+              "width": 372,
+              "height": 30,
+              "props": {
+                "fontFamily": "Inter",
+                "fontSize": 16,
+                "fill": "#b91c1c",
+                "textAutoResize": "height"
+              },
+              "parent": {
+                "$ref": "root.id"
+              },
+              "text": "Enter a valid email address."
+            },
+            "parameterReference": "command-evidence.json#node.create",
+            "capture": "error"
+          }
+        ],
+        "assertions": {
+          "rootSize": [
+            420,
+            240
+          ],
+          "texts": [
+            "Email address",
+            "not-an-email",
+            "Enter a valid email address."
+          ],
+          "children": [
+            "label",
+            "field",
+            "value",
+            "error"
+          ],
+          "errorStroke": "field"
+        },
+        "checks": [
+          "错误不只依赖红色，还提供文字",
+          "字段、标签和错误关系清晰",
+          "错误说明保持可编辑"
+        ],
+        "limits": "不是实际校验器，也不证明可访问性程序关联已实现；开发交付仍需label/description语义绑定。"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    }
+  ],
+  "observedCommands": {
+    "file.new": {
+      "id": "file.new",
+      "label": "New design file",
+      "menu": "File",
+      "params": "{name?}",
+      "shortcut": "Cmd+N",
+      "undoable": false
+    },
+    "node.create": {
+      "id": "node.create",
+      "label": "Create layer",
+      "menu": null,
+      "params": "{type: rectangle|ellipse|polygon|star|line|arrow|vector|text|frame|section|component|slice, x?, y? (relative to the parent frame; groups don't count), width?, height?, parent? (id; default: the page), index?, name?, text? (for text), path? (SVG path data for vector), props? {node.set keys}, select? (default true)}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "component.create": {
+      "id": "component.create",
+      "label": "Create component",
+      "menu": "Object",
+      "params": "{ids?}  (one frame/group becomes a component; several layers are wrapped in one)",
+      "shortcut": "Alt+Cmd+K",
+      "undoable": true
+    },
+    "node.set": {
+      "id": "node.set",
+      "label": "Set properties",
+      "menu": null,
+      "params": "name, visible, locked, opacity (0-1), blend, x, y (relative to the parent frame; groups don't count), width, height, rotation (degrees), fills (paints or colours), fill (colour), strokes, stroke (colour), strokeWeight, strokeAlign (inside|center|outside), strokeSides [t,r,b,l], strokeTopWeight / strokeRightWeight / strokeBottomWeight / strokeLeftWeight (one side; turns on individual strokes), strokeCap / startCap / endCap, strokeJoin, miterAngle (degrees: sharper joins bevel; or miterLimit as a ratio), dashes [..], widthProfile (preset uniform|wedge|taper|eye|rounded|pinch, [[t, scale], ...] or null), brush (preset id, {preset, spacing, sizeJitter, rotationJitter, scatter, seed} or null), cornerRadius (n or [tl,tr,br,bl]), cornerSmoothing (0-1), effects, clip, isMask, layout (null|horizontal|vertical|grid|{...}), gap, crossGap, padding (n or [t,r,b,l]), paddingTop/Right/Bottom/Left, mainAlign (min|center|max, or the auto gaps spaceBetween|spaceAround|spaceEvenly), crossAlign (min|center|max|baseline: first text baselines, horizontal layouts), contentAlign (wrapped lines: auto = packed where crossAlign says | spaceBetween), wrap (rows of a horizontal layout, columns of a vertical one), strokesIncluded (the frame's inside stroke takes up space), reverseZ (canvas stacking: true = first on top), columnGap / rowGap (aliases of gap / crossGap), gridColumns, gridRows, columnTracks / rowTracks ([120 | \"1fr\" | \"auto\" | {sizing, value}]), gridColumn / gridRow (0-based cell anchor, null = auto), gridColumnSpan, gridRowSpan, gridAlignH / gridAlignV (a grid child's alignment in its cell: min|center|max, auto/null = the frame's), sizingH / sizingV (fixed|hug|fill), absolute (ignore auto layout; follows constraints), minWidth, maxWidth, minHeight, maxHeight (null removes), constraints {horizontal, vertical}, grids, exports, characters, fontFamily, fontStyle, fontSize, lineHeight (auto|px|\"150%\"), letterSpacing (px|\"2%\"), textAlign (left|center|right|justified), textAlignVertical, textAutoResize (widthAndHeight|height|none|truncate), textDecoration, textDecorationStyle (solid|dotted|wavy), textDecorationThickness / textDecorationOffset (auto|px|\"10%\" of the font size; the offset runs from the baseline down to an underline's top edge), textDecorationSkipInk (underlines break around descenders), textDecorationColor (colour, or auto/null: the text's), textCase (original|upper|lower|title|smallCaps), paragraphSpacing, paragraphIndent, listStyle (none|bulleted|numbered; with start/end: the paragraphs those chars touch), indentation (list nesting level 0-8, same range rule), listSpacing (px between list items, in place of paragraphSpacing), hangingPunctuation, hangingList (markers outside the box), leadingTrim (vertical trim: none|capHeight), maxLines, features ({tag: bool}, e.g. {\"liga\": false, \"tnum\": true}), fontVariations / variationSettings ({axis: number}, e.g. {\"wght\": 550, \"wdth\": 85}; null = none), pointCount, innerRadius, arcStart, arcSweep, arcInner, booleanOperation (a boolean group's operation, or an operand's own; null: the group's), operandOperation (a layer in a boolean group: how it combines with the operands below it; null: the group's), constrainProportions, description, interactions, overflow, pluginData {k: v}",
+      "shortcut": null,
+      "undoable": true
+    }
+  }
+}

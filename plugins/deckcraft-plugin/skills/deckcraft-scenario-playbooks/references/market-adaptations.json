@@ -1,0 +1,502 @@
+{
+  "schema": "craft-market-adaptations/v1",
+  "application": "deckcraft",
+  "skill": "deckcraft-scenario-playbooks",
+  "counting": "existing recipes with adapted task guidance; not additional mapped scenes",
+  "sources": [
+    {
+      "id": "skillhub:afrexai-presentation-mastery",
+      "market": "SkillHub",
+      "marketUrl": "https://skillhub.cn/",
+      "downloadUrl": "https://api.skillhub.cn/api/v1/download?slug=afrexai-presentation-mastery",
+      "slug": "afrexai-presentation-mastery",
+      "version": "1.0.0",
+      "sha256": "717ea6585e36e213afbf0f383ff7b461a4dbaeb92194a94a3e2d218a83f7375d",
+      "bytes": 22233,
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections"
+    },
+    {
+      "id": "anthropics/skills/pptx",
+      "repository": "anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "path": "skills/pptx/SKILL.md",
+      "url": "https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/pptx/SKILL.md",
+      "sha256": "a7ff03e2c85b636f55232a6b1555f5dd90216b7a1a359ab289d8364e6acbc6a0",
+      "bytes": 20796,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/anthropics/skills/pptx",
+      "repositoryLicense": "UNDECLARED",
+      "declaredSkillLicense": "Proprietary. LICENSE.txt has complete terms",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "03ecd814a80a4764e3c7208a4bc7f98635eb20020e73198ad1e9cde8a8ad64f4"
+    },
+    {
+      "id": "skillhub:powerpoint-pptx",
+      "market": "SkillHub",
+      "marketUrl": "https://skillhub.cn/",
+      "downloadUrl": "https://api.skillhub.cn/api/v1/download?slug=powerpoint-pptx",
+      "slug": "powerpoint-pptx",
+      "version": "1.0.1",
+      "sha256": "d286c8cd144b9957d9d27046e75797d9dfd577e5c1d01ffda6373573d5a5a956",
+      "bytes": 7058,
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections"
+    }
+  ],
+  "adaptations": [
+    {
+      "id": "demo-problem-result",
+      "title": "用证据支撑演示叙事",
+      "sourceIds": [
+        "skillhub:afrexai-presentation-mastery",
+        "anthropics/skills/pptx"
+      ],
+      "adaptation": "先明确观众需要做什么决定，再将真实问题、操作证据与结果分别落页。每页用明确结论组织图表或截图，结果数字来自输入，不用空泛标题代替证据。",
+      "taskCheck": "每页有明确用途，结论与证据一致，实际投影尺寸可读。",
+      "capabilityBoundary": "不强制上游固定配色、字体或全页图片；交付保留原生可编辑对象。",
+      "existingRecipe": "skills/deckcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "demo-problem-result",
+        "title": "产品演示的问题与结果叙事",
+        "category": "presentation",
+        "inputs": "已验证的用户问题、演示步骤与可观察结果；保留已知限制。",
+        "steps": [
+          {
+            "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+            "command": "file.new",
+            "params": {
+              "size": [
+                960,
+                540
+              ],
+              "blank": true
+            },
+            "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "建立按信息结构选择的标题内容页",
+            "command": "slide.new",
+            "params": {
+              "layout": "titleAndContent",
+              "title": "用户问题",
+              "body": "资料编号重复，人工核对成本高。"
+            },
+            "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+          },
+          {
+            "purpose": "记录首屏讲述目标",
+            "command": "slide.notes",
+            "params": {
+              "text": "先解释输入与问题，不先堆功能。"
+            },
+            "parameterReference": "{text, index?}"
+          },
+          {
+            "purpose": "建立按信息结构选择的标题内容页",
+            "command": "slide.new",
+            "params": {
+              "layout": "titleAndContent",
+              "title": "演示步骤",
+              "body": "导入资料 → 检查编号 → 定位重复项。"
+            },
+            "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+          },
+          {
+            "purpose": "记录演示输入与预期",
+            "command": "slide.notes",
+            "params": {
+              "text": "使用已授权的演示数据，不展示私人资料。"
+            },
+            "parameterReference": "{text, index?}"
+          },
+          {
+            "purpose": "建立按信息结构选择的标题内容页",
+            "command": "slide.new",
+            "params": {
+              "layout": "titleAndContent",
+              "title": "结果与限制",
+              "body": "定位重复项；是否删除由使用者复核。"
+            },
+            "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+          }
+        ],
+        "checks": [
+          "版心内无溢出与遮挡",
+          "备注记录来源与待确认假设",
+          "保存源工程、导出PPTX后核对可编辑对象"
+        ],
+        "limits": "不能把计划能力写成已完成结果；实际演示需预演并检查页面信息密度。",
+        "assertions": {
+          "slides": 3,
+          "textContains": [
+            "用户问题",
+            "演示步骤",
+            "结果与限制"
+          ]
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "option-comparison-table",
+      "title": "结构化方案比较",
+      "sourceIds": [
+        "skillhub:powerpoint-pptx"
+      ],
+      "adaptation": "先检查现有页面和主题；比较维度固定在列，实际方案固定在行，单位、缺失值与口径统一。既有模板先识别对象，再替换本次内容。",
+      "taskCheck": "表格可编辑，行列与原数据对应，文字没有越界。",
+      "capabilityBoundary": "新建示例不能直接覆盖既有模板或假定占位符编号通用。",
+      "existingRecipe": "skills/deckcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "option-comparison-table",
+        "title": "可编辑方案比较表",
+        "category": "decision",
+        "inputs": "提供相同维度的候选方案，禁止把不等口径数字直接并列。",
+        "steps": [
+          {
+            "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+            "command": "file.new",
+            "params": {
+              "size": [
+                960,
+                540
+              ],
+              "blank": true
+            },
+            "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "建立按信息结构选择的标题内容页",
+            "command": "slide.new",
+            "params": {
+              "layout": "titleAndContent",
+              "title": "方案比较",
+              "body": ""
+            },
+            "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+          },
+          {
+            "purpose": "建立3×3可编辑比较表",
+            "command": "insert.table",
+            "params": {
+              "rows": 3,
+              "cols": 3,
+              "rect": [
+                48,
+                130,
+                864,
+                280
+              ]
+            },
+            "parameterReference": "{rows, cols, rect?}"
+          },
+          {
+            "purpose": "设置当前比较表的单元格文字",
+            "command": "text.set",
+            "params": {
+              "cell": [
+                0,
+                0
+              ],
+              "text": "维度"
+            },
+            "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+          },
+          {
+            "purpose": "设置当前比较表的单元格文字",
+            "command": "text.set",
+            "params": {
+              "cell": [
+                0,
+                1
+              ],
+              "text": "方案A"
+            },
+            "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+          },
+          {
+            "purpose": "设置当前比较表的单元格文字",
+            "command": "text.set",
+            "params": {
+              "cell": [
+                0,
+                2
+              ],
+              "text": "方案B"
+            },
+            "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+          },
+          {
+            "purpose": "设置当前比较表的单元格文字",
+            "command": "text.set",
+            "params": {
+              "cell": [
+                1,
+                0
+              ],
+              "text": "交付"
+            },
+            "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+          },
+          {
+            "purpose": "设置当前比较表的单元格文字",
+            "command": "text.set",
+            "params": {
+              "cell": [
+                1,
+                1
+              ],
+              "text": "快速试点"
+            },
+            "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+          },
+          {
+            "purpose": "设置当前比较表的单元格文字",
+            "command": "text.set",
+            "params": {
+              "cell": [
+                1,
+                2
+              ],
+              "text": "完整建设"
+            },
+            "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+          },
+          {
+            "purpose": "设置当前比较表的单元格文字",
+            "command": "text.set",
+            "params": {
+              "cell": [
+                2,
+                0
+              ],
+              "text": "约束"
+            },
+            "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+          },
+          {
+            "purpose": "设置当前比较表的单元格文字",
+            "command": "text.set",
+            "params": {
+              "cell": [
+                2,
+                1
+              ],
+              "text": "人工复核"
+            },
+            "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+          },
+          {
+            "purpose": "设置当前比较表的单元格文字",
+            "command": "text.set",
+            "params": {
+              "cell": [
+                2,
+                2
+              ],
+              "text": "实施周期"
+            },
+            "parameterReference": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+          },
+          {
+            "purpose": "明确首行为表头",
+            "command": "table.options",
+            "params": {
+              "headerRow": true
+            },
+            "parameterReference": "{headerRow?, totalRow?, bandedRows?, firstColumn?, lastColumn?, bandedColumns?: bool, id?}"
+          },
+          {
+            "purpose": "补充比较结论适用条件",
+            "command": "slide.notes",
+            "params": {
+              "text": "比较依据：当前范围与资源。最终选择由决策人确认。"
+            },
+            "parameterReference": "{text, index?}"
+          }
+        ],
+        "checks": [
+          "版心内无溢出与遮挡",
+          "备注记录来源与待确认假设",
+          "保存源工程、导出PPTX后核对可编辑对象"
+        ],
+        "limits": "此处不自动作商业决策；真实任务应补充来源与决策条件。",
+        "assertions": {
+          "slides": 1,
+          "textContains": [
+            "方案比较",
+            "方案A",
+            "方案B",
+            "人工复核"
+          ],
+          "tableCount": 1
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "speaker-handoff-notes",
+      "title": "讲稿和可见页面分别检查",
+      "sourceIds": [
+        "skillhub:powerpoint-pptx",
+        "skillhub:afrexai-presentation-mastery"
+      ],
+      "adaptation": "页面只保留观众需要看的结论，把展开解释与演讲提示放入备注。保存后分别查页面文字与备注，并查看逐页渲染。",
+      "taskCheck": "备注可回读，页面没有误放内部提示，字体和遮挡经过查看。",
+      "capabilityBoundary": "备注保存成功不证明演讲模式、远程演示或平台协作已通过。",
+      "existingRecipe": "skills/deckcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "speaker-handoff-notes",
+        "title": "可交接的演讲备注稿",
+        "category": "presentation",
+        "inputs": "讲者需接手演示，提供每页目标、用时、来源与转场提示。",
+        "steps": [
+          {
+            "purpose": "新建960×540点空演示文稿，仅在新建任务中使用",
+            "command": "file.new",
+            "params": {
+              "size": [
+                960,
+                540
+              ],
+              "blank": true
+            },
+            "parameterReference": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "建立按信息结构选择的标题内容页",
+            "command": "slide.new",
+            "params": {
+              "layout": "titleAndContent",
+              "title": "项目进展",
+              "body": "本期完成目录整理。"
+            },
+            "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+          },
+          {
+            "purpose": "备注明确目标和转场",
+            "command": "slide.notes",
+            "params": {
+              "text": "目标：说明范围。用时：1分钟。来源：项目台账。转场：解释剩余缺件。"
+            },
+            "parameterReference": "{text, index?}"
+          },
+          {
+            "purpose": "建立按信息结构选择的标题内容页",
+            "command": "slide.new",
+            "params": {
+              "layout": "titleAndContent",
+              "title": "风险与下一步",
+              "body": "缺件核验完成后进入最终复核。"
+            },
+            "parameterReference": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+          },
+          {
+            "purpose": "备注保留行动与责任边界",
+            "command": "slide.notes",
+            "params": {
+              "text": "目标：请求补齐输入。用时：1分钟。来源：缺件清单。结尾：确认负责人和期限。"
+            },
+            "parameterReference": "{text, index?}"
+          }
+        ],
+        "checks": [
+          "版心内无溢出与遮挡",
+          "备注记录来源与待确认假设",
+          "保存源工程、导出PPTX后核对可编辑对象"
+        ],
+        "limits": "备注不是已发送通知或批准事项；责任人与期限必须现场或从真实输入确认。",
+        "assertions": {
+          "slides": 2,
+          "textContains": [
+            "项目进展",
+            "风险与下一步"
+          ],
+          "notesContains": [
+            "转场",
+            "负责人和期限"
+          ]
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    }
+  ],
+  "observedCommands": {
+    "file.new": {
+      "enabled": true,
+      "id": "file.new",
+      "label": "New Presentation",
+      "menu": [
+        "File"
+      ],
+      "params": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+      "shortcut": "Cmd+N"
+    },
+    "slide.new": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "slide.new",
+      "label": "New Slide",
+      "menu": [
+        "Home",
+        "Slides"
+      ],
+      "params": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}",
+      "shortcut": "Cmd+Shift+N"
+    },
+    "slide.notes": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "slide.notes",
+      "label": "Notes",
+      "menu": [
+        "View"
+      ],
+      "params": "{text, index?}",
+      "shortcut": null
+    },
+    "insert.table": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "insert.table",
+      "label": "Table…",
+      "menu": [
+        "Insert",
+        "Tables"
+      ],
+      "params": "{rows, cols, rect?}",
+      "shortcut": null
+    },
+    "text.set": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "text.set",
+      "label": "Set Text",
+      "menu": [],
+      "params": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting",
+      "shortcut": null
+    },
+    "table.options": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "table.options",
+      "label": "Table Style Options",
+      "menu": [
+        "Table Design",
+        "Table Style Options"
+      ],
+      "params": "{headerRow?, totalRow?, bandedRows?, firstColumn?, lastColumn?, bandedColumns?: bool, id?}",
+      "shortcut": null
+    }
+  }
+}

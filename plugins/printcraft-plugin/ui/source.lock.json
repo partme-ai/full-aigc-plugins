@@ -1,0 +1,11 @@
+{
+  "name": "pdfcraft",
+  "title": "PdfCraft",
+  "repository": "https://github.com/full-aigc-plugins/printcraft",
+  "commit": "5fdd820bdb1ab9705bd2c5d956d32d195140c7d8",
+  "version": "0.8.0",
+  "sourceStatus": "fork",
+  "releaseRepository": "full-aigc-plugins/printcraft-plugin",
+  "patches": [],
+  "fontInput": "fonts.lock.json"
+}

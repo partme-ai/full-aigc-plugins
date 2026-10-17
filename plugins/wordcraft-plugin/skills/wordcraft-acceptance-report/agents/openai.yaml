@@ -1,0 +1,6 @@
+interface:
+  display_name: "WordCraft 验收报告"
+  short_description: "按真实资料生成验收报告的章节、正文与可编辑表格，并检查关键事实和分页"
+  default_prompt: "请使用 $wordcraft-acceptance-report 根据我提供的资料生成验收报告，缺少事实标为待确认。"
+policy:
+  allow_implicit_invocation: true

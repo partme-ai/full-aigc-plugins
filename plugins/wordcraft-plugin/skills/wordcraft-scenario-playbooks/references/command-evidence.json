@@ -1,0 +1,188 @@
+{
+  "runtime": "wordcraft-cli 0.7.0 Windows x64",
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "sceneAcceptance": "TECHNICAL_PASS_LAYOUT_NOT_RUN",
+  "observedCommands": {
+    "edit.replaceAll": {
+      "id": "edit.replaceAll",
+      "label": "Replace All",
+      "location": "Home › Editing › Replace",
+      "mutates": true,
+      "params": "{\"text\": string, \"with\": string (^p ^t ^& ^c …; \\\\1 with wildcards), …options of edit.find}",
+      "shortcut": ""
+    },
+    "insert.closeHeader": {
+      "id": "insert.closeHeader",
+      "label": "Close Header and Footer",
+      "location": "Header & Footer",
+      "mutates": false,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "insert.footer": {
+      "id": "insert.footer",
+      "label": "Footer",
+      "location": "Insert › Header & Footer",
+      "mutates": true,
+      "params": "{\"text\"?: string, \"preset\"?: \"blank|blankThree|pageNumber\"}",
+      "shortcut": ""
+    },
+    "insert.header": {
+      "id": "insert.header",
+      "label": "Header",
+      "location": "Insert › Header & Footer",
+      "mutates": true,
+      "params": "{\"text\"?: string, \"preset\"?: \"blank|blankThree|title\"}",
+      "shortcut": ""
+    },
+    "layout.columns": {
+      "id": "layout.columns",
+      "label": "Columns",
+      "location": "Layout › Page Setup",
+      "mutates": true,
+      "params": "{\"count\": 1-12, \"space\"?: pt, \"separator\"?: bool, \"preset\"?: \"left|right\", \"widths\"?: [[width pt, space after pt], …] (unequal columns; sets the count), \"apply\"?: \"section|document|forward\"}",
+      "shortcut": ""
+    },
+    "layout.margins": {
+      "id": "layout.margins",
+      "label": "Margins",
+      "location": "Layout › Page Setup",
+      "mutates": true,
+      "params": "{\"preset\"?: \"normal|narrow|moderate|wide|mirrored|office2003\", \"top\"?: pt, \"bottom\"?: pt, \"left\"?: pt, \"right\"?: pt, \"gutter\"?: pt}",
+      "shortcut": ""
+    },
+    "layout.orientation": {
+      "id": "layout.orientation",
+      "label": "Orientation",
+      "location": "Layout › Page Setup",
+      "mutates": true,
+      "params": "{\"value\": \"portrait|landscape\"}",
+      "shortcut": ""
+    },
+    "layout.size": {
+      "id": "layout.size",
+      "label": "Size",
+      "location": "Layout › Page Setup",
+      "mutates": true,
+      "params": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}",
+      "shortcut": ""
+    },
+    "para.bullets": {
+      "id": "para.bullets",
+      "label": "Bullets",
+      "location": "Home › Paragraph",
+      "mutates": true,
+      "params": "{\"kind\"?: \"bullet\" | single char, \"off\"?: bool}",
+      "shortcut": "Mod+Shift+L"
+    },
+    "para.heading1": {
+      "id": "para.heading1",
+      "label": "Heading 1",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Alt+1"
+    },
+    "para.normal": {
+      "id": "para.normal",
+      "label": "Normal Style",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Shift+N"
+    },
+    "para.numbering": {
+      "id": "para.numbering",
+      "label": "Numbering",
+      "location": "Home › Paragraph",
+      "mutates": true,
+      "params": "{\"kind\"?: \"numbered|numberedParen|upperLetter|lowerLetter|lowerRoman|outline\", \"off\"?: bool}",
+      "shortcut": ""
+    },
+    "select.all": {
+      "id": "select.all",
+      "label": "Select All",
+      "location": "Home › Editing › Select",
+      "mutates": false,
+      "params": "{}",
+      "shortcut": "Mod+A"
+    },
+    "table.autofit": {
+      "id": "table.autofit",
+      "label": "AutoFit",
+      "location": "Table Layout › Cell Size",
+      "mutates": true,
+      "params": "{\"mode\": \"contents|window|fixed\"}",
+      "shortcut": ""
+    },
+    "table.fromText": {
+      "id": "table.fromText",
+      "label": "Convert Text to Table",
+      "location": "Insert › Tables",
+      "mutates": true,
+      "params": "{\"separator\"?: \"tab|comma\"}",
+      "shortcut": ""
+    },
+    "table.repeatHeader": {
+      "id": "table.repeatHeader",
+      "label": "Repeat Header Rows",
+      "location": "Table Layout › Data",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "text.insert": {
+      "id": "text.insert",
+      "label": "Type Text",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{\"text\": string}",
+      "shortcut": ""
+    },
+    "text.newParagraph": {
+      "id": "text.newParagraph",
+      "label": "New Paragraph",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Enter"
+    },
+    "text.pageBreak": {
+      "id": "text.pageBreak",
+      "label": "Page Break",
+      "location": "Insert › Pages",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Enter"
+    }
+  },
+  "technicalRoundtrip": {
+    "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38928803118",
+    "sourceCommit": "b81c0401bed68b52cd569000987a1fad7fa84dbd",
+    "recipes": [
+      "decision-register-table",
+      "letter-header-footer",
+      "project-charter",
+      "release-bullet-notes",
+      "sop-numbered-steps",
+      "term-normalization-draft",
+      "training-exercise-handout",
+      "two-column-brief"
+    ],
+    "stepHashes": {
+      "project-charter": "a9e3617e53b414aba9730b9096a33968281a79c4c5e0fc122a9fd81ef4f064ec",
+      "sop-numbered-steps": "e6a6fda836f57824cade5c0a6f0909caa8269251482b58cfabc6e01031a09d9d",
+      "release-bullet-notes": "3c9f16567a1dadd3887098af8b14f19553caf9d9be11d5ccfa261d0e1487d3a3",
+      "decision-register-table": "780afc39c1bfc79a2cc7eb9d4ad82a80d7df12bae69fb551297070c2f439bc32",
+      "letter-header-footer": "650f0cca06f42e1ad74494a262db581bf92c1f20ae4ce67193f81c79dbd5d02d",
+      "training-exercise-handout": "7154ee3ab33dfee5866e3928de9a8a08b96585c310f38c514677f849efbf7fb2",
+      "term-normalization-draft": "0f1f929c2e8345c7a1f193764b433a3dd67772b4ca4562b7f9d3bac988fff170",
+      "two-column-brief": "1044a368be82e14c9e62daa5a13c3d563d8645c29aa99b4041a64f3d02ebe725"
+    },
+    "input": "fictional examples embedded in recipes.json; replace values for real tasks",
+    "semanticChecks": "PASS",
+    "layoutAcceptance": "NOT_TESTED"
+  },
+  "archiveSha256": "e6c8be9bb8ff815ed96974b8a25773d1e476301dcd5b242a267b88347185cc4f",
+  "executableSha256": "c28bcf13a8960cce781f64fbbaa34233eb356b60f69808e0a265100c15e79e7f"
+}

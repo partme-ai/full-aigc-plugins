@@ -1,0 +1,44 @@
+{
+  "document": {
+    "name": "Chinese editable title",
+    "width": 320,
+    "height": 180,
+    "units": "Pixels"
+  },
+  "operations": [
+    {
+      "command": "text.create",
+      "params": {
+        "x": 24,
+        "y": 80,
+        "text": "新品上市",
+        "font": "Songti SC",
+        "size": 40,
+        "color": "#192a3b"
+      },
+      "as": "headline"
+    },
+    {
+      "command": "text.create",
+      "params": {
+        "x": 24,
+        "y": 150,
+        "text": "SAFE",
+        "font": "Arial",
+        "size": 20,
+        "color": "#ef5b36"
+      },
+      "as": "footer"
+    }
+  ],
+  "exports": [
+    {
+      "format": "png",
+      "artboard": 0
+    },
+    {
+      "format": "svg",
+      "artboard": 0
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "runtime": {
+    "repository": "storytold/figcraft",
+    "commit": "d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08",
+    "exeSha256": "258ebcacd03404ab15e627b0a6c1a654b4f7f54336f4c6f4b48351abc0bb945e",
+    "artifactRun": 39007496391
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218",
+  "observedCommands": {
+    "file.new": {
+      "id": "file.new",
+      "label": "New design file",
+      "menu": "File",
+      "params": "{name?}",
+      "shortcut": "Cmd+N",
+      "undoable": false
+    },
+    "node.create": {
+      "id": "node.create",
+      "label": "Create layer",
+      "menu": null,
+      "params": "{type: rectangle|ellipse|polygon|star|line|arrow|vector|text|frame|section|component|slice, x?, y? (relative to the parent frame; groups don't count), width?, height?, parent? (id; default: the page), index?, name?, text? (for text), path? (SVG path data for vector), props? {node.set keys}, select? (default true)}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "export.add": {
+      "id": "export.add",
+      "label": "Add export setting",
+      "menu": null,
+      "params": "{ids?, setting? {size: 2x|512w|512h|{by: scale|width|height, value}, suffix?, format?: png|jpg|svg|pdf|webp, bleed? (PDF: points, or with a unit: \"3mm\", \"0.125in\", \"9pt\"), cropMarks?, bleedMarks?, cmyk? (PDF print options)}} (without a setting: 1x, then one scale step up with an \"@2x\"-style suffix)",
+      "shortcut": null,
+      "undoable": true
+    },
+    "inspect.properties": {
+      "id": "inspect.properties",
+      "label": "Inspect properties",
+      "menu": null,
+      "params": "{id?, colorFormat?: hex|rgb|css|hsl|hsb (default hex)} → {sections: [{title, rows: [{label, value, color?, token?}]}]}  layout (positions from the frame around the layer), auto layout, typography, fills, strokes and effects, with style and variable names",
+      "shortcut": null,
+      "undoable": false
+    },
+    "inspect.code": {
+      "id": "inspect.code",
+      "label": "Code for layer",
+      "menu": null,
+      "params": "{id?, language?: css|html|react|leptos|swiftui|compose (default css; html, react and leptos are the whole layer tree; components take their properties as parameters, instances pass their values; a component connected to code (codeConnect.set) gives its import and snippet instead), unit?: px|rem (CSS, HTML, React and Leptos; default px), rootFontSize? (rem: pixels per rem, default 16)} → {code, language, connected}",
+      "shortcut": null,
+      "undoable": false
+    },
+    "inspect.assets": {
+      "id": "inspect.assets",
+      "label": "Inspect assets",
+      "menu": null,
+      "params": "{ids? (default the selection)} → {assets: [{id, name, kind: export|icon|image, exports}]}  the layers in and under them to hand over as files: those with export settings, icons (small, vector shapes only; SVG) and images (PNG). Export them with `file.exportLayers {assets: true}`",
+      "shortcut": null,
+      "undoable": false
+    },
+    "file.exportLayers": {
+      "id": "file.exportLayers",
+      "label": "Export layers",
+      "menu": null,
+      "params": "{ids? (default the selection, else every layer on the page with export settings), assets? (true: the Inspect tab's assets in and under them instead: layers with export settings, icons as SVG, images as PNG), dir? (folder to write into; else each file comes back as base64 `data`), bleed? (PDF: points, or with a unit: \"3mm\", \"0.125in\", \"9pt\"), cropMarks?, bleedMarks?, cmyk? (PDF print options): for every PDF instead of each setting's own}  every layer once per export setting, named `<layer><suffix>.<format>` (\"@2x\" when a scaled export has no suffix; repeats get \" 2\"; slashes in a layer name make folders). Returns {files: [{name, id, bytes, path | data}], skipped (layers without settings)}",
+      "shortcut": null,
+      "undoable": false
+    }
+  },
+  "sceneAcceptance": "LIMITED_TECHNICAL_PASS",
+  "baselineRuntime": {
+    "version": "v0.6.0",
+    "url": "https://github.com/storytold/figcraft/releases/download/v0.6.0/figcraft-0.6.0-windows-x64-portable.zip",
+    "sha256": "87cc2191f2b00c7701fed7db88222d227488e6f50963b24f61e46fed42a565ce",
+    "executable": "figcraft-cli.exe"
+  }
+}

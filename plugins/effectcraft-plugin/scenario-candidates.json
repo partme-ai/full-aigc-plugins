@@ -1,0 +1,34 @@
+{
+  "status": "local-unreleased",
+  "sourcePackage": "full-aigc-skills/effectcraft-skills",
+  "skills": [
+    {
+      "name": "effectcraft-editor",
+      "sha256": "0af33938862c96df4d78e567937c7765f21d170e91068796d8ee05a4ab2d7fcc"
+    },
+    {
+      "name": "effectcraft-logo-reveal",
+      "sha256": "3447affa494ce589f334a9b773365f38ae60b7dabc7f420c0ae05097c25e8d1e"
+    },
+    {
+      "name": "effectcraft-lower-thirds",
+      "sha256": "bc0aee701ced1750baae5fe6b9abc54fe3fbbec63e8ae580844f4d840eb15940"
+    },
+    {
+      "name": "effectcraft-kinetic-type",
+      "sha256": "6d0d318d15f7b768ed6554f115206073b0d76597d175e73bf87c33664d515361"
+    },
+    {
+      "name": "effectcraft-social-loop",
+      "sha256": "0fe8599b2cfaf7e08ef076d55c8b95a6e9c2aece48f789404ce10bf2892875ba"
+    },
+    {
+      "name": "effectcraft-screen-composite",
+      "sha256": "762278c0fd1bc9849291e3c33c8d59437dbd0272d7d29fc9cc012593b6026480"
+    },
+    {
+      "name": "effectcraft-motion-export",
+      "sha256": "aa78e24b08015788cc0174b62c62ef2a7d3e713027a9417db115766efc8f3521"
+    }
+  ]
+}

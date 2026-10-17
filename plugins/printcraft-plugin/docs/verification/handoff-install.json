@@ -1,0 +1,8 @@
+{
+  "pluginId": "printcraft@printcraft-local-validation",
+  "name": "printcraft",
+  "marketplaceName": "printcraft-local-validation",
+  "version": "0.1.0-dev.3",
+  "installedPath": "/private/tmp/printcraft-acceptance/宿主 测试/codex-cache/plugins/cache/printcraft-local-validation/printcraft/0.1.0-dev.3",
+  "authPolicy": "ON_INSTALL"
+}

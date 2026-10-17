@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "dest": "skills/",
+  "skills": [
+    "gridcraft-budget-tracker",
+    "gridcraft-clean-table",
+    "gridcraft-dashboard",
+    "gridcraft-editor",
+    "gridcraft-formula-audit",
+    "gridcraft-reconcile-data",
+    "gridcraft-sales-summary",
+    "gridcraft-scenario-playbooks"
+  ]
+}

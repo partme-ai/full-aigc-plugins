@@ -1,0 +1,91 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "deckcraft",
+  "id": "data-story",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "仅创建新的16:9示例；已有文稿不得清空",
+      "command": "file.new",
+      "params": {
+        "size": [
+          960,
+          540
+        ],
+        "blank": true
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "建立结论与数据依据页",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleOnly",
+        "title": "结论与数据依据",
+        "body": ""
+      }
+    },
+    {
+      "purpose": "用原生柱状图保留数据和类别顺序",
+      "command": "insert.chart",
+      "params": {
+        "type": "column",
+        "rect": [
+          80,
+          150,
+          800,
+          300
+        ],
+        "categories": [
+          "A",
+          "B"
+        ],
+        "series": [
+          {
+            "name": "指标",
+            "values": [
+              21,
+              42
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "purpose": "给第1页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 0,
+        "text": "数据依据：A/B与21/42仅为示例；替换为真实数据并注明单位、周期、来源和缺失值处理。"
+      }
+    },
+    {
+      "purpose": "建立解释边界与下一步页",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleAndContent",
+        "title": "解释边界与下一步",
+        "body": "核实指标定义、样本范围与异常点；相关关系不等于因果；下一步待确认。"
+      }
+    },
+    {
+      "purpose": "给第2页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 1,
+        "text": "解释边界：检查轴范围、标签、对比口径与样本限制；当前命令未设置轴基线，不得宣称已配置。"
+      }
+    }
+  ],
+  "check": "两页分别陈述依据和解释边界；图表活数据回读可修改，类别顺序保留，轴和标签仍需视觉检查。",
+  "boundary": "新建示例仅用于新任务：已有演示文稿先读取页数、选择和内容；不得用file.new清空。索引为0起，仅在此新文稿示例固定；已有文稿重新查询。布局和真实内容质量、外部PowerPoint渲染、宿主同步不由命令通过证明。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "validation": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014846480",
+    "sceneSourceCommit": "49d40a6b73930f267aff0b6e93909635dc1092d4",
+    "platform": "Windows x64",
+    "visualAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

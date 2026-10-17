@@ -1,0 +1,59 @@
+{
+  "document": {
+    "name": "Editable mask",
+    "width": 320,
+    "height": 180,
+    "frameRate": 12,
+    "duration": 1
+  },
+  "operations": [
+    {
+      "command": "layer.newSolid",
+      "params": {
+        "name": "Product region",
+        "color": "#20d030",
+        "width": 320,
+        "height": 180
+      },
+      "as": "product"
+    },
+    {
+      "command": "mask.new",
+      "params": {
+        "layer": {
+          "$ref": "product.layer"
+        },
+        "vertices": [
+          [
+            0,
+            0
+          ],
+          [
+            160,
+            0
+          ],
+          [
+            160,
+            180
+          ],
+          [
+            0,
+            180
+          ]
+        ],
+        "closed": true,
+        "mode": "add"
+      },
+      "as": "crop"
+    }
+  ],
+  "frames": [
+    0,
+    0.5
+  ],
+  "exports": [
+    {
+      "format": "mp4"
+    }
+  ]
+}
