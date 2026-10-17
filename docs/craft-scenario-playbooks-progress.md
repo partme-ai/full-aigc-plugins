@@ -91,3 +91,5 @@ Windows运行38993539990通过13应用业务矩阵，Fig8条及1条既有文件�
 真实执行既有screen-composite技能时，发现layer.mask.shape只能编辑已有遮罩，没有遮罩会失败。已改用官方0.10.0的layer.addMask并同步独立技能源和插件；明确rect使用图层局部坐标。冻结基础技能未更改。本地候选的旧SKILL摘要在逐个核对源/插件字节一致后刷新。
 
 官方macOS通用CLI校验发布SHA256后在隔离目录执行，无全局安装。回归先复现旧步骤失败，再执行修正后的技能原始步骤；新进程核对闭合遮罩顶点、90%图层透明度，实际PNG核对遮罩内外像素并查看输出。该合成色块夹具不证明真实屏幕素材透视、遮挡、追踪或宿主界面同步。新增Windows回归读取固定技能源提交的同一份步骤，运行结果另行记录。
+
+Windows原生业务运行[38997778808](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38997778808)全部13项通过，下载EffectCraft产物核实win32、遮罩结构与像素检查均PASS；安装/MCP运行[38997778814](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38997778814)通过。新增4个检查器负例/正例测试后辅助测试共58项通过，OpenSpec严格校验通过。累计198条映射中95条有对应技术回归，另有4条组合用例；103条仍未逐项执行。六个EffectCraft场景中的其余五个不因CLI试跑成功计入验收。详见[遮罩回归记录](craft-effect-mask-validation.json)。
