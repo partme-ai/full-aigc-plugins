@@ -1,0 +1,86 @@
+{
+  "scope": "Three original workflows from pinned GitHub facts, native synthetic samples; no host sync or production-playback acceptance",
+  "sourceCommit": "5ac35af6859c73690830646514f942db9ce46725",
+  "pluginCommit": "d129b286ccecaa1c15f8ac19a7b0d809ade53a72",
+  "recipesSha256": {
+    "chapter-card": "76984b77b430811f4d1d1d345b2ad24661a221e0e81b7686449a62f63d76f74c",
+    "countdown-intro": "25dfa466a40d4ba09e06f93e9f0af668ee794de51f1dd86462a26d4a2cb56515",
+    "credits-roll": "b0a50678ca7a38fae5b7729eacd747f4950fbea6d20ac63ceccb91868cf03867"
+  },
+  "macOS": {
+    "runtimeVersion": "0.10.0",
+    "processCount": 108,
+    "results": [
+      {
+        "id": "chapter-card",
+        "sequenceFrames": 100,
+        "allFramesDecoded": "PASS",
+        "savedProjectAndSampledFrames": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "actualProductionPlayback": "NOT_TESTED"
+      },
+      {
+        "id": "countdown-intro",
+        "sequenceFrames": 100,
+        "allFramesDecoded": "PASS",
+        "savedProjectAndSampledFrames": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "actualProductionPlayback": "NOT_TESTED"
+      },
+      {
+        "id": "credits-roll",
+        "sequenceFrames": 300,
+        "allFramesDecoded": "PASS",
+        "savedProjectAndSampledFrames": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "actualProductionPlayback": "NOT_TESTED"
+      },
+      {
+        "id": "kinetic-type",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      },
+      {
+        "id": "logo-reveal",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      },
+      {
+        "id": "lower-thirds",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      },
+      {
+        "id": "motion-export",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      },
+      {
+        "id": "screen-composite",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      },
+      {
+        "id": "social-loop",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      }
+    ],
+    "newScenarioPngFrames": 500,
+    "allNewFramesDecoded": "PASS",
+    "visualReview": "Viewed actual chapter hold, START and middle credits native PNGs; not continuous playback"
+  },
+  "windows": "PENDING_CI",
+  "tests": {
+    "effectDelivery": 7,
+    "existingPlaybookHelpers": 52,
+    "pluginLocal": 24
+  },
+  "publication": "SOURCE_AND_PLUGIN_FEATURE_ONLY_MARKET_RELEASE_PENDING"
+}

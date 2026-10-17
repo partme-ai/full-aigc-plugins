@@ -52,8 +52,14 @@ jobs:
           repository: full-aigc-skills/printcraft-skills
           ref: ${{ steps.print-source.outputs.revision }}
           path: .local/test-print-skills
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/effectcraft-skills
+          ref: 5ac35af6859c73690830646514f942db9ce46725
+          path: .local/test-effect-skills
       - run: python -m unittest discover -s scripts/ci -p "test_*.py" -v
         env:
+          CRAFT_EFFECT_SKILLS_ROOT: ${{ github.workspace }}/.local/test-effect-skills/skills
           CRAFT_PRINT_SKILLS_ROOT: ${{ github.workspace }}/.local/test-print-skills/skills
           CRAFT_DESIGN_SKILLS_ROOT: ${{ github.workspace }}/.local/test-design-skills/skills
           PYTHONUTF8: '1'

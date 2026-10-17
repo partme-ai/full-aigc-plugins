@@ -154,8 +154,9 @@ def run_playbooks(r, path):
     files = sorted(path.glob('effectcraft-*/references/craft-steps.json')) if path.is_dir() else [path]
     if path.is_dir():
         require({json.loads(file.read_text(encoding='utf-8'))['id'] for file in files} == {
-            'screen-composite', 'kinetic-type', 'logo-reveal', 'lower-thirds', 'social-loop', 'motion-export'},
-            'Expected all six EffectCraft skill recipes')
+            'screen-composite', 'kinetic-type', 'logo-reveal', 'lower-thirds', 'social-loop', 'motion-export',
+            'chapter-card', 'countdown-intro', 'credits-roll'},
+            'Expected all nine EffectCraft skill recipes')
     original_work = r.work
     records = []
     try:
@@ -163,7 +164,11 @@ def run_playbooks(r, path):
             recipe = json.loads(file.read_text(encoding='utf-8'))
             r.work = original_work / recipe['id']
             r.work.mkdir()
-            records.append(run_recipe(r, recipe))
+            if recipe['id'] in {'chapter-card', 'countdown-intro', 'credits-roll'}:
+                from effect_delivery_smoke import run_recipe as run_delivery_recipe
+                records.append(run_delivery_recipe(r, recipe))
+            else:
+                records.append(run_recipe(r, recipe))
     finally:
         r.work = original_work
     return records
