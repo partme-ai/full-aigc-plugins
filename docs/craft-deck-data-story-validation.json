@@ -168,6 +168,37 @@
     "version": "0.1.0-dev.20261018.3",
     "commit": "ec48b2b5c92a6f7dfe93450739289779a1f77549",
     "archiveSha256": "9206475f435dee9fff66e4207b6d9cc9e7e969bd74dc13878505ce91b79b13bd",
-    "marketMain": "PENDING"
+    "marketMain": "PENDING",
+    "publicTestMarketInstallation": "PASS",
+    "installedScriptSourceBytes": "IDENTICAL",
+    "nativeDenseSample": {
+      "status": "PASS",
+      "host": "actual native Codex app-server with18.3 installed from public test market",
+      "categories": 12,
+      "series": 3,
+      "engineCommands": 7,
+      "liveEditor": "observed no dense numeric labels",
+      "savedPptxIndependentCheck": "PASS",
+      "screenshotSha256": "5e4442654216024470520d757614488f1606834bea05aa7b739e4749cc8813fb",
+      "runtime": "same verified bundled enhanced0.7.0; not newest upstream main"
+    },
+    "testRuns": {
+      "dataStory": {
+        "id": 39080897435,
+        "status": "PASS"
+      },
+      "marketInstall": {
+        "id": 39080897417,
+        "status": "PENDING"
+      },
+      "windowsBusiness": {
+        "id": 39080897421,
+        "status": "PENDING"
+      },
+      "packageMcp": {
+        "id": 39080897422,
+        "status": "PENDING"
+      }
+    }
   }
 }
