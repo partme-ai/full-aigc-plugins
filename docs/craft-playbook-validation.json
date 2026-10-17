@@ -23,8 +23,8 @@
     },
     {
       "application": "figcraft",
-      "mappedScenes": 6,
-      "skills": 6
+      "mappedScenes": 14,
+      "skills": 7
     },
     {
       "application": "filmcraft",
@@ -67,6 +67,6 @@
       "skills": 7
     }
   ],
-  "mappedScenes": 182,
+  "mappedScenes": 190,
   "errors": []
 }

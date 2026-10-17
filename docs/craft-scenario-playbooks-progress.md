@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前182条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/VectorCraft各14条，其余5应用各6条。不是182条都已通过完整效果验收。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前190条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/VectorCraft/FigCraft各14条，其余4应用各6条。不是190条都已通过完整效果验收。
 
 | 内容 | 当前事实 |
 | --- | --- |
 | GitHub来源 | 16个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 80个技能中落地182条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 81个技能中落地190条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -26,7 +26,7 @@ PhotoCraft从 `photocraft-scenario-playbooks` 选择修复、影调、人像、�
 
 - [13应用命令目录与原生业务](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883)
 - [PhotoCraft 18场景技术往返及局部像素](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38926679341)
-- 静态检查：`python3 scripts/validate-craft-playbooks.py`，覆盖182条；新技能格式检查通过；40项回归与OpenSpec严格检查通过。
+- 静态检查：`python3 scripts/validate-craft-playbooks.py`，覆盖190条；新技能格式检查通过；43项CI辅助回归与5项Fig返回绑定回归与OpenSpec严格检查通过。
 
 ## 继续工作
 
@@ -71,3 +71,13 @@ Windows运行38934923269通过13应用业务矩阵，其中新增8条及1条既�
 Vector文档结构检查通过；插件既有OpenSpec严格检查因2条超过500字符的requirement警告未通过，相关规格未修改。技能源完整255项测试中196通过、11失败、48跳过；旧测试对新增场景目录仍强加旧Harness资源要求，尚未整理。技能源CI在新增前的运行38924359919和本轮38934678222均因vectorcraft-harness合同/策略文件漂移失败。本轮没有改写冻结基础技能或为凑绿补平台资源；这些失败不是本轮Windows新场景通过的替代证明，也没有报告整个仓库CI通过。宿主同步与真实品牌/印刷任务仍未验收。
 
 推送后的Vector插件文档/架构CI通过；实现CI运行38935240955执行481项测试有2项固定历史发布夹具失败（479项通过），与新增前运行38924393330的两项失败一致。未将历史固定发行快照重写为本次候选，也不宣称插件全CI通过。Windows原生业务运行38934923269和安装/MCP运行38934923536均已完成并通过。
+
+## Fig界面场景扩展
+
+新增8条登录页、自动布局套餐卡、指标组件、横向导航、自适应容器、确认弹窗、空状态、字段错误状态流程。补读Figma官方plugin-samples中barchart、metacards、resizer、text-search和vector-path实际源文件，借鉴frame/appendChild、布局/间距、可编辑文字和对象resize事实，界面文案与参数原创适配。
+
+原生FigCraft CLI不替换$frame.id。新技能明确capture/$ref为手册标记，并提供小型原生CLI返回值绑定脚本，按真实返回ID分批执行并以临时工程保存重开；同画面MCP操作仍在同一宿主会话进行。脚本5项绑定/输出保护测试通过源仓运行38993463071；独立复核代理因配额未完成，未记为通过。
+
+Windows运行38993539990通过13应用业务矩阵，Fig8条及1条既有文件追加组件用例通过：真实ID、父子归属、文字、实际布局间距、组件登记、640/592宽度检查均通过，既有2节点与输入文件摘要保持。8张实际PNG逐一查看，最终重跑像素一致；既有图与新组件组合图也已查看。运行范围见craft-fig-playbook-validation.json。Fig本地候选清单旧摘要已按当前本地候选刷新，package校验通过；未把它当作宿主安装验收。
+
+累计190条映射中86条完成技术回归，另有Deck组合、Vector既有图组合、Fig既有图新增各1条；剩余104条仍待运行。DesignCraft、EffectCraft、FilmCraft、PrintCraft仍需继续扩展场景深度，真实产品交互、复杂素材和宿主同步验收未完成。OpenSpec保持实施中，不归档。
