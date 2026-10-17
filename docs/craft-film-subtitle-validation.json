@@ -156,7 +156,7 @@
   },
   "remaining": [
     "Chinese Web font display",
-    "marketplace publication of this candidate",
+    "main branch CI completion",
     "other hosts and remaining scenarios"
   ],
   "regression": {
@@ -211,7 +211,26 @@
     "url": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
     "archiveSha256": "47b7ffe7cea15b51cbdad1640701403a454608475ce016ba419d113fc28d22ea",
     "publicZipVerification": "PASS",
-    "marketplace": "PENDING",
+    "marketplace": "PASS: public main native Codex install, skill discovery and MCP",
     "limitation": "Chinese Web glyphs missing; caption timing and Unicode exports tested"
+  },
+  "marketDelivery": {
+    "hubCommit": "8c87f242556529c3c030da095cf9181312d9ea10",
+    "testMatrix": {
+      "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39076276503",
+      "jobs": 27,
+      "result": "PASS"
+    },
+    "publicMainInstallation": "PASS",
+    "dailyMarketplaceSourceRefresh": "PASS: no errors; installed daily plugins not upgraded",
+    "mainCI": {
+      "status": "IN_PROGRESS_OR_QUEUED",
+      "runs": [
+        39076521600,
+        39076521643,
+        39076521745
+      ]
+    },
+    "scope": "native plugin/list icons before installation; all installed skills discovered; editor HTML and MCP; GUI sync covered separately by nativeCodex field"
   }
 }
