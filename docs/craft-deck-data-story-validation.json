@@ -90,6 +90,15 @@
     "commit": "57c6c12139302f66da2e3cf9d5d6b8ddaea50961",
     "url": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261018.2",
     "completeZipPublicDownloadInstallMcpRuntimeDigests": "PASS",
-    "marketMain": "PENDING"
+    "marketMain": "PENDING",
+    "publicTestMarketInstallation": "PASS",
+    "testHubCommit": "ba3cdd02b5df1ab9fbf07231726195afc377072d",
+    "testCI": {
+      "marketInstall": 39080584679,
+      "windowsPackageMcp": 39080584675,
+      "windowsBusiness": 39080584705,
+      "dataStory": 39080584687,
+      "status": "QUEUED_AT_RECORDING"
+    }
   }
 }
