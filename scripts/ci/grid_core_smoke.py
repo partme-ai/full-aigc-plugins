@@ -106,8 +106,16 @@ def run_recipe(r, recipe):
         mutation([('sheet.activate', {'sheet': 'Sheet2'}), ('cell.set', {'cell': 'A3', 'input': 'O9'}),
                   ('sheet.activate', {'sheet': 'Sheet1'})], 'unique-key.xlsx')
         require(read(r, 'unique-key.xlsx', 'E2:F2') == [[90, 10]], 'Cross-sheet lookup and difference did not recalculate')
+        mutation([('sheet.activate', {'sheet': 'Sheet2'}), ('home.numberFormat', {'range': 'A2:A3', 'format': '@'}),
+                  ('cell.set', {'cell': 'A2', 'input': '001'}), ('cell.set', {'cell': 'A3', 'input': '1'}),
+                  ('sheet.activate', {'sheet': 'Sheet1'}), ('home.numberFormat', {'range': 'A2', 'format': '@'}),
+                  ('cell.set', {'cell': 'A2', 'input': '001'})], 'numeric-text-keys.xlsx')
+        require(read(r, 'numeric-text-keys.xlsx', 'E2:F2') == [[90, 10]], 'Distinct numeric text keys collapsed')
         require(read(r, 'result.xlsx', 'A2:B5') == [['O1', 100], ['O2', 70], ['O3', 50], [None, 9]],
                 'Reconciliation deleted original unmatched records')
+        require(read(r, 'result.xlsx', 'A1:B4', sheet='Sheet2') ==
+                [['Key', 'Amount'], ['O1', 90], ['O1', 100], ['O2', 70]],
+                'Reconciliation overwrote the counterparty source data')
     elif name == 'dashboard':
         verify_chart(r.work / 'result.xlsx', [21, 42])
         mutation([('cell.set', {'cell': 'G3', 'input': '84'})], 'refreshed-chart.xlsx')
