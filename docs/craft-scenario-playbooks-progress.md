@@ -131,3 +131,7 @@ Windows运行[38999455043](https://github.com/partme-ai/full-aigc-plugins/action
 真实复现镜像旧步骤使用flipCanvasHorizontal使底层原图也反转的问题；改为选中图层edit.transform.flipHorizontal。新回归逐像素核对水平镜像，隐藏工作副本后原图像素完全恢复。白色/透明扩画布检查全部原图像素居中未缩放和整个扩展区RGBA；黑白调整关闭后原彩色像素完全恢复。八个局部处理检查目标改变且保护区逐像素不变，模糊/锐化另测局部边缘能量，白包装/牙齿另测黄偏指标下降。
 
 官方macOS0.9.0 CLI十二项通过并查看镜像、透明边框、局部色相与黑白输出；辅助测试79项通过、13应用198条静态检查通过、PhotoCraft候选与文档检查通过。Windows将读取本次固定技能源，并与原18条合并为30条真实业务回归；结果待运行后记录。未把这12项计为新增配方，宿主同步和真实媒体效果另验收。
+
+Windows运行[38999972530](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38999972530)13应用业务通过，PhotoCraft30条经106次真实CLI调用通过；下载产物确认本轮12条像素检查，并重新核对方法目录中的图层翻转参数。16张合成PNG在macOS/Windows解码RGBA完全一致。背景边缘能量8928→0，标签边缘35584→45568，白包装黄偏177072→129462.5，牙齿区域黄偏9430→7418，仅证明指定测试区域。既有安装/MCP运行38999972419通过；候选清单补登photocraft-scenario-playbooks，8个本地候选检查通过。完整范围见[PhotoCraft补充回归](craft-photo-more-validation.json)。
+
+累计198条映射中123条完成限定技术回归，1条表单部分通过，74条尚未逐项执行，另有4条组合用例。PhotoCraft自身文档/架构CI通过，实现CI仍因旧测试引用不存在的photocraft-use/scripts和plan_identity.py失败；不恢复旧运行时或改掉断言来凑绿。真实媒体效果和宿主同步仍未验收，OpenSpec保持实施中。
