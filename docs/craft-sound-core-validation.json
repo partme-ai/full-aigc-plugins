@@ -59,11 +59,15 @@
     ],
     "reuse": "Workflow facts only; original Craft adaptation; no upstream text/code/assets copied"
   },
-  "remainingCore": [
-    "podcast-cleanup",
-    "audio-edit",
-    "music-demo"
-  ],
+  "remainingCore": [],
   "creativeAuditoryAcceptance": "NOT_TESTED",
-  "installedHostSync": "NOT_TESTED"
+  "installedHostSync": "NOT_TESTED",
+  "currentSoundCoreStatus": {
+    "mappedCoreWorkflows": 6,
+    "limitedTechnicalPassed": 6,
+    "totalUniqueRecipes": 14,
+    "latestReport": "craft-sound-more-core-validation.json",
+    "creativeAuditoryAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
 }

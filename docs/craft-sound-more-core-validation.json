@@ -1,0 +1,93 @@
+{
+  "application": "soundcraft",
+  "scope": "Three remaining core workflows on synthetic sources; not creative/auditory or installed-host acceptance",
+  "firstFailureRun": 39012293554,
+  "windowsMainRun": 39012439447,
+  "windowsStableMatrixRun": 39012427784,
+  "sourceMain": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+  "sceneSourceCommit": "d6e0cf408d071e7709a32686e0d993a43769cd96",
+  "driverCommit": "d04731517a545328a5bc80dc01dc9f1041299f24",
+  "executableSha256": "0cc6ba9c655e60fe3b85ebb0ce33f21f9256e320c0da90b49c3e4048f3092a17",
+  "processCount": 534,
+  "uniqueRecipes": 14,
+  "verifiedOutputHashes": 89,
+  "coreResults": [
+    {
+      "id": "podcast-cleanup",
+      "technicalRoundtrip": "PASS",
+      "sampleAndNativeStructureChecks": "PASS",
+      "pcm48k24bitStereo": "PASS",
+      "sourceProtected": "PASS",
+      "auditoryAcceptance": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "audio-edit",
+      "technicalRoundtrip": "PASS",
+      "sampleAndNativeStructureChecks": "PASS",
+      "pcm48k24bitStereo": "PASS",
+      "sourceProtected": "PASS",
+      "auditoryAcceptance": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "music-demo",
+      "technicalRoundtrip": "PASS",
+      "sampleAndNativeStructureChecks": "PASS",
+      "pcm48k24bitStereo": "PASS",
+      "sourceProtected": "PASS",
+      "auditoryAcceptance": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    }
+  ],
+  "audacitySources": {
+    "repository": "audacity/audacity-manual",
+    "commit": "92794e43861704433b0af65dbe503ef9253ff4e4",
+    "readFiles": [
+      {
+        "path": "manual/man/crossfade_clips.html",
+        "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/crossfade_clips.html",
+        "sha256": "f1fc22f539ab3281139e887e6d7f4d3c4991c8f594508bedda0fbc837eded8c2",
+        "bytes": 14280
+      },
+      {
+        "path": "manual/man/export_multiple.html",
+        "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/export_multiple.html",
+        "sha256": "480ae9bea5b1408e5eb3304fd2678c86312596a7e3005b7da5a86337b1f6a170",
+        "bytes": 30608
+      },
+      {
+        "path": "manual/man/fades.html",
+        "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/fades.html",
+        "sha256": "40ed570be9b76ff5392ea814555a7c520df8cf85286fa7f8ff909bf1e51626e8",
+        "bytes": 18516
+      }
+    ],
+    "reuse": "Workflow facts only, original Craft adaptation; no upstream text/code/assets copied"
+  },
+  "observedCrossfade": {
+    "sampleRate": 48000,
+    "overlapSamples": 4800,
+    "clip1Start": 0,
+    "clip1Length": 98400,
+    "clip2Start": 93600,
+    "clip2End": 192000,
+    "shape": "Linear",
+    "continuousSourceSamplesPreserved": "PASS"
+  },
+  "observedMixer": {
+    "Lead": {
+      "volumeDb": -6,
+      "pan": -0.2
+    },
+    "Bed": {
+      "volumeDb": -12,
+      "pan": 0
+    }
+  },
+  "stemSumEqualsSimpleMix": "PASS_WITH_NO_SHARED_BUS_EFFECTS",
+  "sourceProtection": "PASS",
+  "auditoryAcceptance": "NOT_TESTED",
+  "installedHostSync": "NOT_TESTED",
+  "remainingSoundCore": []
+}

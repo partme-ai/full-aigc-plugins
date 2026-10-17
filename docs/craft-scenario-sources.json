@@ -263,6 +263,12 @@
           "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/amplify.html",
           "sha256": "492969d08b1b34fe9c05179ff945b4613d2adda775372e8be413991d1d684568",
           "bytes": 14393
+        },
+        {
+          "path": "manual/man/crossfade_clips.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/crossfade_clips.html",
+          "sha256": "f1fc22f539ab3281139e887e6d7f4d3c4991c8f594508bedda0fbc837eded8c2",
+          "bytes": 14280
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"

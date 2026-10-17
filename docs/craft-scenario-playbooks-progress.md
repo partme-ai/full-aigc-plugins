@@ -223,3 +223,14 @@ Windows专项[39011329666](https://github.com/partme-ai/full-aigc-plugins/action
 Windows main [39011827930](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39011827930)通过原8条和新增3条，共11条唯一配方、520次CLI调用；下载核对二进制和59份输出摘要，检查轨道/片段信号、四秒48kHz24位立体声PCM及保存重开采样一致。稳定CLI的13应用业务矩阵[39011822036](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39011822036)也通过。实际语音试听、LUFS标准与宿主同步未验收；另3条Sound核心仍待执行。详见[核心回归](craft-sound-core-validation.json)。
 
 累计201条映射：167条限定技术回归通过、1条PDF表单部分通过、33条待执行，另4组合用例。main新增专项另计，不虚增原场景；完整目标与OpenSpec继续实施。
+
+
+## SoundCraft剩余三项核心场景
+
+补读Audacity固定提交的crossfade_clips、export_multiple与fades，结合Sound main io.rs/edit.rs实际语义重建操作。首轮Windows39012293554复现旧播客步骤只指定淡变形状、未建时间选区，被运行时拒绝。现明确Voice片段和首尾100ms选区，查询engine.plugins只作能力发现，不声称已执行均衡、压缩或降噪。
+
+音频剪辑明确2秒切口，用同源余量形成1.95至2.05秒交叉区，互补linear避免连续相关信号等功率叠加增益；检查原生两片段源ID、偏移、淡变和总时长。音乐小样明确Lead/Bed的音量与声像，并说明bounce_stems会导出全部启用且未静音的轨，保留单轨混音处理而非仅选中轨或原始干声备份；样例无共享总线/发送/效果。
+
+Windows main [39012439447](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39012439447)完成14条唯一配方、534次CLI调用，下载核对二进制及89份输出摘要，三项核心均为实际4秒48kHz24位立体声PCM。检查头尾淡变与中段保护、同源连续采样保持、两stem相加匹配审核混音，以及工程保存重开和输入保护。稳定版13应用业务矩阵[39012427784](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39012427784)也通过。真实播客/音乐素材试听和宿主同步未验收。详情见[剩余核心回归](craft-sound-more-core-validation.json)。
+
+累计201条映射：170条限定技术回归通过、1条PDF表单部分通过、30条待执行，另4组合用例。剩余30条为CAD、Design、Fig、Light、Deck各6条核心；不据Sound技术回归宣称全目标完成。原OpenSpec继续实施中。
