@@ -2,7 +2,7 @@
 
 ## 目的
 
-将 GitHub 上 Photoshop、Illustrator、InDesign、After Effects、Premiere、Lightroom、Audition/音频编辑器、AutoCAD、Figma、Office、Acrobat 等工具的实际使用经验，重新编写为 13 个 Craft 插件内可发现、能直接定位 CLI/MCP 命令与参数的场景技能。既有每应用 6 个通用步骤不足以完成这一目标。
+将 GitHub、skills.sh 与 SkillHub 中 Photoshop、Illustrator、InDesign、After Effects、Premiere、Lightroom、Audition/音频编辑器、AutoCAD、Figma、Office、Acrobat 等工具的实际使用经验，重新编写为 13 个 Craft 插件内可发现、能直接定位 CLI/MCP 命令与参数的场景技能。既有每应用 6 个通用步骤不足以完成这一目标。
 
 ## 范围
 
@@ -11,3 +11,7 @@
 ## 交付
 
 按需加载的场景手册、具体命令/参数/结果映射、CLI 与 MCP 的运行差异、缺失能力的明确边界、插件集成与真实操作验证。场景步骤依赖实际对象 ID 与当前 schema；不虚构算法，不让历史目录代替当前运行时发现。
+
+## 商店检索补充（2026-10-17）
+
+按用户要求使用已安装的 SkillHub CLI，联合检索 skills.sh。候选下载仅用于隔离阅读，不运行第三方安装脚本或切换执行引擎。筛选结果适配到现有独立技能：保留业务判断、输入与验收方法，执行仍映射 Craft CLI/MCP。记录商店查询、版本、正文摘要哈希、实际阅读范围、原仓固定提交与许可（可取得时）；缺失项明确标注，不假装有完整上游授权。

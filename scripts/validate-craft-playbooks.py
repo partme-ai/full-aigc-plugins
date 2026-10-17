@@ -7,8 +7,53 @@ from pathlib import Path
 import re
 
 
+def validate_market_record(path):
+    """商店经验复用已有配方；校验来源和方法，不增加场景计数。"""
+    errors=[]
+    data=json.loads(path.read_text(encoding='utf-8'))
+    if data.get('schema')!='craft-market-adaptations/v1':
+        errors.append(str(path)+': invalid market schema')
+    sources={source['id']:source for source in data.get('sources',[])}
+    if not sources:errors.append(str(path)+': missing market sources')
+    for source in sources.values():
+        if not re.fullmatch('[0-9a-f]{64}',source.get('sha256','')):
+            errors.append(str(path)+': missing market content hash')
+        if source.get('market')=='SkillHub':
+            if not source.get('version') or not source.get('downloadUrl','').startswith('https://'):
+                errors.append(str(path)+': incomplete SkillHub source')
+        elif source.get('market')=='skills.sh':
+            if not re.fullmatch('[0-9a-f]{40}',source.get('commit','')) or not source.get('path'):
+                errors.append(str(path)+': incomplete pinned repository source')
+        else:errors.append(str(path)+': unknown market')
+    commands=data.get('observedCommands',{})
+    if not data.get('adaptations'):errors.append(str(path)+': empty adaptations')
+    for item in data.get('adaptations',[]):
+        if not item.get('sourceIds') or set(item['sourceIds'])-sources.keys():
+            errors.append(str(path)+': unknown adaptation source')
+        if any(not item.get(field) for field in ['adaptation','taskCheck','capabilityBoundary']):
+            errors.append(str(path)+': empty adaptation guidance')
+        if item.get('execution')!='REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE':
+            errors.append(str(path)+': unsupported runtime claim')
+        recipe=item.get('recipe',{})
+        if recipe.get('id')!=item.get('id') or not recipe.get('steps'):
+            errors.append(str(path)+': missing existing recipe')
+        for step in recipe.get('steps',[]):
+            name=step.get('command');args=step.get('params')
+            if name not in commands or not isinstance(args,dict):
+                errors.append(str(path)+': unknown market method or params '+str(name));continue
+            schema=commands[name].get('input_schema')
+            if schema:
+                missing=set(schema.get('required',[]))-args.keys()
+                unknown=set(args)-schema.get('properties',{}).keys()
+                if missing or (unknown and schema.get('additionalProperties') is False):
+                    errors.append(str(path)+': market parameter mismatch '+name)
+    return errors
+
+
 def validate_skill(skill, plugin_skill=None):
     errors=[]; count=0
+    market=skill/'references/market-adaptations.json'
+    if market.exists():errors.extend(validate_market_record(market))
     if not (skill/'SKILL.md').is_file():return ['missing SKILL.md'],0
     for file in skill.rglob('*.md'):
         text=file.read_text(encoding='utf-8')

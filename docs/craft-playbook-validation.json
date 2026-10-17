@@ -8,8 +8,8 @@
     },
     {
       "application": "designcraft",
-      "mappedScenes": 6,
-      "skills": 6
+      "mappedScenes": 14,
+      "skills": 7
     },
     {
       "application": "effectcraft",
@@ -67,6 +67,6 @@
       "skills": 7
     }
   ],
-  "mappedScenes": 190,
+  "mappedScenes": 198,
   "errors": []
 }

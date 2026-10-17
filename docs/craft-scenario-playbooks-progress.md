@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前190条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/VectorCraft/FigCraft各14条，其余4应用各6条。不是190条都已通过完整效果验收。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前198条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/VectorCraft/FigCraft各14条，DesignCraft14条，其余3应用各6条。不是198条都已通过完整效果验收。
 
 | 内容 | 当前事实 |
 | --- | --- |
 | GitHub来源 | 16个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 81个技能中落地190条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 82个技能中落地198条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -26,7 +26,7 @@ PhotoCraft从 `photocraft-scenario-playbooks` 选择修复、影调、人像、�
 
 - [13应用命令目录与原生业务](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883)
 - [PhotoCraft 18场景技术往返及局部像素](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38926679341)
-- 静态检查：`python3 scripts/validate-craft-playbooks.py`，覆盖190条；新技能格式检查通过；43项CI辅助回归与5项Fig返回绑定回归与OpenSpec严格检查通过。
+- 静态检查：`python3 scripts/validate-craft-playbooks.py`，覆盖198条；新技能格式检查通过；43项CI辅助回归与5项Fig返回绑定回归与OpenSpec严格检查通过。
 
 ## 继续工作
 
@@ -81,3 +81,7 @@ Vector文档结构检查通过；插件既有OpenSpec严格检查因2条超过50
 Windows运行38993539990通过13应用业务矩阵，Fig8条及1条既有文件追加组件用例通过：真实ID、父子归属、文字、实际布局间距、组件登记、640/592宽度检查均通过，既有2节点与输入文件摘要保持。8张实际PNG逐一查看，最终重跑像素一致；既有图与新组件组合图也已查看。运行范围见craft-fig-playbook-validation.json。Fig本地候选清单旧摘要已按当前本地候选刷新，package校验通过；未把它当作宿主安装验收。
 
 累计190条映射中86条完成技术回归，另有Deck组合、Vector既有图组合、Fig既有图新增各1条；剩余104条仍待运行。DesignCraft、EffectCraft、FilmCraft、PrintCraft仍需继续扩展场景深度，真实产品交互、复杂素材和宿主同步验收未完成。OpenSpec保持实施中，不归档。
+
+## 双商店场景经验适配
+
+按用户新增要求检索skills.sh和SkillHub。本机SkillHub已有2026.7.7，无重复安装。56组查询得到501条候选，采用41条来源记录，原创适配39项业务指导并同步到13插件的19个已有技能入口。这些指导复用现有配方，不把198条场景抬高为237条。具体覆盖、筛选口径、验证及已复现的4项既有包校验失败见[双商店报告](craft-skill-market-research.md)。新增指导未做真实媒体和宿主同步验收，不能视作全目标完成。
