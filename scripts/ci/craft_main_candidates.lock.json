@@ -10,7 +10,7 @@
       "date": "2026-10-16T03:26:48Z",
       "message": "Merge pull request #1382 from dylanmtaylor/ci/add-platform-checks",
       "pluginCommit": "eaa97f0fd2a10d9aebd84cab7593d4fae268cd8f",
-      "skillsCommit": "772ee36dca1ae8634f423243bc1d89996a26862d",
+      "skillsCommit": "f0b1cb57b28a31a18de3e07712b5ea03ae408e33",
       "engine": "cadcraft",
       "status": "development-candidate-not-accepted",
       "editorMode": "source-overlay",

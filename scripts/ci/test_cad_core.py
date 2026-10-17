@@ -54,5 +54,32 @@ class CoreFloorPlanTests(unittest.TestCase):
         self.assertFalse(plot['fit'])
         self.assertEqual(plot['scale'], '1:50')
 
+    def test_trace_reference_has_independent_axis_checks(self):
+        path = ROOT / 'full-aigc-skills-repositories/cadcraft-skills/skills/cadcraft-trace-reference/references/craft-steps.json'
+        if not path.exists():
+            self.skipTest('Source checkout unavailable')
+        recipe = json.loads(path.read_text())
+        self.assertEqual(sum(s['command'] == 'dist' for s in recipe['steps']), 2)
+        self.assertIn('calibration', recipe)
+
+    def test_reference_calibration_rejects_wrong_second_dimension(self):
+        from cad_playbook_smoke import calibrated_outline
+        sample = {'originPx':[20,140], 'xReferencePx':[220,140], 'xLengthMm':100, 'verticalCheckPx':[20,20], 'verticalLengthMm':60, 'outlinePx':[[20,140],[220,140],[220,20],[20,20]]}
+        self.assertEqual(calibrated_outline(sample), [[0,0],[100,0],[100,60],[0,60]])
+        with self.assertRaisesRegex(AssertionError,'Independent vertical'):
+            calibrated_outline({**sample,'verticalLengthMm':70})
+        with self.assertRaisesRegex(AssertionError,'Invalid calibration'):
+            calibrated_outline({**sample,'xReferencePx':[20,140]})
+
+    def test_pdf_control_is_measured_in_physical_units(self):
+        from cad_playbook_smoke import pdf_control_lengths
+        header = b'%PDF-1.4\n/MediaBox [0 0 595.27559 841.88976]\nstream\n'
+        content = b'10 10 m\n293.46457 10 l\n10 10 m\n10 236.77165 l\nendstream\n'
+        lengths = pdf_control_lengths(header+content)
+        self.assertAlmostEqual(lengths[0],80,places=3)
+        self.assertAlmostEqual(lengths[1],100,places=3)
+        with self.assertRaisesRegex(AssertionError,'A4'):
+            pdf_control_lengths((header+content).replace(b'595.27559',b'600'))
+
 if __name__ == '__main__':
     unittest.main()

@@ -124,6 +124,7 @@ def run_playbooks(r,path):
     records.append(run_core_layers(r, path))
     records.append(run_core_compare(r, path))
     records.append(run_core_sheet(r, path))
+    records.append(run_core_trace(r, path))
     return records
 
 
@@ -284,4 +285,42 @@ def run_core_sheet(r,path):
         assert (r.work/'control.dxf').read_bytes()==before,'Plot changed original DXF'
         info=json.loads(r.run('info','control.dxf'));assert info['entityCount']==2
         return {'id':'sheet-export','technicalRoundtrip':'PASS','geometryChecks':'PASS','actualA4And100By80mmControl':'PASS','fitPositiveControl':'PASS','drawingReview':'NOT_TESTED','physicalPrinting':'NOT_TESTED','installedHostSync':'NOT_TESTED'}
+    finally:r.work=original
+
+
+def calibrated_outline(calibration):
+    """独立核对确认点到模型的比例、方向及第二尺寸；不执行图像自动识别。"""
+    origin=calibration['originPx'];reference=calibration['xReferencePx'];distance=math.dist(origin,reference)
+    assert distance>0 and calibration['xLengthMm']>0,'Invalid calibration baseline'
+    ux=(reference[0]-origin[0])/distance;uy=(reference[1]-origin[1])/distance;factor=calibration['xLengthMm']/distance
+    def mapped(point):
+        dx=point[0]-origin[0];dy=point[1]-origin[1]
+        return [(dx*ux+dy*uy)*factor,(dx*uy-dy*ux)*factor]
+    vertical=mapped(calibration['verticalCheckPx'])
+    assert abs(vertical[0])<1e-7 and abs(vertical[1]-calibration['verticalLengthMm'])<1e-7,'Independent vertical reference disagrees with scale or Y direction'
+    return [mapped(point) for point in calibration['outlinePx']]
+
+
+def run_core_trace(r,path):
+    """真实参考位图与已确认点为输入，核对原生矢量输出；不代替AI读点验收。"""
+    import struct,zlib
+    recipe=json.loads((Path(path).parents[2]/'cadcraft-trace-reference/references/craft-steps.json').read_text(encoding='utf-8'))
+    expected=calibrated_outline(recipe['calibration']);poly=next(s['params']['vertices'] for s in recipe['steps'] if s['command']=='pline')
+    assert all(near(a,b) for a,b in zip(expected,poly)) and len(expected)==len(poly),'Recipe vertices do not follow confirmed reference points'
+    original=r.work;r.work=original/'core-reference-trace';r.work.mkdir()
+    try:
+        def chunk(kind,data):return struct.pack('>I',len(data))+kind+data+struct.pack('>I',zlib.crc32(kind+data))
+        rows=[]
+        for y in range(160):
+            pixels=b''.join(bytes([0,0,0] if ((x in [20,220] and 20<=y<=140) or (y in [20,140] and 20<=x<=220)) else [255,255,255]) for x in range(240));rows.append(b'\0'+pixels)
+        image=b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',240,160,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(b''.join(rows)))+chunk(b'IEND',b'')
+        (r.work/'reference.png').write_bytes(image)
+        args=['run','--metric']
+        for step in recipe['steps']:args+=['--cmd',step['command']+' '+json.dumps(step['params'])]
+        r.run(*args,'--save','traced.dxf')
+        verify_dxf((r.work/'traced.dxf').read_text(encoding='utf-8'),recipe['assertions'])
+        info=json.loads(r.run('info','traced.dxf'));assert info['entityCount']==1 and info['extents']==[[0,0],[100,60]]
+        assert (r.work/'reference.png').read_bytes()==image,'Source reference changed'
+        r.run('convert','traced.dxf','traced.svg');ET.fromstring((r.work/'traced.svg').read_bytes())
+        return {'id':'trace-reference','technicalRoundtrip':'PASS','geometryChecks':'PASS','confirmedPointScaleAndTwoAxes':'PASS','inputPreserved':'PASS','automaticPointDetection':'NOT_TESTED','rasterUnderlayViaCli':'UNAVAILABLE','drawingReview':'NOT_TESTED','installedHostSync':'NOT_TESTED'}
     finally:r.work=original
