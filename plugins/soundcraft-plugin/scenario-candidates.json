@@ -29,6 +29,14 @@
     {
       "name": "soundcraft-dialogue-leveling",
       "sha256": "77f4dc8f24a6c847be973838a05fa3a4a5416c4ea320514b640e943d0609f1fc"
+    },
+    {
+      "name": "soundcraft-voice-silence-gaps",
+      "sha256": "588bb4c6f65b49f9a54dbe04749d5da1f4a6e2a0f20fba66044879aa3edfaf62"
+    },
+    {
+      "name": "soundcraft-finite-audio-loop",
+      "sha256": "651069072d3c1513ad4a10a1b9d962ee8bf96a28743bec8ec14e9feb65e01cd4"
     }
   ]
 }

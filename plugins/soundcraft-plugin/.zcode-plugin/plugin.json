@@ -1,6 +1,6 @@
 {
   "name": "soundcraft",
-  "version": "0.1.0-dev.20261017.5",
+  "version": "0.1.0-dev.20261018.1",
   "description": "soundcraft 工作区编辑器与场景技能，本地开发候选。",
   "license": "Apache-2.0",
   "skills": "./skills/",

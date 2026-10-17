@@ -1,0 +1,19 @@
+{
+  "policy": "只借鉴工作流事实，指导和Craft参数原创；不复制上游代码、正文或素材。",
+  "sources": [
+    {
+      "repository": "audacity/audacity-manual",
+      "commit": "92794e43861704433b0af65dbe503ef9253ff4e4",
+      "license": "CC-BY-3.0 (copyright link in the read manual page)",
+      "readFiles": [
+        {
+          "path": "manual/man/repeat.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/repeat.html",
+          "bytes": 11882,
+          "sha256": "b5bbf4d0092dde0bfca497fcd3d28f050f03d4105aaee3b4091cdb008b2183a2"
+        }
+      ],
+      "adaptation": "声道/时间阈值/重复次数的工作流事实，已明确与Craft实际行为不同的部分。"
+    }
+  ]
+}

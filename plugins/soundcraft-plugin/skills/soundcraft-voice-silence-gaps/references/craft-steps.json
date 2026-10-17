@@ -1,0 +1,68 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "soundcraft",
+  "id": "voice-silence-gaps",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "检查会话采样率及目标轨道",
+      "command": "session.inspect",
+      "params": {
+        "detail": "full"
+      }
+    },
+    {
+      "purpose": "显式选择需要检查的0至4秒；替换实际范围",
+      "command": "edit.select",
+      "params": {
+        "tracks": [
+          "$source.track"
+        ],
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        }
+      }
+    },
+    {
+      "purpose": "以阈值检测长低电平区并保留呼吸边缘余量",
+      "command": "edit.strip_silence",
+      "params": {
+        "threshold_db": -40,
+        "min_length_ms": 100,
+        "pad_before_ms": 10,
+        "pad_after_ms": 20
+      }
+    },
+    {
+      "purpose": "核对保留片段的start与source offset，不应将对白向前挪动",
+      "command": "session.inspect",
+      "params": {
+        "detail": "full"
+      }
+    },
+    {
+      "purpose": "输出明确时长的24位审核混音",
+      "command": "file.bounce_mix",
+      "params": {
+        "path": "gaps-review.wav",
+        "format": "wav",
+        "bit_depth": 24,
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        },
+        "normalize": false,
+        "dither": false
+      }
+    }
+  ],
+  "check": "两段有效信号保留原0.5和2.5秒时间位置，前10ms后20ms余量保留；其他轨道不变；按原4秒范围导出后比较有效区及间隙。",
+  "boundary": "此方法创建间隙，不是Audacity Truncate Silence的删时缩短；不用于按停顿自动压缩总时长。阈值以下可能有气声、尾音或音乐，不能当成不存在。它不是降噪或人声识别。",
+  "templateOnly": true,
+  "argumentPolicy": "$变量和capture为手工绑定说明；从实际查询替换真实ID，不能直接发送这些模板记号。"
+}
