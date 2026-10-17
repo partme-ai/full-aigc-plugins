@@ -99,3 +99,5 @@ Windows原生业务运行[38997778808](https://github.com/partme-ai/full-aigc-pl
 将既有文字淡入、标志标题显现、人物条、往返循环、屏幕遮罩和动效导出六条技能的原始步骤接入同一回归。保存后用新进程核对合成规格、文字图层与坐标、关键帧端点和中间插值，并渲染检查文字透明度变化、停留帧、循环图形重心、人物条纵向区域、遮罩内外和alpha。旧RGB解码器忽略alpha，现增加保持默认行为的可选RGBA模式，避免透明画面被误判成已经显示文字。
 
 导出技能新增实际CLI argv：从已保存工程的workArea导出quarter分辨率RGBA PNG序列，示例3秒25fps共75帧。回归逐帧解码核对480×270与内容，PNG序列不宣称包含音频或完成视频编码。循环技能补充终止时刻不属于有效输出帧和线性往返速度不连续的边界。官方macOS 0.10.0 CLI本地六项通过，查看文字与循环采样图；65项辅助测试通过。Windows结果待对应本轮固定技能源提交的运行完成后记录；不将当前记录视为宿主界面同步或真实媒体效果验收。
+
+Windows运行[38998089137](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38998089137)全部13应用业务任务通过，EffectCraft六场景经49次真实CLI进程调用检查；下载产物核实win32、6项PASS及75张实际序列帧。安装/MCP运行[38998089102](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38998089102)通过。macOS/Windows的88张PNG中81张解码RGBA完全一致，7张文字采样不同；已分别查看两平台文字成品，不把字体光栅差异当作内容丢失或宣称跨平台像素一致。完整范围见[六场景回归记录](craft-effect-playbook-validation.json)。累计198条映射中100条有技术回归，另有4条组合用例；98条仍待逐项执行。真实媒体效果和宿主同步验收继续保持未完成，OpenSpec不归档。
