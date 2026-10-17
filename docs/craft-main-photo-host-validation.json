@@ -10,7 +10,7 @@
   "nativeSaveReopenLayers": "PASS",
   "exportedPngPixels": "PASS",
   "newExportPresetCrud": "PASS",
-  "chineseUiGlyphs": "FAIL_FIX_IN_PROGRESS",
+  "chineseUiGlyphs": "PASS_VISUALLY_CONFIRMED",
   "files": [
     {
       "name": "main-同步绘图.pcraft",
@@ -33,5 +33,51 @@
     320,
     240
   ],
-  "masterFileUnchanged": "PASS"
+  "masterFileUnchanged": "PASS",
+  "fontRepair": {
+    "webBuildRun": 39009228204,
+    "buildPluginCommit": "2254665811fbec382f4ac6bfa4345d949264ff66",
+    "verifiedCandidateFiles": 51,
+    "nativeHostInstall": "PASS",
+    "savedNativeReadback": "PASS",
+    "pngGreenPixel": [
+      22,
+      163,
+      74
+    ],
+    "pngBluePixel": [
+      37,
+      99,
+      235
+    ],
+    "masterFileUnchanged": "PASS",
+    "scope": "same isolated native Codex host + desktop in-app browser; UI Chinese title visually confirmed",
+    "files": [
+      {
+        "name": "main-中文字体已修复.pcraft",
+        "bytes": 44718,
+        "sha256": "f0e008d2e3f77955096bb100ac74fa42dede81e5ba3d52de61b8fd78d8367359"
+      },
+      {
+        "name": "main-中文字体已修复.png",
+        "bytes": 11691,
+        "sha256": "10db8699c5b6d68665172685b46b8cf766fb952de31ab23d5b86a013ee532d5e"
+      },
+      {
+        "name": "main-同步绘图.pcraft",
+        "bytes": 39552,
+        "sha256": "9aee10a54b4fe31b96d57e0dec53a5358d655fca28e9a3227372abce4b5287e2"
+      }
+    ]
+  },
+  "flatLayerList": {
+    "status": "PASS",
+    "layers": 2,
+    "activeLayer": 5,
+    "layerIds": [
+      5,
+      4
+    ],
+    "reconnect": "Prior tab closed, bridge lease expired; reopened saved document and retried successfully. No command implementation defect observed."
+  }
 }
