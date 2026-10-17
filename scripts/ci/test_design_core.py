@@ -1,16 +1,17 @@
 """核心刊物配方必须显式绑定续文对象，并覆盖全文选择。"""
 import json
+import os
 from pathlib import Path
 import unittest
 from design_core_smoke import verify_newsletter,verify_catalog_links
 import copy
 
-ROOT=Path(__file__).resolve().parents[3]/'full-aigc-skills-repositories/designcraft-skills/skills/designcraft-newsletter'
+ROOT=Path(os.environ.get('CRAFT_DESIGN_SKILLS_ROOT',str(Path(__file__).resolve().parents[3]/'full-aigc-skills-repositories/designcraft-skills/skills')))/'designcraft-newsletter'
 
 
 class NewsletterContract(unittest.TestCase):
     def test_recipe_has_explicit_thread_and_style_scope(self):
-        recipe=json.loads((ROOT/'references/craft-steps.json').read_text())
+        recipe=json.loads((ROOT/'references/craft-steps.json').read_text(encoding='utf-8'))
         steps=recipe['steps']
         thread=next((s for s in steps if s['command']=='text.thread'),None)
         self.assertIsNotNone(thread,'Newsletter promises continuation but has no text.thread')
@@ -40,7 +41,7 @@ class NewsletterContract(unittest.TestCase):
 class CatalogContract(unittest.TestCase):
     def test_catalog_places_real_files_into_explicit_sku_frames(self):
         root=ROOT.parent/'designcraft-catalog'
-        steps=json.loads((root/'references/craft-steps.json').read_text())['steps']
+        steps=json.loads((root/'references/craft-steps.json').read_text(encoding='utf-8'))['steps']
         placements=[s for s in steps if s['command']=='file.place']
         self.assertEqual(len(placements),2,'Catalog has empty frames instead of product assets')
         self.assertEqual({s['params']['path'] for s in placements},{'catalog-input/sku-101.png','catalog-input/sku-205.png'})
