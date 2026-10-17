@@ -136,6 +136,10 @@ def run_core(r, skill_root):
                 run([render(group[1], 'after.png')])
                 a, b = rgb_pixels(r.work / 'before.png'), rgb_pixels(r.work / 'after.png')
                 assert a[:2] == b[:2] and sum(abs(x - y) for x, y in zip(a[2], b[2])) / len(a[2]) > .5, 'Target rendered image did not change'
+                exported = list((r.work / 'output/batch').glob('*.jpg'))
+                assert len(exported) == 2 and all(0 < jpeg_size(p.read_bytes())[0] <= 64 for p in exported), 'Batch delivery omitted or included wrong photos'
+                sheet = next(v for s, v in results if s['command'] == 'export.contactSheet')
+                assert sheet['photos'] == 2 and sheet['pages'] == 1 and (r.work / 'output/group-proof.pdf').read_bytes().startswith(b'%PDF'), 'Batch contact proof missing or wrong selection'
                 detail['fullLightGroupOnly'] = 'PASS'
                 detail['targetColorAndCropPreserved'] = 'PASS'
             elif name in ('portrait-develop', 'landscape-develop', 'raw-develop'):

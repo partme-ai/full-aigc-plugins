@@ -72,7 +72,7 @@ jobs:
         if: matrix.plugin == 'lightcraft'
         with:
           repository: full-aigc-skills/lightcraft-skills
-          ref: 00ef2d690c3a9cf652679e3e910d250b1d476932
+          ref: 187c665a2b2d5eef5fae2eb4737c08e28ee7bc1f
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'cadcraft'
