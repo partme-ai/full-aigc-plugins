@@ -123,7 +123,7 @@ def run_core(r, helper, skill_root):
                 record['actualBrowserClick']='NOT_TESTED'
             else:
                 assert source_hash==hashlib.sha256(source.read_bytes()).hexdigest(), 'Original Figma file changed'
-                info=json.loads(r.run('info',target));page=info['pages'][0]['id']
+                info=json.loads(r.run('info',target,'--json'));page=info['pages'][0]['id']
                 page_node=commands([{'command':'node.get','params':{'id':page}}])[0]
                 imported={n['name']:n for n in page_node['children']}
                 assert len(imported)==10, 'Real Figma fixture did not preserve ten layers'
