@@ -102,6 +102,8 @@ def run_playbooks(r,path):
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','editableGeometry':'PASS','pixelChecks':'PASS' if a.get('ringPixels') or a.get('cropPixels') else 'NOT_SELECTED','designReview':'NOT_TESTED'})
     require(bool(records),'No Vector workflows selected')
     records.append(existing_document(r))
+    from vector_core_smoke import run_playbooks as run_core
+    records.extend(run_core(r,Path(path).resolve().parents[2]))
     return records
 
 

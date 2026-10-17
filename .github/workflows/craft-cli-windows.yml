@@ -84,7 +84,7 @@ jobs:
         if: matrix.plugin == 'vectorcraft'
         with:
           repository: full-aigc-skills/vectorcraft-skills
-          ref: 9ce5ea0f64278daba7459f8379a9b01fd891e32e
+          ref: 15cdd6d8190de74d9f5b4f68a9575a74a7160ba2
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'figcraft'
