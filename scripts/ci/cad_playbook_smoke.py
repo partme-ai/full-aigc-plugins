@@ -119,4 +119,31 @@ def run_playbooks(r,path):
         ET.fromstring((r.work/svg).read_bytes())
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','geometryChecks':'PASS','drawingReview':'NOT_TESTED'})
     require(bool(records),'No CAD scenarios selected')
+    records.append(run_core_floor_plan(r, path))
     return records
+
+
+def run_core_floor_plan(r, path):
+    """执行独立房间技能中的原始步骤，再验证实际DXF门洞与尺寸。"""
+    skill = Path(path).parents[2] / 'cadcraft-floor-plan/references/craft-steps.json'
+    recipe = json.loads(skill.read_text(encoding='utf-8'))
+    original = r.work
+    folder = original / 'core-floor-plan'
+    folder.mkdir()
+    r.work = folder
+    try:
+        args = ['run', '--metric']
+        for step in recipe['steps']:
+            args += ['--cmd', step['command'] + ' ' + json.dumps(step['params'], ensure_ascii=False, separators=(',', ':'))]
+        r.run(*args, '--save', 'room.dxf')
+        verify_dxf((folder / 'room.dxf').read_text(encoding='utf-8'), recipe['assertions'])
+        assert json.loads(r.run('info', 'room.dxf'))['entityCount'] > 0
+        reopened = json.loads(r.run('run', 'room.dxf', '--cmd', 'drawing.inspect {"entities":true,"limit":200}').splitlines()[0])
+        assert len(reopened['entities']) > 0
+        assert 'ROOM A' in r.run('run', 'room.dxf', '--cmd', 'texts {}')
+        r.run('convert', 'room.dxf', 'room.svg')
+        ET.fromstring((folder / 'room.svg').read_bytes())
+        return {'id': 'floor-plan', 'technicalRoundtrip': 'PASS', 'geometryChecks': 'PASS',
+                'doorOpeningAndNativeDimensions': 'PASS', 'drawingReview': 'NOT_TESTED', 'installedHostSync': 'NOT_TESTED'}
+    finally:
+        r.work = original
