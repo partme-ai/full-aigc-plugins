@@ -1,0 +1,73 @@
+{
+  "application": "soundcraft",
+  "scope": "Three core workflows, synthetic signal checks and editable session reopen; not auditory or installed-host acceptance",
+  "firstFailureRun": 39011692499,
+  "windowsMainRun": 39011827930,
+  "windowsStableMatrixRun": 39011822036,
+  "sourceMain": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+  "sceneSourceCommit": "105b55400e3e385f018e0d3b6ed36d117a5ad99e",
+  "driverCommit": "3cc20ecd97e418ba33ecec70576873058d6acb31",
+  "executableSha256": "0cc6ba9c655e60fe3b85ebb0ce33f21f9256e320c0da90b49c3e4048f3092a17",
+  "processCount": 520,
+  "uniqueRecipes": 11,
+  "verifiedOutputHashes": 59,
+  "coreResults": [
+    {
+      "id": "voice-over-mix",
+      "technicalRoundtrip": "PASS",
+      "trackOrSegmentSignalChecks": "PASS",
+      "pcm48k24bitStereo": "PASS",
+      "sourceProtected": "PASS",
+      "auditoryAcceptance": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "dialogue-leveling",
+      "technicalRoundtrip": "PASS",
+      "trackOrSegmentSignalChecks": "PASS",
+      "pcm48k24bitStereo": "PASS",
+      "sourceProtected": "PASS",
+      "auditoryAcceptance": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "audio-delivery",
+      "technicalRoundtrip": "PASS",
+      "trackOrSegmentSignalChecks": "PASS",
+      "pcm48k24bitStereo": "PASS",
+      "sourceProtected": "PASS",
+      "auditoryAcceptance": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    }
+  ],
+  "sources": {
+    "repository": "audacity/audacity-manual",
+    "commit": "92794e43861704433b0af65dbe503ef9253ff4e4",
+    "readFiles": [
+      {
+        "path": "manual/man/mixing.html",
+        "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/mixing.html",
+        "sha256": "55ade4e6c35e9edfb8985b010c98e3ad3fcb8affb40ba3a0c186717ac5f39515",
+        "bytes": 28565
+      },
+      {
+        "path": "manual/man/amplify.html",
+        "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/amplify.html",
+        "sha256": "492969d08b1b34fe9c05179ff945b4613d2adda775372e8be413991d1d684568",
+        "bytes": 14393
+      }
+    ],
+    "reuse": "Workflow facts only; original Craft adaptation; no upstream text/code/assets copied"
+  },
+  "remainingCore": [],
+  "creativeAuditoryAcceptance": "NOT_TESTED",
+  "installedHostSync": "NOT_TESTED",
+  "currentSoundCoreStatus": {
+    "mappedCoreWorkflows": 6,
+    "limitedTechnicalPassed": 6,
+    "totalUniqueRecipes": 14,
+    "latestReport": "craft-sound-more-core-validation.json",
+    "creativeAuditoryAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

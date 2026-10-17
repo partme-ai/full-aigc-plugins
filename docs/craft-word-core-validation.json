@@ -1,0 +1,125 @@
+{
+  "sourceCommit": "58af9510210099ddb2a14899e3ebd4274d676330",
+  "pluginCommit": "0508dd01ddeb70dc5de615e66907ebfa3278b2ea",
+  "ciCodeCommit": "8d43071e5d68f22203ce19d2cbf2736d57e34ac4",
+  "windowsRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39002942504",
+  "existingPackageMcpRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39002942563",
+  "runtime": {
+    "version": "v0.7.0",
+    "url": "https://github.com/storytold/wordcraft/releases/download/v0.7.0/wordcraft-0.7.0-windows-x64-portable.zip",
+    "sha256": "e6c8be9bb8ff815ed96974b8a25773d1e476301dcd5b242a267b88347185cc4f",
+    "executable": "wordcraft-cli.exe"
+  },
+  "exeSha256": "c28bcf13a8960cce781f64fbbaa34233eb356b60f69808e0a265100c15e79e7f",
+  "processCount": 56,
+  "uniqueWordRecipes": 14,
+  "coreSix": [
+    {
+      "id": "business-proposal",
+      "path": "skills/wordcraft-business-proposal/references/craft-steps.json",
+      "sha256": "74907799b0a240a37b6dd51549ff424acfc11ca7c4796cd6cb2f4997fe9fd0b1",
+      "checks": {
+        "id": "business-proposal",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      }
+    },
+    {
+      "id": "document-comparison",
+      "path": "skills/wordcraft-document-comparison/references/craft-steps.json",
+      "sha256": "db75188a8aa33b5c0e1bbf96d5e94daba849ce8f5a3ccc4b7476dd2e72db3c34",
+      "checks": {
+        "id": "document-comparison",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      }
+    },
+    {
+      "id": "document-style",
+      "path": "skills/wordcraft-document-style/references/craft-steps.json",
+      "sha256": "24c9a6253ea937cfa021cb8662451d61c89bc363026c9590a836687dad1c9b57",
+      "checks": {
+        "id": "document-style",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      }
+    },
+    {
+      "id": "meeting-minutes",
+      "path": "skills/wordcraft-meeting-minutes/references/craft-steps.json",
+      "sha256": "c8117bea45e42b673e306d25a3390dd66097afdd8d0d79c8ee1b687436989a4c",
+      "checks": {
+        "id": "meeting-minutes",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      }
+    },
+    {
+      "id": "research-report",
+      "path": "skills/wordcraft-research-report/references/craft-steps.json",
+      "sha256": "6097bd843cf4a911073e8f0d672467bfe6af58565a756261c2fb6b10050f3700",
+      "checks": {
+        "id": "research-report",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      }
+    },
+    {
+      "id": "resume-layout",
+      "path": "skills/wordcraft-resume-layout/references/craft-steps.json",
+      "sha256": "5e94154eae4f28d3c87cbf741eabb6a1c071c2b68eb5ca2c38782e05073f775c",
+      "checks": {
+        "id": "resume-layout",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      }
+    }
+  ],
+  "downloadedOutputsVerified": 39,
+  "auxiliaryTests": 92,
+  "redObserved": "旧business-proposal实际输出只有标题和一个软换行正文段；新原生结构断言因缺少四个Heading 2失败。",
+  "fixes": [
+    "方案、报告与简历用真实段落和Heading样式组织，字段仍须按用户材料填写。",
+    "会议纪要将已填写行按真实段落边界转换为原生可编辑行动表，明确讨论与已决议的区别。",
+    "样式统一先定位已确认正文，避免重开后默认插入点误改标题。",
+    "说明比较接口中接受但未实现的moves/headersFooters/footnotes选项不等于差异覆盖。"
+  ],
+  "checks": [
+    "六份原始技能步骤实际执行，保存后另进程读取并导出PDF、渲染PNG",
+    "章节样式与独立段落，会议行动表每格值，简历页边距",
+    "样式统一保留文本、一级标题和其他段落的加粗",
+    "金额100→120及截止20→25保存为原生插入/删除修订",
+    "两个比较输入和样式原文SHA256均保持"
+  ],
+  "visualInspection": {
+    "macOS": "六份首面PNG已查看，结构可读",
+    "Windows": "会议纪要行动表和比较修订首面PNG已查看",
+    "scope": "小型合成示例首面，不是长文档分页、所有字体或真实材料验收"
+  },
+  "limits": {
+    "hostEditorSync": "NOT_TESTED",
+    "realDocumentContent": "NOT_TESTED",
+    "longDocumentLayout": "NOT_TESTED",
+    "independentPluginCI": "NO_RUNS_OBSERVED",
+    "packageMcpScope": "既有候选包，不能证明本次技能已在真实宿主安装加载"
+  },
+  "coverage": {
+    "mappedRecipes": 198,
+    "limitedTechnicalPass": 155,
+    "partialPdfForm": 1,
+    "notExecuted": 42,
+    "additionalCombinationCases": 4
+  }
+}

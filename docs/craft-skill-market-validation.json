@@ -1,0 +1,196 @@
+{
+  "scope": "static content/package checks only; no new runtime or host acceptance",
+  "applications": 13,
+  "adaptedEntryPoints": 19,
+  "adaptedGuidanceItems": 39,
+  "existingMappedScenes": 198,
+  "helperTests": {
+    "run": 52,
+    "passed": 52
+  },
+  "negativeTestsBeforeImplementation": {
+    "run": 5,
+    "failed": 4,
+    "passed": 1
+  },
+  "hostManifestChecks": "13 PASS",
+  "portableEntryChecks": "13 PASS",
+  "openSpec": "strict PASS",
+  "sourcePluginCopies": "19 PASS",
+  "recipeEmbedding": "39 original recipe JSON values unchanged",
+  "packageChecks": [
+    {
+      "repo": "cadcraft-skills",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "designcraft-skills",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "repo": "effectcraft-skills",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "photocraft-skills",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "figcraft-skills",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "filmcraft-skills",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "lightcraft-skills",
+      "returncode": 1,
+      "status": "FAIL"
+    },
+    {
+      "repo": "printcraft-skills",
+      "returncode": 1,
+      "status": "FAIL"
+    },
+    {
+      "repo": "vectorcraft-skills",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "deckcraft-skills",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "soundcraft-skills",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "gridcraft-skills",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "wordcraft-skills",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "cadcraft-plugin",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "repo": "designcraft-plugin",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "repo": "effectcraft-plugin",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "photocraft-plugin",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "figcraft-plugin",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "filmcraft-plugin",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "lightcraft-plugin",
+      "returncode": 1,
+      "status": "FAIL"
+    },
+    {
+      "repo": "printcraft-plugin",
+      "returncode": 1,
+      "status": "FAIL"
+    },
+    {
+      "repo": "vectorcraft-plugin",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "deckcraft-plugin",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "soundcraft-plugin",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "gridcraft-plugin",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    },
+    {
+      "repo": "wordcraft-plugin",
+      "returncode": null,
+      "status": "NO_PACKAGE_VALIDATOR"
+    }
+  ],
+  "preExistingPackageFailures": [
+    {
+      "repo": "lightcraft-skills",
+      "baselineHead": "b3fda4aafa2d1047dc6fe6b3dab56b3f02e61050",
+      "lastError": "ValueError: skill_set_mismatch"
+    },
+    {
+      "repo": "printcraft-skills",
+      "baselineHead": "9e07eb86435f962da6272d030a18e1a02538c207",
+      "lastError": "ValueError: skill_set_mismatch"
+    },
+    {
+      "repo": "lightcraft-plugin",
+      "baselineHead": "428493a2eb973162b212426366e2efcd1d141551",
+      "lastError": "ValueError: scene_digest_mismatch: lightcraft-raw-develop"
+    },
+    {
+      "repo": "printcraft-plugin",
+      "baselineHead": "1bb42f218ec9ef7d2f980c0aa69430ba11ac172a",
+      "lastError": "ValueError: scene_digest_mismatch: printcraft-organize-pdf"
+    }
+  ],
+  "newRuntimeAcceptance": "NOT_RUN",
+  "newHostSynchronizationAcceptance": "NOT_RUN",
+  "postPushRegression": {
+    "hubCodeCommit": "a3630cd9d1e7832956844ac52218667f498c11e3",
+    "windowsBusinessRun": 38995872602,
+    "windowsBusinessResult": "PASS",
+    "windowsPackageMcpRun": 38995872606,
+    "windowsPackageMcpResult": "PASS",
+    "scope": "pinned CLI/candidate packages; not new guidance creative acceptance"
+  },
+  "photoCraftHostCommands": {
+    "added": 8,
+    "localFullTests": 70,
+    "localResult": "PASS",
+    "reason": "existing discovered scene skills lacked direct host command files",
+    "commit": "548c55e690ce1cf6494b17553a6123cd4baa37c9",
+    "ciRun": 38996108941,
+    "ciPythonAndSnapshot": "PASS",
+    "ciOverall": "FAIL",
+    "ciFailure": "Node runtime tests still reference absent skills/photocraft-use/scripts including plan_identity.py; paths absent in pre-change b369183 tree; src/tests unchanged"
+  }
+}

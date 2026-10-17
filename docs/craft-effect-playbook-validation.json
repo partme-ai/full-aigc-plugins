@@ -1,0 +1,105 @@
+{
+  "sourceCommit": "462bb31dd47e13f082791f2e87aafcd706546369",
+  "ciCodeCommit": "2290a2f41907977aebcf5f1abe98bd2d9be9fa4e",
+  "windowsRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38998089137",
+  "packageMcpRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38998089102",
+  "windowsRuntime": {
+    "version": "v0.10.0",
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.10.0/effectcraft-0.10.0-windows-x64-portable.zip",
+    "sha256": "aa6102df3a514c84c49a08829b2e0da67a5c44cd4a27c743e3681a2c68cade91",
+    "executable": "effectcraft-cli.exe"
+  },
+  "executableSha256": "b9dd260f9f97c6e25bc03f8abc5430d3232adae11aa23eb1d3ae2fe93cf44d80",
+  "processCount": 49,
+  "recipes": [
+    {
+      "id": "kinetic-type",
+      "stepsSha256": "5b8d166841cb566b79f0850bc9f89a5bc6362eab1ced03c0d3d044f48960f068",
+      "checks": {
+        "id": "kinetic-type",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      }
+    },
+    {
+      "id": "logo-reveal",
+      "stepsSha256": "18c64061acc834ef52f57522649288d8ea17e2c810810f116fae93a374336261",
+      "checks": {
+        "id": "logo-reveal",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      }
+    },
+    {
+      "id": "lower-thirds",
+      "stepsSha256": "31bb1e521b512c8334e6427d1b74089ec95bf80eab5897090e84357890ce2162",
+      "checks": {
+        "id": "lower-thirds",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      }
+    },
+    {
+      "id": "motion-export",
+      "stepsSha256": "8fb9e5637b99db6224ae098b54f63d0241f218ca63256103335f762b57be72ab",
+      "checks": {
+        "id": "motion-export",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      }
+    },
+    {
+      "id": "screen-composite",
+      "stepsSha256": "b61a0f23bdeb9c787be423cdf0a27b2450db7c20869e667a1725796ab97a89d7",
+      "checks": {
+        "id": "screen-composite",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      }
+    },
+    {
+      "id": "social-loop",
+      "stepsSha256": "060a4fac08aace7c47592423c4148eecafca7017b4169a79c0d970527b1d1ed8",
+      "checks": {
+        "id": "social-loop",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      }
+    }
+  ],
+  "checksExplained": {
+    "all": "execute original recipe then reopen composition dimensions, duration, fps",
+    "kinetic-type/logo-reveal": "saved text; sampled opacity 0/50/100; rendered alpha at start/mid/full/hold",
+    "lower-thirds": "exact Name and Role text/position; separately rendered vertical bands",
+    "social-loop": "saved key endpoints; rendered alpha-weighted centroids at 0/1.5/last-valid-frame",
+    "screen-composite": "saved closed vertices, opacity90; rendered interior and transparent exterior",
+    "motion-export": "saved workArea0..3 at25fps; actual75 PNGs; every frame decoded480x270,RGBA pixels full green"
+  },
+  "crossPlatformImages": {
+    "compared": 88,
+    "identicalDecodedRGBA": 81,
+    "differentTextSamples": [
+      "kinetic-type/frame-0.25.png",
+      "kinetic-type/frame-0.5.png",
+      "kinetic-type/frame-4.5.png",
+      "logo-reveal/frame-0.5.png",
+      "logo-reveal/frame-1.png",
+      "logo-reveal/frame-3.5.png",
+      "lower-thirds/frame-0.png"
+    ],
+    "inspection": "macOS and Windows full-opacity text samples and macOS loop samples viewed; different text rasters accepted independently, no cross-platform font identity claim"
+  },
+  "localUnitTests": 65,
+  "limitations": [
+    "native CLI only; no host-editor-sync acceptance",
+    "synthetic text, shape and solid fixtures; no real brand artwork, footage, perspective or tracking acceptance",
+    "PNG sequence only; no video encoder or audio acceptance",
+    "linear ping-pong example is not a smooth-velocity-loop certification"
+  ]
+}

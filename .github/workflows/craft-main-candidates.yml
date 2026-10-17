@@ -1,0 +1,183 @@
+name: Craft main development candidates
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: Candidate build scope
+        type: choice
+        options: [all, native, web]
+        default: all
+      native_run:
+        description: Recheck source-built native artifacts from this run (empty builds sources)
+        type: string
+        default: ''
+      apps:
+        description: Comma-separated applications, or all
+        type: string
+        default: all
+permissions:
+  contents: read
+  actions: read
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      candidates: ${{ steps.matrix.outputs.candidates }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: matrix
+        env:
+          CRAFT_APPS: ${{ inputs.apps || 'all' }}
+        run: echo "candidates=$(python3 scripts/ci/craft_main.py matrix --apps "$CRAFT_APPS")" >> "$GITHUB_OUTPUT"
+  native:
+    name: Native ${{ matrix.app }}
+    if: inputs.scope != 'web' && inputs.native_run == ''
+    needs: matrix
+    runs-on: windows-2022
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.matrix.outputs.candidates) }}
+    env:
+      CARGO_INCREMENTAL: '0'
+      CARGO_PROFILE_RELEASE_LTO: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ matrix.repository }}
+          ref: ${{ matrix.commit }}
+          path: upstream
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/${{ matrix.app }}-skills
+          ref: ${{ matrix.skillsCommit }}
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.app == 'photocraft'
+        with:
+          repository: full-aigc-plugins/photocraft-plugin
+          ref: ${{ matrix.pluginCommit }}
+          path: candidate-plugin
+      - uses: actions/checkout@v4
+        with:
+          repository: storytold/craft-fonts
+          ref: ${{ matrix.fontsCommit }}
+          path: craft-fonts
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: upstream
+          key: main-native-${{ matrix.app }}
+      - name: Build pinned main CLI
+        env:
+          CRAFT_FONTS_DIR: ${{ github.workspace }}/craft-fonts
+          CRAFT_FONTS_REQUIRED: '1'
+        run: python scripts/ci/craft_main.py build-native --app ${{ matrix.app }}
+      - name: Run real Windows business and scene operations
+        shell: pwsh
+        run: |
+          $playbook = "scene-source/skills/${{ matrix.app }}-scenario-playbooks/references/recipes.json"
+          if (@("effectcraft", "filmcraft", "printcraft") -contains "${{ matrix.app }}") { $playbook = "scene-source/skills" }
+          python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.app }} --executable candidate-native/${{ matrix.engine }}-cli.exe --provenance candidate-native/provenance.json --output candidate-results --playbook $playbook
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: UNACCEPTED-main-native-${{ matrix.app }}
+          path: |
+            candidate-native
+            candidate-results
+          if-no-files-found: warn
+  web:
+    name: Web ${{ matrix.app }}
+    if: inputs.scope != 'native'
+    needs: matrix
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.matrix.outputs.candidates) }}
+    env:
+      CARGO_INCREMENTAL: '0'
+      CARGO_PROFILE_RELEASE_LTO: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ matrix.repository }}
+          ref: ${{ matrix.commit }}
+          path: upstream
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-plugins/${{ matrix.app }}-plugin
+          ref: ${{ matrix.pluginCommit }}
+          path: candidate-plugin
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: wasm-bindgen-cli@0.2.129,trunk@0.21.14
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: upstream
+          key: main-web-${{ matrix.app }}
+      - name: Build isolated editor and plugin adapter
+        run: python3 scripts/ci/craft_main.py build-web --app ${{ matrix.app }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: UNACCEPTED-main-web-${{ matrix.app }}
+          path: candidate-web
+          if-no-files-found: warn
+  native_recheck:
+    name: Recheck Native ${{ matrix.app }}
+    if: inputs.scope != 'web' && inputs.native_run != ''
+    needs: matrix
+    runs-on: windows-2022
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.matrix.outputs.candidates) }}
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/${{ matrix.app }}-skills
+          ref: ${{ matrix.skillsCommit }}
+          path: scene-source
+      - uses: actions/download-artifact@v4
+        with:
+          name: UNACCEPTED-main-native-${{ matrix.app }}
+          run-id: ${{ inputs.native_run }}
+          github-token: ${{ github.token }}
+          path: reused
+      - name: Run business again against verified main executable
+        shell: pwsh
+        run: |
+          Copy-Item -Recurse reused/candidate-native candidate-native
+          $playbook = "scene-source/skills/${{ matrix.app }}-scenario-playbooks/references/recipes.json"
+          if (@("effectcraft", "filmcraft", "printcraft") -contains "${{ matrix.app }}") { $playbook = "scene-source/skills" }
+          python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.app }} --executable candidate-native/${{ matrix.engine }}-cli.exe --provenance candidate-native/provenance.json --output candidate-results --playbook $playbook
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: UNACCEPTED-main-native-${{ matrix.app }}
+          path: |
+            candidate-native
+            candidate-results
+          if-no-files-found: error

@@ -1,0 +1,137 @@
+{
+  "application": "deckcraft",
+  "scope": "Six core workflows; editable native/PPTX roundtrip and protected input only. Not full creative or installed-host acceptance.",
+  "oldRecipeFailureRun": 39014697606,
+  "windowsMainRun": 39014846480,
+  "windowsStableMatrixRun": 39014843673,
+  "sourceMain": "1dc69720db64323370dda061226becb09ad79fd4",
+  "sceneSourceCommit": "49d40a6b73930f267aff0b6e93909635dc1092d4",
+  "driverCommit": "13b470653ef4686f8b864545654716d34e343f4e",
+  "executableSha256": "aec949e6253ca3df96473042e7f736233fae32c3ff9ef6e67e870650b0e81cb9",
+  "processCount": 78,
+  "uniqueRecipes": 14,
+  "additionalCombinationCases": 1,
+  "verifiedOutputHashes": 54,
+  "coreResults": [
+    {
+      "id": "training-slides",
+      "technicalRoundtrip": "PASS",
+      "editableNativeAndPptxChecks": "PASS",
+      "inputProtected": "PASS",
+      "chartRevision": "NOT_APPLICABLE",
+      "layoutVisualAcceptance": "NOT_TESTED",
+      "externalPowerPointRendering": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "slide-redesign",
+      "technicalRoundtrip": "PASS",
+      "editableNativeAndPptxChecks": "PASS",
+      "inputProtected": "PASS",
+      "chartRevision": "NOT_APPLICABLE",
+      "layoutVisualAcceptance": "NOT_TESTED",
+      "externalPowerPointRendering": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "brand-template",
+      "technicalRoundtrip": "PASS",
+      "editableNativeAndPptxChecks": "PASS",
+      "inputProtected": "PASS",
+      "chartRevision": "NOT_APPLICABLE",
+      "layoutVisualAcceptance": "NOT_TESTED",
+      "externalPowerPointRendering": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "weekly-report",
+      "technicalRoundtrip": "PASS",
+      "editableNativeAndPptxChecks": "PASS",
+      "inputProtected": "PASS",
+      "chartRevision": "PASS",
+      "layoutVisualAcceptance": "NOT_TESTED",
+      "externalPowerPointRendering": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "pitch-deck",
+      "technicalRoundtrip": "PASS",
+      "editableNativeAndPptxChecks": "PASS",
+      "inputProtected": "PASS",
+      "chartRevision": "NOT_APPLICABLE",
+      "layoutVisualAcceptance": "NOT_TESTED",
+      "externalPowerPointRendering": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "data-story",
+      "technicalRoundtrip": "PASS",
+      "editableNativeAndPptxChecks": "PASS",
+      "inputProtected": "PASS",
+      "chartRevision": "PASS",
+      "layoutVisualAcceptance": "NOT_TESTED",
+      "externalPowerPointRendering": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    }
+  ],
+  "independentDownloadedChecks": [
+    "All output sizes and SHA256 plus executable SHA256 verified",
+    "Weekly report action table exact nine cells",
+    "Weekly report and data story revised PPTX chart values [21,48]",
+    "Native core slides and notes remain editable after PPTX import"
+  ],
+  "workflowSources": [
+    {
+      "repository": "scanny/python-pptx",
+      "commit": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "readFiles": [
+        {
+          "path": "docs/user/quickstart.rst",
+          "url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/docs/user/quickstart.rst",
+          "bytes": 6082,
+          "sha256": "341b800053b8bbb47ac95e7ac0a6b6f21b5f257941130cd41a7390b86c51e963"
+        },
+        {
+          "path": "docs/user/slides.rst",
+          "url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/docs/user/slides.rst",
+          "bytes": 4399,
+          "sha256": "3c321a30067a57c53f91ffc8e1e87d2c334cd74c28cf0209d6b267fe76fdfa44"
+        },
+        {
+          "path": "docs/user/placeholders-using.rst",
+          "url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/docs/user/placeholders-using.rst",
+          "bytes": 10543,
+          "sha256": "956fcf0f257d73fd1be40bdf81a6f3f7faf20ced9c6b2c1561f6ea00d141dc6e"
+        },
+        {
+          "path": "docs/user/charts.rst",
+          "url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/docs/user/charts.rst",
+          "bytes": 9269,
+          "sha256": "c2cd06b7260c58cfb5a80c82861a1b5e502a61296061d55752288d1db047cb5d"
+        },
+        {
+          "path": "docs/user/notes.rst",
+          "url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/docs/user/notes.rst",
+          "bytes": 5768,
+          "sha256": "615222d81e7ebbbd7be3b670afc053b9d1f1d281bd2253c7708d2f9fb01f7766"
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied",
+      "adaptation": "借鉴母版/布局继承、对象定位、原生图表活数据及逐页备注事实；Craft对象ID与python-pptx占位索引不等价，副本必须重新查询。"
+    }
+  ],
+  "limitations": [
+    "Synthetic demonstration content, not real customer presentations",
+    "No external PowerPoint rendering, visual layout, font-fallback or projection acceptance",
+    "No installed-host synchronous-editor acceptance",
+    "No claim that python-pptx placeholder indices equal Craft IDs",
+    "No public marketplace release"
+  ]
+}

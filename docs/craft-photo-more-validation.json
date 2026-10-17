@@ -1,0 +1,230 @@
+{
+  "sourceCommit": "473917ec676271fe2ee829f48d50a0f182124729",
+  "ciCodeCommit": "d5bf53398596162a52a6188566508adcdc127680",
+  "windowsRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38999972530",
+  "existingPackageMcpRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38999972419",
+  "runtime": {
+    "version": "v0.9.0",
+    "url": "https://github.com/storytold/photocraft/releases/download/v0.9.0/photocraft-0.9.0-windows-x64-portable.zip",
+    "sha256": "e87bbe26f84d3c359765b61d128b9cc59f016a995956fe7909b328a97650fc97",
+    "executable": "photocraft-cli.exe"
+  },
+  "exeSha256": "a594cddcb462334576b9561afe37b86afb37b07f9e1c29b9a90b4b0c8f0b4ee2",
+  "processCount": 106,
+  "totalPhotoRecipesExecuted": 30,
+  "extendedRecipes": [
+    {
+      "id": "social-canvas-padding",
+      "recipeSha256": "edd7268cbd5c3e666f8eb76b9be1bdd80c455823edc1517eb5481b28d26849a9",
+      "checks": {
+        "id": "social-canvas-padding",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "all original pixels centered unchanged",
+          "white RGBA"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "photo-mirror-layout",
+      "recipeSha256": "60facaff57657ac464ef1e8cd241113674aad5850eeeb7e64b530c1a0c2fb7c2",
+      "checks": {
+        "id": "photo-mirror-layout",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "exact horizontal pixel reversal",
+          "hidden copy reveals unchanged original"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "background-soft-blur",
+      "recipeSha256": "d76c67c7dc85c081da90cf9446928bed83aeee0a7e2d0a696f153817092074f8",
+      "checks": {
+        "id": "background-soft-blur",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "target changed",
+          "protected region exactly unchanged"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "garment-color-local",
+      "recipeSha256": "2ad695cc5aa1d28e100cd3314af61e86ba87d02d9aaae2a8857428f9a9f595ba",
+      "checks": {
+        "id": "garment-color-local",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "target changed",
+          "protected region exactly unchanged"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "white-product-local-neutral",
+      "recipeSha256": "90a63f98a70073862089dd3c94d05a4e4808e42697c822f1c932c9514d438043",
+      "checks": {
+        "id": "white-product-local-neutral",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "target changed",
+          "protected region exactly unchanged"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "sky-gradient-balance",
+      "recipeSha256": "4664617cf57ae59691c9a1a2fedccbfb2c4ba904ccb17a2b685590e77632f451",
+      "checks": {
+        "id": "sky-gradient-balance",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "target changed",
+          "protected region exactly unchanged"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "corner-vignette-mask",
+      "recipeSha256": "f3fb1e5e621b230789df0e123c8e2cb330b5f304ca5c75900c5b60147ac5eb59",
+      "checks": {
+        "id": "corner-vignette-mask",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "target changed",
+          "protected region exactly unchanged"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "portrait-teeth-local",
+      "recipeSha256": "1afe27dcf5b0d57b080455413f96ba1481b69de0384fa8ce470803db9b582410",
+      "checks": {
+        "id": "portrait-teeth-local",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "target changed",
+          "protected region exactly unchanged"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "product-label-edge-sharpen",
+      "recipeSha256": "273a7976b2f59ab3a837c58be6247e6593bee34dc87a0be312ca8e476895e19c",
+      "checks": {
+        "id": "product-label-edge-sharpen",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "target changed",
+          "protected region exactly unchanged"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "product-color-proof-area",
+      "recipeSha256": "f46d18ae4ea989a3aab02081f4b7716ceadbc2de544653da36240f8f7b1d711b",
+      "checks": {
+        "id": "product-color-proof-area",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "target changed",
+          "protected region exactly unchanged"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "transparent-canvas-padding",
+      "recipeSha256": "c0edea8b1a8846c1f71b91ff776aae8f281dbfcefcb15a1254053e7f189ed569",
+      "checks": {
+        "id": "transparent-canvas-padding",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "all original pixels centered unchanged",
+          "transparent alpha throughout extension"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "black-white-selective-channel",
+      "recipeSha256": "c73eb0ee88fd7279644d709dda1007e41ed43d98b6c812d96fcd60a88068ff32",
+      "checks": {
+        "id": "black-white-selective-channel",
+        "technicalRoundtripAndPixels": "PASS",
+        "checks": [
+          "RGB channels neutral",
+          "adjustment off restores original color"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    }
+  ],
+  "fix": "Canvas flip modified original lower layer; selected pixel-layer flip now preserves it. Old method reproduced failure, corrected method validated by exact mirrored output and hidden-copy original comparison.",
+  "nativeWindowsMethod": {
+    "disabledReason": "no document open",
+    "enabled": false,
+    "id": "edit.transform.flipHorizontal",
+    "label": "Flip Horizontal",
+    "menu": [
+      "Edit",
+      "Transform"
+    ],
+    "needsDocument": true,
+    "params": "{\"target\":\"pixels\"|\"mask\"|\"quickMask\"|{\"channel\":i}=Channels panel target (an unlinked mask, an alpha channel or the Quick Mask turns alone)}",
+    "shortcut": null
+  },
+  "pixelMetrics": {
+    "background-soft-blur": {
+      "before": 8928,
+      "after": 0
+    },
+    "product-label-edge-sharpen": {
+      "before": 35584,
+      "after": 45568
+    },
+    "white-product-local-neutral": {
+      "before": 177072.0,
+      "after": 129462.5
+    },
+    "portrait-teeth-local": {
+      "before": 9430.0,
+      "after": 7418.0
+    }
+  },
+  "crossPlatformSamples": {
+    "images": 16,
+    "identicalDecodedRGBA": 16,
+    "scope": "only these generated PNG samples"
+  },
+  "auxiliaryTests": 79,
+  "limitations": [
+    "synthetic high-frequency yellow RGB fixture; no real face identity/skin/teeth or product color certification",
+    "no host-editor-sync acceptance",
+    "existing package/MCP artifacts are not a rebuilt installation of this skills source",
+    "PhotoCraft Node CI still fails at missing photocraft-use/scripts and plan_identity.py; doc and architecture CI pass"
+  ],
+  "pluginImplementationRun": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39000019051"
+}

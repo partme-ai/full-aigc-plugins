@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-16",
+  "decision": "ZCode same-session editor integration",
+  "scope": "Local package refresh; existing tested runtime unchanged",
+  "forkLocksUpdated": [
+    "cadcraft",
+    "figcraft",
+    "deckcraft",
+    "soundcraft",
+    "gridcraft",
+    "wordcraft"
+  ],
+  "pinnedCommitsUnchanged": true,
+  "archives": [
+    {
+      "plugin": "cadcraft",
+      "archiveSha256": "a6acea6385dcda9d20d8f2a4b4ebde5bce5ddf556f934d1328a6fff77ff1c791",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "designcraft",
+      "archiveSha256": "9063ad96517c221e5d2449fa7b0caba3213f6f835715901652e62bef02957e19",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "effectcraft",
+      "archiveSha256": "5da6a9b9df0535f9dc3bac63d9c782abfb5bbafa9bb0ce91bcdd840f90542889",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": false
+    },
+    {
+      "plugin": "photocraft",
+      "archiveSha256": "b00d276279e27567c13a7d9724f65dad4401cddabead59933d39cb08499821f0",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "figcraft",
+      "archiveSha256": "627370c89016e6f2322a197a3796612339f2669163634523b02d2cae1da96255",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "filmcraft",
+      "archiveSha256": "c84e85f7c03ebe5a1e6867f8eab31941ce7a0aed50e3c3c464bfc4398da06567",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": false
+    },
+    {
+      "plugin": "lightcraft",
+      "archiveSha256": "5825db777d32004989502a521e4fb22ec7bba149084b5d6892c7699d9dbe2660",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": false
+    },
+    {
+      "plugin": "printcraft",
+      "archiveSha256": "aaaae2c57e301ad1140a3614e3647c86e1337814ff132305bfaf5563271db00e",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "vectorcraft",
+      "archiveSha256": "11c0100462e3d48ec04726c2055f9fccf38dafca073e28e32a2c83a7fb33c741",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "deckcraft",
+      "archiveSha256": "4643d263c529cf0a39702e16571af877eda177a05013b7d4ba038b1a2438c7db",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "soundcraft",
+      "archiveSha256": "a3f6fb4b969b513871620eb0664f7c1c3aee2650621a99df7158feb41c3a8d70",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "gridcraft",
+      "archiveSha256": "5a519030fc826f6f194992b84151197655e15e08af2bd81d5746ea786a49d819",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    },
+    {
+      "plugin": "wordcraft",
+      "archiveSha256": "42194e0ba688b9c5f6895f414be40bb8722bccdfd0f88bd003f103636d564245",
+      "archiveCrc": true,
+      "runtimeMatchesTestedCandidate": true,
+      "enhancedRuntimeFileLock": true
+    }
+  ],
+  "isolatedPackageChecks": [
+    {
+      "plugin": "cadcraft",
+      "isolatedMcpStartup": true,
+      "tools": 23,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "designcraft",
+      "isolatedMcpStartup": true,
+      "tools": 33,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "effectcraft",
+      "isolatedMcpStartup": true,
+      "tools": 11,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "photocraft",
+      "isolatedMcpStartup": true,
+      "tools": 33,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "figcraft",
+      "isolatedMcpStartup": true,
+      "tools": 26,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "filmcraft",
+      "isolatedMcpStartup": true,
+      "tools": 11,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "lightcraft",
+      "isolatedMcpStartup": true,
+      "tools": 11,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "printcraft",
+      "isolatedMcpStartup": true,
+      "tools": 178,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "vectorcraft",
+      "isolatedMcpStartup": true,
+      "tools": 40,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "deckcraft",
+      "isolatedMcpStartup": true,
+      "tools": 33,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "soundcraft",
+      "isolatedMcpStartup": true,
+      "tools": 25,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "gridcraft",
+      "isolatedMcpStartup": true,
+      "tools": 29,
+      "mcpAppsResource": true,
+      "pageServed": true
+    },
+    {
+      "plugin": "wordcraft",
+      "isolatedMcpStartup": true,
+      "tools": 24,
+      "mcpAppsResource": true,
+      "pageServed": true
+    }
+  ],
+  "figcraftRegression": {
+    "workspace": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/figcraft-editor-smoke-DBBwuI",
+    "sourceBuild": true,
+    "tools": 26,
+    "editSaveReopen": true,
+    "exportPng": true,
+    "reload": true,
+    "detach": true
+  },
+  "hostConfigs": {
+    "codex": 13,
+    "workbuddy": 13,
+    "installed": false
+  },
+  "notPerformed": [
+    "source fork patch push",
+    "plugin commit/push",
+    "global installation",
+    "ZCode or WorkBuddy host installation acceptance"
+  ]
+}

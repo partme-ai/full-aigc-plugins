@@ -1,0 +1,106 @@
+{
+  "sourceCommit": "6e972545d691bfbb8e9bc69b67aafe7b20dae3d9",
+  "ciCodeCommit": "22c8940889cc26729324045cc32217e256554af5",
+  "windowsRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38999455043",
+  "existingPackageMcpRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38999455149",
+  "runtime": {
+    "version": "v0.8.0",
+    "url": "https://github.com/storytold/pdfcraft/releases/download/v0.8.0/pdfcraft-0.8.0-windows-x64-portable.zip",
+    "sha256": "cd7b7fca39bf8fe477e230f40c35291a9a37ecc9175db34ff1c2ef94f785ddfb",
+    "executable": "pdfcraft-cli.exe"
+  },
+  "executableSha256": "7259328187752c759d40fbe5f08668e6cb24b1829a3d136b0117efa2832027c9",
+  "processCount": 37,
+  "recipes": [
+    {
+      "id": "compress-pdf",
+      "stepsSha256": "e82adc857ec237d5686634349fe75ea96de10bd66324de0274dfd3d23c6c39c1",
+      "checks": {
+        "id": "compress-pdf",
+        "technicalSample": "PASS",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "fill-pdf-forms",
+      "stepsSha256": "49f973dc00b9447eb4928c7b6cb2f660cda632419822a4c321c6e30882676877",
+      "checks": {
+        "id": "fill-pdf-forms",
+        "technicalSample": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "cjkAppearance": "FAIL_KNOWN_FONT_LIMITATION"
+      }
+    },
+    {
+      "id": "ocr-scans",
+      "stepsSha256": "a114d9a03c96fe98cac6e4208c82196492ca51c3ed60c39f3243a4178589e201",
+      "checks": {
+        "id": "ocr-scans",
+        "technicalSample": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "language": "en"
+      }
+    },
+    {
+      "id": "organize-pdf",
+      "stepsSha256": "f642586f9803573b9a99200fc271f177424c03203f8f2e331e06f36a113b3ba3",
+      "checks": {
+        "id": "organize-pdf",
+        "technicalSample": "PASS",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "pdf-preflight",
+      "stepsSha256": "64955787bf66cf1874df5b7d269ec2497b8b94f54b3576c48170ff202db604fb",
+      "checks": {
+        "id": "pdf-preflight",
+        "technicalSample": "PASS",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "redact-pdf",
+      "stepsSha256": "17196011ad0dde344e475aafbdee2482f0947d90a2b22c9fe8325aa8eb825a03",
+      "checks": {
+        "id": "redact-pdf",
+        "technicalSample": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "audit": {
+          "count": 0,
+          "file": "output/redacted.pdf",
+          "findings": []
+        }
+      }
+    }
+  ],
+  "ocr": {
+    "fixture": "image-only PDF; initial native text extraction empty",
+    "reopenedSearchText": "PAGE ONE\nPUBLIC KEEP\nCONFIDENTIAL",
+    "models": "official v0.8.0 ATTRIBUTION URLs and SHA256;CC-BY-SA-4.0",
+    "imagePixels": "before/after identical at144dpi",
+    "language": "en only"
+  },
+  "form": {
+    "asciiSample": "PASS",
+    "cjkStorage": "PASS",
+    "cjkAppearance": "FAIL_KNOWN_FONT_LIMITATION",
+    "extractedAppearance": "PAGE ONE\nPUBLIC KEEP\nCONFIDENTIAL\n????\n\f\nPAGE TWO\nPUBLIC KEEP\nCONFIDENTIALITY\n\f\nPAGE THREE\nPUBLIC KEEP\nPUBLIC THREE",
+    "scope": "Helvetica text field; native0.8.0 macOS and Windows; not counted as full scenario pass"
+  },
+  "checksExplained": {
+    "organize": "native page_move; reopen3page order THREE/ONE/TWO and2page extraction THREE/ONE",
+    "redact": "target word absent in native extraction and raw/Flate content streams; CONFIDENTIALITY andPUBLIC KEEP retained; nativeaudit clean",
+    "compress": "new output reopened; all text unchanged; representative page pixel-equal; sample file actually smaller",
+    "preflight": "3pages and1text field inventoried, representative page rendered; notPDF/X orPDF/A certification"
+  },
+  "auxiliaryTests": 76,
+  "unchangedSource": "native runner checked original PDF SHA256",
+  "limitations": [
+    "Chinese field appearance remains failed; no automatic transliteration",
+    "no host-editor-sync acceptance",
+    "synthetic fixture; not general confidential-content removal certification",
+    "legacy source package validation still skill_set_mismatch",
+    "plugin Package verification still sourceCurrent=false; architecture CI passes"
+  ]
+}
