@@ -1,0 +1,206 @@
+{
+  "sourceCommit": "35bde3ae96dd500f1a45e31b09cd23d91869dfb8",
+  "ciCodeCommit": "e55d14b425f714e2de39437cb6d43dfbd996a739",
+  "windowsRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39001305382",
+  "existingPackageMcpRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39001305375",
+  "runtime": {
+    "version": "v0.9.0",
+    "url": "https://github.com/storytold/photocraft/releases/download/v0.9.0/photocraft-0.9.0-windows-x64-portable.zip",
+    "sha256": "e87bbe26f84d3c359765b61d128b9cc59f016a995956fe7909b328a97650fc97",
+    "executable": "photocraft-cli.exe"
+  },
+  "exeSha256": "a594cddcb462334576b9561afe37b86afb37b07f9e1c29b9a90b4b0c8f0b4ee2",
+  "processCount": 226,
+  "uniquePhotoRecipes": 50,
+  "newNine": [
+    {
+      "id": "yellow-paper-neutralize",
+      "recipeSha256": "6ca6611aa4d285b504101d4767afc80590745049d3199b158e4398f791c556ef",
+      "checks": {
+        "id": "yellow-paper-neutralize",
+        "technicalSample": "PASS",
+        "metrics": {
+          "yellowBiasBefore": 2580480.0,
+          "yellowBiasAfter": 2482176.0
+        },
+        "originalLayerRestored": "PASS",
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "moire-small-radius",
+      "recipeSha256": "428aa43fd6eafaab6dfd6be966ecc436e68ce278e1cac795c613ce56dbc57c80",
+      "checks": {
+        "id": "moire-small-radius",
+        "technicalSample": "PASS",
+        "metrics": {
+          "dotPatternErrorBefore": 921600,
+          "dotPatternErrorAfter": 120
+        },
+        "originalLayerRestored": "PASS",
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "bw-conversion-preserve",
+      "recipeSha256": "7e69fd852e33cc4334f324a018fc5ce5972ec1dfae7b2063190aceeef6e52a5d",
+      "checks": {
+        "id": "bw-conversion-preserve",
+        "technicalSample": "PASS",
+        "metrics": {},
+        "originalLayerRestored": "PASS",
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "gentle-color-noise",
+      "recipeSha256": "cf026490d4e140c3b26a97f10f52c9c5b7bb55a4f3f6a7f0e0636fd5828e0dac",
+      "checks": {
+        "id": "gentle-color-noise",
+        "technicalSample": "PASS",
+        "metrics": {
+          "chromaBefore": 1474560,
+          "chromaAfter": 1081364
+        },
+        "originalLayerRestored": "PASS",
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "restore-final-sharpen",
+      "recipeSha256": "304675ee6d0ff4ab8d7272c11e298daf277076f7028f4aaa16783f749dab6175",
+      "checks": {
+        "id": "restore-final-sharpen",
+        "technicalSample": "PASS",
+        "metrics": {
+          "edgeBefore": 1598400,
+          "edgeAfter": 1918080
+        },
+        "originalLayerRestored": "PASS",
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "portrait-backlit",
+      "recipeSha256": "6309989af15d0b4a01fbdca708e149b267cd760ec15748411bbf9373e594b947",
+      "checks": {
+        "id": "portrait-backlit",
+        "technicalSample": "PASS",
+        "metrics": {
+          "shadowRange": [
+            55,
+            55
+          ],
+          "highlightRange": [
+            210,
+            210
+          ]
+        },
+        "originalLayerRestored": "PASS",
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "product-edge-halo",
+      "recipeSha256": "010cba4dc18505b4df034fa24ae35290965b9d7c7d480ae005c8e63bb4347fe4",
+      "checks": {
+        "id": "product-edge-halo",
+        "technicalSample": "PASS",
+        "metrics": {},
+        "originalLayerRestored": "PASS",
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "product-dark-matte",
+      "recipeSha256": "df486674bcff44ce9316c2eef7669f108f3f194eba07f13f33243dd1c43dd873",
+      "checks": {
+        "id": "product-dark-matte",
+        "technicalSample": "PASS",
+        "metrics": {},
+        "originalLayerRestored": "PASS",
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "product-background-mask",
+      "recipeSha256": "9058b7792397f4804050e81b38743b2f53512fc2c295fab74e7dbca0f0f3176f",
+      "checks": {
+        "id": "product-background-mask",
+        "technicalSample": "PASS",
+        "metrics": {},
+        "originalLayerRestored": "PASS",
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    }
+  ],
+  "alphaFix": {
+    "observedMacBefore": "visible original reintroduced background; alpha128 edges composited to192",
+    "nativeWindowsAfter": {
+      "whiteMatteEdge": [
+        40,
+        100,
+        179,
+        128
+      ],
+      "blackMatteEdge": [
+        40,
+        100,
+        179,
+        128
+      ],
+      "cutoutCorner": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "cutoutSubject": [
+        40,
+        100,
+        180,
+        255
+      ]
+    },
+    "binding": "read actual originalLayer ID before duplicating; resolve handbook reference to integer; preserve hidden original, restore in check copy"
+  },
+  "backlitFix": {
+    "observedMacOriginalMethod": {
+      "shadow40Became": 26,
+      "highlight220Became": 243
+    },
+    "adaptedMethod": "layer.newAdjustmentLayer.curves",
+    "nativeWindowsCurve": {
+      "shadow40Became": 55,
+      "highlight220Became": 210
+    },
+    "officialCodeModified": false
+  },
+  "sampleStrengthening": [
+    "noise uses shadow mean48, not midtone128",
+    "fine dot pattern retains150/190 coarse structure",
+    "sharpening bounds max channel correction below10"
+  ],
+  "crossPlatform": {
+    "pngSamples": 36,
+    "identicalDecodedRGBA": 36
+  },
+  "auxiliaryTests": 85,
+  "limitations": [
+    "all50arelimitednativeCLItechnicalexamples;notrealportrait/productqualityacceptance",
+    "nohost-editor-syncacceptance",
+    "matteandmaskcasesusebasic64x64regularshape;notglass/hair/complexlayers",
+    "existingMCPpackagesarenotrebuiltinstallationswithnewskills",
+    "PhotoCraft implementation CI still missing removed photocraft-use/scripts and plan_identity.py"
+  ],
+  "pluginImplementationRun": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39001133142"
+}
