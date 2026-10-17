@@ -199,3 +199,63 @@ def run_long_document(r,skills):
     require(packed_notes==notes,'Packaged source footnote changed')
     (r.work/'core-book-inspection.json').write_text(json.dumps({'info':info,'stories':stories,'notes':notes,'tocStory':toc_story,'tocBefore':bindings['toc_before'],'tocAfter':reopened_toc,'preflight':preflight,'package':bindings['package']},ensure_ascii=False,indent=2),encoding='utf-8')
     return {'id':'long-document','coreSkill':'designcraft-long-document','technicalRoundtrip':'PASS','fullChapterTextAndThread':'PASS','tocPaginationUpdate':'PASS','nativeFootnoteTextAndAnchor':'PASS','chapterBodyStylesInIdml':'PASS','packagedNativeReopen':'PASS','layoutReview':'NOT_TESTED','hostSameCanvas':'NOT_TESTED'}
+
+
+def verify_brochure(info,stories,bindings,recipe):
+    """核对阅读页序、完整正文和逐SKU图片绑定；不把零退出当交付。"""
+    verify(info,stories,bindings,recipe['assertions'])
+    story_map={s['frames'][0]:s for s in stories}
+    for index,page in enumerate(recipe['pages']):
+        page_ids={i['id'] for i in info['spreads'][index]['items']}
+        for suffix,expected in [('heading',page['heading']),('copy',page['text']),('footer',f'{index+1} / 4  |  Review copy')]:
+            key=page['key']+'_'+suffix;frame=bindings[key]['id']
+            require(frame in page_ids,'Brochure text placed on wrong page: '+key)
+            require(story_map[frame]['text']==expected,'Brochure full text changed: '+key)
+            require(story_map[frame]['overset'] is None,'Brochure remains overset: '+key)
+        if page.get('image'):require(bindings[page['key']+'_image']['id'] in page_ids,'Brochure SKU image placed on wrong page')
+
+
+def run_brochure(r,skills):
+    import hashlib
+    root=Path(skills)/'designcraft-brochure'
+    recipe=json.loads((root/'references/craft-steps.json').read_text(encoding='utf-8'))
+    spec=importlib.util.spec_from_file_location('brochure_compiler',root/'scripts/write_script.py')
+    compiler=importlib.util.module_from_spec(spec);spec.loader.exec_module(compiler)
+    inputs=r.work/'brochure-input';inputs.mkdir()
+    catalog_png(inputs/'organiser.png',(25,80,210));catalog_png(inputs/'case.png',(225,110,20))
+    hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs.iterdir()}
+    steps,names=compiler.compile_steps(recipe)
+    target='core-brochure.designcraft';pdf='core-brochure.pdf';idml='core-brochure.idml'
+    results=run_script(r,steps,save=target,exports=[pdf,idml]);bindings={n:results[i] for n,i in names.items()}
+    info=json.loads(r.run('run','--in',target,'--cmd','document.inspect'))
+    text_steps=[s for s in recipe['steps'] if s['command']=='frame.create' and s['params']['content']=='text']
+    queries=[{'command':'story.get','params':{'frame':bindings[s['capture']]['id']}} for s in text_steps]
+    stories=run_script(r,queries,source=target)
+    verify_brochure(info,stories,bindings,recipe)
+    products=[{'key':p['key'],'sku':p['key'],'image':p['image']} for p in recipe['pages'] if p.get('image')]
+    links=run_script(r,[{'command':'links.list','params':{}}],source=target)[0]
+    verify_catalog_links(links,products,bindings)
+    preflight=run_script(r,[{'command':'preflight.run','params':{'minPpi':150}}],source=target)[0]
+    require(not preflight['issues'],'Brochure preflight issues: '+str(preflight))
+    with zipfile.ZipFile(r.work/idml) as archive:
+        xmls=[ET.fromstring(archive.read(n)) for n in archive.namelist() if n.startswith('Stories/') and n.endswith('.xml')]
+        for step in text_steps:
+            expected=step['params']['text'];found=[xml for xml in xmls if ''.join(e.text or '' for e in xml.iter() if e.tag.endswith('Content'))==expected.replace('\n','')]
+            # IDML paragraphs may preserve LF or use individual Content elements.
+            if not found:found=[xml for xml in xmls if ''.join(e.text or '' for e in xml.iter() if e.tag.endswith('Content'))==expected]
+            require(len(found)==1,'Brochure IDML story missing or duplicated: '+step['capture'])
+            suffix=step['capture'].rsplit('_',1)[1];style={'heading':'Brochure Heading','copy':'Brochure Body','footer':'Brochure Footer'}[suffix]
+            paragraphs=[e for e in found[0].iter() if e.tag.endswith('ParagraphStyleRange')]
+            require(paragraphs and all(unquote(e.attrib.get('AppliedParagraphStyle','')).endswith('/'+style) for e in paragraphs),'Brochure editable style lost: '+step['capture'])
+    package_results=run_script(r,recipe['deliverySteps'],source=target)
+    bindings['package']=package_results[0]
+    package=r.work/'brochure-package';native=list(package.glob('*.designcraft'))
+    require(len(native)==1,'Brochure packaged project missing')
+    packaged_info=json.loads(r.run('run','--in',str(native[0]),'--cmd','document.inspect'))
+    packaged_stories=run_script(r,queries,source=str(native[0]));verify_brochure(packaged_info,packaged_stories,bindings,recipe)
+    for name,digest in hashes.items():
+        require(hashlib.sha256((inputs/name).read_bytes()).hexdigest()==digest,'Brochure input changed')
+        require(hashlib.sha256((package/'Links'/name).read_bytes()).hexdigest()==digest,'Brochure packaged image changed')
+    require((r.work/pdf).read_bytes().startswith(b'%PDF'),'Brochure PDF invalid')
+    (r.work/'core-brochure-inspection.json').write_text(json.dumps({'info':info,'stories':stories,'bindings':bindings,'links':links,'preflight':preflight,'inputHashes':hashes},ensure_ascii=False,indent=2),encoding='utf-8')
+    return {'id':'brochure','coreSkill':'designcraft-brochure','technicalRoundtrip':'PASS','fourPageReadingOrder':'PASS','allTwelveStoriesAndStyles':'PASS','twoProductImageBindings':'PASS','packagedReopen':'PASS','sourceImagesUnchanged':'PASS','layoutReview':'NOT_TESTED','hostSameCanvas':'NOT_TESTED'}

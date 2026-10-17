@@ -102,10 +102,11 @@ def run_playbooks(r,path):
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','editableSemantics':'PASS','finalPreflight':'PASS','layoutReview':'NOT_TESTED'})
     require(bool(records),'No Design workflows')
     records.append(existing_story_revision(r,compiler,data))
-    from design_core_smoke import run_newsletter,run_catalog,run_long_document
+    from design_core_smoke import run_newsletter,run_catalog,run_long_document,run_brochure
     records.append(run_newsletter(r,path.parents[2]))
     records.append(run_catalog(r,path.parents[2]))
     records.append(run_long_document(r,path.parents[2]))
+    records.append(run_brochure(r,path.parents[2]))
     from design_preflight_smoke import run_preflight
     records.append(run_preflight(r,path.parents[2]))
     return records
