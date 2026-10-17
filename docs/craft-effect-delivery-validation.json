@@ -76,11 +76,98 @@
     "allNewFramesDecoded": "PASS",
     "visualReview": "Viewed actual chapter hold, START and middle credits native PNGs; not continuous playback"
   },
-  "windows": "PENDING_CI",
+  "windows": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39034553688",
+    "sourceCommit": "5ac35af6859c73690830646514f942db9ce46725",
+    "processCount": 114,
+    "results": [
+      {
+        "id": "chapter-card",
+        "sequenceFrames": 100,
+        "allFramesDecoded": "PASS",
+        "savedProjectAndSampledFrames": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "actualProductionPlayback": "NOT_TESTED"
+      },
+      {
+        "id": "countdown-intro",
+        "sequenceFrames": 100,
+        "allFramesDecoded": "PASS",
+        "savedProjectAndSampledFrames": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "actualProductionPlayback": "NOT_TESTED"
+      },
+      {
+        "id": "credits-roll",
+        "sequenceFrames": 300,
+        "allFramesDecoded": "PASS",
+        "savedProjectAndSampledFrames": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "actualProductionPlayback": "NOT_TESTED"
+      },
+      {
+        "id": "kinetic-type",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      },
+      {
+        "id": "logo-reveal",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      },
+      {
+        "id": "lower-thirds",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      },
+      {
+        "id": "motion-export",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      },
+      {
+        "id": "screen-composite",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      },
+      {
+        "id": "social-loop",
+        "technicalRoundtripAndRender": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic scene; real footage, brand artwork and playback quality not inferred"
+      }
+    ],
+    "downloadedOutputDigests": 616,
+    "allDownloadedDigests": "PASS",
+    "newRecipeActualArgvMatchesSource": "PASS",
+    "exeSha256AsReportedByRunner": "b9dd260f9f97c6e25bc03f8abc5430d3232adae11aa23eb1d3ae2fe93cf44d80"
+  },
   "tests": {
     "effectDelivery": 7,
     "existingPlaybookHelpers": 52,
     "pluginLocal": 24
   },
-  "publication": "SOURCE_AND_PLUGIN_FEATURE_ONLY_MARKET_RELEASE_PENDING"
+  "publication": {
+    "version": "0.1.0-dev.20261017.6",
+    "sourceMainCommit": "49a5b8faea0328f279abf81f746148b7cc44670d",
+    "pluginMainCommit": "3ee1832e9a9a38aa6b153e689b61de9b111e02c4",
+    "publicZip": {
+      "plugin": "effectcraft",
+      "version": "0.1.0-dev.20261017.6",
+      "source": "https://github.com/full-aigc-plugins/effectcraft-plugin/releases/download/v0.1.0-dev.20261017.6/effectcraft-plugin-0.1.0-dev.20261017.6.zip",
+      "archiveSha256": "cdfa6421524d794473cfa8ee4f6b32b23e4a58f2024d10b84050390a57f2a132",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    "marketMain": "PENDING"
+  }
 }

@@ -8,6 +8,9 @@
     "effectcraft-lower-thirds",
     "effectcraft-motion-export",
     "effectcraft-screen-composite",
-    "effectcraft-social-loop"
+    "effectcraft-social-loop",
+    "effectcraft-chapter-card",
+    "effectcraft-countdown-intro",
+    "effectcraft-credits-roll"
   ]
 }

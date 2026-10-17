@@ -185,11 +185,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/effectcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.5"
+        "ref": "v0.1.0-dev.20261017.6"
       },
       "displayName": "EffectCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.5",
+      "version": "0.1.0-dev.20261017.6",
       "category": "Creativity",
       "tags": [
         "effectcraft",
@@ -198,7 +198,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
       "strict": true
     },
     {

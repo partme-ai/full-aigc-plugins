@@ -1,0 +1,40 @@
+{
+  "runtime": {
+    "version": "0.10.0",
+    "platform": "macos-universal",
+    "archiveSha256": "5da3adb581f0cd49edaa9ae2eeeaa50426cb1afbb0794902551db3d7173dd12a"
+  },
+  "catalogSource": "Actual native CLI commands --json; enabled reflects initial empty/default state, not unsupported",
+  "sceneAcceptance": "NOT_TESTED",
+  "observedCommands": {
+    "comp.new": {
+      "enabled": true,
+      "id": "comp.new",
+      "label": "New Composition...",
+      "menu": [
+        "Composition"
+      ],
+      "params": "{name?, width?, height?, frameRate?, duration? (s), startTime? (s) | startTimecode?, background? [r,g,b]|#hex, pixelAspect?, shutterAngle?, shutterPhase?, motionBlurSamples?, adaptiveSampleLimit? (16–256), preserveFrameRate?: bool, preserveResolution?: bool, renderer?: classic3D|advanced3D, anchor?, open?}",
+      "shortcut": "Cmd+N"
+    },
+    "layer.newText": {
+      "enabled": false,
+      "id": "layer.newText",
+      "label": "Text",
+      "menu": [
+        "Layer",
+        "New"
+      ],
+      "params": "{text?, name? (layer name; default the text), position? [x,y], box? [x,y,w,h] (paragraph text, comp space), vertical?, edit? (start editing), font?, style?, size?, fill?, stroke?, applyFill?, applyStroke?, strokeWidth?, tracking?, leading?, baselineShift?, hScale?, vScale?, tsume?, fauxBold?, fauxItalic?, allCaps?, smallCaps?, baseline?, superscript?, subscript?, kerning?, ligatures?, justify?, indentLeft?, indentRight?, indentFirst?, spaceBefore?, spaceAfter?, direction?, composer?, hangingPunctuation?, strokeOverFill?} (attributes as layer.setText)",
+      "shortcut": "Cmd+Alt+Shift+T",
+      "why": "no composition is open"
+    },
+    "layer.timing": {
+      "enabled": false,
+      "id": "layer.timing",
+      "label": "Layer Timing",
+      "params": "{layers?, op?: moveInToTime|moveOutToTime|moveInToStart|moveOutToEnd|trimInToTime|trimOutToTime, delta?, start?, in?, out?, inDelta?, outDelta? (seconds, per layer), merge?}",
+      "why": "no composition is open"
+    }
+  }
+}
