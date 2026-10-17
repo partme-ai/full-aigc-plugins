@@ -63,6 +63,8 @@ def inspect(r,target):
 
 def run_playbooks(r,path):
     data=json.loads(Path(path).read_text(encoding='utf-8'));require(data['application']=='vectorcraft','Wrong application');records=[]
+    require({'dimension-unit-delivery','intertwine-overlap-order','csv-text-variants'} <= {x['id'] for x in data['recipes']},
+            'Pinned source lacks the three VectorCraft 0.12 workflows')
     for recipe in data['recipes']:
         args=['run']
         for step in recipe['steps']:args+=['--cmd',step['command'],'--params',json.dumps(step['params'],ensure_ascii=False,separators=(',',':'))]

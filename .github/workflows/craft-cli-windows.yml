@@ -60,7 +60,7 @@ jobs:
         if: matrix.plugin == 'deckcraft'
         with:
           repository: full-aigc-skills/deckcraft-skills
-          ref: 9ce5ea0f64278daba7459f8379a9b01fd891e32e
+          ref: 0d0468eeebe81cd7a427ed1da102535498d286c7
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'soundcraft'
@@ -84,7 +84,7 @@ jobs:
         if: matrix.plugin == 'vectorcraft'
         with:
           repository: full-aigc-skills/vectorcraft-skills
-          ref: 37b008497f809a93cda0b1ef6949470404615ef0
+          ref: 9ce5ea0f64278daba7459f8379a9b01fd891e32e
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'figcraft'
