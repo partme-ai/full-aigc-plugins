@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前232条命令映射：PhotoCraft50条，GridCraft21条，WordCraft/LightCraft/FigCraft各17条，SoundCraft16条，CADCraft/DesignCraft各15条，DeckCraft14条，VectorCraft20条，EffectCraft/FilmCraft各9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前233条命令映射：PhotoCraft50条，GridCraft21条，WordCraft18条，LightCraft/FigCraft各17条，SoundCraft16条，CADCraft/DesignCraft各15条，DeckCraft14条，VectorCraft20条，EffectCraft/FilmCraft各9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
 
 | 内容 | 当前事实 |
 | --- | --- |
 | 首批GitHub来源 | 23个仓见 craft-scenario-sources.json；后续独立技能的固定提交、阅读文件和许可分别记录在各技能workflow-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 当前静态校验覆盖232条映射；独立引用、方法ID、参数和源/插件副本检查通过，不能据此认定232条均已完成业务验收 |
+| 场景分发 | 当前静态校验覆盖233条映射；独立引用、方法ID、参数和源/插件副本检查通过，不能据此认定232条均已完成业务验收 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -462,3 +462,12 @@ macOS/Windows本轮各35次字幕流程CLI调用通过；Windows总业务158次�
 插件开发预发布0.1.0-dev.20261018.3完整ZIP已从公开Release下载、摘要校验、解包安装和MCP验证；市场27项安装矩阵通过后进入main，公开main安装与本机市场源刷新通过。main三套CI尚在排队或运行。技能源离线CI319项：277通过、0失败、42项环境条件未执行；插件Node188项：185通过、0失败、3项未执行。所有未执行项保持独立，不提升为宿主/媒体验收。
 
 场景映射仍为232条，本次增强既有字幕场景，不新增计数。完整证据与限制见[字幕验证记录](craft-film-subtitle-validation.json)。
+
+
+## WordCraft 商业报价单
+
+新增独立wordcraft-quotation：从本次字段和整数数量/十进制单价计算明细与合计，生成原生四列表格及DOCX/PDF；显式设置每行不可拆分页、列宽和数值对齐。借鉴dolanmiu/docx固定提交的动态表格流程，操作和参数为原创适配，来源与官方Pos/表格命令证据在技能内。
+
+macOS与Windows各15次原生CLI调用验证普通报价、小额精度和20项中文长明细；全部行分页属性、列宽、数值对齐、金额、输入保留与页面渲染通过。macOS四个输出页面已人工查看。真实Codex经插件MCP执行79条创建和6条局部改价命令，同一内嵌浏览器中观察正文、表格及改价；保存重开后只有三个预期单元格文本变化，其他document.xml内容保持。
+
+开发预发布0.1.0-dev.20261018.4完整ZIP公开下载、干净解包、隔离安装、MCP和ui/dist摘要核验通过；18.3历史标签保留，18.4修正README当前版本说明。市场main交付仍待本批test矩阵通过；所有宿主、所有用户素材与20项宿主内分页未由本轮证明。完整范围见[报价单验证记录](craft-word-quotation-validation.json)。当前233条静态映射不等于233项完整业务验收。

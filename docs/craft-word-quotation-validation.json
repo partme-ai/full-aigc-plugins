@@ -174,7 +174,7 @@
   "sourceCommit": "3bc1a90aabe41310578de1e576b3ba0dffe70a7c",
   "pluginCommit": "9decb4eac2aabb572ab719b4d910f5794a98ad41",
   "remaining": [
-    "release packaging and marketplace",
+    "marketplace main delivery",
     "other hosts, arbitrary user inputs and20-item host pagination"
   ],
   "layoutFix": {
@@ -194,5 +194,16 @@
     "cause": "inferred skills directory from generated JSON location",
     "fixedBy": "cd96ebe; explicit relative sourceSkills field;218 auxiliary tests passed",
     "quotationStage": "NOT_REACHED"
+  },
+  "publishedRelease": {
+    "version": "0.1.0-dev.20261018.4",
+    "pluginCommit": "6e267438b7057625f27fd83b1a2b216fd93a3ffd",
+    "url": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261018.4",
+    "archiveSha256": "8556b134196c0d7f80babc3262cafdc4aea0f25d4591a15bade98631e9a45085",
+    "publicZipDownloadInstallMcpRuntimeDigests": "PASS",
+    "sourceTestCI": "https://github.com/full-aigc-skills/wordcraft-skills/actions/runs/39078553054",
+    "marketplace": "PENDING",
+    "previous18_3": "preserved;18.4 corrects current README identity without rewriting published tags",
+    "hostEvidenceApplicability": "native host tested18.3 execution files;18.4 changes metadata/documentation only; identical skill scripts/bootstrap and locked runtime, and18.4 fresh MCP version agreement verified"
   }
 }

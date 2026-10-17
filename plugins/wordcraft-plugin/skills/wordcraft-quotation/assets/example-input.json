@@ -1,0 +1,23 @@
+{
+  "quote_number": "Q-2026-001",
+  "quote_date": "2026-10-18",
+  "issuer": "示例设计工作室",
+  "customer": "示例客户",
+  "currency": "CNY",
+  "pricing_basis": "按提供单价计算，税费口径待双方确认",
+  "valid_until": "2026-11-01",
+  "terms": "交付项目源文件，验收范围按项目说明确认。",
+  "items": [
+    {
+      "description": "主视觉设计",
+      "quantity": 2,
+      "unit_price": "1250.10"
+    },
+    {
+      "description": "尺寸适配",
+      "quantity": 3,
+      "unit_price": "80.20"
+    }
+  ],
+  "expected_total": "2740.80"
+}

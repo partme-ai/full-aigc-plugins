@@ -1,0 +1,59 @@
+{
+  "schema": "wordcraft-document-template/v1",
+  "id": "quotation",
+  "name": "商业报价单",
+  "fields": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "document_date": {
+      "type": "text",
+      "required": true
+    },
+    "author": {
+      "type": "text",
+      "required": true
+    },
+    "parties": {
+      "type": "text",
+      "required": true
+    },
+    "basis": {
+      "type": "text",
+      "required": true
+    },
+    "terms": {
+      "type": "text",
+      "required": true
+    },
+    "records": {
+      "type": "rows",
+      "required": true
+    }
+  },
+  "sections": [
+    {
+      "title": "报价对象",
+      "field": "parties"
+    },
+    {
+      "title": "计价口径",
+      "field": "basis"
+    },
+    {
+      "title": "有效期与交付约定",
+      "field": "terms"
+    }
+  ],
+  "table": {
+    "title": "报价明细",
+    "headers": [
+      "项目",
+      "数量",
+      "单价",
+      "金额"
+    ],
+    "field": "records"
+  }
+}

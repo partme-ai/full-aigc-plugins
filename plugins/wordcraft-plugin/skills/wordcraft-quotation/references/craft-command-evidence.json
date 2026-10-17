@@ -1,0 +1,170 @@
+{
+  "runtime": {
+    "version": "0.7.0",
+    "platform": "macOS universal",
+    "source": "official CLI; actual native command catalog in baseline"
+  },
+  "observedCommands": {
+    "caret.docEnd": {
+      "id": "caret.docEnd",
+      "label": "Document End",
+      "location": "Navigation",
+      "mutates": false,
+      "params": "{\"extend\"?: bool}",
+      "shortcut": "Mod+End"
+    },
+    "caret.paraUp": {
+      "id": "caret.paraUp",
+      "label": "Paragraph Up",
+      "location": "Navigation",
+      "mutates": false,
+      "params": "{\"extend\"?: bool}",
+      "shortcut": "Mod+Up / Alt+Up"
+    },
+    "layout.margins": {
+      "id": "layout.margins",
+      "label": "Margins",
+      "location": "Layout › Page Setup",
+      "mutates": true,
+      "params": "{\"preset\"?: \"normal|narrow|moderate|wide|mirrored|office2003\", \"top\"?: pt, \"bottom\"?: pt, \"left\"?: pt, \"right\"?: pt, \"gutter\"?: pt}",
+      "shortcut": ""
+    },
+    "layout.size": {
+      "id": "layout.size",
+      "label": "Size",
+      "location": "Layout › Page Setup",
+      "mutates": true,
+      "params": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}",
+      "shortcut": ""
+    },
+    "para.align": {
+      "id": "para.align",
+      "label": "Alignment",
+      "location": "Home › Paragraph",
+      "mutates": true,
+      "params": "{\"value\": \"left|center|right|justify|distribute (as seen on the page) | start|end (reading direction)\"}",
+      "shortcut": ""
+    },
+    "para.heading1": {
+      "id": "para.heading1",
+      "label": "Heading 1",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Alt+1"
+    },
+    "para.heading2": {
+      "id": "para.heading2",
+      "label": "Heading 2",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Alt+2"
+    },
+    "para.normal": {
+      "id": "para.normal",
+      "label": "Normal Style",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Shift+N"
+    },
+    "select.range": {
+      "id": "select.range",
+      "label": "Select Range",
+      "location": "Navigation",
+      "mutates": false,
+      "params": "{\"anchor\": Pos, \"focus\": Pos}",
+      "shortcut": ""
+    },
+    "table.autofit": {
+      "id": "table.autofit",
+      "label": "AutoFit",
+      "location": "Table Layout › Cell Size",
+      "mutates": true,
+      "params": "{\"mode\": \"contents|window|fixed\"}",
+      "shortcut": ""
+    },
+    "table.borders": {
+      "id": "table.borders",
+      "label": "Borders",
+      "location": "Table Design › Borders",
+      "mutates": true,
+      "params": "{\"kind\": \"all|outside|inside|none|top|bottom|left|right\", \"width\"?: pt, \"color\"?: \"RRGGBB\"}",
+      "shortcut": ""
+    },
+    "table.columnWidth": {
+      "id": "table.columnWidth",
+      "label": "Table Column Width",
+      "location": "Table Layout › Cell Size",
+      "mutates": true,
+      "params": "{\"width\": pt} (the caret cell's column; the table's preferred width is cleared so the column gets exactly this)",
+      "shortcut": ""
+    },
+    "table.fromText": {
+      "id": "table.fromText",
+      "label": "Convert Text to Table",
+      "location": "Insert › Tables",
+      "mutates": true,
+      "params": "{\"separator\"?: \"tab|comma\"}",
+      "shortcut": ""
+    },
+    "table.look": {
+      "id": "table.look",
+      "label": "Table Style Options",
+      "location": "Table Design › Table Style Options",
+      "mutates": true,
+      "params": "{\"headerRow\"?: bool, \"totalRow\"?: bool, \"bandedRows\"?: bool, \"firstColumn\"?: bool, \"lastColumn\"?: bool, \"bandedColumns\"?: bool}",
+      "shortcut": ""
+    },
+    "table.properties": {
+      "id": "table.properties",
+      "label": "Properties",
+      "location": "Table Layout › Table",
+      "mutates": true,
+      "params": "{\"align\"?: \"left|center|right\", \"rtl\"?: bool, \"width\"?: pt|null, \"widthPct\"?: percent, \"indent\"?: pt, \"rowHeight\"?: pt|null, \"rowHeightRule\"?: \"atLeast|exact\", \"allowBreak\"?: bool, \"headerRow\"?: bool, \"columnWidth\"?: pt, \"cellWidth\"?: pt|null, \"valign\"?: \"top|center|bottom\"} (row, column and cell settings apply to the caret's; without settings it returns the current ones)",
+      "shortcut": ""
+    },
+    "table.repeatHeader": {
+      "id": "table.repeatHeader",
+      "label": "Repeat Header Rows",
+      "location": "Table Layout › Data",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "table.selectColumn": {
+      "id": "table.selectColumn",
+      "label": "Select Column",
+      "location": "Table Layout › Table › Select",
+      "mutates": false,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "table.selectTable": {
+      "id": "table.selectTable",
+      "label": "Select Table",
+      "location": "Table Layout › Table › Select",
+      "mutates": false,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "text.insert": {
+      "id": "text.insert",
+      "label": "Type Text",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{\"text\": string}",
+      "shortcut": ""
+    },
+    "text.newParagraph": {
+      "id": "text.newParagraph",
+      "label": "New Paragraph",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Enter"
+    }
+  },
+  "validation": "macOS two-item fixture DOCX/PDF/table check; not all-host acceptance"
+}

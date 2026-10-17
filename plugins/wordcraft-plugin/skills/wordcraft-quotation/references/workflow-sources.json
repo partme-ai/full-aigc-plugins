@@ -1,0 +1,53 @@
+{
+  "policy": "工作流事实借鉴，参数和场景正文原创；不复制上游代码、正文或素材",
+  "sources": [
+    {
+      "repository": "dolanmiu/docx",
+      "commit": "3b4f7777cd961ed3c19572f6262d90cd74bd640b",
+      "license": "MIT",
+      "readFiles": [
+        {
+          "path": "docs/usage/templates.md",
+          "sha256": "473cddd45c9e52b669f094a5bd5915ec40c766b7380495eb25a05ad0628430b2",
+          "bytes": 22937,
+          "url": "https://github.com/dolanmiu/docx/blob/3b4f7777cd961ed3c19572f6262d90cd74bd640b/docs/usage/templates.md"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "b5b2364c0c95a26b2a2399d7e706a61acac680be1d5b180b00592ee85830bffb",
+          "bytes": 1072,
+          "url": "https://github.com/dolanmiu/docx/blob/3b4f7777cd961ed3c19572f6262d90cd74bd640b/LICENSE"
+        }
+      ],
+      "reuse": "workflow facts only; original Craft parameters and calculations"
+    },
+    {
+      "repository": "storytold/wordcraft",
+      "commit": "fc41918814f62645b6746ed68e71e8c2c2e85d6f",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "crates/engine/src/cmd/caret.rs",
+          "url": "https://github.com/storytold/wordcraft/blob/fc41918814f62645b6746ed68e71e8c2c2e85d6f/crates/engine/src/cmd/caret.rs",
+          "sha256": "f4c30f8756af553ae0d32915ee6540a2988be43968ed21c2ddce000e562ad3df"
+        },
+        {
+          "path": "crates/engine/src/cmd/table.rs",
+          "url": "https://github.com/storytold/wordcraft/blob/fc41918814f62645b6746ed68e71e8c2c2e85d6f/crates/engine/src/cmd/table.rs",
+          "sha256": "26e7c2a6471ba27efbd2ecf5110ce717f8a1bea9ba97be2c23528b12b41025a6"
+        },
+        {
+          "path": "crates/engine/src/cmd/mod.rs",
+          "url": "https://github.com/storytold/wordcraft/blob/fc41918814f62645b6746ed68e71e8c2c2e85d6f/crates/engine/src/cmd/mod.rs",
+          "sha256": "1a9f413f6435f898d600c02fe536ebddfbe65193ae52de422990ac4044c282f7"
+        },
+        {
+          "path": "crates/doc/src/lib.rs",
+          "url": "https://github.com/storytold/wordcraft/blob/fc41918814f62645b6746ed68e71e8c2c2e85d6f/crates/doc/src/lib.rs",
+          "sha256": "b0a1e8e4d006bee73c6b6a879e64ee1eb6147f79ab8646c8c26e644685c9474d"
+        }
+      ],
+      "reuse": "actual Pos schema and caret-row property behavior; original automation, no upstream source copied"
+    }
+  ]
+}

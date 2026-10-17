@@ -193,12 +193,12 @@
   },
   {
     "plugin": "wordcraft",
-    "version": "0.1.0-dev.20261017.6",
+    "version": "0.1.0-dev.20261018.4",
     "repository": "full-aigc-plugins/wordcraft-plugin",
-    "commit": "e9588c681f32c402613653244f3217806b360a4a",
-    "tag": "v0.1.0-dev.20261017.6",
-    "fileCount": 165,
-    "treeSha256": "f1e6e74ed6a4a57214c121b82860ab75f2c603e7c93237b6cd9a6dce543388f6",
+    "commit": "6e267438b7057625f27fd83b1a2b216fd93a3ffd",
+    "tag": "v0.1.0-dev.20261018.4",
+    "fileCount": 180,
+    "treeSha256": "55d44a78ff22307567f1dd5e774334459982dfd0b521846a802fbf185f75dcfb",
     "excluded": [
       "evidence/",
       "docs/evidence/",

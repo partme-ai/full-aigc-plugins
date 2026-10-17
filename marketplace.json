@@ -482,13 +482,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/download/v0.1.0-dev.20261017.6/wordcraft-plugin-0.1.0-dev.20261017.6.zip",
-        "sha256": "f690b58a1e1701f4be3ff037e82f21df4be89edc3d665081206299bd4a1895eb",
+        "url": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/download/v0.1.0-dev.20261018.4/wordcraft-plugin-0.1.0-dev.20261018.4.zip",
+        "sha256": "8556b134196c0d7f80babc3262cafdc4aea0f25d4591a15bade98631e9a45085",
         "path": "wordcraft-plugin"
       },
       "displayName": "WordCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.6",
+      "version": "0.1.0-dev.20261018.4",
       "category": "Productivity",
       "tags": [
         "wordcraft",
@@ -497,7 +497,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261018.4/assets/official-logo.png",
       "strict": true
     },
     {
