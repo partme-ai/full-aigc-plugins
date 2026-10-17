@@ -247,3 +247,14 @@ RAW复用原有CC0 Nikon D2H固定NEF清单和SHA256，实际报告previewOnly�
 Windows main [39013647220](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39013647220)通过14条唯一配方、90次CLI调用；下载核对主线二进制和139份输出摘要。稳定CLI的13应用业务矩阵[39013640352](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39013640352)通过。完整记录见[Light核心回归](craft-light-core-validation.json)。实际创作效果、其他RAW型号和宿主画面同步仍未验收。
 
 累计201条映射：176条限定技术回归通过、1条PDF表单部分通过、24条待执行，另4组合用例。剩余24条为CAD、Design、Fig、Deck各6条核心，原OpenSpec与完整目标继续实施。
+
+
+## DeckCraft六项核心演示场景
+
+补读python-pptx固定提交的slides、placeholders-using、charts和notes，借鉴母版/布局继承、原生图表数据和逐页讲者备注。保留原创Craft步骤，不执行外部Python脚本；python-pptx占位索引不能替代Craft对象ID。
+
+旧步骤在Windows [39014697606](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014697606)复现培训页缺少对应备注。已重建培训三页专属备注、五页提案及事实/假设边界、周报折线图与行动表、两页数据故事、实际品牌色与主题字体。改版先显式复制源页，再查询副本新对象ID，定位和缩放只作用于副本，核对源页和无关页未变。新建命令仅用于新任务，已有演示文稿不得清空。
+
+Windows main [39014846480](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014846480)通过14条唯一场景及1条既有组合用例，共78次进程调用；下载核对原生二进制与54份输出摘要。六项核心逐项检查原生保存/PPTX导入、文字顺序和备注；周报与数据故事在PPTX回读后实际修改图表为21/48，再导出检查活数据，另独立核对行动表九个单元格。稳定CLI的13应用矩阵 [39014843673](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014843673)全部通过。完整记录见[Deck核心回归](craft-deck-core-validation.json)。辅助测试122项与201条静态映射检查通过；真实提案内容、外部PowerPoint渲染、版式和宿主同步未验收。
+
+累计201条映射：182条限定技术回归通过、1条PDF表单部分通过、18条待执行，另4组合用例。剩余18条为CAD、Design、Fig各6条核心；不据结构回归宣称完整场景有效或市场已发布，原OpenSpec继续实施。
