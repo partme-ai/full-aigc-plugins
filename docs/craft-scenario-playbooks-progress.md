@@ -282,3 +282,13 @@ CLI原型记录仍明确PARTIAL；另通过隔离Codex原生插件安装和app-s
 本地先复现两个技能缺少目标几何/尺寸的失败，修复后9项CAD辅助测试及201条静态映射检查通过。Windows main运行[39023108532](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023108532)通过原8条加2个重建入口，共10条配方、48次CLI调用；下载核对固定原生二进制与22份输出摘要，检查实际DXF门洞、孔心/半径、闭合轮廓、四项量测、保存重开与SVG导出。稳定版13应用业务矩阵[39023098371](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023098371)通过。房间缩略图已局部查看，完整导出布局与零件尺寸排布、宿主同步仍未验收。
 
 这是修正既有入口，复用已有绘图方法，不增加场景数量。当前201条映射中190条执行入口有过限定技术检查，1条PDF表单部分通过，10条待执行（CAD余4、Design6）；存在业务步骤复用，不能将映射数量等同独立场景数量或真实创作质量。新技能修正已提交推送技能源和插件feature分支，公开市场dev.20261017.4未包含本轮修正，留待后续场景批次发行。原OpenSpec与完整目标保持实施中。细节见[CAD核心验证](craft-cad-core-validation.json)。
+
+## CAD图层整理与版本比较
+
+图层整理先用真实layer命令读取层状态、getvar读取单位；匹配REFERENCE与WALL后才修改，DIMENSIONS仅在不存在时创建，不删除实体或重设单位。实际原生检查使用有三个实体和未指定KEEP层的既有图纸：验证REFERENCE锁定/禁打印、WALL的0.35mm线宽，核对KEEP完整层记录、原实体与输入文件保持不变。已存在DIMENSIONS时跳过创建的说明已补充；该分支尚未单独执行。
+
+版本比较补充无变化区域时不调用compare.next。首次实际运行[39023786673](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023786673)暴露方向误读：added指当前图独有，removed指对方独有，不是时间上的新增/删除。已将语义写入技能，双向比较并核对返回句柄确实指向B独有的(50,20)、R3圆；比较当前A与自身时变化数为0、regions为空。比较关闭后原实体不变，两个源文件摘要保持。
+
+最终Windows main运行[39023881675](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023881675)通过12条CAD配方（原8条与4个重建入口）、56次CLI调用。下载后核对固定原生二进制与27份输出摘要，当前四份结构化配方逐字节等于实际执行的源提交；之后的手册表格修正不改变运行参数。稳定版13应用业务矩阵[39023868516](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023868516)通过。11项CAD辅助测试及201条静态映射检查通过，原OpenSpec继续实施。
+
+累计仍为201条映射，不增加场景数：192条入口有过限定技术检查、1条PDF表单部分、8条待执行（CAD描图/图纸导出2条、Design6条）。该统计含步骤复用，不能作为数百个独立高质量场景的完成证明。真实复杂图纸、完整视觉审阅、三宿主同步及本批市场发行仍未完成。修改已进入技能源与插件feature分支，公开dev.20261017.4不包含本轮变化。完整记录见[CAD核心验证](craft-cad-core-validation.json)。

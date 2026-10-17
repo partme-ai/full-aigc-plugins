@@ -1,10 +1,10 @@
 {
-  "scope": "CAD two rebuilt core skill entries; native geometry and roundtrip, not all-scene or host UI acceptance",
-  "sourceRepository": "full-aigc-skills/cadcraft-skills",
-  "sceneSourceCommit": "71a0a453ebc2015f48c2c1d6d22a18778806d33e",
-  "pluginCandidateCommit": "88461f310dd6f9d244918e3e790d885d0807c4dd",
-  "nativeRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023108532",
-  "stableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023098371",
+  "scope": "Four existing CAD core entries: native geometry, layer properties and bidirectional comparison; not full creative or host UI acceptance",
+  "nativeRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023881675",
+  "previousFailure": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023786673",
+  "stableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023868516",
+  "executedSceneSourceCommit": "1e9bf37a16ce167de3c1d26c4f6d4ebe5b33d8f9",
+  "currentSourceCommit": "ff18ccc6807c1ab6e9f3d66040e599373cc21b59",
   "runtime": {
     "app": "cadcraft",
     "repository": "storytold/cadcraft",
@@ -23,118 +23,28 @@
     "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
   },
   "exeSha256": "3ca27d2a973d6940100c5d4063eaec7611ef6d7ff8a4727eccde41b6ff089763",
-  "downloadedExecutableDigest": "PASS",
-  "downloadedOutputDigests": "PASS",
-  "processCount": 48,
+  "downloadedExecutableAndOutputs": "PASS",
+  "processCount": 56,
   "recipes": [
     {
       "skill": "cadcraft-floor-plan",
       "recipeSha256": "ff3787ac37c4806ecee55d445c2a5d4c35c208d6f64b39a07df9f323d54335f1",
-      "assertions": {
-        "dimensions": 2,
-        "texts": [
-          "ROOM A"
-        ],
-        "doorGap": [
-          2000,
-          3000
-        ],
-        "arc": [
-          2000,
-          0,
-          1000,
-          0,
-          90
-        ],
-        "dimensionValues": [
-          5000,
-          4000
-        ],
-        "wallSegments": [
-          [
-            0,
-            0,
-            2000,
-            0
-          ],
-          [
-            3000,
-            0,
-            5000,
-            0
-          ],
-          [
-            5000,
-            0,
-            5000,
-            4000
-          ],
-          [
-            5000,
-            4000,
-            0,
-            4000
-          ],
-          [
-            0,
-            4000,
-            0,
-            0
-          ]
-        ],
-        "doorLeaf": [
-          2000,
-          0,
-          2000,
-          1000
-        ],
-        "dimscale": 100
-      }
+      "matchesExecutedSource": true
     },
     {
       "skill": "cadcraft-dimension-part",
       "recipeSha256": "7e502c51805bc51ecfc1b0a4f4e2235b46c107a36252955e3198bbc1a86e111a",
-      "assertions": {
-        "polygon": [
-          [
-            0,
-            0
-          ],
-          [
-            80,
-            0
-          ],
-          [
-            80,
-            40
-          ],
-          [
-            0,
-            40
-          ]
-        ],
-        "area": 3200,
-        "circles": [
-          [
-            20,
-            20,
-            5
-          ],
-          [
-            60,
-            20,
-            5
-          ]
-        ],
-        "dimensions": 4,
-        "dimensionValues": [
-          80,
-          40,
-          40,
-          5
-        ],
-        "dimscale": 1
-      }
+      "matchesExecutedSource": true
+    },
+    {
+      "skill": "cadcraft-layer-cleanup",
+      "recipeSha256": "515fba3c378878f045117f1fd45a012f1c15d854cba6e94bd310c240a5e5ba02",
+      "matchesExecutedSource": true
+    },
+    {
+      "skill": "cadcraft-compare-revisions",
+      "recipeSha256": "4c6f0245426021202eb1a8bd4d844174027eed0411c99573b4fe27e1eea0791c",
+      "matchesExecutedSource": true
     }
   ],
   "playbooks": [
@@ -199,6 +109,23 @@
       "technicalRoundtrip": "PASS",
       "geometryChecks": "PASS",
       "nativeDimensionsAndRealHoles": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "layer-cleanup",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "layerPropertiesAndInputPreserved": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "compare-revisions",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "realAddedEntityAndIdenticalVersions": "PASS",
+      "inputPreserved": "PASS",
       "drawingReview": "NOT_TESTED",
       "installedHostSync": "NOT_TESTED"
     }
@@ -295,6 +222,16 @@
       "sha256": "6c5ce73858546623f8cb20112e22f6cd98e9ef754e749fcd66e4d0d2ae1d71a0"
     },
     {
+      "path": "core-compare\\review.dxf",
+      "bytes": 14866,
+      "sha256": "4bed93b794e3a279fc46183ae2aca9d004e433b5e173a979933f649f8354c389"
+    },
+    {
+      "path": "core-compare\\revision-a.dxf",
+      "bytes": 14814,
+      "sha256": "98ca9751fdd4c801b7227d61d5c3409536f7ec7739776a6bc5d048692189c000"
+    },
+    {
       "path": "core-dimension-part\\part.dxf",
       "bytes": 24916,
       "sha256": "8d21965dc56c8de9ffaff0e013af94a83b0a32acc4210024f82ede38d70995f3"
@@ -313,9 +250,24 @@
       "path": "core-floor-plan\\room.svg",
       "bytes": 20652,
       "sha256": "238431e97c8e720848e2f64decdcc59c09b6b1994377b2b2cf4c9c44f65c97d6"
+    },
+    {
+      "path": "core-layer-cleanup\\cleaned.dxf",
+      "bytes": 15803,
+      "sha256": "36e8449cfd5e8fc337f5b6a065590e5ec440c956cfce85055b8d26f535573b90"
+    },
+    {
+      "path": "core-layer-cleanup\\original.dxf",
+      "bytes": 15584,
+      "sha256": "047cd3991c9dc790f80b2a08cb224ec5b4874876ffbd3056818cf63a42efcdc3"
+    },
+    {
+      "path": "core-compare\\input\\revision-b.dxf",
+      "bytes": 14984,
+      "sha256": "20aa63ab513b451f01c691a16b2c38c6d8e6ae1663bf4be0948dd79f1ad2a711"
     }
   ],
-  "visualReview": "PARTIAL: floor plan thumbnail reviewed; full export and part layout NOT_TESTED",
   "installedHostSync": "NOT_TESTED",
-  "marketplacePublication": "NOT_PUBLISHED: feature candidates; public tag dev.20261017.4 unchanged"
+  "visualReview": "NOT_TESTED for new layer/comparison workflows",
+  "marketplacePublication": "NOT_PUBLISHED; public dev.20261017.4 unchanged"
 }
