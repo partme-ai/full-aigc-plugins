@@ -28,7 +28,8 @@
     "platform": "macOS universal",
     "archiveSha256": "5da3adb581f0cd49edaa9ae2eeeaa50426cb1afbb0794902551db3d7173dd12a",
     "localSha256SumsMatch": true,
-    "executableMatchesArchive": true
+    "executableMatchesArchive": true,
+    "githubReleaseAssetDigestMatch": true
   },
   "native": {
     "variants": [
@@ -163,7 +164,43 @@
       "save_project and open_file preserve active comp and layers"
     ],
     "result": "PASS",
-    "scope": "standard sample only; not all hosts or interview footage"
+    "scope": "standard sample only; not all hosts or interview footage",
+    "githubReleaseAssetDigestMatch": true,
+    "previewCalls": [
+      {
+        "tool": "command_run",
+        "arguments": {
+          "id": "time.set",
+          "params": {
+            "time": 0
+          }
+        }
+      },
+      {
+        "tool": "command_run",
+        "arguments": {
+          "id": "time.set",
+          "params": {
+            "time": 0.4
+          }
+        }
+      },
+      {
+        "tool": "command_run",
+        "arguments": {
+          "id": "time.set",
+          "params": {
+            "time": 5.96
+          }
+        }
+      }
+    ],
+    "reopenCall": {
+      "tool": "open_file",
+      "arguments": {
+        "path": "web-lower-third.ecproj"
+      }
+    }
   },
   "publicRelease": {
     "version": "0.1.0-dev.20261018.3",
@@ -181,7 +218,12 @@
       "embeddedUI": "NOT_TESTED",
       "editingSync": "NOT_TESTED"
     },
-    "mainMarketplace": "PENDING"
+    "mainMarketplace": {
+      "commit": "72c9a50aaf39a0a410cff87a893110d63d2aaaa8",
+      "actualCodexInstallAndMcp": "PASS",
+      "dailyMarketplaceSourceRefreshed": true,
+      "dailyInstalledPluginsUpgraded": false
+    }
   },
   "mediaScope": "example text, not real interview footage, arbitrary fonts or languages",
   "validatedPlanCommit": "873bbece929b2e43109ccf03b22a9bbe226d4595",
@@ -233,5 +275,27 @@
     "ui/runtime.lock.json": true,
     "ui/editor.lock.json": true,
     "skills/effectcraft-lower-thirds/references/animated-lower-third.json": true
+  },
+  "previewGif": {
+    "format": "RGB animated GIF; preview only",
+    "width": 480,
+    "height": 270,
+    "frames": 150,
+    "seconds": 6.0,
+    "sha256": "2c3f8bb33c06fbe2183a2725dd8ce7c9f14635a87cb15e4b46e174815f705f38"
+  },
+  "marketplaceTestCi": {
+    "run": 39072837537,
+    "jobs": 27,
+    "result": "PASS"
+  },
+  "marketplaceMainCi": {
+    "commit": "72c9a50aaf39a0a410cff87a893110d63d2aaaa8",
+    "runs": [
+      39073048610,
+      39073048444,
+      39073048489
+    ],
+    "result": "PASS"
   }
 }
