@@ -224,8 +224,13 @@ def run_core_compare(r,path):
         args=['run','revision-a.dxf']
         for step in recipe['steps']:args+=['--cmd',step['command']+' '+json.dumps(step['params'])]
         rows=[json.loads(line) for line in r.run(*args,'--save','review.dxf').splitlines() if line.strip()]
-        compared=rows[0];assert compared['counts']=={'added':1,'removed':0,'changed':0,'common':1},compared
+        compared=rows[0];assert compared['counts']=={'added':0,'removed':1,'changed':0,'common':1},compared
         assert compared['regions'],'Expected one actual change region'
+        missing=compared['removed'];assert len(missing)==1 and missing[0]['type']=='Circle'
+        actual=[e for e in entities(other.decode('utf-8')) if dict(e['groups']).get(5)==missing[0]['handle']]
+        assert len(actual)==1 and actual[0]['type']=='CIRCLE' and near([number(actual[0],10),number(actual[0],20),number(actual[0],40)],[50,20,3]),'Difference handle does not identify B-only circle'
+        reverse=json.loads(r.run('run','input/revision-b.dxf','--cmd','compare {"path":"revision-a.dxf"}').splitlines()[0])
+        assert reverse['counts']=={'added':1,'removed':0,'changed':0,'common':1},reverse
         assert entities((r.work/'review.dxf').read_text(encoding='utf-8'))==entities(before.decode('utf-8')),'Comparison changed entities'
         same=json.loads(r.run('run','revision-a.dxf','--cmd','compare {"path":"revision-a.dxf"}').splitlines()[0])
         assert same['counts']['added']==same['counts']['removed']==same['counts']['changed']==0
