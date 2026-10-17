@@ -3,7 +3,7 @@ import json
 import os
 from pathlib import Path
 import unittest
-from design_core_smoke import verify_newsletter,verify_catalog_links
+from design_core_smoke import verify_newsletter,verify_catalog_links,verify_toc_entries
 import copy
 
 ROOT=Path(os.environ.get('CRAFT_DESIGN_SKILLS_ROOT',str(Path(__file__).resolve().parents[3]/'full-aigc-skills-repositories/designcraft-skills/skills')))/'designcraft-newsletter'
@@ -62,6 +62,26 @@ class CatalogContract(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'PPI'):verify_catalog_links(wrong,products,bindings)
         wrong=copy.deepcopy(links);wrong[0]['status']='embedded'
         with self.assertRaisesRegex(AssertionError,'not linked'):verify_catalog_links(wrong,products,bindings)
+
+
+class LongDocumentContract(unittest.TestCase):
+    def test_long_document_has_real_toc_and_scoped_chapter_styles(self):
+        steps=json.loads((ROOT.parent/'designcraft-long-document/references/craft-steps.json').read_text(encoding='utf-8'))['steps']
+        commands=[s['command'] for s in steps]
+        self.assertIn('toc.generate',commands,'Long document has no native table of contents')
+        self.assertIn('toc.update',commands,'Changed pagination must update contents')
+        self.assertIn('text.thread',commands,'Chapter continuation is missing')
+        self.assertGreaterEqual(commands.count('style.paragraph.apply'),4)
+        for i,step in enumerate(steps):
+            if step['command']=='style.paragraph.apply':self.assertEqual(steps[i-1]['command'],'text.select')
+            if step['command']=='story.get':self.assertTrue(step['params'].get('story') or step['params'].get('frame'))
+
+    def test_toc_rejects_stale_page_numbers_and_body_entries(self):
+        chapters=[{'heading':'Chapter One'},{'heading':'Chapter Two'}]
+        entries=[{'text':'Chapter One','page':'2'},{'text':'Chapter Two','page':'5'}]
+        verify_toc_entries(entries,chapters,[2,5])
+        with self.assertRaisesRegex(AssertionError,'stale'):verify_toc_entries(entries,chapters,[2,4])
+        with self.assertRaisesRegex(AssertionError,'entry count'):verify_toc_entries(entries+[{'text':'Body copy','page':'3'}],chapters,[2,5])
 
 
 if __name__=='__main__':unittest.main()
