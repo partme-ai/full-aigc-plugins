@@ -94,7 +94,11 @@ def run_core(r, skill_root):
                 run([('app.export', {'ids': [sample_id], 'path': 'keep-gps.jpg', 'format': 'jpeg', 'longEdge': 0, 'metadata': 'all', 'removeLocation': False})])
                 assert has_gps((r.work / 'keep-gps.jpg').read_bytes()), 'Positive GPS-retention control failed; removal not proven'
                 (r.work / 'output/web').mkdir()
-                sentinel = r.work / 'output/web/sample-gps.jpg'
+                # 先由实际命名规则产生交付名，再设置同名哨兵，确保真的形成冲突。
+                run([('app.export', {'ids': [sample_id], 'dir': 'output/web', 'format': 'jpeg', 'longEdge': 2000, 'dontEnlarge': True, 'metadata': 'all', 'removeLocation': False, 'conflict': 'unique'})])
+                existing = list((r.work / 'output/web').iterdir())
+                assert len(existing) == 1, 'Fixture export did not produce one actual delivery name'
+                sentinel = existing[0]
                 sentinel.write_bytes(b'KEEP EXISTING DELIVERY')
             recipe = json.loads((Path(skill_root) / ('lightcraft-' + name) / 'references/craft-steps.json').read_text(encoding='utf-8'))
             pending = []
