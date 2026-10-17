@@ -127,6 +127,8 @@ def run_playbooks(r,path,app):
         from word_core_smoke import run_playbooks as run_core
         records.extend(run_core(r, Path(path).resolve().parents[2]))
     if app=='deckcraft':
+        from deck_core_smoke import run_core
+        records.extend(run_core(r, Path(path).resolve().parents[2]))
         # 真实组合两条手册，防止后一个file.new清空已有页。
         combined=[next(x for x in data['recipes'] if x['id']==id) for id in ['option-comparison-table','trend-actual-plan']]
         args=['run']; initialized=False
