@@ -146,5 +146,38 @@
     "run": 39057072067,
     "result": "PASS",
     "scope": "existing published package matrix; not new template release"
+  },
+  "preparedRelease": {
+    "version": "0.1.0-dev.20261018.1",
+    "zipSha256": "64d386efab58b1f5a47826a0f3969e233d1984909140ddc861a1b9f0a7875665",
+    "bytes": 8827047,
+    "zipIncludesUiDist": true,
+    "nativeCodexInstallation": [
+      {
+        "editorHtml": "PASS",
+        "plugin": "gridcraft",
+        "installation": "PASS",
+        "nativeMcp": "PASS",
+        "editorUrl": "http://127.0.0.1:57007/6075785f0abca830d07ce5e9d8ff9b55aa797ab18b21777b631631ac74fa6253/",
+        "embeddedUI": "NOT_TESTED",
+        "editingSync": "NOT_TESTED"
+      }
+    ],
+    "skillDiscovery": {
+      "scope": "real Codex skills/list; installed plugin paths only",
+      "plugins": [
+        "gridcraft"
+      ],
+      "count": 11,
+      "status": "PASS"
+    },
+    "preInstallIcons": {
+      "plugins": [
+        "gridcraft"
+      ],
+      "status": "PASS",
+      "scope": "real native plugin/list before installation"
+    },
+    "scope": "staged complete ZIP content; public release and subscribed main marketplace not yet updated; DSH concurrent addition not qualified"
   }
 }
