@@ -67,6 +67,8 @@ def run_playbooks(r,path):
     require(bool(records),'No Fig scenes')
     from fig_core_smoke import run_core
     records.extend(run_core(r,m,path.resolve().parents[2]))
+    from fig_design_workflows_smoke import run_design_workflows
+    records.extend(run_design_workflows(r,path.resolve().parents[2]))
     records.append(existing_component(r,m,data))
     return records
 

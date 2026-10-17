@@ -419,3 +419,7 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 ## LightCraft独立编辑分支
 
 新增virtual-copy-review、named-version-restore、tone-curve-transfer三个独立技能，固定darktable手册GitHub提交并原创映射照片ID、虚拟副本ID、versions实际索引及toneCurve复制组。官方0.8.0 macOS完整17记录112次CLI通过，原片/排除照片保护、导出像素变化、准确恢复及独立重开均通过。Windows完整17记录116次CLI及163输出摘要通过；真实Codex MCP/IAB观察独立副本曝光、命名基线恢复和曲线迁移，实际页面重载后派生图像素保持。两份完整图库备份CRC及原片字节通过，最终备份独立CLI读回三照片设置与宿主一致。公开完整ZIP v0.1.0-dev.20261018.1安装/MCP与资源摘要通过，远端main实际安装/MCP及日常市场刷新完成；test及main同源码SHA三组CI全部通过。恢复备份菜单的文件选择补测超时，现有标签与宿主进程保留，页面未就绪，不能宣称恢复通过。真实调色、Web备份恢复UI和其他宿主仍未完成。累计227条映射。详见craft-light-versions-validation.json。
+
+## FigCraft主题变量、图标插槽与数据图
+
+新增light-dark-token-card、swappable-icon-button、signed-bar-chart三个独立技能，固定Figma官方GitHub示例/参考并原创适配语义变量模式、实例交换/布尔/文字属性、有符号柱图零基线。官方0.6.0 macOS完整18记录287次CLI完成，三个新场景通过；既有原型仅连线持久化，浏览器点击仍未验收。新建/已有文件、返回ID、原文件保护、修改后重开及实际PNG/SVG检查通过，209项辅助测试通过。源与插件在隔离feature检出一致，新增三项计入230条待全量主检出核对的映射；Windows、宿主同步及新市场发行仍待完成。详见craft-fig-design-workflows-validation.json。

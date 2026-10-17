@@ -90,7 +90,7 @@ jobs:
         if: matrix.plugin == 'figcraft'
         with:
           repository: full-aigc-skills/figcraft-skills
-          ref: d004b17a2736bc7e24004b5a62675182ec2273d1
+          ref: 64b447d22c3f65c909e869ff455b435069da27ce
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'designcraft'
