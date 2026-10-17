@@ -302,3 +302,5 @@ CLI原型记录仍明确PARTIAL；另通过隔离Codex原生插件安装和app-s
 Windows main[39024410378](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024410378)通过原8条加6核心入口，共14条配方、63次CLI调用。下载核对固定二进制与33份输出摘要，六份当前结构化配方逐字节等于执行源提交。对相同PDF制品追加离线裁切与比例检查通过，没有改变CLI输入或操作；15项CAD辅助测试与201条静态映射检查通过。稳定13应用业务矩阵[39024392176](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024392176)通过。详见[CAD核心验证](craft-cad-core-validation.json)。
 
 总映射仍201条，不新增场景计数。当前193条入口有过限定技术检查、2条部分（PDF表单、完整位图描图）、6条待执行（Design核心）；该统计不是193个独立高质量场景的证明。真实复杂素材、视觉/实际打印、三宿主同步、场景去重扩展与本批市场发行仍未完成。源码与插件feature分支含本批修正，公开dev.20261017.4仍未更新。OpenSpec与完整目标保持实施中，后续继续Design六项核心。
+
+追加的裁切检查已在当前稳定版Windows矩阵[39024555495](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024555495)实际执行，13应用全部通过；该运行对应baefa8a，覆盖本轮最终检查器。

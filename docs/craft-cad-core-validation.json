@@ -1,7 +1,7 @@
 {
   "scope": "Six CAD core entries executed on controlled inputs; reference trace covers confirmed-point mapping only, not automatic raster detection or attachment",
   "nativeRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024410378",
-  "stableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024392176",
+  "stableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024555495",
   "previousComparisonFailure": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023786673",
   "executedSceneSourceCommit": "f0b1cb57b28a31a18de3e07712b5ea03ae408e33",
   "pluginCandidateCommit": "2d542260554108b4fc5933524276570e588e2601",
@@ -339,7 +339,8 @@
       157.83983333333333,
       197.3001444444444
     ],
-    "insidePrintableClip": "PASS"
+    "insidePrintableClip": "PASS",
+    "windowsStableNativeVerifier": "PASS in the current 13-application Windows matrix"
   },
   "traceScope": {
     "confirmedPointSimilarityTransform": "PASS",
