@@ -27,5 +27,13 @@ class CoreFloorPlanTests(unittest.TestCase):
         self.assertEqual(sum(step['command'].startswith('dim') for step in recipe['steps']), 4)
         self.assertEqual(recipe['assertions']['dimensionValues'], [80, 40, 40, 5])
 
+    def test_layer_cleanup_reads_layer_state_before_editing(self):
+        path = ROOT / 'full-aigc-skills-repositories/cadcraft-skills/skills/cadcraft-layer-cleanup/references/craft-steps.json'
+        if not path.exists():
+            self.skipTest('Source checkout unavailable')
+        recipe = json.loads(path.read_text())
+        self.assertEqual(recipe['steps'][0]['command'], 'layer', 'Entity-only inspection does not enumerate layer properties')
+        self.assertEqual(recipe['steps'][1]['command'], 'getvar')
+
 if __name__ == '__main__':
     unittest.main()

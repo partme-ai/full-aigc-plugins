@@ -121,6 +121,7 @@ def run_playbooks(r,path):
     require(bool(records),'No CAD scenarios selected')
     records.append(run_core_floor_plan(r, path))
     records.append(run_core_part(r, path))
+    records.append(run_core_layers(r, path))
     return records
 
 
@@ -168,3 +169,44 @@ def run_core_part(r, path):
         return {'id': 'dimension-part', 'technicalRoundtrip': 'PASS', 'geometryChecks': 'PASS', 'nativeDimensionsAndRealHoles': 'PASS', 'drawingReview': 'NOT_TESTED', 'installedHostSync': 'NOT_TESTED'}
     finally:
         r.work = original
+
+
+def layer_records(text):
+    """读取DXF图层表，保留各字段用于检查属性和未指定层。"""
+    lines=text.splitlines();pairs=[(int(lines[i].strip()),lines[i+1].strip()) for i in range(0,len(lines),2)]
+    result={};current=None;active=False
+    for code,value in pairs:
+        if code==0:
+            if current:
+                result[next(v for c,v in current if c==2)]=current
+                current=None
+            if value=='LAYER':current=[];active=True
+            elif value in ['ENDTAB','ENDSEC']:active=False
+        elif active and current is not None:current.append((code,value))
+    return result
+
+
+def run_core_layers(r,path):
+    """在有实体的既有图纸上整理图层，验证属性并保全原图。"""
+    import hashlib
+    recipe=json.loads((Path(path).parents[2]/'cadcraft-layer-cleanup/references/craft-steps.json').read_text(encoding='utf-8'))
+    original=r.work;r.work=original/'core-layer-cleanup';r.work.mkdir()
+    try:
+        seed=[('layer.new',{'name':'REFERENCE','current':True}),('line',{'points':[[0,0],[100,60]]}),('layer.new',{'name':'WALL','current':True}),('circle',{'center':[20,20],'radius':5}),('layer.new',{'name':'KEEP','color':3,'current':True}),('line',{'points':[[100,100],[150,100]]})]
+        args=['run','--metric']
+        for command,params in seed:args+=['--cmd',command+' '+json.dumps(params)]
+        r.run(*args,'--save','original.dxf')
+        before=(r.work/'original.dxf').read_bytes();args=['run','original.dxf']
+        for step in recipe['steps']:args+=['--cmd',step['command']+' '+json.dumps(step['params'])]
+        r.run(*args,'--save','cleaned.dxf')
+        after=(r.work/'cleaned.dxf').read_text(encoding='utf-8');before_text=before.decode('utf-8');a=layer_records(after);b=layer_records(before_text)
+        reference=dict(a['REFERENCE']);assert int(reference[70])&4,'Reference layer not locked';assert reference[290]=='0','Reference layer still plots'
+        assert dict(a['WALL'])[370]=='35','Wall lineweight is not 0.35mm'
+        assert a['KEEP']==b['KEEP'],'Untargeted layer changed'
+        assert entities(after)==entities(before_text),'Existing entity data changed'
+        verify_dxf(after,{})
+        assert (r.work/'original.dxf').read_bytes()==before,'Input overwritten'
+        info=json.loads(r.run('info','cleaned.dxf'));assert info['entityCount']==3
+        assert next(x for x in info['layers'] if x['name']=='REFERENCE')['locked'] is True
+        return {'id':'layer-cleanup','technicalRoundtrip':'PASS','geometryChecks':'PASS','layerPropertiesAndInputPreserved':'PASS','drawingReview':'NOT_TESTED','installedHostSync':'NOT_TESTED'}
+    finally:r.work=original
