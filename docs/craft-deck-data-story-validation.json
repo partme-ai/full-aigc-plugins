@@ -66,5 +66,23 @@
       "visualReview": "NOT_TESTED",
       "hostSync": "NOT_TESTED"
     }
+  },
+  "nativeHost": {
+    "status": "PASS_FOR_SPECIFIED_SAMPLE",
+    "host": "actual Codex native app-server and installed plugin MCP",
+    "pluginCommit": "e1070ec",
+    "creationCommands": 7,
+    "revision": "actual returned chart id259; values21/42->21/48",
+    "sameEditorCreationAndRevision": "observed",
+    "savedPptx": "independently verified21/48 and unchanged slide/notes XML",
+    "saveAndReopen": "PASS; inspect returns21/48",
+    "runtime": "verified bundled enhanced0.7.0; upstream update404; not newest upstream main",
+    "fontWarning": "PPTX reopen reports missing Arial; fallback observed, exact font fidelity not accepted",
+    "screenshots": {
+      "initial.jpg": "9a7a3709281307b1956e366f564463f5035d0f4e24f359693e16ace6de58fe40",
+      "revised.jpg": "9d8e7a48596f189dfe59419176b9407e0b15f4973ccb22d4fc787999e958f8dc",
+      "reopened.jpg": "d46919325b833988bb0de35db13d6e622bde9985dcab3e5e810264d7898eea6b"
+    },
+    "scope": "two-category sample only; other hosts and arbitrary data not accepted"
   }
 }
