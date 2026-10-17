@@ -1,0 +1,99 @@
+{
+  "scope": "animated extension of existing lower-thirds scene; no scene count increment",
+  "sourceCommit": "873bbece929b2e43109ccf03b22a9bbe226d4595",
+  "pluginCommit": "a24f2d154e433a0f6575beffae62f253ea7cce6f",
+  "workflowSource": {
+    "repository": "https://github.com/ishu86/after-effects-mcp",
+    "commit": "5223c17a8e8c1273b25c6a9d306839259ad35143",
+    "license": "MIT",
+    "readFiles": [
+      {
+        "path": "src/ae-integration/generators/templateGenerators.ts",
+        "sha256": "57b1e046699197b8e32efd47ba91f1c1ae28c7ca260ecbc7a1f2ed72f31cdf52"
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "3d6f4c321a58a8576e1c6afb7ae5286b0ebbca51610e3c0b398c4386a97c5e26"
+      }
+    ],
+    "usedFacts": [
+      "separate name/title and background layers",
+      "independent entrance and exit timing",
+      "safe margin and configurable text/colors"
+    ],
+    "adaptation": "Original EffectCraft command plan; no Adobe JSX, generator code or template assets copied"
+  },
+  "nativeRuntime": {
+    "version": "0.10.0",
+    "platform": "macOS universal",
+    "archiveSha256": "5da3adb581f0cd49edaa9ae2eeeaa50426cb1afbb0794902551db3d7173dd12a",
+    "localSha256SumsMatch": true,
+    "executableMatchesArchive": true
+  },
+  "native": {
+    "variants": [
+      {
+        "variant": "standard",
+        "layers": 3,
+        "sampleTimes": [
+          0,
+          0.2,
+          0.4,
+          5.4,
+          5.96
+        ],
+        "alphaSums": [
+          0,
+          6145728,
+          12113188,
+          12113188,
+          0
+        ],
+        "captionSafeArea": "PASS",
+        "rgbaSequenceFrames": 150,
+        "sequenceSampleAlphaSums": [
+          0,
+          6145728,
+          12113188,
+          12113188,
+          0
+        ]
+      },
+      {
+        "variant": "long-name",
+        "layers": 3,
+        "sampleTimes": [
+          0,
+          0.2,
+          0.4,
+          5.4,
+          5.96
+        ],
+        "alphaSums": [
+          0,
+          6193567,
+          12113188,
+          12113188,
+          0
+        ],
+        "captionSafeArea": "PASS"
+      }
+    ],
+    "scope": "sample text; no universal font fit or full host acceptance inferred"
+  },
+  "nativeProcessCount": 49,
+  "pluginPythonTests": {
+    "passed": 24
+  },
+  "helperTests": {
+    "passed": 3,
+    "redCases": [
+      "missing exit accepted",
+      "caption outside safe plate accepted"
+    ]
+  },
+  "windows": "PENDING",
+  "sameEditorHost": "NOT_TESTED",
+  "publicRelease": "NOT_PUBLISHED",
+  "mediaScope": "example text, not real interview footage, arbitrary fonts or languages"
+}

@@ -252,6 +252,8 @@ def main():
             elif a.plugin == 'effectcraft':
                 from effect_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve())
+                from effect_lower_third_smoke import run_lower_third
+                report['animatedLowerThird'] = run_lower_third(r, a.playbook.resolve())
             elif a.plugin == 'filmcraft':
                 from film_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve())

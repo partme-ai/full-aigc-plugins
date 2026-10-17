@@ -38,7 +38,7 @@
       "date": "2026-10-16T12:05:24Z",
       "message": "Merge pull request #1478 from midasmatterhorn/fix/cff-endchar-width-polarity",
       "pluginCommit": "3ee1832e9a9a38aa6b153e689b61de9b111e02c4",
-      "skillsCommit": "5ac35af6859c73690830646514f942db9ce46725",
+      "skillsCommit": "873bbece929b2e43109ccf03b22a9bbe226d4595",
       "engine": "effectcraft",
       "status": "development-candidate-not-accepted",
       "editorMode": "official-web-api",
