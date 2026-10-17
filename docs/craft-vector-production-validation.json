@@ -1,5 +1,5 @@
 {
-  "scope": "Three original vector production skills; small synthetic vector shapes; no real design/print quality or host editor sync claim",
+  "scope": "Three original vector production skills; synthetic native CLI cases and isolated native Codex MCP/IAB live sync samples; no real design/print quality claim",
   "sourceRecipeCommit": "787565bb98f9704ab4f21d551efb62fc93e5dc92",
   "version": "0.1.0-dev.20261017.6",
   "macOS": {
@@ -343,7 +343,7 @@
     "recipeFileLineEndings": "Original run raw recipe hashes equal exact CRLF checkout of source LF bytes",
     "actualExecutedMethodParameterBatches": "Three scene batch sequences match source after resolving actual capture IDs"
   },
-  "mcpSchema": "Actual Codex bundled native app-server discovered command_run, command_list and save_file schemas; no scene edit/sync acceptance",
+  "mcpSchema": "Actual Codex bundled app-server tools and subsequent same-session scene operations; selected live samples recorded separately",
   "tests": {
     "productionHelpers": 9,
     "existingPlaybookHelpers": 52,
@@ -357,10 +357,11 @@
   "visualReview": "Viewed actual macOS clipping, grid and border PNG previews",
   "limitations": [
     "Real design quality and print/cutter delivery not verified",
-    "Same-session MCP scene execution and host editor sync not verified"
+    "ZCode/Kimi same-session scene editing not verified",
+    "Grid expansion was verified by CLI, not in this live browser sample"
   ],
   "publication": {
-    "status": "PUBLIC_RELEASE_MARKET_UPDATE_IN_PROGRESS",
+    "status": "RELEASE_TEST_MARKET_AND_LIMITED_NATIVE_CODEX_SYNC_VERIFIED",
     "publishedZip": {
       "plugin": "vectorcraft",
       "version": "0.1.0-dev.20261017.6",
@@ -375,7 +376,25 @@
     },
     "candidateBusinessRun": 39043012744,
     "candidatePackageMcpRun": 39043012768,
-    "candidateCiConclusion": "success"
+    "candidateCiConclusion": "success",
+    "testCi": {
+      "headSha": "0ee71779dd932eca0b5fdf04dac67393825ced11",
+      "marketplace": {
+        "runId": 39043377934,
+        "jobs": 27,
+        "conclusion": "success"
+      },
+      "windowsPackageMcp": {
+        "runId": 39043377926,
+        "jobs": 14,
+        "conclusion": "success"
+      },
+      "windowsBusiness": {
+        "runId": 39043377975,
+        "jobs": 13,
+        "conclusion": "success"
+      }
+    }
   },
   "windowsFinal": {
     "runId": 39043012744,
@@ -556,5 +575,80 @@
     "rawCrLfAndNormalizedRecipeHashes": "PASS"
   },
   "sourceMainCommit": "787565bb98f9704ab4f21d551efb62fc93e5dc92",
-  "pluginMainCommit": "74b5f60f391ec0ab7107db8c1c360a50fdc70b0b"
+  "pluginMainCommit": "74b5f60f391ec0ab7107db8c1c360a50fdc70b0b",
+  "liveCodex": {
+    "pluginVersion": "0.1.0-dev.20261017.6",
+    "host": "desktop bundled native Codex app-server, isolated installed profile",
+    "browser": "Codex in-app browser, one page and one owning MCP session",
+    "scope": "Synthetic scene samples only; native host tool calls, no MCP SDK replacement",
+    "actions": {
+      "sticker-grid": "Observed 12 blue circles, MCP source recolor and rows/cols edit to 6 orange circles with bounds 130x80, saved both files; same-session open_file restored original 12 blue circles",
+      "clipped-illustration": "Observed real Clip Group circle; MCP release restored rectangular artwork in the same canvas, saved both files",
+      "sticker-offset-border": "Observed white offset path behind unchanged 100x60 original; saved actual project"
+    },
+    "nativeIndependentRead": {
+      "grid": {
+        "nativeReadAndStructure": "PASS",
+        "bytes": 27332,
+        "sha256": "e9a90ca36867fb7de1b3d0fb70489dec5e97e5ab5ef50fba26ede8cdc6218a9a"
+      },
+      "grid-six": {
+        "nativeReadAndStructure": "PASS",
+        "bytes": 27331,
+        "sha256": "4617d00b4445214e027e8fad5adc0b3d4c97da2e5522ac1e31bb2b908dbd0458"
+      },
+      "clipped": {
+        "nativeReadAndStructure": "PASS",
+        "bytes": 32288,
+        "sha256": "86b052d42c505e379528433bd464d5170c8a883134e3618b123573c2ec73fa48"
+      },
+      "released": {
+        "nativeReadAndStructure": "PASS",
+        "bytes": 32249,
+        "sha256": "c1d0cbecb38047fefbcc3dc2b36f32dde3c4faf675b2272f0267c8f8da52eeeb"
+      },
+      "offset": {
+        "nativeReadAndStructure": "PASS",
+        "bytes": 30729,
+        "sha256": "57836c1972715f42950ab1da195246163237c805c3367d2dc1685e8cad29758a"
+      }
+    },
+    "runtime": {
+      "source": "bundled",
+      "reportedFallbackReason": "Download HTTP 404",
+      "editorBundleVersion": "0.1.0-dev.65",
+      "upstreamVersion": "0.12.0",
+      "upstreamCommit": "8bc65329286dc1b84aa392997bb205613c3e96cb",
+      "scope": "reused pinned editor resources; no latest download success claim"
+    },
+    "screenshotsLocal": {
+      "reopened-grid.jpg": {
+        "bytes": 66568,
+        "sha256": "f51e34f7340c88d6a049d9d4623218d6fe20e72285e017356b477230032c09d5"
+      },
+      "grid-orange-six.jpg": {
+        "bytes": 65900,
+        "sha256": "02b10fc300d18c151ccd4bb1cf9f53ec992113244f9f0dc997119ab888ec5d05"
+      },
+      "grid-blue.jpg": {
+        "bytes": 72189,
+        "sha256": "0f7b4f3e7543f38511a704341a66ce2104c60febbf36438d7f2b56d9fb2da67e"
+      },
+      "clipped.jpg": {
+        "bytes": 73092,
+        "sha256": "18ce3bc84cddbe251280444da90a814ff966b1b5edf8010fb4dc5ddaba74ed1d"
+      },
+      "released.jpg": {
+        "bytes": 70124,
+        "sha256": "6e4008a4424f8c68e92ba235fb76975dfeb0bd5a51a6dadd09e572102ed616be"
+      },
+      "offset.jpg": {
+        "bytes": 66401,
+        "sha256": "9f73ab947f70bf87f327c1a4d803e01a220db58b6122216682595fa1bc8e5aa1"
+      }
+    },
+    "rpcSha256": "f2e03379d058ecbd7b76a79a2e3d307f214bad9a6b9acb1d70b0d952573b01ea",
+    "editingSync": "PASS_FOR_LISTED_ACTIONS",
+    "initialAttempt": "First driver exited on closed stdin; live owner rerun in persistent PTY after confirmed exit; no product change required"
+  }
 }
