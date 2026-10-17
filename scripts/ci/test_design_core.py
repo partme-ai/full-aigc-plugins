@@ -27,9 +27,11 @@ class NewsletterContract(unittest.TestCase):
     def test_reopened_model_rejects_wrong_columns_and_truncated_text(self):
         bindings={'body':{'id':10},'continuation':{'id':11}}
         info={'pageCount':2,'settings':{'pageWidth':595,'pageHeight':842},'spreads':[{'items':[{'id':10,'columns':3},{'id':12,'columns':1}]},{'items':[{'id':11,'columns':3}]}],'stories':[{'frames':[10,11],'overset':False}]}
-        story={'frames':[10,11],'overset':False,'text':'Article end'}
+        story={'frames':[10,11],'overset':None,'text':'Article end'}
         a={'pages':2,'size':[595,842],'frameCount':3,'thread':['body','continuation']}
         verify_newsletter(info,story,bindings,'Article end',a)
+        overflow=dict(story,overset=0)
+        with self.assertRaisesRegex(AssertionError,'remains overset'):verify_newsletter(info,overflow,bindings,'Article end',a)
         wrong=copy.deepcopy(info);wrong['spreads'][1]['items'][0]['columns']=1
         with self.assertRaisesRegex(AssertionError,'three-column'):verify_newsletter(wrong,story,bindings,'Article end',a)
         with self.assertRaisesRegex(AssertionError,'full text'):verify_newsletter(info,story,bindings,'Article end missing',a)
