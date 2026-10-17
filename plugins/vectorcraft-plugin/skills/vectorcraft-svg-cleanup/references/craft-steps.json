@@ -1,0 +1,32 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "vectorcraft",
+  "id": "svg-cleanup",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "选择当前画板内交付对象",
+      "command": "select.allOnArtboard",
+      "params": {
+        "artboard": 0
+      }
+    },
+    {
+      "purpose": "简化冗余节点并保留拐角",
+      "command": "object.path.simplify",
+      "params": {
+        "tolerance": 0.2,
+        "cornerAngle": 30
+      }
+    },
+    {
+      "purpose": "检查整体结构",
+      "command": "document.inspect",
+      "params": {}
+    }
+  ],
+  "check": "重开SVG检查裁切、填色、字体替代、透明与尺寸。",
+  "boundary": "简化前保存副本；未知效果和遮罩依赖不得通过删除来“清理”。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

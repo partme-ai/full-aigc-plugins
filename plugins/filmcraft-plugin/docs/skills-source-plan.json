@@ -1,0 +1,26 @@
+{
+  "status": "published-and-vendored",
+  "package": "filmcraft-skills",
+  "proposedRepository": "https://github.com/full-aigc-skills/filmcraft-skills",
+  "skills": [
+    "filmcraft-use",
+    "filmcraft-cli",
+    "filmcraft-cli-setup",
+    "filmcraft-cli-project",
+    "filmcraft-cli-media",
+    "filmcraft-cli-timeline",
+    "filmcraft-cli-audio",
+    "filmcraft-cli-subtitles",
+    "filmcraft-cli-color",
+    "filmcraft-cli-motion",
+    "filmcraft-cli-export",
+    "filmcraft-cli-multicam",
+    "filmcraft-cli-transcript",
+    "filmcraft-harness"
+  ],
+  "sourceOfTruth": "independent skills repository",
+  "packaging": "immutable vendored snapshot with tag, commit and whole-tree checksums; execution payload converges in the bundled filmcraft-harness skill",
+  "suiteManifest": "https://github.com/full-aigc-skills/filmcraft-skills/blob/main/skill-suite.json",
+  "sourceRef": "v0.1.0-dev.62",
+  "sourceSha": "f045e9d5a8eed8b1d0abf5339310dffa1abc4da7"
+}

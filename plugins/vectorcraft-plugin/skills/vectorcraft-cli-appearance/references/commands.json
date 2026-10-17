@@ -1,0 +1,558 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "vectorcraft",
+  "runtimeVersion": "0.2.0-craft.2",
+  "upstreamRepository": "https://github.com/storytold/vectorcraft",
+  "upstreamCommit": "90e022b0c05f12171a4e9bebe0894fa62f7bc95c",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "recolor.colors",
+      "label": "Artwork Colors",
+      "params": "{} → {colors: [{key: colour identity (\"rgb 255 0 0\", \"cmyk 0 100 100 0\", \"gray 40\", \"lab 55 60 -40\"), hex, count, swatch?: the global swatch it is linked to}]} unique colours used by the selection (fills, strokes, gradient stops, text, mesh points and the tiles of pattern fills and strokes), most used first",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "recolor.apply",
+      "label": "Recolor Artwork",
+      "params": "{map: rows [{from: [colour keys (recolor.colors) or \"#rrggbb\" (every colour shown as that hex)], to: colour (hex, key, {c,m,y,k} or {l,a,b}) | null, exclude?: false (the row's colours are kept)}] | {\"key or #rrggbb\": colour, …} (one row per colour), method?: \"exact\" (default)|\"preserveTints\"|\"scaleTints\"|\"tintsShades\"|\"hueShift\" (how a row's colours take its new colour, relative to the row's darkest, average or most saturated colour), limitTo?: swatch library id or name, or \"document\" (the document's swatches): new colours snap to its nearest colour, group?: colour group rewritten with groupColors?: [colour] (default: the rows' new colours, in order, excluded rows left out), rename?: the group's new name, includeImages?: true, includePatterns?: true} recolour the selection (gradients, text, meshes, image pixels and pattern tiles included; each new colour keeps the model of the one it replaces) and the group, as one undo step → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "recolor.reduce",
+      "label": "Reduce Colors",
+      "params": "{colors?: n (rows; default: one per colour, with the tints of a global swatch in its row), method?: as recolor.apply, default scaleTints (picks each row's colour), preserve?: {white?: true, black?: true, grays?: false} (left out of the rows), limitTo?: as recolor.apply (new colours snap to it)} group the selection's colours into rows of similar colours (k-means in Lab, weighted by use) → {map: [{from: [keys, the row's colour first], to: key}], preserved: [keys], method}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "recolor.randomize",
+      "label": "Randomize Colors",
+      "params": "{map: rows as recolor.apply, order?: true (shuffle the new colours among the rows that aren't excluded), saturationBrightness?: false (random saturation and brightness, hue kept), seed?: 0} → {map: the rows with their new colours as keys}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "paint.setFill",
+      "label": "Fill",
+      "params": "{color?: \"#rrggbb\"|[r,g,b]|{c,m,y,k}|{gray}|{l,a,b} (CIE Lab), none?: true, swatch?: name (a global or spot colour stays linked, so swatch edits recolour it; a tint swatch links to its base at its tint; a gradient swatch is recorded as the gradient's swatch and fits each object, keeping its aspect; the built-in \"[Registration]\" prints on every plate), tint?: 0..100 (% of a global or spot `swatch`; default 100, or a tint swatch's own), gradient?: {kind?: linear|radial|freeform, stops?: [{offset 0..1, color, opacity? 0..1 (or 0..100), midpoint? 0.13..0.87, swatch?: global or spot colour (or tint) swatch the stop links to (its colour comes from the swatch), tint?: 0..100}] (at least 2; default white→black), angle?: deg, start?: [x,y], end?: [x,y] (the vector in document coordinates, both or neither; type objects keep it in text space), aspect?: % (radial; without start/end the gradient is placed on each object's bounds), focal?: [x,y] (radial, with start/end: the focal point, where the first stop sits), swatch?: linked gradient swatch name}, item?: appearance item index|null (omitted: the Appearance panel's active item if it is a fill, else the top fill), ids?, focus?: true (false keeps the active proxy), keepModel?: false (in a CMYK document, RGB colours and gradient stops are stored as CMYK unless true; Gray stays Gray)} sets the selection's fill and the default (new art fits a gradient to itself)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.setStroke",
+      "label": "Stroke",
+      "params": "same as paint.setFill, for the stroke (item?: the stroke item to set)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.swap",
+      "label": "Swap Fill and Stroke",
+      "params": "{ids?} swap the fill and stroke of the selection (type too) and of the defaults",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.default",
+      "label": "Default Fill and Stroke",
+      "params": "{ids?} white fill and 1 pt black stroke for the selection and the defaults; type gets black fill and no stroke",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.toggleActive",
+      "label": "Toggle Fill/Stroke Focus",
+      "params": "{fill?: bool (true: bring the Fill proxy forward, false: the Stroke proxy; omitted: swap which is in front)} → {fillActive}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "paint.none",
+      "label": "None",
+      "params": "{} set the active proxy (fill or stroke) to None",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.set",
+      "label": "Transparency",
+      "params": "{ids?|id?, opacity?: 0..100, blend?: name, isolate?, knockout?: \"on\"|\"off\"|\"neutral\"|bool (true = on, false = neutral), knockoutShape?: bool, item?: appearance item index|null} for `ids`, the selection, or the object whose opacity mask is being edited; opacity and blend go to the targeted fill/stroke item (omitted: the Appearance panel's active item, else the objects)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.set",
+      "label": "Stroke Options",
+      "params": "{weight?: pt, cap?: butt|round|square, join?: miter|round|bevel, miterLimit?, align?: center|inside|outside, dash?: [d,g,…]|null (a 0 dash with a round or projecting cap draws dots or squares; a new pattern keeps the current offset and alignment), dashOffset? (exact dashes only), alignDashes?: bool (true: dashes fitted to corners and path ends, every run between them holding whole periods with a dash centred on each corner and end; false, the default for a new pattern: exact lengths), startArrow?, endArrow?: Arrow|ArrowOpen|Barbed|Concave|DoubleArrow|HalfArrowLeft|HalfArrowRight|Chevron|Feather|Swallowtail|Triangle|TriangleOpen|TriangleReverse|TriangleBar|Kite|Leaf|Drop|Circle|CircleOpen|HalfCircle|Oval|Target|Square|SquareOpen|Tag|TagOpen|Diamond|DiamondOpen|Hexagon|HexagonOpen|Star|Cross|Plus|Bar|DoubleBar|DotOnBar|Slash|DoubleSlash|Bracket|Fork|null (HalfArrowLeft/Right: one barb, left or right of the direction the head points), arrowAlign?: \"extend\" (tip past the end point, default)|\"tip\" (tip on the end point; the stroke is shortened), profile?: \"uniform\"|\"lens\"|\"taperStart\"|\"taperEnd\"|\"pinch\"|\"teardrop\"|\"wave\"|a saved profile's name (stroke.widthProfile.list), item?: stroke item index|null (omitted: the Appearance panel's active item if it is a stroke, else the top stroke, created when missing), ids?} Without a stroke item, type takes weight, cap, join, miterLimit and the dash options as its characters' stroke (every run; text.setRangeStyle `strokeOptions` styles a range), and images and symbol instances (also in groups) are left alone. With nothing selected (and no ids) they set up the next object drawn (appearance.newArt; weight always does)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.setAdvanced",
+      "label": "Stroke Options",
+      "params": "{arrowScale?: [start %, end %], swapArrows?: bool, flipProfile?: \"along\"|\"across\", brush?: name|null, item?: stroke item index|null, ids?} Stroke panel extras (with nothing selected, all but brush set up the next object drawn)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthProfile.add",
+      "label": "Add to Profiles",
+      "params": "{name?} save the selected stroke's variable width to the Profile list (kept with the preferences) under `name` (default \"Width Profile N\"; unique, not a built-in's) → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthProfile.delete",
+      "label": "Delete Profile",
+      "params": "{name?} remove a saved profile from the Profile list (default: the selected stroke's); built-in profiles can't be deleted, and strokes keep their widths → {deleted}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthProfile.reset",
+      "label": "Reset Profiles",
+      "params": "{} remove every saved profile, leaving the built-ins → {removed: count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthProfile.list",
+      "label": "Width Profiles",
+      "params": "{} → {profiles: [{id (stroke.set `profile`), label, builtIn, points: [[t, left, right]…]}], current: the selected stroke's profile id or name (nothing selected: the next object drawn's), \"custom\" when it isn't listed, null without a stroke}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "appearance.addFill",
+      "label": "Add New Fill",
+      "params": "{ids?, target?: \"object\"|\"contents\"} add a fill on top of each selected object's own stack (a copy of its top fill; type without one: its characters' fill; else the default fill)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.addStroke",
+      "label": "Add New Stroke",
+      "params": "{ids?, target?} add a stroke on top of each selected object's own stack (a copy of its top stroke, else the default stroke)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.clear",
+      "label": "Clear Appearance",
+      "params": "{ids?, target?} leave each object one empty fill and stroke (None; a group none of its own) and reset its opacity and blend mode",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.reduceToBasic",
+      "label": "Reduce to Basic Appearance",
+      "params": "{ids?, target?} keep only the topmost visible fill and stroke, without their own opacity, blend mode or effects (a group keeps no rows it lacked), and drop the object's effects",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.setItem",
+      "label": "Appearance Item",
+      "params": "{index: paint-order item index, ids? (default: the selection), target?: \"object\"|\"contents\", opacity?: 0..100, blend?: name, visible?: bool, weight?: pt (strokes), color?|none?|swatch?|gradient? (as paint.setFill)} edit one fill/stroke of each target object's own appearance stack",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.removeItem",
+      "label": "Remove Item",
+      "params": "{index | indices: [..] (paint-order item indices), ids?, target?} remove those fills/strokes from each target object's own stack",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.addEffect",
+      "label": "Add Effect",
+      "params": "same as effect.apply (an alias): {effect: id, params?: {…}, item?: appearance item index|null, ids?, target?} → {ids, index, item}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.duplicateItem",
+      "label": "Duplicate Item",
+      "params": "{index | indices: [..] (paint-order item indices), to?: paint-order index of the copy (one `index` only; default: right above it, as Alt-dragging a row places it), ids?, target?} copy fills/strokes with their effects",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.moveItem",
+      "label": "Reorder Appearance Item",
+      "params": "{from: paint-order item index | \"contents\", to, contents?: count, ids?, target?} move fill/stroke `from` to paint-order index `to`; on a group, layer or type the Contents (Characters) row stays between the same items (a moved item landing next to it keeps its side) unless `contents` says how many items paint below it afterwards. from \"contents\": move that row so `to` items paint below the members (characters) and the rest above → {index: where the item landed | contents: the row's slot}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.copyFrom",
+      "label": "Eyedropper",
+      "params": "{source: id, ids?, pickUp?, apply? (trees as eyedropper.setOptions, merged over the Eyedropper Options for this call), reverse?: bool, append?: bool} copy the attributes both picked up and applied (by default the whole appearance stack, opacity and blend mode, and from type to type the character and paragraph attributes) from `source` to ids (default: the selection), the fill, stroke and weight also to the paint defaults; `reverse` (Alt-click) copies from the first selected object (or ids) onto `source` instead; `append` (Shift+Alt-click) adds the source's fills, strokes and effects on top of each target's stack; placed gradients land at the same place relative to each target's bounds (defaults: fitted to new art) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.setActiveItem",
+      "label": "Select Appearance Item",
+      "params": "{index: paint-order item index in the first selected object's stack | null} make that fill/stroke row the target of the paint.setFill/setStroke, stroke.set/setAdvanced, paint.editGradient/setGradientGeom, transparency.set and effect.* calls that omit `item` (a fill row brings the Fill proxy forward, a stroke row the Stroke proxy); null or any selection change clears it → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.showAllHidden",
+      "label": "Show All Hidden Attributes",
+      "params": "{ids?, target?} make every hidden fill, stroke and effect (the object's and each item's) of each selected object visible again; errors when nothing is hidden → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.targetContents",
+      "label": "Target Contents",
+      "params": "{ids?} select the members of the selected groups and layers (or `ids`), as double-clicking the Appearance panel's Contents row does: the panel then lists, and appearance edits change, their own appearance; errors when none has members → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.transfer",
+      "label": "Move Appearance",
+      "params": "{source: id, target: id, copy?: bool} give `target` (a layer, group or object) the appearance (fills, strokes, effects) and transparency (opacity, blend mode, isolation, knockout) of `source`, as dragging a target circle onto another in the Layers panel does; the source is left with a cleared appearance (as appearance.clear) unless `copy` (Alt-drag). Opacity masks stay; placed gradients keep their place relative to each object's bounds → {source, target}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.new",
+      "label": "New Swatch",
+      "params": "{name?, color? | colors?: [colour] (one swatch each, in one undo step) | swatch? | gradient? | pattern?: name (default: the current fill), tint?: 0..100 (% of the global or spot `swatch`, or of the one the current fill links to), mode?: \"gray\"|\"rgb\"|\"hsb\"|\"lab\"|\"cmyk\"|\"web\" (convert the colour; lab: CIE L*a*b*, how spot colours are usually defined), global?, spot? (a spot colour, always global), group?: colour group name (solid colours only; default: ungrouped)} save a colour, gradient or pattern as a swatch. A tint of a global or spot colour (below 100%, without mode, global or spot) becomes a tint swatch, \"Name 40%\", linked to its base: it follows edits to the base and applies as that tint of it. Names are unique (\"Sky 2\"); a colour's default name is its values (\"C=10 M=20 Y=30 K=0\", \"R=255 G=128 B=0\", \"Gray K=40\", \"L=55 a=60 b=40\") → {name, names: [every new swatch]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.delete",
+      "label": "Delete Swatch",
+      "params": "{name? | names?: [swatch or colour group names] (a group goes with its swatches), unlink?: true (art using a deleted global swatch keeps its colour, unlinked; false keeps the stale link)} delete in one undo step → {deleted, unlinked: paints unlinked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.newGroup",
+      "label": "New Color Group",
+      "params": "{name?, swatches?: [names] (solid colours move into the group; gradients, patterns and None stay), colors?: [colour] (added as new swatches), fromArtwork?: false (add the unique colours of the selected art: fills, strokes, text, gradient stops and mesh points; a colour linked to a global swatch moves that swatch into the group), toGlobal?: true (with fromArtwork: the new swatches are global and the selected art's matching unlinked colours link to them), includeTints?: false (with fromArtwork: tints of global swatches also get swatches of their own)} → {name, swatches: [names in the group], linked: paints linked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.duplicate",
+      "label": "Duplicate Swatch",
+      "params": "{name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.sortByName",
+      "label": "Sort by Name",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.edit",
+      "label": "Swatch Options",
+      "params": "{name, newName?, color? (e.g. {l, a, b} for a Lab colour), mode?: \"gray\"|\"rgb\"|\"hsb\"|\"lab\"|\"cmyk\"|\"web\" (convert the colour), global?, spot? (spot colours are always global), paint?: paint.setFill params ({color}, {gradient}, {swatch} or {pattern}) replacing the swatch's colour, gradient or pattern with one of the same kind} edit a swatch in any colour group, as one undo step. Fills, strokes, text, gradient stops and tint swatches linked to a global swatch take its new colour (at their own tint) and name; turning Global off unlinks them (they keep their colour). Colour, mode and spot apply to solid colours only; a tint swatch only takes a new name (edit its base) → {name, relinked: paints changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.list",
+      "label": "Swatches",
+      "params": "{group?: name (only that colour group's swatches)} → {swatches: [{name, kind: \"none\"|\"color\"|\"gradient\"|\"pattern\", group, global, spot, color?, hex?, tintOf?: base swatch of a tint swatch, tint?: its %, gradient?, pattern?}] (the built-in [Registration] after None: it prints on every plate and can't be edited, moved or deleted), groups: [{name, swatches: [names]}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.move",
+      "label": "Move Swatch",
+      "params": "{name? | names?: [swatch names, in order; or colour group names to reorder the groups], to?: index in the destination (they go before the swatch or group now there; default: the end), group?: destination colour group (default: the ungrouped swatches; groups hold solid colours only)} reorder swatches or move them into or out of colour groups, as one undo step → {moved}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.addUsedColors",
+      "label": "Add Used Colors",
+      "params": "{selection?: false (only the selected art's colours; default: all the art's), global?: false (the new swatches are global and the matching unlinked colours in that art link to them)} add a swatch for each colour used (fills, strokes, text, gradient stops, mesh points) that no solid swatch has yet, as one undo step → {added: [names], linked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.unused",
+      "label": "Select All Unused",
+      "params": "{} → {names: [the swatches nothing uses, in panel order]}: a colour is used when a paint links to it or an unlinked paint, gradient stop or mesh point has its colour; a gradient when a gradient links to it or has its stops; a pattern when it fills or strokes anything (art, symbols, pattern tiles and graphic styles count). None is never listed",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.merge",
+      "label": "Merge Swatches",
+      "params": "{names: [two or more solid-colour swatches]} keep the first (its name and colour) and delete the others; paints linked to them take its colour and link to it (or unlink when it isn't global), as one undo step → {name, merged: [deleted names], relinked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.ungroup",
+      "label": "Ungroup Color Group",
+      "params": "{name: colour group} move its swatches to the end of the ungrouped swatches and remove the group, as one undo step → {swatches: [names]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.sortByKind",
+      "label": "Sort by Kind",
+      "params": "{} order the swatches of each list by kind (None first, then process colours, spot colours, gradients, patterns; colour groups stay after them), keeping their order within a kind, as one undo step",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.spotOptions",
+      "label": "Spot Colors",
+      "params": "{useLab?: bool (omitted: unchanged)} the document's Spot Colors options: spot colours defined in Lab show, print and export from their Lab values (true, the default: PDF Separation spaces get a Lab alternate) or from their working-CMYK equivalents (false: a DeviceCMYK alternate, matching older files). Art, gradient stops and tint swatches linked to Lab spot swatches take the chosen colour at their tint, as one undo step → {useLab, relinked: paints changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.editGroup",
+      "label": "Edit Color Group",
+      "params": "{group: colour group, colors: [colour] (hex, key, {c,m,y,k} or {l,a,b}; the group's swatches take them in order, extra colours become new swatches, swatches past the end are removed; built-in swatches can't change), rename?: new group name} rewrite a colour group as one undo step; art linked to its global swatches takes their new colours (and keeps its colour, unlinked, when its swatch goes) → {name, swatches: [names], relinked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.editGradient",
+      "label": "Gradient",
+      "params": "{stroke?: bool (default: the targeted item's kind, else the active proxy), kind?: linear|radial|freeform (freeform places points on each object, coloured along the stops), mode?: points|lines (freeform: how the Gradient tool adds points), stops?: [{offset 0..1, color? (needed without swatch), opacity? 0..1 (or 0..100), midpoint? 0.13..0.87, swatch?: colour swatch name (a global or spot colour or tint swatch links the stop, so swatch edits recolour it and a spot stop prints on its plate; a process colour just gives its colour), tint?: 0..100 (% of the linked swatch; default 100, or a tint swatch's own)}] (at least 2; a freeform gradient's points are recoloured along them), angle?: deg, aspect?: %, reverse?: bool, item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind), ids?, strokeMode?: within|along|across (strokes only: the gradient lies on the page and shows through the stroke, runs from the start of each subpath to its end, or runs from the stroke's left edge to its right all along it; with nothing selected, for the next object drawn; type characters' own strokes always paint within)} edit the gradient in place (keeps its placement); solid/none paints become the default gradient",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.setGradientGeom",
+      "label": "Gradient Vector",
+      "params": "{start?: [x,y], end?: [x,y] (document coordinates; both or neither: omitted, the vector stays), aspect?: % (radial: the extent ellipse's height / width; default: kept), focal?: [x,y] (document coordinates) | null (radial: the focal point, where the first stop sits, pulled inside the extent ellipse; null centres it; default: it keeps its place in the ellipse), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (alias: index; omitted: the Appearance panel's active item when it is of the edited kind)} set the gradient vector, aspect ratio and focal point (solid paints become the default gradient; type objects set it on their runs, in text space)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.makeOpacityMask",
+      "label": "Make Opacity Mask",
+      "params": "{ids?, clip?, invert?} the topmost of the selected objects (or of `ids`) becomes the mask of the others (grouped if several). One object gets an empty mask and enters mask editing: draw the mask, then transparency.stopEditingOpacityMask → {id, editing}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.releaseOpacityMask",
+      "label": "Release Opacity Mask",
+      "params": "{id?|ids?} put the mask art back above each masked object (default: the selection, or the object whose mask is being edited, which leaves mask editing)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.disableOpacityMask",
+      "label": "Disable Opacity Mask",
+      "params": "{id?|ids?} keep the mask but stop applying it",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.enableOpacityMask",
+      "label": "Enable Opacity Mask",
+      "params": "{id?|ids?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.unlinkOpacityMask",
+      "label": "Unlink Opacity Mask",
+      "params": "{id?|ids?} the object moves without its mask",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.linkOpacityMask",
+      "label": "Link Opacity Mask",
+      "params": "{id?|ids?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.setOpacityMask",
+      "label": "Opacity Mask Options",
+      "params": "{id?|ids?, clip?, invert?, disabled?, linked?} change the opacity masks of `ids`, the selection, or the object whose mask is being edited",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.toggleNewMasksClipping",
+      "label": "New Opacity Masks Are Clipping",
+      "params": "{value?} → {value}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "transparency.toggleNewMasksInverted",
+      "label": "New Opacity Masks Are Inverted",
+      "params": "{value?} → {value}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "transparency.opacityMaskInfo",
+      "label": "Opacity Mask Info",
+      "params": "{id?|ids?} → [{id, clip, invert, disabled, linked, art}] the opacity masks of `ids`, the selection, or the object whose mask is being edited",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.info",
+      "label": "Transparency Info",
+      "params": "{id?|ids?} → {ids, opacity: 0..100, blend, isolate, knockout: \"on\"|\"off\"|\"neutral\", knockoutShape, editingMask, pageIsolatedBlending, pageKnockoutGroup} the Transparency panel's values for `ids`, the selection, or the object whose mask is being edited. A value is null where those objects differ (or there are none); editingMask is the id of the object whose mask is being edited, or null; the page values are the document's",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.togglePageIsolatedBlending",
+      "label": "Page Isolated Blending",
+      "params": "{value?} make the page an isolated group (default: toggle): blend modes of top-level objects don't blend with what lies under the page; saved with the document and written to PDF → {value}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.togglePageKnockoutGroup",
+      "label": "Page Knockout Group",
+      "params": "{value?} make the page a knockout group (default: toggle): its layers (the contents of neutral layers) hide what they cover instead of showing it through their transparency; saved with the document and written to PDF → {value}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.sampleColor",
+      "label": "Sample Color",
+      "params": "{color, stroke?: bool (default: whichever proxy is active), ids?, stop?: index} sample a colour into the active fill/stroke (and the selection); with `stop`, recolour that stop of the gradient behind the proxy instead (paint.editGradient)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.setSpot",
+      "label": "Spot Color",
+      "params": "{name, spot?: true} make a swatch a spot colour (prints on its own plate; spot swatches are global) → {name, spot}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.editOpacityMask",
+      "label": "Edit Opacity Mask",
+      "params": "{id?} edit the mask art of `id` (default: the first selected object with a mask) in place, as clicking the mask thumbnail in the Transparency panel does → {layer}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.stopEditingOpacityMask",
+      "label": "Stop Editing Opacity Mask",
+      "params": "{} leave mask editing (the object thumbnail) → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.viewOpacityMask",
+      "label": "View Opacity Mask",
+      "params": "{on?: bool (default: toggle), id?} show only the opacity mask of `id` (default: the object whose mask is edited, else the first selected object with a mask) on the canvas, as greyscale coverage, and edit it, as Alt-clicking the mask thumbnail does; off shows the artwork again (still editing) → {on, id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthPoint.set",
+      "label": "Width Point",
+      "params": "{id, t: 0..1 (fraction of the path length), left, right: side widths in pt, index?: width point to edit or move, adjustAdjoining?: bool (with index: the nearest points either side change their widths in proportion)} → {index}. Without index a point already at t is replaced; a point moved onto another one's t joins it as a discontinuous point (on the side it came from), so the width steps there. Creates a uniform profile first if needed",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthPoint.remove",
+      "label": "Delete Width Point",
+      "params": "{id, index | indices: [..]} remove width points (removing the last one leaves a uniform stroke)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthPoint.copy",
+      "label": "Copy Width Point",
+      "params": "{id, index: the width point to copy, t: 0..1 where the copy goes} → {index} (Alt-drag with the Width tool). Landing on another point makes a discontinuous point, as a stroke.widthPoint.set move does",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthProfile.set",
+      "label": "Width Profile",
+      "params": "{ids?|id?, points: [[t, left, right]…] (width factors, 1 = the stroke weight) | null = uniform}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.invert",
+      "label": "Invert",
+      "params": "{stroke?: bool (default: the active proxy), ids?} invert the active proxy's colours of the selection (or ids; groups recolour their contents) keeping each colour's model, as edit.colors.invert does; the Appearance panel's active fill/stroke item (appearance.setActiveItem) is inverted instead when it is of that kind and no ids are given; with nothing selected, invert the default → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.complement",
+      "label": "Complement",
+      "params": "{stroke?: bool (default: the active proxy), ids?} replace the active proxy's colours by their complements ((highest + lowest) − each component, over RGB or CMY; grey unchanged) keeping each colour's model; honours the Appearance panel's active item as paint.invert does; with nothing selected, the default → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.lastColor",
+      "label": "Apply Last Color",
+      "params": "{stroke?: bool (default: the active proxy), ids?} apply the last solid colour used (paint.recent lastColor) to the active proxy of the selection and the default",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.lastGradient",
+      "label": "Apply Last Gradient",
+      "params": "{stroke?: bool (default: the active proxy), ids?} apply the last gradient used (paint.recent lastGradient), fitted to each object, to the active proxy of the selection and the default",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.recent",
+      "label": "Recent Colors",
+      "params": "{} → {colors: [{hex, color}] newest first (fed by every paint command and the eyedropper), lastColor: {hex, color}, lastGradient: gradient paint}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "paint.proxies",
+      "label": "Fill and Stroke",
+      "params": "{} → {fill, stroke: the paints the Fill/Stroke proxies show (the Appearance panel's active item for the proxy of its kind, else the first selected object's, a group's first painted object's, type: its first run's; else the defaults for new art), fillActive, fillMixed, strokeMixed: the selected objects' (or a selected group's contents') fills (strokes) differ, shown as a \"?\" proxy}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "swatch.library.list",
+      "label": "Swatch Libraries",
+      "params": "{} → {libraries: [{id, name, category: \"builtIn\"|\"gradients\"|\"user\" (User Defined: the library files in the user library folder, rescanned now)|\"loaded\" (swatch.library.load), count, path?}], userFolder} every library the library panel opens, in menu order",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "swatch.library.get",
+      "label": "Swatch Library",
+      "params": "{library: id or name} → {id, name, category, swatches: [{name, kind, group, global, spot, color?, hex?, gradient?}] (as swatch.list), groups: [{name, swatches: [names]}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "swatch.library.add",
+      "label": "Add to Swatches",
+      "params": "{library: id or name, names?: [swatch or colour group names in the library] (default: all of it; a group comes as a colour group, a single swatch ungrouped), apply?: \"fill\"|\"stroke\" (also apply the first one to the selection and the defaults, as paint.setFill / paint.setStroke), focus?: true (with apply: false keeps the active proxy)} copy library swatches into the document as one undo step. A swatch the document already has (same name and paint) isn't added again; a name taken by another swatch gets a number (\"Clay 1 2\") → {library, added: [names in the document], existing: [names already there], applied?: name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.resetDefaults",
+      "label": "Default Swatches",
+      "params": "{replace?: false} bring back the default swatches and colour groups of the document's colour mode that are missing (by name), as one undo step; replace: true makes the swatches exactly the defaults (art linked to a removed global swatch keeps its colour, unlinked) → {added: [names]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.library.save",
+      "label": "Save Swatch Library…",
+      "params": "{path?, format?: \"vcswatches\" (lossless JSON: colour models, global, spot, gradients, groups) | \"gpl\" (8-bit RGB palette; groups as `# Group:` comments) | \"css\" (custom properties on :root) (default: the path's extension, else vcswatches), names?: [swatch or colour group names] (default: all; None and patterns are never saved), name?: library name (default: the document's), user?: false (save into the user library folder, listed under User Defined)} save the document's swatches as a library → {path, format, count, library?: id when saved to the user folder}; without path or user → {data: the file's text, format, count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.library.load",
+      "label": "Other Library…",
+      "params": "{path? | data?: file text | dataBase64?, name?: file name (default: the path's)} load a .vcswatches or .gpl library, or the swatches of any document VectorCraft opens (see document.formats), for the library panel (Window → Swatch Libraries lists it until the app quits) → {library: id, name, count}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "paint.freeform.addPoint",
+      "label": "Add Freeform Point",
+      "params": "{at: [x,y] (document coordinates), color? (default: the gradient's colour there), opacity? 0..1 (or 0..100), spread? 0..1 (or 0..100 %; the radius of pure colour around the point, a fraction of half the object's larger side; default 0), line?: true (join it to the selected point: extends the line ending there, else starts one), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind)} add a point to the freeform gradient (an unplaced one keeps its automatic points first) and select it → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.setPoint",
+      "label": "Edit Freeform Point",
+      "params": "{index? (default: the selected point), at?: [x,y] (document coordinates), color?, opacity? 0..1 (or 0..100), spread? 0..1 (or 0..100 %), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind)} move or recolour a point of the freeform gradient → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.deletePoint",
+      "label": "Delete Freeform Point",
+      "params": "{index? (default: the selected point), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind)} remove a point (never the last one); lines through it close up around it and lines left with one point go → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.addLine",
+      "label": "Add Freeform Line",
+      "params": "{points: [index, …] (at least two), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind)} join points with a smooth line through them, in order → {line}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.splitLine",
+      "label": "Split Freeform Line",
+      "params": "{line: line index, segment: the segment from the line's point `segment` to the next, t?: 0..1 along it (default 0.5), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind)} add a point on a line there (colour, opacity and spread between the segment's ends) and select it → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.selectPoint",
+      "label": "Select Freeform Point",
+      "params": "{index: point index | null to clear} select a point of the freeform gradient behind the active proxy (the first selected object's): the point the Gradient tool, the Gradient and Color panels and Delete act on → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.get",
+      "label": "Freeform Gradient",
+      "params": "{stroke?: bool (default: the active proxy)} the freeform gradient behind the proxy of the first selected object → {mode: points|lines, points: [{at: [x,y] (document coordinates), color, opacity, spread}], lines: [[index, …]], selected: index|null}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.setNewArtBasic",
+      "label": "New Art Has Basic Appearance",
+      "params": "{on?: bool (omitted: toggle)} the Appearance panel option (the preference newArtBasic, on by default): on, new art takes one fill and stroke (with the Stroke panel's options); off, the whole appearance of the last selected object (every fill, stroke and effect, opacity and blend mode) → {on}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "appearance.newArt",
+      "label": "New Art Appearance",
+      "params": "{} what the next object drawn gets → {basic: New Art Has Basic Appearance, appearance: {items, effects} (the model's JSON; placed gradients relative to the unit box), opacity: 0..100, blend, graphicStyle: the style it is linked to or null, inherited: taken from the last selection}",
+      "enabledAtEmptySession": true
+    }
+  ],
+  "runtimePatchSourceCommit": "402de7b5f698797af9195cbd380cc97716883bc8",
+  "analysisCommit": "36a6a8ae49f0e2d1059361ab1f842b1ec172bc9e"
+}

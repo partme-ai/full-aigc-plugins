@@ -1,0 +1,34 @@
+{
+  "status": "local-unreleased",
+  "sourcePackage": "full-aigc-skills/printcraft-skills",
+  "skills": [
+    {
+      "name": "printcraft-editor",
+      "sha256": "bbc0fa4716e277fe32c36617f112c0d3261519077e2efc615f7e847de514697f"
+    },
+    {
+      "name": "printcraft-organize-pdf",
+      "sha256": "03a523e51be58fcf089fb9830aa0822415791a2e08171c87628b0951a9a343f6"
+    },
+    {
+      "name": "printcraft-ocr-scans",
+      "sha256": "2809a325a662f8ce1fca87916999ce239a3dcccb539587062bad390c4ea78357"
+    },
+    {
+      "name": "printcraft-redact-pdf",
+      "sha256": "4e31c55151ecb030fa6dbb7cb0b1da719970356117bb213657d452b4e5cab6b9"
+    },
+    {
+      "name": "printcraft-compress-pdf",
+      "sha256": "05891880c2e8c8cfad826f943292d93075e535f5ae013593cc789af2e81ef7dd"
+    },
+    {
+      "name": "printcraft-fill-pdf-forms",
+      "sha256": "728a70f58866a00e7ac43a5b2da400916fed57c37ee6006e4fd36af6df2f6f1b"
+    },
+    {
+      "name": "printcraft-pdf-preflight",
+      "sha256": "ad9abed5002cd16d6b2efc1d37565959611f9d0201e3bdfb8aaabba4c36046ef"
+    }
+  ]
+}

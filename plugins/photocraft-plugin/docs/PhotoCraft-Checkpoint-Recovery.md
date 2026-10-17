@@ -1,0 +1,70 @@
+# Checkpoint sources and explicit recovery revisions
+
+All nine PC-TX-002 scenarios pass on public fixed plugin dev.61 / source dev.48 for macOS arm64; tasks3.6/10.9 complete. The six-window audit includes lost supervision without a receipt, which remains reconciling and refuses revision even when process groups disappear. The active runtime remains0.2.0-craft.1. Creative/model and full V1 gates remain separate. [Current audit](evidence/optimization/task-recovery/acceptance-audit.json).
+
+Failed stages retain their original paths and now include a hash-covered `recovery-context.json`: original plan, execution identity, validated bindings, registered assets and capability snapshot. Legacy stages without this context remain eligible for read-only reopening but cannot acquire revision rights through a fabricated delivery manifest.
+
+```mermaid
+flowchart LR
+ A[Persist original intent] --> B[Save reply unknown]
+ B --> C[Preserve original stage and context]
+ C --> D[Confirm supervisor and native group exit]
+ D --> E[Read-only reopen and identity checks]
+ E --> F[Explicit proposal under existing authority]
+ F --> G[Reserve cumulative budget and create child]
+ G --> H[Copy saved project and apply new operations]
+ H --> I[Technical checks and checkpoint lineage]
+ I --> J[Independent review and acceptance]
+ E --> K[Insufficient proof remains reconciling]
+```
+
+The plugin entry is `node src/cli.ts recover --state-dir <absolute-state> --task <original-id> --proposal <absolute-proposal>`. A proposal contains `baseProjectSha256`, `checkpointRecordSha256`, `authorizationRef`, `reason` and `operations`. Current recovery supports existing text content/style and layer names, bound to explicit layer IDs. Object authority and original protected regions are inherited; non-target objects must remain unchanged. Creating another layer is not a recovery strategy for an unknown edit.
+
+Recovery reconciles again and requires a matching original supervisor exit receipt, absent owned process groups, original plan identity and unchanged checkpoint files. PID disappearance or lock expiry alone is insufficient. Original attempted state, epoch and unknown outcome remain preserved. Repeating the same explicit proposal returns the same child; cumulative revision counts and deadlines never reset. Cancellation, exhausted budgets, scope violations, no improvement, source drift and checkpoint changes refuse new edits.
+
+The standalone workflow accepts `--checkpoint <failed-output> --write-root <authorized-root>` instead of `--source`. Its new plan requires `expectedCheckpointSha256`, `expectedCheckpointPlanSha256` and `expectedProjectSha256`. It reopens read-only before copying the saved project and registered assets, then executes only the new operations. Delivery includes `checkpoint-origin.json`. This lower-level entry does not replace the plugin's durable budget or process-exit gates.
+
+A checkpoint is not a technically accepted parent artifact. New craft-artifact/v1 sourceRefs identify `photocraft-checkpoint:<original-id>` and the saved project digest; evidenceRefs include the checkpoint origin. No successful parent manifest/artifact is fabricated. Creative and acceptance states remain NOT_RUN after technical success and require independent review and acceptance.
+
+Candidate tests: `test_checkpoint_source.py` and `checkpoint-revision.test.ts`, including actual native save-reply loss, retained original files, explicit title repair, process proof, authority, budget, proposal idempotency and lineage. Native plugin tests require PHOTOCRAFT_NATIVE_TEST=1, PHOTOCRAFT_SKILL_ROOT, PHOTOCRAFT_SOURCE_ROOT (an immutable source snapshot containing injection fixtures) and PHOTOCRAFT_PYTHON. Current fixed installation and all PC-TX-002 scenarios are linked in the audit above; host model, mutable GUI ownership and full V1 require separate evidence.
+
+## Full-delivery producer binding
+
+Successful supervised deliveries retain taskId, taskIdentity, epoch, workerToken and sourceSha256 in hash-covered `task-binding.json` and the manifest. Harness verification matches the original ledger before native reopening. Legacy unbound packages remain independently readable but cannot restore current task acceptance. Same-plan foreign packages and self-consistent identity substitutions must be refused. The public fixed dev.61 / source dev.48 installation passes the producer and six-window PC-TX-002 audit; creative acceptance remains independent.
+
+## Pre-intent interruption
+
+The runner pins and flushes the plan before claiming execution. An exact regular single-link file is reused only while the original ledger task remains planned and unattempted. Budget, idempotency identity and original bytes remain unchanged. Truncated, foreign, linked or directory placeholders are preserved and refused. Tasks with persisted intent still require reconcile; plan reuse grants no replay permission.
+
+```mermaid
+flowchart LR
+  A[Original task preflight] --> B[Pin and flush plan]
+  B --> C[Persist original intent]
+  C --> D[Supervised worker]
+  B -->|Crash before claim| E[Restart finds unattempted task]
+  E -->|Exact original plan| C
+  E -->|File or identity conflict| F[Preserve and refuse]
+  D -->|Unknown result| G[Reconcile without replay]
+```
+
+The pre-intent case is one of the nine current scenarios. The public fixed audit also covers hard-worker progress and the six interruption windows.
+
+## Hard worker interruption progress
+
+status observes the original plan, inputs, source version, runtime, worker token and stage inode without writing. Foreign or changing snapshots are refused. Owned exit receipts and process-group confirmation remain separate. Observation creates no checkpoint and promotes no technical or creative status. reconcile may return inspect_interrupted_stage while retaining the unknown outcome and original epoch. A stage without failure.json is neither fabricated as failed nor directly eligible for recover.
+
+
+A separate interrupted checkpoint can be captured by `reconcile` only after the original supervisor receipt and both process groups prove termination. The new `checkpoint.json` sidecar binds original progress, plan/token, stage inode, every retained file and dependency, and launch/exit digests. Read-only reopening checks these again before and after the session. It never rewrites the original stage, progress, claim, unknown request, or fabricates `failure.json`. Missing projects, active workers, input conflicts and changed files remain reconciling. Explicit `recover` creates a new copy within original authorization and cumulative budget; original operations are never replayed. Verification origin `photocraft-checkpoint-context-origin/v2` compares bindings and capabilities as JSON content, while whole-record/context SHA-256 protects original bytes; this avoids Python/JavaScript `100.0` versus `100` digest mismatches. Existing failure records remain readable; verification replies must match the current executor version.
+
+```mermaid
+flowchart LR
+  P[Original durable progress] --> S{Original supervisor and groups stopped}
+  S -->|No| R[Remain reconciling]
+  S -->|Yes| C[Separate checkpoint.json]
+  C --> V[Digest and dependency checks / readonly reopen]
+  V -->|Failure| R
+  V -->|Pass| E[Explicit recover / cumulative budget]
+  E --> N[Revision copy / new technical and creative review]
+```
+
+New executions mark `executionIdentity.planHashAlgorithm` as `photocraft-json-f64/v2`: finite JSON numbers use native binary64 big-endian bits, signed zero is normalized, JSON values are type tagged, keys use UTF-16 ordering, and strings use ASCII UTF-16 escapes before SHA-256. Decimal/scientific/integer spellings and Unicode therefore agree across Python and JavaScript. Unknown algorithms and nonfinite numbers are refused. Historical records without algorithm metadata keep their original verification format; old identities are never rewritten and executor digests still fence tasks across source versions.

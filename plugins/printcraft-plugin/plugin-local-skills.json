@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "dest": "skills/",
+  "skills": [
+    "printcraft-compress-pdf",
+    "printcraft-editor",
+    "printcraft-fill-pdf-forms",
+    "printcraft-ocr-scans",
+    "printcraft-organize-pdf",
+    "printcraft-pdf-preflight",
+    "printcraft-redact-pdf"
+  ]
+}

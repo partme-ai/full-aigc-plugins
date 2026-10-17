@@ -1,0 +1,7 @@
+{
+  "ruleVersion": 1,
+  "requestSha256": "77c3772a6aebe73c188202f6d8ad7a6f0b9c1e62f7f9da70c71f682dd0a778c2",
+  "decision": "approve",
+  "reviewer": "Codex actual image inspection",
+  "notes": "Actual PNG pages show PAGE-GAMMA, PAGE-ALPHA, PAGE-BETA in that order, readable and uncut. Scope limited to original synthetic label fixture; no human/device acceptance."
+}

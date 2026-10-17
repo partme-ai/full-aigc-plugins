@@ -1,0 +1,54 @@
+{
+  "runtime": {
+    "version": "v0.10.0",
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.10.0/effectcraft-0.10.0-windows-x64-portable.zip",
+    "sha256": "aa6102df3a514c84c49a08829b2e0da67a5c44cd4a27c743e3681a2c68cade91",
+    "executable": "effectcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "layer.mask.shape": {
+      "enabled": false,
+      "id": "layer.mask.shape",
+      "label": "Mask Shape...",
+      "menu": [
+        "Layer",
+        "Mask"
+      ],
+      "params": "{layer?, mask?, rect: [x, y, w, h], shape?: rect|ellipse}",
+      "shortcut": "Cmd+Shift+M",
+      "why": "no composition is open"
+    },
+    "prop.set": {
+      "enabled": false,
+      "id": "prop.set",
+      "label": "Set Property Value",
+      "params": "{layer?, path|prop, value, time? (layer s by default), timeBase?: layer|comp, merge?, selected? (also the other selected layers), offset? (them by the same change), proportional? (with offset: Proportional Scrubbing, each layer by its share in selection order, the first none, the last all)}",
+      "why": "no composition is open"
+    },
+    "project.summary": {
+      "enabled": true,
+      "id": "project.summary",
+      "label": "Project Summary"
+    },
+    "layer.addMask": {
+      "enabled": false,
+      "id": "layer.addMask",
+      "label": "New Mask",
+      "menu": [
+        "Layer",
+        "Mask"
+      ],
+      "params": "{layer?, shape?: rect|ellipse|rounded|polygon|star, rect? [x,y,w,h] (layer space; a polygon or star fits its width), mode?}",
+      "shortcut": "Cmd+Shift+N",
+      "why": "no composition is open"
+    }
+  },
+  "sceneAcceptance": "NOT_RUN",
+  "additionalObservation": {
+    "platform": "darwin",
+    "version": "0.10.0",
+    "method": "layer.addMask",
+    "scope": "official native CLI command catalog; Web host not inferred"
+  }
+}

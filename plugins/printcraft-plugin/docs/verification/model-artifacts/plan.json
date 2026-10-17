@@ -1,0 +1,1 @@
+{"domain":"printcraft","steps":[{"command":"doc_open","params":{"path":"/tmp/printcraft-acceptance/native-final-2/source.pdf"}},{"command":"page_move","params":{"doc":1,"pages":[3],"to":1}},{"command":"doc_save","params":{"doc":1,"path":"/tmp/printcraft-acceptance/宿主 测试/model-pdf-current/result.pdf","full":true}}]}

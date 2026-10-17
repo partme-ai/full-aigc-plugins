@@ -1,0 +1,13 @@
+{
+  "schema": "craft-desktop-lock/v1",
+  "domain": "vectorcraft",
+  "version": "0.2.0",
+  "url": "https://github.com/storytold/vectorcraft/releases/download/v0.2.0/vectorcraft-0.2.0-macos-universal.dmg",
+  "filename": "vectorcraft-0.2.0-macos-universal.dmg",
+  "bytes": 45281006,
+  "archiveSha256": "d0ddcabaff13960b7e073ea51900d626d4f8f0f05da43a4b6c4484242a05e941",
+  "binarySha256": "46d7846a765dd0c2a64a72dea17796f49d725203d2c5d91c339432572048f856",
+  "app": "VectorCraft.app",
+  "executable": "VectorCraft",
+  "bundleIdentifier": "ai.storyteller.vectorcraft"
+}

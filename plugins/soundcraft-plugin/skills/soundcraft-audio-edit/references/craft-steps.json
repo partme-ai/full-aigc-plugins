@@ -1,0 +1,97 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "soundcraft",
+  "id": "audio-edit",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "读取实际轨道、片段和编辑范围，示例四秒/48kHz",
+      "command": "session.inspect",
+      "params": {
+        "detail": "full"
+      }
+    },
+    {
+      "purpose": "明确选择Voice四秒片段，不沿用其他轨道的临时选区",
+      "command": "edit.select",
+      "params": {
+        "tracks": [
+          "Voice"
+        ],
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        }
+      }
+    },
+    {
+      "purpose": "在确认的2秒切口分割Voice，不默认使用当前播放光标",
+      "command": "edit.separate",
+      "params": {
+        "tracks": [
+          "Voice"
+        ],
+        "at": {
+          "seconds": 2
+        }
+      }
+    },
+    {
+      "purpose": "同源连续片段在切口两侧各50ms作互补线性交叉淡化",
+      "command": "edit.fades_create",
+      "params": {
+        "tracks": [
+          "Voice"
+        ],
+        "start": {
+          "seconds": 1.95
+        },
+        "end": {
+          "seconds": 2.05
+        },
+        "shape": "linear"
+      }
+    },
+    {
+      "purpose": "检查两个片段的源偏移、重叠区、长度与原时轴",
+      "command": "session.inspect",
+      "params": {
+        "detail": "full"
+      }
+    },
+    {
+      "purpose": "输出明确四秒24位PCM审核混音",
+      "command": "file.bounce_mix",
+      "params": {
+        "path": "output/edit-review.wav",
+        "format": "wav",
+        "bit_depth": 24,
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        },
+        "normalize": false,
+        "dither": false
+      }
+    }
+  ],
+  "check": "核对段落顺序、时长、首尾词与点击声，保存会话后重开。",
+  "boundary": "本例是同源连续音频在2秒分割，利用源余量在1.95至2.05秒重叠，采用互补linear避免相关信号等功率叠加增益；不将它原样用于两个不同录次。切口位置、可用源余量和100ms时长均需现场核实。余量不足时不假定已形成完整交叉淡化，先看实际片段源偏移/重叠，再听接缝；不为凑重叠移动已确认的时轴。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "limitedTechnicalValidation": {
+    "run": 39012439447,
+    "stableMatrixRun": 39012427784,
+    "nativeMainCommit": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+    "fixture": "4-second 48kHz synthetic sources; 24-bit stereo PCM",
+    "sampleAndNativeStructureChecks": "PASS",
+    "saveReopenRenderedSamples": "PASS",
+    "inputSessionAndSourcesUnchanged": "PASS",
+    "auditoryAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

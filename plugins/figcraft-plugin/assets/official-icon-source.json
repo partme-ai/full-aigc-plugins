@@ -1,0 +1,7 @@
+{
+  "upstream": "https://github.com/storytold/figcraft",
+  "ref": "v0.6.0",
+  "path": "assets/app-icon/figcraft-256.png",
+  "sha256": "a4fef51224acba3f8069f119d4d9651be3c484c47c168600033b64d744f632bb",
+  "license": "Apache-2.0 OR MIT"
+}

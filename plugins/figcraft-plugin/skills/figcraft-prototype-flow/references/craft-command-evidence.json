@@ -1,0 +1,66 @@
+{
+  "runtime": {
+    "repository": "storytold/figcraft",
+    "commit": "d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08",
+    "exeSha256": "258ebcacd03404ab15e627b0a6c1a654b4f7f54336f4c6f4b48351abc0bb945e",
+    "artifactRun": 39007496391
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218",
+  "observedCommands": {
+    "file.new": {
+      "id": "file.new",
+      "label": "New design file",
+      "menu": "File",
+      "params": "{name?}",
+      "shortcut": "Cmd+N",
+      "undoable": false
+    },
+    "node.create": {
+      "id": "node.create",
+      "label": "Create layer",
+      "menu": null,
+      "params": "{type: rectangle|ellipse|polygon|star|line|arrow|vector|text|frame|section|component|slice, x?, y? (relative to the parent frame; groups don't count), width?, height?, parent? (id; default: the page), index?, name?, text? (for text), path? (SVG path data for vector), props? {node.set keys}, select? (default true)}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "proto.interaction.add": {
+      "id": "proto.interaction.add",
+      "label": "Add interaction",
+      "menu": null,
+      "params": "{id?, trigger? {type: onClick|onHover|onPress|onDrag|mouseEnter|mouseLeave|mouseDown|mouseUp|afterDelay {ms}|keyPress {key (a key or a combination: Shift+K, Ctrl+Alt+Delete; or a controller button: Gamepad A|B|X|Y|LB|RB|LT|RT|View|Menu|LS|RS|Up|Down|Left|Right|Home)}}, action {type: navigate {preserveScroll?}|back|scrollTo {offset? [x, y] (where the layer ends up from the top-left)}|openOverlay {position?, offset? [x, y] (position manual: the overlay's top-left from the top-left of the layer that opens it; without it, right below that layer), close_on_outside? (default true), background?}|swapOverlay|closeOverlay|openUrl {url}|changeTo|setVariable {variable, value | expression (text, e.g. \"count + 1\")}|setVariableMode {collection, mode}|conditional {blocks [{condition? | expression? (text, e.g. \"count >= 3\"), actions}]}, dest?}, actions? [..], transition? {type: instant|dissolve|smartAnimate|moveIn|moveOut|push|slideIn|slideOut, direction?: left|right|top|bottom}, durationMs?, easing? linear|easeIn|easeOut|easeInOut|easeInBack|easeOutBack|easeInOutBack|gentle|quick|bouncy|slow|{customBezier {x1, y1, x2, y2}}|{customSpring {mass, stiffness, damping}}}, delayMs? (mouse enter, leave, down and up: how long after the gesture the actions run, up to 600000)} — or {id, dest} for a click-navigate. Returns {index}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "proto.flow.add": {
+      "id": "proto.flow.add",
+      "label": "Add flow starting point",
+      "menu": null,
+      "params": "{start? (top-level frame id; default selection), name?}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "proto.present": {
+      "id": "proto.present",
+      "label": "Present",
+      "menu": null,
+      "params": "{start? (frame id; default: the selected frame, else the first flow, else the first frame)}",
+      "shortcut": "Alt+Cmd+Enter",
+      "undoable": false
+    },
+    "proto.preview": {
+      "id": "proto.preview",
+      "label": "Open prototype preview",
+      "menu": null,
+      "params": "{start? (frame id; default as proto.present)}  a floating preview pane over the canvas that follows edits live",
+      "shortcut": "Shift+Space",
+      "undoable": false
+    }
+  },
+  "sceneAcceptance": "LIMITED_TECHNICAL_PASS_WITH_SEPARATE_HOST_PROTOTYPE_SUPPLEMENT",
+  "baselineRuntime": {
+    "version": "v0.6.0",
+    "url": "https://github.com/storytold/figcraft/releases/download/v0.6.0/figcraft-0.6.0-windows-x64-portable.zip",
+    "sha256": "87cc2191f2b00c7701fed7db88222d227488e6f50963b24f61e46fed42a565ce",
+    "executable": "figcraft-cli.exe"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "runtime": {
+    "version": "v0.7.0",
+    "url": "https://github.com/storytold/wordcraft/releases/download/v0.7.0/wordcraft-0.7.0-windows-x64-portable.zip",
+    "sha256": "e6c8be9bb8ff815ed96974b8a25773d1e476301dcd5b242a267b88347185cc4f",
+    "executable": "wordcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "document.inspect": {
+      "id": "document.inspect",
+      "label": "Inspect Document",
+      "location": "Agents",
+      "mutates": false,
+      "params": "{\"text\"?: bool}",
+      "shortcut": ""
+    },
+    "review.compare": {
+      "id": "review.compare",
+      "label": "Compare",
+      "location": "Review › Compare",
+      "mutates": true,
+      "params": "{\"path\"?: string (revised document), \"text\"?: string (revised text), \"original\"?: string (original document; default: this one), \"author\"?: string (label changes with), \"caseChanges\"?: bool, \"whiteSpace\"?: bool, \"formatting\"?: bool (default true: differences count), \"level\"?: \"word|character\", \"showIn\"?: \"original|revised|new\" (revised/new: an untitled document), \"moves\"|\"comments\"|\"tables\"|\"headersFooters\"|\"footnotes\"|\"textBoxes\"|\"fields\"?: bool (accepted; not honoured yet except tables, always compared)}",
+      "shortcut": ""
+    },
+    "review.changes": {
+      "id": "review.changes",
+      "label": "Reviewing Pane",
+      "location": "Review › Tracking",
+      "mutates": false,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "review.comments": {
+      "id": "review.comments",
+      "label": "Show Comments",
+      "location": "Review › Comments",
+      "mutates": false,
+      "params": "{}",
+      "shortcut": ""
+    }
+  },
+  "sceneAcceptance": "NOT_RUN"
+}

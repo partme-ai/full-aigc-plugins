@@ -1,0 +1,1092 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "gridcraft",
+  "templateOnly": true,
+  "argumentPolicy": "从新建空文件开始；示例内容必须由真实输入替换。已有文件先定位目标区域，不能整篇重建或无条件全选。CLI使用argv，不插入shell。",
+  "recipes": [
+    {
+      "id": "invoice-line-tax",
+      "title": "报价明细、折扣与税额",
+      "category": "finance",
+      "inputs": "新建报价表；数量、单价、折扣与税率由任务提供，不内置现实税制。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "项目",
+                "数量",
+                "单价",
+                "折扣",
+                "未税金额",
+                "税率",
+                "税额",
+                "含税金额"
+              ],
+              [
+                "服务A",
+                2,
+                100,
+                0.1,
+                "=B2*C2*(1-D2)",
+                0.06,
+                "=E2*F2",
+                "=E2+G2"
+              ],
+              [
+                "服务B",
+                1,
+                50,
+                0,
+                "=B3*C3*(1-D3)",
+                0.06,
+                "=E3*F3",
+                "=E3+G3"
+              ],
+              [
+                "合计",
+                null,
+                null,
+                null,
+                "=SUM(E2:E3)",
+                null,
+                "=SUM(G2:G3)",
+                "=SUM(H2:H3)"
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "对金额列设显示格式，不把金额转成字符串",
+          "command": "home.numberFormat",
+          "params": {
+            "range": "E2:H4",
+            "format": "0.00"
+          },
+          "parameterReference": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:H4",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:H4",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "E4未税230，G4税额13.8，H4含税243.8",
+        "数量与单价仍为数值",
+        "税率与币种在交付中明确"
+      ],
+      "limits": "示例不是现实税务规则；舍入方式需按具体业务规定补充。",
+      "assertions": {
+        "cells": {
+          "E2": 180,
+          "E4": 230,
+          "G2": 10.8,
+          "G3": 3,
+          "G4": 13.8,
+          "H4": 243.8
+        },
+        "formulas": {
+          "H4": "SUM(H2:H3)"
+        }
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "inventory-reorder",
+      "title": "库存低于安全线的补货清单",
+      "category": "operations",
+      "inputs": "每个SKU一行，现存与安全库存为同一计量单位。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "SKU",
+                "现存",
+                "安全线",
+                "补货量"
+              ],
+              [
+                "A",
+                8,
+                20,
+                "=MAX(0,C2-B2)"
+              ],
+              [
+                "B",
+                25,
+                20,
+                "=MAX(0,C3-B3)"
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "高亮正补货量，零补货保持中性",
+          "command": "home.conditionalFormat",
+          "params": {
+            "range": "D2:D3",
+            "rule": {
+              "type": "cellIs",
+              "operator": "greaterThan",
+              "value": 0,
+              "preset": "yellowFill"
+            }
+          },
+          "parameterReference": "{range?, rule: {type: cellIs|expression|containsText|beginsWith|endsWith|blanks|noBlanks|errors|noErrors|duplicate|unique|top10|aboveAverage|timePeriod|colorScale|dataBar|iconSet, operator?, value?, value2?, formula?, text?, rank?, bottom?, percent?, below?, period?, colors?: [..], color?, set?, style?: {font..fill..}|preset: lightRedFill|redText|yellowFill|greenFill|redBorder|lightRedFillDarkRedText…}}"
+        },
+        {
+          "purpose": "冻结表头便于核对SKU",
+          "command": "view.freezeTopRow",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:D3",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:D3",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "D2=12，D3=0",
+        "没有负补货量",
+        "SKU未排序错位"
+      ],
+      "limits": "不包含在途库存、最小起订量与销售预测；这些约束需提供数据后扩展公式。",
+      "assertions": {
+        "cells": {
+          "D2": 12,
+          "D3": 0
+        },
+        "xmlContains": [
+          "conditionalFormatting",
+          "pane"
+        ]
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "weighted-vendor-score",
+      "title": "供应商多维加权评分",
+      "category": "analysis",
+      "inputs": "评分口径一致，权重明确且总和为1。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "供应商",
+                "质量",
+                "交付",
+                "服务",
+                "加权分"
+              ],
+              [
+                "A",
+                90,
+                80,
+                70,
+                "=B2*$B$5+C2*$C$5+D2*$D$5"
+              ],
+              [
+                "B",
+                80,
+                95,
+                90,
+                "=B3*$B$5+C3*$C$5+D3*$D$5"
+              ],
+              [
+                "权重和",
+                "=SUM(B5:D5)"
+              ],
+              [
+                "权重",
+                0.5,
+                0.3,
+                0.2
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "对金额列设显示格式，不把金额转成字符串",
+          "command": "home.numberFormat",
+          "params": {
+            "range": "E2:E3",
+            "format": "0.00"
+          },
+          "parameterReference": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:E5",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:E5",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "B4=1",
+        "E2=83，E3=86.5",
+        "权重改变后两行公式仍引用绝对地址"
+      ],
+      "limits": "评分必须来自可追溯评价；不要把合成数值作为实际供应商结论。",
+      "assertions": {
+        "cells": {
+          "B4": 1,
+          "E2": 83,
+          "E3": 86.5
+        },
+        "formulas": {
+          "E2": "$B$5"
+        }
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "margin-sensitivity",
+      "title": "商品毛利与零收入边界",
+      "category": "finance",
+      "inputs": "收入、成本同口径且币种一致。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "商品",
+                "收入",
+                "成本",
+                "毛利",
+                "毛利率"
+              ],
+              [
+                "A",
+                1000,
+                650,
+                "=B2-C2",
+                "=IF(B2=0,0,D2/B2)"
+              ],
+              [
+                "B",
+                0,
+                20,
+                "=B3-C3",
+                "=IF(B3=0,0,D3/B3)"
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "仅以百分比显示比率，不放大底层值",
+          "command": "home.numberFormat",
+          "params": {
+            "range": "E2:E3",
+            "format": "0.0%"
+          },
+          "parameterReference": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}"
+        },
+        {
+          "purpose": "对金额列设显示格式，不把金额转成字符串",
+          "command": "home.numberFormat",
+          "params": {
+            "range": "B2:D3",
+            "format": "0.00"
+          },
+          "parameterReference": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:E3",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:E3",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "D2=350，E2=0.35",
+        "零收入行无除零错误",
+        "零收入行毛利仍为-20"
+      ],
+      "limits": "把零收入率显示为0只是示例定义；真实报表可要求空值或特殊标记。",
+      "assertions": {
+        "cells": {
+          "D2": 350,
+          "E2": 0.35,
+          "D3": -20,
+          "E3": 0
+        }
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "expense-threshold-review",
+      "title": "费用报销超限复核",
+      "category": "operations",
+      "inputs": "使用经批准的类别限额；原始凭据关联在真实输入中保留。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "单号",
+                "金额",
+                "限额",
+                "超限额"
+              ],
+              [
+                "R01",
+                120,
+                100,
+                "=MAX(0,B2-C2)"
+              ],
+              [
+                "R02",
+                60,
+                100,
+                "=MAX(0,B3-C3)"
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "将超限金额标红作为待复核提示",
+          "command": "home.conditionalFormat",
+          "params": {
+            "range": "D2:D3",
+            "rule": {
+              "type": "cellIs",
+              "operator": "greaterThan",
+              "value": 0,
+              "preset": "lightRedFill"
+            }
+          },
+          "parameterReference": "{range?, rule: {type: cellIs|expression|containsText|beginsWith|endsWith|blanks|noBlanks|errors|noErrors|duplicate|unique|top10|aboveAverage|timePeriod|colorScale|dataBar|iconSet, operator?, value?, value2?, formula?, text?, rank?, bottom?, percent?, below?, period?, colors?: [..], color?, set?, style?: {font..fill..}|preset: lightRedFill|redText|yellowFill|greenFill|redBorder|lightRedFillDarkRedText…}}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:D3",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:D3",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "D2=20，D3=0",
+        "规则只标记未自动拒绝报销",
+        "记录与凭据可追溯"
+      ],
+      "limits": "超限提示不代表审批结论；不得自行改变报销状态。",
+      "assertions": {
+        "cells": {
+          "D2": 20,
+          "D3": 0
+        },
+        "xmlContains": [
+          "conditionalFormatting"
+        ]
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "duplicate-order-review",
+      "title": "订单重复键标记而不删记录",
+      "category": "quality",
+      "inputs": "重复键只表示需要复核；同一订单允许多行明细的场景应先定义复合键。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "订单号",
+                "金额",
+                "键计数"
+              ],
+              [
+                "O01",
+                100,
+                "=COUNTIF($A$2:$A$4,A2)"
+              ],
+              [
+                "O02",
+                70,
+                "=COUNTIF($A$2:$A$4,A3)"
+              ],
+              [
+                "O01",
+                100,
+                "=COUNTIF($A$2:$A$4,A4)"
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "仅高亮重复订单键，不调用删除命令",
+          "command": "home.conditionalFormat",
+          "params": {
+            "range": "A2:A4",
+            "rule": {
+              "type": "duplicate",
+              "preset": "yellowFill"
+            }
+          },
+          "parameterReference": "{range?, rule: {type: cellIs|expression|containsText|beginsWith|endsWith|blanks|noBlanks|errors|noErrors|duplicate|unique|top10|aboveAverage|timePeriod|colorScale|dataBar|iconSet, operator?, value?, value2?, formula?, text?, rank?, bottom?, percent?, below?, period?, colors?: [..], color?, set?, style?: {font..fill..}|preset: lightRedFill|redText|yellowFill|greenFill|redBorder|lightRedFillDarkRedText…}}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:C4",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:C4",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "C2=2，C3=1，C4=2",
+        "原始三行仍保留",
+        "先核查真实业务是否一单多行"
+      ],
+      "limits": "不能仅因键重复就删除；需要去重时另存副本并明确保留规则。",
+      "assertions": {
+        "cells": {
+          "C2": 2,
+          "C3": 1,
+          "C4": 2
+        },
+        "xmlContains": [
+          "conditionalFormatting"
+        ]
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "controlled-status-entry",
+      "title": "受控状态下拉录入",
+      "category": "quality",
+      "inputs": "状态枚举由实际业务提供，示例为待处理/处理中/完成。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "事项",
+                "状态"
+              ],
+              [
+                "导入资料",
+                "待处理"
+              ],
+              [
+                "核验资料",
+                "处理中"
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "为新录入区域设置列表验证与错误提示",
+          "command": "data.validation",
+          "params": {
+            "range": "B2:B20",
+            "type": "list",
+            "formula1": "\"待处理,处理中,完成\"",
+            "ignoreBlank": true,
+            "dropdown": true,
+            "errorStyle": "stop",
+            "errorTitle": "状态无效",
+            "errorMessage": "请从下拉列表选择"
+          },
+          "parameterReference": "{range?, type: any|whole|decimal|list|date|time|textLength|custom, operator?: between|notBetween|equal|notEqual|greater|less|greaterOrEqual|lessOrEqual, formula1, formula2?, ignoreBlank?, dropdown?, inputTitle?, inputMessage?, errorStyle?: stop|warning|information, errorTitle?, errorMessage?, clear?: bool}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:B3",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:B3",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "工作簿保存了B2:B20的验证规则",
+        "已有状态属于枚举",
+        "宿主中试输入非法状态观察提示"
+      ],
+      "limits": "写入API可能不执行界面输入验证；序列化有规则不证明所有导入路径都拒绝非法值。",
+      "assertions": {
+        "texts": {
+          "B2": "待处理",
+          "B3": "处理中"
+        },
+        "xmlContains": [
+          "dataValidations",
+          "状态无效"
+        ]
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "sales-ranked-rows",
+      "title": "销售额排行且整行保持对应",
+      "category": "analysis",
+      "inputs": "每行是一名销售与对应金额，首行为表头。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "姓名",
+                "销售额",
+                "区域"
+              ],
+              [
+                "甲",
+                100,
+                "东区"
+              ],
+              [
+                "乙",
+                250,
+                "西区"
+              ],
+              [
+                "丙",
+                150,
+                "南区"
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "对完整数据矩形按金额降序，表头不参与",
+          "command": "data.sort",
+          "params": {
+            "range": "A1:C4",
+            "header": true,
+            "keys": [
+              {
+                "column": "B",
+                "order": "desc"
+              }
+            ]
+          },
+          "parameterReference": "{range?, header?: bool, keys: [{column: \"B\", order: asc|desc, by?: values|cellColor|fontColor, customList?: [..]}], orientation?: rows|columns, matchCase?}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:C4",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:C4",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "排序后首行乙/250/西区",
+        "金额与姓名和区域仍同一行",
+        "表头没有移动到数据区"
+      ],
+      "limits": "同额排序不假设稳定，排名并列规则由业务确定。",
+      "assertions": {
+        "cells": {
+          "B2": 250,
+          "B3": 150,
+          "B4": 100
+        },
+        "texts": {
+          "A2": "乙",
+          "C2": "西区"
+        }
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "regional-sales-sum",
+      "title": "销售区域汇总并建立图表",
+      "category": "analysis",
+      "inputs": "区域名称已统一、金额列无混入文本；同币种同周期。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "区域",
+                "销售额",
+                null,
+                "区域汇总",
+                "金额"
+              ],
+              [
+                "东区",
+                100,
+                null,
+                "东区",
+                "=SUMIF(A2:A4,D2,B2:B4)"
+              ],
+              [
+                "西区",
+                80,
+                null,
+                "西区",
+                "=SUMIF(A2:A4,D3,B2:B4)"
+              ],
+              [
+                "东区",
+                50
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "使用汇总区域建立柱形图",
+          "command": "insert.chart",
+          "params": {
+            "range": "D1:E3",
+            "type": "column",
+            "title": "区域销售额（示例）",
+            "at": "G2"
+          },
+          "parameterReference": "{range?, type?: column|bar|line|pie|doughnut|area|scatter|bubble|radar|combo|histogram|waterfall|funnel|treemap|sunburst|boxWhisker|stock, subtype?: clustered|stacked|stacked100|markers, title?, at?: \"H2\", width?, height?}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:E4",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:E4",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "E2=150，E3=80",
+        "图表引用汇总而非明细重复统计",
+        "标题标明期间与币种"
+      ],
+      "limits": "未知区域不能被默默漏掉；真实数据需先列完整区域或用透视表。",
+      "assertions": {
+        "cells": {
+          "E2": 150,
+          "E3": 80
+        },
+        "chartCount": 1
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "month-growth-guard",
+      "title": "月度增长率与零基期处理",
+      "category": "analysis",
+      "inputs": "月份已按时间顺序排列；0基期采用明确的示例规则。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "月份",
+                "金额",
+                "环比"
+              ],
+              [
+                "2026-01",
+                0,
+                null
+              ],
+              [
+                "2026-02",
+                120,
+                "=IF(B2=0,0,B3/B2-1)"
+              ],
+              [
+                "2026-03",
+                150,
+                "=IF(B3=0,0,B4/B3-1)"
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "将增长率显示为百分比",
+          "command": "home.numberFormat",
+          "params": {
+            "range": "C3:C4",
+            "format": "0.0%"
+          },
+          "parameterReference": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:C4",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:C4",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "C3=0，C4=0.25",
+        "第一期无伪造增长率",
+        "月份顺序没有按金额重排"
+      ],
+      "limits": "零基期的0不是自然增长率；真实交付须标注为不可比或按业务定义处理。",
+      "assertions": {
+        "cells": {
+          "C3": 0,
+          "C4": 0.25
+        },
+        "formulas": {
+          "C4": "IF(B3=0"
+        }
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "delivery-acceptance-ratio",
+      "title": "交付验收比例与缺失项",
+      "category": "operations",
+      "inputs": "每行交付件的应验数量、已验数量非负且不超过应验。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "交付件",
+                "应验",
+                "已验",
+                "缺失",
+                "完成率"
+              ],
+              [
+                "文档",
+                10,
+                8,
+                "=MAX(0,B2-C2)",
+                "=IF(B2=0,0,C2/B2)"
+              ],
+              [
+                "图片",
+                5,
+                5,
+                "=MAX(0,B3-C3)",
+                "=IF(B3=0,0,C3/B3)"
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "以百分比显示完成率",
+          "command": "home.numberFormat",
+          "params": {
+            "range": "E2:E3",
+            "format": "0%"
+          },
+          "parameterReference": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}"
+        },
+        {
+          "purpose": "标记未完成项",
+          "command": "home.conditionalFormat",
+          "params": {
+            "range": "D2:D3",
+            "rule": {
+              "type": "cellIs",
+              "operator": "greaterThan",
+              "value": 0,
+              "preset": "yellowFill"
+            }
+          },
+          "parameterReference": "{range?, rule: {type: cellIs|expression|containsText|beginsWith|endsWith|blanks|noBlanks|errors|noErrors|duplicate|unique|top10|aboveAverage|timePeriod|colorScale|dataBar|iconSet, operator?, value?, value2?, formula?, text?, rank?, bottom?, percent?, below?, period?, colors?: [..], color?, set?, style?: {font..fill..}|preset: lightRedFill|redText|yellowFill|greenFill|redBorder|lightRedFillDarkRedText…}}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:E3",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:E3",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "D2=2，E2=0.8，E3=1",
+        "数量对应同一个交付包",
+        "超额验收不隐藏成100%"
+      ],
+      "limits": "这些公式不检查已验超过应验的异常；真实输入需先校验数量。",
+      "assertions": {
+        "cells": {
+          "D2": 2,
+          "E2": 0.8,
+          "E3": 1
+        }
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "project-input-table",
+      "title": "项目任务表结构化与冻结表头",
+      "category": "operations",
+      "inputs": "任务、负责人、状态由输入提供；每任务一行。",
+      "steps": [
+        {
+          "purpose": "将真实业务记录按列结构写入；示例为可计算的测试输入",
+          "command": "range.setValues",
+          "params": {
+            "range": "A1",
+            "values": [
+              [
+                "任务",
+                "负责人",
+                "状态"
+              ],
+              [
+                "资料收集",
+                "甲",
+                "完成"
+              ],
+              [
+                "内容复核",
+                "乙",
+                "处理中"
+              ]
+            ]
+          },
+          "parameterReference": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}"
+        },
+        {
+          "purpose": "把数据矩形转换成有表头的命名表",
+          "command": "insert.table",
+          "params": {
+            "range": "A1:C3",
+            "header": true,
+            "name": "ProjectTasks",
+            "style": "TableStyleMedium2"
+          },
+          "parameterReference": "{range?, header?: true, style?: \"TableStyleMedium2\", name?}"
+        },
+        {
+          "purpose": "冻结标题行",
+          "command": "view.freezeTopRow",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "设置文本列宽，便于编辑",
+          "command": "home.columnWidth",
+          "params": {
+            "cols": "A:C",
+            "chars": 20
+          },
+          "parameterReference": "{cols?: \"B:D\" | \"B:B,D:F\", width: 64 (points) | chars: 8.43}"
+        },
+        {
+          "purpose": "检查公式与原始数据位置",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:C3",
+            "formulas": true
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        },
+        {
+          "purpose": "读取未格式化计算值，按检查项核对结果及错误值",
+          "command": "sheet.read",
+          "params": {
+            "range": "A1:C3",
+            "formulas": false,
+            "formatted": false
+          },
+          "parameterReference": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values"
+        }
+      ],
+      "checks": [
+        "表名ProjectTasks及三列标题保存",
+        "两条任务未丢失",
+        "列宽与表头可读"
+      ],
+      "limits": "表格结构化不自动完成任务或发送提醒；状态仍以业务事实为准。",
+      "assertions": {
+        "texts": {
+          "A2": "资料收集",
+          "B3": "乙"
+        },
+        "tableCount": 1,
+        "xmlContains": [
+          "pane"
+        ]
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "deckcraft": {
+      "type": "stdio",
+      "command": "deckcraft-cli",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
+}

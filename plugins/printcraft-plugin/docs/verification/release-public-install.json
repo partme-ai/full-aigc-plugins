@@ -1,0 +1,8 @@
+{
+  "pluginId": "printcraft@printcraft-release-validation",
+  "name": "printcraft",
+  "marketplaceName": "printcraft-release-validation",
+  "version": "0.1.0-dev.5",
+  "installedPath": "/private/tmp/printcraft-publish-20261008/隔离 宿主/codex-home/plugins/cache/printcraft-release-validation/printcraft/0.1.0-dev.5",
+  "authPolicy": "ON_USE"
+}

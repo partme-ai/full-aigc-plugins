@@ -1,0 +1,1965 @@
+{
+  "tools": [
+    {
+      "name": "open_editor",
+      "description": "Open VectorCraft's interactive editor. Optionally load a file inside the current workspace. This opens the UI; it does not automate editing commands.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "description": "Workspace-relative file path",
+            "type": "string",
+            "maxLength": 4096
+          },
+          "workspace": {
+            "type": "string",
+            "description": "Absolute workspace path; set before opening an editor session."
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://vectorcraft/panel.html",
+          "surface": "editor",
+          "visibility": [
+            "model",
+            "app"
+          ]
+        },
+        "openai/ui": {
+          "preferredModelDisplayMode": "fullscreen"
+        }
+      }
+    },
+    {
+      "name": "command_list",
+      "title": "List commands",
+      "description": "Discover command ids, labels, parameter descriptions and enabled state. Returns an array. The whole catalogue is large: narrow it with filter (or query), menu, and brief.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "brief": {
+            "type": "boolean",
+            "description": "Omit params from listings. Query a specific id without brief to read its parameters."
+          },
+          "enabled_only": {
+            "type": "boolean"
+          },
+          "filter": {
+            "type": "string",
+            "description": "Case-insensitive id, label or menu substring"
+          },
+          "menu": {
+            "type": "string",
+            "description": "Case-insensitive menu path substring; levels joined by > with spaces."
+          },
+          "query": {
+            "type": "string",
+            "description": "Alias of filter; match command id, label or menu."
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "List commands",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "command_run",
+      "title": "Run a command",
+      "description": "Run an engine command by id with its JSON params. Command parameters follow the registry's descriptions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Command id"
+          },
+          "params": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {}
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Run a command",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "command_batch",
+      "title": "Run several commands",
+      "description": "Run steps in order; each edit is its own undo step, or with atomic:true the whole batch is one (named `label`, else after its first edit). A step's id is a command id, or draw_path / draw_shape with that tool's arguments as params (its result is the tool's: the new object's `id`). A param string that is exactly \"$N.path\" (N: 0-based step index) or \"$last.path\" takes that value from an earlier step's result, e.g. {\"id\":\"$1.id\"}; \"$$\" starts a literal \"$\". Returns completed, failed, results and created (the ids draw_path / draw_shape steps made, in order). Stops on the first error by default. At most 256 steps; kept step results total at most 8 MiB, past which the batch stops with the reason.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "atomic": {
+            "default": false,
+            "description": "Make the batch's edits one undo step (needs an open document)",
+            "type": "boolean"
+          },
+          "label": {
+            "type": "string",
+            "description": "The undo step's name with atomic"
+          },
+          "steps": {
+            "maxItems": 256,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Command id, or draw_path / draw_shape"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {}
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "stop_on_error": {
+            "default": true,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "steps"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Run several commands",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "doc_inspect",
+      "title": "Inspect document",
+      "description": "Summary of the active document, including artboards, layer tree, selection and history.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "childLimit": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "depth": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Inspect document",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "render_preview",
+      "title": "Render a preview",
+      "description": "Render an artboard (default the first) as inline PNG without changing the document. max_side defaults to 1024, limited to 1..4096.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "artboard": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "0-based artboard (default 0)"
+          },
+          "max_side": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4096
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Render a preview",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "ui_inspect",
+      "title": "Inspect the interface",
+      "description": "Inspect the connected desktop interface; returns a tool error in headless mode.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Inspect the interface",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "ui_screenshot",
+      "title": "Capture the interface",
+      "description": "Capture the connected desktop window as inline PNG; requires a running desktop app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Capture the interface",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "list_commands",
+      "title": "List commands",
+      "description": "List VectorCraft commands (id, label, menu path, shortcut, parameter description, enabled state). Every editing action is a command; run any of them with run_command. Coordinates are points in document space, y down, origin at the first artboard's top-left.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "brief": {
+            "type": "boolean",
+            "description": "Omit params from listings. Query a specific id without brief to read its parameters."
+          },
+          "enabledOnly": {
+            "type": "boolean",
+            "description": "Only commands that can run right now"
+          },
+          "filter": {
+            "type": "string",
+            "description": "Case-insensitive substring matched against id, label and menu path (e.g. \"align\", \"Object\")"
+          },
+          "menu": {
+            "type": "string",
+            "description": "Case-insensitive menu path substring; levels joined by > with spaces."
+          },
+          "query": {
+            "type": "string",
+            "description": "Alias of filter; match command id, label or menu."
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "List commands",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "run_command",
+      "title": "Run command",
+      "description": "Execute any VectorCraft command by id with JSON params (see list_commands for ids and params). Examples: {\"command\":\"object.group\"}, {\"command\":\"object.align\",\"params\":{\"horizontal\":\"left\"}}, {\"command\":\"file.new\",\"params\":{\"width\":800,\"height\":600}}. Returns the command's result (e.g. {id} for creation commands).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "Command id, e.g. shape.rectangle, object.group, paint.setFill"
+          },
+          "params": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {},
+            "description": "Command parameters"
+          }
+        },
+        "required": [
+          "command"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Run command",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "inspect_document",
+      "title": "Inspect document",
+      "description": "Summary of the active document: artboards, layer tree (ids, names, kinds, bounds, fill/stroke), selection, undo history, current tool and default paint. On a large document pass depth: 0 for the layer skeleton (truncated levels report childCount), then locate objects with run_command document.find and read them with document.node.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "childLimit": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Children shown per node (default all; a level that shows fewer reports childCount)"
+          },
+          "depth": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Child levels of the layer tree to include (default all; 0 = top layers with counts)"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Inspect document",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "inspect_ui",
+      "title": "Inspect UI",
+      "description": "UI state of the running desktop app: tool and options, panels, dialogs, view (zoom/center), window, documents, perf. Desktop app only.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Inspect UI",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "select_tool",
+      "title": "Select tool",
+      "description": "Switch the active tool (as clicking it in the Tools panel). Ids: selection, directSelection, groupSelection, pen, rectangle, roundedRectangle, ellipse, polygon, star, lineSegment, …",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tool": {
+            "type": "string",
+            "description": "Tool id"
+          }
+        },
+        "required": [
+          "tool"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Select tool",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "pointer_gesture",
+      "title": "Pointer gesture",
+      "description": "Drive the active tool with mouse events in document coordinates, exactly like the mouse would (e.g. a rectangle drag: down at (100,100), drag to (200,150), up at (200,150)). Optionally selects `tool` first.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "events": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "holdMs": {
+                  "type": "number",
+                  "description": "Milliseconds the pointer then holds still, button down (0..60000): Twirl, Pucker and Bloat keep applying"
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "down",
+                    "drag",
+                    "up",
+                    "move",
+                    "doubleclick"
+                  ]
+                },
+                "mods": {
+                  "type": "object",
+                  "properties": {
+                    "alt": {
+                      "type": "boolean"
+                    },
+                    "cmd": {
+                      "type": "boolean"
+                    },
+                    "ctrl": {
+                      "type": "boolean"
+                    },
+                    "shift": {
+                      "type": "boolean"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "description": "Modifier keys held (cmd = Command on macOS / Ctrl elsewhere; alt = Option)"
+                },
+                "pressure": {
+                  "type": "number",
+                  "description": "Pen pressure 0..1 (default 1): the Liquify tools' intensity with Use Pressure Pen on"
+                },
+                "x": {
+                  "type": "number",
+                  "description": "Document x (pt)"
+                },
+                "y": {
+                  "type": "number",
+                  "description": "Document y (pt)"
+                }
+              },
+              "required": [
+                "kind",
+                "x",
+                "y"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "mods": {
+            "type": "object",
+            "properties": {
+              "alt": {
+                "type": "boolean"
+              },
+              "cmd": {
+                "type": "boolean"
+              },
+              "ctrl": {
+                "type": "boolean"
+              },
+              "shift": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Modifier keys held (cmd = Command on macOS / Ctrl elsewhere; alt = Option)"
+          },
+          "tool": {
+            "type": "string",
+            "description": "Optional tool to select before the gesture"
+          }
+        },
+        "required": [
+          "events"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Pointer gesture",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "draw_path",
+      "title": "Draw path",
+      "description": "Create a path from points ([[x,y],…] or [{x,y,in?:[x,y],out?:[x,y]},…] with Bézier handles) or SVG path data `d`, then apply optional paint, stroke dash/cap/join, opacity, name and live effects. Omitted paint fields inherit the current new-art appearance (initially white fill and 1 pt black stroke). For a filled path without an outline, pass an explicit fill and stroke:\"none\". Returns the new object id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cap": {
+            "type": "string",
+            "enum": [
+              "butt",
+              "round",
+              "square",
+              "projecting"
+            ],
+            "description": "Stroke cap"
+          },
+          "closed": {
+            "type": "boolean",
+            "description": "Close the path (points only)"
+          },
+          "d": {
+            "type": "string",
+            "description": "SVG path data (alternative to points), e.g. \"M0 0 L100 0 L50 80 Z\""
+          },
+          "dash": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Dash and gap lengths in pt ([d, g, …]), or null for a solid stroke (stroke.set `dash`)"
+          },
+          "effects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "effect": {
+                  "type": "string",
+                  "description": "Effect id, e.g. \"blur.gaussian\""
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {}
+                }
+              },
+              "required": [
+                "effect"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Live effects applied in order, as apply_effect: [{effect: id (effect.list), params?: {…}}]"
+          },
+          "fill": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {}
+              }
+            ],
+            "description": "Fill: \"#rrggbb\", \"none\", [r,g,b] (0..1), {\"c\",\"m\",\"y\",\"k\"}, {\"gray\"}, or a full paint.setFill params object ({\"gradient\":…} / {\"swatch\":name})"
+          },
+          "join": {
+            "type": "string",
+            "enum": [
+              "miter",
+              "round",
+              "bevel"
+            ],
+            "description": "Stroke corner join"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name in the Layers panel"
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Opacity in % (object.setProps `opacity`)"
+          },
+          "points": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "minItems": 2,
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {}
+                }
+              ]
+            },
+            "description": "Anchors: [x,y] pairs or {x, y, in?, out?, smooth?} objects"
+          },
+          "stroke": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {}
+              }
+            ],
+            "description": "Stroke: \"#rrggbb\", \"none\", [r,g,b] (0..1), {\"c\",\"m\",\"y\",\"k\"}, {\"gray\"}, or a full paint.setFill params object ({\"gradient\":…} / {\"swatch\":name})"
+          },
+          "strokeWidth": {
+            "type": "number",
+            "description": "Stroke weight in pt"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Draw path",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "draw_shape",
+      "title": "Draw shape",
+      "description": "Create a live shape and apply optional paint. rectangle/ellipse: x, y, width, height (rectangle: radius = corner radius). polygon: cx, cy, radius, sides. star: cx, cy, radius1, radius2, points. line: x1, y1, x2, y2. Omitted paint fields inherit the current new-art appearance (initially white fill and 1 pt black stroke); lines start with no fill and a visible stroke. For a filled shape without an outline, pass an explicit fill and stroke:\"none\". Stroke dash/cap/join, opacity, name and live effects apply to the new shape as in draw_path. Returns the new object id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cap": {
+            "type": "string",
+            "enum": [
+              "butt",
+              "round",
+              "square",
+              "projecting"
+            ],
+            "description": "Stroke cap"
+          },
+          "cx": {
+            "type": "number",
+            "description": "Centre x (polygon/star)"
+          },
+          "cy": {
+            "type": "number",
+            "description": "Centre y (polygon/star)"
+          },
+          "dash": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Dash and gap lengths in pt ([d, g, …]), or null for a solid stroke (stroke.set `dash`)"
+          },
+          "effects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "effect": {
+                  "type": "string",
+                  "description": "Effect id, e.g. \"blur.gaussian\""
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {}
+                }
+              },
+              "required": [
+                "effect"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Live effects applied in order, as apply_effect: [{effect: id (effect.list), params?: {…}}]"
+          },
+          "fill": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {}
+              }
+            ],
+            "description": "Fill: \"#rrggbb\", \"none\", [r,g,b] (0..1), {\"c\",\"m\",\"y\",\"k\"}, {\"gray\"}, or a full paint.setFill params object ({\"gradient\":…} / {\"swatch\":name})"
+          },
+          "height": {
+            "type": "number",
+            "description": "Height (rectangle/ellipse)"
+          },
+          "join": {
+            "type": "string",
+            "enum": [
+              "miter",
+              "round",
+              "bevel"
+            ],
+            "description": "Stroke corner join"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name in the Layers panel"
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Opacity in % (object.setProps `opacity`)"
+          },
+          "points": {
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 9007199254740991,
+            "description": "Star points (default 5)"
+          },
+          "radius": {
+            "type": "number",
+            "description": "Corner radius (rectangle) or radius (polygon)"
+          },
+          "radius1": {
+            "type": "number",
+            "description": "Star outer radius"
+          },
+          "radius2": {
+            "type": "number",
+            "description": "Star inner radius"
+          },
+          "rotation": {
+            "type": "number",
+            "description": "Rotation in degrees (polygon/star)"
+          },
+          "shape": {
+            "type": "string",
+            "enum": [
+              "rectangle",
+              "ellipse",
+              "polygon",
+              "star",
+              "line"
+            ]
+          },
+          "sides": {
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 9007199254740991,
+            "description": "Polygon sides (default 6)"
+          },
+          "stroke": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {}
+              }
+            ],
+            "description": "Stroke: \"#rrggbb\", \"none\", [r,g,b] (0..1), {\"c\",\"m\",\"y\",\"k\"}, {\"gray\"}, or a full paint.setFill params object ({\"gradient\":…} / {\"swatch\":name})"
+          },
+          "strokeWidth": {
+            "type": "number",
+            "description": "Stroke weight in pt"
+          },
+          "width": {
+            "type": "number",
+            "description": "Width (rectangle/ellipse)"
+          },
+          "x": {
+            "type": "number",
+            "description": "Left (rectangle/ellipse)"
+          },
+          "x1": {
+            "type": "number",
+            "description": "Line start x"
+          },
+          "x2": {
+            "type": "number",
+            "description": "Line end x"
+          },
+          "y": {
+            "type": "number",
+            "description": "Top (rectangle/ellipse)"
+          },
+          "y1": {
+            "type": "number",
+            "description": "Line start y"
+          },
+          "y2": {
+            "type": "number",
+            "description": "Line end y"
+          }
+        },
+        "required": [
+          "shape"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Draw shape",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "set_paint",
+      "title": "Set paint",
+      "description": "Set fill, stroke and/or stroke weight on the selection (or `ids`) and as the default for new art.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "fill": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {}
+              }
+            ],
+            "description": "Fill: \"#rrggbb\", \"none\", [r,g,b] (0..1), {\"c\",\"m\",\"y\",\"k\"}, {\"gray\"}, or a full paint.setFill params object ({\"gradient\":…} / {\"swatch\":name})"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            },
+            "description": "Object ids (default: the selection)"
+          },
+          "stroke": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {}
+              }
+            ],
+            "description": "Stroke: \"#rrggbb\", \"none\", [r,g,b] (0..1), {\"c\",\"m\",\"y\",\"k\"}, {\"gray\"}, or a full paint.setFill params object ({\"gradient\":…} / {\"swatch\":name})"
+          },
+          "strokeWidth": {
+            "type": "number",
+            "description": "Stroke weight in pt"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Set paint",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "press_key",
+      "title": "Press key",
+      "description": "Send a key press with modifiers, e.g. {key:\"Z\", mods:{cmd:true}} (undo), {key:\"Escape\"}, {key:\"Enter\"}. In the desktop app it goes through the real keyboard path; headless, it runs the command or tool bound to that shortcut.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Key name: A–Z, 0–9, Enter, Escape, Delete, Backspace, Tab, Space, Left/Right/Up/Down, [ ]…"
+          },
+          "mods": {
+            "type": "object",
+            "properties": {
+              "alt": {
+                "type": "boolean"
+              },
+              "cmd": {
+                "type": "boolean"
+              },
+              "ctrl": {
+                "type": "boolean"
+              },
+              "shift": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Modifier keys held (cmd = Command on macOS / Ctrl elsewhere; alt = Option)"
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Press key",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "type_text",
+      "title": "Type text",
+      "description": "Type text into the focused widget (text tool, dialog field). Desktop app only.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text to type"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Type text",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "invoke_menu",
+      "title": "Invoke menu",
+      "description": "Invoke a menu item by its command id (same ids as list_commands, including UI-only commands like view.zoomIn or window.* in the desktop app).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "Menu command id"
+          },
+          "params": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {}
+          }
+        },
+        "required": [
+          "command"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Invoke menu",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "open_panel",
+      "title": "Open panel",
+      "description": "Open a panel in the desktop app's dock by id (layers, swatches, stroke, align, pathfinder, transform, …; case-insensitive, display labels like \"Layers\" work too). Desktop app only.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "panel": {
+            "type": "string",
+            "description": "Panel id or display label"
+          }
+        },
+        "required": [
+          "panel"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Open panel",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "screenshot",
+      "title": "Screenshot",
+      "description": "Render the active artboard to PNG and return it as an image (optionally also saving it to `path`). With window:true (desktop app only) captures the whole app window instead.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "artboard": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Artboard index (default 0)"
+          },
+          "path": {
+            "type": "string",
+            "description": "Also write the PNG here"
+          },
+          "scale": {
+            "type": "number",
+            "description": "Pixels per point (default 1)"
+          },
+          "window": {
+            "type": "boolean",
+            "description": "Capture the app window (desktop app only)"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Screenshot",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "open_file",
+      "title": "Open file",
+      "description": "Open a file as a new, active document: .vectorcraft, .drawcraft, .svg, .svgz, .pdf, .ai, .ait, .png, .jpg, .jpeg, .gif, .webp, .tif, .tiff, .bmp, .psd, .psb, .vctemplate, .dxf, .emf, .wmf, .eps, .af, .afdesign, .afpub (see run_command document.formats). Templates (.ait, native templates) open as a new untitled document. The reply's `warnings` say what didn't come in as it was (an EPS shown as its preview image says why its PostScript couldn't be read).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "File path"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Open file",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "save_file",
+      "title": "Save file",
+      "description": "Save the active document with the engine's document.save: by default to its own file in its own format (native .vectorcraft unless it was opened from or saved as SVG, PDF or a restorable .ai). With `path`, the extension picks the format: .vectorcraft, .vctemplate, .pdf, .svg, .svgz, .ai. Other formats are exports (see export). The reply's `format` says what was written and `warnings` what that format loses.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Destination; its extension picks the format (default: the document's own file)"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Save file",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "export",
+      "title": "Export",
+      "description": "Export the active document with the engine's document.export (the same bytes in the app and headless), in any format of the `format` enum: vectors (svg/svgz with the artboard as viewBox, eps, dxf, emf, wmf), pdf and ai (one page per artboard: all, or `artboard` / `range`; ai is the PDF-compatible .ai file that Save writes, which carries the document when every artboard is written in order), rasters (one rendered artboard: png, jpg, webp, gif, png8 as an indexed .png, tiff, bmp, tga, psd with its layers), txt (the stories, back to front), vectorcraft or template (a native copy or template; the document keeps its path). run_command document.formats lists each format's options. For SVG/SVGZ, top-level `outlineText: true` writes text as paths; DXF takes it too (its type is outlined anyway unless `preserve: editability`). PDF instead uses `options.advanced.outlineText: true`, default false (live text). `selection: true` exports only the selected objects, cropped to their bounds. Template layers are left out; live effects are kept (geometry baked, SVG filters for shadows/glows/blur). Without `path` the bytes come back as dataBase64.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "artboard": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "0-based artboard (default: the first; PDF and .ai default: all)"
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "vectorcraft",
+              "svg",
+              "svgz",
+              "pdf",
+              "ai",
+              "png",
+              "jpg",
+              "gif",
+              "webp",
+              "tiff",
+              "bmp",
+              "template",
+              "png8",
+              "txt",
+              "dxf",
+              "eps",
+              "emf",
+              "wmf",
+              "tga",
+              "psd"
+            ],
+            "description": "Default: from the path's extension"
+          },
+          "options": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {},
+            "description": "More format options, passed through (see run_command document.formats), e.g. {\"quality\": 80} for jpg or {\"advanced\": {\"outlineText\": true}} for PDF text as outlines (default false: live text)"
+          },
+          "outlineText": {
+            "type": "boolean",
+            "description": "SVG/SVGZ: true writes text as outlines (viewable without the fonts). DXF takes it too (type outlined anyway unless preserve: editability). PDF uses options.advanced.outlineText instead (default false: live text)"
+          },
+          "path": {
+            "type": "string",
+            "description": "Destination file (omit to get dataBase64)"
+          },
+          "range": {
+            "type": "string",
+            "description": "1-based artboards such as \"1-3, 5\" (PDF and .ai: one page each; SVG, SVGZ and EPS: one file each; rasters, DXF, EMF and WMF: one, or one file each with options.useArtboards: true)"
+          },
+          "scale": {
+            "type": "number",
+            "description": "Raster pixels per point (default 1)"
+          },
+          "selection": {
+            "type": "boolean",
+            "description": "Export only the selection, cropped to it"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Export",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "add_text",
+      "title": "Add text",
+      "description": "Create point type at (x, y) (the first baseline), area type when width/height are given (`fit` autoHeight grows the frame to the text, shrinkText scales the text down to fit), or type in/on an existing path (`path` id + `mode` area|onPath; `pathEffect` rainbow|skew|3dRibbon|stairStep|gravity). Returns the text object id, with `overflow: true` when the text doesn't fit its frame or path (the lines past it aren't drawn: enlarge the frame, shrink the text or give `fit`).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "color": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {}
+              }
+            ],
+            "description": "Text colour (#rrggbb): \"#rrggbb\", \"none\", [r,g,b] (0..1), {\"c\",\"m\",\"y\",\"k\"}, {\"gray\"}, or a full paint.setFill params object ({\"gradient\":…} / {\"swatch\":name})"
+          },
+          "fit": {
+            "type": "string",
+            "enum": [
+              "none",
+              "autoHeight",
+              "shrinkText"
+            ],
+            "description": "Area type: keep the frame (none), fit its height to the text (autoHeight) or scale overflowing text down (shrinkText)"
+          },
+          "fitMinPercent": {
+            "type": "number",
+            "description": "shrinkText: the smallest scale in percent, 10 to 100 (default 50)"
+          },
+          "font": {
+            "type": "string",
+            "description": "Font family"
+          },
+          "height": {
+            "type": "number",
+            "description": "Area type frame height"
+          },
+          "justify": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "left",
+              "center",
+              "right",
+              "justifyAll"
+            ],
+            "description": "Paragraph alignment (default auto: the start of the text's direction). Point type lines up on x: center centres each line on it, right ends it there"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "area",
+              "onPath"
+            ]
+          },
+          "path": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991,
+            "description": "Existing path id to flow the text in (area) or along (onPath)"
+          },
+          "pathEffect": {
+            "type": "string",
+            "enum": [
+              "rainbow",
+              "skew",
+              "3dRibbon",
+              "stairStep",
+              "gravity"
+            ]
+          },
+          "size": {
+            "type": "number",
+            "description": "Font size in pt"
+          },
+          "text": {
+            "type": "string"
+          },
+          "vertical": {
+            "type": "boolean",
+            "description": "Vertical writing for point, area or path type (default false, horizontal), as text.create / text.createInPath"
+          },
+          "width": {
+            "type": "number",
+            "description": "Area type frame width"
+          },
+          "x": {
+            "type": "number",
+            "description": "Baseline origin x (area type: left; point type: where the line starts, or its centre or end with justify center/right)"
+          },
+          "y": {
+            "type": "number",
+            "description": "First baseline y (area type: top)"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Add text",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "apply_effect",
+      "title": "Apply live effect",
+      "description": "Append a live effect (Effect menu) to the selection or `ids`. Omit `effect` to get the catalogue (ids, parameters, defaults). Examples: stylize.dropShadow {x, y, blur, opacity}, distort.roughen, warp.arc {bend}, path.offsetPath {offset}, pathfinder.add (on groups), blur.gaussian {radius}.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "effect": {
+            "type": "string",
+            "description": "Effect id (see the catalogue)"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            }
+          },
+          "params": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {},
+            "description": "Effect parameters; missing keys take the dialog defaults"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Apply live effect",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "pathfinder",
+      "title": "Pathfinder",
+      "description": "Combine the selected (or `ids`) objects destructively, back to front: unite, minusFront, intersect, exclude, divide, trim, merge, crop, outline, minusBack. For a non-destructive version apply the pathfinder.* effect to a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            }
+          },
+          "operation": {
+            "type": "string",
+            "enum": [
+              "unite",
+              "minusFront",
+              "intersect",
+              "exclude",
+              "divide",
+              "trim",
+              "merge",
+              "crop",
+              "outline",
+              "minusBack"
+            ]
+          }
+        },
+        "required": [
+          "operation"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Pathfinder",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "transform",
+      "title": "Transform",
+      "description": "Move, rotate, scale, reflect or shear the selection (or `ids`); several may be combined and run in that order. Angles in degrees (counter-clockwise), scale in %. `origin` [x,y] defaults to the selection centre; `copy` transforms a copy.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "copy": {
+            "type": "boolean"
+          },
+          "dx": {
+            "type": "number",
+            "description": "Move right"
+          },
+          "dy": {
+            "type": "number",
+            "description": "Move down"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            }
+          },
+          "origin": {
+            "minItems": 2,
+            "maxItems": 2,
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "reflect": {
+            "type": "string",
+            "enum": [
+              "vertical",
+              "horizontal"
+            ]
+          },
+          "rotate": {
+            "type": "number",
+            "description": "Rotation in degrees"
+          },
+          "scale": {
+            "type": "number",
+            "description": "Uniform scale in %"
+          },
+          "scaleX": {
+            "type": "number",
+            "description": "Horizontal scale in %"
+          },
+          "scaleY": {
+            "type": "number",
+            "description": "Vertical scale in %"
+          },
+          "shear": {
+            "type": "number",
+            "description": "Shear angle in degrees (horizontal axis)"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Transform",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "create_graph",
+      "title": "Create graph",
+      "description": "Create a graph (graph tools) in the plot rectangle. Data as `csv` (first row: empty cell then series names; then one row per category: label, values…) or `series`/`categories`/`rows`. An empty CSV cell or a null in `rows` is a blank value (no column; lines break around it); a number in straight quotes is a label. Edit later with run_command graph.setData / graph.setType.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "csv": {
+            "type": "string"
+          },
+          "height": {
+            "type": "number",
+            "description": "Plot height"
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "series": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "column",
+              "stackedColumn",
+              "bar",
+              "stackedBar",
+              "line",
+              "area",
+              "scatter",
+              "pie",
+              "radar"
+            ]
+          },
+          "width": {
+            "type": "number",
+            "description": "Plot width"
+          },
+          "x": {
+            "type": "number",
+            "description": "Plot left"
+          },
+          "y": {
+            "type": "number",
+            "description": "Plot top"
+          }
+        },
+        "required": [
+          "height",
+          "width",
+          "x",
+          "y"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Create graph",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "text_wrap",
+      "title": "Text wrap",
+      "description": "Make the selected (or `ids`) objects wrap objects: area type below them in the same layer flows around them (offset in pt, invert = flow inside). `release: true` removes the wrap.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            }
+          },
+          "invert": {
+            "type": "boolean"
+          },
+          "offset": {
+            "type": "number",
+            "description": "Gap between text and object (default 6 pt)"
+          },
+          "release": {
+            "type": "boolean"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Text wrap",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "undo",
+      "title": "Undo",
+      "description": "Undo the last change (Edit → Undo).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Undo",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "redo",
+      "title": "Redo",
+      "description": "Redo the last undone change (Edit → Redo).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Redo",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "_editor_attach",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_poll",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_reply",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "result": {}
+        },
+        "required": [
+          "token",
+          "id",
+          "result"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_detach",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "part": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 3145728
+          }
+        },
+        "required": [
+          "token",
+          "id",
+          "path",
+          "part",
+          "total",
+          "data"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "open_browser_editor",
+      "description": "Open the same editor session in the host built-in browser. Use the returned editorUrl with the host browser tool. Does not itself render the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "workspace": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "editor_status",
+      "description": "Report whether the actual editor has attached to this MCP session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    }
+  ],
+  "resources": [
+    {
+      "name": "panel",
+      "uri": "ui://vectorcraft/panel.html",
+      "mimeType": "text/html;profile=mcp-app",
+      "_meta": {
+        "ui": {
+          "prefersBorder": false
+        }
+      }
+    },
+    {
+      "name": "assets",
+      "uri": "ui://vectorcraft/assets.json",
+      "mimeType": "application/json"
+    }
+  ],
+  "resourceTemplates": [
+    {
+      "name": "asset-chunks",
+      "uriTemplate": "ui://vectorcraft/asset/{id}/{part}"
+    },
+    {
+      "name": "file-chunks",
+      "uriTemplate": "ui://vectorcraft/file/{id}/{part}"
+    }
+  ]
+}

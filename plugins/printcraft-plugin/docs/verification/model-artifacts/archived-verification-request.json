@@ -1,0 +1,37 @@
+{
+  "protocol": "printcraft.verification/1",
+  "ruleVersion": 1,
+  "runId": "be46333c-f04d-4573-8c1e-d1d0048a5f84",
+  "inputSha256": {
+    "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/source.pdf": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a"
+  },
+  "outputs": [
+    {
+      "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/result.pdf",
+      "sha256": "1ceafa0c23ebad245e0229f8973d9477209e094e1fff888486f5430d4d6937ff",
+      "pages": 3,
+      "pageText": [
+        "PAGE-GAMMA",
+        "PAGE-ALPHA",
+        "PAGE-BETA"
+      ],
+      "sourcePages": [
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 3
+        },
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 1
+        },
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 2
+        }
+      ]
+    }
+  ]
+}

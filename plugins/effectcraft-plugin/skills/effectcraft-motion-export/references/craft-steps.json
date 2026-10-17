@@ -1,0 +1,53 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "effectcraft",
+  "id": "motion-export",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "明确工作范围",
+      "command": "comp.workArea",
+      "params": {
+        "start": 0,
+        "end": 3
+      }
+    },
+    {
+      "purpose": "读取工程合成与图层结构",
+      "command": "project.summary",
+      "params": {}
+    },
+    {
+      "purpose": "另存可编辑工程副本",
+      "command": "file.saveCopy",
+      "params": {
+        "path": "output/motion.ecproj"
+      }
+    }
+  ],
+  "check": "先渲染短片段，完整输出后独立检查时长、帧率、音频与alpha。",
+  "boundary": "本例是3秒25fps合成的1/4分辨率PNG序列，共75张，不是含音频的成片；完整分辨率改为full，视频编码和音频需要独立验收。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "cliExport": [
+    {
+      "purpose": "从已保存副本导出工作区间PNG序列，不包含终止时刻的重复帧",
+      "argv": [
+        "render",
+        "--project",
+        "output/motion.ecproj",
+        "--out",
+        "output/motion-frames",
+        "--format",
+        "png",
+        "--work-area",
+        "--resolution",
+        "quarter",
+        "--channels",
+        "rgba",
+        "--audio",
+        "off"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "deckcraft",
+  "title": "DeckCraft",
+  "repository": "https://github.com/full-aigc-plugins/deckcraft",
+  "commit": "d78e657e4cb1e490ceb5445785c052d9cf5ad963",
+  "version": "0.7.0",
+  "sourceStatus": "fork",
+  "releaseRepository": "full-aigc-plugins/deckcraft-plugin",
+  "patches": [],
+  "fontInput": "fonts.lock.json"
+}

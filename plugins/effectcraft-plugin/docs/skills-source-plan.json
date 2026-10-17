@@ -1,0 +1,28 @@
+{
+  "status": "published-and-vendored",
+  "package": "effectcraft-skills",
+  "proposedRepository": "https://github.com/full-aigc-skills/effectcraft-skills",
+  "skills": [
+    "effectcraft-use",
+    "effectcraft-cli",
+    "effectcraft-cli-setup",
+    "effectcraft-cli-project",
+    "effectcraft-cli-footage",
+    "effectcraft-cli-composition",
+    "effectcraft-cli-layers",
+    "effectcraft-cli-animation",
+    "effectcraft-cli-effects",
+    "effectcraft-cli-masks",
+    "effectcraft-cli-expressions",
+    "effectcraft-cli-camera",
+    "effectcraft-cli-export",
+    "effectcraft-cli-tracking",
+    "effectcraft-cli-puppet",
+    "effectcraft-harness"
+  ],
+  "sourceOfTruth": "independent skills repository",
+  "packaging": "immutable vendored snapshot with tag, commit and whole-tree checksums; execution payload converges in the bundled effectcraft-harness skill",
+  "suiteManifest": "https://github.com/full-aigc-skills/effectcraft-skills/blob/main/skill-suite.json",
+  "sourceRef": "v0.1.0-dev.69",
+  "sourceSha": "c9efdde083831859367d3d9de83c1be42f492dfc"
+}

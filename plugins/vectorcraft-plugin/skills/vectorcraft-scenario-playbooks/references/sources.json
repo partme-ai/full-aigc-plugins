@@ -1,0 +1,85 @@
+{
+  "policy": "只借鉴工作流事实，场景正文与命令例子原创编写，不复制外部代码、正文或素材。许可不明的来源仅作为参考。",
+  "sources": [
+    {
+      "repository": "creold/illustrator-scripts",
+      "commit": "9b3e3eeade9ba748f41612ec4697bb6a5c2489c2",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/README.md",
+          "bytes": 22151
+        },
+        {
+          "path": "md/Path.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Path.md",
+          "bytes": 8854
+        },
+        {
+          "path": "md/Text.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Text.md",
+          "bytes": 9994
+        },
+        {
+          "path": "md/Export.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Export.md",
+          "bytes": 4073
+        },
+        {
+          "path": "md/Draw.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Draw.md",
+          "bytes": 7973
+        },
+        {
+          "path": "md/Color.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Color.md",
+          "bytes": 19113
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "storytold/vectorcraft",
+      "commit": "8bc65329286dc1b84aa392997bb205613c3e96cb",
+      "license": {
+        "name": "MIT OR Apache-2.0",
+        "spdx_id": "MIT OR Apache-2.0"
+      },
+      "readFiles": [
+        {
+          "path": "crates/engine/src/cmd/dimension.rs",
+          "url": "https://github.com/storytold/vectorcraft/blob/8bc65329286dc1b84aa392997bb205613c3e96cb/crates/engine/src/cmd/dimension.rs",
+          "bytes": 15831
+        },
+        {
+          "path": "crates/engine/src/cmd/intertwine.rs",
+          "url": "https://github.com/storytold/vectorcraft/blob/8bc65329286dc1b84aa392997bb205613c3e96cb/crates/engine/src/cmd/intertwine.rs",
+          "bytes": 13540
+        },
+        {
+          "path": "crates/engine/src/cmd/variablecmds.rs",
+          "url": "https://github.com/storytold/vectorcraft/blob/8bc65329286dc1b84aa392997bb205613c3e96cb/crates/engine/src/cmd/variablecmds.rs",
+          "bytes": 42467
+        }
+      ],
+      "reuse": "official command behavior and original scenario adaptation; no upstream source or prose copied into skill"
+    }
+  ],
+  "adaptationNotes": {
+    "approval-check-badge": "Draw.md路径/开放折线经验；徽章几何原创",
+    "editable-three-bar-chart": "Draw.md精确图元、Text.md基线；柱图数据编码为原创适配",
+    "hollow-ring-minus-front": "Path.md前形减后形事实；转到原生minusFront",
+    "contact-card-layout": "Text.md按基线组织可编辑文字；卡片版式原创",
+    "editable-brand-palette": "Color.md HEX颜色输入及标签对应；未宣称普通色块是全局色板",
+    "wordmark-live-and-outlined": "Export.md分离可编辑源与导出对象；具体保留母版和轮廓为本适配的交付设计，原生命令证据另列",
+    "half-disc-real-crop": "Path.md裁切/减去几何经验；矩形裁切用本应用实际API",
+    "wayfinding-arrow": "Draw.md按端点创建折线经验；具体箭头来自原生命令目录"
+  }
+}

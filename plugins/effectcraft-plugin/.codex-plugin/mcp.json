@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "effectcraft-editor": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "ui/bootstrap.mjs"
+      ],
+      "cwd": "."
+    }
+  }
+}

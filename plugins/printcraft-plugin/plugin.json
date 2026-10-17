@@ -1,0 +1,37 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "printcraft",
+  "version": "0.1.0-dev.20261017.5",
+  "description": "PDF 检查、页面编辑、单会话计划与摘要绑定验收；受控测试预发布，专项门禁仍开放。",
+  "license": "Apache-2.0",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "PdfCraft Use",
+        "shortDescription": "PDF tasks with verified artifacts",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "logo": "./assets/official-logo.png",
+        "logoDark": "./assets/official-logo.png",
+        "composerIcon": "./assets/official-logo.png",
+        "composerIconDark": "./assets/official-logo.png"
+      }
+    },
+    "org.full-aigc.printcraft": {
+      "contracts": {
+        "execution": "printcraft.execution/1",
+        "verification": "printcraft.verification/1",
+        "ocr": "printcraft.ocr/1",
+        "ocrBackend": "printcraft.ocr-backend/1"
+      }
+    },
+    "ai.nanoco.nanoclaw": {
+      "agentName": "PrintCraft"
+    }
+  },
+  "repository": "https://github.com/full-aigc-plugins/printcraft-plugin",
+  "homepage": "https://github.com/full-aigc-plugins/printcraft-plugin"
+}

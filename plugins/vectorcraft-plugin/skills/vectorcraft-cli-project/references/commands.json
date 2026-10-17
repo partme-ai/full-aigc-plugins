@@ -1,0 +1,336 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "vectorcraft",
+  "runtimeVersion": "0.2.0-craft.2",
+  "upstreamRepository": "https://github.com/storytold/vectorcraft",
+  "upstreamCommit": "90e022b0c05f12171a4e9bebe0894fa62f7bc95c",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "file.new",
+      "label": "New…",
+      "params": "{preset?: a name from file.newPresets (start from it; the other params change it), name?|title?: document name (default Untitled-N), width?: pt=612|\"210 mm\", height?: pt=792, units?: \"Pixels\"|\"Points\"|\"Picas\"|\"Inches\"|\"Millimeters\"|\"Centimeters\"|\"Feet\"|\"Yards\"|\"Meters\"|\"Feet & Inches\" (default: prefs unitsGeneral, as print presets; screen presets: Pixels), orientation?: \"portrait\"|\"landscape\" (swaps width and height to match), artboards?: n (1–1000), artboardLayout?: {layout?: \"gridByRow\"|\"gridByColumn\"|\"row\"|\"column\", columns?: n (default: all in one row), spacing?: pt=20, rightToLeft?: bool}, bleed?: pt|[top, bottom, left, right]|{top?, …} (0–72 pt), backgroundContents?: \"transparent\"|\"white\" (a white artboard background, not an object), colorMode?: \"rgb\"|\"cmyk\" (a CMYK document starts with CMYK swatches and stores the colours applied to it as CMYK), rasterEffectsPpi?: 72|150|300 (1–2400), previewMode?: \"default\"|\"pixel\"|\"overprint\" (overprint turns Overprint Preview on, pixel Pixel Preview in the app; default leaves both), created?: Unix seconds|null (File Info's created date; default now, recorded in the journal so a replay matches)} → {index, previewMode}; the size is remembered in file.newPresets' Recent",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.close",
+      "label": "Close",
+      "params": "{index?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.activate",
+      "label": "Activate Document",
+      "params": "{index}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.inspect",
+      "label": "Inspect Document",
+      "params": "{} → layer tree, artboards, selection, history",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.node",
+      "label": "Inspect Object",
+      "params": "{id} → full object JSON",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.json",
+      "label": "Document JSON",
+      "params": "{} → complete document model",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.setUnits",
+      "label": "Units",
+      "params": "{units: \"Points\"|\"Picas\"|\"Inches\"|\"Millimeters\"|\"Centimeters\"|\"Pixels\"|\"Feet & Inches\"|\"Meters\"|\"Yards\"|\"Feet\"} the document's units: every length the UI shows and reads (General)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.open",
+      "label": "Open Document",
+      "params": "{path} or {name, dataBase64}, PDF/.ai: pages?: \"2-3, 5\" (1-based, default all; one artboard each) | page?: n, cropTo?: bounding|art|crop (default)|trim|bleed|media (the box each artboard gets; bounding: the art's bounds), password? (encrypted PDFs; see document.pdfInfo), textAs?: text (default: point type per line, in the file's fonts by name; missing ones are listed in warnings) | outlines (glyph paths), layers?: true (default: optional content groups become layers with their visibility, print state and lock — art that is off comes in as a hidden layer; other art goes to a layer per page) | false (one layer per page, without the art that is off; Save then asks for a name), colorMode?: rgb|cmyk (the mode the document opens in, its colours converted as file.documentColorMode does; default: the file's — a PDF keeps CMYK, Gray and spot inks (spot swatches at a tint) and opens in CMYK when painted mostly in CMYK) → {index, title, format, warnings, restored, missingLinks, modifiedLinks, updatedLinks: [{name, path, ids}]}; any readable format (see document.formats): .vectorcraft/.drawcraft, .svg/.svgz, .pdf/.ai, .ait, PNG/JPEG/GIF/WebP/TIFF/BMP (an image opens as a document of its pixel size). A PDF/.ai/.ait or SVG saved with Preserve Editing restores the native document it carries (restored: true; a PDF only when no pages are picked), unless the file was changed elsewhere since or the data can't be read: then its artwork is imported and the first warning says why. Templates (native templates, .ait) open as a new untitled document; a restored .ai keeps its path (Save writes .ai again). Linked images are read from their files (looked for at their path, then relative to the document): missing ones show their saved preview (links.relink), modified ones are read again only with Preferences › Update Links: Automatically (else links.update). An SVG's <image> files (relative links from the SVG's folder) stay linked, SVG files become art, missing ones a placeholder in their box (a warning and missingLinks)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.serialize",
+      "label": "Serialize Document",
+      "params": "{format?: vectorcraft (default)|template|svg|svgz|pdf|png|jpg|webp|gif|png8|txt|dxf, …the format's options (see document.formats; SVG ones also as svg: {…}), selectedOnly?: false (the selected objects alone, in their layers), artboardContentOnly?: false (SVG/SVGZ: isolate one explicit artboard using native paint bounds; preserve locked content and whole dependency containers)} → {text, warnings} for svg (plus dataBase64, the file, when its encoding isn't UTF-8), else {dataBase64, warnings}; an SVG of several artboards also gives files: [{name, text}], linked images linked: [{name, dataBase64}]",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.export",
+      "label": "Export Document",
+      "params": "{path?, format?: svg|svgz|pdf|png|jpg|webp|gif|png8|txt|dxf|vectorcraft|template (default: from the path's extension, else png; png8 writes an indexed .png), selectedOnly?: false (the selected objects alone, in their layers), artboardContentOnly?: false (SVG/SVGZ: isolate one explicit artboard using native paint bounds; preserve locked content and whole dependency containers), artboard?: 0, artboards?: [i…], range?: \"1-3, 5\" | \"all\" (1-based; PDF writes one page per artboard, default all; SVG writes one file per artboard, {stem}-{artboard}.svg; raster formats write one artboard), useArtboards?: true (raster: one file per chosen artboard, default all, {stem}-{artboard}.{ext}; pdf: every page) | false (pdf/raster: the bounds of the visible art; SVG has it as an SVG option), raster: ppi?: 72 (pixels per inch, stored in the file; wins over scale), scale?: 1 (pixels per point), background?: transparent|white|black|\"#rrggbb\" (jpg: white when transparent), antiAlias?: none|art (default)|type (text snapped to pixels), interlaced?: false (png, Adam7), jpg: quality?: 90 (0–100), colorModel?: rgb|cmyk|gray, method?: baseline|optimized|progressive, scans?: 3 (3–5, progressive), embedIcc?: true, imageMap?: none|client|server (an HTML or NCSA map of the objects with a URL, written as <stem>.html / <stem>.map), gif/png8: colors?: 256 (2–256), reduction?: perceptual|selective (default)|adaptive|web|blackWhite|gray, dither?: none|diffusion (default)|pattern|noise, ditherAmount?: 100, transparency?: true, matte?: white|\"#rrggbb\"|none, interlaced?, webp: lossless?: true (lossy WebP isn't available yet: written lossless, with a warning), txt: the stories in stacking order (back to front; a thread once), encoding?: utf8|utf16 (with a byte order mark), lineEndings?: lf|crlf, selectionOnly?: false; SVG options flat or as svg: {styling, outlineText, images, objectIds, decimals, minify, responsive, useArtboards, preserveEditing, metadata, fewerTspans, hiddenLayers, encoding, profile, embedFonts} (see document.formats), …the PDF options of document.exportPdf, …the DXF options of document.exportDxf (useArtboards: one drawing per artboard)} → {path, format, bytes, warnings, files?: [path…] (several), linked?: [path…] (linked images, image maps)}; no path → {dataBase64, format, bytes, warnings, files?: [{name, dataBase64}], linked?: [{name, dataBase64}]}. Never changes the document's path",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.exportSelection",
+      "label": "Export Selection…",
+      "params": "{path?, format?: png|jpg|webp|svg|svgz|pdf (default: from the extension, else png), scale?: 1, …the format's options} the selected objects cropped to their bounds (template layers left out) → {path, bytes, bounds} (no path → {dataBase64, bounds})",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.exportForScreens",
+      "label": "Export for Screens",
+      "params": "{folder?, zip?: false (one store-only .zip of every file: no folder → {name, dataBase64, bytes, files: [name…]}; with a folder it is written there → {path, bytes, files}), artboards?: [index…] | range?: \"1-3\" (default all), fullDocument?: false (one file per format instead: a PDF of every artboard, other formats the bounds of all visible art, named after the document), includeBleed?: false (artboards grown by the document's bleed), subfolders?: false (each row's files in a sub-folder: its folder, else its size for raster (1x, 2x, 100w…) or its format (SVG, PDF)), preset?: mobile (PNG 1x, 2x, 3x) | density (PNG 0.75x–4x in ldpi…xxxhdpi sub-folders) instead of formats (turns subfolders on), formats?: [{format: png|png8|jpg|webp|gif|svg|svgz|pdf, scale?: 1 | \"2x\" | \"100w\" | \"100h\" | \"72ppi\", width?: px | height?: px | ppi? (raster only; width, then height, then ppi win over scale), suffix?: (raster default: @2x, @100w, @100h, none at 1x; vector formats drop size suffixes), folder?: (its sub-folder), quality?: (jpg 0–100), …the format's options (antiAlias, background, preset (pdf)…)}], settings?: {png|png8|jpg|webp|gif|svg|pdf: {…options for every row of that format}} (rows' own options win), prefix?, antiAlias?: none|art|type (raster rows without their own), openLocation?: (remembered; the app shows the files after exporting)} one file per artboard and format (a PDF holds its artboard alone; artboards with the same name, in any case, get -2, -3…; an unnamed one is Artboard-N) → {files: [path…]}; no folder → {files: [{name, dataBase64}]} (names include sub-folders: 2x/Icon@2x.png). The params are remembered in the document (document.exportSettings; not an undo step)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.formats",
+      "label": "File Formats",
+      "params": "{} → {formats: [{id, label, extensions, mime, read, write, raster, options: {name: {type, default, description}}}], readable: [id…], writable: [id…], openExtensions: [ext…], unsupported: [{id, label, extensions, hint}] (formats asked for that can be neither opened nor written, such as DWG and PICT, with what to use instead)}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.pdfInfo",
+      "label": "PDF Info",
+      "params": "{path} or {name?, dataBase64}, password?, thumbnail?: page (1-based), thumbnailSize?: 160 (px, longest side), cropTo?: crop (the thumbnail's box) → {pages, needsPassword, wrongPassword?, pageInfo: [{width, height (pt, as shown), rotation, boxes: {media, crop, bleed, trim, art: [x0, y0, x1, y1] (PDF space, pt)}}], thumbnail?: PNG dataBase64}; an encrypted PDF without its password → {pages: 0, needsPassword: true}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.exportForOffice",
+      "label": "Save for Office Documents…",
+      "params": "{path?, ppi?: 150 (72, 150, 300… pixels per inch), transparent?: false (else on white), artboard?: 0} the artboard as a PNG for office documents and slides → {path, bytes, width, height} (pixels); no path → {dataBase64, bytes, width, height}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.exportSettings",
+      "label": "Export for Screens Settings",
+      "params": "{} → {settings}: the document.exportForScreens params the document last exported with ({} when never; saved with the document, the dialog reopens on them)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.save",
+      "label": "Save Document",
+      "params": "{path?, format?: vectorcraft|template|pdf|svg|svgz|ai (default: the path's extension, else the document's own format), options?: {…the format's options, see file.formatOptions; default: as last saved}, svg?: {…SVG options} (SVG options may also be given flat; an SVG save keeps hidden layers, display:none, unless hiddenLayers is false), native (also flat): compress?: bool (gzip; default: the useCompression preference), version?: 3 (2 or 1: for older VectorCraft versions, never compressed), preview?: false (embed a PNG of the first artboard, at most 256 px), modified?: Unix seconds|null (the File Info modified date, and created date when there is none, a save to a file stamps; default now, recorded in the journal so a replay matches; null: leave the dates)} → {path, format, bytes, warnings, linked?: [path…] (images an SVG links to)}. Save writes one artboard, except a .ai file: a PDF-compatible file of every artboard carrying the native document (preserveEditing always on; PDF options flat or in options), which document.open restores exactly. Without a path it writes the document's own file in its own format: a document opened from or saved as SVG/PDF saves as that again (warnings name what the format loses). No path known (never saved, converted from an older version, or another format) → {dataBase64, format, name, folder?, warnings} and the document stays modified",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.saveAs",
+      "label": "Save As…",
+      "params": "{path?, format?: vectorcraft|template|pdf|svg|svgz|ai (default: the path's extension, else the document's own), options?, svg?, modified? (as document.save)} the document takes on the new path, name and format (except a template, which is always a copy) → {path, format, bytes, warnings}; no path → {dataBase64, format, name, folder?, warnings}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.saveCopy",
+      "label": "Save a Copy…",
+      "params": "{path?, format?, options?} (as file.saveAs) write a copy; the document keeps its path, title and modified state → {path, format, bytes, warnings}; no path → {dataBase64, format, name: \"<name> copy.<ext>\", folder?, warnings}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.saveAsTemplate",
+      "label": "Save as Template…",
+      "params": "{path?, compress?, version?, preview? (as document.save)} a native template (.vctemplate) that opens as a new untitled document; the document is unchanged → {path, format, bytes, warnings}; no path → {dataBase64, format, name: \"<name> template.vctemplate\", folder: the Templates folder (preference templatesFolder), warnings}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.newFromTemplate",
+      "label": "New from Template…",
+      "params": "{path} or {name, dataBase64}: open a template (or any readable file) as a new untitled document → {index, title, format, warnings}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.revert",
+      "label": "Revert",
+      "params": "{} discard the changes: reload the saved file into the same tab (history cleared; the tab keeps its place and view). Saved, modified documents only; if the file can't be read the document is left as it is → {path}. The app asks first (a confirm dialog) unless confirmed: true",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.formatOptions",
+      "label": "Format Options",
+      "params": "{format?: a writable format id (default: the document's own)} → {id, label, extensions, mime, read, write, raster, options: {name: {type, default, description, value}}, saveFormats: [{id, label, extensions}]}; value = the document's option as last saved in that format, else the default",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "layer.new",
+      "label": "New Layer…",
+      "params": "{name?} → {id} (above the current layer)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newSublayer",
+      "label": "New Sublayer…",
+      "params": "{parent?: id, name?} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.delete",
+      "label": "Delete Layer",
+      "params": "{id?} (default: current layer)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.duplicate",
+      "label": "Duplicate Layer",
+      "params": "{id?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setCurrent",
+      "label": "Set Current Layer",
+      "params": "{id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setProps",
+      "label": "Layer Options…",
+      "params": "{id, name?, visible?, locked?, template?, printable?, color?: index 0..26}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.collectInNew",
+      "label": "Collect in New Layer",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.selectAll",
+      "label": "Select All Art on Layer",
+      "params": "{id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.clippingMask.toggle",
+      "label": "Make/Release Clipping Mask",
+      "params": "{id?: layer or group (default: the one selected group, else the current layer)} make: its top object (a path, compound path or text, which loses its paint) clips the rest and moves to the bottom (new art added on top is clipped); release: it stops clipping, the clipping path stays unpainted → {clip}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.target",
+      "label": "Target",
+      "params": "{id} target a layer, group or object as clicking its target circle in the Layers panel does: a layer gets its visible, unlocked art selected and becomes the current layer, and appearance.*, effect.*, transparency.* and the opacity-mask commands without `ids` then act on the layer itself; anything else is selected. Any other selection change ends the targeting (`document.inspect` → target) → {id, selected: [..]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.pasteRemembersLayers",
+      "label": "Paste Remembers Layers",
+      "params": "{on?} (default: toggle) the document option: on, the Paste commands put objects back into the layers they were copied from (by name; a missing one is made on top), off into the current layer; one undo step when it changes (document.inspect → pasteRemembersLayers) → {on}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.rasterEffectsSettings",
+      "label": "Document Raster Effects Settings…",
+      "params": "{resolution?: ppi (1–2400) | \"screen\" (72) | \"medium\" (150) | \"high\" (300), colorModel?: \"rgb\"|\"cmyk\" (the document's mode)|\"grayscale\"|\"bitmap\", background?: \"transparent\"|\"white\", antiAlias?: bool (off: hard edges), clippingMask?: bool (white background only under the art; Rasterize clips to the art), addAround?: pt (0–1000, room around the art), preserveSpotColors?: bool (stored)} how raster effects (shadows, glows, blurs, feathers) become images in PDF export and Expand Appearance, and the defaults of object.rasterize; one undo step; always → the settings",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.closeAll",
+      "label": "Close All",
+      "params": "{} → {closed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.documentColorMode",
+      "label": "Document Color Mode",
+      "params": "{mode: \"cmyk\"|\"rgb\", convert?: true (convert every colour of the art, symbols and swatches through the colour settings; swatch links kept; greys stay greys), intent?} → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.info",
+      "label": "File Info…",
+      "params": "{title?, author?, authorTitle?, description?, keywords?: [string…]|\"a, b\" (each once), rating?: 0–5, copyrightStatus?: \"unknown\"|\"copyrighted\"|\"publicDomain\", copyrightNotice?, copyrightUrl?} set the File Info in one undo step (SVG with metadata, PDF and PNG exports carry it); no params → {title, author, authorTitle, description, keywords, rating, copyrightStatus, copyrightNotice, copyrightUrl, created, modified (ISO 8601 UTC or null; read-only), colorMode, units, artboards, objects}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.info",
+      "label": "Document Info",
+      "params": "{selectionOnly?, category?: document|objects|graphicStyles|spotColors|patterns|gradients|symbols|fonts|fontDetails|linkedImages|embeddedImages (only that one in sections and the text), format?: \"text\" (→ {text}: the report Document Info › Save… and Package write)} → {document, objects: {paths, compoundPaths, groups, …}, fonts, images, swatches, graphicStyleNames (with selectionOnly: the styles the selected objects are linked to), …, sections: [{id, title, rows: [[label, value]]}] (the panel's categories; fontDetails: each font's file and whether its licence lets it be embedded)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.exportPdf",
+      "label": "Export PDF",
+      "params": "{path?, preset?: \"VectorCraft Default\" (built-in or saved: pdf.preset.list), created?: integer Unix seconds|null (PDF metadata date; null/default uses current export time), artboard? | artboards?: [i…] | range?: \"1-3, 5\" (1-based; default all, one page each), standard?: none|pdfA2b|pdfX1a|pdfX3|pdfX4, compatibility?: 1.4|1.5|1.6|1.7 (default)|2.0, preserveEditing? (on in VectorCraft Default: the native document as an embedded file, which document.open restores; choosing a standard turns it off, PDF/A refuses it), thumbnails?, fastWebView?, viewAfterSaving? (the app opens the written file), createLayers?, includeNonPrinting? (keep layers whose Print option is off; left out by default unless createLayers), compression?: {color?, gray?: {downsample: none|average|subsample|bicubic, ppi: 300, abovePpi: 450, compression: none|zip|jpeg|jpeg2000|auto, quality: minimum|low|medium|high|maximum}, mono?: {downsample, ppi: 1200, abovePpi: 1800, compression: none|ccittG3|ccittG4|zip|runLength} (black-and-white images), compressText?: true} (images above abovePpi are resampled to ppi; auto keeps JPEGs JPEG, the others lossless; JPEG needs opaque images; none, jpeg2000, CCITT and runLength are written as ZIP with a warning), marks?: {trim, registration, colorBars, pageInfo, kind: roman|japanese, weight: 0.25 (trim marks and targets), offset: 6 (pt from the artboard, at least the bleed)} (printer's marks in [Registration], every plate: trim marks, registration targets mid-side, CMYK/spot/black-tint colour bars on top, page information (title, artboard, date UTC) below), bleed?: {useDocument (the document's bleed, document.setup), top, bottom, left, right} (pt; art in the bleed is kept). Each page: TrimBox = artboard, BleedBox = artboard + bleed, MediaBox = that + the marks' room (art clipped to the BleedBox), output?: {conversion: none|destination|preserveNumbers, destination, profiles: none|all|destination|taggedSource, outputIntent, outputCondition, outputConditionId, registry, trapped}, advanced?: {fontSubsetPercent: 100, outlineText: true, overprint: preserve|discard}, security?: {openPassword, permissionsPassword, printing: none|low|high, changes: none|pages|forms|comments|any, copy, screenReader, plaintextMetadata}} → {path, bytes, warnings}; no path → {dataBase64, bytes, warnings}. The options apply over the preset (null keeps its value); options accepted but not applied yet come back as warnings; PDF/X, passwords and PDF/A-2b at 2.0 are refused. document.export {format: pdf} takes the same options",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.pdfSettings",
+      "label": "PDF Settings",
+      "params": "{preset?, includeDocument?: false, …document.exportPdf options} → {settings (the preset with the options applied), presets: [name…], changed: [{option: \"compression.compressText\", value}] (what differs from the preset), warnings}; includeDocument also exports the active document in memory and adds its warnings (knockout groups approximated, effects left out…)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.setup",
+      "label": "Document Setup",
+      "params": "{units?: \"Points\"|\"Inches\"|\"Millimeters\"|…, bleed?: pt (all sides)|[top, bottom, left, right]|{top?, bottom?, left?, right?} (0–72 pt), outlineImages?: bool (show images in Outline mode), highlightSubstitutedFonts?: bool, highlightSubstitutedGlyphs?: bool, gridSize?: \"small\"|\"medium\"|\"large\", gridColors?: \"Light\"|\"Medium\"|\"Dark\"|\"Red\"|\"Orange\"|\"Green\"|\"Blue\"|\"Purple\"|[colour, colour] (transparency grid; the first is also the paper colour), simulatePaper?: bool, flattenerPreset?: \"High Resolution\"|\"Medium Resolution\"|\"Low Resolution\"|a saved preset (flattener.presets.list), discardWhiteOverprint?: bool, language?: \"English: USA\"|\"German\"|\"French\"|… (also picks its quotes), quotes?: {double?: \"“”\", single?: \"‘’\"} (beside a language: only if they differ from the current ones), typographersQuotes?: bool (typed straight quotes become the document's quotes), superscript?: {size?: %, position?: %}, subscript?: {size?: %, position?: %}, smallCapsSize?: %, exportText?: \"editable\"|\"appearance\" (SVG text as text or as outlines), backgroundContents?: \"transparent\"|\"white\" (white: raster exports are white behind the art)} change the document setup in one undo step; no params → the current setup",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.newPresets",
+      "label": "New Document Presets",
+      "params": "{category?: \"Recent\"|\"Saved\"|\"Mobile\"|\"Web\"|\"Print\"|\"Film & Video\"|\"Art & Illustration\"|\"Branding\"|\"Social\"} the New Document presets by category (Recent: the last sizes used; Saved: the user's presets) → {categories: [{name, presets: [{name, size: \"1920 × 1080 px\", width: pt, height: pt, units, orientation, artboards, artboardLayout: {layout, columns, spacing, rightToLeft}, bleed, backgroundContents, colorMode, rasterEffectsPpi, previewMode}]}]}; file.new {preset: name} starts from one",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.newPresets.save",
+      "label": "Save Preset",
+      "params": "{name, preset?: start from this preset, …settings as file.new (default: Letter in prefs unitsGeneral)} save New Document settings as a user preset (the Saved category; same name = replace) in the preferences → {name, count}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.newPresets.delete",
+      "label": "Delete Preset",
+      "params": "{name} delete a saved New Document preset → {deleted}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.place",
+      "label": "Place…",
+      "params": "{path | name+dataBase64, link?: true (a raster image keeps its file's path; other files are embedded), text?: {characterSet?: \"unicode\" (UTF-8, or UTF-16 with a byte-order mark; other bytes as the platform's 8-bit set) | \"ansi\" (the platform's 8-bit set), platform?: \"windows\" (Windows-1252) | \"mac\" (Mac Roman), removeLineReturns?: false (each block of lines becomes one paragraph; blank lines end paragraphs), removeParagraphReturns?: false (drop blank lines), replaceSpaces?: n (runs of n ≥ 2 spaces become a tab)} (a .txt file, placed as area type filling rect, the replaced object's bounds, or else the artboard less a 36 pt margin), template?: false (onto a new locked template layer below the current layer), replace?: false (swap the one selected object, keeping its stacking place and transform; no at/rect), at?: [x, y] centre (default: the first artboard's centre), rect?: [x, y, width, height] fit inside, aspect kept (wins over at), page?: 1 (PDF/.ai page, or a native document's artboard), crop?: \"crop\" (clipped to that page or artboard, default) | \"bounding\" (the art's bounds) | \"art\" | \"trim\" | \"bleed\" | \"media\" (a PDF page's boxes), password? (an encrypted PDF)} → {ids, name, format, linked, width, height, warnings}. Raster images come in at 100% of their physical size (the file's ppi, else 72); SVG, PDF/.ai and native documents as one group, with the images, symbols, patterns and swatches they use. One undo step; selects what it placed (unless on a template layer); never touches the clipboard",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.place.info",
+      "label": "Placed File Info",
+      "params": "{path | name+dataBase64, page?, crop?, password?, thumbnail?: px} what file.place would place, without placing it → {name, format, width, height (pt at 100%), pixelWidth?, pixelHeight?, ppi?: [x, y], colorMode?: RGB|Grayscale|CMYK (raster images), warnings, thumbnailBase64?: PNG of at most `thumbnail` (≤ 512) px on its longer side}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.place.queue",
+      "label": "Load Place Cursor",
+      "params": "{paths?: [path…], files?: [{name, dataBase64}…], link?, template?, page?, crop?, text?, thumbnail?: px} load the place cursor (the `place` tool) with up to 100 files (as file.place reads them): a click places the current file at 100% with its top-left corner there, a drag places it at the dragged size (aspect kept), ←/→ and ↑/↓ cycle the files, Esc discards the current one; each placement is a file.place, and the previous tool returns after the last → {count, files: [{name, format, width, height, thumbnailBase64?}], skipped: [{name, error}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.exportDxf",
+      "label": "Export DXF",
+      "params": "{path?, version?: R12|R13|R14|2000|2004|2007|2010|2013|2018 (default), unit?: mm (default; any unit name: pt, in, cm…), scale?: 1 (drawing units per unit), scaleLineweights?: false, colors?: 8|16|256|true (default; true colour needs 2004+, else 256), rasterFormat?: png (default)|jpeg (placed images, written next to the file), preserve?: appearance (default: type as outlines; strokes a CAD line can't draw as filled outlines; brush art)|editability (type as text; every stroke a line with its lineweight and dashes), alterPaths?: false (every stroke as its filled outline), outlineText?: false, selectedOnly?: false (the selected objects, in their layers), artboard?: 0 (the origin is its bottom-left corner), useArtboards?: true (one drawing per chosen artboard, artboards?/range?, holding the art over it: {stem}-{artboard}.dxf) | false (the origin at the art's bounds)} → {path, bytes, warnings, files?, linked?: [image files]}; no path → {dataBase64, …, linked?: [{name, dataBase64}]}. Layers become DXF layers (hidden: off; locked; non-printing: not plotted); paths become polylines and splines, fills solid hatches. Same as document.export {format: dxf}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.package",
+      "label": "Package",
+      "params": "{folder?, name?: (default: \"<document> Folder\"), copyLinks?: true, linksFolder?: true (the linked files go in Links/, else next to the document), relink?: true (the packaged document links to the copies), copyFonts?: true (the fonts its type uses go in Fonts/; fonts whose licence doesn't allow embedding are left out), report?: true (<document> Report.txt)} copy the saved document as it is now into folder/name as <document>.vectorcraft with its linked files and fonts; the open document doesn't change → {folder, files: [paths relative to folder/name], links, fonts (counts copied), missingLinks: [file names not found], skippedFonts: [{font, reason}]}; no folder → the same with {name: \"<name>.zip\", dataBase64} (a zip of the files in <name>/) instead of folder",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.open",
+      "label": "Open…",
+      "params": "{path} open any readable file (see document.formats) as a new document; templates open untitled",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.save",
+      "label": "Save",
+      "params": "{path?, format?, options?, svg?: {…SVG options}} = document.save: .vectorcraft, .ai (a PDF that reopens editable), .pdf, .svg or .svgz (default: the document's own path and format)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.export",
+      "label": "Export…",
+      "params": "{path?, format?, artboard?, range?, scale?, …} = document.export (no path → dataBase64)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.exportForScreens",
+      "label": "Export for Screens…",
+      "params": "{folder?, zip?, artboards? | range? | fullDocument?, includeBleed?, subfolders?, preset?, formats?, settings?, prefix?} = document.exportForScreens (no folder → the files, or one zip, as dataBase64)",
+      "enabledAtEmptySession": true
+    }
+  ],
+  "runtimePatchSourceCommit": "402de7b5f698797af9195cbd380cc97716883bc8",
+  "analysisCommit": "36a6a8ae49f0e2d1059361ab1f842b1ec172bc9e"
+}

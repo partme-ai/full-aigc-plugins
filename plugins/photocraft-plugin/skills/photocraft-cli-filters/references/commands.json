@@ -1,0 +1,742 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "photocraft",
+  "runtimeVersion": "0.2.0-craft.1",
+  "upstreamRepository": "https://github.com/storytold/photocraft",
+  "upstreamCommit": "f114f621799a96dc9f28ffb8faa01da680b64947",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "filter.blur.gaussianBlur",
+      "label": "Gaussian Blur…",
+      "params": "{\"radius\":0.1..1000=1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blur.blur",
+      "label": "Blur",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blur.blurMore",
+      "label": "Blur More",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.sharpen.sharpen",
+      "label": "Sharpen",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.sharpen.sharpenMore",
+      "label": "Sharpen More",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.sharpen.sharpenEdges",
+      "label": "Sharpen Edges",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.noise.despeckle",
+      "label": "Despeckle",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blur.boxBlur",
+      "label": "Box Blur…",
+      "params": "{\"radius\":1..2000=1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blur.motionBlur",
+      "label": "Motion Blur…",
+      "params": "{\"angle\":-360..360=0,\"distance\":1..2000=10}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blur.radialBlur",
+      "label": "Radial Blur…",
+      "params": "{\"amount\":1..100=10,\"method\":\"spin|zoom\",\"centerX\":0..1=0.5,\"centerY\":0..1=0.5}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blur.surfaceBlur",
+      "label": "Surface Blur…",
+      "params": "{\"radius\":1..100=5,\"threshold\":2..255=15}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.sharpen.unsharpMask",
+      "label": "Unsharp Mask…",
+      "params": "{\"amount\":1..500=50,\"radius\":0.1..1000=1,\"threshold\":0..255=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.sharpen.smartSharpen",
+      "label": "Smart Sharpen…",
+      "params": "{\"amount\":1..500=100,\"radius\":0.1..64=1,\"reduceNoise\":0..100=10}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.noise.addNoise",
+      "label": "Add Noise…",
+      "params": "{\"amount\":0.1..400=12.5,\"distribution\":\"uniform|gaussian\",\"monochromatic\":bool,\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.noise.median",
+      "label": "Median…",
+      "params": "{\"radius\":1..500=1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.noise.dustAndScratches",
+      "label": "Dust & Scratches…",
+      "params": "{\"radius\":1..500=1,\"threshold\":0..255=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.pixelate.mosaic",
+      "label": "Mosaic…",
+      "params": "{\"cellSize\":2..200=10}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.stylize.emboss",
+      "label": "Emboss…",
+      "params": "{\"angle\":-180..180=135,\"height\":1..100=3,\"amount\":1..500=100}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.stylize.findEdges",
+      "label": "Find Edges",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.stylize.solarize",
+      "label": "Solarize",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.distort.twirl",
+      "label": "Twirl…",
+      "params": "{\"angle\":-999..999=50}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.distort.pinch",
+      "label": "Pinch…",
+      "params": "{\"amount\":-100..100=50}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.distort.spherize",
+      "label": "Spherize…",
+      "params": "{\"amount\":-100..100=100,\"mode\":\"normal|horizontalOnly|verticalOnly\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.distort.wave",
+      "label": "Wave…",
+      "params": "{\"generators\":1..999=5,\"wavelengthMin\":1..998=10,\"wavelengthMax\":2..999=120,\"amplitudeMin\":1..998=5,\"amplitudeMax\":1..999=35,\"type\":\"sine|triangle|square\",\"undefinedAreas\":\"wrap|repeat\",\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.distort.ripple",
+      "label": "Ripple…",
+      "params": "{\"amount\":-999..999=100,\"size\":\"small|medium|large\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.distort.polarCoordinates",
+      "label": "Polar Coordinates…",
+      "params": "{\"mode\":\"rectangularToPolar|polarToRectangular\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.other.highPass",
+      "label": "High Pass…",
+      "params": "{\"radius\":0.1..1000=10}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.other.minimum",
+      "label": "Minimum…",
+      "params": "{\"radius\":0.2..500=1,\"preserve\":\"squareness|roundness\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.other.maximum",
+      "label": "Maximum…",
+      "params": "{\"radius\":0.2..500=1,\"preserve\":\"squareness|roundness\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.other.offset",
+      "label": "Offset…",
+      "params": "{\"horizontal\":px=0,\"vertical\":px=0,\"undefinedAreas\":\"wrap|repeat|transparent\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.lastFilter",
+      "label": "Last Filter",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.pixelate.colorHalftone",
+      "label": "Color Halftone…",
+      "params": "{\"maxRadius\":4..127=8,\"channel1\":-360..360=108,\"channel2\":-360..360=162,\"channel3\":-360..360=90,\"channel4\":-360..360=45}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.pixelate.crystallize",
+      "label": "Crystallize…",
+      "params": "{\"cellSize\":3..300=10,\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.pixelate.facet",
+      "label": "Facet",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.pixelate.fragment",
+      "label": "Fragment",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.pixelate.mezzotint",
+      "label": "Mezzotint…",
+      "params": "{\"type\":\"fineDots|mediumDots|grainyDots|coarseDots|shortLines|mediumLines|longLines|shortStrokes|mediumStrokes|longStrokes\",\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.pixelate.pointillize",
+      "label": "Pointillize…",
+      "params": "{\"cellSize\":3..300=5,\"seed\":u32=0,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.stylize.diffuse",
+      "label": "Diffuse…",
+      "params": "{\"mode\":\"normal|darkenOnly|lightenOnly|anisotropic\",\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.stylize.extrude",
+      "label": "Extrude…",
+      "params": "{\"type\":\"blocks|pyramids\",\"size\":2..255=30,\"depth\":1..255=30,\"depthMode\":\"random|levelBased\",\"solidFrontFaces\":bool,\"maskIncompleteBlocks\":bool,\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.stylize.oilPaint",
+      "label": "Oil Paint…",
+      "params": "{\"stylization\":0.1..10=4,\"cleanliness\":0..10=5,\"scale\":0.1..10=1,\"bristleDetail\":0..10=5,\"lighting\":bool=true,\"angle\":-180..180=-60,\"shine\":0..10=1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.stylize.tiles",
+      "label": "Tiles…",
+      "params": "{\"count\":1..99=10,\"maxOffset\":1..99=10,\"fill\":\"background|foreground|inverse|unaltered\",\"seed\":u32=0,\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.stylize.traceContour",
+      "label": "Trace Contour…",
+      "params": "{\"level\":0..255=128,\"edge\":\"lower|upper\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.stylize.wind",
+      "label": "Wind…",
+      "params": "{\"method\":\"wind|blast|stagger\",\"direction\":\"fromRight|fromLeft\",\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.distort.displace",
+      "label": "Displace…",
+      "params": "{\"horizontal\":-999..999=10,\"vertical\":-999..999=10,\"fit\":\"stretch|tile\",\"undefinedAreas\":\"repeat|wrap\",\"mapDocument\":doc,\"mapPath\":text,\"mapLayer\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.distort.shear",
+      "label": "Shear…",
+      "params": "{\"amount\":-100..100=0,\"undefinedAreas\":\"wrap|repeat\",\"points\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.distort.zigZag",
+      "label": "ZigZag…",
+      "params": "{\"amount\":-100..100=10,\"ridges\":0..20=5,\"style\":\"pondRipples|outFromCenter|aroundCenter\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.render.fibers",
+      "label": "Fibers…",
+      "params": "{\"variance\":1..64=16,\"strength\":1..64=4,\"seed\":u32=0,\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.render.lensFlare",
+      "label": "Lens Flare…",
+      "params": "{\"brightness\":10..300=100,\"centerX\":0..1=0.5,\"centerY\":0..1=0.5,\"lens\":\"zoom|prime35|prime105|moviePrime\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.render.lightingEffects",
+      "label": "Lighting Effects…",
+      "params": "{\"lightType\":\"spot|point|infinite\",\"intensity\":-100..100=75,\"lightX\":0..1=0.25,\"lightY\":0..1=0.2,\"lightZ\":0..2=0.6,\"targetX\":0..1=0.5,\"targetY\":0..1=0.55,\"cone\":1..89=45,\"hotspot\":0..100=50,\"angle\":-180..180=135,\"elevation\":0..90=45,\"gloss\":-100..100=0,\"metallic\":-100..100=0,\"exposure\":-100..100=0,\"ambience\":-100..100=8,\"texture\":\"none|red|green|blue|alpha|luminance\",\"height\":0..100=50,\"whiteIsHigh\":bool=true,\"lights\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.noise.reduceNoise",
+      "label": "Reduce Noise…",
+      "params": "{\"strength\":0..10=6,\"preserveDetails\":0..100=60,\"reduceColorNoise\":0..100=45,\"sharpenDetails\":0..100=25,\"removeJpegArtifact\":bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blur.smartBlur",
+      "label": "Smart Blur…",
+      "params": "{\"radius\":0.1..100=3,\"threshold\":0.1..100=25,\"quality\":\"high|medium|low\",\"mode\":\"normal|edgeOnly|overlayEdge\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blur.lensBlur",
+      "label": "Lens Blur…",
+      "params": "{\"radius\":0..100=15,\"shape\":\"hexagon|triangle|square|pentagon|heptagon|octagon\",\"bladeCurvature\":0..100=0,\"rotation\":0..360=0,\"depthMap\":\"none|transparency|layerMask\",\"focalDistance\":0..255=0,\"invert\":bool,\"brightness\":0..100=0,\"threshold\":0..255=255,\"noise\":0..100=0,\"distribution\":\"uniform|gaussian\",\"monochromatic\":bool,\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blur.shapeBlur",
+      "label": "Shape Blur…",
+      "params": "{\"radius\":5..1000=10,\"shape\":\"circle|ring|square|diamond|triangle|hexagon|star|heart|cross\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blurGallery.tiltShift",
+      "label": "Tilt-Shift…",
+      "params": "{\"blur\":0..500=15,\"centerX\":0..1=0.5,\"centerY\":0..1=0.5,\"angle\":-90..90=0,\"focus\":0..1=0.1,\"transition\":0.01..1=0.15}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blurGallery.irisBlur",
+      "label": "Iris Blur…",
+      "params": "{\"blur\":0..500=15,\"centerX\":0..1=0.5,\"centerY\":0..1=0.5,\"radiusX\":0.01..1=0.35,\"radiusY\":0.01..1=0.25,\"angle\":-180..180=0,\"roundness\":0..100=0,\"feather\":0..0.99=0.5,\"pins\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blurGallery.fieldBlur",
+      "label": "Field Blur…",
+      "params": "{\"blur\":0..500=15,\"centerX\":0..1=0.5,\"centerY\":0..1=0.5,\"pins\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blurGallery.spinBlur",
+      "label": "Spin Blur…",
+      "params": "{\"blurAngle\":0..360=15,\"centerX\":0..1=0.5,\"centerY\":0..1=0.5,\"radiusX\":0.01..1=0.3,\"radiusY\":0.01..1=0.3,\"angle\":-180..180=0,\"pins\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blurGallery.pathBlur",
+      "label": "Path Blur…",
+      "params": "{\"speed\":0..500=50,\"taper\":0..100=0,\"startX\":0..1=0.2,\"startY\":0..1=0.5,\"endX\":0..1=0.8,\"endY\":0..1=0.5,\"paths\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.other.custom",
+      "label": "Custom…",
+      "params": "{\"kernel\":int[25],\"scale\":1..9999=1,\"offset\":-9999..9999=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.other.hsbHsl",
+      "label": "HSB/HSL",
+      "params": "{\"inputMode\":\"rgb|hsb|hsl\",\"rowOrder\":\"hsb|hsl|rgb\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.video.deInterlace",
+      "label": "De-Interlace…",
+      "params": "{\"eliminate\":\"oddFields|evenFields\",\"createBy\":\"interpolation|duplication\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.video.ntscColors",
+      "label": "NTSC Colors",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.filterGallery",
+      "label": "Filter Gallery…",
+      "params": "{\"effects\":json,\"foreground\":json,\"background\":json,\"list\":bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.coloredPencil",
+      "label": "Colored Pencil",
+      "params": "{\"pencilWidth\":1..24=4,\"strokePressure\":0..15=8,\"paperBrightness\":0..50=25}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.cutout",
+      "label": "Cutout",
+      "params": "{\"numberOfLevels\":2..8=4,\"edgeSimplicity\":0..10=4,\"edgeFidelity\":1..3=2}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.dryBrush",
+      "label": "Dry Brush",
+      "params": "{\"brushSize\":0..10=2,\"brushDetail\":0..10=8,\"texture\":1..3=1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.filmGrain",
+      "label": "Film Grain",
+      "params": "{\"grain\":0..20=4,\"highlightArea\":0..20=0,\"intensity\":0..10=10}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.fresco",
+      "label": "Fresco",
+      "params": "{\"brushSize\":0..10=2,\"brushDetail\":0..10=8,\"texture\":1..3=1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.neonGlow",
+      "label": "Neon Glow",
+      "params": "{\"glowSize\":-24..24=5,\"glowBrightness\":0..50=15,\"glowColor\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.paintDaubs",
+      "label": "Paint Daubs",
+      "params": "{\"brushSize\":1..50=8,\"sharpness\":0..40=7,\"brushType\":\"simple|lightRough|darkRough|wideSharp|wideBlurry|sparkle\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.paletteKnife",
+      "label": "Palette Knife",
+      "params": "{\"strokeSize\":1..50=25,\"strokeDetail\":1..3=3,\"softness\":0..10=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.plasticWrap",
+      "label": "Plastic Wrap",
+      "params": "{\"highlightStrength\":0..20=15,\"detail\":1..15=9,\"smoothness\":1..15=7}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.posterEdges",
+      "label": "Poster Edges",
+      "params": "{\"edgeThickness\":0..10=2,\"edgeIntensity\":0..10=1,\"posterization\":0..6=2}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.roughPastels",
+      "label": "Rough Pastels",
+      "params": "{\"strokeLength\":0..40=6,\"strokeDetail\":1..20=4,\"texture\":\"canvas|brick|burlap|sandstone\",\"scaling\":50..200=100,\"relief\":0..50=20,\"light\":\"bottom|bottomLeft|left|topLeft|top|topRight|right|bottomRight\",\"invert\":bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.smudgeStick",
+      "label": "Smudge Stick",
+      "params": "{\"strokeLength\":0..10=2,\"highlightArea\":0..20=0,\"intensity\":0..10=10}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.sponge",
+      "label": "Sponge",
+      "params": "{\"brushSize\":0..10=2,\"definition\":0..25=12,\"smoothness\":1..15=5}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.underpainting",
+      "label": "Underpainting",
+      "params": "{\"brushSize\":0..40=6,\"textureCoverage\":0..40=16,\"texture\":\"canvas|brick|burlap|sandstone\",\"scaling\":50..200=100,\"relief\":0..50=4,\"light\":\"top|topRight|right|bottomRight|bottom|bottomLeft|left|topLeft\",\"invert\":bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.watercolor",
+      "label": "Watercolor",
+      "params": "{\"brushDetail\":1..14=9,\"shadowIntensity\":0..10=1,\"texture\":1..3=1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.accentedEdges",
+      "label": "Accented Edges",
+      "params": "{\"edgeWidth\":1..14=2,\"edgeBrightness\":0..50=38,\"smoothness\":1..15=5}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.angledStrokes",
+      "label": "Angled Strokes",
+      "params": "{\"directionBalance\":0..100=50,\"strokeLength\":3..50=15,\"sharpness\":0..10=3}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.crosshatch",
+      "label": "Crosshatch",
+      "params": "{\"strokeLength\":3..50=9,\"sharpness\":0..20=6,\"strength\":1..3=1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.darkStrokes",
+      "label": "Dark Strokes",
+      "params": "{\"balance\":0..10=5,\"blackIntensity\":0..10=6,\"whiteIntensity\":0..10=2}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.inkOutlines",
+      "label": "Ink Outlines",
+      "params": "{\"strokeLength\":1..50=4,\"darkIntensity\":0..50=20,\"lightIntensity\":0..50=10}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.spatter",
+      "label": "Spatter",
+      "params": "{\"sprayRadius\":0..25=10,\"smoothness\":1..15=5}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.sprayedStrokes",
+      "label": "Sprayed Strokes",
+      "params": "{\"strokeLength\":0..20=12,\"sprayRadius\":0..25=7,\"strokeDirection\":\"rightDiagonal|horizontal|leftDiagonal|vertical\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.sumiE",
+      "label": "Sumi-e",
+      "params": "{\"strokeWidth\":3..15=10,\"strokePressure\":0..15=2,\"contrast\":0..40=16}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.diffuseGlow",
+      "label": "Diffuse Glow",
+      "params": "{\"graininess\":0..10=6,\"glowAmount\":0..20=10,\"clearAmount\":0..20=15,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.glass",
+      "label": "Glass",
+      "params": "{\"distortion\":0..20=5,\"smoothness\":1..15=3,\"texture\":\"frosted|blocks|canvas|tinyLens\",\"scaling\":50..200=100,\"invert\":bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.oceanRipple",
+      "label": "Ocean Ripple",
+      "params": "{\"rippleSize\":1..15=9,\"rippleMagnitude\":0..20=9}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.basRelief",
+      "label": "Bas Relief",
+      "params": "{\"detail\":1..15=13,\"smoothness\":1..15=3,\"light\":\"bottom|bottomLeft|left|topLeft|top|topRight|right|bottomRight\",\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.chalkCharcoal",
+      "label": "Chalk & Charcoal",
+      "params": "{\"charcoalArea\":0..20=6,\"chalkArea\":0..20=6,\"strokePressure\":0..5=1,\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.charcoal",
+      "label": "Charcoal",
+      "params": "{\"charcoalThickness\":1..7=1,\"detail\":0..5=5,\"lightDarkBalance\":0..100=50,\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.chrome",
+      "label": "Chrome",
+      "params": "{\"detail\":0..10=4,\"smoothness\":0..10=7}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.conteCrayon",
+      "label": "Conté Crayon",
+      "params": "{\"foregroundLevel\":1..15=11,\"backgroundLevel\":1..15=7,\"texture\":\"canvas|brick|burlap|sandstone\",\"scaling\":50..200=100,\"relief\":0..50=4,\"light\":\"top|topRight|right|bottomRight|bottom|bottomLeft|left|topLeft\",\"invert\":bool,\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.graphicPen",
+      "label": "Graphic Pen",
+      "params": "{\"strokeLength\":1..15=15,\"lightDarkBalance\":0..100=50,\"strokeDirection\":\"rightDiagonal|horizontal|leftDiagonal|vertical\",\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.halftonePattern",
+      "label": "Halftone Pattern",
+      "params": "{\"size\":1..12=1,\"contrast\":0..50=5,\"patternType\":\"dot|circle|line\",\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.notePaper",
+      "label": "Note Paper",
+      "params": "{\"imageBalance\":0..50=25,\"graininess\":0..20=10,\"relief\":0..25=11,\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.photocopy",
+      "label": "Photocopy",
+      "params": "{\"detail\":1..24=7,\"darkness\":1..50=8,\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.plaster",
+      "label": "Plaster",
+      "params": "{\"imageBalance\":0..50=20,\"smoothness\":1..15=2,\"light\":\"top|topRight|right|bottomRight|bottom|bottomLeft|left|topLeft\",\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.reticulation",
+      "label": "Reticulation",
+      "params": "{\"density\":0..50=12,\"foregroundLevel\":0..50=40,\"backgroundLevel\":0..50=5,\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.stamp",
+      "label": "Stamp",
+      "params": "{\"lightDarkBalance\":0..50=25,\"smoothness\":1..50=5,\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.tornEdges",
+      "label": "Torn Edges",
+      "params": "{\"imageBalance\":0..50=25,\"smoothness\":1..15=11,\"contrast\":1..25=17,\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.waterPaper",
+      "label": "Water Paper",
+      "params": "{\"fiberLength\":3..50=15,\"brightness\":0..100=60,\"contrast\":0..100=80}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.glowingEdges",
+      "label": "Glowing Edges",
+      "params": "{\"edgeWidth\":1..14=2,\"edgeBrightness\":0..20=6,\"smoothness\":1..15=5}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.craquelure",
+      "label": "Craquelure",
+      "params": "{\"crackSpacing\":2..100=15,\"crackDepth\":0..10=6,\"crackBrightness\":0..10=9}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.grain",
+      "label": "Grain",
+      "params": "{\"intensity\":0..100=40,\"contrast\":0..100=50,\"grainType\":\"regular|soft|sprinkles|clumped|contrasty|enlarged|stippled|horizontal|vertical|speckle\",\"foreground\":json,\"background\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.mosaicTiles",
+      "label": "Mosaic Tiles",
+      "params": "{\"tileSize\":2..100=12,\"groutWidth\":1..15=3,\"lightenGrout\":0..10=9}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.patchwork",
+      "label": "Patchwork",
+      "params": "{\"squareSize\":0..10=4,\"relief\":0..25=8}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.stainedGlass",
+      "label": "Stained Glass",
+      "params": "{\"cellSize\":2..50=10,\"borderThickness\":1..20=4,\"lightIntensity\":0..10=3,\"foreground\":json}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.gallery.texturizer",
+      "label": "Texturizer",
+      "params": "{\"texture\":\"canvas|brick|burlap|sandstone\",\"scaling\":50..200=100,\"relief\":0..50=4,\"light\":\"top|topRight|right|bottomRight|bottom|bottomLeft|left|topLeft\",\"invert\":bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.blur.average",
+      "label": "Average",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.render.clouds",
+      "label": "Clouds",
+      "params": "{\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.render.differenceClouds",
+      "label": "Difference Clouds",
+      "params": "{\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.convertForSmartFilters",
+      "label": "Convert for Smart Filters",
+      "params": "{\"layer\":id?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.lensCorrection",
+      "label": "Lens Correction…",
+      "params": "{\"profile\":\"none|auto|generic\",\"focalLength\":mm=0,\"correctDistortion\":bool=true,\"correctVignette\":bool=true,\"correctCA\":bool=true,\"autoScale\":bool=false,\"distortion\":-100..100=0,\"redCyan\":-100..100=0,\"blueYellow\":-100..100=0,\"vignetteAmount\":-100..100=0,\"vignetteMidpoint\":0..100=50,\"vertical\":-100..100=0,\"horizontal\":-100..100=0,\"angle\":-180..180=0,\"scale\":50..150=100,\"edge\":\"transparency|edgeExtension|black|white\",\"straighten\":[[x,y],[x,y]]?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.adaptiveWideAngle",
+      "label": "Adaptive Wide Angle…",
+      "params": "{\"model\":\"auto|fisheye|perspective|fullSpherical\",\"focalLength\":0..200=0,\"cropFactor\":0.1..10=1,\"scale\":50..150=100,\"constraints\":[{\"a\":[x,y],\"b\":[x,y],\"orientation\":\"free|horizontal|vertical\"}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.cameraRaw",
+      "label": "Camera Raw Filter…",
+      "params": "{\"temperature\":-100..100=0,\"tint\":-100..100=0,\"exposure\":-5..5=0,\"contrast\":-100..100=0,\"highlights\":-100..100=0,\"shadows\":-100..100=0,\"whites\":-100..100=0,\"blacks\":-100..100=0,\"texture\":-100..100=0,\"clarity\":-100..100=0,\"dehaze\":-100..100=0,\"vibrance\":-100..100=0,\"saturation\":-100..100=0,\"curveHighlights\":-100..100=0,\"curveLights\":-100..100=0,\"curveDarks\":-100..100=0,\"curveShadows\":-100..100=0,\"curveSplits\":[25,50,75],\"pointCurve\":[[in,out]],\"pointCurveRed\":[[in,out]],\"pointCurveGreen\":[[in,out]],\"pointCurveBlue\":[[in,out]],\"hslHue\":[8],\"hslSat\":[8],\"hslLum\":[8],\"gradeShadows\":{\"hue\":deg,\"sat\":0..100,\"lum\":-100..100},\"gradeMidtones\":{},\"gradeHighlights\":{},\"gradeGlobal\":{},\"gradeBlending\":0..100=50,\"gradeBalance\":-100..100=0,\"sharpenAmount\":0..150=0,\"sharpenRadius\":0.5..3=1,\"sharpenDetail\":0..100=25,\"sharpenMasking\":0..100=0,\"noiseLuminance\":0..100=0,\"noiseLuminanceDetail\":0..100=50,\"noiseColor\":0..100=0,\"noiseColorDetail\":0..100=50,\"grainAmount\":0..100=0,\"grainSize\":0..100=25,\"grainRoughness\":0..100=50,\"vignetteAmount\":-100..100=0,\"vignetteMidpoint\":0..100=50,\"vignetteRoundness\":-100..100=0,\"vignetteFeather\":0..100=50,\"vignetteHighlights\":0..100=0,\"vignetteStyle\":\"highlightPriority|colorPriority|paintOverlay\",\"seed\":u32=0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.vanishingPoint",
+      "label": "Vanishing Point…",
+      "params": "{\"planes\":[{\"corners\":[[x,y]×4]} | {\"from\":plane,\"edge\":\"top|right|bottom|left\",\"angle\":deg=90,\"depth\":1}],\"focalLength\":px=0,\"paste\":[{\"plane\":0,\"layer\":id? (else the clipboard),\"at\":[u,v]=[0.25,0.25],\"width\":0..1=0.5}],\"clone\":[{\"source\":[x,y],\"points\":[[x,y]],\"size\":px=40,\"hardness\":0..100=50,\"opacity\":0..100=100}],\"newLayer\":bool=false}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.liquify",
+      "label": "Liquify…",
+      "params": "{\"strokes\":[{\"tool\":\"forwardWarp|reconstruct|smooth|twirlCw|twirlCcw|pucker|bloat|pushLeft|freeze|thaw|reconstructAll\",\"size\":px=100,\"density\":0-100=50,\"pressure\":0-100=100,\"rate\":0-100=80,\"points\":[[x,y,pressure?]…],\"amount\":%? (reconstructAll)}…],\"meshSize\":px? (field resolution, px per node; default 2, or 4 above 4 MP),\"layer\":id?} — strokes replay in order on a fresh field; a selection limits the effect; on a smart object it becomes a smart filter",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.render.flame",
+      "label": "Flame…",
+      "params": "{\"flameType\":\"oneFlameAlongPath|multipleFlamesAlongPath|multipleFlamesPathDirections|multipleFlamesVariousLength|candleLight|multipleFlamesOneDirection\",\"length\":1..1000=150,\"randomizeLength\":bool,\"width\":1..1000=40,\"angle\":-180..180=0,\"interval\":1..1000=60,\"adjustIntervalForLoops\":bool=true,\"useCustomColor\":bool,\"color\":color,\"turbulent\":0..100=25,\"jag\":0..100=25,\"opacity\":0..100=75,\"flameLines\":1..100=20,\"flameBottomAlignment\":0..100=20,\"flameStyle\":\"normal|violent|flat\",\"flameShape\":\"parallel|toCenter|spread|oval|pointed\",\"randomizeShapes\":bool,\"seed\":u32=0,\"quality\":\"draft|low|medium|high|fine\",\"path\":text,\"newLayer\":bool} → {layer,newLayer,bounds,primitives,usedPath}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.render.pictureFrame",
+      "label": "Picture Frame…",
+      "params": "{\"frame\":\"vineWithFlowers|vineWithLeaves|ivy|roses|daisies|berries|bamboo|waves|zigzag|dots|rope|scallops|doubleLine|snowflakes|stars|hearts\",\"margin\":0..30=4,\"size\":1..100=50,\"arrangement\":1..100=50,\"lines\":1..5=1,\"thickness\":1..100=30,\"fade\":0..100=0,\"vineColor\":color,\"flowerColor\":color,\"leafColor\":color,\"seed\":u32=0,\"newLayer\":bool} → {layer,newLayer,bounds,primitives,frame}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "filter.render.tree",
+      "label": "Tree…",
+      "params": "{\"baseTreeType\":1..34=1,\"lightDirection\":1..5=3,\"leavesAmount\":0..100=50,\"leavesSize\":0..200=100,\"branchesHeight\":50..300=100,\"branchesThickness\":50..200=100,\"defaultLeaves\":bool=true,\"leavesColor\":color,\"customBranchColor\":bool,\"branchesColor\":color,\"flatShading\":bool,\"seed\":u32=0,\"x\":0..1=0.5,\"y\":0..1=0.95,\"size\":0.05..2=0.8,\"newLayer\":bool} → {layer,newLayer,bounds,primitives,treeType}",
+      "enabledAtEmptySession": false
+    }
+  ]
+}

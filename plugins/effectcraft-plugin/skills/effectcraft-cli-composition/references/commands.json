@@ -1,0 +1,238 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "effectcraft",
+  "runtimeVersion": "0.2.0",
+  "upstreamRepository": "https://github.com/storytold/effectcraft",
+  "upstreamCommit": "f5ebe5f6c5e887dddda4a2be1fcb47154e959b81",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "comp.new",
+      "label": "New Composition...",
+      "params": "{name?, width?, height?, frameRate?, duration? (s), startTime? (s) | startTimecode?, background? [r,g,b]|#hex, pixelAspect?, shutterAngle?, shutterPhase?, motionBlurSamples?, adaptiveSampleLimit? (16–256), preserveFrameRate?: bool, preserveResolution?: bool, renderer?: classic3D|advanced3D, anchor?, open?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "comp.settings",
+      "label": "Composition Settings...",
+      "params": "{comp?, name?, width?, height?, anchor? 0-8 (resize anchor, 4 = center), frameRate?, duration?, startTime? (s) | startTimecode?, background?, shutterAngle?, shutterPhase?, motionBlurSamples?, adaptiveSampleLimit? (16–256), preserveFrameRate?: bool (nested or in the render queue it shows only its own frames), preserveResolution?: bool (nested, it renders at full size), pixelAspect?, renderer?: classic3D|advanced3D}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.setPosterTime",
+      "label": "Set Poster Time",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.trimToWorkArea",
+      "label": "Trim Comp to Work Area",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.open",
+      "label": "Open Composition",
+      "params": "{comp: id|name}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "comp.close",
+      "label": "Close Composition",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.workArea",
+      "label": "Set Work Area",
+      "params": "{start?, end?, set?: begin|end (at CTI)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.setSwitch",
+      "label": "Composition Switch",
+      "params": "{switch: hideShy|motionBlur|frameBlending|draft3d, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.addMarker",
+      "label": "Add Marker",
+      "params": "{time?, comment?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.renderer",
+      "label": "Renderer",
+      "params": "{renderer?: advanced3d|classic3d (omit to read), value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.set",
+      "label": "Go to Time...",
+      "params": "{time? (s) | frame? | timecode?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.nextFrame",
+      "label": "Next Frame",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.previousFrame",
+      "label": "Previous Frame",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.forward10",
+      "label": "Forward 10 Frames",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.back10",
+      "label": "Back 10 Frames",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.step",
+      "label": "Step Frames",
+      "params": "{frames}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.start",
+      "label": "Go to Start",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.end",
+      "label": "Go to End",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.layerIn",
+      "label": "Go to Layer In Point",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.layerOut",
+      "label": "Go to Layer Out Point",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.nextKey",
+      "label": "Go to Next Keyframe or Marker",
+      "params": "{visible?: [{layer, prop}] (only these properties' keys, as the Timeline shows them)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.previousKey",
+      "label": "Go to Previous Keyframe or Marker",
+      "params": "{visible?: [{layer, prop}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "time.go",
+      "label": "Go To",
+      "params": "{to: start|end|workStart|workEnd|layerIn|layerOut|nextKey|prevKey, prop?: uid, visible?: [{layer, prop}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.info",
+      "label": "Composition Info",
+      "params": "{comp?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "comp.revealInProject",
+      "label": "Reveal Composition in Project",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.cropToRegionOfInterest",
+      "label": "Crop Comp to Region of Interest",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.cropToLayerBounds",
+      "label": "Crop Comp to Selected Layer(s) Bounds",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.saveFrameAs",
+      "label": "File...",
+      "params": "{path (.png; with queue: an output path or template), time?, scale?, queue?: bool (add a Render Queue item from the Frame Default templates instead of writing now)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.responsiveTime",
+      "label": "Responsive Design — Time",
+      "params": "{op: intro|outro|workArea}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.saveFrameAsPsd",
+      "label": "Photoshop Layers...",
+      "params": "{path (.psd), comp?, time?, scale?} → a layered PSD: one layer per visible comp layer (blend mode, opacity) + the merged frame",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.saveFrameAsExr",
+      "label": "ProEXR...",
+      "params": "{path (.exr), comp?, time?, scale?} → a multi-layer OpenEXR: composite R,G,B,A + `<layer>.R/G/B/A` per layer (linear, premultiplied)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.vr.environments",
+      "label": "VR Environments",
+      "params": "{} → [{output, name, cubeMap, faces: [{face, comp, camera}], view: [x, y, z]}]",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "comp.vr.setView",
+      "label": "VR View Orientation",
+      "params": "{comp? (an environment's output / cube map / face comp), orientation?: [x, y, z] degrees, pan?, tilt?, roll?} → turns the six face cameras together",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "comp.flowchart",
+      "label": "Composition Flowchart",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "comp.miniFlowchart",
+      "label": "Composition Mini-Flowchart",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.vr.createEnvironment",
+      "label": "Create VR Environment...",
+      "params": "{comp?, size?: face pixels (1024), position?: [x,y,z]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.vr.extractCubemap",
+      "label": "Extract Cubemap...",
+      "params": "{comp?, faceSize?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "comp.openInEssentialGraphics",
+      "label": "Open in Essential Graphics",
+      "params": "{comp?} → makes it the Essential Graphics panel's Primary composition and shows the panel",
+      "enabledAtEmptySession": false
+    }
+  ]
+}

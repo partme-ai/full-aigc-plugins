@@ -1,0 +1,23 @@
+{
+  "policy": "只借鉴工作流事实，场景正文与命令例子原创编写，不复制外部代码、正文或素材。许可不明的来源仅作为参考。",
+  "sources": [
+    {
+      "repository": "docsforadobe/after-effects-scripting-guide",
+      "commit": "7137a990db4bd8dc9f5869b8ca431c7dfed52bdc",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "readme.md",
+          "url": "https://github.com/docsforadobe/after-effects-scripting-guide/blob/7137a990db4bd8dc9f5869b8ca431c7dfed52bdc/readme.md",
+          "bytes": 773
+        },
+        {
+          "path": "docs/property/property.md",
+          "url": "https://github.com/docsforadobe/after-effects-scripting-guide/blob/7137a990db4bd8dc9f5869b8ca431c7dfed52bdc/docs/property/property.md",
+          "bytes": 78645
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "gridcraft",
+  "id": "sales-summary",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "将数据定义为有表头的表",
+      "command": "insert.table",
+      "params": {
+        "range": "A1:D100",
+        "header": true,
+        "name": "Sales"
+      }
+    },
+    {
+      "purpose": "填写按条件汇总的公式",
+      "command": "cell.set",
+      "params": {
+        "cell": "G2",
+        "input": "=SUMIF(A2:A100,F2,D2:D100)"
+      }
+    },
+    {
+      "purpose": "读取汇总结果与公式",
+      "command": "sheet.read",
+      "params": {
+        "range": "F1:G10",
+        "formulas": true
+      }
+    }
+  ],
+  "check": "逐类汇总与总计对上，货币、退货与税口径一致。",
+  "boundary": "先确认A列分类、D列金额并替换示例范围，不能按示例列号硬汇总。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

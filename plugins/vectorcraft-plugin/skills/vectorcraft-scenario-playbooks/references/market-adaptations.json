@@ -1,0 +1,624 @@
+{
+  "schema": "craft-market-adaptations/v1",
+  "application": "vectorcraft",
+  "skill": "vectorcraft-scenario-playbooks",
+  "counting": "existing recipes with adapted task guidance; not additional mapped scenes",
+  "sources": [
+    {
+      "id": "github/awesome-copilot/adobe-illustrator-scripting",
+      "repository": "github/awesome-copilot",
+      "commit": "cb64ad12e32737ae764becd6885462e9b4c7cb00",
+      "path": "skills/adobe-illustrator-scripting/SKILL.md",
+      "url": "https://github.com/github/awesome-copilot/blob/cb64ad12e32737ae764becd6885462e9b4c7cb00/skills/adobe-illustrator-scripting/SKILL.md",
+      "sha256": "6a3b601bb3d7ae8a2a527aad788c7266001feadd5aca43db7e9926af1cda3518",
+      "bytes": 35264,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/github/awesome-copilot/adobe-illustrator-scripting",
+      "repositoryLicense": "MIT",
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "1f6a09c258bca8d234beb7e042305940eb46e4eb01414c0bf07adb2936f85d16"
+    },
+    {
+      "id": "skillhub:adobe-illustrator-scripting",
+      "market": "SkillHub",
+      "marketUrl": "https://skillhub.cn/",
+      "downloadUrl": "https://api.skillhub.cn/api/v1/download?slug=adobe-illustrator-scripting",
+      "slug": "adobe-illustrator-scripting",
+      "version": "1.0.2",
+      "sha256": "6a3b601bb3d7ae8a2a527aad788c7266001feadd5aca43db7e9926af1cda3518",
+      "bytes": 35264,
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections"
+    },
+    {
+      "id": "ie3jp/illustrator-mcp-server/illustrator-preflight",
+      "repository": "ie3jp/illustrator-mcp-server",
+      "commit": "57c5c101a5192c61535493f39b653e6f92b8eb29",
+      "path": "plugins/ie3-design-bridge/skills/illustrator-preflight/SKILL.md",
+      "url": "https://github.com/ie3jp/illustrator-mcp-server/blob/57c5c101a5192c61535493f39b653e6f92b8eb29/plugins/ie3-design-bridge/skills/illustrator-preflight/SKILL.md",
+      "sha256": "aa83213c4cfd324eaee3208b7951f44598b6fcc065d68fda588195d95cc34f81",
+      "bytes": 8726,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/ie3jp/illustrator-mcp-server/illustrator-preflight",
+      "repositoryLicense": "MIT",
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "b7108b91efcd7652d86be7579e3a8b643a23fb0c5d90889c02339814bf287f2b"
+    }
+  ],
+  "adaptations": [
+    {
+      "id": "wordmark-live-and-outlined",
+      "title": "文字母版与轮廓交付分开",
+      "sourceIds": [
+        "github/awesome-copilot/adobe-illustrator-scripting",
+        "skillhub:adobe-illustrator-scripting"
+      ],
+      "adaptation": "先确认实际字体可用，再制作活文字母版；复制为另一个输出后，仅对本次标志转轮廓。交接时说明哪份可改字，哪份用于无字体环境。",
+      "taskCheck": "母版文字仍可编辑，轮廓版外观一致且文件名不同。",
+      "capabilityBoundary": "不运行Illustrator JSX；不把整份既有图的其他文字一起转轮廓。",
+      "existingRecipe": "skills/vectorcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "wordmark-live-and-outlined",
+        "title": "文字标志母版与轮廓交付",
+        "category": "vector-design",
+        "inputs": "示例文字CRAFT，Arial字体；先确认实际字体存在和使用授权。",
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+        "steps": [
+          {
+            "purpose": "仅新建独立场景时建立画板",
+            "command": "file.new",
+            "params": {
+              "name": "文字标志母版与轮廓交付",
+              "width": 420,
+              "height": 160,
+              "units": "Pixels",
+              "backgroundContents": "white"
+            },
+            "parameterReference": "command-evidence.json#file.new",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "创建可编辑文字",
+            "command": "text.create",
+            "params": {
+              "x": 30,
+              "y": 105,
+              "text": "CRAFT",
+              "size": 64,
+              "font": "Arial",
+              "color": "#172033"
+            },
+            "parameterReference": "command-evidence.json#text.create"
+          },
+          {
+            "purpose": "转轮廓前保存可编辑文字母版",
+            "command": "file.save",
+            "params": {
+              "path": "wordmark-live.vectorcraft"
+            },
+            "parameterReference": "command-evidence.json#file.save"
+          },
+          {
+            "purpose": "保持当前文字选区并转成字形路径",
+            "command": "type.createOutlines",
+            "params": {},
+            "parameterReference": "command-evidence.json#type.createOutlines"
+          },
+          {
+            "purpose": "显式另存轮廓交付，避免普通保存覆盖活文字母版",
+            "command": "file.save",
+            "params": {
+              "path": "wordmark-outlined.vectorcraft"
+            },
+            "parameterReference": "command-evidence.json#file.save"
+          }
+        ],
+        "assertions": {
+          "textCount": 0,
+          "outlinedRequired": true,
+          "liveMaster": "wordmark-live.vectorcraft",
+          "masterText": "CRAFT",
+          "artboard": [
+            420,
+            160
+          ],
+          "fixtureOnly": true,
+          "outlinedFile": "wordmark-outlined.vectorcraft"
+        },
+        "checks": [
+          "母版仍含CRAFT文字",
+          "独立新图交付工程无活文字且含轮廓；既有图仅检查本次文字，其他文字保留可编辑",
+          "母版与轮廓版文件名不同"
+        ],
+        "limits": "转轮廓不可当成仍可改字；不能仅保存最终轮廓而丢失母版。固定母版路径是新目录示例，真实任务用未占用路径。"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "editable-brand-palette",
+      "title": "品牌颜色检查",
+      "sourceIds": [
+        "ie3jp/illustrator-mcp-server/illustrator-preflight"
+      ],
+      "adaptation": "从品牌资料确认实际色值，用可编辑色块和文字标签建立对照。逐一核对标签与对象颜色，屏幕配色和印刷分色分别判断。",
+      "taskCheck": "色块实际值对应标签；说明色彩模式与尚未检查的分色问题。",
+      "capabilityBoundary": "十六进制RGB色板不能证明专色、叠印或PDF/X合规。",
+      "existingRecipe": "skills/vectorcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "editable-brand-palette",
+        "title": "品牌色板与十六进制标签",
+        "category": "vector-design",
+        "inputs": "4个示例sRGB色，标签必须与填色一致。",
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+        "steps": [
+          {
+            "purpose": "仅新建独立场景时建立画板",
+            "command": "file.new",
+            "params": {
+              "name": "品牌色板与十六进制标签",
+              "width": 440,
+              "height": 180,
+              "units": "Pixels",
+              "backgroundContents": "white"
+            },
+            "parameterReference": "command-evidence.json#file.new",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "创建可编辑矩形",
+            "command": "shape.rectangle",
+            "params": {
+              "x": 20,
+              "y": 30,
+              "width": 80,
+              "height": 80
+            },
+            "parameterReference": "command-evidence.json#shape.rectangle"
+          },
+          {
+            "purpose": "设置当前新建对象填色",
+            "command": "paint.setFill",
+            "params": {
+              "color": "#172033"
+            },
+            "parameterReference": "command-evidence.json#paint.setFill"
+          },
+          {
+            "purpose": "去除当前对象描边",
+            "command": "paint.setStroke",
+            "params": {
+              "none": true
+            },
+            "parameterReference": "command-evidence.json#paint.setStroke"
+          },
+          {
+            "purpose": "创建可编辑文字",
+            "command": "text.create",
+            "params": {
+              "x": 20,
+              "y": 140,
+              "text": "#172033",
+              "size": 13,
+              "font": "Arial",
+              "color": "#172033"
+            },
+            "parameterReference": "command-evidence.json#text.create"
+          },
+          {
+            "purpose": "创建可编辑矩形",
+            "command": "shape.rectangle",
+            "params": {
+              "x": 120,
+              "y": 30,
+              "width": 80,
+              "height": 80
+            },
+            "parameterReference": "command-evidence.json#shape.rectangle"
+          },
+          {
+            "purpose": "设置当前新建对象填色",
+            "command": "paint.setFill",
+            "params": {
+              "color": "#2563eb"
+            },
+            "parameterReference": "command-evidence.json#paint.setFill"
+          },
+          {
+            "purpose": "去除当前对象描边",
+            "command": "paint.setStroke",
+            "params": {
+              "none": true
+            },
+            "parameterReference": "command-evidence.json#paint.setStroke"
+          },
+          {
+            "purpose": "创建可编辑文字",
+            "command": "text.create",
+            "params": {
+              "x": 120,
+              "y": 140,
+              "text": "#2563eb",
+              "size": 13,
+              "font": "Arial",
+              "color": "#172033"
+            },
+            "parameterReference": "command-evidence.json#text.create"
+          },
+          {
+            "purpose": "创建可编辑矩形",
+            "command": "shape.rectangle",
+            "params": {
+              "x": 220,
+              "y": 30,
+              "width": 80,
+              "height": 80
+            },
+            "parameterReference": "command-evidence.json#shape.rectangle"
+          },
+          {
+            "purpose": "设置当前新建对象填色",
+            "command": "paint.setFill",
+            "params": {
+              "color": "#16a34a"
+            },
+            "parameterReference": "command-evidence.json#paint.setFill"
+          },
+          {
+            "purpose": "去除当前对象描边",
+            "command": "paint.setStroke",
+            "params": {
+              "none": true
+            },
+            "parameterReference": "command-evidence.json#paint.setStroke"
+          },
+          {
+            "purpose": "创建可编辑文字",
+            "command": "text.create",
+            "params": {
+              "x": 220,
+              "y": 140,
+              "text": "#16a34a",
+              "size": 13,
+              "font": "Arial",
+              "color": "#172033"
+            },
+            "parameterReference": "command-evidence.json#text.create"
+          },
+          {
+            "purpose": "创建可编辑矩形",
+            "command": "shape.rectangle",
+            "params": {
+              "x": 320,
+              "y": 30,
+              "width": 80,
+              "height": 80
+            },
+            "parameterReference": "command-evidence.json#shape.rectangle"
+          },
+          {
+            "purpose": "设置当前新建对象填色",
+            "command": "paint.setFill",
+            "params": {
+              "color": "#d97706"
+            },
+            "parameterReference": "command-evidence.json#paint.setFill"
+          },
+          {
+            "purpose": "去除当前对象描边",
+            "command": "paint.setStroke",
+            "params": {
+              "none": true
+            },
+            "parameterReference": "command-evidence.json#paint.setStroke"
+          },
+          {
+            "purpose": "创建可编辑文字",
+            "command": "text.create",
+            "params": {
+              "x": 320,
+              "y": 140,
+              "text": "#d97706",
+              "size": 13,
+              "font": "Arial",
+              "color": "#172033"
+            },
+            "parameterReference": "command-evidence.json#text.create"
+          },
+          {
+            "purpose": "只在本例独立新图选择本次全部对象",
+            "command": "select.all",
+            "params": {},
+            "parameterReference": "command-evidence.json#select.all",
+            "ownedSelectionOnly": true
+          },
+          {
+            "purpose": "将本次色板与标签归组",
+            "command": "object.group",
+            "params": {},
+            "parameterReference": "command-evidence.json#object.group"
+          }
+        ],
+        "assertions": {
+          "kindCounts": {
+            "Rectangle": 4,
+            "Type": 4,
+            "Group": 1
+          },
+          "texts": [
+            "#172033",
+            "#2563eb",
+            "#16a34a",
+            "#d97706"
+          ],
+          "fills": [
+            "#172033",
+            "#2563eb",
+            "#16a34a",
+            "#d97706"
+          ],
+          "artboard": [
+            440,
+            180
+          ]
+        },
+        "checks": [
+          "四个色块与四个标签对应",
+          "组内对象仍可编辑",
+          "不把普通RGB色块说成全局专色色板"
+        ],
+        "limits": "这不是印刷色样或自动全局色同步；已有图纸按返回ID归组，不选中其他用户内容。"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "hollow-ring-minus-front",
+      "title": "验证真实几何而非白色遮盖",
+      "sourceIds": [
+        "github/awesome-copilot/adobe-illustrator-scripting"
+      ],
+      "adaptation": "明确外径和内径，按真实对象执行布尔减法；随后在有色背景检查透空部分，查看对象结构确认不是白圆覆盖。",
+      "taskCheck": "中心透明且布尔结果可保存重开，不依赖白色背景。",
+      "capabilityBoundary": "路径与颜色值使用Craft当前schema，不能照搬Illustrator坐标对象。",
+      "existingRecipe": "skills/vectorcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "hollow-ring-minus-front",
+        "title": "真实镂空圆环",
+        "category": "vector-design",
+        "inputs": "外圆160内圆80，先外后内；共同中心120,120。",
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+        "steps": [
+          {
+            "purpose": "仅新建独立场景时建立画板",
+            "command": "file.new",
+            "params": {
+              "name": "真实镂空圆环",
+              "width": 240,
+              "height": 240,
+              "units": "Pixels",
+              "backgroundContents": "white"
+            },
+            "parameterReference": "command-evidence.json#file.new",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "先创建后方外圆",
+            "command": "shape.ellipse",
+            "params": {
+              "x": 40,
+              "y": 40,
+              "width": 160,
+              "height": 160
+            },
+            "parameterReference": "command-evidence.json#shape.ellipse"
+          },
+          {
+            "purpose": "设置当前新建对象填色",
+            "command": "paint.setFill",
+            "params": {
+              "color": "#2563eb"
+            },
+            "parameterReference": "command-evidence.json#paint.setFill"
+          },
+          {
+            "purpose": "去除当前对象描边",
+            "command": "paint.setStroke",
+            "params": {
+              "none": true
+            },
+            "parameterReference": "command-evidence.json#paint.setStroke"
+          },
+          {
+            "purpose": "再创建前方切除圆",
+            "command": "shape.ellipse",
+            "params": {
+              "x": 80,
+              "y": 80,
+              "width": 80,
+              "height": 80
+            },
+            "parameterReference": "command-evidence.json#shape.ellipse"
+          },
+          {
+            "purpose": "设置当前新建对象填色",
+            "command": "paint.setFill",
+            "params": {
+              "color": "#2563eb"
+            },
+            "parameterReference": "command-evidence.json#paint.setFill"
+          },
+          {
+            "purpose": "去除当前对象描边",
+            "command": "paint.setStroke",
+            "params": {
+              "none": true
+            },
+            "parameterReference": "command-evidence.json#paint.setStroke"
+          },
+          {
+            "purpose": "只在本例独立新图选择本次全部对象",
+            "command": "select.all",
+            "params": {},
+            "parameterReference": "command-evidence.json#select.all",
+            "ownedSelectionOnly": true
+          },
+          {
+            "purpose": "前圆从后圆相减，生成真实镂空",
+            "command": "object.pathfinder.minusFront",
+            "params": {},
+            "parameterReference": "command-evidence.json#object.pathfinder.minusFront"
+          },
+          {
+            "purpose": "设置当前新建对象填色",
+            "command": "paint.setFill",
+            "params": {
+              "color": "#2563eb"
+            },
+            "parameterReference": "command-evidence.json#paint.setFill"
+          },
+          {
+            "purpose": "去除当前对象描边",
+            "command": "paint.setStroke",
+            "params": {
+              "none": true
+            },
+            "parameterReference": "command-evidence.json#paint.setStroke"
+          }
+        ],
+        "assertions": {
+          "compoundRequired": true,
+          "ringPixels": true,
+          "fills": [
+            "#2563eb"
+          ],
+          "artboard": [
+            240,
+            240
+          ]
+        },
+        "checks": [
+          "中心透明/底色透出且环带存在",
+          "不是白圆盖住蓝圆",
+          "SVG保留复合路径"
+        ],
+        "limits": "已有图纸用实际两圆ID调用select.set，不可select.all；反向堆叠会产生不同结果。"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    }
+  ],
+  "observedCommands": {
+    "file.new": {
+      "enabled": true,
+      "id": "file.new",
+      "label": "New…",
+      "menu": [
+        "File"
+      ],
+      "params": "{preset?: a name from file.newPresets (start from it; the other params change it), name?|title?: document name (default Untitled-N), width?: pt=612|\"210 mm\", height?: pt=792, units?: \"Pixels\"|\"Points\"|\"Picas\"|\"Inches\"|\"Millimeters\"|\"Centimeters\"|\"Feet\"|\"Yards\"|\"Meters\"|\"Feet & Inches\" (default: prefs unitsGeneral, as print presets; screen presets: Pixels), orientation?: \"portrait\"|\"landscape\" (swaps width and height to match), artboards?: n (1–1000), artboardLayout?: {layout?: \"gridByRow\"|\"gridByColumn\"|\"row\"|\"column\", columns?: n (default: all in one row), spacing?: pt=20, rightToLeft?: bool}, bleed?: pt|[top, bottom, left, right]|{top?, …} (0–72 pt), backgroundContents?: \"transparent\"|\"white\" (a white artboard background, not an object), colorMode?: \"rgb\"|\"cmyk\" (a CMYK document starts with CMYK swatches and stores the colours applied to it as CMYK), rasterEffectsPpi?: 72|150|300 (1–2400), previewMode?: \"default\"|\"pixel\"|\"overprint\" (overprint turns Overprint Preview on, pixel Pixel Preview in the app; default leaves both), created?: Unix seconds|null (File Info's created date; default now, recorded in the journal so a replay matches), size?: a preset's size label (a preset file.newPresets lists can be passed back; ignored)} → {index, previewMode}; the size is remembered in file.newPresets' Recent",
+      "shortcut": null
+    },
+    "text.create": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "text.create",
+      "label": "Create Text",
+      "menu": [],
+      "params": "{x, y, text, vertical?: bool = false, size?: pt, font?: family, style?, color?, area?: {width, height, fit?: none|autoHeight|shrinkText, fitMinPercent?}, placeholder?: bool (fill it with placeholder text instead, as the Type tools do with prefs placeholderText), justify?: \"auto\" (default: the start of each paragraph's direction)|\"left\"|\"center\"|\"right\"|\"justifyAll\" (point type: aligned on x, so \"center\" centres each line on the point and \"right\" ends it there; text.setStyle changes it later), leadingModel?: \"romanBaseline\"|\"emBoxTop\", charAlign?: \"romanBaseline\"|\"emBoxTop\"|\"emBoxCenter\"|\"emBoxBottom\"|\"icfTop\"|\"icfBottom\" (default: emBoxTop and emBoxCenter while the interface is in Japanese, else romanBaseline)} → {id, overflow?: [id] (area type whose text doesn't fit its frame: the lines past it aren't drawn; left out when it fits)}; new area type gets Auto Size (fit autoHeight) when the autoSizeAreaType preference is on",
+      "shortcut": null
+    },
+    "file.save": {
+      "enabled": true,
+      "host": true,
+      "id": "file.save",
+      "label": "Save",
+      "menu": [],
+      "params": "{…as document.save} = document.save {path?, format?, options?, svg?: {…SVG options}}: .vectorcraft, .ai (a PDF that reopens editable), .pdf, .svg or .svgz (default: the document's own path and format)",
+      "shortcut": null
+    },
+    "type.createOutlines": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "type.createOutlines",
+      "label": "Create Outlines",
+      "menu": [
+        "Type"
+      ],
+      "params": "{} convert the selected text to groups of compound paths (one per glyph) → {ids}",
+      "shortcut": "Cmd+Shift+O"
+    },
+    "shape.rectangle": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "shape.rectangle",
+      "label": "Rectangle",
+      "menu": [],
+      "params": "{x, y, width, height, radius?: pt, rotation?: deg (about centre)} → {id}",
+      "shortcut": null
+    },
+    "paint.setFill": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "paint.setFill",
+      "label": "Fill",
+      "menu": [],
+      "params": "{color?: \"#rrggbb\"|[r,g,b]|{c,m,y,k}|{gray}|{l,a,b} (CIE Lab), none?: true, swatch?: name (a global or spot colour stays linked, so swatch edits recolour it; a tint swatch links to its base at its tint; a gradient swatch is recorded as the gradient's swatch and fits each object, keeping its aspect; the built-in \"[Registration]\" prints on every plate), tint?: 0..100 (% of a global or spot `swatch`; default 100, or a tint swatch's own), gradient?: {kind?: linear|radial|freeform, stops?: [{offset 0..1, color, opacity? 0..1 (or 0..100), midpoint? 0.13..0.87, swatch?: global or spot colour (or tint) swatch the stop links to (its colour comes from the swatch), tint?: 0..100}] (at least 2; default white→black), angle?: deg, start?: [x,y], end?: [x,y] (the vector in document coordinates, both or neither; type objects keep it in text space), aspect?: % (radial; without start/end the gradient is placed on each object's bounds), focal?: [x,y] (radial, with start/end: the focal point, where the first stop sits), swatch?: linked gradient swatch name}, item?: appearance item index|null (omitted: the Appearance panel's active item if it is a fill, else the top fill), ids?|id?, focus?: true (false keeps the active proxy), keepModel?: false (in a CMYK document, RGB colours and gradient stops are stored as CMYK unless true; Gray stays Gray), target?: \"object\"|\"contents\", span?: \"object\" (default: each target fits a gradient to its own bounds)|\"selection\" (a linear or radial `gradient` without start/end is placed once on the union of the targets' bounds, so it runs across them)} sets the selection's fill and the default (new art fits a gradient to itself); a solid colour recolours only the gradient mesh point last clicked with the Mesh tool or Direct Selection; while the Type tool has characters selected (and no ids or item are given), the paint goes to those characters only",
+      "shortcut": null
+    },
+    "paint.setStroke": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "paint.setStroke",
+      "label": "Stroke",
+      "menu": [],
+      "params": "{…as paint.setFill, item?: the stroke item to set} same as paint.setFill, for the stroke",
+      "shortcut": null
+    },
+    "select.all": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "select.all",
+      "label": "All",
+      "menu": [
+        "Select"
+      ],
+      "params": "{} → {count}; while the Type tool edits text, all of that text instead → {editing, start, end} (byte offsets)",
+      "shortcut": "Cmd+A"
+    },
+    "object.group": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "object.group",
+      "label": "Group",
+      "menu": [
+        "Object"
+      ],
+      "params": "{ids?: [id…] (selected first; default: the selection)} → {id}",
+      "shortcut": "Cmd+G"
+    },
+    "shape.ellipse": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "shape.ellipse",
+      "label": "Ellipse",
+      "menu": [],
+      "params": "{x, y, width, height, rotation?: deg (about centre)} → {id}",
+      "shortcut": null
+    },
+    "object.pathfinder.minusFront": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "object.pathfinder.minusFront",
+      "label": "Minus Front",
+      "menu": [
+        "Window",
+        "Pathfinder"
+      ],
+      "params": "{ids?: [id…] (selected first; default: the selection)} operate on the selected objects (back → front) → {ids}",
+      "shortcut": null
+    }
+  }
+}

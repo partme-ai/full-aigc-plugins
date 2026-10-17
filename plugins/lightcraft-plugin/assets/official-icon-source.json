@@ -1,0 +1,10 @@
+{
+  "name": "lightcraft",
+  "source": "https://raw.githubusercontent.com/storytold/lightcraft/629e39380e296f588c64cd9c0053a8edc3528f36/assets/app-icon/lightcraft-1024.png",
+  "homepage": "https://github.com/storytold/lightcraft",
+  "license": "MIT OR Apache-2.0",
+  "modifications": "None; original upstream PNG",
+  "sha256": "75c6c4019851f04be8328da9f24557954fc03a302e7da203c229a4c39dbff0ce",
+  "localFile": "./assets/official-logo.png",
+  "displayName": "LightCraft Use"
+}

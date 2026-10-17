@@ -1,0 +1,84 @@
+{
+  "runtime": {
+    "version": "v0.7.0",
+    "url": "https://github.com/storytold/wordcraft/releases/download/v0.7.0/wordcraft-0.7.0-windows-x64-portable.zip",
+    "sha256": "e6c8be9bb8ff815ed96974b8a25773d1e476301dcd5b242a267b88347185cc4f",
+    "executable": "wordcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "para.style": {
+      "id": "para.style",
+      "label": "Apply Style",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{\"style\": string (name or id)}",
+      "shortcut": ""
+    },
+    "text.insert": {
+      "id": "text.insert",
+      "label": "Type Text",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{\"text\": string}",
+      "shortcut": ""
+    },
+    "text.newParagraph": {
+      "id": "text.newParagraph",
+      "label": "New Paragraph",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Enter"
+    },
+    "caret.docEnd": {
+      "id": "caret.docEnd",
+      "label": "Document End",
+      "location": "Navigation",
+      "mutates": false,
+      "params": "{\"extend\"?: bool}",
+      "shortcut": "Mod+End"
+    },
+    "caret.paraUp": {
+      "id": "caret.paraUp",
+      "label": "Paragraph Up",
+      "location": "Navigation",
+      "mutates": false,
+      "params": "{\"extend\"?: bool}",
+      "shortcut": "Mod+Up / Alt+Up"
+    },
+    "table.fromText": {
+      "id": "table.fromText",
+      "label": "Convert Text to Table",
+      "location": "Insert › Tables",
+      "mutates": true,
+      "params": "{\"separator\"?: \"tab|comma\"}",
+      "shortcut": ""
+    },
+    "table.autofit": {
+      "id": "table.autofit",
+      "label": "AutoFit",
+      "location": "Table Layout › Cell Size",
+      "mutates": true,
+      "params": "{\"mode\": \"contents|window|fixed\"}",
+      "shortcut": ""
+    },
+    "table.repeatHeader": {
+      "id": "table.repeatHeader",
+      "label": "Repeat Header Rows",
+      "location": "Table Layout › Data",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "document.inspect": {
+      "id": "document.inspect",
+      "label": "Inspect Document",
+      "location": "Agents",
+      "mutates": false,
+      "params": "{\"text\"?: bool}",
+      "shortcut": ""
+    }
+  },
+  "sceneAcceptance": "NOT_RUN"
+}

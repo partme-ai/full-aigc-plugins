@@ -1,0 +1,59 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "vectorcraft",
+  "id": "infographic",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "创建信息区块",
+      "command": "shape.rectangle",
+      "params": {
+        "x": 20,
+        "y": 20,
+        "width": 160,
+        "height": 70,
+        "radius": 8
+      }
+    },
+    {
+      "purpose": "用明确示例标识代替未经核实的事实声明",
+      "command": "text.create",
+      "params": {
+        "x": 28,
+        "y": 40,
+        "text": "示例数量",
+        "size": 16
+      }
+    },
+    {
+      "purpose": "按真实数据建立图表",
+      "command": "graph.create",
+      "params": {
+        "type": "column",
+        "x": 20,
+        "y": 110,
+        "width": 240,
+        "height": 150,
+        "categories": [
+          "A",
+          "B"
+        ],
+        "series": [
+          "数量"
+        ],
+        "rows": [
+          [
+            21
+          ],
+          [
+            42
+          ]
+        ]
+      }
+    }
+  ],
+  "check": "图形长度、数值、单位和来源对应，不能为了版面改动数据比例。",
+  "boundary": "示例数字仅用于格式说明；实际数据必须来自用户表或核实来源。 未替换并核实来源前保留示例标识；图表保存重开后先select.set实际图表ID，再graph.setData读取或修改。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

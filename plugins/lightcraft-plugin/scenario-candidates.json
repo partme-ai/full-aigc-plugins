@@ -1,0 +1,34 @@
+{
+  "status": "local-unreleased",
+  "sourcePackage": "full-aigc-skills/lightcraft-skills",
+  "skills": [
+    {
+      "name": "lightcraft-editor",
+      "sha256": "621e9a3bdc7f567d54cc4a286cb1d931bb24f9e0a1d635d5c8ac7399e3951f6e"
+    },
+    {
+      "name": "lightcraft-raw-develop",
+      "sha256": "f592d75f4822f9ad8975eecb4568b65184f458c6707e55dc0b4aff5fdcf73718"
+    },
+    {
+      "name": "lightcraft-batch-photo-style",
+      "sha256": "a499a2451bc3e17997ce5f63cbb96ef6403ef8f97d547d31af3d43a3be719b54"
+    },
+    {
+      "name": "lightcraft-landscape-develop",
+      "sha256": "25e1fc26391b406818e7836c8a8bcb4d8708eb0acb21ee7c83dcec91f1c5faa4"
+    },
+    {
+      "name": "lightcraft-photo-culling",
+      "sha256": "87e1d669854895ef1a7e3ec056d218589cb0b61fcbadb52877ab104c999cd12d"
+    },
+    {
+      "name": "lightcraft-portrait-develop",
+      "sha256": "8075044b36bcc71ab125537ad3609c81c7b47e8ef50cdd8f4c8676d500d36091"
+    },
+    {
+      "name": "lightcraft-photo-export",
+      "sha256": "e59bf24d95558aef14b6ff47ea74357ff4d2d456788c79f09c0577bb3136faa5"
+    }
+  ]
+}

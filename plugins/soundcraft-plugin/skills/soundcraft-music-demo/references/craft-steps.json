@@ -1,0 +1,102 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "soundcraft",
+  "id": "music-demo",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "读取实际轨道、片段和编辑范围，示例四秒/48kHz",
+      "command": "session.inspect",
+      "params": {
+        "detail": "full"
+      }
+    },
+    {
+      "purpose": "仅将主旋律Lead调整至示例-6dB",
+      "command": "mix.volume",
+      "params": {
+        "tracks": [
+          "Lead"
+        ],
+        "db": -6
+      }
+    },
+    {
+      "purpose": "仅将主旋律略偏左，保持Bed声像独立",
+      "command": "mix.pan",
+      "params": {
+        "tracks": [
+          "Lead"
+        ],
+        "pan": -0.2
+      }
+    },
+    {
+      "purpose": "仅将背景Bed调整至示例-12dB",
+      "command": "mix.volume",
+      "params": {
+        "tracks": [
+          "Bed"
+        ],
+        "db": -12
+      }
+    },
+    {
+      "purpose": "背景保持中央，不沿用Lead当前对象",
+      "command": "mix.pan",
+      "params": {
+        "tracks": [
+          "Bed"
+        ],
+        "pan": 0
+      }
+    },
+    {
+      "purpose": "输出明确四秒24位PCM审核混音",
+      "command": "file.bounce_mix",
+      "params": {
+        "path": "output/music-review.wav",
+        "format": "wav",
+        "bit_depth": 24,
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        },
+        "normalize": false,
+        "dither": false
+      }
+    },
+    {
+      "purpose": "导出当前全部启用且未静音轨的同起点同长度24位stems",
+      "command": "file.bounce_stems",
+      "params": {
+        "dir": "output/stems",
+        "format": "wav",
+        "bit_depth": 24,
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        }
+      }
+    }
+  ],
+  "check": "单声道核对主旋律与低频，分轨长度、起点和采样率一致。",
+  "boundary": "Lead/Bed是示例角色名，按inspect解析实际唯一轨道，-6/-12dB与声像按素材测量重算。本方法导出所有启用且未静音的音频/乐器/MIDI轨，不是仅选中轨；交付前列清单，不能把其他轨意外打包或自动静音用户轨。stems保留单轨混音处理，不是原始干声备份；共享总线效果、发送或压缩存在时，各stem相加不一定等于全混音，需要另验。示例无插入/发送/共享效果，才能以两stem相加核对混音。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "limitedTechnicalValidation": {
+    "run": 39012439447,
+    "stableMatrixRun": 39012427784,
+    "nativeMainCommit": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+    "fixture": "4-second 48kHz synthetic sources; 24-bit stereo PCM",
+    "sampleAndNativeStructureChecks": "PASS",
+    "saveReopenRenderedSamples": "PASS",
+    "inputSessionAndSourcesUnchanged": "PASS",
+    "auditoryAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

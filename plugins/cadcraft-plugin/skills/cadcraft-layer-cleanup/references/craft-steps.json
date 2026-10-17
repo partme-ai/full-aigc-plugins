@@ -1,0 +1,57 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "cadcraft",
+  "id": "layer-cleanup",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "读取实际图层及开关锁定状态，先匹配真实图层",
+      "command": "layer",
+      "params": {}
+    },
+    {
+      "purpose": "只读取既有单位，不重设图纸",
+      "command": "getvar",
+      "params": {
+        "name": "INSUNITS"
+      }
+    },
+    {
+      "purpose": "检查对象当前层与实体",
+      "command": "drawing.inspect",
+      "params": {
+        "entities": true
+      }
+    },
+    {
+      "purpose": "建立有用途的标注层",
+      "command": "layer.new",
+      "params": {
+        "name": "DIMENSIONS",
+        "color": 2
+      },
+      "whenLayerMissing": "DIMENSIONS"
+    },
+    {
+      "purpose": "把底图层锁定且不打印",
+      "command": "layer.set",
+      "params": {
+        "name": "REFERENCE",
+        "locked": true,
+        "plot": false
+      }
+    },
+    {
+      "purpose": "统一墙体线宽",
+      "command": "layer.set",
+      "params": {
+        "name": "WALL",
+        "lineweight": 0.35
+      }
+    }
+  ],
+  "check": "另存后核对REFERENCE锁定且不参与打印、WALL线宽为0.35毫米；原有实体及单位完全保留，未指定图层不得改变。",
+  "boundary": "REFERENCE和WALL必须匹配真实输入图层；缺失或歧义先确认，不新建同名空层冒充原图层。DIMENSIONS存在时跳过layer.new。示例不删除空层、不清图、不重设单位。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

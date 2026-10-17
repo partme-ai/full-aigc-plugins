@@ -1,0 +1,13 @@
+{
+  "name": "pdfcraft",
+  "icon": "pdfcraft/icon.png",
+  "source": "https://raw.githubusercontent.com/storytold/pdfcraft/c1a41cc5c7c2460fb60af880af69ee28a0c71bd5/assets/app-icon/pdfcraft.svg",
+  "homepage": "https://github.com/storytold/pdfcraft",
+  "matchedBy": "upstream-app-icon",
+  "mimeType": "image/png",
+  "license": "MIT",
+  "modifications": "Square full-bleed background; 256px PNG. Artwork preserved; corner rounding delegated to client.",
+  "sha256": "19ea09fc4afa6f5011d15e6ff4102814fbcd50a8fa6681384b280e1f873b72d9",
+  "localFile": "./assets/official-logo.png",
+  "displayName": "PdfCraft Use"
+}

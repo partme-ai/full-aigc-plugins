@@ -1,0 +1,106 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "effectcraft",
+  "runtimeVersion": "0.2.0",
+  "upstreamRepository": "https://github.com/storytold/effectcraft",
+  "upstreamCommit": "f5ebe5f6c5e887dddda4a2be1fcb47154e959b81",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "effect.apply",
+      "label": "Apply Effect",
+      "params": "{effect: id|name (e.g. Gaussian Blur), layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.pickColor",
+      "label": "Pick Effect Colour",
+      "params": "{layer?, effect?: index|uid|name, param: id (e.g. screenColour) | prop: uid, x, y (layer px), average?: bool (5×5), time?} — the colour of the effect's input there",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.applyLast",
+      "label": "Last Effect",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.removeAll",
+      "label": "Remove All",
+      "params": "{layers?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.remove",
+      "label": "Remove Effect",
+      "params": "{layer?, effect: index|uid|name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.toggle",
+      "label": "Toggle Effect",
+      "params": "{layer?, effect, value?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.reorder",
+      "label": "Reorder Effect",
+      "params": "{layer?, effect, index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.duplicate",
+      "label": "Duplicate Effect",
+      "params": "{layer?, effect}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.copy",
+      "label": "Copy Effects",
+      "params": "{layer?, effect? | effects?: [uid|name|index]} (default: the selected effects)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.paste",
+      "label": "Paste Effects",
+      "params": "{layers?} — adds the copied effects to the layers",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.reset",
+      "label": "Reset Effect",
+      "params": "{layer?, effect}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.list",
+      "label": "List Effects",
+      "params": "{filter?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "effect.plugins.list",
+      "label": "List Effect Plug-ins",
+      "params": "{} → {api, wasm, plugins: [{id, name, category, version, author, source, params}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "effect.plugins.load",
+      "label": "Load Effect Plug-in...",
+      "params": "{path (.wasm / .wat plug-in, API v1) | folder (loads every .wasm in it)}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "effect.manage",
+      "label": "Manage Effects...",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "effect.editDropdown",
+      "label": "Edit Dropdown Menu",
+      "params": "{layer, path?|prop?, items: [string]}",
+      "enabledAtEmptySession": false
+    }
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "comp.new",
+      "params": {
+        "name": "Recorded Puppet",
+        "width": 96,
+        "height": 64,
+        "duration": 2,
+        "frameRate": 12
+      },
+      "as": "composition"
+    },
+    {
+      "command": "layer.newSolid",
+      "params": {
+        "name": "Control",
+        "width": 10,
+        "height": 10,
+        "color": "#00ff00"
+      },
+      "as": "control"
+    },
+    {
+      "tool": "set_property",
+      "params": {
+        "layer": {
+          "$ref": "control.layer"
+        },
+        "path": "transform/position",
+        "value": [
+          88,
+          8
+        ],
+        "time": 0
+      }
+    },
+    {
+      "command": "layer.newSolid",
+      "params": {
+        "name": "Deform subject",
+        "width": 64,
+        "height": 48,
+        "color": "#3060c0"
+      },
+      "as": "subject"
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          {
+            "$ref": "subject.layer"
+          }
+        ]
+      }
+    },
+    {
+      "command": "puppet.addPin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "kind": "position",
+        "position": [
+          16,
+          24
+        ],
+        "time": 0
+      },
+      "as": "anchor"
+    },
+    {
+      "command": "puppet.addPin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "kind": "position",
+        "position": [
+          48,
+          24
+        ],
+        "time": 0
+      },
+      "as": "leader"
+    },
+    {
+      "command": "puppet.addPin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "kind": "advanced",
+        "position": [
+          32,
+          24
+        ],
+        "time": 0
+      },
+      "as": "follower"
+    },
+    {
+      "command": "puppet.addPin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "kind": "starch",
+        "position": [
+          32,
+          16
+        ],
+        "time": 0
+      },
+      "as": "scratch"
+    },
+    {
+      "command": "puppet.setPin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "pin": {
+          "$ref": "follower.pin"
+        },
+        "scale": 110,
+        "rotation": 5,
+        "time": 0
+      }
+    },
+    {
+      "command": "puppet.mesh",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "mesh": {
+          "$ref": "anchor.mesh"
+        },
+        "density": 0.4,
+        "expansion": 0,
+        "triangles": 120,
+        "showMesh": true,
+        "time": 0
+      },
+      "as": "meshOptions"
+    },
+    {
+      "command": "puppet.selectPins",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "pins": [
+          {
+            "$ref": "leader.pin"
+          },
+          {
+            "$ref": "follower.pin"
+          }
+        ]
+      },
+      "as": "selected"
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "rigged.ecproj"
+        }
+      }
+    },
+    {
+      "command": "puppet.removePin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "pin": {
+          "$ref": "scratch.pin"
+        }
+      },
+      "as": "removed"
+    },
+    {
+      "command": "puppet.movePin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "pin": {
+          "$ref": "leader.pin"
+        },
+        "position": [
+          48,
+          16
+        ],
+        "time": 0.5
+      }
+    },
+    {
+      "command": "puppet.info",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "time": 0.5
+      },
+      "as": "movedInfo"
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "moved.ecproj"
+        }
+      }
+    },
+    {
+      "command": "puppet.recordOptions",
+      "params": {
+        "speed": 100,
+        "smoothing": 0,
+        "useDraftDeformation": false,
+        "showMesh": false
+      },
+      "as": "recordOptions"
+    },
+    {
+      "command": "puppet.recordPin",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "pin": {
+          "$ref": "leader.pin"
+        },
+        "samples": [
+          [
+            0,
+            48,
+            24
+          ],
+          [
+            0.25,
+            48,
+            12
+          ],
+          [
+            0.5,
+            48,
+            24
+          ]
+        ],
+        "start": 0
+      },
+      "as": "recorded"
+    },
+    {
+      "command": "puppet.info",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "time": 0.25
+      },
+      "as": "recordedInfo"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "time": 0.3333333333333333,
+        "path": {
+          "$output": "before-follow.png"
+        },
+        "inline": false
+      }
+    },
+    {
+      "command": "puppet.follow",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "leader": {
+          "$ref": "leader.pin"
+        },
+        "pins": [
+          {
+            "$ref": "follower.pin"
+          }
+        ],
+        "delay": 0.08333333333333333,
+        "amount": 50,
+        "cascade": false
+      },
+      "as": "followed"
+    },
+    {
+      "command": "puppet.info",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "time": 0.3333333333333333
+      },
+      "as": "finalInfo"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        }
+      },
+      "as": "subjectProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": {
+          "$ref": "control.layer"
+        }
+      },
+      "as": "controlProperties"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "time": 0.3333333333333333,
+        "path": {
+          "$output": "followed.png"
+        },
+        "inline": false
+      }
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "time": 0.25,
+        "path": {
+          "$output": "recorded.png"
+        },
+        "inline": false
+      }
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "project.ecproj"
+        }
+      }
+    }
+  ]
+}

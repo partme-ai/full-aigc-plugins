@@ -1,0 +1,10 @@
+{
+  "name": "gridcraft",
+  "title": "GridCraft",
+  "repository": "https://github.com/full-aigc-plugins/gridcraft",
+  "commit": "d9d09f0baa912e88c5111107903fc8c640214b57",
+  "version": "0.7.0",
+  "sourceStatus": "fork",
+  "releaseRepository": "full-aigc-plugins/gridcraft-plugin",
+  "patches": []
+}

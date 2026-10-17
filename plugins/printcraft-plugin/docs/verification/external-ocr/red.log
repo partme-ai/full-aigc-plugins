@@ -1,0 +1,91 @@
+test_public_delegate_preserves_read_only_result (test_handoff_delegate.HandoffDelegate.test_public_delegate_preserves_read_only_result) ... ok
+test_explicit_skill_is_honored_by_cli (test_harness.ExplicitCLI.test_explicit_skill_is_honored_by_cli) ... ok
+test_ocr_route_and_receipt_never_complete (test_harness.ExternalOcrHarness.test_ocr_route_and_receipt_never_complete) ... ERROR
+test_public_ocr_delegates_to_owned_entry_with_explicit_backend (test_harness.ExternalOcrHarness.test_public_ocr_delegates_to_owned_entry_with_explicit_backend) ... usage: python3.14 -m unittest [-h] [--explicit EXPLICIT]
+                              {show,route,delegate} [argument]
+python3.14 -m unittest: error: argument action: invalid choice: 'ocr' (choose from show, route, delegate)
+ERROR
+test_explicit_route_and_authority_reuse (test_harness.Harness.test_explicit_route_and_authority_reuse) ... ok
+test_public_delegate_works_from_space_chinese_path (test_harness.Harness.test_public_delegate_works_from_space_chinese_path) ... ok
+test_unknown_partial_and_zero_exit_never_trigger_replay (test_harness.Harness.test_unknown_partial_and_zero_exit_never_trigger_replay) ... ok
+test_unknown_protocol_and_missing_run_id_fail (test_harness.Harness.test_unknown_protocol_and_missing_run_id_fail) ... ok
+test_formal_lock_format_never_claims_remote_verification (test_provenance.FormalOfflineIdentity.test_formal_lock_format_never_claims_remote_verification) ... ok
+test_reject_false_identity_and_invalid_manifest (test_provenance.Provenance.test_reject_false_identity_and_invalid_manifest) ... ok
+test_formal_source_needs_independent_repository_bound_release_lock (test_provenance.PublishedSourceLock.test_formal_source_needs_independent_repository_bound_release_lock) ... ok
+test_self_contained_snapshot_and_unpublished_identity (test_snapshot.SnapshotContract.test_self_contained_snapshot_and_unpublished_identity) ... ok
+test_known_optional_ocr_contracts_extend_core_without_rejecting_old (test_update_and_manifest.OptionalOcrContractCompatibility.test_known_optional_ocr_contracts_extend_core_without_rejecting_old) ... ERROR
+test_generated_host_identity_drift_blocks_packaging (test_update_and_manifest.ReleaseHostManifests.test_generated_host_identity_drift_blocks_packaging) ... ok
+test_marketplace_host_metadata_is_generated_without_identity_drift (test_update_and_manifest.ReleaseHostManifests.test_marketplace_host_metadata_is_generated_without_identity_drift) ... ok
+test_compatibility_manifest_is_generated_from_portable (test_update_and_manifest.Updates.test_compatibility_manifest_is_generated_from_portable) ... ok
+test_missing_replaced_component_rejected (test_update_and_manifest.Updates.test_missing_replaced_component_rejected) ... ok
+test_update_preserves_user_data_rejects_rollback_and_legacy (test_update_and_manifest.Updates.test_update_preserves_user_data_rejects_rollback_and_legacy) ... ok
+
+======================================================================
+ERROR: test_ocr_route_and_receipt_never_complete (test_harness.ExternalOcrHarness.test_ocr_route_and_receipt_never_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/tests/test_harness.py", line 39, in test_ocr_route_and_receipt_never_complete
+    h=load();self.assertEqual(h.route('ocr'),'printcraft-use')
+                              ~~~~~~~^^^^^^^
+  File "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/skills/printcraft-harness/scripts/harness.py", line 22, in route
+    return ROUTES[intent]
+           ~~~~~~^^^^^^^^
+KeyError: 'ocr'
+
+======================================================================
+ERROR: test_public_ocr_delegates_to_owned_entry_with_explicit_backend (test_harness.ExternalOcrHarness.test_public_ocr_delegates_to_owned_entry_with_explicit_backend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2042, in _parse_known_args2
+    namespace, args = self._parse_known_args(args, namespace, intermixed)
+                      ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2274, in _parse_known_args
+    positionals_end_index = consume_positionals(start_index)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2249, in consume_positionals
+    take_action(action, args)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2103, in take_action
+    argument_values = self._get_values(action, argument_strings)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2620, in _get_values
+    self._check_value(action, value)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2691, in _check_value
+    raise ArgumentError(action, msg % args)
+argparse.ArgumentError: argument action: invalid choice: 'ocr' (choose from show, route, delegate)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/tests/test_harness.py", line 51, in test_public_ocr_delegates_to_owned_entry_with_explicit_backend
+    self.assertEqual(h.main(),0)
+                     ~~~~~~^^
+  File "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/skills/printcraft-harness/scripts/harness.py", line 29, in main
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=('show','route','delegate'));p.add_argument('argument',nargs='?');p.add_argument('--explicit');args,extra=p.parse_known_args();args.arguments=extra
+                                                                                                                                                                                             ~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2013, in parse_known_args
+    return self._parse_known_args2(args, namespace, intermixed=False)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2044, in _parse_known_args2
+    self.error(str(err))
+    ~~~~~~~~~~^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2780, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2767, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_known_optional_ocr_contracts_extend_core_without_rejecting_old (test_update_and_manifest.OptionalOcrContractCompatibility.test_known_optional_ocr_contracts_extend_core_without_rejecting_old)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/tests/test_update_and_manifest.py", line 53, in test_known_optional_ocr_contracts_extend_core_without_rejecting_old
+    m.validate_contracts(manifest(core))
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'check_update' has no attribute 'validate_contracts'
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.994s
+
+FAILED (errors=3)

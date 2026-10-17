@@ -1,0 +1,37 @@
+{
+  "protocol": "printcraft.plugin-ocr-evidence/1",
+  "sourceTag": "v0.1.0-dev.6",
+  "packages": {
+    "plugin-real.zip": {
+      "sha256": "f27894ac5cafc580c9c2bb05e526db76bca52ebdc820d48181f48b798b485de6",
+      "members": {
+        "chi_sim/input.pdf": "def72095ad4f3b45672ab7478ffc62902a94c650082c4894315fe21238e01344",
+        "chi_sim/last-process.json": "e982e6201fd5dd505658b49793db8af275b34faf86380f8d1dde50ea42d02a91",
+        "chi_sim/receipt.json": "85d054da42039280bb60c781abe4f875d807cc36d9ff02fdf881b02c894301b4",
+        "chi_sim/searchable.pdf": "4d58cf25dd7a210647ca2de6cbb1724170ebf363d4e9fbe6530400d3d89bdff2",
+        "chi_sim/searchable.txt": "3079573e893a52c22081b7fee348774d25c1ea146c135a15f2561488ff436cec",
+        "chi_sim-backend.json": "5051414e414aceecdb6ad08cd1db39154488b355e67280a2a358b26dc56e280f",
+        "chi_sim-stdout.json": "ed37449e6dc418d8df4ee75a8ad17a731a79dc7453428978a160d29ed9d7f294",
+        "chi_tra/input.pdf": "85a798a710287131bc4365fdb17ac8d345308677550db46106e8b215e00ee665",
+        "chi_tra/last-process.json": "ebd03f88c688e0183279cec2253218d6cda9e6e307369b9a066a6929a7796bd5",
+        "chi_tra/receipt.json": "73b0df2625bb205d9ae3b8deaa1015cb430bacfc5183044755b838e32f176015",
+        "chi_tra/searchable.pdf": "a74439941ba21f11f0fed940512270bcddb1047d7a0133641512a93221fccb35",
+        "chi_tra/searchable.txt": "42bfaca9a36f2b4a97129bd1aa2a15441fe8bab208ad8ec14df5b4f57b8ea918",
+        "chi_tra-backend.json": "88d70f7e533bfea92d66870afd40db2bee736c36ef1b0ae92f8fce467592d6ea",
+        "chi_tra-stdout.json": "25f61ec0ee9cc7d5314d77e1dc145f705412cb1b18cda823b623b9a82eefc40f",
+        "report.json": "5a2f75a38b4c304d58685b6e8089760c959f0caf5867539f5382e157c3fc33ad"
+      }
+    },
+    "harness-real.zip": {
+      "sha256": "bf1f40e192a21d194667a9ee796ede5130ea464dc7da14f16ed749f7f0d67a36",
+      "members": {
+        "input.pdf": "85a798a710287131bc4365fdb17ac8d345308677550db46106e8b215e00ee665",
+        "last-process.json": "c8e39cdee13606ce0f2eed113da6f0c392bb1cb87b5affa9d7d5838f555aa6a2",
+        "receipt.json": "b525343bfbd964354fab3a1a89c50150d183e2ac294c0ef52fc5d15b957cb6eb",
+        "searchable.pdf": "2a28138efc9d92c6faa20aeeeebe4313711add5bf4ab0e1f24de1865d10c9dab",
+        "searchable.txt": "42bfaca9a36f2b4a97129bd1aa2a15441fe8bab208ad8ec14df5b4f57b8ea918"
+      }
+    }
+  },
+  "harnessSha256": "ca93ac36ecdc6706da15e428f1e0d00a96e8af824a19a870f8337254afcefa5f"
+}

@@ -1,0 +1,28 @@
+# FilmCraft — artifact-delivery
+
+## Purpose
+
+本能力定义 FilmCraft 在 artifact-delivery 范围内对用户、宿主与下游系统承诺的可观察行为、失败语义和验收证据，确保规划、执行与实际交付之间保持可验证的边界。固定 dev.59 已在 macOS arm64 的隔离 Codex／headless 安装验收全部八个合同场景；其他平台、创作与用户接受及完整 V1 仍未验收。
+
+## ADDED Requirements
+
+### Requirement: FC-AR-002 原生工程与交换损失
+
+交付 SHALL 同时保留约定的原生工程与导出；工程需重新打开检查，交换中的扁平化、栅格化、字体和效果损失必须显式记录。
+
+#### Scenario: FC-AR-002-P 合同条件满足
+
+- **WHEN** 请求满足本需求的来源、输入、状态和证据条件
+- **THEN** 系统按本需求完成原生工程与交换损失并返回可核对的结果
+- **AND** 结果绑定当前版本与执行身份，不提升未验证能力状态
+
+#### Scenario: FC-AR-002-N 边界条件
+
+- **WHEN** 交换格式不能保留所用效果
+- **THEN** 保留原工程，报告损失并阻止未接受的有损替代交付
+
+#### Scenario: 绑定原生工程的交换损失报告
+
+- **WHEN** 生成当前版本原生工程和约定导出
+- **THEN** 交付 exchange-loss.json 并由 manifest 文件摘要绑定，记录原生工程、重开检查及每个导出摘要；格式损失、实际结构观察与未验证保真分别使用 lost、observed、unknown
+- **AND** 原生工程必须保留，导出仅作 derivative；未知字体和效果保真不得标记已验证，缺失、损坏、身份错配或有损 nativeSubstitute 拒绝技术交付

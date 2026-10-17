@@ -1,0 +1,44 @@
+{
+  "runtime": {
+    "version": "v0.12.0",
+    "url": "https://github.com/storytold/vectorcraft/releases/download/v0.12.0/vectorcraft-0.12.0-windows-x64-portable.zip",
+    "sha256": "fde42c30d14aadbb565cf0551f72f251321f8c9f875a24811b98e522aea6fe88",
+    "executable": "vectorcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "select.allOnArtboard": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "select.allOnArtboard",
+      "label": "All on Active Artboard",
+      "menu": [
+        "Select"
+      ],
+      "params": "{artboard?: index (0-based; the app passes the active one; default: the first)}",
+      "shortcut": "Cmd+Alt+A"
+    },
+    "object.path.simplify": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "object.path.simplify",
+      "label": "Simplify…",
+      "menu": [
+        "Object",
+        "Path"
+      ],
+      "params": "{tolerance?: pt (1), cornerAngle?: deg (30), straightLines?: bool} → {ids, before, after} anchor counts",
+      "shortcut": null
+    },
+    "document.inspect": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "document.inspect",
+      "label": "Inspect Document",
+      "menu": [],
+      "params": "{depth?, childLimit?} → layer tree (each node: id, name, kind, visible, locked, bounds, opacity when below 1, blend when not Normal, fill, stroke and strokeWidth of objects and compound paths; a compound path's members have compoundMember: true instead of paint, which is the compound's), artboards, selection, history (a sliced tree reports childCount)",
+      "shortcut": null
+    }
+  },
+  "sceneAcceptance": "NOT_RUN"
+}

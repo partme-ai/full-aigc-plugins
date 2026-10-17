@@ -1,0 +1,360 @@
+{
+  "runtime": "vectorcraft-cli 0.12.0 Windows x64",
+  "catalogSource": "native Windows CLI run 38921194883",
+  "sceneAcceptance": "TECHNICAL_PASS_EIGHT_EXAMPLES_REVIEWED",
+  "observedCommands": {
+    "file.new": {
+      "enabled": true,
+      "id": "file.new",
+      "label": "New…",
+      "menu": [
+        "File"
+      ],
+      "params": "{preset?: a name from file.newPresets (start from it; the other params change it), name?|title?: document name (default Untitled-N), width?: pt=612|\"210 mm\", height?: pt=792, units?: \"Pixels\"|\"Points\"|\"Picas\"|\"Inches\"|\"Millimeters\"|\"Centimeters\"|\"Feet\"|\"Yards\"|\"Meters\"|\"Feet & Inches\" (default: prefs unitsGeneral, as print presets; screen presets: Pixels), orientation?: \"portrait\"|\"landscape\" (swaps width and height to match), artboards?: n (1–1000), artboardLayout?: {layout?: \"gridByRow\"|\"gridByColumn\"|\"row\"|\"column\", columns?: n (default: all in one row), spacing?: pt=20, rightToLeft?: bool}, bleed?: pt|[top, bottom, left, right]|{top?, …} (0–72 pt), backgroundContents?: \"transparent\"|\"white\" (a white artboard background, not an object), colorMode?: \"rgb\"|\"cmyk\" (a CMYK document starts with CMYK swatches and stores the colours applied to it as CMYK), rasterEffectsPpi?: 72|150|300 (1–2400), previewMode?: \"default\"|\"pixel\"|\"overprint\" (overprint turns Overprint Preview on, pixel Pixel Preview in the app; default leaves both), created?: Unix seconds|null (File Info's created date; default now, recorded in the journal so a replay matches), size?: a preset's size label (a preset file.newPresets lists can be passed back; ignored)} → {index, previewMode}; the size is remembered in file.newPresets' Recent",
+      "shortcut": null
+    },
+    "file.save": {
+      "enabled": true,
+      "host": true,
+      "id": "file.save",
+      "label": "Save",
+      "menu": [],
+      "params": "{…as document.save} = document.save {path?, format?, options?, svg?: {…SVG options}}: .vectorcraft, .ai (a PDF that reopens editable), .pdf, .svg or .svgz (default: the document's own path and format)",
+      "shortcut": null
+    },
+    "object.group": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "object.group",
+      "label": "Group",
+      "menu": [
+        "Object"
+      ],
+      "params": "{ids?: [id…] (selected first; default: the selection)} → {id}",
+      "shortcut": "Cmd+G"
+    },
+    "object.pathfinder.minusFront": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "object.pathfinder.minusFront",
+      "label": "Minus Front",
+      "menu": [
+        "Window",
+        "Pathfinder"
+      ],
+      "params": "{ids?: [id…] (selected first; default: the selection)} operate on the selected objects (back → front) → {ids}",
+      "shortcut": null
+    },
+    "paint.setFill": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "paint.setFill",
+      "label": "Fill",
+      "menu": [],
+      "params": "{color?: \"#rrggbb\"|[r,g,b]|{c,m,y,k}|{gray}|{l,a,b} (CIE Lab), none?: true, swatch?: name (a global or spot colour stays linked, so swatch edits recolour it; a tint swatch links to its base at its tint; a gradient swatch is recorded as the gradient's swatch and fits each object, keeping its aspect; the built-in \"[Registration]\" prints on every plate), tint?: 0..100 (% of a global or spot `swatch`; default 100, or a tint swatch's own), gradient?: {kind?: linear|radial|freeform, stops?: [{offset 0..1, color, opacity? 0..1 (or 0..100), midpoint? 0.13..0.87, swatch?: global or spot colour (or tint) swatch the stop links to (its colour comes from the swatch), tint?: 0..100}] (at least 2; default white→black), angle?: deg, start?: [x,y], end?: [x,y] (the vector in document coordinates, both or neither; type objects keep it in text space), aspect?: % (radial; without start/end the gradient is placed on each object's bounds), focal?: [x,y] (radial, with start/end: the focal point, where the first stop sits), swatch?: linked gradient swatch name}, item?: appearance item index|null (omitted: the Appearance panel's active item if it is a fill, else the top fill), ids?|id?, focus?: true (false keeps the active proxy), keepModel?: false (in a CMYK document, RGB colours and gradient stops are stored as CMYK unless true; Gray stays Gray), target?: \"object\"|\"contents\", span?: \"object\" (default: each target fits a gradient to its own bounds)|\"selection\" (a linear or radial `gradient` without start/end is placed once on the union of the targets' bounds, so it runs across them)} sets the selection's fill and the default (new art fits a gradient to itself); a solid colour recolours only the gradient mesh point last clicked with the Mesh tool or Direct Selection; while the Type tool has characters selected (and no ids or item are given), the paint goes to those characters only",
+      "shortcut": null
+    },
+    "paint.setStroke": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "paint.setStroke",
+      "label": "Stroke",
+      "menu": [],
+      "params": "{…as paint.setFill, item?: the stroke item to set} same as paint.setFill, for the stroke",
+      "shortcut": null
+    },
+    "path.create": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "path.create",
+      "label": "Create Path",
+      "menu": [],
+      "params": "{anchors: [{x, y, in?: [x,y], out?: [x,y]}], closed?: bool, d?: SVG path data} → {id}",
+      "shortcut": null
+    },
+    "path.rectCut": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "path.rectCut",
+      "label": "Rectangle Cut",
+      "menu": [],
+      "params": "{rect: [x, y, width, height]} or {from: [x,y], to: [x,y]} (opposite corners) crop the selected paths and compound paths to the rectangle as real geometry (not a clipping mask): filled shapes are intersected with it, open paths keep their parts inside, art wholly outside is deleted; as one undo step → {ids, removed}",
+      "shortcut": null
+    },
+    "select.all": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "select.all",
+      "label": "All",
+      "menu": [
+        "Select"
+      ],
+      "params": "{} → {count}; while the Type tool edits text, all of that text instead → {editing, start, end} (byte offsets)",
+      "shortcut": "Cmd+A"
+    },
+    "shape.ellipse": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "shape.ellipse",
+      "label": "Ellipse",
+      "menu": [],
+      "params": "{x, y, width, height, rotation?: deg (about centre)} → {id}",
+      "shortcut": null
+    },
+    "shape.rectangle": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "shape.rectangle",
+      "label": "Rectangle",
+      "menu": [],
+      "params": "{x, y, width, height, radius?: pt, rotation?: deg (about centre)} → {id}",
+      "shortcut": null
+    },
+    "stroke.set": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "stroke.set",
+      "label": "Stroke Options",
+      "menu": [
+        "Window",
+        "Stroke"
+      ],
+      "params": "{weight?: pt, cap?: butt|round|square, join?: miter|round|bevel, miterLimit?, align?: center|inside|outside, dash?: [d,g,…]|null (a 0 dash with a round or projecting cap draws dots or squares; a new pattern keeps the current offset and alignment), dashOffset? (exact dashes only), alignDashes?: bool (true: dashes fitted to corners and path ends, every run between them holding whole periods with a dash centred on each corner and end; false, the default for a new pattern: exact lengths), startArrow?, endArrow?: Arrow|ArrowOpen|Barbed|Concave|DoubleArrow|HalfArrowLeft|HalfArrowRight|Chevron|Feather|Swallowtail|Triangle|TriangleOpen|TriangleReverse|TriangleBar|Kite|Leaf|Drop|Circle|CircleOpen|HalfCircle|Oval|Target|Square|SquareOpen|Tag|TagOpen|Diamond|DiamondOpen|Hexagon|HexagonOpen|Star|Cross|Plus|Bar|DoubleBar|DotOnBar|Slash|DoubleSlash|Bracket|Fork|null (HalfArrowLeft/Right: one barb, left or right of the direction the head points), arrowAlign?: \"extend\" (tip past the end point, default)|\"tip\" (tip on the end point; the stroke is shortened), profile?: \"uniform\"|\"lens\"|\"taperStart\"|\"taperEnd\"|\"pinch\"|\"teardrop\"|\"wave\"|a saved profile's name (stroke.widthProfile.list), item?: stroke item index|null (omitted: the Appearance panel's active item if it is a stroke, else the top stroke, created when missing), ids?|id?, target?: \"object\"|\"contents\"} Without a stroke item, type takes weight, cap, join, miterLimit, align (around its glyph outlines; the type stays live) and the dash options as its characters' stroke (every run; text.setRangeStyle `strokeOptions` styles a range), and images and symbol instances (also in groups) are left alone. With nothing selected (and no ids) they set up the next object drawn (appearance.newArt; weight always does)",
+      "shortcut": null
+    },
+    "text.create": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "text.create",
+      "label": "Create Text",
+      "menu": [],
+      "params": "{x, y, text, vertical?: bool = false, size?: pt, font?: family, style?, color?, area?: {width, height, fit?: none|autoHeight|shrinkText, fitMinPercent?}, placeholder?: bool (fill it with placeholder text instead, as the Type tools do with prefs placeholderText), justify?: \"auto\" (default: the start of each paragraph's direction)|\"left\"|\"center\"|\"right\"|\"justifyAll\" (point type: aligned on x, so \"center\" centres each line on the point and \"right\" ends it there; text.setStyle changes it later), leadingModel?: \"romanBaseline\"|\"emBoxTop\", charAlign?: \"romanBaseline\"|\"emBoxTop\"|\"emBoxCenter\"|\"emBoxBottom\"|\"icfTop\"|\"icfBottom\" (default: emBoxTop and emBoxCenter while the interface is in Japanese, else romanBaseline)} → {id, overflow?: [id] (area type whose text doesn't fit its frame: the lines past it aren't drawn; left out when it fits)}; new area type gets Auto Size (fit autoHeight) when the autoSizeAreaType preference is on",
+      "shortcut": null
+    },
+    "type.createOutlines": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "type.createOutlines",
+      "label": "Create Outlines",
+      "menu": [
+        "Type"
+      ],
+      "params": "{} convert the selected text to groups of compound paths (one per glyph) → {ids}",
+      "shortcut": "Cmd+Shift+O"
+    },
+    "select.set": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "select.set",
+      "label": "Select Objects",
+      "menu": [],
+      "params": "{ids: [id…]} all ids must be non-negative integers naming existing objects → {count, ids} (resulting selection)",
+      "shortcut": null
+    },
+    "dimension.create": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "dimension.create",
+      "label": "Create Dimension",
+      "menu": [],
+      "params": "{mode?: linear|angular|radius|diameter, a?: [x,y], b?: [x,y], vertex?: [x,y], source?: {kind: segment, edge: {node,subpath,segment}}|{kind: angle, first: edge, second: edge}|{kind: circle, node}|{kind: arc, edge}|{kind: points, a?, b?, vertex?: {node,subpath,anchor}}, offset?: pt, options?: {units: in|mm|pt|pc|px|cm|m|ft|yd, precision: 0-6, scale: drawing:real, hideUnits, lineWeight, lineType: solid|dashed|dotted, lineColor: [r,g,b], arrowStyle: filled|open|tick|none, arrowScale: %, extensionWeight, extensionType, extensionColor, extensionOffset, extensionLength, hideExtensions, fontFamily, fontStyle, fontSize, textColor, textPosition: away|between, textAlignment: left|center|right, textOffset}} → {id,label}; linked measurements follow source edits",
+      "shortcut": null
+    },
+    "dimension.update": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "dimension.update",
+      "label": "Update Dimensions",
+      "menu": [],
+      "params": "{ids?: [dimension ids] (default selection), options?: dimension options, offset?: pt} restyle or move existing dimensions → {ids}",
+      "shortcut": null
+    },
+    "object.intertwine.make": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "object.intertwine.make",
+      "label": "Make",
+      "menu": [
+        "Object",
+        "Intertwine"
+      ],
+      "params": "{ids?: two or more objects (default: the selection)} put the objects in an Intertwine group and choose the Intertwine tool, which arranges its overlap areas (object.intertwine.arrange) → {id}",
+      "shortcut": null
+    },
+    "object.intertwine.arrange": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "object.intertwine.arrange",
+      "label": "Arrange Intertwine Area",
+      "menu": [],
+      "params": "{id?: Intertwine group (default: the selected one), at?: [x,y] (the overlap area under this point, as a click picks it) | area?: [[x,y]…] (a closed polygon drawn around overlap areas: every area whose inside it encloses), order?: toggle|front|back (toggle: the object drawn right below the top comes to the front, so two objects swap), member?: id (front and back: the object to move; default: front brings the object right below the top, back sends the top one)} → {count: areas changed, top: [id of the object now on top in each area]}",
+      "shortcut": null
+    },
+    "variable.define": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "variable.define",
+      "label": "New Variable…",
+      "menu": [
+        "Window",
+        "Variables"
+      ],
+      "params": "{name, kind: text|visibility|image|graph} define a variable (graph: CSV data on a graph root)",
+      "shortcut": null
+    },
+    "variable.bind": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "variable.bind",
+      "label": "Bind Variable",
+      "menu": [
+        "Window",
+        "Variables"
+      ],
+      "params": "{variable, ids?} bind objects (default: the selection) to a variable; text needs type, image needs an image object, graph needs a graph root, locked art is refused. An object may hold several variables, and binding it to one it already has changes nothing → {bound, already}",
+      "shortcut": null
+    },
+    "dataset.import": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "dataset.import",
+      "label": "Import Data Sets…",
+      "menu": [
+        "Window",
+        "Variables"
+      ],
+      "params": "{path? | data? | dataBase64? | csv?} load datasets from CSV (header: name, then variable names; one row per dataset). Rows whose name already exists are replaced → {imported, updated, names}",
+      "shortcut": null
+    },
+    "dataset.select": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "dataset.select",
+      "label": "Select Data Set",
+      "menu": [
+        "Window",
+        "Variables"
+      ],
+      "params": "{name} apply a dataset in one undo step, deselecting every selected object left hidden or locked (the key object too) → {applied, skipped, overflow?: [id…] (area type and type on a path whose text it rewrote and that no longer fits; left out when all fits)}",
+      "shortcut": null
+    },
+    "dataset.export": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "dataset.export",
+      "label": "Export Data Sets…",
+      "menu": [
+        "Window",
+        "Variables"
+      ],
+      "params": "{path?} write every dataset as CSV (header: name, then variables); without path → {csv, datasets}",
+      "shortcut": null
+    }
+  },
+  "archiveSha256": "fde42c30d14aadbb565cf0551f72f251321f8c9f875a24811b98e522aea6fe88",
+  "executableSha256": "f77c2b0f03d1e62849756ddb652be9347c7cefe62f9a6a814cbb0c46d45271b7",
+  "technicalRoundtrip": {
+    "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38934923269",
+    "ciSourceCommit": "24510c3a9aa0e66936be9319d2093e5d5930ca39",
+    "sourceCommit": "37b008497f809a93cda0b1ef6949470404615ef0",
+    "recipes": [
+      "approval-check-badge",
+      "editable-three-bar-chart",
+      "hollow-ring-minus-front",
+      "contact-card-layout",
+      "editable-brand-palette",
+      "wordmark-live-and-outlined",
+      "half-disc-real-crop",
+      "wayfinding-arrow"
+    ],
+    "stepHashes": {
+      "approval-check-badge": "756822a27263b71f91a59317a83c39ab4eca2bb3ebf7d4e757ea35d6245bfc87",
+      "editable-three-bar-chart": "b179ecfad5d87be55a771ea4ba48e4aec86151fcea72439d5e1d5226c729f777",
+      "hollow-ring-minus-front": "70c29e96efd8ff08c93078cbca5c92c1f468dcea7e9d730de59b1a1304f66c73",
+      "contact-card-layout": "4b5a2e99bb50249141b48de566511bee6e13ce817db14121945f08a6daa1ea88",
+      "editable-brand-palette": "6e27335075b0f756dcff34ab9ada066949fd8c907e392fa765cb4cc7ca5cef84",
+      "wordmark-live-and-outlined": "1fbf19f63c782a0c388282c19ecd2708663fe433be202d04c3eff510a6ceb3c1",
+      "half-disc-real-crop": "afed3cfc646fbb32edf3e2f6fb9982579007dc2b8d027827c9bafaa6f8165007",
+      "wayfinding-arrow": "5d15751c49f730b3ab6fa06c0bc0b6fc9e6091a4f7b67622f3cec4b7bf11f905"
+    },
+    "checks": [
+      "editable object kinds and text after native save-reopen",
+      "chart rectangle geometry and numeric labels",
+      "compound ring plus center/band/outside pixels",
+      "real crop bounds/closure and removed-side pixels",
+      "stroke width, cap, arrow type and endpoint alignment",
+      "separately saved live wordmark and outlined wordmark",
+      "SVG structure and outlined delivery without live SVG text",
+      "actual returned ID binding in existing document",
+      "two existing user objects unchanged after adding ring and outlining only target text",
+      "original input file SHA256 unchanged"
+    ],
+    "manualImageReview": [
+      {
+        "id": "approval-check-badge",
+        "pngSha256": "1f1da6d946c5901d97df21174f2f55fd940c4cfb2bb1793688045b2f662df1b6",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "editable-three-bar-chart",
+        "pngSha256": "e007b4a27efdbef6c443455c4081172a071f0f11cf0e5211ae7903aa5a6fa96a",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "hollow-ring-minus-front",
+        "pngSha256": "9fca592fe029c41485e9f091aee03f1ac720465fc1549f85e3b54d867a01530f",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "contact-card-layout",
+        "pngSha256": "ba0185bac96af21ad59aea1179723108e4e3a3853a219c9a67797c8b9d81612a",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "editable-brand-palette",
+        "pngSha256": "885cd03aad52d58066042e0879f497c897d4d2db353fb675b97f1f8e16d72ee4",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "wordmark-live-and-outlined",
+        "pngSha256": "3eeec72d4471fecf0319202fd2fc05a3d192d501c6405ac5a31111b2cb8054a3",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "half-disc-real-crop",
+        "pngSha256": "459a63083a7759505610bcb1dc5a26f1c4cc04a83fab2979484bc34e2df2f634",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "wayfinding-arrow",
+        "pngSha256": "dffb9d69881dcec88e2a983ff76691ed19a0a96ef8e464daef1f072b2ff3578e",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      }
+    ],
+    "extraWorkflow": {
+      "id": "existing-user-content-preservation",
+      "technicalRoundtrip": "PASS",
+      "actualIdBinding": "PASS",
+      "preservedOriginalObjects": 2,
+      "sourceUnchanged": "PASS",
+      "designReview": "NOT_TESTED"
+    },
+    "hostSynchronization": "NOT_TESTED",
+    "realBrandOrPrintAcceptance": "NOT_TESTED"
+  },
+  "supplementaryCatalog": {
+    "version": "0.12.0",
+    "platform": "macOS",
+    "source": "official release binary; SHA256 verified",
+    "archiveSha256": "29d97dd6cbef0457824bc54202620d9589adb65bfe5e13459866531747dec5df",
+    "newSceneAcceptance": "LOCAL_NATIVE_ONLY_PENDING_WINDOWS"
+  }
+}

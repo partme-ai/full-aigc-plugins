@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "sourceFingerprint": "65fa9fce539d1ea2bd34ca982b8a6fbda6441c529e60324b724cdeb7e9699f1a",
+  "layers": {
+    "structure": {
+      "status": "PASS",
+      "evidence": [
+        "../windows-20261008/README.md"
+      ],
+      "scope": "package, strict OpenSpec, generated source or protected snapshot checks"
+    },
+    "mock": {
+      "status": "PASS",
+      "evidence": [
+        "../windows-20261008/plugin-unittest-python-3.12.log",
+        "../windows-20261008/plugin-unittest-python-3.13.log"
+      ],
+      "scope": "unchanged plugin test/runtime bytes; prior 59 Python and 14 Node tests plus exact HEAD CI verified, source-candidate tests not counted as plugin tests"
+    },
+    "native": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "host": {
+      "status": "NOT_RUN",
+      "evidence": [
+        "scenario-index.json",
+        "plugin-discovery.json",
+        "../current-mcp-20261009/README.md"
+      ],
+      "partial": "PASS five skill routing/readonly scenarios and manually configured current-host native MCP empty-library query; desktop Connect and plugin automatic MCP integration remain open"
+    },
+    "visual": {
+      "status": "FAIL",
+      "evidence": [
+        "visual/review.json",
+        "visual/nikon-cli-export.png",
+        "visual/nikon-embedded-8256.jpg"
+      ],
+      "scope": "Nikon RAW color counterevidence; synthetic-only visual pass is insufficient"
+    },
+    "platform": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "remoteCI": {
+      "status": "PASS",
+      "evidence": [
+        "../windows-20261008/plugin-offline-ci.json"
+      ],
+      "scope": "plugin commit c2cc940; subsequent report-only commit leaves tested plugin code, snapshot and tests unchanged; source-only CI stored separately"
+    }
+  },
+  "completeAcceptance": false,
+  "scope": "current candidate; remaining extension and release gates stay open"
+}

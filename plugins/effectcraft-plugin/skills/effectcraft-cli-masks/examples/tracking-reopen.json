@@ -1,0 +1,30 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "tool": "open_project",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Tracked target"
+      },
+      "as": "target"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "time": 0.5,
+        "path": {
+          "$output": "preview.png"
+        },
+        "inline": false
+      }
+    }
+  ]
+}

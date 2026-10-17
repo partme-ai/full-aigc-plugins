@@ -1,0 +1,31 @@
+{
+  "schema": "effectcraft-desktop-platforms/v1",
+  "version": "0.4.0",
+  "artifacts": {
+    "windows-x86": {
+      "path": "effectcraft.exe",
+      "binarySha256": "6438b4daaf236620966540820dfde233e1117810fe4da18d6e0e99aad1e6009f",
+      "acceptance": "NOT_RUN"
+    },
+    "windows-x86_64": {
+      "path": "effectcraft.exe",
+      "binarySha256": "52b7a70f7c286ccf572d5ef62a0b63cdf52487cd41efd576503bd0f97874e468",
+      "acceptance": "NOT_RUN"
+    },
+    "windows-arm64": {
+      "path": "effectcraft.exe",
+      "binarySha256": "238402795a1ef81ff9a3e27d52265a2a27dc47e9af2f1e6863b331c5e1c3f783",
+      "acceptance": "NOT_RUN"
+    },
+    "linux-x86_64": {
+      "path": "bin/effectcraft",
+      "binarySha256": "b584b887cc2a641fb98d920640860570ecede7f17f6ce7f39337bddcef3d33d6",
+      "acceptance": "NOT_RUN"
+    },
+    "linux-aarch64": {
+      "path": "bin/effectcraft",
+      "binarySha256": "74721310bcd5aa7cd550f435c507ad7320b6bd1d8630568e4a1a36fbbb720882",
+      "acceptance": "NOT_RUN"
+    }
+  }
+}

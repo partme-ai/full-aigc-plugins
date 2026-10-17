@@ -1,0 +1,90 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "soundcraft",
+  "id": "dialogue-leveling",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "确认Quiet/Loud两段边界，示例同轨前两秒比后两秒低6dB",
+      "command": "session.inspect",
+      "params": {
+        "detail": "full"
+      }
+    },
+    {
+      "purpose": "在已核实2秒说话人边界分开Voice片段，不移动内容",
+      "command": "edit.separate",
+      "params": {
+        "tracks": [
+          "Voice"
+        ],
+        "at": {
+          "seconds": 2
+        }
+      }
+    },
+    {
+      "purpose": "选择第一段内部0.1至1.9秒，选中第一段而非边界处两个片段",
+      "command": "edit.select",
+      "params": {
+        "tracks": [
+          "Voice"
+        ],
+        "start": {
+          "seconds": 0.1
+        },
+        "end": {
+          "seconds": 1.9
+        }
+      }
+    },
+    {
+      "purpose": "把选中较轻片段设为+6dB绝对增益，较响片段保持原样",
+      "command": "clip.gain",
+      "params": {
+        "db": 6
+      }
+    },
+    {
+      "purpose": "仅将Voice总轨降低3dB保留输出余量",
+      "command": "mix.volume",
+      "params": {
+        "tracks": [
+          "Voice"
+        ],
+        "db": -3
+      }
+    },
+    {
+      "purpose": "输出实际四秒24位审核音频",
+      "command": "file.bounce_mix",
+      "params": {
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        },
+        "format": "wav",
+        "bit_depth": 24,
+        "normalize": false,
+        "dither": false,
+        "path": "output/dialogue-review.wav"
+      }
+    }
+  ],
+  "check": "切换说话人时响度自然，低声、笑声、停顿没有异常放大。",
+  "boundary": "2秒边界、前段低6dB及0.1至1.9秒选区仅适用于该示例；按实际段落边界与实测差异替换，必要时用inspect返回的精确片段ID。先确认只选中较轻片段，不能按每个说话人统一套6dB。clip.gain是片段增益，不会只修改片段中被时间选区覆盖的采样；LUFS和真实语音自然度另验。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "limitedTechnicalValidation": {
+    "run": 39011827930,
+    "nativeMainCommit": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+    "fixture": "4-second 48kHz synthetic mono sources; rendering to 24-bit stereo PCM",
+    "trackOrSegmentSignalChecks": "PASS",
+    "saveReopenRenderedSamples": "PASS",
+    "inputSessionAndSourcesUnchanged": "PASS",
+    "auditoryAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

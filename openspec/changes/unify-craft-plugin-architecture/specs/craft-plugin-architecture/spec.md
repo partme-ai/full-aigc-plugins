@@ -44,3 +44,9 @@ The catalog SHALL expose thirteen development candidates with immutable tags, of
 #### Scenario: Native archive marketplace delivery
 - **WHEN** the host supports checksummed ZIP marketplace sources
 - **THEN** the listing binds the complete published archive URL, SHA-256 and package subdirectory; host archive size limits are checked and any Git bootstrap fallback is recorded explicitly instead of being claimed as complete archive acceptance
+
+
+#### Scenario: Official icons before installation in Codex
+- **WHEN** a user browses an uninstalled Craft candidate from the Git marketplace
+- **THEN** its source resolves to a complete, versioned package snapshot inside the marketplace checkout so native plugin/list returns existing official logo and composerIcon paths before installation
+- **AND** the snapshot binds an immutable independent-repository release commit, preserves skills/MCP/bootstrap, and does not bundle a second Agent runtime

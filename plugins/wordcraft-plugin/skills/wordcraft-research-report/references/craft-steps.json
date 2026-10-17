@@ -1,0 +1,202 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "wordcraft",
+  "id": "research-report",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "设置页面边距",
+      "command": "layout.margins",
+      "params": {
+        "preset": "normal"
+      }
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 1"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "研究问题与证据"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "问题与范围"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "研究问题、时间范围与对象：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "来源与证据"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "来源名称、链接、日期和支持的事实：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "分析与推断"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "推断依据、反例与限制：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "结论与未验证项"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "已支持结论及仍需验证事项：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "核对章节结构与正文",
+      "command": "document.inspect",
+      "params": {
+        "text": true
+      }
+    },
+    {
+      "purpose": "列出语言问题；不当作事实核查",
+      "command": "review.issues",
+      "params": {}
+    }
+  ],
+  "check": "引文、表题、页码和章节对应，结论区分事实、推断与未验证项。",
+  "boundary": "review.issues不是事实核查；缺少来源不能用自动语言检查代替。 示例章节为结构起点，待核实字段不能当作已填文档交付；每个章节用真实段落与Heading样式。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

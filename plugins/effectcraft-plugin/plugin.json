@@ -1,0 +1,45 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "effectcraft",
+  "version": "0.1.0-dev.20261017.5",
+  "description": "EffectCraft creative workflows with pinned first-use installation and independent skill snapshots; development release, full domain and host acceptance pending.",
+  "author": {
+    "name": "Full AIGC Plugins",
+    "url": "https://github.com/full-aigc-plugins"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/effectcraft-plugin",
+  "repository": "https://github.com/full-aigc-plugins/effectcraft-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent-plugin",
+    "effectcraft",
+    "creative-workflow",
+    "development-release"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "EffectCraft Use",
+        "shortDescription": "Editable creative workflows and pinned setup",
+        "longDescription": "Use independently maintained, checksummed skills to install official CLIs and create editable native projects. Development release; complete capability and host acceptance remain in progress.",
+        "developerName": "Full AIGC Plugins",
+        "category": "Creativity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/full-aigc-plugins/effectcraft-plugin",
+        "defaultPrompt": [
+          "Create an editable EffectCraft project from my assets"
+        ],
+        "logo": "./assets/official-logo.png",
+        "logoDark": "./assets/official-logo.png",
+        "composerIcon": "./assets/official-logo.png",
+        "composerIconDark": "./assets/official-logo.png"
+      }
+    },
+    "ai.nanoco.nanoclaw": {
+      "agentName": "EffectCraft"
+    }
+  }
+}

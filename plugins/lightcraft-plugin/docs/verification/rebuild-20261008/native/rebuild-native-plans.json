@@ -1,0 +1,120 @@
+{
+  "plans": {
+    "photo": {
+      "schemaVersion": "craft-native-plan/v1",
+      "plan": {
+        "domain": "lightcraft",
+        "steps": [
+          {
+            "command": "library.select",
+            "params": {
+              "ids": [
+                1
+              ],
+              "active": 1
+            }
+          },
+          {
+            "command": "develop.set",
+            "params": {
+              "control": "light.exposure",
+              "value": 2
+            }
+          },
+          {
+            "command": "app.export",
+            "params": {
+              "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-rebuild-20261008/plugin-positive-v2/photo.png",
+              "format": "png",
+              "width": 96
+            }
+          },
+          {
+            "command": "library.info",
+            "params": {}
+          }
+        ]
+      }
+    },
+    "layout": {
+      "schemaVersion": "craft-native-plan/v1",
+      "plan": {
+        "domain": "designcraft",
+        "steps": [
+          {
+            "command": "file.new",
+            "params": {
+              "width": 96,
+              "height": 64,
+              "pages": 1,
+              "facingPages": false,
+              "margins": 0
+            }
+          },
+          {
+            "command": "file.place",
+            "params": {
+              "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-rebuild-20261008/plugin-positive-v2/photo.png",
+              "x": 0,
+              "y": 0,
+              "width": 96
+            }
+          },
+          {
+            "command": "file.saveAs",
+            "params": {
+              "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-rebuild-20261008/plugin-positive-v2/page.designcraft"
+            }
+          },
+          {
+            "command": "file.exportPdf",
+            "params": {
+              "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-rebuild-20261008/plugin-positive-v2/layout.pdf"
+            }
+          },
+          {
+            "command": "document.inspect",
+            "params": {}
+          }
+        ]
+      }
+    },
+    "pdf": {
+      "schemaVersion": "craft-native-plan/v1",
+      "plan": {
+        "domain": "printcraft",
+        "steps": [
+          {
+            "command": "doc_open",
+            "params": {
+              "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-rebuild-20261008/plugin-positive-v2/layout.pdf"
+            }
+          },
+          {
+            "command": "doc_info",
+            "params": {
+              "doc": 1
+            }
+          },
+          {
+            "command": "doc_save",
+            "params": {
+              "doc": 1,
+              "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-rebuild-20261008/plugin-positive-v2/delivery.pdf",
+              "full": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "planHashes": {
+    "photo": "045a01df3744b762a085203de209c25056399f971ef4ef1cd31b431c49173ab1",
+    "layout": "14e89071a45b03e0c2d5575522dba67c81868c3806b30a502d9367551153b35c",
+    "pdf": "84d37092cd58583a91b8b7acf8dd4d69b97ce81785bcb600c5dde26c2429f29b"
+  },
+  "selectionSha256": "cae2f84eba1abb46a03e45e6ba43862a593869d660a06d9e35a17290c31ac88d",
+  "explicitNativeExecution": true,
+  "automaticReplay": false,
+  "futureInputVersions": "bound by per-stage preflight after actual upstream output"
+}

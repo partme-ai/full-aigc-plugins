@@ -1,0 +1,13 @@
+{
+  "command": [
+    "openspec",
+    "validate",
+    "--all",
+    "--strict",
+    "--no-interactive"
+  ],
+  "exitCode": 0,
+  "stdout": "✓ spec/artifact-review\n✓ change/extend-lightcraft-connect-mcp-plugin\n✓ change/extend-lightcraft-expanded-photo-capabilities-plugin\n✓ change/extend-lightcraft-portable-artcraft-delivery-plugin\n✓ spec/host-delivery\n✓ spec/provenance-distribution\n✓ spec/task-recovery\nTotals: 7 passed, 0 failed (7 items)\n",
+  "stderr": "",
+  "scope": "post-archive current main specs and three independent active extensions"
+}

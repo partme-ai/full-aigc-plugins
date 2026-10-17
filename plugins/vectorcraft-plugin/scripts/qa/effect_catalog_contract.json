@@ -1,0 +1,916 @@
+{
+  "schema": "vectorcraft-effect-catalog-contract/v1",
+  "repository": "https://github.com/storytold/vectorcraft",
+  "sourceCommit": "90e022b0c05f12171a4e9bebe0894fa62f7bc95c",
+  "sourceSha256": {
+    "crates/effects/src/lib.rs": "f7edc62be4dcfb431e87e4526cf2191c021d04f52d4db974c7872dc2b9dd9cea",
+    "crates/effects/src/group.rs": "fa0262e95e7259b626674fe2716487f18d4062310314388f67a3b084a4834123",
+    "crates/effects/src/marks.rs": "ed31e8105c68feac3c786f9f9e927badf33eecbd63f5f180766d69bb3701b3ab"
+  },
+  "catalog": [
+    {
+      "id": "convertToShape.rectangle",
+      "label": "Rectangle…",
+      "menu": [
+        "Effect",
+        "Convert to Shape"
+      ],
+      "params": "{relative: bool (true), extraW: pt (18), extraH: pt (18), width: pt (absolute, 100), height: pt (absolute, 100)}",
+      "defaults": {
+        "relative": true,
+        "extraW": 18.0,
+        "extraH": 18.0,
+        "width": 100.0,
+        "height": 100.0
+      },
+      "raster": false,
+      "lengths": {
+        "always": [
+          "extraW",
+          "extraH",
+          "width",
+          "height"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "convertToShape.roundedRectangle",
+      "label": "Rounded Rectangle…",
+      "menu": [
+        "Effect",
+        "Convert to Shape"
+      ],
+      "params": "{relative: bool (true), extraW: pt (18), extraH: pt (18), width, height (absolute), radius: pt (9)}",
+      "defaults": {
+        "relative": true,
+        "extraW": 18.0,
+        "extraH": 18.0,
+        "width": 100.0,
+        "height": 100.0,
+        "radius": 9.0
+      },
+      "raster": false,
+      "lengths": {
+        "always": [
+          "extraW",
+          "extraH",
+          "width",
+          "height",
+          "radius"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "convertToShape.ellipse",
+      "label": "Ellipse…",
+      "menu": [
+        "Effect",
+        "Convert to Shape"
+      ],
+      "params": "{relative: bool (true), extraW: pt (18), extraH: pt (18), width, height (absolute)}",
+      "defaults": {
+        "relative": true,
+        "extraW": 18.0,
+        "extraH": 18.0,
+        "width": 100.0,
+        "height": 100.0
+      },
+      "raster": false,
+      "lengths": {
+        "always": [
+          "extraW",
+          "extraH",
+          "width",
+          "height"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "distort.freeDistort",
+      "label": "Free Distort…",
+      "menu": [
+        "Effect",
+        "Distort & Transform"
+      ],
+      "params": "{corners: [[x,y]×4] new positions of the bounding-box corners TL, TR, BR, BL in unit box coordinates (identity [[0,0],[1,0],[1,1],[0,1]])}",
+      "defaults": {
+        "corners": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "distort.puckerBloat",
+      "label": "Pucker & Bloat…",
+      "menu": [
+        "Effect",
+        "Distort & Transform"
+      ],
+      "params": "{amount: % (-200 pucker … 200 bloat, default 0)}",
+      "defaults": {
+        "amount": 0.0
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "distort.roughen",
+      "label": "Roughen…",
+      "menu": [
+        "Effect",
+        "Distort & Transform"
+      ],
+      "params": "{size: 0..100 (5), relative: bool (true: % of size; false: pt), detail: per inch 0..100 (10), points: \"smooth\"|\"corner\", seed: int (0)}",
+      "defaults": {
+        "size": 5.0,
+        "relative": true,
+        "detail": 10.0,
+        "points": "smooth",
+        "seed": 0
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": [
+          "size"
+        ]
+      }
+    },
+    {
+      "id": "distort.transform",
+      "label": "Transform…",
+      "menu": [
+        "Effect",
+        "Distort & Transform"
+      ],
+      "params": "{scaleH: % (100), scaleV: % (100), moveH: pt (0), moveV: pt (0), rotate: deg (0), copies: int (0), reflectX: bool, reflectY: bool}",
+      "defaults": {
+        "scaleH": 100.0,
+        "scaleV": 100.0,
+        "moveH": 0.0,
+        "moveV": 0.0,
+        "rotate": 0.0,
+        "copies": 0,
+        "reflectX": false,
+        "reflectY": false
+      },
+      "raster": false,
+      "lengths": {
+        "always": [
+          "moveH",
+          "moveV"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "distort.tweak",
+      "label": "Tweak…",
+      "menu": [
+        "Effect",
+        "Distort & Transform"
+      ],
+      "params": "{h: amount (10), v: amount (10), relative: bool (true: % of size), anchors: bool (true), in: bool (true), out: bool (true), seed: int (0)}",
+      "defaults": {
+        "h": 10.0,
+        "v": 10.0,
+        "relative": true,
+        "anchors": true,
+        "in": true,
+        "out": true,
+        "seed": 0
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": [
+          "h",
+          "v"
+        ]
+      }
+    },
+    {
+      "id": "distort.twist",
+      "label": "Twist…",
+      "menu": [
+        "Effect",
+        "Distort & Transform"
+      ],
+      "params": "{angle: deg (-3600..3600, 10)}",
+      "defaults": {
+        "angle": 10.0
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "distort.zigZag",
+      "label": "Zig Zag…",
+      "menu": [
+        "Effect",
+        "Distort & Transform"
+      ],
+      "params": "{size: (10), relative: bool (false: pt; true: % of size), ridges: per segment 0..100 (4), points: \"smooth\"|\"corner\"}",
+      "defaults": {
+        "size": 10.0,
+        "relative": false,
+        "ridges": 4,
+        "points": "smooth"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": [
+          "size"
+        ]
+      }
+    },
+    {
+      "id": "path.offsetPath",
+      "label": "Offset Path…",
+      "menu": [
+        "Effect",
+        "Path"
+      ],
+      "params": "{offset: pt (10; negative insets), joins: \"miter\"|\"round\"|\"bevel\", miterLimit: (4)}",
+      "defaults": {
+        "offset": 10.0,
+        "joins": "miter",
+        "miterLimit": 4.0
+      },
+      "raster": false,
+      "lengths": {
+        "always": [
+          "offset"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "path.outlineStroke",
+      "label": "Outline Stroke",
+      "menu": [
+        "Effect",
+        "Path"
+      ],
+      "params": "{width?: pt (defaults to the stroke's weight)} the outline of the stroke the effect is on (on a fill or the object: the top stroke), with its caps, joins, dashes, alignment, width profile and arrowheads",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [
+          "width"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "stylize.roundCorners",
+      "label": "Round Corners…",
+      "menu": [
+        "Effect",
+        "Stylize"
+      ],
+      "params": "{radius: pt (10)}",
+      "defaults": {
+        "radius": 10.0
+      },
+      "raster": false,
+      "lengths": {
+        "always": [
+          "radius"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "stylize.scribble",
+      "label": "Scribble…",
+      "menu": [
+        "Effect",
+        "Stylize"
+      ],
+      "params": "{angle: deg (30), overlap: pt (0), strokeWidth: pt (3), curviness: % (5), spacing: pt (5), variation: pt (0.5), seed: int (0)} (simplified: a single hatching scribble outlined to a filled shape)",
+      "defaults": {
+        "angle": 30.0,
+        "overlap": 0.0,
+        "strokeWidth": 3.0,
+        "curviness": 5.0,
+        "spacing": 5.0,
+        "variation": 0.5,
+        "seed": 0
+      },
+      "raster": false,
+      "lengths": {
+        "always": [
+          "overlap",
+          "strokeWidth",
+          "spacing",
+          "variation"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "stylize.dropShadow",
+      "label": "Drop Shadow…",
+      "menu": [
+        "Effect",
+        "Stylize"
+      ],
+      "params": "{mode: blend mode (\"multiply\"), opacity: % (75), x: pt (7), y: pt (7), blur: pt (5), color: \"#rrggbb\" (\"#000000\")}",
+      "defaults": {
+        "mode": "multiply",
+        "opacity": 75.0,
+        "x": 7.0,
+        "y": 7.0,
+        "blur": 5.0,
+        "color": "#000000"
+      },
+      "raster": true,
+      "lengths": {
+        "always": [
+          "x",
+          "y",
+          "blur"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "stylize.innerGlow",
+      "label": "Inner Glow…",
+      "menu": [
+        "Effect",
+        "Stylize"
+      ],
+      "params": "{mode: blend mode (\"screen\"), opacity: % (75), blur: pt (5), color: \"#rrggbb\" (\"#ffffff\"), source: \"edge\"|\"center\"}",
+      "defaults": {
+        "mode": "screen",
+        "opacity": 75.0,
+        "blur": 5.0,
+        "color": "#ffffff",
+        "source": "edge"
+      },
+      "raster": true,
+      "lengths": {
+        "always": [
+          "blur"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "stylize.outerGlow",
+      "label": "Outer Glow…",
+      "menu": [
+        "Effect",
+        "Stylize"
+      ],
+      "params": "{mode: blend mode (\"screen\"), opacity: % (75), blur: pt (5), color: \"#rrggbb\" (\"#ffff00\")}",
+      "defaults": {
+        "mode": "screen",
+        "opacity": 75.0,
+        "blur": 5.0,
+        "color": "#ffff00"
+      },
+      "raster": true,
+      "lengths": {
+        "always": [
+          "blur"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "stylize.feather",
+      "label": "Feather…",
+      "menu": [
+        "Effect",
+        "Stylize"
+      ],
+      "params": "{radius: pt (5)}",
+      "defaults": {
+        "radius": 5.0
+      },
+      "raster": true,
+      "lengths": {
+        "always": [
+          "radius"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "blur.gaussian",
+      "label": "Gaussian Blur…",
+      "menu": [
+        "Effect",
+        "Blur"
+      ],
+      "params": "{radius: pt (5)}",
+      "defaults": {
+        "radius": 5.0
+      },
+      "raster": true,
+      "lengths": {
+        "always": [
+          "radius"
+        ],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.arc",
+      "label": "Arc…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.arcLower",
+      "label": "Arc Lower…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.arcUpper",
+      "label": "Arc Upper…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.arch",
+      "label": "Arch…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.bulge",
+      "label": "Bulge…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.shellLower",
+      "label": "Shell Lower…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.shellUpper",
+      "label": "Shell Upper…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.flag",
+      "label": "Flag…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.wave",
+      "label": "Wave…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.fish",
+      "label": "Fish…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.rise",
+      "label": "Rise…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.fisheye",
+      "label": "Fisheye…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.inflate",
+      "label": "Inflate…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.squeeze",
+      "label": "Squeeze…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "warp.twist",
+      "label": "Twist…",
+      "menu": [
+        "Effect",
+        "Warp"
+      ],
+      "params": "{bend: % (-100..100, 50), horizontal: % distortion (0), vertical: % distortion (0), orientation: \"horizontal\"|\"vertical\"}",
+      "defaults": {
+        "bend": 50.0,
+        "horizontal": 0.0,
+        "vertical": 0.0,
+        "orientation": "horizontal"
+      },
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "pathfinder.add",
+      "label": "Add",
+      "menu": [
+        "Effect",
+        "Pathfinder"
+      ],
+      "params": "{} (groups and layers: live Pathfinder over the members)",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "pathfinder.intersect",
+      "label": "Intersect",
+      "menu": [
+        "Effect",
+        "Pathfinder"
+      ],
+      "params": "{} (groups and layers: live Pathfinder over the members)",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "pathfinder.exclude",
+      "label": "Exclude",
+      "menu": [
+        "Effect",
+        "Pathfinder"
+      ],
+      "params": "{} (groups and layers: live Pathfinder over the members)",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "pathfinder.subtract",
+      "label": "Subtract",
+      "menu": [
+        "Effect",
+        "Pathfinder"
+      ],
+      "params": "{} (groups and layers: live Pathfinder over the members)",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "pathfinder.minusBack",
+      "label": "Minus Back",
+      "menu": [
+        "Effect",
+        "Pathfinder"
+      ],
+      "params": "{} (groups and layers: live Pathfinder over the members)",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "pathfinder.divide",
+      "label": "Divide",
+      "menu": [
+        "Effect",
+        "Pathfinder"
+      ],
+      "params": "{} (groups and layers: live Pathfinder over the members)",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "pathfinder.trim",
+      "label": "Trim",
+      "menu": [
+        "Effect",
+        "Pathfinder"
+      ],
+      "params": "{} (groups and layers: live Pathfinder over the members)",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "pathfinder.merge",
+      "label": "Merge",
+      "menu": [
+        "Effect",
+        "Pathfinder"
+      ],
+      "params": "{} (groups and layers: live Pathfinder over the members)",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "pathfinder.crop",
+      "label": "Crop",
+      "menu": [
+        "Effect",
+        "Pathfinder"
+      ],
+      "params": "{} (groups and layers: live Pathfinder over the members)",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "pathfinder.outline",
+      "label": "Outline",
+      "menu": [
+        "Effect",
+        "Pathfinder"
+      ],
+      "params": "{} (groups and layers: live Pathfinder over the members)",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    },
+    {
+      "id": "cropMarks",
+      "label": "Crop Marks",
+      "menu": [
+        "Effect"
+      ],
+      "params": "{style?: \"roman\"|\"japanese\" (default: the japaneseCropMarks preference when applied)} trim marks in [Registration] around the object's bounds, following it",
+      "defaults": {},
+      "raster": false,
+      "lengths": {
+        "always": [],
+        "absolute": []
+      }
+    }
+  ]
+}

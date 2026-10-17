@@ -1,0 +1,1269 @@
+{
+  "tools": [
+    {
+      "name": "open_editor",
+      "description": "Open DeckCraft's interactive editor. Optionally load a file inside the current workspace. This opens the UI; it does not automate editing commands.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "description": "Workspace-relative file path",
+            "type": "string",
+            "maxLength": 4096
+          },
+          "workspace": {
+            "type": "string",
+            "description": "Absolute workspace path; set before opening an editor session."
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://deckcraft/panel.html",
+          "surface": "editor",
+          "visibility": [
+            "model",
+            "app"
+          ]
+        },
+        "openai/ui": {
+          "preferredModelDisplayMode": "fullscreen"
+        }
+      }
+    },
+    {
+      "name": "list_commands",
+      "title": "List commands",
+      "description": "Every command (id, label, ribbon/menu place, shortcut, parameter summary, whether it is enabled now). Filter by a substring of id or label.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "string",
+            "description": "Substring of the id or label, e.g. `format.` or `slide`"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "List commands",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "run_command",
+      "title": "Run a command",
+      "description": "Run any command by id with JSON parameters. This is how everything is done: slide.new, shape.insert, text.set, format.bold, shape.fill, design.theme, transition.set, animation.add, table.merge, edit.undo…",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "Command id from list_commands"
+          },
+          "params": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {},
+            "description": "Parameters (see the command's params summary)"
+          }
+        },
+        "required": [
+          "command"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Run a command",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "batch",
+      "title": "Run several commands",
+      "description": "Run commands in order; stops at the first error unless keepGoing. Returns each result.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "commands": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "command": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {}
+                }
+              },
+              "required": [
+                "command"
+              ],
+              "additionalProperties": {}
+            }
+          },
+          "keepGoing": {
+            "type": "boolean",
+            "description": "Continue after errors"
+          }
+        },
+        "required": [
+          "commands"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Run several commands",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "new_presentation",
+      "title": "New presentation",
+      "description": "Start a new presentation (one title slide). Optional theme: DeckCraft, Harbor, Ember, Meadow, Nocturne, Paper, Coral Reef, Slate.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "blank": {
+            "type": "boolean",
+            "description": "No first slide"
+          },
+          "theme": {
+            "type": "string",
+            "description": "Theme name"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "New presentation",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "open_presentation",
+      "title": "Open presentation",
+      "description": "Open a .deckcraft or .pptx file by path.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "File path"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Open presentation",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "save_presentation",
+      "title": "Save presentation",
+      "description": "Save the active presentation (.deckcraft or .pptx by extension).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "File path (optional when it was opened from a file)"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Save presentation",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "export",
+      "title": "Export",
+      "description": "Export slides: png/jpeg (one slide, or all with all:true), pptx, deckcraft, outline text, or pdf (slides, notes pages or handouts).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "all": {
+            "type": "boolean",
+            "description": "All slides (images)"
+          },
+          "dpi": {
+            "type": "number",
+            "description": "PDF: raster resolution of slide artwork, 36-600 (default 200)"
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "png",
+              "jpeg",
+              "pptx",
+              "deckcraft",
+              "outline",
+              "pdf"
+            ],
+            "description": "Output format (default: from the path's extension)"
+          },
+          "frame": {
+            "type": "boolean",
+            "description": "PDF notes/handouts: thin frame around each slide (default true)"
+          },
+          "includeHidden": {
+            "type": "boolean",
+            "description": "PDF: include hidden slides (default false)"
+          },
+          "layout": {
+            "type": "string",
+            "enum": [
+              "slides",
+              "notes",
+              "handouts"
+            ],
+            "description": "PDF page layout (default slides)"
+          },
+          "path": {
+            "type": "string",
+            "description": "Output path"
+          },
+          "perPage": {
+            "anyOf": [
+              {
+                "type": "number",
+                "const": 1
+              },
+              {
+                "type": "number",
+                "const": 2
+              },
+              {
+                "type": "number",
+                "const": 3
+              },
+              {
+                "type": "number",
+                "const": 4
+              },
+              {
+                "type": "number",
+                "const": 6
+              },
+              {
+                "type": "number",
+                "const": 9
+              }
+            ],
+            "description": "PDF handouts: slides per page (default 6)"
+          },
+          "scale": {
+            "type": "number",
+            "description": "Pixels per point for images (default 2)"
+          },
+          "slide": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Slide index for images"
+          },
+          "slides": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "description": "PDF: slide indices to export (default all)"
+          },
+          "textLayer": {
+            "type": "boolean",
+            "description": "PDF: invisible text layer for search, select and copy (default true)"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Export",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "inspect_document",
+      "title": "Inspect presentation",
+      "description": "Slides (index, id, title, layout, shape count, transition, animations, notes), sections, theme, layouts, media and the selection.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Inspect presentation",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "inspect_slide",
+      "title": "Inspect slide",
+      "description": "One slide's shapes with ids, kinds, boxes [x,y,w,h], placeholder types, text, fills, tables, charts; plus background, transition, animations, notes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Slide index (default: current)"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Inspect slide",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "render_slide",
+      "title": "Render slide",
+      "description": "Render a slide to a PNG image and return it, to check your work visually.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "edit": {
+            "type": "boolean",
+            "description": "Show placeholder prompts like the editor"
+          },
+          "scale": {
+            "type": "number",
+            "description": "Pixels per point (default 1 = 960×540 for 16:9)"
+          },
+          "slide": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Slide index (default: current)"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Render slide",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "add_slide",
+      "title": "Add slide",
+      "description": "Insert a slide after the current one with a layout (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption) and optional title/body text (body: one paragraph per line, leading tabs indent).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Body text"
+          },
+          "layout": {
+            "type": "string",
+            "description": "Layout name or kind"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title text"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Add slide",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "go_to_slide",
+      "title": "Go to slide",
+      "description": "Make a slide current (shape commands act on the current slide).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Slide index"
+          }
+        },
+        "required": [
+          "index"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Go to slide",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "add_shape",
+      "title": "Add shape",
+      "description": "Insert a preset shape (rect, roundRect, ellipse, triangle, diamond, rightArrow, chevron, star5, heart, cloud, wedgeRectCallout, line, straightConnector1… see shape.presets) at x,y with size w×h, with optional text and fill colour (#RRGGBB or accent1..6).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "fill": {
+            "type": "string",
+            "description": "Fill colour"
+          },
+          "h": {
+            "type": "number",
+            "description": "Height (pt)"
+          },
+          "line": {
+            "type": "string",
+            "description": "Outline colour or `none`"
+          },
+          "preset": {
+            "type": "string",
+            "description": "Preset name"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text inside"
+          },
+          "w": {
+            "type": "number",
+            "description": "Width (pt)"
+          },
+          "x": {
+            "type": "number",
+            "description": "Left (pt)"
+          },
+          "y": {
+            "type": "number",
+            "description": "Top (pt)"
+          }
+        },
+        "required": [
+          "h",
+          "preset",
+          "w",
+          "x",
+          "y"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Add shape",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "add_text_box",
+      "title": "Add text box",
+      "description": "Insert a text box. Height grows to fit the text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "align": {
+            "type": "string",
+            "description": "left|center|right|justify"
+          },
+          "color": {
+            "type": "string",
+            "description": "Text colour"
+          },
+          "h": {
+            "type": "number",
+            "description": "Height (pt)"
+          },
+          "size": {
+            "type": "number",
+            "description": "Font size (pt)"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text (one paragraph per line)"
+          },
+          "w": {
+            "type": "number",
+            "description": "Width (pt)"
+          },
+          "x": {
+            "type": "number",
+            "description": "Left (pt)"
+          },
+          "y": {
+            "type": "number",
+            "description": "Top (pt)"
+          }
+        },
+        "required": [
+          "text",
+          "w",
+          "x",
+          "y"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Add text box",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "set_text",
+      "title": "Set text",
+      "description": "Replace a shape's text (keeps its first run's formatting). Leading tabs set bullet levels.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Shape id (from inspect_slide)"
+          },
+          "text": {
+            "type": "string",
+            "description": "New text"
+          }
+        },
+        "required": [
+          "id",
+          "text"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Set text",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "insert_picture",
+      "title": "Insert picture",
+      "description": "Insert a picture from a file path or base64 data, optionally at a box.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "description": "Base64 image data (instead of path)"
+          },
+          "h": {
+            "type": "number",
+            "description": "Height"
+          },
+          "name": {
+            "type": "string",
+            "description": "File name for data"
+          },
+          "path": {
+            "type": "string",
+            "description": "Image file path"
+          },
+          "w": {
+            "type": "number",
+            "description": "Width"
+          },
+          "x": {
+            "type": "number",
+            "description": "Left"
+          },
+          "y": {
+            "type": "number",
+            "description": "Top"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Insert picture",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "insert_table",
+      "title": "Insert table",
+      "description": "Insert a table with rows×cols and optional cell text (data: rows of strings).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cols": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Columns"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "h": {
+            "type": "number",
+            "description": "Height"
+          },
+          "rows": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "Rows"
+          },
+          "w": {
+            "type": "number",
+            "description": "Width"
+          },
+          "x": {
+            "type": "number",
+            "description": "Left"
+          },
+          "y": {
+            "type": "number",
+            "description": "Top"
+          }
+        },
+        "required": [
+          "cols",
+          "rows"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Insert table",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "insert_chart",
+      "title": "Insert chart",
+      "description": "Insert a chart (column, bar, line, pie, doughnut, area, scatter, stackedColumn…) with categories and series.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "series": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Series name"
+                },
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "values"
+              ],
+              "additionalProperties": {}
+            }
+          },
+          "title": {
+            "type": "string",
+            "description": "Chart title"
+          },
+          "type": {
+            "type": "string",
+            "description": "Chart type"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Insert chart",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "select",
+      "title": "Select shapes",
+      "description": "Select shapes by id (formatting commands then act on them).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            }
+          }
+        },
+        "required": [
+          "ids"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Select shapes",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "pointer",
+      "title": "Pointer gesture",
+      "description": "Drive the active tool with pointer events in slide points: down/drag/up/move/doubleclick, exactly like the mouse (draws, moves, resizes, rotates, places the caret).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "description": "down|drag|up|move|doubleclick"
+                },
+                "mods": {
+                  "type": "object",
+                  "properties": {
+                    "alt": {
+                      "type": "boolean"
+                    },
+                    "cmd": {
+                      "type": "boolean"
+                    },
+                    "shift": {
+                      "type": "boolean"
+                    }
+                  },
+                  "additionalProperties": {},
+                  "description": "Modifier keys (cmd = Command on macOS / Ctrl elsewhere; alt = Option)"
+                },
+                "x": {
+                  "type": "number",
+                  "description": "x (pt)"
+                },
+                "y": {
+                  "type": "number",
+                  "description": "y (pt)"
+                }
+              },
+              "required": [
+                "kind",
+                "x",
+                "y"
+              ],
+              "additionalProperties": {}
+            }
+          },
+          "mods": {
+            "type": "object",
+            "properties": {
+              "alt": {
+                "type": "boolean"
+              },
+              "cmd": {
+                "type": "boolean"
+              },
+              "shift": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": {},
+            "description": "Modifier keys (cmd = Command on macOS / Ctrl elsewhere; alt = Option)"
+          }
+        },
+        "required": [
+          "events"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Pointer gesture",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "select_tool",
+      "title": "Select tool",
+      "description": "Pick the pointer tool: select, textBox, shape (with preset), pen, highlighter, eraser — or a preset name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "preset": {
+            "type": "string",
+            "description": "Shape preset for the shape tool"
+          },
+          "tool": {
+            "type": "string",
+            "description": "Tool name"
+          }
+        },
+        "required": [
+          "tool"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Select tool",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "key",
+      "title": "Press key",
+      "description": "Press a key as on the keyboard: text editing keys (arrows, Backspace, Enter, Tab), nudges, and shortcuts (cmd+B…).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Key name or character"
+          },
+          "mods": {
+            "type": "object",
+            "properties": {
+              "alt": {
+                "type": "boolean"
+              },
+              "cmd": {
+                "type": "boolean"
+              },
+              "shift": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": {},
+            "description": "Modifier keys (cmd = Command on macOS / Ctrl elsewhere; alt = Option)"
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Press key",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "type_text",
+      "title": "Type text",
+      "description": "Type text into the text being edited (or into the selected shape).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Type text",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "screenshot",
+      "title": "Screenshot",
+      "description": "Screenshot of the whole DeckCraft window (UI included). Desktop app only (`deckcraft-cli mcp --connect PORT`).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Screenshot",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "call_app",
+      "title": "Call app method",
+      "description": "Call any control-channel method (ui.click, ui.set, ui.dialog.*, ui.inspect…). Desktop app only (`deckcraft-cli mcp --connect PORT`).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "description": "Method"
+          },
+          "params": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {}
+          }
+        },
+        "required": [
+          "method"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Call app method",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "_editor_attach",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_poll",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_reply",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "result": {}
+        },
+        "required": [
+          "token",
+          "id",
+          "result"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_detach",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "part": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 3145728
+          }
+        },
+        "required": [
+          "token",
+          "id",
+          "path",
+          "part",
+          "total",
+          "data"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "open_browser_editor",
+      "description": "Open the same editor session in the host built-in browser. Use the returned editorUrl with the host browser tool. Does not itself render the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "workspace": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "editor_status",
+      "description": "Report whether the actual editor has attached to this MCP session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    }
+  ],
+  "resources": [
+    {
+      "name": "panel",
+      "uri": "ui://deckcraft/panel.html",
+      "mimeType": "text/html;profile=mcp-app",
+      "_meta": {
+        "ui": {
+          "prefersBorder": false
+        },
+        "zcode/csp": {
+          "wasmUnsafeEval": true
+        }
+      }
+    },
+    {
+      "name": "assets",
+      "uri": "ui://deckcraft/assets.json",
+      "mimeType": "application/json"
+    }
+  ],
+  "resourceTemplates": [
+    {
+      "name": "asset-chunks",
+      "uriTemplate": "ui://deckcraft/asset/{id}/{part}"
+    },
+    {
+      "name": "file-chunks",
+      "uriTemplate": "ui://deckcraft/file/{id}/{part}"
+    }
+  ]
+}

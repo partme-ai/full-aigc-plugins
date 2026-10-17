@@ -1,0 +1,689 @@
+{
+  "tools": [
+    {
+      "name": "open_editor",
+      "description": "Open WordCraft's interactive editor. Optionally load a file inside the current workspace. This opens the UI; it does not automate editing commands.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "description": "Workspace-relative file path",
+            "type": "string",
+            "maxLength": 4096
+          },
+          "workspace": {
+            "type": "string",
+            "description": "Absolute workspace path; set before opening an editor session."
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://wordcraft/panel.html",
+          "surface": "editor",
+          "visibility": [
+            "model",
+            "app"
+          ]
+        },
+        "openai/ui": {
+          "preferredModelDisplayMode": "fullscreen"
+        }
+      }
+    },
+    {
+      "name": "list_commands",
+      "title": "List commands",
+      "description": "Every WordCraft command: id, label, ribbon location, shortcut and params. Filter with `query`.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Case-insensitive filter on id/label/location"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "List commands",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "execute",
+      "title": "Run a command",
+      "description": "Run one command by id with params, e.g. {command:\"format.bold\"} or {command:\"insert.table\", params:{rows:3, cols:4}}.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "Command id"
+          },
+          "params": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {},
+            "description": "Command parameters"
+          }
+        },
+        "required": [
+          "command"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Run a command",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "batch",
+      "title": "Run several commands",
+      "description": "Run commands in order; stops at the first error unless keepGoing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "commands": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "command": {
+                  "type": "string"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {}
+                }
+              },
+              "required": [
+                "command"
+              ],
+              "additionalProperties": {}
+            }
+          },
+          "keepGoing": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "commands"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Run several commands",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "new_document",
+      "title": "New document",
+      "description": "Start a document: blank, sample, letter, resume or report.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "template": {
+            "type": "string",
+            "description": "blank|sample|letter|resume|report"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "New document",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "open_document",
+      "title": "Open",
+      "description": "Open a .docx, .doc, .odt, .rtf, .md, .tex, .html, .txt or .json file, or any other text file (.m3u, .log, .ini…) as plain text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "File path"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Open",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "save_document",
+      "title": "Save",
+      "description": "Save (format from the extension: docx, pdf, odt, rtf, html, md, tex, txt, png).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "File path; omit to save in place"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Save",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "type_text",
+      "title": "Type text",
+      "description": "Type at the caret (replacing the selection). Use \\n... for line breaks inside text; use execute text.newParagraph for new paragraphs, or `paragraphs: true` to split lines into paragraphs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "paragraphs": {
+            "type": "boolean"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Type text",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "select_text",
+      "title": "Select text",
+      "description": "Select the n-th occurrence of some text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "occurrence": {
+            "type": "number",
+            "description": "1-based"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text to find"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Select text",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "get_text",
+      "title": "Document text",
+      "description": "Plain text of the document body.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Document text",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "inspect_document",
+      "title": "Inspect document",
+      "description": "Structure: blocks with text, styles, formatting runs, lists, tables, sections, parts, selection, pages.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Inspect document",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "render_page",
+      "title": "Render page",
+      "description": "Render a page to PNG to look at the result.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "number",
+            "description": "1-based page"
+          },
+          "scale": {
+            "type": "number",
+            "description": "Pixels per point (default 1)"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Render page",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "parity",
+      "title": "Feature parity",
+      "description": "WordCraft's command coverage of the word-processor feature catalog.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Feature parity",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "screenshot",
+      "title": "Screenshot app",
+      "description": "Screenshot of the whole WordCraft window (desktop app only).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Screenshot app",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "click",
+      "title": "Click",
+      "description": "Click at window coordinates (desktop app only).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cmd": {
+            "type": "boolean"
+          },
+          "count": {
+            "type": "number",
+            "description": "1-3 clicks"
+          },
+          "shift": {
+            "type": "boolean"
+          },
+          "x": {
+            "type": "number",
+            "description": "x"
+          },
+          "y": {
+            "type": "number",
+            "description": "y"
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Click",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "key",
+      "title": "Press key",
+      "description": "Press a key with modifiers (desktop app only), e.g. {key:\"B\", cmd:true}.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "alt": {
+            "type": "boolean"
+          },
+          "cmd": {
+            "type": "boolean"
+          },
+          "key": {
+            "type": "string",
+            "description": "Key name"
+          },
+          "shift": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Press key",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "ui_inspect",
+      "title": "Inspect UI",
+      "description": "UI state: tab, panes, dialog, page rectangles on screen, caret (desktop app only).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": {}
+      },
+      "annotations": {
+        "title": "Inspect UI",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "_editor_attach",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_poll",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_reply",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "result": {}
+        },
+        "required": [
+          "token",
+          "id",
+          "result"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_detach",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "_editor_write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "part": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 3145728
+          }
+        },
+        "required": [
+          "token",
+          "id",
+          "path",
+          "part",
+          "total",
+          "data"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "_meta": {
+        "ui": {
+          "visibility": [
+            "app"
+          ]
+        }
+      }
+    },
+    {
+      "name": "open_browser_editor",
+      "description": "Open the same editor session in the host built-in browser. Use the returned editorUrl with the host browser tool. Does not itself render the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "workspace": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "editor_status",
+      "description": "Report whether the actual editor has attached to this MCP session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    }
+  ],
+  "resources": [
+    {
+      "name": "panel",
+      "uri": "ui://wordcraft/panel.html",
+      "mimeType": "text/html;profile=mcp-app",
+      "_meta": {
+        "ui": {
+          "prefersBorder": false
+        },
+        "zcode/csp": {
+          "wasmUnsafeEval": true
+        }
+      }
+    },
+    {
+      "name": "assets",
+      "uri": "ui://wordcraft/assets.json",
+      "mimeType": "application/json"
+    }
+  ],
+  "resourceTemplates": [
+    {
+      "name": "asset-chunks",
+      "uriTemplate": "ui://wordcraft/asset/{id}/{part}"
+    },
+    {
+      "name": "file-chunks",
+      "uriTemplate": "ui://wordcraft/file/{id}/{part}"
+    }
+  ]
+}

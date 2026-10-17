@@ -1,0 +1,6 @@
+interface:
+  display_name: "PrintCraft 编排"
+  short_description: "Route PDF tasks and reconcile execution receipts"
+  default_prompt: "Use $printcraft-harness to route this PDF task and review its receipts."
+policy:
+  allow_implicit_invocation: false

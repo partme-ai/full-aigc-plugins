@@ -1,0 +1,53 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "soundcraft",
+  "id": "audio-delivery",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "检查实际会话长度、轨道和引用，示例交付范围四秒",
+      "command": "session.inspect",
+      "params": {
+        "detail": "full"
+      }
+    },
+    {
+      "purpose": "输出48kHz会话的24位PCM WAV母版，明确0至4秒而非猜测尾部",
+      "command": "file.bounce_mix",
+      "params": {
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        },
+        "format": "wav",
+        "bit_depth": 24,
+        "normalize": false,
+        "dither": false,
+        "path": "output/master.wav"
+      }
+    },
+    {
+      "purpose": "导出可审阅的真实会话结构文本",
+      "command": "file.export_session_text",
+      "params": {
+        "path": "output/session.txt"
+      }
+    }
+  ],
+  "check": "用独立info检查采样率、声道、时长，再播放首尾和关键段。",
+  "boundary": "会话采样率需先核实，本例会话为48kHz，bounce_mix不执行任意重采样；需要其他采样率使用实际CLI convert --rate。0至4秒按真实交付边界重算；24位PCM不是有损格式，另存母版并保留源工程和引用媒体。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "limitedTechnicalValidation": {
+    "run": 39011827930,
+    "nativeMainCommit": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+    "fixture": "4-second 48kHz synthetic mono sources; rendering to 24-bit stereo PCM",
+    "trackOrSegmentSignalChecks": "PASS",
+    "saveReopenRenderedSamples": "PASS",
+    "inputSessionAndSourcesUnchanged": "PASS",
+    "auditoryAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

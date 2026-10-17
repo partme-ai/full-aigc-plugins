@@ -1,0 +1,168 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "file.new",
+      "params": {
+        "name": "Selection",
+        "width": 96,
+        "height": 64,
+        "units": "Pixels"
+      }
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 4,
+        "y": 8,
+        "width": 20,
+        "height": 24
+      },
+      "as": "logo"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": [
+          {
+            "$ref": "logo.id"
+          }
+        ],
+        "color": "#ff0000"
+      }
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "ids": [
+          {
+            "$ref": "logo.id"
+          }
+        ],
+        "none": true
+      }
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 36,
+        "y": 8,
+        "width": 20,
+        "height": 24
+      },
+      "as": "decoration"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": [
+          {
+            "$ref": "decoration.id"
+          }
+        ],
+        "color": "#ff0000"
+      }
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "ids": [
+          {
+            "$ref": "decoration.id"
+          }
+        ],
+        "none": true
+      }
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 68,
+        "y": 8,
+        "width": 20,
+        "height": 24
+      },
+      "as": "control"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": [
+          {
+            "$ref": "control.id"
+          }
+        ],
+        "color": "#00ff00"
+      }
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "ids": [
+          {
+            "$ref": "control.id"
+          }
+        ],
+        "none": true
+      }
+    },
+    {
+      "command": "select.set",
+      "params": {
+        "ids": [
+          {
+            "$ref": "logo.id"
+          }
+        ]
+      }
+    },
+    {
+      "command": "select.same.fillColor",
+      "params": {},
+      "as": "candidates"
+    },
+    {
+      "command": "document.json",
+      "params": {},
+      "as": "before"
+    },
+    {
+      "command": "select.set",
+      "params": {
+        "ids": [
+          {
+            "$ref": "logo.id"
+          }
+        ]
+      }
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "color": "#0000ff"
+      }
+    },
+    {
+      "command": "document.json",
+      "params": {},
+      "as": "after"
+    },
+    {
+      "command": "document.save",
+      "params": {
+        "path": {
+          "$output": "project.vectorcraft"
+        }
+      }
+    },
+    {
+      "command": "document.export",
+      "params": {
+        "path": {
+          "$output": "preview.png"
+        },
+        "format": "png"
+      }
+    }
+  ]
+}

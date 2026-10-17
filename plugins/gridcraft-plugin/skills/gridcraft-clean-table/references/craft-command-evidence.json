@@ -1,0 +1,53 @@
+{
+  "runtime": {
+    "version": "v0.7.0",
+    "url": "https://github.com/storytold/gridcraft/releases/download/v0.7.0/gridcraft-0.7.0-windows-x64-portable.zip",
+    "sha256": "24bf4ee129769268e27510a260de6c7fd7eded84ea541499132576e3d7ea6a86",
+    "executable": "gridcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "sheet.read": {
+      "id": "sheet.read",
+      "label": "Read Range",
+      "menu": [],
+      "params": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values",
+      "shortcut": null
+    },
+    "data.textToColumns": {
+      "id": "data.textToColumns",
+      "label": "Text to Columns",
+      "menu": [
+        "Data",
+        "Data Tools"
+      ],
+      "params": "{range?, delimiters?: [\",\", \"\\t\", \" \", \";\"], other?: \"|\", fixedWidths?: [5, 10], treatConsecutive?: bool, textQualifier?: \"\\\"\", destination?: \"B1\"}",
+      "shortcut": null
+    },
+    "data.removeDuplicates": {
+      "id": "data.removeDuplicates",
+      "label": "Remove Duplicates",
+      "menu": [
+        "Data",
+        "Data Tools"
+      ],
+      "params": "{range?, columns?: [\"A\",\"C\"], header?: bool}",
+      "shortcut": null
+    },
+    "home.numberFormat": {
+      "id": "home.numberFormat",
+      "label": "Number Format",
+      "menu": [
+        "Home",
+        "Number"
+      ],
+      "params": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}",
+      "shortcut": null
+    }
+  },
+  "sceneAcceptance": "NOT_RUN",
+  "additionalObservation": {
+    "runtime": "official gridcraft-cli0.7.0 macOS universal",
+    "scope": "native method catalog; no host acceptance inferred"
+  }
+}

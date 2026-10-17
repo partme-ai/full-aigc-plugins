@@ -1,0 +1,213 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "figcraft",
+  "id": "prototype-flow",
+  "execution": "LIMITED_HOST_PROTOTYPE_PASS",
+  "steps": [
+    {
+      "purpose": "仅新建任务初始化，已有工程不能清空",
+      "command": "file.new",
+      "params": {
+        "name": "Clickable prototype"
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "创建Start，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Start",
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 884,
+        "props": {
+          "fill": "#ffffff"
+        }
+      },
+      "capture": "start"
+    },
+    {
+      "purpose": "创建Result，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Result",
+        "x": 450,
+        "y": 0,
+        "width": 390,
+        "height": 884,
+        "props": {
+          "fill": "#f1f5f9"
+        }
+      },
+      "capture": "result"
+    },
+    {
+      "purpose": "创建StartTitle，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "StartTitle",
+        "x": 24,
+        "y": 60,
+        "width": 342,
+        "height": 40,
+        "parent": "$start.id",
+        "text": "开始流程",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fill": "#172033",
+          "textAutoResize": "height"
+        }
+      },
+      "capture": "start_title"
+    },
+    {
+      "purpose": "创建ResultTitle，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "ResultTitle",
+        "x": 24,
+        "y": 60,
+        "width": 342,
+        "height": 40,
+        "parent": "$result.id",
+        "text": "已到达结果",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fill": "#172033",
+          "textAutoResize": "height"
+        }
+      },
+      "capture": "result_title"
+    },
+    {
+      "purpose": "创建Continue，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "rectangle",
+        "name": "Continue",
+        "x": 24,
+        "y": 720,
+        "width": 342,
+        "height": 48,
+        "parent": "$start.id",
+        "props": {
+          "fill": "#2563eb",
+          "cornerRadius": 8
+        }
+      },
+      "capture": "button"
+    },
+    {
+      "purpose": "创建ContinueLabel，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "ContinueLabel",
+        "x": 40,
+        "y": 732,
+        "width": 310,
+        "height": 24,
+        "parent": "$start.id",
+        "text": "继续",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fill": "#ffffff",
+          "textAutoResize": "height",
+          "textAlign": "center"
+        }
+      },
+      "capture": "button_label"
+    },
+    {
+      "purpose": "创建Back，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "rectangle",
+        "name": "Back",
+        "x": 24,
+        "y": 720,
+        "width": 342,
+        "height": 48,
+        "parent": "$result.id",
+        "props": {
+          "fill": "#2563eb",
+          "cornerRadius": 8
+        }
+      },
+      "capture": "back"
+    },
+    {
+      "purpose": "创建BackLabel，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "BackLabel",
+        "x": 40,
+        "y": 732,
+        "width": 310,
+        "height": 24,
+        "parent": "$result.id",
+        "text": "返回",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fill": "#ffffff",
+          "textAutoResize": "height",
+          "textAlign": "center"
+        }
+      },
+      "capture": "back_label"
+    },
+    {
+      "purpose": "连接明确的正向目标",
+      "command": "proto.interaction.add",
+      "params": {
+        "id": "$button.id",
+        "dest": "$result.id"
+      }
+    },
+    {
+      "purpose": "连接明确的返回目标",
+      "command": "proto.interaction.add",
+      "params": {
+        "id": "$back.id",
+        "dest": "$start.id"
+      }
+    },
+    {
+      "purpose": "登记顶层画框流程起点",
+      "command": "proto.flow.add",
+      "params": {
+        "start": "$start.id",
+        "name": "Main flow"
+      }
+    },
+    {
+      "purpose": "启动演示；随后必须实际点击正向和返回热点",
+      "command": "proto.present",
+      "params": {
+        "start": "$start.id"
+      },
+      "capture": "presentation"
+    }
+  ],
+  "check": "保存重开保留正向和返回交互及流程起点；必须在实际浏览器演示中点击到结果，再返回起点，才完成交互验收。",
+  "boundary": "数值是原创示例，按真实输入、节点和目标替换；capture/$变量只是手册绑定标记，原生CLI不会自动替换。默认创建会改变选择，后续操作必须传真实id/ids。新建步骤仅用于新任务；已有工程另存并保护已有节点。原型的present请求仅启动界面，不等于用户已点击。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "validation": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218",
+    "sceneSourceCommit": "997b6f9ee9dba5ca38da893ba7284e26388e95e0",
+    "platform": "Windows x64",
+    "fullSceneAcceptance": "NOT_TESTED",
+    "installedHostSync": "PASS_SYNTHETIC_PROTOTYPE_CODEX_MAIN_WEB"
+  }
+}

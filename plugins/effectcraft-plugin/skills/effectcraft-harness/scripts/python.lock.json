@@ -1,0 +1,98 @@
+{
+  "schema": "effectcraft-python-lock/v1",
+  "version": "3.13.16",
+  "license": "Python-2.0; bundled dependency licenses in archive",
+  "artifacts": {
+    "darwin-arm64": {
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261003/cpython-3.13.16%2B20261003-aarch64-apple-darwin-install_only.tar.gz",
+      "archiveSha256": "d8975d7df4f08f7b1c7aafcdfacbddcec3d366415f2c1a72b2466b6850815933",
+      "executable": "python/bin/python3.13",
+      "integrityFile": "python-integrity/darwin-arm64.tsv",
+      "integritySha256": "8f9c3aaf79cd0ff1867ac5d3c937d6ca0c60ccf1ab2b321a2b7a8454209d6fdd",
+      "license": "Python-2.0",
+      "platformAcceptance": "NOT_RUN",
+      "minimumSystem": {
+        "macOS": "11.0",
+        "source": "pinned archive _sysconfigdata MACOSX_DEPLOYMENT_TARGET"
+      }
+    },
+    "darwin-x86_64": {
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261003/cpython-3.13.16%2B20261003-x86_64-apple-darwin-install_only.tar.gz",
+      "archiveSha256": "8e9cb087305bfb8969f68a905f79f41469d4aa5220c1aa71ada7fc9953bdba0f",
+      "executable": "python/bin/python3.13",
+      "integrityFile": "python-integrity/darwin-x86_64.tsv",
+      "integritySha256": "53196035ea5ca246ef60da5b248d02a91964a269c6ec7397eedc0f28a72694ca",
+      "license": "Python-2.0",
+      "platformAcceptance": "NOT_RUN",
+      "minimumSystem": {
+        "macOS": "10.15",
+        "source": "pinned archive _sysconfigdata MACOSX_DEPLOYMENT_TARGET"
+      }
+    },
+    "linux-aarch64": {
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261003/cpython-3.13.16%2B20261003-aarch64-unknown-linux-gnu-install_only.tar.gz",
+      "archiveSha256": "6477121f22904963a066ac8ff89983baae781510815590e894daa3c11ce86652",
+      "executable": "python/bin/python3.13",
+      "integrityFile": "python-integrity/linux-aarch64.tsv",
+      "integritySha256": "6b639cbaa8c4e691d226447b747fde28fb0f9e337fe828d46b2ceba80ad325f7",
+      "license": "Python-2.0",
+      "platformAcceptance": "NOT_RUN",
+      "minimumSystem": {
+        "glibc": "2.17",
+        "source": "maximum pinned ELF GLIBC symbol requirement"
+      }
+    },
+    "linux-x86_64": {
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261003/cpython-3.13.16%2B20261003-x86_64-unknown-linux-gnu-install_only.tar.gz",
+      "archiveSha256": "0a0272910b10417c659a9312fb3f2d7a6d774da7bd510999be7a3ba83273dc1f",
+      "executable": "python/bin/python3.13",
+      "integrityFile": "python-integrity/linux-x86_64.tsv",
+      "integritySha256": "f81e6ac6a770f895b5b1a89838da856f21e9c827f4fc320ed1562645783c0c55",
+      "license": "Python-2.0",
+      "platformAcceptance": "NOT_RUN",
+      "minimumSystem": {
+        "glibc": "2.17",
+        "source": "maximum pinned ELF GLIBC symbol requirement"
+      }
+    },
+    "windows-x86": {
+      "url": "https://www.python.org/ftp/python/3.13.16/python-3.13.16-embed-win32.zip",
+      "archiveSha256": "0a3b162281b0a8e4d95d748e40ec2db9927086c7ec4231a5c8d29f91a1c2ba89",
+      "executable": "python.exe",
+      "integrityFile": "python-integrity/windows-x86.tsv",
+      "integritySha256": "551536440722a4fc82e578f4af5a11ef72a9736b3be4b08621982f0f767cc981",
+      "license": "Python-2.0",
+      "platformAcceptance": "NOT_RUN",
+      "minimumSystem": {
+        "windows": "6.3",
+        "source": "https://docs.python.org/3.13/using/windows.html"
+      }
+    },
+    "windows-x86_64": {
+      "url": "https://www.python.org/ftp/python/3.13.16/python-3.13.16-embed-amd64.zip",
+      "archiveSha256": "97dae5274cc54867065e8d5a3226e48c35017ed332a0fdb0e27d5b5821961297",
+      "executable": "python.exe",
+      "integrityFile": "python-integrity/windows-x86_64.tsv",
+      "integritySha256": "e1e98775d10bcb9fbf55e482a31d9efdb91a8d61d80718998f66f7c9b195e5f3",
+      "license": "Python-2.0",
+      "platformAcceptance": "NOT_RUN",
+      "minimumSystem": {
+        "windows": "6.3",
+        "source": "https://docs.python.org/3.13/using/windows.html"
+      }
+    },
+    "windows-arm64": {
+      "url": "https://www.python.org/ftp/python/3.13.16/python-3.13.16-embed-arm64.zip",
+      "archiveSha256": "790d097697a2020477549a6764d89d22194c88d6e42caebcb2db63791e004c94",
+      "executable": "python.exe",
+      "integrityFile": "python-integrity/windows-arm64.tsv",
+      "integritySha256": "625a22a5086fd7d312bc156cde8e3f4443ceb2079e2ff91457c6de0cadd5df4d",
+      "license": "Python-2.0",
+      "platformAcceptance": "NOT_RUN",
+      "minimumSystem": {
+        "windows": "6.3",
+        "source": "https://docs.python.org/3.13/using/windows.html"
+      }
+    }
+  }
+}

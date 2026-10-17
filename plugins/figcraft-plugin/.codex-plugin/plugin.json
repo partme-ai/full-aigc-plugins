@@ -1,0 +1,40 @@
+{
+  "name": "figcraft",
+  "version": "0.1.0-dev.20261017.5",
+  "description": "FigCraft 界面设计：内嵌编辑、同会话 MCP 操作、工作区保存与七个场景技能；本地开发候选。",
+  "author": {
+    "name": "Full AIGC Plugins",
+    "url": "https://github.com/full-aigc-plugins"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/figcraft-plugin",
+  "repository": "https://github.com/full-aigc-plugins/figcraft-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent-plugin",
+    "figcraft",
+    "creative-workflow",
+    "development-release",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "FigCraft Use",
+    "shortDescription": "Interface design in your agent workspace",
+    "longDescription": "Source-built FigCraft Web with same-session MCP editing and workspace file operations. Local development candidate; host acceptance remains separate.",
+    "developerName": "Full AIGC Plugins",
+    "category": "Creativity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/full-aigc-plugins/figcraft-plugin",
+    "defaultPrompt": [
+      "Create an editable FigCraft project from my assets"
+    ],
+    "logo": "./assets/official-logo.png",
+    "logoDark": "./assets/official-logo.png",
+    "composerIcon": "./assets/official-logo.png",
+    "composerIconDark": "./assets/official-logo.png"
+  },
+  "mcpServers": "./.codex-plugin/mcp.json"
+}

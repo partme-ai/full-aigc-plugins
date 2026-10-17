@@ -1,0 +1,161 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "figcraft",
+  "id": "wireframe",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "仅新建任务初始化，已有工程不能清空",
+      "command": "file.new",
+      "params": {
+        "name": "Desktop wireframe"
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "创建Desktop，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Desktop",
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 1024,
+        "props": {
+          "fill": "#ffffff",
+          "clip": true
+        }
+      },
+      "capture": "frame"
+    },
+    {
+      "purpose": "创建Navigation，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "rectangle",
+        "name": "Navigation",
+        "x": 0,
+        "y": 0,
+        "width": 240,
+        "height": 1024,
+        "parent": "$frame.id",
+        "props": {
+          "fill": "#e2e8f0"
+        }
+      },
+      "capture": "navigation"
+    },
+    {
+      "purpose": "创建PageTitle，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "PageTitle",
+        "x": 280,
+        "y": 40,
+        "width": 900,
+        "height": 48,
+        "parent": "$frame.id",
+        "text": "页面目标",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fill": "#172033",
+          "textAutoResize": "height"
+        }
+      },
+      "capture": "title"
+    },
+    {
+      "purpose": "创建ContentCard，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "ContentCard",
+        "x": 280,
+        "y": 120,
+        "width": 952,
+        "height": 300,
+        "parent": "$frame.id",
+        "props": {
+          "fill": "#f1f5f9",
+          "cornerRadius": 12
+        }
+      },
+      "capture": "card"
+    },
+    {
+      "purpose": "创建ContentSummary，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "ContentSummary",
+        "x": 24,
+        "y": 24,
+        "width": 904,
+        "height": 60,
+        "parent": "$card.id",
+        "text": "先展示用户任务、信息层级和主要操作；内容待替换。",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fill": "#172033",
+          "textAutoResize": "height"
+        }
+      },
+      "capture": "body"
+    },
+    {
+      "purpose": "创建PrimaryAction，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "PrimaryAction",
+        "x": 280,
+        "y": 460,
+        "width": 240,
+        "height": 48,
+        "parent": "$frame.id",
+        "props": {
+          "fill": "#2563eb",
+          "cornerRadius": 8
+        }
+      },
+      "capture": "action"
+    },
+    {
+      "purpose": "创建PrimaryActionLabel，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "PrimaryActionLabel",
+        "x": 16,
+        "y": 12,
+        "width": 208,
+        "height": 24,
+        "parent": "$action.id",
+        "text": "继续",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fill": "#ffffff",
+          "textAutoResize": "height",
+          "textAlign": "center"
+        }
+      },
+      "capture": "action_label"
+    }
+  ],
+  "check": "1280×1024画板有导航、标题、内容卡和主操作，所有子节点归属正确，文字可编辑。",
+  "boundary": "数值是原创示例，按真实输入、节点和目标替换；capture/$变量只是手册绑定标记，原生CLI不会自动替换。默认创建会改变选择，后续操作必须传真实id/ids。新建步骤仅用于新任务；已有工程另存并保护已有节点。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "validation": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218",
+    "sceneSourceCommit": "997b6f9ee9dba5ca38da893ba7284e26388e95e0",
+    "platform": "Windows x64",
+    "fullSceneAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

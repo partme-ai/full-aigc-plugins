@@ -1,0 +1,22 @@
+{
+  "name": "figcraft",
+  "version": "0.1.0-dev.20261017.5",
+  "description": "FigCraft 界面设计：内嵌编辑、同会话 MCP 操作、工作区保存与七个场景技能；本地开发候选。",
+  "author": {
+    "name": "Full AIGC Plugins",
+    "url": "https://github.com/full-aigc-plugins"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/figcraft-plugin",
+  "repository": "https://github.com/full-aigc-plugins/figcraft-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent-plugin",
+    "figcraft",
+    "creative-workflow",
+    "development-release"
+  ],
+  "skills": "./skills/",
+  "displayName": "FigCraft Use",
+  "icon": "./assets/official-logo.png",
+  "mcpServers": "./.mcp.json"
+}

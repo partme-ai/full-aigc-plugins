@@ -1,0 +1,52 @@
+{
+  "runtime": {
+    "version": "v0.7.0",
+    "url": "https://github.com/storytold/wordcraft/releases/download/v0.7.0/wordcraft-0.7.0-windows-x64-portable.zip",
+    "sha256": "e6c8be9bb8ff815ed96974b8a25773d1e476301dcd5b242a267b88347185cc4f",
+    "executable": "wordcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "styles.list": {
+      "id": "styles.list",
+      "label": "Styles",
+      "location": "Home › Styles",
+      "mutates": false,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "styles.inspect": {
+      "id": "styles.inspect",
+      "label": "Inspect Styles at Selection",
+      "location": "Home › Styles › Style Inspector",
+      "mutates": false,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "select.text": {
+      "id": "select.text",
+      "label": "Select Text",
+      "location": "Navigation",
+      "mutates": false,
+      "params": "{\"text\": string, \"occurrence\"?: n}",
+      "shortcut": ""
+    },
+    "para.style": {
+      "id": "para.style",
+      "label": "Apply Style",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{\"style\": string (name or id)}",
+      "shortcut": ""
+    },
+    "document.inspect": {
+      "id": "document.inspect",
+      "label": "Inspect Document",
+      "location": "Agents",
+      "mutates": false,
+      "params": "{\"text\"?: bool}",
+      "shortcut": ""
+    }
+  },
+  "sceneAcceptance": "NOT_RUN"
+}

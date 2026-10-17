@@ -1,0 +1,40 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "figcraft",
+  "id": "import-fig",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "在独立文档中导入实际Figma文件，保留warnings",
+      "command": "file.open",
+      "params": {
+        "path": "input/design.fig"
+      },
+      "capture": "imported"
+    },
+    {
+      "purpose": "检查导入后真实组件清单",
+      "command": "component.list",
+      "params": {},
+      "capture": "components"
+    },
+    {
+      "purpose": "另存SVG用于检查，不覆盖输入",
+      "command": "file.exportSvg",
+      "params": {
+        "path": "import-proof.svg"
+      }
+    }
+  ],
+  "check": "用实际二进制.fig导入，记录warnings，保留输入，检查节点类型、名称、圆角及导出；单一样本通过不代表完整Figma保真。",
+  "boundary": "数值是原创示例，按真实输入、节点和目标替换；capture/$变量只是手册绑定标记，原生CLI不会自动替换。默认创建会改变选择，后续操作必须传真实id/ids。新建步骤仅用于新任务；已有工程另存并保护已有节点。导入是best effort；变量sidecar按实际schema传入；保真或warnings异常需明确报告。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "validation": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218",
+    "sceneSourceCommit": "997b6f9ee9dba5ca38da893ba7284e26388e95e0",
+    "platform": "Windows x64",
+    "fullSceneAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

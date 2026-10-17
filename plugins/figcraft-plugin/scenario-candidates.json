@@ -1,0 +1,38 @@
+{
+  "status": "local-unreleased",
+  "sourcePackage": "full-aigc-skills/figcraft-skills",
+  "skills": [
+    {
+      "name": "figcraft-editor",
+      "sha256": "db3221080dd6ee217affdd70653368d38cfafdf9dca7c2213dfce7d760e6042c"
+    },
+    {
+      "name": "figcraft-wireframe",
+      "sha256": "4c2bfa09c9ec00d877470c5d889a92ea9940d9c24b8bcb970ee03844c9658f01"
+    },
+    {
+      "name": "figcraft-responsive-layout",
+      "sha256": "22d0548169f60764a9a48bf1fc1dbf20a1659a90011acc9d81ba7a4a396b73f7"
+    },
+    {
+      "name": "figcraft-design-system",
+      "sha256": "2dd1a0cec56c6225aa328b54a6a7b62d5b086ceae835d09be4d4b2682a2e5e6c"
+    },
+    {
+      "name": "figcraft-prototype-flow",
+      "sha256": "d09a7eaec1a2653a3b3c164a9d301a2bbfb2481c2163307d3c287be522ec63c8"
+    },
+    {
+      "name": "figcraft-import-fig",
+      "sha256": "0c15f40836fbea09329c51762b2e99f5c33ffce5b45d320be4a88490ad9d857b"
+    },
+    {
+      "name": "figcraft-dev-handoff",
+      "sha256": "61bd4e63868af8f5e3fdc5ee6979c4560827461ea3bb5511a507140c230e207e"
+    },
+    {
+      "name": "figcraft-scenario-playbooks",
+      "sha256": "0b59f749bffe811b1a0cf888cf29a8e6e27f9dbac010657a24b06724882ae4dd"
+    }
+  ]
+}

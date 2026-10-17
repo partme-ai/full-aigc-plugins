@@ -1,0 +1,12 @@
+[
+  {
+    "case": "explicit",
+    "exitCode": 1,
+    "stderr": "Reading additional input from stdin...\n2026-10-08T09:50:29.067290Z  WARN codex_models_manager::model_info: Unknown model gpt-6-astra is used. This will use fallback model metadata.\n2026-10-08T09:50:29.505068Z  WARN codex_models_manager::model_info: Unknown model gpt-6-astra is used. This will use fallback model metadata.\n2026-10-08T09:50:29.523802Z  WARN codex_models_manager::model_info: Unknown model gpt-6-astra is used. This will use fallback model metadata.\n2026-10-08T09:50:35.751625Z  WARN codex_core::session_startup_prewarm: startup websocket prewarm setup failed: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6-astra' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\n"
+  },
+  {
+    "case": "natural",
+    "exitCode": 1,
+    "stderr": "Reading additional input from stdin...\n2026-10-08T09:50:41.261833Z  WARN codex_models_manager::model_info: Unknown model gpt-6-astra is used. This will use fallback model metadata.\n2026-10-08T09:50:41.834823Z  WARN codex_models_manager::model_info: Unknown model gpt-6-astra is used. This will use fallback model metadata.\n2026-10-08T09:50:41.839074Z  WARN codex_models_manager::model_info: Unknown model gpt-6-astra is used. This will use fallback model metadata.\n2026-10-08T09:50:45.142145Z  WARN codex_core::session_startup_prewarm: startup websocket prewarm setup failed: {\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6-astra' model requires a newer version of Codex. Please upgrade to the latest app or CLI and try again.\"}}\n"
+  }
+]

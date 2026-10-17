@@ -1,0 +1,1357 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "vectorcraft",
+  "templateOnly": true,
+  "argumentPolicy": "独立新图示例；已有图跳过file.new，以实际返回ID选择对象，坐标与文案按任务重算。",
+  "recipes": [
+    {
+      "id": "approval-check-badge",
+      "title": "可编辑审核通过徽章",
+      "category": "vector-design",
+      "inputs": "240×240屏幕画板，绿色圆底和白色勾号；不是认证标识。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "steps": [
+        {
+          "purpose": "仅新建独立场景时建立画板",
+          "command": "file.new",
+          "params": {
+            "name": "可编辑审核通过徽章",
+            "width": 240,
+            "height": 240,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "创建底圆",
+          "command": "shape.ellipse",
+          "params": {
+            "x": 20,
+            "y": 20,
+            "width": 200,
+            "height": 200
+          },
+          "parameterReference": "command-evidence.json#shape.ellipse"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#16804a"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "创建未闭合勾号路径",
+          "command": "path.create",
+          "params": {
+            "d": "M 65 120 L 105 160 L 180 80"
+          },
+          "parameterReference": "command-evidence.json#path.create"
+        },
+        {
+          "purpose": "开放路径不填充",
+          "command": "paint.setFill",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "设置白色线条",
+          "command": "paint.setStroke",
+          "params": {
+            "color": "#ffffff"
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "设置圆端点与圆连接",
+          "command": "stroke.set",
+          "params": {
+            "weight": 16,
+            "cap": "round",
+            "join": "round"
+          },
+          "parameterReference": "command-evidence.json#stroke.set"
+        }
+      ],
+      "assertions": {
+        "kindCounts": {
+          "Ellipse": 1,
+          "Path": 1
+        },
+        "stroke": {
+          "width": 16,
+          "cap": "round"
+        },
+        "fills": [
+          "#16804a"
+        ],
+        "artboard": [
+          240,
+          240
+        ]
+      },
+      "checks": [
+        "圆与勾号保留独立编辑",
+        "勾号路径未闭合且白色描边宽16",
+        "缩小后检查识别度"
+      ],
+      "limits": "示例仅图形制作，不意味着获得第三方批准或认证。"
+    },
+    {
+      "id": "editable-three-bar-chart",
+      "title": "可编辑三项数据柱图",
+      "category": "vector-design",
+      "inputs": "A=30、B=55、C=80，线性比例1.5像素/单位，共同零基线y=200。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "steps": [
+        {
+          "purpose": "仅新建独立场景时建立画板",
+          "command": "file.new",
+          "params": {
+            "name": "可编辑三项数据柱图",
+            "width": 400,
+            "height": 250,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "创建可编辑矩形",
+          "command": "shape.rectangle",
+          "params": {
+            "x": 60,
+            "y": 155.0,
+            "width": 48,
+            "height": 45.0
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#2563eb"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 72,
+            "y": 225,
+            "text": "A",
+            "size": 16,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 60,
+            "y": 145.0,
+            "text": "30",
+            "size": 14,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "创建可编辑矩形",
+          "command": "shape.rectangle",
+          "params": {
+            "x": 160,
+            "y": 117.5,
+            "width": 48,
+            "height": 82.5
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#16a34a"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 172,
+            "y": 225,
+            "text": "B",
+            "size": 16,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 160,
+            "y": 107.5,
+            "text": "55",
+            "size": 14,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "创建可编辑矩形",
+          "command": "shape.rectangle",
+          "params": {
+            "x": 260,
+            "y": 80.0,
+            "width": 48,
+            "height": 120.0
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#d97706"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 272,
+            "y": 225,
+            "text": "C",
+            "size": 16,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 260,
+            "y": 70.0,
+            "text": "80",
+            "size": 14,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        }
+      ],
+      "assertions": {
+        "kindCounts": {
+          "Rectangle": 3,
+          "Type": 6
+        },
+        "texts": [
+          "A",
+          "B",
+          "C",
+          "30",
+          "55",
+          "80"
+        ],
+        "rectangles": [
+          [
+            60,
+            155,
+            48,
+            45
+          ],
+          [
+            160,
+            117.5,
+            48,
+            82.5
+          ],
+          [
+            260,
+            80,
+            48,
+            120
+          ]
+        ],
+        "artboard": [
+          400,
+          250
+        ]
+      },
+      "checks": [
+        "柱高按数值比例且同零基线",
+        "类别和值仍是文字",
+        "数据来源和单位按真实任务补齐"
+      ],
+      "limits": "这是可编辑图元而非具有数据绑定的原生图表；数据更新时同步重算柱高和文字，不能截断基线误导比较。"
+    },
+    {
+      "id": "hollow-ring-minus-front",
+      "title": "真实镂空圆环",
+      "category": "vector-design",
+      "inputs": "外圆160内圆80，先外后内；共同中心120,120。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "steps": [
+        {
+          "purpose": "仅新建独立场景时建立画板",
+          "command": "file.new",
+          "params": {
+            "name": "真实镂空圆环",
+            "width": 240,
+            "height": 240,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "先创建后方外圆",
+          "command": "shape.ellipse",
+          "params": {
+            "x": 40,
+            "y": 40,
+            "width": 160,
+            "height": 160
+          },
+          "parameterReference": "command-evidence.json#shape.ellipse"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#2563eb"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "再创建前方切除圆",
+          "command": "shape.ellipse",
+          "params": {
+            "x": 80,
+            "y": 80,
+            "width": 80,
+            "height": 80
+          },
+          "parameterReference": "command-evidence.json#shape.ellipse"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#2563eb"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "只在本例独立新图选择本次全部对象",
+          "command": "select.all",
+          "params": {},
+          "parameterReference": "command-evidence.json#select.all",
+          "ownedSelectionOnly": true
+        },
+        {
+          "purpose": "前圆从后圆相减，生成真实镂空",
+          "command": "object.pathfinder.minusFront",
+          "params": {},
+          "parameterReference": "command-evidence.json#object.pathfinder.minusFront"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#2563eb"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        }
+      ],
+      "assertions": {
+        "compoundRequired": true,
+        "ringPixels": true,
+        "fills": [
+          "#2563eb"
+        ],
+        "artboard": [
+          240,
+          240
+        ]
+      },
+      "checks": [
+        "中心透明/底色透出且环带存在",
+        "不是白圆盖住蓝圆",
+        "SVG保留复合路径"
+      ],
+      "limits": "已有图纸用实际两圆ID调用select.set，不可select.all；反向堆叠会产生不同结果。"
+    },
+    {
+      "id": "contact-card-layout",
+      "title": "屏幕联系卡排版",
+      "category": "vector-design",
+      "inputs": "360×200画板，示例姓名、职责和占位邮箱，真实任务替换全部文案。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "steps": [
+        {
+          "purpose": "仅新建独立场景时建立画板",
+          "command": "file.new",
+          "params": {
+            "name": "屏幕联系卡排版",
+            "width": 360,
+            "height": 200,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "创建可编辑矩形",
+          "command": "shape.rectangle",
+          "params": {
+            "x": 0,
+            "y": 0,
+            "width": 360,
+            "height": 200
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#f1f5f9"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "创建可编辑矩形",
+          "command": "shape.rectangle",
+          "params": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 200
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#2563eb"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 36,
+            "y": 65,
+            "text": "Ada Chen",
+            "size": 28,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 36,
+            "y": 105,
+            "text": "Designer",
+            "size": 18,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 36,
+            "y": 150,
+            "text": "ada@example.test",
+            "size": 16,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        }
+      ],
+      "assertions": {
+        "kindCounts": {
+          "Rectangle": 2,
+          "Type": 3
+        },
+        "texts": [
+          "Ada Chen",
+          "Designer",
+          "ada@example.test"
+        ],
+        "artboard": [
+          360,
+          200
+        ]
+      },
+      "checks": [
+        "姓名、职责和联系方式均可编辑",
+        "文字未越出画板",
+        "占位数据已替换后再交付"
+      ],
+      "limits": "此例是屏幕卡片，不是已配置出血、CMYK和印厂要求的印刷名片。"
+    },
+    {
+      "id": "editable-brand-palette",
+      "title": "品牌色板与十六进制标签",
+      "category": "vector-design",
+      "inputs": "4个示例sRGB色，标签必须与填色一致。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "steps": [
+        {
+          "purpose": "仅新建独立场景时建立画板",
+          "command": "file.new",
+          "params": {
+            "name": "品牌色板与十六进制标签",
+            "width": 440,
+            "height": 180,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "创建可编辑矩形",
+          "command": "shape.rectangle",
+          "params": {
+            "x": 20,
+            "y": 30,
+            "width": 80,
+            "height": 80
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 20,
+            "y": 140,
+            "text": "#172033",
+            "size": 13,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "创建可编辑矩形",
+          "command": "shape.rectangle",
+          "params": {
+            "x": 120,
+            "y": 30,
+            "width": 80,
+            "height": 80
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#2563eb"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 120,
+            "y": 140,
+            "text": "#2563eb",
+            "size": 13,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "创建可编辑矩形",
+          "command": "shape.rectangle",
+          "params": {
+            "x": 220,
+            "y": 30,
+            "width": 80,
+            "height": 80
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#16a34a"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 220,
+            "y": 140,
+            "text": "#16a34a",
+            "size": 13,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "创建可编辑矩形",
+          "command": "shape.rectangle",
+          "params": {
+            "x": 320,
+            "y": 30,
+            "width": 80,
+            "height": 80
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#d97706"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 320,
+            "y": 140,
+            "text": "#d97706",
+            "size": 13,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "只在本例独立新图选择本次全部对象",
+          "command": "select.all",
+          "params": {},
+          "parameterReference": "command-evidence.json#select.all",
+          "ownedSelectionOnly": true
+        },
+        {
+          "purpose": "将本次色板与标签归组",
+          "command": "object.group",
+          "params": {},
+          "parameterReference": "command-evidence.json#object.group"
+        }
+      ],
+      "assertions": {
+        "kindCounts": {
+          "Rectangle": 4,
+          "Type": 4,
+          "Group": 1
+        },
+        "texts": [
+          "#172033",
+          "#2563eb",
+          "#16a34a",
+          "#d97706"
+        ],
+        "fills": [
+          "#172033",
+          "#2563eb",
+          "#16a34a",
+          "#d97706"
+        ],
+        "artboard": [
+          440,
+          180
+        ]
+      },
+      "checks": [
+        "四个色块与四个标签对应",
+        "组内对象仍可编辑",
+        "不把普通RGB色块说成全局专色色板"
+      ],
+      "limits": "这不是印刷色样或自动全局色同步；已有图纸按返回ID归组，不选中其他用户内容。"
+    },
+    {
+      "id": "wordmark-live-and-outlined",
+      "title": "文字标志母版与轮廓交付",
+      "category": "vector-design",
+      "inputs": "示例文字CRAFT，Arial字体；先确认实际字体存在和使用授权。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "steps": [
+        {
+          "purpose": "仅新建独立场景时建立画板",
+          "command": "file.new",
+          "params": {
+            "name": "文字标志母版与轮廓交付",
+            "width": 420,
+            "height": 160,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 30,
+            "y": 105,
+            "text": "CRAFT",
+            "size": 64,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "purpose": "转轮廓前保存可编辑文字母版",
+          "command": "file.save",
+          "params": {
+            "path": "wordmark-live.vectorcraft"
+          },
+          "parameterReference": "command-evidence.json#file.save"
+        },
+        {
+          "purpose": "保持当前文字选区并转成字形路径",
+          "command": "type.createOutlines",
+          "params": {},
+          "parameterReference": "command-evidence.json#type.createOutlines"
+        },
+        {
+          "purpose": "显式另存轮廓交付，避免普通保存覆盖活文字母版",
+          "command": "file.save",
+          "params": {
+            "path": "wordmark-outlined.vectorcraft"
+          },
+          "parameterReference": "command-evidence.json#file.save"
+        }
+      ],
+      "assertions": {
+        "textCount": 0,
+        "outlinedRequired": true,
+        "liveMaster": "wordmark-live.vectorcraft",
+        "masterText": "CRAFT",
+        "artboard": [
+          420,
+          160
+        ],
+        "fixtureOnly": true,
+        "outlinedFile": "wordmark-outlined.vectorcraft"
+      },
+      "checks": [
+        "母版仍含CRAFT文字",
+        "独立新图交付工程无活文字且含轮廓；既有图仅检查本次文字，其他文字保留可编辑",
+        "母版与轮廓版文件名不同"
+      ],
+      "limits": "转轮廓不可当成仍可改字；不能仅保存最终轮廓而丢失母版。固定母版路径是新目录示例，真实任务用未占用路径。"
+    },
+    {
+      "id": "half-disc-real-crop",
+      "title": "半圆图标的真实几何裁切",
+      "category": "vector-design",
+      "inputs": "160×160圆位于40,40，裁切保留左半范围[40,40,80,160]。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "steps": [
+        {
+          "purpose": "仅新建独立场景时建立画板",
+          "command": "file.new",
+          "params": {
+            "name": "半圆图标的真实几何裁切",
+            "width": 240,
+            "height": 240,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "创建完整圆形",
+          "command": "shape.ellipse",
+          "params": {
+            "x": 40,
+            "y": 40,
+            "width": 160,
+            "height": 160
+          },
+          "parameterReference": "command-evidence.json#shape.ellipse"
+        },
+        {
+          "purpose": "设置当前新建对象填色",
+          "command": "paint.setFill",
+          "params": {
+            "color": "#7c3aed"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "去除当前对象描边",
+          "command": "paint.setStroke",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "只裁切当前新建对象",
+          "command": "path.rectCut",
+          "params": {
+            "rect": [
+              40,
+              40,
+              80,
+              160
+            ]
+          },
+          "parameterReference": "command-evidence.json#path.rectCut"
+        }
+      ],
+      "assertions": {
+        "cropBounds": [
+          40,
+          40,
+          80,
+          160
+        ],
+        "fills": [
+          "#7c3aed"
+        ],
+        "cropPixels": true,
+        "artboard": [
+          240,
+          240
+        ]
+      },
+      "checks": [
+        "保留几何边界宽80高160",
+        "右侧像素为底色",
+        "不存在仅遮住右半的裁切蒙版"
+      ],
+      "limits": "真实几何裁切会丢弃裁切外路径；在副本操作，原圆若需复用先保留源工程。"
+    },
+    {
+      "id": "wayfinding-arrow",
+      "title": "带方向箭头的导视线",
+      "category": "vector-design",
+      "inputs": "从40,100到220,100的水平向右导视线，箭头端点对齐终点。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "steps": [
+        {
+          "purpose": "仅新建独立场景时建立画板",
+          "command": "file.new",
+          "params": {
+            "name": "带方向箭头的导视线",
+            "width": 280,
+            "height": 160,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "purpose": "创建开放导视路径",
+          "command": "path.create",
+          "params": {
+            "d": "M 40 100 L 220 100"
+          },
+          "parameterReference": "command-evidence.json#path.create"
+        },
+        {
+          "purpose": "开放路径无填充",
+          "command": "paint.setFill",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "purpose": "设置深色导视描边",
+          "command": "paint.setStroke",
+          "params": {
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "purpose": "设置箭头与端点对齐",
+          "command": "stroke.set",
+          "params": {
+            "weight": 8,
+            "cap": "round",
+            "endArrow": "Triangle",
+            "arrowAlign": "tip"
+          },
+          "parameterReference": "command-evidence.json#stroke.set"
+        },
+        {
+          "purpose": "创建可编辑文字",
+          "command": "text.create",
+          "params": {
+            "x": 40,
+            "y": 55,
+            "text": "GO",
+            "size": 24,
+            "font": "Arial",
+            "color": "#172033"
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        }
+      ],
+      "assertions": {
+        "kindCounts": {
+          "Path": 1,
+          "Type": 1
+        },
+        "texts": [
+          "GO"
+        ],
+        "stroke": {
+          "width": 8,
+          "cap": "round",
+          "endArrow": "Triangle",
+          "arrowAlign": "tip"
+        },
+        "artboard": [
+          280,
+          160
+        ]
+      },
+      "checks": [
+        "箭头朝右且保留描边参数",
+        "GO文字可编辑",
+        "箭头端点对齐不超出目的端"
+      ],
+      "limits": "箭头实际指向须按场地路线确认，本例不代表已完成无障碍或安全导视设计。"
+    },
+    {
+      "id": "dimension-unit-delivery",
+      "title": "矢量方案图的尺寸标注与单位切换",
+      "category": "technical-illustration",
+      "inputs": "独立图中144pt的线性距离；真实图按测量位置替换。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "minimumRuntime": "0.12.0",
+      "steps": [
+        {
+          "command": "file.new",
+          "purpose": "只在独立新图中建立测试画板；已有工程跳过并重新定位对象",
+          "params": {
+            "width": 240,
+            "height": 180,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "command": "dimension.create",
+          "purpose": "标注144pt距离，比例必须是字符串",
+          "params": {
+            "mode": "linear",
+            "a": [
+              20,
+              50
+            ],
+            "b": [
+              164,
+              50
+            ],
+            "options": {
+              "units": "in",
+              "precision": 2,
+              "scale": "1:1"
+            }
+          },
+          "parameterReference": "command-evidence.json#dimension.create"
+        },
+        {
+          "command": "dimension.update",
+          "purpose": "对刚创建的标注改用毫米显示",
+          "params": {
+            "options": {
+              "units": "mm",
+              "precision": 1
+            }
+          },
+          "parameterReference": "command-evidence.json#dimension.update"
+        }
+      ],
+      "assertions": {
+        "artboard": [
+          240,
+          180
+        ],
+        "kindCounts": {
+          "Group": 1,
+          "Type": 1
+        },
+        "texts": [
+          "50.8 mm"
+        ]
+      },
+      "checks": [
+        "原生保存后保留标注组与50.8 mm文字",
+        "重开后按实际标注ID改回in，得到2.00 in",
+        "单位切换不改测量端点"
+      ],
+      "limits": "点坐标标注是固定测量，不声称跟随另一个对象。关联标注需使用source中的实际对象/边/锚点引用；不作为工程精度认证。"
+    },
+    {
+      "id": "intertwine-overlap-order",
+      "title": "交织标志的局部遮挡与可逆释放",
+      "category": "brand-artwork",
+      "inputs": "独立图两条纯色带，重叠区位于100,80；真实标志按几何定位。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "minimumRuntime": "0.12.0",
+      "steps": [
+        {
+          "command": "file.new",
+          "purpose": "只在独立新图中建立测试画板；已有工程跳过并重新定位对象",
+          "params": {
+            "width": 240,
+            "height": 180,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "command": "shape.rectangle",
+          "purpose": "创建水平红带",
+          "params": {
+            "x": 20,
+            "y": 60,
+            "width": 180,
+            "height": 50
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "command": "paint.setFill",
+          "purpose": "红带填色",
+          "params": {
+            "color": "#ff0000"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "command": "paint.setStroke",
+          "purpose": "去掉红带描边",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "command": "shape.rectangle",
+          "purpose": "创建垂直蓝带",
+          "params": {
+            "x": 80,
+            "y": 20,
+            "width": 50,
+            "height": 140
+          },
+          "parameterReference": "command-evidence.json#shape.rectangle"
+        },
+        {
+          "command": "paint.setFill",
+          "purpose": "蓝带填色",
+          "params": {
+            "color": "#0000ff"
+          },
+          "parameterReference": "command-evidence.json#paint.setFill"
+        },
+        {
+          "command": "paint.setStroke",
+          "purpose": "去掉蓝带描边",
+          "params": {
+            "none": true
+          },
+          "parameterReference": "command-evidence.json#paint.setStroke"
+        },
+        {
+          "command": "select.all",
+          "purpose": "仅此独立新图内选择两条新带；已有工程用实际ID",
+          "params": {},
+          "parameterReference": "command-evidence.json#select.all"
+        },
+        {
+          "command": "object.intertwine.make",
+          "purpose": "创建可编辑交织对象",
+          "params": {},
+          "parameterReference": "command-evidence.json#object.intertwine.make"
+        },
+        {
+          "command": "object.intertwine.arrange",
+          "purpose": "仅切换指定交叠区的前后顺序",
+          "params": {
+            "at": [
+              100,
+              80
+            ],
+            "order": "toggle"
+          },
+          "parameterReference": "command-evidence.json#object.intertwine.arrange"
+        }
+      ],
+      "assertions": {
+        "artboard": [
+          240,
+          180
+        ],
+        "kindCounts": {
+          "Intertwine": 1,
+          "Rectangle": 2
+        },
+        "fills": [
+          "#ff0000",
+          "#0000ff"
+        ]
+      },
+      "checks": [
+        "重叠区从蓝色改为红色，交叠区外保持",
+        "保存重开后交织仍可编辑",
+        "对副本释放交织后还原两条原对象及原始蓝色在前顺序"
+      ],
+      "limits": "只验证单交叠区域的矩形色带；复杂自交、描边与透明效果需单独查看，不全选改用户其他对象。"
+    },
+    {
+      "id": "csv-text-variants",
+      "title": "CSV驱动的可编辑文字版本",
+      "category": "variable-data",
+      "inputs": "独立画板的一个活文字对象与两个虚构文案版本；实际CSV按用户材料填写。",
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+      "minimumRuntime": "0.12.0",
+      "steps": [
+        {
+          "command": "file.new",
+          "purpose": "只在独立新图中建立测试画板；已有工程跳过并重新定位对象",
+          "params": {
+            "width": 240,
+            "height": 180,
+            "units": "Pixels",
+            "backgroundContents": "white"
+          },
+          "parameterReference": "command-evidence.json#file.new",
+          "newDocumentOnly": true
+        },
+        {
+          "command": "text.create",
+          "purpose": "创建可编辑文字",
+          "params": {
+            "x": 20,
+            "y": 70,
+            "text": "ORIGINAL",
+            "font": "Arial",
+            "size": 20
+          },
+          "parameterReference": "command-evidence.json#text.create"
+        },
+        {
+          "command": "variable.define",
+          "purpose": "定义文字变量",
+          "params": {
+            "name": "offer",
+            "kind": "text"
+          },
+          "parameterReference": "command-evidence.json#variable.define"
+        },
+        {
+          "command": "variable.bind",
+          "purpose": "绑定当前新建文字；已有工程使用实际对象ID",
+          "params": {
+            "variable": "offer"
+          },
+          "parameterReference": "command-evidence.json#variable.bind"
+        },
+        {
+          "command": "dataset.import",
+          "purpose": "导入两个数据版本；同名数据集会被替换",
+          "params": {
+            "csv": "name,offer\nA,ALPHA\nB,BETA\n"
+          },
+          "parameterReference": "command-evidence.json#dataset.import"
+        },
+        {
+          "command": "dataset.select",
+          "purpose": "应用B版本",
+          "params": {
+            "name": "B"
+          },
+          "parameterReference": "command-evidence.json#dataset.select"
+        },
+        {
+          "command": "dataset.export",
+          "purpose": "导出CSV检查全部版本",
+          "params": {},
+          "parameterReference": "command-evidence.json#dataset.export"
+        }
+      ],
+      "assertions": {
+        "artboard": [
+          240,
+          180
+        ],
+        "texts": [
+          "BETA"
+        ],
+        "textCount": 1
+      },
+      "checks": [
+        "文字仍为可编辑Type，B版本为BETA",
+        "重开后切换A版本为ALPHA，保留两套数据",
+        "CSV导出仍含A/ALPHA和B/BETA"
+      ],
+      "limits": "导入前盘点已有变量和数据集；同名替换须在授权范围内。换文案后检查溢出与字体，不把两个短词样例推断为任意多语言排版通过。"
+    }
+  ]
+}

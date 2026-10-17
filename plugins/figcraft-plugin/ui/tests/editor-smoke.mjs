@@ -1,0 +1,37 @@
+import {Client} from '@modelcontextprotocol/sdk/client/index.js';
+import {StdioClientTransport} from '@modelcontextprotocol/sdk/client/stdio.js';
+import {chromium} from 'playwright-core';
+import {mkdtemp,readFile,writeFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
+import assert from 'node:assert/strict';
+import {unpackZip} from '../editor-update.mjs';
+const workspace=await mkdtemp(join(tmpdir(),'figcraft-editor-smoke-'));
+const client=new Client({name:'figcraft-acceptance',version:'1'});let browser;
+try{
+ await client.connect(new StdioClientTransport({command:process.execPath,args:[resolve('dist/adapter.mjs')],env:{...process.env,CRAFT_WORKSPACE_ROOT:workspace,CRAFT_EDITOR_UPDATE:'off'},stderr:'inherit'}));
+ const tools=await client.listTools();assert(tools.tools.some(t=>t.name==='create_node'));
+ const call=async(name,args={})=>{const r=await client.callTool({name,arguments:args},undefined,{timeout:180000});assert(!r.isError,JSON.stringify(r));return r;};
+ const opened=await call('open_browser_editor');browser=await chromium.launch({channel:'chrome',args:['--enable-unsafe-swiftshader','--use-angle=swiftshader']});
+ const page=await browser.newPage({viewport:{width:1280,height:1024}});page.on('pageerror',e=>console.error('PAGE',e.message));await page.goto(opened.structuredContent.editorUrl);await page.waitForTimeout(1000);
+ const frame=page.frames().find(f=>f.url().includes('/panel'));await frame.waitForFunction(()=>window.__craftPlugin?.automationReady,null,{timeout:120000});
+ const created=await call('create_node',{type:'frame',name:'Delivery screen',width:390,height:884,props:{fill:'#FFFFFF'}});
+ const value=JSON.parse(created.content.find(c=>c.type==='text').text);const parent=value.id;
+ await call('create_node',{type:'text',name:'Headline',parent,x:24,y:32,text:'Craft 工作区',props:{fontSize:28,fill:'#202020'}});
+ assert.match(JSON.stringify(await call('inspect_document')),/Craft 工作区/);
+ await call('save_file',{path:'screen.figcraft'});
+ assert.equal((await readFile(join(workspace,'screen.figcraft'))).subarray(0,2).toString(),'PK');
+ const document=JSON.parse(unpackZip(await readFile(join(workspace,'screen.figcraft'))).get('document.json'));
+ const headline=Object.values(document.nodes).find(n=>n.name==='Headline');
+ assert(headline.width>120, 'Text must have real font metrics, not an empty 1-pixel glyph run');
+ await call('run_command',{command:'file.new',params:{}});await call('open_file',{path:'screen.figcraft'});
+ assert.match(JSON.stringify(await call('inspect_document')),/Craft 工作区/);
+ await call('export',{format:'png',path:'screen.png',ids:[parent]});
+ assert.equal((await readFile(join(workspace,'screen.png'))).subarray(1,4).toString(),'PNG');
+ assert((await call('screenshot',{window:true})).content.some(c=>c.type==='image'));
+ await page.screenshot({path:join(workspace,'editor.png')});
+ await page.reload();await page.waitForTimeout(1500);await page.frames().find(f=>f.url().includes('/panel')).waitForFunction(()=>window.__craftPlugin?.automationReady,null,{timeout:120000});
+ await call('open_file',{path:'screen.figcraft'});assert.match(JSON.stringify(await call('inspect_document')),/Craft 工作区/);
+ await page.goto('about:blank');await page.waitForTimeout(500);assert.equal((await call('editor_status')).structuredContent.attached,false);
+ const result={workspace,sourceBuild:true,tools:tools.tools.length,editSaveReopen:true,exportPng:true,reload:true,detach:true};await writeFile(join(workspace,'result.json'),JSON.stringify(result));console.log(JSON.stringify(result));
+}finally{await browser?.close();await client.close();}

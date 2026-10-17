@@ -1,0 +1,41 @@
+{
+  "runtime": {
+    "version": "v0.10.0",
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.10.0/effectcraft-0.10.0-windows-x64-portable.zip",
+    "sha256": "aa6102df3a514c84c49a08829b2e0da67a5c44cd4a27c743e3681a2c68cade91",
+    "executable": "effectcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "comp.new": {
+      "enabled": true,
+      "id": "comp.new",
+      "label": "New Composition...",
+      "menu": [
+        "Composition"
+      ],
+      "params": "{name?, width?, height?, frameRate?, duration? (s), startTime? (s) | startTimecode?, background? [r,g,b]|#hex, pixelAspect?, shutterAngle?, shutterPhase?, motionBlurSamples?, adaptiveSampleLimit? (16–256), preserveFrameRate?: bool, preserveResolution?: bool, renderer?: classic3D|advanced3D, anchor?, open?}",
+      "shortcut": "Cmd+N"
+    },
+    "layer.newText": {
+      "enabled": false,
+      "id": "layer.newText",
+      "label": "Text",
+      "menu": [
+        "Layer",
+        "New"
+      ],
+      "params": "{text?, name? (layer name; default the text), position? [x,y], box? [x,y,w,h] (paragraph text, comp space), vertical?, edit? (start editing), font?, style?, size?, fill?, stroke?, applyFill?, applyStroke?, strokeWidth?, tracking?, leading?, baselineShift?, hScale?, vScale?, tsume?, fauxBold?, fauxItalic?, allCaps?, smallCaps?, baseline?, superscript?, subscript?, kerning?, ligatures?, justify?, indentLeft?, indentRight?, indentFirst?, spaceBefore?, spaceAfter?, direction?, composer?, hangingPunctuation?, strokeOverFill?} (attributes as layer.setText)",
+      "shortcut": "Cmd+Alt+Shift+T",
+      "why": "no composition is open"
+    },
+    "prop.addKey": {
+      "enabled": false,
+      "id": "prop.addKey",
+      "label": "Add Keyframe",
+      "params": "{layer?, path|prop, time? (layer s by default), timeBase?: layer|comp, value?}",
+      "why": "no composition is open"
+    }
+  },
+  "sceneAcceptance": "NOT_RUN"
+}

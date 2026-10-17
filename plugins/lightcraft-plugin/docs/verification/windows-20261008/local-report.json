@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceFingerprint": "fdcc29d003da8090ea64c52b723df0c2adf73a47747e03fb94d637aa08b72f08",
+  "layers": {
+    "structure": {
+      "status": "PASS",
+      "evidence": [
+        "README.md"
+      ],
+      "scope": "package, strict OpenSpec, generated source or protected snapshot checks"
+    },
+    "mock": {
+      "status": "PASS",
+      "evidence": [
+        "plugin-unittest-python-3.12.log",
+        "plugin-unittest-python-3.13.log"
+      ],
+      "scope": "unchanged plugin test/runtime bytes; prior 59 Python and 14 Node tests plus exact HEAD CI verified, source-candidate tests not counted as plugin tests"
+    },
+    "native": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "host": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "visual": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "platform": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "remoteCI": {
+      "status": "PASS",
+      "evidence": [
+        "plugin-offline-ci.json"
+      ],
+      "scope": "plugin commit c2cc940; subsequent report-only commit leaves tested plugin code, snapshot and tests unchanged; source-only CI stored separately"
+    }
+  },
+  "completeAcceptance": false,
+  "scope": "current candidate; remaining extension and release gates stay open"
+}

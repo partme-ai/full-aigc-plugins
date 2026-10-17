@@ -1,0 +1,63 @@
+{
+  "policy": "只借鉴工作流事实，场景正文与命令例子原创编写，不复制外部代码、正文或素材。许可不明的来源仅作为参考。",
+  "sources": [
+    {
+      "repository": "audacity/audacity-manual",
+      "commit": "92794e43861704433b0af65dbe503ef9253ff4e4",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "manual/man/noise_reduction.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/noise_reduction.html",
+          "bytes": 25937
+        },
+        {
+          "path": "manual/man/normalize.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/normalize.html",
+          "bytes": 17644
+        },
+        {
+          "path": "manual/man/tutorial_click_and_pop_removal_techniques.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/tutorial_click_and_pop_removal_techniques.html",
+          "bytes": 9617
+        },
+        {
+          "path": "manual/man/license.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/license.html",
+          "bytes": 33735
+        },
+        {
+          "path": "manual/man/fades.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/fades.html",
+          "bytes": 18516
+        },
+        {
+          "path": "manual/man/reverse.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/reverse.html",
+          "bytes": 11689
+        },
+        {
+          "path": "manual/man/invert.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/invert.html",
+          "bytes": 12354
+        },
+        {
+          "path": "manual/man/dc_offset.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/dc_offset.html",
+          "bytes": 17019
+        },
+        {
+          "path": "manual/man/export_multiple.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/export_multiple.html",
+          "bytes": 30608
+        },
+        {
+          "path": "manual/man/selecting_audio_the_basics.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/selecting_audio_the_basics.html",
+          "bytes": 11742
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    }
+  ]
+}

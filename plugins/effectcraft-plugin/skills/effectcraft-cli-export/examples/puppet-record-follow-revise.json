@@ -1,0 +1,107 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "tool": "open_project",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          "Deform subject"
+        ]
+      }
+    },
+    {
+      "command": "puppet.info",
+      "params": {
+        "layer": "Deform subject",
+        "time": 0
+      },
+      "as": "original"
+    },
+    {
+      "command": "puppet.recordOptions",
+      "params": {
+        "speed": 100,
+        "smoothing": 0,
+        "useDraftDeformation": false,
+        "showMesh": false
+      },
+      "as": "recordOptions"
+    },
+    {
+      "command": "puppet.recordPin",
+      "params": {
+        "layer": "Deform subject",
+        "pin": {
+          "$ref": "original.meshes.0.pins.1.pin"
+        },
+        "samples": [
+          [
+            0,
+            48,
+            24
+          ],
+          [
+            0.25,
+            48,
+            18
+          ],
+          [
+            0.5,
+            48,
+            24
+          ]
+        ],
+        "start": 0
+      },
+      "as": "recorded"
+    },
+    {
+      "command": "puppet.info",
+      "params": {
+        "layer": "Deform subject",
+        "time": 0.3333333333333333
+      },
+      "as": "finalInfo"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Deform subject"
+      },
+      "as": "subjectProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Control"
+      },
+      "as": "controlProperties"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "time": 0.3333333333333333,
+        "path": {
+          "$output": "revised.png"
+        },
+        "inline": false
+      }
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "project.ecproj"
+        }
+      }
+    }
+  ]
+}

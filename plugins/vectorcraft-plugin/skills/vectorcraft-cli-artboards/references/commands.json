@@ -1,0 +1,72 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "vectorcraft",
+  "runtimeVersion": "0.2.0-craft.2",
+  "upstreamRepository": "https://github.com/storytold/vectorcraft",
+  "upstreamCommit": "90e022b0c05f12171a4e9bebe0894fa62f7bc95c",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "artboard.new",
+      "label": "New Artboard",
+      "params": "{x?, y?, width?, height?, name?} (default: right of the last)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.delete",
+      "label": "Delete Artboard",
+      "params": "{index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.setProps",
+      "label": "Artboard Options…",
+      "params": "{index, name?, x?, y?, width?, height?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.fitToArt",
+      "label": "Fit to Artwork Bounds",
+      "params": "{index?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.fitToSelection",
+      "label": "Fit to Selected Art",
+      "params": "{index?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.move",
+      "label": "Move Artboard",
+      "params": "{index, dx, dy, moveArt?: bool} move an artboard (and the unlocked art fully inside it)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.convertToArtboards",
+      "label": "Convert to Artboards",
+      "params": "{} turn each selected object's bounds into a new artboard (the objects are removed) → {artboards}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.rearrange",
+      "label": "Rearrange All Artboards…",
+      "params": "{columns?: n (2), spacing?: pt (20), byColumn?: false, moveArtwork?: true} lay artboards out in a grid",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.reorder",
+      "label": "Move Artboard Up/Down",
+      "params": "{index, to} change an artboard's number",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.duplicate",
+      "label": "Duplicate Artboard",
+      "params": "{index} copy placed right of the last artboard",
+      "enabledAtEmptySession": false
+    }
+  ],
+  "runtimePatchSourceCommit": "402de7b5f698797af9195cbd380cc97716883bc8",
+  "analysisCommit": "36a6a8ae49f0e2d1059361ab1f842b1ec172bc9e"
+}

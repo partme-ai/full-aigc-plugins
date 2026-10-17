@@ -1,0 +1,78 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "vectorcraft",
+  "id": "logo-system",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "仅独立新标志任务创建空文档；已有工程不能直接重放",
+      "command": "file.new",
+      "params": {
+        "width": 240,
+        "height": 180,
+        "units": "Pixels",
+        "backgroundContents": "white"
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "创建不对称L形几何，避免镜像对称矩形产生重叠副本",
+      "command": "path.create",
+      "params": {
+        "d": "M 20 20 L 80 20 L 80 45 L 45 45 L 45 100 L 20 100 Z"
+      }
+    },
+    {
+      "purpose": "设置品牌主色",
+      "command": "paint.setFill",
+      "params": {
+        "color": "#2457cc"
+      }
+    },
+    {
+      "purpose": "几何符号不带继承描边",
+      "command": "paint.setStroke",
+      "params": {
+        "none": true
+      }
+    },
+    {
+      "purpose": "沿明确轴复制另一半，文字不参与镜像",
+      "command": "object.reflect",
+      "params": {
+        "axis": "vertical",
+        "origin": [
+          90,
+          60
+        ],
+        "copy": true
+      }
+    },
+    {
+      "purpose": "只在本空文档中选择刚创建的两个符号部件",
+      "command": "select.all",
+      "params": {}
+    },
+    {
+      "purpose": "将两半共同编组，保留路径编辑",
+      "command": "object.group",
+      "params": {}
+    },
+    {
+      "purpose": "独立保留活文字；按实际品牌和合法字体替换",
+      "command": "text.create",
+      "params": {
+        "x": 20,
+        "y": 140,
+        "text": "CRAFT",
+        "size": 24,
+        "font": "Arial",
+        "color": "#2457cc"
+      }
+    }
+  ],
+  "check": "检查负空间、小尺寸辨识度、单色与反白版，并保留文字字体信息。",
+  "boundary": "本配方仅独立新标志图。已有工程跳过file.new，按实际返回ID选择两半再编组，不能select.all处理用户其他对象。仅镜像几何，不镜像文字；本例不代替完整品牌设计与商标确认。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "craft-runtime-lock/v1",
+  "artifact": "effectcraft-cli",
+  "resolvedVersion": "0.2.0",
+  "releaseRef": "v0.2.0",
+  "repository": "https://github.com/storytold/effectcraft",
+  "artifacts": {
+    "darwin-arm64": {
+      "url": "https://github.com/storytold/effectcraft/releases/download/v0.2.0/effectcraft-cli-0.2.0-macos-universal.zip",
+      "archiveSha256": "a90e19faf3c4aa427cc519298582f50e7c6c01a3c9f5578ef3287fffb3ad02fa",
+      "binarySha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+      "evidenceScope": "headless MCP smoke only"
+    }
+  },
+  "supportedPluginWorkflows": []
+}

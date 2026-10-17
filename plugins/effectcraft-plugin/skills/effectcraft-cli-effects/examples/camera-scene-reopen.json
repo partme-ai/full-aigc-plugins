@@ -1,0 +1,56 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "tool": "open_project",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "command": "comp.renderer",
+      "params": {},
+      "as": "renderer"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Primary camera"
+      },
+      "as": "cameraProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Hero cube"
+      },
+      "as": "subjectProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Fill light"
+      },
+      "as": "lightProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Control"
+      },
+      "as": "controlProperties"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "path": {
+          "$output": "preview.png"
+        },
+        "time": 0,
+        "inline": false
+      }
+    }
+  ]
+}
