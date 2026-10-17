@@ -6,7 +6,7 @@
 
 ## PhotoCraft dev.20261017.6 老照片工作流深化
 
-完善已有老照片技能的五条方法及两阶段检查，场景总数保持210。macOS/Windows合成夹具验证局部保护区、原层保留、可编辑色阶、保存重开；真实Codex原生MCP及内置浏览器中，v5已安装实例的同一画布观察到修补、工作层及色阶同步，v6复用完全相同运行资源，不将v5视觉样例写成v6新增GUI验收。公开v6完整ZIP安装、22个技能发现、MCP基础调用和资源摘要通过。全局渲染Web/CLI最大1/255差异、首次下载404后内置回退均保留；真实旧照片质量与其他宿主仍未证明。详见[回归记录](craft-photo-restoration-validation.json)。
+完善已有老照片技能的五条方法及两阶段检查，场景总数保持210。macOS/Windows合成夹具验证局部保护区、原层保留、可编辑色阶、保存重开；真实Codex原生MCP及内置浏览器中，v5已安装实例的同一画布观察到修补、工作层及色阶同步，v6复用完全相同运行资源，不将v5视觉样例写成v6新增GUI验收。公开v6完整ZIP安装、22个技能发现、MCP基础调用和资源摘要通过。全局渲染Web/CLI最大1/255差异、首次下载404后内置回退均保留；真实旧照片质量与其他宿主仍未证明。已按feature→test→main发布，源码提交`211af69fcba564f8ea75c35e0eb50ac4d44a8ee4`；test三组CI通过，main同源码[市场27项](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39037360133)、[安装/MCP 14项](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39037360144)、[13应用业务](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39037360174)也全部通过。实际订阅刷新errors为空，原生列表版本v6且独立修复计划存在、图标有效。详见[回归记录](craft-photo-restoration-validation.json)。
 
 ## EffectCraft dev.20261017.6 场景技能交付
 

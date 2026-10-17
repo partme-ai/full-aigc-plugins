@@ -48,7 +48,12 @@
         "path": ".local/photo-restoration-20261017/native-restored.jpg",
         "sha256": "6901a3a4c5dbd8754c90e43e0f546677d63c2773d2c565760439580d1b47d777"
       }
-    ]
+    ],
+    "frozenRpcTrace": {
+      "path": ".local/photo-restoration-20261017/native-acceptance-rpc.json",
+      "sha256": "14cc341e23246f454cef5b26e1fbc040b1fd521b9ab814da0b19fa8d8d7f4f76"
+    },
+    "reopenedDisplayName": "Internal document name retained a previous save name; file path, three layers and exported pixels verified separately; names are not document IDs."
   },
   "windows": {
     "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39036648418",
@@ -92,7 +97,16 @@
     "discoveredSkills": 22,
     "runtimeFilesAndUrlUnchangedFromV5": true,
     "sameCanvasEvidenceScope": "Actual v5 installed plugin with this unchanged runtime, not a new v6 GUI run",
-    "marketMain": "PENDING"
+    "marketMain": "PUBLISHED_AND_SUBSCRIBED_NATIVE_LIST_VERIFIED",
+    "marketMainCommit": "211af69fcba564f8ea75c35e0eb50ac4d44a8ee4",
+    "nativeListing": {
+      "nativeListVersion": "0.1.0-dev.20261017.6",
+      "marketPackageVersion": "0.1.0-dev.20261017.6",
+      "installed": true,
+      "availability": "AVAILABLE",
+      "standaloneRestorationPlan": "PRESENT",
+      "officialIcons": "PASS"
+    }
   },
   "tests": {
     "phaseTests": 4,
@@ -101,6 +115,19 @@
   "featureCI": {
     "business13Apps": 39036648418,
     "windowsInstallMcp": 39036648398,
+    "conclusion": "success"
+  },
+  "testCI": {
+    "market27Jobs": 39037070680,
+    "installMcp14Jobs": 39037070708,
+    "windowsBusiness13Apps": 39037070750,
+    "conclusion": "success"
+  },
+  "mainCI": {
+    "commit": "211af69fcba564f8ea75c35e0eb50ac4d44a8ee4",
+    "market27Jobs": 39037360133,
+    "installMcp14Jobs": 39037360144,
+    "windowsBusiness13Apps": 39037360174,
     "conclusion": "success"
   }
 }
