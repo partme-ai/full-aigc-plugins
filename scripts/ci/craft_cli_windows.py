@@ -156,6 +156,9 @@ def main():
             require(a.provenance is not None, 'Source-built executable requires provenance')
             lock=json.loads(a.provenance.read_text(encoding='utf-8'))
             require(lock['app']==a.plugin and lock['status']=='development-candidate-not-accepted', 'Wrong candidate provenance')
+            from craft_main import candidate
+            expected=candidate(a.plugin)
+            require(all(lock[key]==expected[key] for key in ['commit','repository','skillsCommit']), 'Candidate differs from pinned main/skills')
             exe=a.executable.resolve()
             require(hashlib.sha256(exe.read_bytes()).hexdigest()==lock['exeSha256'], 'Candidate executable checksum mismatch')
             report['runtime']=lock
@@ -225,6 +228,7 @@ def main():
         report['error']=str(e); raise
     finally:
         (out/'result.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
-        print(json.dumps(report,ensure_ascii=False))
+        # Windows非UTF-8控制台也必须能完成报告输出；JSON文件仍保留原生Unicode。
+        print(json.dumps(report,ensure_ascii=True))
 
 if __name__=='__main__': main()
