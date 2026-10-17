@@ -1,7 +1,7 @@
 {
   "scope": "development contact sheet extension of batch delivery; no scene count increment",
   "sourceCommit": "754cc6ae272b2ec1b7385a1a004cccb9518d56a2",
-  "pluginCommit": "6549472f49839aca74500a9edec8a36c3aafb74d",
+  "pluginCommit": "bc072c867cb2ac0ba5b6820a77d5d0f8bdce3715",
   "githubWorkflowSource": {
     "repository": "TouchTone/make_contact",
     "commit": "825604311889c9d1f5900dc565a228b581822702",
@@ -20,8 +20,29 @@
     "scope": "synthetic inputs; real photographs, fonts and editor sync not inferred"
   },
   "sourceHelperUnitTests": 3,
-  "nativeVisualReview": "initial three-image probe examined, 600x440; final two-page export needs review",
-  "windows": "PENDING",
+  "nativeVisualReview": "PASS; both final synthetic pages inspected on macOS and Windows",
+  "windows": {
+    "run": 39069888321,
+    "job": 117505124070,
+    "jobResult": "PASS",
+    "resultJsonSha256": "6eb1d3b48101ebd46dfc8f4f955e4989076b079a7607a6d05ff7529094988615",
+    "contactSheet": {
+      "inputCount": 7,
+      "uniqueSyntheticImages": 3,
+      "pages": 2,
+      "cliCalls": 15,
+      "sourceScript": "scripts\\contact_sheet.py",
+      "inputHashesUnchanged": true,
+      "pixelChecks": "all seven centres match explicit input order",
+      "scope": "synthetic inputs; real photographs, fonts and editor sync not inferred"
+    },
+    "wholePhotoProcessCount": 248,
+    "scope": "whole workflow still in progress; PhotoCraft job and artifact verified"
+  },
   "embeddedEditorSync": "NOT_TESTED",
-  "publicMarketplaceRelease": "NOT_PUBLISHED; current market version unchanged"
+  "publicMarketplaceRelease": "NOT_PUBLISHED; current market version unchanged",
+  "pluginPythonTests": {
+    "count": 73,
+    "result": "PASS"
+  }
 }
