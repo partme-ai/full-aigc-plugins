@@ -1,0 +1,245 @@
+{
+  "scope": "one original data merge badge scene; native/media/host/release evidence are separate",
+  "skillSourceCommit": "1f6564bb4d260929e11b92329fb7aa94840f461e",
+  "pluginCommit": "5e7817c05568bf6b03e07366437344e25bf5ad0d",
+  "upstreamCli": {
+    "version": "0.8.0",
+    "binarySha256": "983b5a6ea07fabae58ebe82161b4aa1a37fcb4bf239e5ba25a27047366038247",
+    "archiveSha256": "e663f967d9e1c439e0eb7759147be29121da198cdd71cedd4afb3ae0e0336243",
+    "officialReleaseAssetDigestMatches": "PASS",
+    "binaryMatchesArchiveMember": "PASS"
+  },
+  "sources": [
+    {
+      "repository": "berteh/ScribusGenerator",
+      "commit": "2b2f1ffd142de19a78686dffa2fe16a27d5d1982",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/berteh/ScribusGenerator/2b2f1ffd142de19a78686dffa2fe16a27d5d1982/README.md",
+      "sha256": "903b200aa15342949ef08dd4f5cd7b09d05e0dc70aaeef37c8a1418e522be761",
+      "bytes": 30207
+    },
+    {
+      "repository": "berteh/ScribusGenerator",
+      "commit": "2b2f1ffd142de19a78686dffa2fe16a27d5d1982",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/berteh/ScribusGenerator/2b2f1ffd142de19a78686dffa2fe16a27d5d1982/LICENSE",
+      "sha256": "dc0466a34d4395c6600d61a077a53e616766cd515298421cf690254657b28204",
+      "bytes": 1150
+    },
+    {
+      "repository": "berteh/ScribusGenerator",
+      "commit": "2b2f1ffd142de19a78686dffa2fe16a27d5d1982",
+      "path": "ScribusGeneratorBackend.py",
+      "url": "https://raw.githubusercontent.com/berteh/ScribusGenerator/2b2f1ffd142de19a78686dffa2fe16a27d5d1982/ScribusGeneratorBackend.py",
+      "sha256": "8c5a6ec7ff0564fb1041b6a9d4ddc0483b67106c41beedc81eb18907ec54df66",
+      "bytes": 41243
+    }
+  ],
+  "fontSources": [
+    {
+      "repository": "notofonts/noto-cjk",
+      "commit": "f8d157532fbfaeda587e826d4cd5b21a49186f7c",
+      "path": "Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf",
+      "url": "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf",
+      "sha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b",
+      "bytes": 16437364
+    },
+    {
+      "repository": "notofonts/noto-cjk",
+      "commit": "f8d157532fbfaeda587e826d4cd5b21a49186f7c",
+      "path": "Sans/LICENSE",
+      "url": "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/LICENSE",
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+      "bytes": 4301
+    }
+  ],
+  "native": {
+    "id": "data-merge-badges",
+    "variants": [
+      {
+        "variant": "bilingual",
+        "result": "PASS",
+        "records": 3,
+        "nameSize": 22,
+        "nativeProcessesInChild": 6
+      },
+      {
+        "variant": "long",
+        "result": "PASS",
+        "records": 1,
+        "nameSize": 18,
+        "nativeProcessesInChild": 7
+      },
+      {
+        "variant": "missing-glyph",
+        "rejectedWithExpectedReason": "PASS"
+      },
+      {
+        "variant": "extreme",
+        "rejectedWithExpectedReason": "PASS"
+      }
+    ],
+    "technicalRoundtrip": "PASS",
+    "scope": "actual standalone native entry; nested CLI counts in receipts, not direct Runner count; host sync NOT_TESTED"
+  },
+  "knownCorrections": [
+    "data.fields does not attach the source",
+    "data.placeholder.add inserts and does not replace NAME sentinel",
+    "matching text is insufficient: native Source Sans3 produced CJK tofu and missingGlyphs",
+    "Document Fonts loaded on open; file.new resets the document font environment; reopen seed before creating fields"
+  ],
+  "review": {
+    "nativePng": "Chinese card with Noto visually checked; Latin first page checked",
+    "fullPrintQuality": "NOT_TESTED",
+    "realHostSync": {
+      "result": "LIMITED_SYNTHETIC_PASS",
+      "host": "native Codex app-server + IAB",
+      "thread": "01a14b7f-619d-71d1-9368-82632dbfc9d8",
+      "calls": 27,
+      "distribution": "isolated local candidate18.1",
+      "checks": [
+        "opened native template, first and Chinese record preview visible",
+        "missing native sidecar font detected and replaced via actual font.replace with bundled LXGW WenKai; font.list and preflight pass",
+        "preview stop restores Name token; actual data.merge returns3records/3pages/no overset",
+        "two actual saved files independently reopened by nativeCLI with correct font sidecar, all full text and preflight pass",
+        "new path reopened in editor at index2; Chinese page and 3page count visibly retained"
+      ],
+      "limits": [
+        "Noto native and LXGW Web have different typography, not pixel parity",
+        "all other hosts NOT_TESTED",
+        "not certified print layout"
+      ],
+      "runtime": {
+        "upstreamVersion": "0.8.0",
+        "commit": "a184db6f8f2d11bc20832c70ac438576d3d2dd1e",
+        "source": "bundled",
+        "latestLookup": "HTTP404 fallback"
+      }
+    },
+    "Windows": {
+      "run": 39065751396,
+      "hubCommit": "f9363cb7496bff2a84ac190700f0de3cb0c14c85",
+      "platform": "win32",
+      "records": 16,
+      "directNativeProcesses": 91,
+      "outputHashesVerified": 197,
+      "newScene": {
+        "id": "data-merge-badges",
+        "variants": [
+          {
+            "variant": "bilingual",
+            "result": "PASS",
+            "records": 3,
+            "nameSize": 22,
+            "nativeProcessesInChild": 6
+          },
+          {
+            "variant": "long",
+            "result": "PASS",
+            "records": 1,
+            "nameSize": 18,
+            "nativeProcessesInChild": 7
+          },
+          {
+            "variant": "missing-glyph",
+            "rejectedWithExpectedReason": "PASS"
+          },
+          {
+            "variant": "extreme",
+            "rejectedWithExpectedReason": "PASS"
+          }
+        ],
+        "technicalRoundtrip": "PASS",
+        "scope": "actual standalone native entry; nested CLI counts in receipts, not direct Runner count; host sync NOT_TESTED"
+      },
+      "result": "PASS"
+    },
+    "marketRelease": "NOT_PUBLISHED",
+    "WindowsPackage": {
+      "run": 39065751310,
+      "result": "PASS"
+    },
+    "windowsChinesePng": "actual Windows bilingual page003 visually reviewed; no tofu"
+  },
+  "staticNewMappedScenes": 1,
+  "windowsPackageFailure": {
+    "run": 39065621946,
+    "cause": "stable workflow source1f6564b and main candidate skills lock oldea34074 diverged; keep assertion, update only skillsCommit",
+    "upstreamEnginePin": "unchanged"
+  },
+  "hostSavedFiles": [
+    {
+      "file": "web-template.designcraft",
+      "sha256": "7dc41fb9d0627171ddb186da9f74b5192ee3074eb816d440bad71e233fbd5aed",
+      "preflight": "PASS",
+      "fullText": "PASS",
+      "fontFamily": "LXGW WenKai",
+      "fontSource": "document",
+      "pages": 1
+    },
+    {
+      "file": "web-badges.designcraft",
+      "sha256": "537431df866cbe52575ea4f43a8ef6381046f6f517c971724307eeefa4549e96",
+      "preflight": "PASS",
+      "fullText": "PASS",
+      "fontFamily": "LXGW WenKai",
+      "fontSource": "document",
+      "pages": 3
+    }
+  ],
+  "webFontAdaptation": "native Document Fonts not automatically available inWeb; use verified bundled LXGW WenKai only when no brand font requirement, then repreview/preflight",
+  "finalSkillSourceCommit": "265a7daf818e83caabbf062d3565dce53093d644",
+  "finalPluginCommit": "caf4a176261d1032c702f726d10f6e06894026ce",
+  "auxiliaryTests": {
+    "hub": 209,
+    "inputGuardMethods": 2,
+    "designHelperTests": 18,
+    "result": "PASS"
+  },
+  "testBranchCi": {
+    "source": 39066209309,
+    "plugin": 39066214965,
+    "architecture": 39066215172,
+    "result": "PASS"
+  },
+  "mainSourceCi": {
+    "run": 39066281848,
+    "result": "PASS"
+  },
+  "webFontProvenance": {
+    "family": "LXGW WenKai",
+    "license": "OFL1.1",
+    "files": [
+      {
+        "file": "fonts/LXGWWenKai-Regular.ttf",
+        "url": "https://raw.githubusercontent.com/lxgw/LxgwWenKai/bce47e180d802eaca4b21741d4bc1fc5fa1b541a/fonts/TTF/LXGWWenKai-Regular.ttf",
+        "sha256": "39ad71264b588165b469e35e6afb162a378dacd1f95348160240ba9038ac3009",
+        "bytes": 25575676
+      },
+      {
+        "file": "fonts/OFL-LXGWWenKai.txt",
+        "url": "https://raw.githubusercontent.com/lxgw/LxgwWenKai/bce47e180d802eaca4b21741d4bc1fc5fa1b541a/OFL.txt",
+        "sha256": "1a25e35da1031c6c3436fde545bb9cb5aca954e9873afe510c834b8b79bd21a0",
+        "bytes": 5171
+      }
+    ],
+    "runtimeEvidence": "actual font.list after font.replace reports bundled, missing:false, source bundled; current immutable runtime only"
+  },
+  "businessByteMatch": {
+    "testedSource": "1f6564bb4d260929e11b92329fb7aa94840f461e",
+    "files": [
+      "scripts/build_badges.py",
+      "scripts/fetch_font.py",
+      "references/craft-steps.json"
+    ],
+    "result": "PASS"
+  },
+  "mainPluginCi": {
+    "run": 39066286361,
+    "result": "PASS"
+  },
+  "mainArchitectureCi": {
+    "run": 39066286551,
+    "result": "PASS"
+  }
+}

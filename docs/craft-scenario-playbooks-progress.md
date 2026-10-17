@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前231条命令映射：PhotoCraft50条，GridCraft21条，WordCraft/LightCraft/FigCraft各17条，SoundCraft16条，CADCraft15条，DesignCraft/DeckCraft各14条，VectorCraft20条，EffectCraft/FilmCraft各9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前232条命令映射：PhotoCraft50条，GridCraft21条，WordCraft/LightCraft/FigCraft各17条，SoundCraft16条，CADCraft/DesignCraft各15条，DeckCraft14条，VectorCraft20条，EffectCraft/FilmCraft各9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
 
 | 内容 | 当前事实 |
 | --- | --- |
-| GitHub来源 | 23个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
+| 首批GitHub来源 | 23个仓见 craft-scenario-sources.json；后续独立技能的固定提交、阅读文件和许可分别记录在各技能workflow-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 当前静态校验覆盖231条映射；独立引用、方法ID、参数和源/插件副本检查通过，不能据此认定231条均已完成业务验收 |
+| 场景分发 | 当前静态校验覆盖232条映射；独立引用、方法ID、参数和源/插件副本检查通过，不能据此认定232条均已完成业务验收 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -427,3 +427,7 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 ## CADCraft等角孔分布图
 
 新增cadcraft-bolt-circle独立技能，固定ezdxf GitHub提交参考实体/分层/半径尺寸，孔阵列编排原创。真实circle返回句柄后执行arraypolar，count包含种子孔，拒绝重复终点、孔相交、非有限参数和覆盖输出。原生完整15记录58次直接CLI及新入口10次子进程CLI通过；Windows完整15记录63次直接CLI，新六孔/偏移七孔入口通过，39个上传输出摘要逐一核对。真实Codex MCP/IAB看到六孔创建、R3改R6后的同步，两个保存DXF独立解析验证圆及关联尺寸3/6。GUI尺寸文字尚未验收；完整ZIP18.2已公开发布并重新下载安装/MCP/资源摘要通过，主市场真实安装/12技能发现/MCP版本及日常市场源刷新通过，test同源码三组CI通过，main同源码三组CI全部通过；18.1因发行门禁版本过期未推广，保留原标签。源/插件已按feature→test→main同步，测试分支CI通过。累计231条静态映射，主检出源/插件已核对一致；不能当作全部场景通过。详见craft-cad-bolt-circle-validation.json。
+
+## DesignCraft可编辑数据合并胸牌
+
+新增designcraft-data-merge-badges，借鉴固定ScribusGenerator工作流事实，原创适配真实数据源选择、空故事占位符、UTF-8字节选择、逐条预览、停止预览恢复模板和合并新文档。原生三条中英文含逗号记录、长姓名22→18pt、缺字拒绝和极长文字拒绝通过；发现并修正仅查字段未选源、插入字段残留NAME、中文缺字及新建重置文档字体环境。任务字体固定SHA/OFL，不全局安装。Windows完整16记录91次直接CLI及197输出摘要通过，成功子入口另有13次CLI，失败入口不混入该数字。209项辅助测试通过；候选构建技能提交锁不一致导致首轮包回归失败，保留检查并只更新Design技能提交后重跑通过。真实Codex/IAB预览英文/中文、退出预览、font.replace切换内置LXGW、合并3条/3页、保存新路径重开通过，两份宿主工程独立原生CLI核对全部文字及预检。原生Noto版与Web LXGW版字体不同，不宣称像素相同。源和插件按feature→test→main同步，最新市场包尚未发布；其他宿主与商业印刷未验收。累计232条静态映射。详见craft-design-badge-merge-validation.json。
