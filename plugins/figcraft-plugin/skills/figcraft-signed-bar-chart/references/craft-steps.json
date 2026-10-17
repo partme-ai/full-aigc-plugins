@@ -1,0 +1,411 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "figcraft",
+  "id": "signed-bar-chart",
+  "templateOnly": true,
+  "execution": "LIMITED_NATIVE_AND_CODEX_SYNTHETIC_PASS",
+  "steps": [
+    {
+      "command": "file.new",
+      "params": {
+        "name": "Signed net-change chart"
+      },
+      "purpose": "仅新文件时初始化；已有设计文件跳过",
+      "newDocumentOnly": true
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Net change chart",
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 1024,
+        "props": {
+          "fill": "#ffffff",
+          "clip": true
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "root"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Chart title",
+        "x": 144,
+        "y": 64,
+        "width": 960,
+        "height": 48,
+        "props": {
+          "fontSize": 32,
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "text": "Net change by region (units)"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "title"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "line",
+        "name": "Zero baseline",
+        "x": 144,
+        "y": 680,
+        "width": 960,
+        "height": 0,
+        "props": {
+          "stroke": "#344054",
+          "strokeWeight": 2
+        },
+        "parent": {
+          "$ref": "root.id"
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "baseline"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "rectangle",
+        "name": "Bar/North",
+        "x": 204,
+        "y": 680,
+        "width": 120,
+        "height": 120,
+        "props": {
+          "fill": "#d92d20",
+          "pluginData": {
+            "scene": "signed-bar-chart",
+            "category": "North",
+            "value": "-20"
+          }
+        },
+        "parent": {
+          "$ref": "root.id"
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "bar0"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Value/North",
+        "x": 164,
+        "y": 808,
+        "width": 200,
+        "height": 32,
+        "props": {
+          "fontSize": 24,
+          "textAlign": "center",
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "text": "-20"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "value0"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Category/North",
+        "x": 164,
+        "y": 856,
+        "width": 200,
+        "height": 32,
+        "props": {
+          "fontSize": 24,
+          "textAlign": "center",
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "text": "North"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "category0"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "rectangle",
+        "name": "Bar/South",
+        "x": 444,
+        "y": 680,
+        "width": 120,
+        "height": 0,
+        "props": {
+          "fill": "#1570ef",
+          "pluginData": {
+            "scene": "signed-bar-chart",
+            "category": "South",
+            "value": "0"
+          }
+        },
+        "parent": {
+          "$ref": "root.id"
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "bar1"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Value/South",
+        "x": 404,
+        "y": 638,
+        "width": 200,
+        "height": 32,
+        "props": {
+          "fontSize": 24,
+          "textAlign": "center",
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "text": "0"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "value1"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Category/South",
+        "x": 404,
+        "y": 856,
+        "width": 200,
+        "height": 32,
+        "props": {
+          "fontSize": 24,
+          "textAlign": "center",
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "text": "South"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "category1"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "rectangle",
+        "name": "Bar/East",
+        "x": 684,
+        "y": 440,
+        "width": 120,
+        "height": 240,
+        "props": {
+          "fill": "#1570ef",
+          "pluginData": {
+            "scene": "signed-bar-chart",
+            "category": "East",
+            "value": "40"
+          }
+        },
+        "parent": {
+          "$ref": "root.id"
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "bar2"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Value/East",
+        "x": 644,
+        "y": 398,
+        "width": 200,
+        "height": 32,
+        "props": {
+          "fontSize": 24,
+          "textAlign": "center",
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "text": "40"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "value2"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Category/East",
+        "x": 644,
+        "y": 856,
+        "width": 200,
+        "height": 32,
+        "props": {
+          "fontSize": 24,
+          "textAlign": "center",
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "text": "East"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "category2"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "rectangle",
+        "name": "Bar/West",
+        "x": 924,
+        "y": 200,
+        "width": 120,
+        "height": 480,
+        "props": {
+          "fill": "#1570ef",
+          "pluginData": {
+            "scene": "signed-bar-chart",
+            "category": "West",
+            "value": "80"
+          }
+        },
+        "parent": {
+          "$ref": "root.id"
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "bar3"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Value/West",
+        "x": 884,
+        "y": 158,
+        "width": 200,
+        "height": 32,
+        "props": {
+          "fontSize": 24,
+          "textAlign": "center",
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "text": "80"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "value3"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Category/West",
+        "x": 884,
+        "y": 856,
+        "width": 200,
+        "height": 32,
+        "props": {
+          "fontSize": 24,
+          "textAlign": "center",
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "text": "West"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "category3"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Data scope note",
+        "x": 144,
+        "y": 944,
+        "width": 960,
+        "height": 32,
+        "props": {
+          "fontSize": 16,
+          "fill": "#475467"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "text": "Synthetic example; zero baseline shown; values are editable layers."
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "scope"
+    }
+  ],
+  "nodeBindings": [
+    "root",
+    "baseline",
+    "bar0",
+    "bar1",
+    "bar2",
+    "bar3",
+    "value0",
+    "value1",
+    "value2",
+    "value3",
+    "category0",
+    "category1",
+    "category2",
+    "category3"
+  ],
+  "checks": "正负柱以零基线分开、零值有标签且高度为0，类目与值一一对应；修改数据后按同一量程重算所有柱和基线，标签保持可编辑，SVG与PNG体现正确方向。",
+  "limits": "这是可编辑形状和文字，不是带自动数据绑定的图表控件。数据来源/单位/期间必须由任务核实；不接受NaN/无穷/缺失冒充0。全零用[-1,1]示意区间防除零，标签写0，不添加假柱高。",
+  "argumentPolicy": "$ref是随技能执行器的返回值绑定标记，不是CLI原生语法。字段、字典键和ID以当前回执为准；已有文件只追加到核实的空白区域，跳过file.new，先另存副本。",
+  "exampleData": {
+    "categories": [
+      "North",
+      "South",
+      "East",
+      "West"
+    ],
+    "values": [
+      -20,
+      0,
+      40,
+      80
+    ],
+    "plot": {
+      "top": 200,
+      "height": 600,
+      "left": 144,
+      "width": 960
+    },
+    "domain": [
+      -20,
+      80
+    ]
+  }
+}

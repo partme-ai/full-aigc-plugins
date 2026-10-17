@@ -65,12 +65,12 @@
   },
   {
     "plugin": "figcraft",
-    "version": "0.1.0-dev.20261017.5",
+    "version": "0.1.0-dev.20261018.1",
     "repository": "full-aigc-plugins/figcraft-plugin",
-    "commit": "89c2d95bfd34237fa64ba8d146691339cfda9cca",
-    "tag": "v0.1.0-dev.20261017.5",
-    "fileCount": 102,
-    "treeSha256": "7b2ed958aae7fa9a261bab046276ad8eb6814df3add07f753c6cdf9e2a4bc4d8",
+    "commit": "ec40d32fefd63cca4002e7b5e52a236e6036e450",
+    "tag": "v0.1.0-dev.20261018.1",
+    "fileCount": 125,
+    "treeSha256": "19548ddcb2a10e55f2c872560677390bfe75b2148ef367414e1a3e378fc18957",
     "excluded": [
       "evidence/",
       "docs/evidence/",

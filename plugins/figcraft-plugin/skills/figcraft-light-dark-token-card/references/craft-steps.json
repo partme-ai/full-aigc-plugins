@@ -1,0 +1,385 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "figcraft",
+  "id": "light-dark-token-card",
+  "templateOnly": true,
+  "execution": "LIMITED_NATIVE_AND_CODEX_SYNTHETIC_PASS",
+  "steps": [
+    {
+      "command": "file.new",
+      "params": {
+        "name": "Mode-aware review cards"
+      },
+      "purpose": "仅新文件时初始化；已有设计文件跳过",
+      "newDocumentOnly": true
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Theme review",
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 1024,
+        "props": {
+          "fill": "#ffffff",
+          "clip": true
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "root"
+    },
+    {
+      "command": "variable.list",
+      "params": {},
+      "purpose": "创建前核对同名集合/变量，不覆盖现有令牌"
+    },
+    {
+      "command": "variable.createCollection",
+      "params": {
+        "name": "Review Theme",
+        "modes": [
+          "Light",
+          "Dark"
+        ]
+      },
+      "purpose": "创建本任务独立集合并绑定ID",
+      "capture": "collection"
+    },
+    {
+      "command": "variable.create",
+      "params": {
+        "collection": {
+          "$ref": "collection.id"
+        },
+        "name": "palette/surface",
+        "type": "color",
+        "values": {
+          "Light": "#ffffff",
+          "Dark": "#101828"
+        }
+      },
+      "purpose": "创建颜色变量，不能将W3C token JSON直接交给本API",
+      "capture": "surface"
+    },
+    {
+      "command": "variable.create",
+      "params": {
+        "collection": {
+          "$ref": "collection.id"
+        },
+        "name": "palette/foreground",
+        "type": "color",
+        "values": {
+          "Light": "#101828",
+          "Dark": "#ffffff"
+        }
+      },
+      "purpose": "创建颜色变量，不能将W3C token JSON直接交给本API",
+      "capture": "foreground"
+    },
+    {
+      "command": "variable.create",
+      "params": {
+        "collection": {
+          "$ref": "collection.id"
+        },
+        "name": "semantic/surface",
+        "type": "color",
+        "values": {
+          "Light": "#ffffff",
+          "Dark": "#101828"
+        }
+      },
+      "purpose": "创建颜色变量，不能将W3C token JSON直接交给本API",
+      "capture": "semanticSurface"
+    },
+    {
+      "command": "variable.create",
+      "params": {
+        "collection": {
+          "$ref": "collection.id"
+        },
+        "name": "semantic/text",
+        "type": "color",
+        "values": {
+          "Light": "#101828",
+          "Dark": "#ffffff"
+        }
+      },
+      "purpose": "创建颜色变量，不能将W3C token JSON直接交给本API",
+      "capture": "semanticText"
+    },
+    {
+      "command": "variable.set",
+      "params": {
+        "variable": {
+          "$ref": "semanticSurface.id"
+        },
+        "mode": "Light",
+        "value": {
+          "alias": {
+            "$ref": "surface.id"
+          }
+        }
+      },
+      "purpose": "将本模式语义值连接到实际基础变量ID，保留可更新别名"
+    },
+    {
+      "command": "variable.set",
+      "params": {
+        "variable": {
+          "$ref": "semanticSurface.id"
+        },
+        "mode": "Dark",
+        "value": {
+          "alias": {
+            "$ref": "surface.id"
+          }
+        }
+      },
+      "purpose": "将本模式语义值连接到实际基础变量ID，保留可更新别名"
+    },
+    {
+      "command": "variable.set",
+      "params": {
+        "variable": {
+          "$ref": "semanticText.id"
+        },
+        "mode": "Light",
+        "value": {
+          "alias": {
+            "$ref": "foreground.id"
+          }
+        }
+      },
+      "purpose": "将本模式语义值连接到实际基础变量ID，保留可更新别名"
+    },
+    {
+      "command": "variable.set",
+      "params": {
+        "variable": {
+          "$ref": "semanticText.id"
+        },
+        "mode": "Dark",
+        "value": {
+          "alias": {
+            "$ref": "foreground.id"
+          }
+        }
+      },
+      "purpose": "将本模式语义值连接到实际基础变量ID，保留可更新别名"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Light card",
+        "x": 48,
+        "y": 160,
+        "width": 560,
+        "height": 600,
+        "props": {
+          "fill": "#ffffff",
+          "stroke": "#98a2b3",
+          "strokeWeight": 1
+        },
+        "parent": {
+          "$ref": "root.id"
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "light"
+    },
+    {
+      "command": "variable.bind",
+      "params": {
+        "ids": [
+          {
+            "$ref": "light.id"
+          }
+        ],
+        "field": "fill",
+        "variable": {
+          "$ref": "semanticSurface.id"
+        }
+      },
+      "purpose": "把背景实际绑定到语义变量"
+    },
+    {
+      "command": "variable.setMode",
+      "params": {
+        "ids": [
+          {
+            "$ref": "light.id"
+          }
+        ],
+        "collection": {
+          "$ref": "collection.id"
+        },
+        "mode": "Light"
+      },
+      "purpose": "只在目标容器指定模式，子层继承"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Light heading",
+        "x": 32,
+        "y": 48,
+        "width": 480,
+        "height": 52,
+        "props": {
+          "fontSize": 32,
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "light.id"
+        },
+        "text": "Review card"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "lightTitle"
+    },
+    {
+      "command": "variable.bind",
+      "params": {
+        "ids": [
+          {
+            "$ref": "lightTitle.id"
+          }
+        ],
+        "field": "fill",
+        "variable": {
+          "$ref": "semanticText.id"
+        }
+      },
+      "purpose": "正文继承父容器模式，不在子层写死明暗色"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Dark card",
+        "x": 672,
+        "y": 160,
+        "width": 560,
+        "height": 600,
+        "props": {
+          "fill": "#ffffff",
+          "stroke": "#98a2b3",
+          "strokeWeight": 1
+        },
+        "parent": {
+          "$ref": "root.id"
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "dark"
+    },
+    {
+      "command": "variable.bind",
+      "params": {
+        "ids": [
+          {
+            "$ref": "dark.id"
+          }
+        ],
+        "field": "fill",
+        "variable": {
+          "$ref": "semanticSurface.id"
+        }
+      },
+      "purpose": "把背景实际绑定到语义变量"
+    },
+    {
+      "command": "variable.setMode",
+      "params": {
+        "ids": [
+          {
+            "$ref": "dark.id"
+          }
+        ],
+        "collection": {
+          "$ref": "collection.id"
+        },
+        "mode": "Dark"
+      },
+      "purpose": "只在目标容器指定模式，子层继承"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Dark heading",
+        "x": 32,
+        "y": 48,
+        "width": 480,
+        "height": 52,
+        "props": {
+          "fontSize": 32,
+          "fill": "#101828"
+        },
+        "parent": {
+          "$ref": "dark.id"
+        },
+        "text": "Review card"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "darkTitle"
+    },
+    {
+      "command": "variable.bind",
+      "params": {
+        "ids": [
+          {
+            "$ref": "darkTitle.id"
+          }
+        ],
+        "field": "fill",
+        "variable": {
+          "$ref": "semanticText.id"
+        }
+      },
+      "purpose": "正文继承父容器模式，不在子层写死明暗色"
+    },
+    {
+      "command": "variable.export",
+      "params": {
+        "collections": [
+          {
+            "$ref": "collection.id"
+          }
+        ],
+        "format": "json"
+      },
+      "purpose": "读取本机格式JSON，包含集合模式与别名",
+      "capture": "tokens"
+    },
+    {
+      "command": "variable.export",
+      "params": {
+        "collections": [
+          {
+            "$ref": "collection.id"
+          }
+        ],
+        "format": "css"
+      },
+      "purpose": "读取实际CSS默认模式及Dark选择器，返回text再写新文件",
+      "capture": "css"
+    }
+  ],
+  "nodeBindings": [
+    "root",
+    "light",
+    "dark",
+    "lightTitle",
+    "darkTitle"
+  ],
+  "checks": "背景与文字颜色经真实语义别名和模式继承；修改Dark基础色只改变Dark容器。JSON/CSS保留模式及可用引用，保存重开仍可编辑。",
+  "limits": "不是直接导入Figma/W3C token；不得把颜色截图当作变量绑定。检查同名集合并选择新任务名，不能覆盖既有品牌变量；示例不代表自动满足对比度规范。",
+  "argumentPolicy": "$ref是随技能执行器的返回值绑定标记，不是CLI原生语法。字段、字典键和ID以当前回执为准；已有文件只追加到核实的空白区域，跳过file.new，先另存副本。"
+}

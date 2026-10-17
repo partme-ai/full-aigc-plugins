@@ -1,0 +1,31 @@
+{
+  "policy": "只借鉴GitHub工作流事实；Figma运行时/API、状态模型和格式不自动等价。",
+  "sources": [
+    {
+      "repository": "figma/plugin-samples",
+      "commit": "03131bef561eb25ee2b704e3b39e40acc70330e0",
+      "readFiles": [
+        {
+          "path": "barchart/code.ts",
+          "url": "https://raw.githubusercontent.com/figma/plugin-samples/03131bef561eb25ee2b704e3b39e40acc70330e0/barchart/code.ts",
+          "sha256": "3cb5ec579580571f9e8855c41af3aa506ec087bd23d2155cb4cb83d025e44650",
+          "bytes": 2763
+        },
+        {
+          "path": "barchart/ui.html",
+          "url": "https://raw.githubusercontent.com/figma/plugin-samples/03131bef561eb25ee2b704e3b39e40acc70330e0/barchart/ui.html",
+          "sha256": "173c8970d1e61c8dae86588796478de9660fa5747b772fa1a0044abdc4925902",
+          "bytes": 842
+        },
+        {
+          "path": "LICENSE.md",
+          "url": "https://raw.githubusercontent.com/figma/plugin-samples/03131bef561eb25ee2b704e3b39e40acc70330e0/LICENSE.md",
+          "sha256": "6828c8e9d44b9939e9ad9138cbaf702d684255b49151ba65b5480ab8bb41e08e",
+          "bytes": 1062
+        }
+      ],
+      "license": "MIT",
+      "reuse": "Workflow/API concepts only; no source text, code or assets copied. All scene instructions and parameters are original."
+    }
+  ]
+}

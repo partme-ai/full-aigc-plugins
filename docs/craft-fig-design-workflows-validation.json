@@ -24,13 +24,13 @@
     "result": "PASS"
   },
   "windows": {
-    "run": 39060824250,
-    "sourceCommit": "4e2308b59624f32389f7d4fa4d66f368a518988e",
+    "run": 39061990238,
+    "sourceCommit": "abda816328bf8c797b3c86ceaf7a973165d588ad",
     "records": 18,
-    "trackedCliProcesses": 292,
-    "outputHashesVerified": 128,
+    "trackedCliProcesses": 296,
+    "outputHashesVerified": 140,
     "result": "PASS",
-    "scope": "native steps; four standalone Python-entry ASCII/Chinese-path regression newly added and pending rerun"
+    "standaloneEntries": "four real separate Python CLI entries under forced ASCII stdout + Chinese paths; nested native invocations recorded separately"
   },
   "installedHostSync": {
     "result": "LIMITED_SYNTHETIC_PASS",
@@ -59,7 +59,16 @@
       "old prototype clicks not qualified"
     ]
   },
-  "marketRelease": "NOT_PUBLISHED",
+  "marketRelease": {
+    "version": "0.1.0-dev.20261018.1",
+    "url": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261018.1",
+    "commit": "ec40d32fefd63cca4002e7b5e52a236e6036e450",
+    "zipSha256": "d60e1bd1fd1b16d28879f620045ef899faf64855fe821feddd58d1a48a9d4fdd",
+    "publicZipDownloadInstallMcpAndInstalledRuntimeDigests": "PASS",
+    "scope": "public ZIP install/skills/MCP separate from prior local-candidate GUI acceptance; pinned runtime bytes unchanged",
+    "DSH": "not tested; concurrent addition retained",
+    "mainMarketplace": "PENDING_MERGE"
+  },
   "knownCorrections": [
     "fill:null rejected by native; transparent icon components use fills:[]",
     "exported alias type is VARIABLE_ALIAS; verify structure rather than case-sensitive substring",
@@ -271,9 +280,9 @@
     "host-independent-readback/result.json": "ea63273628023b68b191bff2c7a4903aa3d17bf17c4dff1810c0c248058dc030"
   },
   "packageMcpRegression": {
-    "run": 39060824192,
+    "run": 39061990222,
     "result": "PASS",
-    "scope": "previous published package matrix, not new scene release"
+    "scope": "previous published package matrix; new complete ZIP verified separately"
   },
   "standaloneEncodingRegression": {
     "before": "actual native file completed, final Python JSON print failed with UnicodeEncodeError under forced ASCII stdout",
@@ -308,6 +317,59 @@
         "scope": "real separate Python process invoking native CLI; nested invocations are not in direct Runner processCount"
       }
     ],
-    "windows": "PENDING"
+    "windows": {
+      "run": 39061990238,
+      "result": "PASS",
+      "entries": [
+        {
+          "id": "light-dark-token-card",
+          "standaloneCliEntry": {
+            "result": "PASS",
+            "stdoutEncoding": "ASCII JSON decoded without losing Chinese output path",
+            "nativeCommands": 24,
+            "scope": "real separate Python process invoking native CLI; nested invocations are not in direct Runner processCount"
+          },
+          "legacyScenarioStandaloneEntry": {
+            "result": "PASS",
+            "stdoutEncoding": "ASCII JSON decoded without losing Chinese output path",
+            "nativeCommands": 10,
+            "scope": "real separate Python process invoking native CLI; nested invocations are not in direct Runner processCount"
+          }
+        },
+        {
+          "id": "swappable-icon-button",
+          "standaloneCliEntry": {
+            "result": "PASS",
+            "stdoutEncoding": "ASCII JSON decoded without losing Chinese output path",
+            "nativeCommands": 19,
+            "scope": "real separate Python process invoking native CLI; nested invocations are not in direct Runner processCount"
+          }
+        },
+        {
+          "id": "signed-bar-chart",
+          "standaloneCliEntry": {
+            "result": "PASS",
+            "stdoutEncoding": "ASCII JSON decoded without losing Chinese output path",
+            "nativeCommands": 17,
+            "scope": "real separate Python process invoking native CLI; nested invocations are not in direct Runner processCount"
+          }
+        }
+      ]
+    }
+  },
+  "finalSkillSourceCommit": "e6b962229c5041ccf1d4a5aa265d5372b79da0fd",
+  "finalPluginCommit": "ec40d32fefd63cca4002e7b5e52a236e6036e450",
+  "previousWindowsBeforeEntryFix": {
+    "run": 39060824250,
+    "sourceCommit": "4e2308b59624f32389f7d4fa4d66f368a518988e",
+    "records": 18,
+    "trackedCliProcesses": 292,
+    "outputHashesVerified": 128,
+    "result": "PASS",
+    "scope": "native steps; four standalone Python-entry ASCII/Chinese-path regression newly added and pending rerun"
+  },
+  "sourcePackageTests": {
+    "tests": 5,
+    "result": "PASS"
   }
 }

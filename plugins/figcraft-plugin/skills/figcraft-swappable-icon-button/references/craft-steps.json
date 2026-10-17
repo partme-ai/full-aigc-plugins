@@ -1,0 +1,315 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "figcraft",
+  "id": "swappable-icon-button",
+  "templateOnly": true,
+  "execution": "LIMITED_NATIVE_AND_CODEX_SYNTHETIC_PASS",
+  "steps": [
+    {
+      "command": "file.new",
+      "params": {
+        "name": "Swappable icon buttons"
+      },
+      "purpose": "仅新文件时初始化；已有设计文件跳过",
+      "newDocumentOnly": true
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Button review",
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 1024,
+        "props": {
+          "fill": "#ffffff",
+          "clip": true
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "root"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "component",
+        "name": "Icon/rectangle",
+        "x": 1376,
+        "y": 0,
+        "width": 16,
+        "height": 16,
+        "props": {
+          "fills": []
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "iconA"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "rectangle",
+        "name": "rectangle",
+        "x": 0,
+        "y": 0,
+        "width": 16,
+        "height": 16,
+        "props": {
+          "fill": "#111827"
+        },
+        "parent": {
+          "$ref": "iconA.id"
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "iconAShape"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "component",
+        "name": "Icon/ellipse",
+        "x": 1376,
+        "y": 48,
+        "width": 16,
+        "height": 16,
+        "props": {
+          "fills": []
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "iconB"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "ellipse",
+        "name": "ellipse",
+        "x": 0,
+        "y": 0,
+        "width": 16,
+        "height": 16,
+        "props": {
+          "fill": "#111827"
+        },
+        "parent": {
+          "$ref": "iconB.id"
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "iconBShape"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "component",
+        "name": "Action button",
+        "x": 1376,
+        "y": 112,
+        "width": 240,
+        "height": 48,
+        "props": {
+          "layout": "horizontal",
+          "padding": 12,
+          "gap": 8,
+          "crossAlign": "center",
+          "fill": "#dbeafe"
+        }
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "main"
+    },
+    {
+      "command": "instance.create",
+      "params": {
+        "component": {
+          "$ref": "iconA.id"
+        },
+        "parent": {
+          "$ref": "main.id"
+        }
+      },
+      "purpose": "嵌入真实图标组件实例，不画假图标占位",
+      "capture": "slot"
+    },
+    {
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "label",
+        "x": 0,
+        "y": 0,
+        "width": 160,
+        "height": 24,
+        "props": {
+          "fontSize": 16,
+          "fill": "#111827"
+        },
+        "parent": {
+          "$ref": "main.id"
+        },
+        "text": "Continue"
+      },
+      "purpose": "创建独立可编辑图层并绑定真实返回ID",
+      "capture": "label"
+    },
+    {
+      "command": "component.addProperty",
+      "params": {
+        "id": {
+          "$ref": "main.id"
+        },
+        "name": "Icon",
+        "type": "instanceSwap",
+        "default": {
+          "$ref": "iconA.id"
+        },
+        "layer": {
+          "$ref": "slot.id"
+        }
+      },
+      "purpose": "暴露图标交换，检查回执真实属性名",
+      "capture": "iconProperty"
+    },
+    {
+      "command": "component.addProperty",
+      "params": {
+        "id": {
+          "$ref": "main.id"
+        },
+        "name": "Show Icon",
+        "type": "boolean",
+        "default": true,
+        "layer": {
+          "$ref": "slot.id"
+        }
+      },
+      "purpose": "同一嵌套实例绑定可见性，避免为无图标创建重复变体",
+      "capture": "showProperty"
+    },
+    {
+      "command": "component.addProperty",
+      "params": {
+        "id": {
+          "$ref": "main.id"
+        },
+        "name": "Label",
+        "type": "text",
+        "default": "Continue",
+        "layer": {
+          "$ref": "label.id"
+        }
+      },
+      "purpose": "将标签绑定为文字属性，保留主组件文案",
+      "capture": "labelProperty"
+    },
+    {
+      "command": "component.properties",
+      "params": {
+        "id": {
+          "$ref": "main.id"
+        }
+      },
+      "purpose": "核对实际三个属性类型、键、默认与无冲突；若回执键不同则重新绑定后续字典",
+      "capture": "properties"
+    },
+    {
+      "command": "instance.create",
+      "params": {
+        "component": {
+          "$ref": "main.id"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "x": 80,
+        "y": 240
+      },
+      "purpose": "在审稿画板创建真实关联实例",
+      "capture": "first"
+    },
+    {
+      "command": "instance.setProperties",
+      "params": {
+        "ids": [
+          {
+            "$ref": "first.id"
+          }
+        ],
+        "properties": {
+          "Icon": {
+            "$ref": "iconB.id"
+          },
+          "Show Icon": true,
+          "Label": "Save"
+        }
+      },
+      "purpose": "使用刚核实的属性键，只改目标实例，不改主组件"
+    },
+    {
+      "command": "node.get",
+      "params": {
+        "id": {
+          "$ref": "first.id"
+        }
+      },
+      "purpose": "回读嵌套mainComponent、可见性、文字与自动布局"
+    },
+    {
+      "command": "instance.create",
+      "params": {
+        "component": {
+          "$ref": "main.id"
+        },
+        "parent": {
+          "$ref": "root.id"
+        },
+        "x": 400,
+        "y": 240
+      },
+      "purpose": "在审稿画板创建真实关联实例",
+      "capture": "second"
+    },
+    {
+      "command": "instance.setProperties",
+      "params": {
+        "ids": [
+          {
+            "$ref": "second.id"
+          }
+        ],
+        "properties": {
+          "Icon": {
+            "$ref": "iconA.id"
+          },
+          "Show Icon": false,
+          "Label": "Back"
+        }
+      },
+      "purpose": "使用刚核实的属性键，只改目标实例，不改主组件"
+    },
+    {
+      "command": "node.get",
+      "params": {
+        "id": {
+          "$ref": "second.id"
+        }
+      },
+      "purpose": "回读嵌套mainComponent、可见性、文字与自动布局"
+    }
+  ],
+  "nodeBindings": [
+    "root",
+    "iconA",
+    "iconB",
+    "main",
+    "slot",
+    "label",
+    "first",
+    "second"
+  ],
+  "checks": "按钮为同一主组件的关联实例；一个换圆图标、一个隐藏图标，各自文字独立。检查实际嵌套组件ID、可见性、间距和主组件未被覆盖，主组件改色传播且实例文字仍保留。",
+  "limits": "不创建每图标一套变体，不detach实例。Figma属性键规则不能照搬；从FigCraft addProperty回执和component.properties读取。图标是合成几何，真实图标需核实素材许可与风格。",
+  "argumentPolicy": "$ref是随技能执行器的返回值绑定标记，不是CLI原生语法。字段、字典键和ID以当前回执为准；已有文件只追加到核实的空白区域，跳过file.new，先另存副本。"
+}

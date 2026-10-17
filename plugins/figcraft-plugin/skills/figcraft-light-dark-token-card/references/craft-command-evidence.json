@@ -1,0 +1,98 @@
+{
+  "runtime": "official figcraft-cli 0.6.0 macOS universal",
+  "archiveSha256": "119446cc8f50b719dad7a73e0356de6194aa262b6520b362dfe310ee9f05b3be",
+  "observedCommands": {
+    "file.new": {
+      "id": "file.new",
+      "label": "New design file",
+      "menu": "File",
+      "params": "{name?}",
+      "shortcut": "Cmd+N",
+      "undoable": false
+    },
+    "node.create": {
+      "id": "node.create",
+      "label": "Create layer",
+      "menu": null,
+      "params": "{type: rectangle|ellipse|polygon|star|line|arrow|vector|text|frame|section|component|slice, x?, y? (relative to the parent frame; groups don't count), width?, height?, parent? (id; default: the page), index?, name?, text? (for text), path? (SVG path data for vector), props? {node.set keys}, select? (default true)}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "variable.list": {
+      "id": "variable.list",
+      "label": "List variables",
+      "menu": null,
+      "params": "{}",
+      "shortcut": null,
+      "undoable": false
+    },
+    "variable.createCollection": {
+      "id": "variable.createCollection",
+      "label": "Create variable collection",
+      "menu": null,
+      "params": "{name, modes? [names]}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "variable.create": {
+      "id": "variable.create",
+      "label": "Create variable",
+      "menu": null,
+      "params": "{collection, name, type: color|number|string|boolean, value (default mode) | values {modeName: value}}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "variable.set": {
+      "id": "variable.set",
+      "label": "Set variable value",
+      "menu": null,
+      "params": "{variable, mode? (name or id; default first), value | {alias: variable} (same type, no loops)}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "variable.bind": {
+      "id": "variable.bind",
+      "label": "Bind variable",
+      "menu": null,
+      "params": "{ids?, field (fill|stroke (first paint)|fills/<i>/color|strokes/<i>/color|fills/<i>/stops/<j>/color (gradient stops)|effects/<i>/<offsetX|offsetY|radius|startRadius|spread|color>|layoutGrids/<i>/<size|count|gutter|offset>|componentProperties/<name> (instances: boolean/text properties; variant properties take string variables naming a value)|width|height|opacity (percent)|cornerRadius|gap|paddingHorizontal|characters|visible|fontSize…; list indices bottom first), variable (null unbinds)}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "variable.setMode": {
+      "id": "variable.setMode",
+      "label": "Set variable mode",
+      "menu": null,
+      "params": "{ids? (frames/page), collection, mode (id or name; null: Auto, inherited from the parent)}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "variable.export": {
+      "id": "variable.export",
+      "label": "Export variables",
+      "menu": null,
+      "params": "{collections? [ids or names; default every collection of this file, not library copies], format? (json (default): the local variables JSON that variable.import reads | css: custom properties, the default mode on :root and each other mode on [data-<collection>=\"<mode>\"]), path? (write it there)}  → {text}, or {path} when written",
+      "shortcut": null,
+      "undoable": false
+    }
+  },
+  "scope": "Native catalog observed; Web and actual host acceptance remain separate.",
+  "technicalValidation": {
+    "platform": "macOS",
+    "scope": "synthetic native business checks, fresh/existing documents and modified results; not Windows/installed-host acceptance",
+    "sceneResult": "PASS",
+    "fullApplicationRecords": 18,
+    "fullApplicationCliProcesses": 287,
+    "existingPrototypeBoundary": "links only; actual browser click not tested",
+    "windows": {
+      "run": 39060824250,
+      "records": 18,
+      "trackedCliProcesses": 292,
+      "outputHashesVerified": 128,
+      "scope": "before standalone ASCII-output fix; same native command steps"
+    },
+    "codex": {
+      "canonicalMcpSteps": 24,
+      "scope": "actual isolated native Codex MCP + IAB; synthetic examples; not SDK"
+    }
+  }
+}

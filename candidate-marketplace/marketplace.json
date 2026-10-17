@@ -98,13 +98,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/download/v0.1.0-dev.20261017.5/figcraft-plugin-0.1.0-dev.20261017.5.zip",
-        "sha256": "4f8add7c1d85eff6cfdeb4e908b6f73c5efca8ca30cc67f78a66284cf79d9deb",
+        "url": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/download/v0.1.0-dev.20261018.1/figcraft-plugin-0.1.0-dev.20261018.1.zip",
+        "sha256": "d60e1bd1fd1b16d28879f620045ef899faf64855fe821feddd58d1a48a9d4fdd",
         "path": "figcraft-plugin"
       },
       "displayName": "FigCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.5",
+      "version": "0.1.0-dev.20261018.1",
       "category": "Creativity",
       "tags": [
         "figcraft",
@@ -113,7 +113,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
       "strict": true
     },
     {

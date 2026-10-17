@@ -61,7 +61,7 @@ def main():
         if r.returncode:raise RuntimeError(r.stderr or r.stdout)
         return r.stdout
     result=execute_recipe(recipe,run,Path.cwd(),a.output,a.input)
-    print(json.dumps(result,ensure_ascii=False))
+    print(json.dumps(result,ensure_ascii=True))
 
 
 if __name__=='__main__':main()

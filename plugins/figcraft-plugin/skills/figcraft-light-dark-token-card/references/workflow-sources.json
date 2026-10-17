@@ -1,0 +1,37 @@
+{
+  "policy": "只借鉴GitHub工作流事实；Figma运行时/API、状态模型和格式不自动等价。",
+  "sources": [
+    {
+      "repository": "figma/plugin-samples",
+      "commit": "03131bef561eb25ee2b704e3b39e40acc70330e0",
+      "readFiles": [
+        {
+          "path": "styles-to-variables/code.js",
+          "url": "https://raw.githubusercontent.com/figma/plugin-samples/03131bef561eb25ee2b704e3b39e40acc70330e0/styles-to-variables/code.js",
+          "sha256": "d4d18f5a339ef1d4988950c8a84df41866d88e820c71468b65ff6e380f938b64",
+          "bytes": 2744
+        },
+        {
+          "path": "variables-import-export/README.md",
+          "url": "https://raw.githubusercontent.com/figma/plugin-samples/03131bef561eb25ee2b704e3b39e40acc70330e0/variables-import-export/README.md",
+          "sha256": "e8c65745070cf723a6e0bc9416f9aab4fcfa3e4e2072d0de573f12c3036620da",
+          "bytes": 1620
+        },
+        {
+          "path": "variables-import-export/code.js",
+          "url": "https://raw.githubusercontent.com/figma/plugin-samples/03131bef561eb25ee2b704e3b39e40acc70330e0/variables-import-export/code.js",
+          "sha256": "a26dd1270aba6685afa0d7e55d7102bead28023341f987dca82c8fa6d760d42d",
+          "bytes": 7742
+        },
+        {
+          "path": "LICENSE.md",
+          "url": "https://raw.githubusercontent.com/figma/plugin-samples/03131bef561eb25ee2b704e3b39e40acc70330e0/LICENSE.md",
+          "sha256": "6828c8e9d44b9939e9ad9138cbaf702d684255b49151ba65b5480ab8bb41e08e",
+          "bytes": 1062
+        }
+      ],
+      "license": "MIT",
+      "reuse": "Workflow/API concepts only; no source text, code or assets copied. All scene instructions and parameters are original."
+    }
+  ]
+}

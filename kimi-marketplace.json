@@ -64,8 +64,8 @@
     {
       "id": "figcraft",
       "displayName": "FigCraft Use (RC)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261017.5"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261018.1"
     },
     {
       "id": "filmcraft",

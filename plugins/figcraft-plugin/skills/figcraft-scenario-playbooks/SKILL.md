@@ -33,3 +33,7 @@ CLI检查点不会保留临时选择，所以步骤使用明确parent/id/ids，�
 ## main协作与自动保存
 
 用户明确要求改变自动保存或移除指定协作成员时，读取[main新增能力和权限边界](references/main-workflows.md)。两个新方法的业务和宿主验收尚未完成，不因原生命令存在就推断浏览器能托管会话。
+
+## 更具体的设计工作流
+
+主题与语义令牌交付使用 **figcraft-light-dark-token-card**，图标可换可隐藏的复用按钮使用 **figcraft-swappable-icon-button**，正负零值柱图使用 **figcraft-signed-bar-chart**。独立安装：`npx skills add full-aigc-skills/figcraft-skills --skill 对应技能名`。当前是开发候选，不能以目录存在当作市场发布或宿主同步验收。

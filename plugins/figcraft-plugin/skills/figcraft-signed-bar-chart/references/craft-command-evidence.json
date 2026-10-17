@@ -1,0 +1,42 @@
+{
+  "runtime": "official figcraft-cli 0.6.0 macOS universal",
+  "archiveSha256": "119446cc8f50b719dad7a73e0356de6194aa262b6520b362dfe310ee9f05b3be",
+  "observedCommands": {
+    "file.new": {
+      "id": "file.new",
+      "label": "New design file",
+      "menu": "File",
+      "params": "{name?}",
+      "shortcut": "Cmd+N",
+      "undoable": false
+    },
+    "node.create": {
+      "id": "node.create",
+      "label": "Create layer",
+      "menu": null,
+      "params": "{type: rectangle|ellipse|polygon|star|line|arrow|vector|text|frame|section|component|slice, x?, y? (relative to the parent frame; groups don't count), width?, height?, parent? (id; default: the page), index?, name?, text? (for text), path? (SVG path data for vector), props? {node.set keys}, select? (default true)}",
+      "shortcut": null,
+      "undoable": true
+    }
+  },
+  "scope": "Native catalog observed; Web and actual host acceptance remain separate.",
+  "technicalValidation": {
+    "platform": "macOS",
+    "scope": "synthetic native business checks, fresh/existing documents and modified results; not Windows/installed-host acceptance",
+    "sceneResult": "PASS",
+    "fullApplicationRecords": 18,
+    "fullApplicationCliProcesses": 287,
+    "existingPrototypeBoundary": "links only; actual browser click not tested",
+    "windows": {
+      "run": 39060824250,
+      "records": 18,
+      "trackedCliProcesses": 292,
+      "outputHashesVerified": 128,
+      "scope": "before standalone ASCII-output fix; same native command steps"
+    },
+    "codex": {
+      "canonicalMcpSteps": 17,
+      "scope": "actual isolated native Codex MCP + IAB; synthetic examples; not SDK"
+    }
+  }
+}

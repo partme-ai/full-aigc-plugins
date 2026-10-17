@@ -6,9 +6,12 @@
     "figcraft-dev-handoff",
     "figcraft-editor",
     "figcraft-import-fig",
+    "figcraft-light-dark-token-card",
     "figcraft-prototype-flow",
     "figcraft-responsive-layout",
     "figcraft-scenario-playbooks",
+    "figcraft-signed-bar-chart",
+    "figcraft-swappable-icon-button",
     "figcraft-wireframe"
   ]
 }

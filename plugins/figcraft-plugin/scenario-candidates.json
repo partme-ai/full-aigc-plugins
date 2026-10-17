@@ -32,7 +32,19 @@
     },
     {
       "name": "figcraft-scenario-playbooks",
-      "sha256": "0b59f749bffe811b1a0cf888cf29a8e6e27f9dbac010657a24b06724882ae4dd"
+      "sha256": "111105dfab68cc296d484a4636d217b57c350770144177b8c5225bed22c0d4f3"
+    },
+    {
+      "name": "figcraft-light-dark-token-card",
+      "sha256": "a033ceb229557780ff179e6fa3d7d392d7533ca9a5459a4f3d262d174019d1e6"
+    },
+    {
+      "name": "figcraft-swappable-icon-button",
+      "sha256": "b0655dfcb3fb521dd96c1325f8b6d93eadbcc4452d65fec3f0c570704c1bc6d9"
+    },
+    {
+      "name": "figcraft-signed-bar-chart",
+      "sha256": "6d733eb91b0e1f533605c1dbfb3a8e34ca22dbcad3e6aa8f56aae9e074cb68fd"
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "policy": "只借鉴GitHub工作流事实；Figma运行时/API、状态模型和格式不自动等价。",
+  "sources": [
+    {
+      "repository": "figma/mcp-server-guide",
+      "commit": "f2789420e7e8b4e2465dfeb1e12e1fc6a31397e5",
+      "readFiles": [
+        {
+          "path": "skills/figma-use/references/component-patterns.md",
+          "url": "https://raw.githubusercontent.com/figma/mcp-server-guide/f2789420e7e8b4e2465dfeb1e12e1fc6a31397e5/skills/figma-use/references/component-patterns.md",
+          "sha256": "e7c826c718e94356ded58c3be99264d114a2ccfc54851624075c4c1a3e1f04fc",
+          "bytes": 24086
+        }
+      ],
+      "license": "Not supplied by repository license endpoint; reference facts only",
+      "reuse": "Workflow/API concepts only; no source text, code or assets copied. All scene instructions and parameters are original."
+    }
+  ]
+}
