@@ -119,7 +119,7 @@ dev.55 增加首次工作流可信宿主准入：完整任务与资源预算绑�
 
 <!-- FILMCRAFT_CURRENT_FACTS_START -->
 
-生成的当前事实：插件 / 技能源；技能数 / 已发现命令数：`0.1.0-dev.20261017.7` / `filmcraft-skills@v0.1.0-dev.62`; 14 / 666。
+生成的当前事实：插件 / 技能源；技能数 / 已发现命令数：`0.1.0-dev.20261018.3` / `filmcraft-skills@v0.1.0-dev.62`; 14 / 666。
 
 执行 CLI / bridge 桌面：`0.2.0-craft.5` / `0.2.0`；根运行时锁仅作历史基线。
 
@@ -248,7 +248,7 @@ Intent + assets
 | Property | Value |
 | :--- | :--- |
 | Plugin ID | filmcraft |
-| Metadata version | 0.1.0-dev.20261017.7 |
+| Metadata version | 0.1.0-dev.20261018.3 |
 | Stage | implementation-in-progress |
 | Skills source | filmcraft-skills / v0.1.0-dev.62 |
 | Execution | 上游 CLI；ArtCraft 使用子适配器 |
@@ -530,3 +530,7 @@ The main guide distinguishes per-selection linked:false from the global linked-s
 - [filmcraft-freeze-explainer](skills/filmcraft-freeze-explainer/SKILL.md)
 - [filmcraft-presenter-inset](skills/filmcraft-presenter-inset/SKILL.md)
 - [filmcraft-jcut-dialogue](skills/filmcraft-jcut-dialogue/SKILL.md)
+
+### 字幕精确偏移（开发候选）
+
+字幕交付技能新增导入精度恢复、已知恒定偏移、非目标轨道保护、副本媒体重链接和 SRT/VTT 精确导出。操作见 `skills/filmcraft-subtitle-delivery/references/constant-offset.md`。macOS、Windows 原生 CLI 及限定范围的 Codex 共享编辑器时间操作已通过；中文 Web 字体显示仍未通过。

@@ -119,7 +119,7 @@ Fixed dev.45/source42 receipt acceptance passes tasks 9.13–9.15: isolated Code
 
 <!-- FILMCRAFT_CURRENT_FACTS_START -->
 
-Generated current facts: plugin / skill source; skills / discovered commands: `0.1.0-dev.20261017.7` / `filmcraft-skills@v0.1.0-dev.62`; 14 / 666.
+Generated current facts: plugin / skill source; skills / discovered commands: `0.1.0-dev.20261018.3` / `filmcraft-skills@v0.1.0-dev.62`; 14 / 666.
 
 Execution CLI / bridge desktop: `0.2.0-craft.5` / `0.2.0`; root runtime lock is historical only.
 
@@ -143,7 +143,7 @@ Development dev.53 pins source dev.45 and packages real-media preparation and fa
 
 Development dev.54 pins source dev.46 and public maintained craft.5, repairing PCM timing and synchronizing the recaptured666-command identity across13 skills. Seven candidate cases and actual Whisper pass; new fixed installation remains pending, so tasks9.32/9.33 and50 full-V1 tasks are not closed. [Matrix runner](docs/FilmCraft-Media-Matrix.md).
 
-Current plugin: `0.1.0-dev.20261017.7`; skill source: `0.1.0-dev.62`; 14 independent skills (13 domain skills + 1 bundled execution harness).
+Current plugin: `0.1.0-dev.20261018.3`; skill source: `0.1.0-dev.62`; 14 independent skills (13 domain skills + 1 bundled execution harness).
 
 OpenSpec9.31 media input preparation is complete:7 cases and18 source/license/hash-bound inputs, measured VFR and181.211333-second audio;64 Python tests pass. Native matrix9.32 and fixed installed9.33 remain NOT_RUN; full V1 has50 open tasks. See docs/FilmCraft-Media-Matrix.md.
 
@@ -247,7 +247,7 @@ Intent + assets
 | Property | Value |
 | :--- | :--- |
 | Plugin ID | filmcraft |
-| Metadata version | 0.1.0-dev.20261017.7 |
+| Metadata version | 0.1.0-dev.20261018.3 |
 | Stage | implementation-in-progress |
 | Skills source | filmcraft-skills / v0.1.0-dev.62 |
 | Execution | Upstream CLI; ArtCraft uses child adapters |
@@ -531,3 +531,7 @@ The main guide distinguishes per-selection linked:false from the global linked-s
 - [filmcraft-freeze-explainer](skills/filmcraft-freeze-explainer/SKILL.md)
 - [filmcraft-presenter-inset](skills/filmcraft-presenter-inset/SKILL.md)
 - [filmcraft-jcut-dialogue](skills/filmcraft-jcut-dialogue/SKILL.md)
+
+### 字幕精确偏移（开发候选）
+
+字幕交付技能新增导入精度恢复、已知恒定偏移、非目标轨道保护、副本媒体重链接和 SRT/VTT 精确导出。操作见 `skills/filmcraft-subtitle-delivery/references/constant-offset.md`。macOS、Windows 原生 CLI 及限定范围的 Codex 共享编辑器时间操作已通过；中文 Web 字体显示仍未通过。

@@ -156,7 +156,6 @@
   },
   "remaining": [
     "Chinese Web font display",
-    "full plugin regression and immutable release packaging",
     "marketplace publication of this candidate",
     "other hosts and remaining scenarios"
   ],
@@ -192,7 +191,27 @@
     "reason": "9.x optimization table was intentionally removed from current task scope; old test swallowed its exception",
     "fixCommit": "1296636",
     "tests": "5 release-gate tests PASS after actual IndexError regression; no swallowed exception",
-    "currentFullCI": "PENDING",
+    "currentFullCI": "PASS: https://github.com/full-aigc-plugins/filmcraft-plugin/actions/runs/39075888123",
     "sourceGateSetUnchanged": true
+  },
+  "sourceOfflineCI": {
+    "run": "https://github.com/full-aigc-skills/filmcraft-skills/actions/runs/39076108004",
+    "commit": "da39f373f5ec4e022eca184dab62423f531217b0",
+    "result": "PASS",
+    "counts": {
+      "tests": 319,
+      "pass": 277,
+      "fail": 0,
+      "failureEvents": 0,
+      "environmentNotRun": 42
+    },
+    "scope": "offline contracts;42 environment checks NOT_RUN, not native acceptance"
+  },
+  "publishedRelease": {
+    "url": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
+    "archiveSha256": "47b7ffe7cea15b51cbdad1640701403a454608475ce016ba419d113fc28d22ea",
+    "publicZipVerification": "PASS",
+    "marketplace": "PENDING",
+    "limitation": "Chinese Web glyphs missing; caption timing and Unicode exports tested"
   }
 }

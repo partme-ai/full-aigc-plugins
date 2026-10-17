@@ -121,13 +121,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/download/v0.1.0-dev.20261017.7/filmcraft-plugin-0.1.0-dev.20261017.7.zip",
-        "sha256": "2696d68f43b6508079515782f8cf115fa63a058a9ee51f393633cba4d0fe2997",
+        "url": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/download/v0.1.0-dev.20261018.3/filmcraft-plugin-0.1.0-dev.20261018.3.zip",
+        "sha256": "47b7ffe7cea15b51cbdad1640701403a454608475ce016ba419d113fc28d22ea",
         "path": "filmcraft-plugin"
       },
       "displayName": "FilmCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.7",
+      "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
       "tags": [
         "filmcraft",
@@ -136,7 +136,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261017.7/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "strict": true
     },
     {
