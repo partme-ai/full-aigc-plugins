@@ -158,11 +158,16 @@ def main():
             require(lock['app']==a.plugin and lock['status']=='development-candidate-not-accepted', 'Wrong candidate provenance')
             from craft_main import candidate
             expected=candidate(a.plugin)
-            require(all(lock[key]==expected[key] for key in ['commit','repository','skillsCommit']), 'Candidate differs from pinned main/skills')
+            require(all(lock[key]==expected[key] for key in ['commit','repository']), 'Candidate differs from pinned main')
             require(lock.get('candidatePatches',[])==expected.get('candidatePatches',[]), 'Candidate build patches differ from pin')
             exe=a.executable.resolve()
             require(hashlib.sha256(exe.read_bytes()).hexdigest()==lock['exeSha256'], 'Candidate executable checksum mismatch')
             report['runtime']=lock
+            if a.playbook:
+                scene_dir=a.playbook if a.playbook.is_dir() else a.playbook.parent
+                scene_commit=subprocess.check_output(['git','-C',str(scene_dir.resolve()),'rev-parse','HEAD'],text=True).strip()
+                require(scene_commit==expected['skillsCommit'], 'Wrong scene source checkout')
+                report['sceneSourceCommit']=scene_commit
         else:
             lock=json.loads(Path(__file__).with_name('craft_cli_windows.lock.json').read_text())[a.plugin]
             report['runtime']=lock
@@ -179,7 +184,17 @@ def main():
         catalog_args = ['tools'] if a.plugin == 'printcraft' else ['commands']
         if a.plugin in {'photocraft','figcraft','gridcraft','wordcraft','effectcraft','filmcraft','lightcraft'}:
             catalog_args.append('--json')
-        if a.plugin == 'soundcraft':
+        if a.executable and a.plugin == 'deckcraft':
+            # main将commands/describe改成人类可读帮助；结构化目录改从原生stdio获取。
+            messages=[{'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-06-18','capabilities':{},'clientInfo':{'name':'craft-main-catalog','version':'1'}}},
+                      {'jsonrpc':'2.0','method':'notifications/initialized','params':{}},
+                      {'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'list_commands','arguments':{}}}]
+            raw=r.run('mcp',stdin=''.join(json.dumps(x)+'\n' for x in messages))
+            responses=[json.loads(line) for line in raw.splitlines()]
+            response=next(x for x in responses if isinstance(x,dict) and x.get('id')==2)
+            require('result' in response and not response['result'].get('isError'), 'Main native MCP catalog failed')
+            catalog=json.loads(next(c['text'] for c in response['result']['content'] if c['type']=='text'))
+        elif a.plugin == 'soundcraft':
             ids = [line.split()[0] for line in r.run('commands').splitlines() if line.strip()]
             catalog = [json.loads(r.run('describe', command)) for command in ids]
         else:
@@ -187,6 +202,9 @@ def main():
         require(isinstance(catalog, (list, dict)) and bool(catalog), 'Empty command catalog')
         (out/'commands.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2), encoding='utf-8')
         business(a.plugin,r)
+        if a.executable and a.plugin == 'wordcraft':
+            from word_main_smoke import run_checks
+            report['mainCapabilities'] = run_checks(r)
         if a.plugin == 'vectorcraft':
             from vector_upstream_smoke import run_checks
             report['upstreamCapabilities'] = run_checks(r)
