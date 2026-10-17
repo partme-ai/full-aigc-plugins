@@ -104,6 +104,8 @@ def run_playbooks(r,path):
     records.append(existing_document(r))
     from vector_core_smoke import run_playbooks as run_core
     records.extend(run_core(r,Path(path).resolve().parents[2]))
+    from vector_production_smoke import run_playbooks as run_production
+    records.extend(run_production(r,Path(path).resolve().parents[2]))
     return records
 
 

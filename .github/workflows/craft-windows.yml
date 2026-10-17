@@ -72,8 +72,14 @@ jobs:
           repository: full-aigc-skills/wordcraft-skills
           ref: 886b63aafad80a1cf660397ca989a7fdb87bdcfc
           path: .local/test-word-skills
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/vectorcraft-skills
+          ref: 787565bb98f9704ab4f21d551efb62fc93e5dc92
+          path: .local/test-vector-skills
       - run: python -m unittest discover -s scripts/ci -p "test_*.py" -v
         env:
+          CRAFT_VECTOR_SKILLS_ROOT: ${{ github.workspace }}/.local/test-vector-skills/skills
           CRAFT_WORD_SKILLS_ROOT: ${{ github.workspace }}/.local/test-word-skills/skills
           CRAFT_FILM_SKILLS_ROOT: ${{ github.workspace }}/.local/test-film-skills/skills
           CRAFT_PHOTO_SKILLS_ROOT: ${{ github.workspace }}/.local/test-photo-skills/skills

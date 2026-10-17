@@ -63,6 +63,7 @@
         {
           "path": "md/Path.md",
           "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Path.md",
+          "sha256": "9fb82b2a601da54253b453c95e7047a4427dfcfc0bb828ecf6debe23c434b3a1",
           "bytes": 8854
         },
         {
@@ -78,12 +79,31 @@
         {
           "path": "md/Draw.md",
           "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Draw.md",
+          "sha256": "6e4304a60312840d5ae9289ed0c4830f253cc0304f884fb56966059afd58bc3e",
           "bytes": 7973
         },
         {
           "path": "md/Color.md",
           "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Color.md",
           "bytes": 19113
+        },
+        {
+          "path": "md/Group.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Group.md",
+          "sha256": "03df20357405771eca3798c6a8f8ec9d44bc7793a446283c3f0eaed14b0d1e9d",
+          "bytes": 8063
+        },
+        {
+          "path": "md/Item.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Item.md",
+          "sha256": "f5cac43a1aff5507a3e36254453f665f78108f7dc34559500bef0964549702ef",
+          "bytes": 17931
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/LICENSE",
+          "sha256": "e1d0ab3fff40a66da1322a6e4276755172468c63eb6fad3525db1cea46fc4c98",
+          "bytes": 1070
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
@@ -821,6 +841,26 @@
           "sha256": "5f7084616684569208902c60c01bfde8422c052372df7b5e1c659b32be717057",
           "bytes": 13242,
           "url": "https://github.com/LibreOffice/help/blob/8f72ca906e16f3bd2056cd6bb3f3b604621072f8/source/text/swriter/guide/pageorientation.xhp"
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    },
+    {
+      "repository": "iconifyit/ai-step-n-repeat",
+      "commit": "395ddc45caae6be729394cede5128487b2e4346b",
+      "license": "MIT",
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/iconifyit/ai-step-n-repeat/blob/395ddc45caae6be729394cede5128487b2e4346b/README.md",
+          "bytes": 1137,
+          "sha256": "1ec8400bf82748cad1879dfb30b3f889dd3ad7202c30903d853a0892b09d7110"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/iconifyit/ai-step-n-repeat/blob/395ddc45caae6be729394cede5128487b2e4346b/LICENSE",
+          "bytes": 1068,
+          "sha256": "113d3940f1b3f5f57b34d7243ff33407e0e455b73329ff48336294a6178bac7a"
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"

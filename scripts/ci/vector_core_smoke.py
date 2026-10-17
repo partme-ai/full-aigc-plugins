@@ -59,8 +59,9 @@ def verify_trace(path,info):
 def run_playbooks(r,skills):
     original=r.work;root=original/'vector-core-scenes';root.mkdir();records=[]
     try:
-        files=sorted(Path(skills).glob('vectorcraft-*/references/craft-steps.json'))
-        require(len(files)==6,'Expected six VectorCraft core recipes')
+        names=['editable-chart','icon-set','infographic','logo-system','svg-cleanup','trace-artwork']
+        files=[Path(skills)/('vectorcraft-'+name)/'references/craft-steps.json' for name in names]
+        require(all(file.is_file() for file in files),'Missing one of six VectorCraft core recipes')
         for file in files:
             recipe=json.loads(file.read_text(encoding='utf-8'));name=recipe['id'];r.work=root/name;r.work.mkdir()
             size=(48,48) if name=='icon-set' else (520,320)
