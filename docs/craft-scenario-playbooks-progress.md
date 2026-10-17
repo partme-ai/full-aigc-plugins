@@ -315,3 +315,16 @@ Windows main运行[39025167041](https://github.com/partme-ai/full-aigc-plugins/a
 总数仍为201条映射：194条入口经过限定技术检查、2条部分、5条待执行（Design其余核心）。该统计包含方法复用，不等同194个独立高质量场景。当前刊物只证明原生参数与可编辑结构；真实复杂稿件的版式、三宿主同画面同步、去重扩展为数百个场景和市场发行仍未完成。源码和插件修改已推送feature，公开dev.20261017.4不包含本轮变化；OpenSpec与完整目标保持实施中。详见[Design核心验证](craft-design-core-validation.json)。
 
 最终收紧检查器的Windows原生运行[39025295511](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025295511)通过，执行技能源0891aa1，下载后再次核对47份制品摘要与二进制；新增检查实际覆盖八个正文段落样式和null溢出语义。对应稳定13应用业务矩阵[39025294665](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025294665)全部通过。
+
+
+## DesignCraft商品目录图文绑定与可搬运交付
+
+旧catalog只有空网格、单条商品文字和未应用的样式，没有置入任何商品图。现按确认的SKU对应表展开两个商品的独立图片框/文字框，以返回ID调用file.place、object.fit、text.select及style.paragraph.apply，逐商品查询全文、链接状态、使用框和有效PPI。补读le-tex/InDesignScripts固定提交b0fd4bb的image-export说明并记录SHA256，只借鉴图像实例、比例与独立输出的经验；测试商品文字与600×400色块素材均原创，不复制外部图片或脚本。
+
+原生Windows运行[39025741968](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025741968)通过8条既有手册、既有工程保护组合、刊物与目录两个核心入口，共60次CLI调用；下载独立核对原生二进制和68份输出摘要。两商品全文与可编辑段落样式保留，链接分别使用正确图片框，有效PPI为177。file.package收集素材后，测试副本的原素材与原包路径均置为不可用，将交付包复制到新目录并更换CLI工作目录，实际重开后链接解析到接收目录的Links，继续导出PDF成功。原始测试图片摘要保持不变。字体报告说明Source Sans 3为运行时自带，不能据此宣称任意字体都能复制交付。
+
+使用PyMuPDF独立解析搬运后的PDF，确认一页、两张图及两SKU/价格文字；已查看原创色块样例的整页，未做真实商品摄影、复杂排版或生产质量验收。9项Design辅助测试和201条静态映射检查通过，稳定13应用业务矩阵[39025741504](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025741504)通过。另一个打包工作流的契约测试曾因未检出独立技能源失败，已改为从候选锁读取固定提交并实际检出，不跳过测试。
+
+仍为201条映射：195条入口有过限定技术检查、2条部分、4条待执行（Design其余核心）。这不是195个独立高质量场景；真实素材效果、三宿主同画面同步、场景去重扩展及本批发行仍未完成。源码与插件feature含目录修正，公开dev.20261017.4尚不包含本轮更新，完整目标保持实施中。详情见[Design核心验证](craft-design-core-validation.json)。
+
+打包回归修复后的Windows运行[39025884043](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025884043)全部14个job通过（辅助契约回归与13应用原生安装/MCP）；实际检出固定技能源7751f82，没有跳过缺失文件。固定索引包安装结果不等于本轮技能已重新打包发行。最终稳定业务矩阵[39025884061](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025884061)全部13应用通过。
