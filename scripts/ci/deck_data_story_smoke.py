@@ -18,6 +18,10 @@ def verify_chart(path, data):
         charts=[n for n in archive.namelist() if n.startswith('ppt/charts/chart') and n.endswith('.xml')]
         require(len(charts)==1,'Expected one editable chart')
         root=ET.fromstring(archive.read(charts[0]));series=root.findall('.//{'+C+'}ser')
+        title=''.join(x.text or '' for x in root.findall('.//{'+C+'}title//{'+A+'}t'))
+        require(title==data['period'],'Chart period title lost')
+        labels=root.findall('.//{'+C+'}showVal')
+        require(any(x.attrib.get('val') in ('1','true') for x in labels),'Numeric labels lost')
         require(len(series)==len(data['series']),'Chart series lost')
         for actual,expected in zip(series,data['series']):
             values=[float(x.text) for x in actual.findall('.//{'+C+'}val/{'+C+'}numRef/{'+C+'}numCache/{'+C+'}pt/{'+C+'}v')]
