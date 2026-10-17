@@ -74,7 +74,12 @@
       "embeddedUI": "NOT_TESTED",
       "editingSync": "NOT_TESTED"
     },
-    "mainMarketplace": "PENDING"
+    "mainMarketplace": {
+      "commit": "795f1e6ff2b5e5156a09ab0373b600ab3b1adf17",
+      "actualCodexInstallAndMcp": "PASS",
+      "dailySourceRefreshed": true,
+      "installedDailyPluginsUpgraded": false
+    }
   },
   "pluginPythonTests": {
     "count": 73,
@@ -113,12 +118,103 @@
   "pluginTestCiResult": "PASS",
   "screenshots": {
     "live-six.png": "6d0704f30be68e5c0445725f073a828e9917fa8fd5c818256a1f4626f6073994",
-    "live-reopened.png": "685f63a9712e976096c27ba7a11f6e9d68e434c13dd57404a4420844d9acb441"
+    "live-reopened.png": "685f63a9712e976096c27ba7a11f6e9d68e434c13dd57404a4420844d9acb441",
+    "live-real-photos.png": "ca930cbc616816dc3fcfc6b4ae836a75472adf1720222fcb4ee7bd5ac2303aeb",
+    "live-real-desktop.png": "21d98c6d335a7375ac34c8c3ecceb08df166bda296afecfee3de2ddc691889be",
+    "live-real-reopened.png": "901b7371bb2c7de009c3c216745bf9ad77d9f8ff4fe2a8e2eb9fc6ce13e83a5e"
   },
   "pluginMainCi": [
     39070670370,
     39070670403,
     39070670724
   ],
-  "pluginMainCiResult": "PASS"
+  "pluginMainCiResult": "PASS",
+  "guiVsPublishedExecutableBytes": {
+    "ui/bootstrap.mjs": true,
+    "ui/runtime.lock.json": true,
+    "skills/photocraft-batch-image-delivery/scripts/contact_sheet.py": true
+  },
+  "guiVsPublishedPinnedRuntimeFiles": 51,
+  "realPhotos": {
+    "source": {
+      "repository": "scikit-image/scikit-image",
+      "commit": "5e74a4a3a5149a8a14566b81a32bb15499aa3857",
+      "rightsEvidence": "skimage/data/_fetchers.py; astronaut(), coffee(), chelsea() docstrings",
+      "images": [
+        {
+          "path": "astronaut.png",
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/5e74a4a3a5149a8a14566b81a32bb15499aa3857/skimage/data/astronaut.png",
+          "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+          "license": "public domain",
+          "credit": "NASA Great Images"
+        },
+        {
+          "path": "coffee.png",
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/5e74a4a3a5149a8a14566b81a32bb15499aa3857/skimage/data/coffee.png",
+          "sha256": "cc02f8ca188b167c775a7101b5d767d1e71792cf762c33d6fa15a4599b5a8de7",
+          "license": "CC0",
+          "credit": "Rachel Michetti"
+        },
+        {
+          "path": "chelsea.png",
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/5e74a4a3a5149a8a14566b81a32bb15499aa3857/skimage/data/chelsea.png",
+          "sha256": "596aa1e7cb875eb79f437e310381d26b338a81c2da23439704a73c4651e8c4bb",
+          "license": "CC0",
+          "credit": "Stefan van der Walt"
+        }
+      ]
+    },
+    "cli": {
+      "processCount": 6,
+      "images": 3,
+      "pages": 1,
+      "inputHashesUnchanged": true
+    },
+    "codex": "same native host; new document, three embedded pictures plus filename captions, save, close, reopen; visible screenshot verified",
+    "independentNativeReadback": {
+      "projectSha256": "00ccc825f20a11349edaf01501163fd26907d379a9fcffbd90e539e318a8be6c",
+      "layers": 7,
+      "smartObjects": 3,
+      "editableTextLayers": 3,
+      "webVsNativeDecodedPng": {
+        "maximumChannelDifference": 0,
+        "meanChannelDifference": 0.0
+      },
+      "projectUnchanged": true
+    },
+    "scope": "three public sample photographs; does not qualify all color profiles, fonts or file formats",
+    "additionalNativeMcpCalls": 13
+  },
+  "marketplaceTestCi": {
+    "run": 39070847746,
+    "jobs": 27,
+    "result": "PASS"
+  },
+  "marketplaceMainCi": {
+    "commit": "795f1e6ff2b5e5156a09ab0373b600ab3b1adf17",
+    "runs": [
+      39071077546,
+      39071077548,
+      39071077569
+    ],
+    "result": "PASS"
+  },
+  "desktopViewport": {
+    "requested": [
+      1280,
+      1024
+    ],
+    "screenshot": [
+      1280,
+      720
+    ],
+    "overrideReset": true,
+    "encoding": "JPEG",
+    "pageClientSize": [
+      1280,
+      1024
+    ],
+    "screenshotScope": "browser screenshot capture output is1280x720; page client dimensions separately observed as1280x1024"
+  },
+  "totalSessionNativeMcpCalls": 36
 }
