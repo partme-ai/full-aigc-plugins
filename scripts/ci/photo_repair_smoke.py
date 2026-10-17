@@ -16,7 +16,7 @@ CASES = {
     'portrait-eye-shadow': ([(100, 72), (104, 72)], (94, 66, 110, 78), 40, 0.02),
     'product-surface-dust': ([(40, 30), (44, 32), (80, 40), (84, 42)], (32, 22, 92, 50), 245, 0.25),
     'scratch-edge-protection': ([(40, y) for y in range(40, 61)], (27, 28, 54, 72), 245, 0.25),
-    'large-stain-patch': ([(x, y) for y in range(72, 92) for x in range(96, 120)], (92, 68, 124, 96), 30, 0.25),
+    'large-stain-patch': ([(x, y) for y in range(72, 92) for x in range(96, 120)], (88, 64, 128, 100), 30, 0.25),
     'skin-shine-burn': ([(112, 60), (116, 64)], (102, 50, 126, 74), 225, 0.01),
     'hair-stray-cleanup': ([(168, 40), (169, 41), (170, 42), (171, 43), (172, 44)], (162, 34, 178, 50), 20, 0.25),
     'product-reflection-spot': ([(156, 88)], (148, 80, 164, 96), 225, 0.02),
@@ -88,6 +88,13 @@ def run_playbooks(r, path):
             r.run('convert', 'repaired.pcraft', 'repaired.png')
             metrics = verify_repair(bytes(pixels), rgb_pixels(r.work / 'repaired.png')[2], clean,
                                     256, damaged, bounds, minimum_gain)
+            if name == 'large-stain-patch':
+                after = rgb_pixels(r.work / 'repaired.png')[2]
+                ring = [(x, y) for x, y in damaged if x in (96, 119) or y in (72, 91)]
+                seam = max(abs(after[(y * 256 + x) * 3 + c] - clean[(y * 256 + x) * 3 + c])
+                           for x, y in ring for c in range(3))
+                require(seam <= 2, 'Patch seam remains darker than the clean surrounding texture')
+                metrics['seamMaxChannelError'] = seam
             layer = next(row['id'] for row in info['layers'] if row['name'] == recipe['steps'][0]['params']['name'])
             r.run('run', 'repaired.pcraft', '--cmd', 'layer.setProps',
                   '--params', json.dumps({'layer': layer, 'visible': False}), '--out', 'original.pcraft')

@@ -42,7 +42,7 @@ jobs:
         if: matrix.plugin == 'photocraft'
         with:
           repository: full-aigc-skills/photocraft-skills
-          ref: 8d5f329231d81280fa8c5e341ee9b7e56f2f9bb2
+          ref: f49e0947b3278d81c3f749d7aa37bc3dca0beadf
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'gridcraft'
