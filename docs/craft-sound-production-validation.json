@@ -18,9 +18,40 @@
       "original session/audio hashes unchanged"
     ]
   },
-  "Windows": "PENDING",
+  "Windows": {
+    "run": 39055069670,
+    "sourceCommit": "9b710ae28bc2164e8ce23c75f9c21bec23cf7165",
+    "sceneRecords": 16,
+    "cliProcesses": 545,
+    "downloadedOutputHashesVerified": 106,
+    "soundcraftJob": "PASS",
+    "wholeMatrix": "PASS"
+  },
   "newSkillsPublished": "NOT_PUBLISHED",
-  "installedHostSync": "NOT_TESTED",
+  "installedHostSync": {
+    "result": "LIMITED_SYNTHETIC_PASS",
+    "host": "real native Codex app-server + Codex IAB",
+    "thread": "01a14af7-7082-7940-8820-6f578267bbf6",
+    "mcpCalls": 24,
+    "package": "fresh isolated local candidate, version0.1.0-dev.20261017.5 with new skills; not new public release",
+    "checks": [
+      "continuous four-second clip visibly becomes two retained-position clips",
+      "one-second source visibly becomes three copies",
+      "flattened loop saved and reopened in same MCP session",
+      "three actual scraftz archives read by independent native CLI; exported PCM matches host output",
+      "loop and flattened output samples match"
+    ],
+    "runtime": "bundled upstream0.7.0 commit3a28a657692c1b98b28c276d8f61df9471074f0f; latest lookup HTTP404 fallback",
+    "limits": "synthetic input; not real audition or other-host acceptance",
+    "skillDiscovery": {
+      "status": "PASS",
+      "count": 10,
+      "newSkills": [
+        "soundcraft:soundcraft-voice-silence-gaps",
+        "soundcraft:soundcraft-finite-audio-loop"
+      ]
+    }
+  },
   "auditoryAcceptance": "NOT_TESTED",
   "limits": [
     "synthetic signal only",
@@ -132,7 +163,21 @@
     "中文 业务 workspace/core-podcast-cleanup/output/podcast-review.wav": "8609c75a467ed598d37191d60211e880d71f04e166d3e62aa7cd1241add7c157",
     "中文 业务 workspace/core-voice-over-mix/Audio Files/bed.wav": "1dad300fb0b96df8692f7aecc7956b39c5c40212483fba096ed0152e90981899",
     "中文 业务 workspace/core-voice-over-mix/Audio Files/voice.wav": "76b5bebe06c6b4b2c43f880234801cf18bbf3cf36af7eb2931aab5c5405f9887",
-    "中文 业务 workspace/core-voice-over-mix/output/voice-mix.wav": "126de273bce3deee96ea61605bafa96f871396eb8f2a29c450845f8953744223"
+    "中文 业务 workspace/core-voice-over-mix/output/voice-mix.wav": "126de273bce3deee96ea61605bafa96f871396eb8f2a29c450845f8953744223",
+    "fresh-native-tty/loop-three.jpg": "25df551f69ee91377cdb4c9269ee12cedb6810c3d4e96aebe26a3b4db3c7e953",
+    "fresh-native-tty/gaps-before.jpg": "3000a3b557e1ba289e90d15a26255a4e5181d6c73164e57eb5ec2626c1f38e38",
+    "fresh-native-tty/loop-reopened.jpg": "f65bb0020ab2c706d4a8a170b9335d8c12e34d9496ba82ee7b53aefe8da746fd",
+    "fresh-native-tty/frozen-native-rpc.json": "370260357e25e58f73cd8eecf961ae2b6b74ed1ef26b8b3e5e493ce7505ad3b5",
+    "fresh-native-tty/frozen-calls.json": "c0a7123cc0cb73963ccdfff8269f1837bf5beef0f3d0c70da1b9a679239a1b98",
+    "fresh-native-tty/gaps-after.jpg": "974060cfb759998bd38f98faa543c89a9fa1081df741e0787b658909632b420f",
+    "fresh-native-tty/workspace/mcp-gaps.scraftz": "e8c2770971527042a7f67accc6bb21ad968cd681fa845d5237895d70ac35a5d8",
+    "fresh-native-tty/workspace/mcp-loop.scraftz": "cbfc6d6cdec6b9c6ebe961c2829decb5fc1d43c5b8cc6a4c34d5ce4d4b4cd1be",
+    "fresh-native-tty/workspace/mcp-flattened.scraftz": "8d2c50aeb71112b7b808da1efccb8aa7accc60f64ad6b3296cc5d9282f615c14",
+    "fresh-native-tty/workspace/loop.wav": "e4df7c1075940a8d01285505c96e080a5adae2c819ae7f16a0e9338e6a228110",
+    "fresh-native-tty/workspace/bursts.wav": "b5e8d94c116849288d346c8b6c521d0cff73b4a503081d7ed4a243bd36523f94",
+    "fresh-native-tty/workspace/mcp-flattened.wav": "9a323504076f6b9b6d924251ed8c480c454bbb7edc6fb5382daa7c8400901c95",
+    "fresh-native-tty/workspace/mcp-loop.wav": "9a323504076f6b9b6d924251ed8c480c454bbb7edc6fb5382daa7c8400901c95",
+    "fresh-native-tty/workspace/mcp-gaps.wav": "69b09922fdd42179158d028563b377edc7b7b1b766982ad052178dd613d944fb"
   },
   "stereoSplitDiagnostic": {
     "result": "FAIL_NOT_SHIPPED_AS_SKILL",
@@ -228,5 +273,10 @@
     ],
     "reproduce": "Generate four seconds of 48kHz PCM16 stereo: left440Hz/right880Hz amplitude0.2. Import Source; split_into_mono; query new track IDs, mute Source, center each mono track, exclusive-solo each in turn and bounce 0..4s. Compare decoded channels to the two source signals.",
     "status": "Open capability gap; no official source files modified; not generalized to untested upstream main."
+  },
+  "packageMcpRegression": {
+    "run": 39055069666,
+    "result": "PASS",
+    "scope": "existing published-package matrix; not new skill publication"
   }
 }
