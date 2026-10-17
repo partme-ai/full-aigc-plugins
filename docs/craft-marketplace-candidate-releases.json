@@ -13,7 +13,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 24153048
   },
   {
     "plugin": "designcraft",
@@ -29,7 +30,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 45188333
   },
   {
     "plugin": "effectcraft",
@@ -45,7 +47,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/effectcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 62481427
   },
   {
     "plugin": "photocraft",
@@ -61,7 +64,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 28117151
   },
   {
     "plugin": "figcraft",
@@ -77,7 +81,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 21625395
   },
   {
     "plugin": "filmcraft",
@@ -93,7 +98,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 41183059
   },
   {
     "plugin": "lightcraft",
@@ -109,7 +115,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 27259177
   },
   {
     "plugin": "printcraft",
@@ -125,7 +132,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 44209275
   },
   {
     "plugin": "vectorcraft",
@@ -141,7 +149,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 52062897
   },
   {
     "plugin": "deckcraft",
@@ -157,7 +166,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 38540148
   },
   {
     "plugin": "soundcraft",
@@ -173,7 +183,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 6523479
   },
   {
     "plugin": "gridcraft",
@@ -189,7 +200,8 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 7672414
   },
   {
     "plugin": "wordcraft",
@@ -205,6 +217,7 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261017.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "maximumZipEntryBytes": 43981745
   }
 ]

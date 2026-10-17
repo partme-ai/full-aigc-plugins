@@ -74,13 +74,23 @@ const codex = {
   interface: { displayName: catalog.displayName }
 };
 
+// 已发布完整包使用宿主原生 ZIP 分发协议；源码 Git 安装仍用于 Codex。
+const publishedPackages = JSON.parse(fs.readFileSync(path.join(root, "docs/craft-marketplace-candidate-releases.json"), "utf8"));
+const zcodeSource = (plugin) => {
+  const release = publishedPackages.find((entry) => entry.plugin === plugin.id && entry.version === plugin.version);
+  if (!release && publishedPackages.some((entry) => entry.plugin === plugin.id)) throw new Error(`${plugin.id}: publish and verify the matching complete ZIP before generating its marketplace entry`);
+  if (!release || release.maximumZipEntryBytes > 50 * 1024 * 1024) return { source: "github", repo: plugin.repository, ref: releaseRef(plugin) };
+  return { source: "url", type: "zip", url: `${githubReleaseSource(plugin).replace("/tag/", "/download/")}/${release.archive}`, sha256: release.archiveSha256, path: `${plugin.id}-plugin` };
+};
+
 const zcode = {
   name: catalog.name,
   displayName: catalog.displayName,
   description: catalog.description,
   plugins: marketplacePlugins.map((plugin) => ({
     name: plugin.id,
-    source: { source: "github", repo: plugin.repository, ref: releaseRef(plugin) },
+    source: zcodeSource(plugin),
+    ...(publishedPackages.some((entry) => entry.plugin === plugin.id) ? { displayName: marketplaceDisplayName(plugin) } : {}),
     description: marketplaceDescription(plugin),
     version: plugin.version,
     category: plugin.category,

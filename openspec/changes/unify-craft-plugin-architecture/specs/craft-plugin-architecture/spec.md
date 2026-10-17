@@ -40,3 +40,7 @@ The catalog SHALL expose thirteen development candidates with immutable tags, of
 #### Scenario: First use does not block MCP handshake
 - **WHEN** editor resources have not been downloaded
 - **THEN** initialize, tool discovery and resource discovery finish from pinned package descriptors without network access; the first editor operation prepares the verified runtime
+
+#### Scenario: Native archive marketplace delivery
+- **WHEN** the host supports checksummed ZIP marketplace sources
+- **THEN** the listing binds the complete published archive URL, SHA-256 and package subdirectory; host archive size limits are checked and any Git bootstrap fallback is recorded explicitly instead of being claimed as complete archive acceptance

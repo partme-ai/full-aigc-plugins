@@ -1,0 +1,399 @@
+{
+  "version": "0.1.0-dev.20261017.4",
+  "completePublicZipCodexMac": [
+    {
+      "plugin": "cadcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/download/v0.1.0-dev.20261017.4/cadcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "6301a1a5fa58dc052cfd93952068f6a59b9b19ce5ee484bed1c2a1f53954cbc0",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "designcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/download/v0.1.0-dev.20261017.4/designcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "4d594c29937e261a329247c9e9abf177e7ce16effb3eef7593ccf03856cf0889",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "effectcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/effectcraft-plugin/releases/download/v0.1.0-dev.20261017.4/effectcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "383469df8312dec26691e8b0d07d0fafea000ea48233533de90f6d2e54ddc978",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "photocraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/download/v0.1.0-dev.20261017.4/photocraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "61d6ef2ad76fd53013801a1fe74b085ee8ae49e82f91279f72f49c177b2e6788",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "figcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/download/v0.1.0-dev.20261017.4/figcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "888a0985c31b4ea4e8c21b6603bab8ebe4c060597f0ac410ee7c06b82a218354",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "filmcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/download/v0.1.0-dev.20261017.4/filmcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "04980bc962578e8d709bf1450fb8efbe97f101cb41d5718cfed8ce3cdfbc3346",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "lightcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/download/v0.1.0-dev.20261017.4/lightcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "885490a3d2d6d572cd901c363f20723e8f6be591c26b7e0e6bc772fc0b0f3af2",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "printcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261017.4/printcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "f9b61c98f33a1b397bfd8ed130f7278762bdfccf9100ecd2bec4eacca53eb5b1",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "vectorcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/download/v0.1.0-dev.20261017.4/vectorcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "f7917e7dde41d33fe4a7b6f060613e2b29717af90825490c2a207519578ababa",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "deckcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/download/v0.1.0-dev.20261017.4/deckcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "a32d44147ff42724d1f0f5bb9dc3732929eded70e70983801817951896860ccd",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "soundcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/download/v0.1.0-dev.20261017.4/soundcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "d6a9ee0046306e9c95abbcc753c97ed3357965499c5508fa62d446d90ce4cc92",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "gridcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/download/v0.1.0-dev.20261017.4/gridcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "7997e555ac43b06d6cdc3d57ddeeaed0e117beeed56bbceb912c92458f2517f1",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    {
+      "plugin": "wordcraft",
+      "version": "0.1.0-dev.20261017.4",
+      "source": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/download/v0.1.0-dev.20261017.4/wordcraft-plugin-0.1.0-dev.20261017.4.zip",
+      "archiveSha256": "fd7c1d2aaba49c9eb9aff86c1fe4fd0753ca7f24e0d8a518f55116be01122775",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    }
+  ],
+  "windowsAndLinux": {
+    "url": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39021467206",
+    "headSha": "8aa0d655bbd876116ba959386aaf297699bd17d1",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "linux-all-cold",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (soundcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (cadcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (photocraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (gridcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (printcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (designcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (filmcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (photocraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (wordcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (designcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (effectcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (vectorcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (effectcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (cadcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (lightcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (printcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (wordcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (figcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (filmcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (deckcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (lightcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (figcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (gridcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (deckcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (soundcraft)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-release-zip (vectorcraft)",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "creativeAndAllHostEmbeddedAcceptance": "INCOMPLETE",
+  "zcodeMacInstallation": {
+    "hostVersion": "0.16.9",
+    "plugins": [
+      {
+        "plugin": "cadcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "designcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "effectcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "git-host-size-limit-fallback",
+        "installedBundledDigests": "NOT_APPLICABLE",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "photocraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "figcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "filmcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "lightcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "printcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "vectorcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "deckcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "soundcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "gridcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      },
+      {
+        "plugin": "wordcraft",
+        "version": "0.1.0-dev.20261017.4",
+        "installation": "PASS",
+        "source": "complete-zip",
+        "installedBundledDigests": "PASS",
+        "mcpCall": "NOT_TESTED",
+        "embeddedUI": "NOT_TESTED"
+      }
+    ]
+  }
+}

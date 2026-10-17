@@ -8,11 +8,11 @@
 
 ## 验证状态
 
-- 22项针对性归档、候选目录与可移植 MCP 回归通过，26份根 plugin/MCP 配置通过官方1.0.0 JSON Schema。
+- 23项针对性归档、候选目录与可移植 MCP 回归通过，26份根 plugin/MCP 配置通过官方1.0.0 JSON Schema。
 - 13个完整ZIP通过Windows路径与资源摘要预检，包含原有 editor.lock.json 与新的 runtime.lock.json 双重检查。
-- 前一版13 个公开完整 ZIP 经下载、干净解包及真实 Codex 安装，原生 app-server MCP 的 `editor_status`、`open_browser_editor` 调用及编辑器HTML访问通过。
+- 修正版13 个公开完整 ZIP 经下载、干净解包及真实 Codex 安装，原生 app-server MCP 的 `editor_status`、`open_browser_editor` 调用及编辑器HTML访问通过。
 - 原生 `skills/list` 按安装路径核对187个技能入口，均已发现并启用；这不代表模型路由或187项创作质量验收通过。
-- 修正候选的 GitHub 标签干净安装、首次下载、Windows Git 安装 CI：正在执行。随后刷新主市场。
+- 修正版 Windows Git 安装13项、完整ZIP安装13项及Linux同时冷启动1项，共27个CI任务全部通过：[运行39021467206](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39021467206)。随后刷新主市场。
 - 本轮未将上述安装检查计作13种编辑器的画面同步、创作效果或ZCode/Kimi全部宿主验收。
 
 ## 制品选择
@@ -36,3 +36,7 @@ Windows Git检出DesignCraft历史长路径曾失败。Windows CI显式启用Git
 Git标签安装与完整ZIP安装分别验收。`verify-craft-release-zip.py`从GitHub Release下载每个固定完整ZIP，验证整包SHA-256，在干净目录解包，再通过真实Codex安装器、skills/list、原生MCP调用与编辑器HTML进行验证；最后复核已安装ui/dist逐文件摘要，防止从外部缓存兜底掩盖包缺资源。Windows ZIP验收明确关闭Git长路径配置，避免把Git检出的环境配置冒充完整包能力。
 
 Windows兼容修正版dev.20261017.4统一入口真实路径，能力描述符摘要按LF规范化后校验，兼容Git CRLF检出；二进制资源摘要仍逐字节核验。重新执行公开ZIP下载验收及Windows Git/ZIP双路CI，结果以对应运行记录为准。
+
+ZCode的12个市场入口采用完整ZIP地址、整包SHA-256和包内目录，安装即带运行资源；EffectCraft官方WASM约60MiB，当前ZCode0.16.9实际安装被单文件50MiB上限拒绝，因此该应用显式保留固定Git入口，完整ZIP在其他已验收路径可用；Codex原生Git来源仍保留独立的首次下载兼容路径。两种交付不混称为相同机制。
+
+本机ZCode0.16.9真实安装器已安装13个候选：12个完整ZIP的已安装ui/dist逐文件摘要通过；EffectCraft为上述Git兼容例外。此次ZCode检查只覆盖安装，MCP调用及内嵌编辑同步不在该结论中。可用`verify-craft-zcode-install.py --cli-js <宿主CLI路径> --output <新隔离目录>`复验，不修改日常宿主配置。

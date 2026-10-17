@@ -10,4 +10,4 @@
 - [ ] 验证 13 个 Craft 插件在 Codex、ZCode、Kimi 的真实宿主调用和内嵌编辑同步；修复宿主能力声明与画面同步问题，外部环境阻塞如实记录，不用 SDK 调用代替。
 - [x] 复核各仓已有高级任务：五个 `establish-v1-plugin` 长任务表补充分界；DesignCraft、LightCraft、PrintCraft 的现有 harden/extend 变更继续独立开放；CADCraft 无此类变更。未删改原任务和证据，Harness 的用途另行讨论。
 
-- [ ] 将13个开发候选以固定标签和校验和发行资源接入三宿主市场，验证干净Git安装、首次启动和真实Codex MCP调用；保留稳定发布及未验收能力的限制。
+- [x] 将13个开发候选以固定标签和校验和发行资源接入三宿主市场，验证干净Git安装、首次启动和真实Codex MCP调用；保留稳定发布及未验收能力的限制。
