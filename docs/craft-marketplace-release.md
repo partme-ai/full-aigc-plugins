@@ -6,7 +6,7 @@
 
 ## EffectCraft dev.20261017.6 场景技能交付
 
-新增章节标题卡、3–2–1倒数和滚动署名三个独立技能，冻结基础技能源与v2编辑器资源保持不变。macOS和Windows完整九场景原生回归通过，新增各500张PNG已解码；Windows下载616个产物逐项核验摘要并比对真实执行argv与技能步骤。完整公开ZIP已通过真实Codex安装、26个技能发现、MCP基础调用和ui/dist摘要检查。详见[回归记录](craft-effect-delivery-validation.json)。合成样本不代表真实成片、MCP场景编辑或宿主同步通过。
+新增章节标题卡、3–2–1倒数和滚动署名三个独立技能，冻结基础技能源与v2编辑器资源保持不变。macOS和Windows完整九场景原生回归通过，新增各500张PNG已解码；Windows下载616个产物逐项核验摘要并比对真实执行argv与技能步骤。完整公开ZIP已通过真实Codex安装、26个技能发现、MCP基础调用和ui/dist摘要检查。已按feature→test→main发布，源码提交`1b3c4c16e217b0e8d08d8f01153f4d25073a437c`；test三组CI全部通过；main同源码[市场27项](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39035230105)、[安装/MCP 14项](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39035230058)、[13应用业务](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39035230081)也全部通过，实际订阅刷新errors为空，原生列表确认v6、26技能及三个新入口，logo/composerIcon有效。详见[回归记录](craft-effect-delivery-validation.json)。合成样本不代表真实成片、MCP场景编辑或宿主同步通过。
 
 ## DesignCraft / PdfCraft dev.20261017.6 场景技能交付
 

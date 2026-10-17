@@ -6,7 +6,7 @@
 
 | 内容 | 当前事实 |
 | --- | --- |
-| GitHub来源 | 16个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
+| GitHub来源 | 20个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
 | 场景分发 | 91个技能中落地210条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
@@ -384,4 +384,4 @@ Windows main[39031956861](https://github.com/partme-ai/full-aigc-plugins/actions
 
 ## 片头片尾场景扩展
 
-新增EffectCraft章节标题卡、3–2–1倒数、滚动署名三个独立技能，固定reactvideoeditor/remotion-templates提交阅读流程事实，未声明标准许可，正文与Craft配方原创。明确图层选择、合成秒、独占出入点、可编辑文本及署名占位内容确认。原生0.10.0执行完整九个动效配方108次CLI调用，新增三项导出并重新解码500张PNG。实际查看章节完整帧、START帧和署名中段；不是全片播放或宿主同步验收。Windows九场景114次CLI调用通过运行39034553688，下载616个产物摘要和新增三项argv已复核。EffectCraft v6公开完整包安装/MCP已验证，主市场清单同步实施中。累计210条映射、91个场景入口，数量不等于全部效果已验收。详见[回归记录](craft-effect-delivery-validation.json)。
+新增EffectCraft章节标题卡、3–2–1倒数、滚动署名三个独立技能，固定reactvideoeditor/remotion-templates提交阅读流程事实，未声明标准许可，正文与Craft配方原创。明确图层选择、合成秒、独占出入点、可编辑文本及署名占位内容确认。原生0.10.0执行完整九个动效配方108次CLI调用，新增三项导出并重新解码500张PNG。实际查看章节完整帧、START帧和署名中段；不是全片播放或宿主同步验收。Windows九场景114次CLI调用通过运行39034553688，下载616个产物摘要和新增三项argv已复核。EffectCraft v6公开完整包安装/MCP已验证，已按feature→test→main发布至主市场，实际订阅刷新成功，原生列表核对26技能及三个新入口和官方图标。累计210条映射、91个场景入口，数量不等于全部效果已验收。详见[回归记录](craft-effect-delivery-validation.json)。
