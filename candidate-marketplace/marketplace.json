@@ -1,17 +1,17 @@
 {
   "name": "full-aigc-craft-candidates",
-  "displayName": "Craft 开发候选",
-  "description": "Installable Craft development candidates; production and full creative acceptance remain pending.",
+  "displayName": "Full AIGC 插件",
+  "description": "Full AIGC plugin marketplace for Codex, ZCode, and Kimi Code: image, video, audio, music, 3D, and multimodal content creation.",
   "plugins": [
     {
       "name": "cadcraft",
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/cadcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Creativity",
       "tags": [
         "cadcraft",
@@ -20,7 +20,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -28,10 +28,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/deckcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Productivity",
       "tags": [
         "deckcraft",
@@ -40,7 +40,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -48,10 +48,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/designcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Creativity",
       "tags": [
         "designcraft",
@@ -60,7 +60,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -68,10 +68,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/effectcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Creativity",
       "tags": [
         "effectcraft",
@@ -80,7 +80,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -88,10 +88,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/figcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Creativity",
       "tags": [
         "figcraft",
@@ -100,7 +100,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -108,10 +108,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/filmcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Creativity",
       "tags": [
         "filmcraft",
@@ -120,7 +120,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -128,10 +128,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/gridcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Productivity",
       "tags": [
         "gridcraft",
@@ -140,7 +140,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -148,10 +148,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/lightcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Creativity",
       "tags": [
         "lightcraft",
@@ -160,7 +160,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -168,10 +168,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/printcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Productivity",
       "tags": [
         "printcraft",
@@ -180,7 +180,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -188,10 +188,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/photocraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Creativity",
       "tags": [
         "photocraft",
@@ -200,7 +200,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -208,10 +208,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/soundcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Creativity",
       "tags": [
         "soundcraft",
@@ -220,7 +220,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -228,10 +228,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/vectorcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Creativity",
       "tags": [
         "vectorcraft",
@@ -240,7 +240,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -248,10 +248,10 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/wordcraft-plugin",
-        "ref": "v0.1.0-dev.20261017.3"
+        "ref": "v0.1.0-dev.20261017.4"
       },
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.3",
+      "version": "0.1.0-dev.20261017.4",
       "category": "Productivity",
       "tags": [
         "wordcraft",
@@ -260,7 +260,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261017.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261017.4/assets/official-logo.png",
       "strict": true
     }
   ]

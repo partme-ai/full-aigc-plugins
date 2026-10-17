@@ -1,7 +1,7 @@
 name: Craft marketplace Git installation
 on:
   push:
-    paths: ['.github/workflows/craft-market-install.yml']
+    paths: ['.github/workflows/craft-market-install.yml', 'scripts/craft-runtime-bootstrap.test.mjs', 'scripts/templates/craft-runtime-bootstrap.mjs', 'scripts/verify-craft-market-install.py', 'scripts/verify-craft-release-zip.py', 'candidate-marketplace/**', 'docs/craft-marketplace-candidate-releases.json']
   workflow_dispatch: {}
 permissions:
   contents: read

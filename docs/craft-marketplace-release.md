@@ -1,6 +1,6 @@
 # Craft 插件库开发候选
 
-13 个插件统一为 `0.1.0-dev.20261017.3`。这是可安装开发预发布，生产发布仍 BLOCKED；并非全部上游 main 能力及全部场景已验收。
+13 个插件统一为 `0.1.0-dev.20261017.4`。这是可安装开发预发布，生产发布仍 BLOCKED；并非全部上游 main 能力及全部场景已验收。
 
 市场使用固定 Git 标签，官方图标也按标签固定。根 Agent Plugins MCP 和 Codex、ZCode、Kimi 入口统一执行 `ui/bootstrap.mjs`。Git 安装首次启动下载插件发行资源并核验 SHA-256，完整 ZIP 自带资源；运行要求 Node.js 24，不需要 Rust 或 npm 构建。
 
@@ -8,11 +8,11 @@
 
 ## 验证状态
 
-- 21项针对性归档、候选目录与可移植 MCP 回归通过，26份根 plugin/MCP 配置通过官方1.0.0 JSON Schema。
+- 22项针对性归档、候选目录与可移植 MCP 回归通过，26份根 plugin/MCP 配置通过官方1.0.0 JSON Schema。
 - 13个完整ZIP通过Windows路径与资源摘要预检，包含原有 editor.lock.json 与新的 runtime.lock.json 双重检查。
-- 13 个完整 ZIP 经真实 Codex 安装，原生 app-server MCP 的 `editor_status`、`open_browser_editor` 调用及编辑器HTML访问通过。
+- 前一版13 个公开完整 ZIP 经下载、干净解包及真实 Codex 安装，原生 app-server MCP 的 `editor_status`、`open_browser_editor` 调用及编辑器HTML访问通过。
 - 原生 `skills/list` 按安装路径核对187个技能入口，均已发现并启用；这不代表模型路由或187项创作质量验收通过。
-- 修正候选的 GitHub 标签干净安装、首次下载、Windows Git 安装 CI：正在执行。主市场刷新不在本轮范围内。
+- 修正候选的 GitHub 标签干净安装、首次下载、Windows Git 安装 CI：正在执行。随后刷新主市场。
 - 本轮未将上述安装检查计作13种编辑器的画面同步、创作效果或ZCode/Kimi全部宿主验收。
 
 ## 制品选择
@@ -23,7 +23,7 @@ CAD、Photo、Fig 使用此前已验证的 main Web 制品；Vector 使用0.12.0
 
 ## 本轮发布边界
 
-用户最终授权全部合入main，按feature→test/20261017→main处理13插件、13独立技能源及目录仓。插件版本统一为dev.20261017.3；技能快照、原生CLI和Web上游版本按各自锁定来源独立记录。
+用户最终授权全部合入main，按feature→test/20261017→main处理13插件、13独立技能源及目录仓。插件版本统一为dev.20261017.4；技能快照、原生CLI和Web上游版本按各自锁定来源独立记录。
 
 dev.20261017.2的公开冷启动实测暴露Codex实际30秒握手限制（忽略清单超时字段），多个大制品首次下载使部分服务超时。dev.20261017.3使用固定描述符立即完成MCP握手/发现，在首次工具或资源调用时准备运行时；复用已核验的dev.20261017.2运行资源。21项回归覆盖无资源时握手、并发首次调用与协议转发。包中实际业务操作仍由原编辑器实现。
 
@@ -34,3 +34,5 @@ Windows Git检出DesignCraft历史长路径曾失败。Windows CI显式启用Git
 ## 完整发行压缩包验收
 
 Git标签安装与完整ZIP安装分别验收。`verify-craft-release-zip.py`从GitHub Release下载每个固定完整ZIP，验证整包SHA-256，在干净目录解包，再通过真实Codex安装器、skills/list、原生MCP调用与编辑器HTML进行验证；最后复核已安装ui/dist逐文件摘要，防止从外部缓存兜底掩盖包缺资源。Windows ZIP验收明确关闭Git长路径配置，避免把Git检出的环境配置冒充完整包能力。
+
+Windows兼容修正版dev.20261017.4统一入口真实路径，能力描述符摘要按LF规范化后校验，兼容Git CRLF检出；二进制资源摘要仍逐字节核验。重新执行公开ZIP下载验收及Windows Git/ZIP双路CI，结果以对应运行记录为准。

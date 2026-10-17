@@ -40,3 +40,10 @@ test('first concurrent tool calls share one engine and preserve response IDs',as
   for(let i=0;i<50&&output.trim().split('\n').length<3;i++)await new Promise(r=>setTimeout(r,100));const rows=output.trim().split('\n').map(s=>JSON.parse(s));for(const id of [30,31])assert.ok(rows.some(r=>r.id===id&&r.result?.content[0].text==='forwarded'),errors);assert.equal(errors.split('engine-start').length-1,1);
  }finally{child?.kill();await rm(p,{recursive:true,force:true});}
 });
+test('catalog integrity survives Git CRLF checkout conversion',async()=>{
+ const p=await mkdtemp(join(tmpdir(),'craft-crlf-'));let child;
+ try{
+  await copyFile(new URL('./templates/craft-runtime-bootstrap.mjs',import.meta.url),join(p,'bootstrap.mjs'));const catalog=JSON.stringify({tools:[],resources:[]},null,2)+'\n';await writeFile(join(p,'catalog.lock.json'),catalog.replaceAll('\n','\r\n'));await writeFile(join(p,'runtime.lock.json'),JSON.stringify({name:'fixture',version:'0.1.0-dev.1',catalogSha256:createHash('sha256').update(catalog).digest('hex')}));
+  child=spawn(process.execPath,[join(p,'bootstrap.mjs')],{stdio:['pipe','pipe','pipe']});let output='',errors='';child.stdout.on('data',b=>output+=b);child.stderr.on('data',b=>errors+=b);child.stdin.write(JSON.stringify({jsonrpc:'2.0',id:1,method:'initialize',params:{protocolVersion:'2025-03-26'}})+'\n');for(let i=0;i<30&&!output.includes('\n');i++)await new Promise(r=>setTimeout(r,100));assert.ok(output.includes('serverInfo'),errors);
+ }finally{child?.kill();await rm(p,{recursive:true,force:true});}
+});
