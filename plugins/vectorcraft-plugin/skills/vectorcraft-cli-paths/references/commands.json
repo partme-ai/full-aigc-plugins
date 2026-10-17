@@ -1,0 +1,180 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "vectorcraft",
+  "runtimeVersion": "0.2.0-craft.2",
+  "upstreamRepository": "https://github.com/storytold/vectorcraft",
+  "upstreamCommit": "90e022b0c05f12171a4e9bebe0894fa62f7bc95c",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "path.create",
+      "label": "Create Path",
+      "params": "{anchors: [{x, y, in?: [x,y], out?: [x,y]}], closed?: bool, d?: SVG path data} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.appendAnchor",
+      "label": "Add Anchor (Pen)",
+      "params": "{id, x, y, in?: [x,y], out?: [x,y]} append to the end of the last open subpath",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.close",
+      "label": "Close Path",
+      "params": "{id, in?: [x,y] (handle into the first anchor), independent?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.moveAnchors",
+      "label": "Move Anchors",
+      "params": "{dx, dy} move direct-selected anchors (whole paths if fully selected)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.setHandle",
+      "label": "Move Direction Handle",
+      "params": "{id, subpath, anchor, which: \"in\"|\"out\", x, y, independent?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.setAnchors",
+      "label": "Set Anchors",
+      "params": "{id, subpaths: [{anchors: [{x,y,in?,out?}], closed}]} replace a path's geometry",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.reverse",
+      "label": "Reverse Path Direction",
+      "params": "{ids?, reversed?: bool (true: every subpath runs counter-clockwise on screen, false: clockwise, the Attributes panel's Reverse Path Direction On / Off; omitted: flip each path)} the paths in ids or the selection (groups and compound paths: the paths inside), as one undo step → {changed: paths}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.join",
+      "label": "Join",
+      "params": "{} join two open paths' nearest endpoints, or close a single open path",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.average",
+      "label": "Average…",
+      "params": "{axis?: \"horizontal\"|\"vertical\"|\"both\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.convertAnchors",
+      "label": "Convert Anchor Points",
+      "params": "{to: \"corner\"|\"smooth\"} (Control bar convert buttons)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.deleteAnchors",
+      "label": "Remove Anchor Points",
+      "params": "{} delete direct-selected anchors",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.reshape",
+      "label": "Reshape",
+      "params": "{id, x, y, dx, dy, tol=3, radius?} Reshape tool: grab the path at (x, y) (adding an anchor there unless one is within tol) and drag it by (dx, dy); nearby anchors follow with a smooth falloff over radius (default: half the subpath's size)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.insertAnchor",
+      "label": "Add Anchor Point",
+      "params": "{id, subpath, segment, t: 0..1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.cutAtAnchors",
+      "label": "Cut Path at Selected Anchor Points",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "node.move",
+      "label": "Reorder",
+      "params": "{id, parent?: id (null = top level), index} drag-reorder in the Layers panel",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.freehand",
+      "label": "Pencil",
+      "params": "{points: [[x,y]…], fidelity?: pt (1.5), closed?, style?: \"pencil\"|\"brush\", fill?: bool, extend?: {id, end: \"start\"|\"end\"}} fit a freehand stroke → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.curvature",
+      "label": "Curvature",
+      "params": "{points: [{x, y, corner?}], closed?, id?} create (or with id: replace) a path curving through the points → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.removeAnchor",
+      "label": "Delete Anchor Point",
+      "params": "{id, subpath, anchor} remove one anchor, re-fitting the curve",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.convertAnchor",
+      "label": "Convert Anchor Point",
+      "params": "{id, subpath, anchor, to: \"corner\"|\"smooth\", x?, y?} (smooth with x/y: out handle there, in handle mirrored)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.reshapeSegment",
+      "label": "Reshape Segment",
+      "params": "{id, subpath, segment, t, dx, dy} bend a segment so the point at t moves by (dx, dy)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.split",
+      "label": "Split Path",
+      "params": "{id, subpath, segment, t} or {id, subpath, anchor}: closed paths open there, open paths become two → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.knife",
+      "label": "Knife",
+      "params": "{points: [[x,y]…]} cut closed shapes (selected, or all when nothing is selected) along the polyline → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.eraseRegion",
+      "label": "Eraser",
+      "params": "{points: [[x,y]…], size?: pt (10)} erase a round-brush stroke from paths (selected, or all) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.eraseSegments",
+      "label": "Path Eraser",
+      "params": "{points: [[x,y]…], width?: pt (8)} erase the parts of selected paths under the drag → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.smoothRegion",
+      "label": "Smooth",
+      "params": "{points: [[x,y]…], radius?: pt (12), fidelity?: pt (2.5)} smooth selected paths near the drag → {ids, before, after}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.joinScrub",
+      "label": "Join",
+      "params": "{points: [[x,y]…], tolerance?: pt (12)} join the open-path endpoints scrubbed over → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.blob",
+      "label": "Blob Brush",
+      "params": "{points: [[x,y]…], size?: pt (10), merge?: true} filled brush shape, merged with touching same-colour blobs → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.setFillRule",
+      "label": "Fill Rule",
+      "params": "{rule: \"nonZero\"|\"evenOdd\", ids?} the fill rule of the paths and compound paths in ids or the selection (groups: those inside), as one undo step → {changed}",
+      "enabledAtEmptySession": false
+    }
+  ],
+  "runtimePatchSourceCommit": "402de7b5f698797af9195cbd380cc97716883bc8",
+  "analysisCommit": "36a6a8ae49f0e2d1059361ab1f842b1ec172bc9e"
+}

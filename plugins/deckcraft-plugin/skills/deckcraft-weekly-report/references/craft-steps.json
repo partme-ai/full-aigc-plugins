@@ -1,0 +1,228 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "deckcraft",
+  "id": "weekly-report",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "仅创建新的16:9示例；已有文稿不得清空",
+      "command": "file.new",
+      "params": {
+        "size": [
+          960,
+          540
+        ],
+        "blank": true
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "建立本周结论页",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleAndContent",
+        "title": "本周结论",
+        "body": "完成事项、证据与风险；以下数值仅是待替换示例。"
+      }
+    },
+    {
+      "purpose": "给第1页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 0,
+        "text": "本周结论：确认报告周期、完成量定义、单位和数据来源；21与42是示例，不能当成真实业务结果。"
+      }
+    },
+    {
+      "purpose": "建立完成量趋势页",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleOnly",
+        "title": "完成量趋势",
+        "body": ""
+      }
+    },
+    {
+      "purpose": "插入原生可编辑折线图",
+      "command": "insert.chart",
+      "params": {
+        "type": "line",
+        "rect": [
+          80,
+          150,
+          800,
+          300
+        ],
+        "categories": [
+          "上周",
+          "本周"
+        ],
+        "series": [
+          {
+            "name": "完成量",
+            "values": [
+              21,
+              42
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "purpose": "给第2页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 1,
+        "text": "趋势：相同口径下比较上周和本周；说明缺失值和样本限制，不据两点预测未来。"
+      }
+    },
+    {
+      "purpose": "建立行动与风险页",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleOnly",
+        "title": "行动与风险",
+        "body": ""
+      }
+    },
+    {
+      "purpose": "建立行动、负责人、截止日期表",
+      "command": "insert.table",
+      "params": {
+        "rows": 3,
+        "cols": 3,
+        "rect": [
+          48,
+          150,
+          864,
+          260
+        ]
+      }
+    },
+    {
+      "purpose": "填入行动表单元格",
+      "command": "text.set",
+      "params": {
+        "cell": [
+          0,
+          0
+        ],
+        "text": "行动"
+      }
+    },
+    {
+      "purpose": "填入行动表单元格",
+      "command": "text.set",
+      "params": {
+        "cell": [
+          0,
+          1
+        ],
+        "text": "负责人"
+      }
+    },
+    {
+      "purpose": "填入行动表单元格",
+      "command": "text.set",
+      "params": {
+        "cell": [
+          0,
+          2
+        ],
+        "text": "截止"
+      }
+    },
+    {
+      "purpose": "填入行动表单元格",
+      "command": "text.set",
+      "params": {
+        "cell": [
+          1,
+          0
+        ],
+        "text": "复核风险"
+      }
+    },
+    {
+      "purpose": "填入行动表单元格",
+      "command": "text.set",
+      "params": {
+        "cell": [
+          1,
+          1
+        ],
+        "text": "待确认"
+      }
+    },
+    {
+      "purpose": "填入行动表单元格",
+      "command": "text.set",
+      "params": {
+        "cell": [
+          1,
+          2
+        ],
+        "text": "待确认"
+      }
+    },
+    {
+      "purpose": "填入行动表单元格",
+      "command": "text.set",
+      "params": {
+        "cell": [
+          2,
+          0
+        ],
+        "text": "推进试点"
+      }
+    },
+    {
+      "purpose": "填入行动表单元格",
+      "command": "text.set",
+      "params": {
+        "cell": [
+          2,
+          1
+        ],
+        "text": "待确认"
+      }
+    },
+    {
+      "purpose": "填入行动表单元格",
+      "command": "text.set",
+      "params": {
+        "cell": [
+          2,
+          2
+        ],
+        "text": "待确认"
+      }
+    },
+    {
+      "purpose": "标明表头",
+      "command": "table.options",
+      "params": {
+        "headerRow": true
+      }
+    },
+    {
+      "purpose": "给第3页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 2,
+        "text": "行动：负责人和截止日期须由真实计划填充，未给定项保留待确认；逐项检查风险与下一步关联。"
+      }
+    }
+  ],
+  "check": "三页结论、趋势、行动；图表类别和数值顺序正确，表格可编辑，逐页备注正确，回读后修改图表数据。",
+  "boundary": "新建示例仅用于新任务：已有演示文稿先读取页数、选择和内容；不得用file.new清空。索引为0起，仅在此新文稿示例固定；已有文稿重新查询。布局和真实内容质量、外部PowerPoint渲染、宿主同步不由命令通过证明。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "validation": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014846480",
+    "sceneSourceCommit": "49d40a6b73930f267aff0b6e93909635dc1092d4",
+    "platform": "Windows x64",
+    "visualAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

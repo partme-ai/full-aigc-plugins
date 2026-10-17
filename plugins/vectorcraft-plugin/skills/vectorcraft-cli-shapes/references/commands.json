@@ -1,0 +1,126 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "vectorcraft",
+  "runtimeVersion": "0.2.0-craft.2",
+  "upstreamRepository": "https://github.com/storytold/vectorcraft",
+  "upstreamCommit": "90e022b0c05f12171a4e9bebe0894fa62f7bc95c",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "shape.rectangle",
+      "label": "Rectangle",
+      "params": "{x, y, width, height, radius?: pt} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.ellipse",
+      "label": "Ellipse",
+      "params": "{x, y, width, height} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.polygon",
+      "label": "Polygon",
+      "params": "{cx, cy, radius, sides=6, rotation?: deg} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.star",
+      "label": "Star",
+      "params": "{cx, cy, radius1, radius2, points=5, rotation?: deg} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.flare",
+      "label": "Flare",
+      "params": "{cx, cy, diameter=100, opacity=50 (%), brightness=30 (%), growth=20 (%), fuzziness=50 (%), rays=15, longest=300 (%), rayFuzziness=100 (%), x2?, y2? (ring end; else pathLength at direction), pathLength=300, rings=10, largest=50 (%), direction=45 (deg), seed?} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.line",
+      "label": "Line Segment",
+      "params": "{x1, y1, x2, y2} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.spiral",
+      "label": "Spiral",
+      "params": "{cx, cy, radius, decay=80 (%), segments=10, clockwise?} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.arc",
+      "label": "Arc",
+      "params": "{x1, y1, x2, y2, closed?} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.rectangularGrid",
+      "label": "Rectangular Grid",
+      "params": "{x, y, width, height, rows=5, columns=5} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.polarGrid",
+      "label": "Polar Grid",
+      "params": "{x, y, width, height, concentric=5, radial=5} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.transform",
+      "label": "Transform",
+      "params": "{matrix: [a,b,c,d,e,f], copy?: bool, ids?, strokes?: bool, corners?: bool} apply an affine to the selection (or ids); strokes/corners: Scale Strokes & Effects / Scale Corners (default: the preferences)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.move",
+      "label": "Move…",
+      "params": "{dx, dy, copy?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.rotate",
+      "label": "Rotate…",
+      "params": "{angle: deg (counter-clockwise), origin?: [x,y], copy?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.scale",
+      "label": "Scale…",
+      "params": "{sx: %, sy?: %, origin?: [x,y], copy?, strokes?: bool (Scale Strokes & Effects: stroke weights, dashes and effect distances scale; off keeps them, type strokes included), corners?: bool (Scale Corners: live corner radii scale)} (strokes/corners default to the preferences)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.transformAgain",
+      "label": "Transform Again",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.group",
+      "label": "Group",
+      "params": "{} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.ungroup",
+      "label": "Ungroup",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.set",
+      "label": "Select Objects",
+      "params": "{ids: [id…]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.transformEach",
+      "label": "Transform Each…",
+      "params": "{scaleH?: % (100), scaleV?: % (100), moveH?: pt, moveV?: pt (down = +), rotate?: deg (counter-clockwise), reflectX?: bool (flip vertically), reflectY?: bool (flip horizontally), random?: bool, seed?: n, reference?: 0..8 (9-point grid, 4 = centre), copy?: bool, strokes?: bool (Scale Strokes & Effects), corners?: bool (Scale Corners; both default to the preferences)} transform every selected object about its own reference point → {ids}",
+      "enabledAtEmptySession": false
+    }
+  ],
+  "runtimePatchSourceCommit": "402de7b5f698797af9195cbd380cc97716883bc8",
+  "analysisCommit": "36a6a8ae49f0e2d1059361ab1f842b1ec172bc9e"
+}

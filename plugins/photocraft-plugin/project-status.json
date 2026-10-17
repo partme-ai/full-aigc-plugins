@@ -1,0 +1,652 @@
+{
+  "stage": "implementation-in-progress",
+  "implementation": "in-progress",
+  "marketplaceEligible": false,
+  "specAuthority": "openspec/changes/establish-v1-plugin",
+  "supportedPluginHosts": [],
+  "taskEvidence": {
+    "2.1": "docs/evidence/bootstrap-tests.json",
+    "5.4": "docs/evidence/exchange-loss.json",
+    "5.5": "docs/evidence/exchange-loss.json",
+    "1.7": "docs/evidence/skill-suite.json",
+    "1.8": "docs/evidence/skill-suite.json",
+    "1.9": "docs/evidence/skill-suite.json",
+    "1.11": "docs/evidence/installed-skill-paths.json",
+    "1.12": "docs/evidence/installed-skill-paths.json",
+    "1.10": "docs/evidence/task-skill-first-use.json",
+    "4.19": "docs/evidence/chinese-text-first-use.json",
+    "4.20": "docs/evidence/codex-release30-protected-native-20261006.json",
+    "4.21": "docs/evidence/codex-release31-retouch-native-20261006.json",
+    "4.22": "docs/evidence/codex-photo9-layout-first-use-20261006.json",
+    "4.23": "docs/evidence/codex-photo9-independent-psd-first-use-20261006.json",
+    "4.24": "docs/evidence/fontless-source-candidate-20261006.json",
+    "4.25": "docs/evidence/codex-release61-vector-photo-first-use-20261006.json",
+    "4.26": "docs/evidence/smart-public-source-first-use-20261006.json",
+    "4.27": "docs/evidence/smart-public-source-first-use-20261006.json",
+    "4.29": "docs/evidence/smart-public-source-first-use-20261006.json",
+    "4.28": "docs/evidence/codex-artcraft70-smart-mixed-first-use-20261006.json",
+    "8.1": "docs/evidence/complete-commands-20261007.json",
+    "8.2": "docs/evidence/complete-commands-20261007.json",
+    "8.4": "docs/evidence/codex-complete-command-first-use-20261007.json",
+    "8.5": "docs/evidence/complete-command-revision-first-use-20261007.json",
+    "8.6": "docs/evidence/codex-complete-command-revision-first-use-20261007.json",
+    "8.7": "docs/evidence/protocol-fault-first-use-20261007.json",
+    "8.8": "docs/evidence/codex-protocol-fault-first-use-20261007.json",
+    "8.9": "docs/evidence/codex-public-workflow-session-first-use-20261007.json",
+    "3.10": "docs/evidence/failed-stage-candidate-20261007.json",
+    "3.11": "docs/evidence/failed-stage-candidate-20261007.json",
+    "3.12": "docs/evidence/codex-failed-stage-first-use-20261007.json",
+    "8.10": "docs/evidence/photocraft-inner-json-command-candidate-20261007.json",
+    "2.9": "docs/evidence/photocraft-native-download-candidate-20261007.json",
+    "2.10": "docs/evidence/codex-native-download-first-use-20261007.json",
+    "8.11": "docs/evidence/codex-native-download-first-use-20261007.json",
+    "8.12": "docs/evidence/codex-native-gateway-first-use-20261007.json",
+    "8.13": "docs/evidence/photocraft-adjustment-mask-candidate-20261007.json",
+    "8.14": "docs/evidence/codex-photocraft-adjustment-mask-first-use-20261007.json",
+    "8.15": "docs/evidence/codex-art88-photo-adjustment-first-use-20261007.json",
+    "8.16": "docs/evidence/craft-owned-desktop-first-use-20261007.json",
+    "8.17": "docs/evidence/craft-full-command-fixed-first-use-20261007.json",
+    "8.20": "docs/evidence/craft-full-command-fixed-first-use-20261007.json",
+    "3.13": "docs/evidence/photocraft-output-execution-candidate-20261007.json",
+    "3.14": "docs/evidence/craft-three-domain-output-guards-fixed-first-use-20261007.json",
+    "1.1": "docs/evidence/vendor-self-contained-20261008.json",
+    "1.2": "docs/evidence/vendor-self-contained-20261008.json",
+    "1.3": "docs/evidence/vendor-self-contained-20261008.json",
+    "1.4": "docs/evidence/craft-fixed-setup-boundary-20261008.json",
+    "1.5": "docs/evidence/craft-fixed-setup-boundary-20261008.json",
+    "1.6": "docs/evidence/craft-fixed-setup-boundary-20261008.json",
+    "2.2": "docs/evidence/craft-fixed-runtime-integrity-20261008.json",
+    "2.3": "docs/evidence/craft-fixed-runtime-integrity-20261008.json",
+    "4.10": "docs/evidence/photocraft-complete-variant-contract-20261008.json",
+    "4.11": "docs/evidence/photocraft-complete-variant-contract-20261008.json",
+    "4.12": "docs/evidence/photocraft-complete-variant-contract-20261008.json",
+    "3.1": "docs/evidence/optimization/task-progress.json",
+    "3.2": "docs/evidence/optimization/task-progress.json",
+    "3.4": "docs/evidence/optimization/task-progress.json",
+    "3.5": "docs/evidence/optimization/task-progress.json",
+    "3.7": "docs/evidence/optimization/task-progress.json",
+    "3.8": "docs/evidence/optimization/task-progress.json",
+    "4.1": "docs/evidence/optimization/task-progress.json",
+    "4.2": "docs/evidence/optimization/task-progress.json",
+    "4.4": "docs/evidence/optimization/task-progress.json",
+    "4.5": "docs/evidence/optimization/task-progress.json",
+    "4.13": "docs/evidence/optimization/task-progress.json",
+    "4.14": "docs/evidence/optimization/task-progress.json",
+    "6.1": "docs/evidence/optimization/task-progress.json",
+    "6.2": "docs/evidence/optimization/task-progress.json",
+    "6.4": "docs/evidence/optimization/task-progress.json",
+    "6.5": "docs/evidence/optimization/task-progress.json",
+    "9.1": "docs/evidence/optimization/task-progress.json",
+    "9.2": "docs/evidence/optimization/task-progress.json",
+    "9.4": "docs/evidence/optimization/task-progress.json",
+    "10.1": "docs/evidence/optimization/task-progress.json",
+    "10.2": "docs/evidence/optimization/task-progress.json",
+    "10.7": "docs/evidence/optimization/task-progress.json",
+    "10.8": "docs/evidence/optimization/task-progress.json",
+    "11.1": "docs/evidence/optimization/task-progress.json",
+    "11.2": "docs/evidence/optimization/task-progress.json",
+    "11.4": "docs/evidence/optimization/task-progress.json",
+    "11.5": "docs/evidence/optimization/task-progress.json",
+    "12.1": "docs/evidence/optimization/task-progress.json",
+    "12.2": "docs/evidence/optimization/task-progress.json",
+    "12.10": "docs/evidence/optimization/task-progress.json",
+    "12.11": "docs/evidence/optimization/task-progress.json",
+    "12.13": "docs/evidence/optimization/task-progress.json",
+    "12.14": "docs/evidence/optimization/task-progress.json",
+    "9.5": "docs/evidence/optimization/task-progress.json",
+    "9.7": "docs/evidence/optimization/task-progress.json",
+    "9.8": "docs/evidence/optimization/task-progress.json",
+    "10.4": "docs/evidence/optimization/task-progress.json",
+    "10.5": "docs/evidence/optimization/task-progress.json",
+    "10.10": "docs/evidence/optimization/task-progress.json",
+    "10.11": "docs/evidence/optimization/task-progress.json",
+    "11.7": "docs/evidence/optimization/task-progress.json",
+    "11.8": "docs/evidence/optimization/task-progress.json",
+    "5.1": "docs/evidence/optimization/task-progress.json",
+    "5.2": "docs/evidence/optimization/task-progress.json",
+    "12.4": "docs/evidence/optimization/task-progress.json",
+    "12.5": "docs/evidence/optimization/task-progress.json",
+    "12.7": "docs/evidence/optimization/task-progress.json",
+    "12.8": "docs/evidence/optimization/task-progress.json",
+    "4.7": "docs/evidence/optimization/task-progress.json",
+    "4.8": "docs/evidence/optimization/task-progress.json",
+    "13.1": "docs/evidence/optimization/task-progress.json",
+    "4.3": "docs/evidence/optimization/domain-acceptance-audit.json",
+    "4.6": "docs/evidence/optimization/domain-acceptance-audit.json",
+    "4.9": "docs/evidence/optimization/domain-acceptance-audit.json",
+    "12.3": "docs/evidence/optimization/domain-acceptance-audit.json",
+    "12.6": "docs/evidence/optimization/domain-acceptance-audit.json",
+    "12.9": "docs/evidence/optimization/domain-acceptance-audit.json",
+    "12.15": "docs/evidence/optimization/domain-acceptance-audit.json",
+    "4.15": "docs/evidence/optimization/psd-acceptance-audit.json",
+    "5.6": "docs/evidence/optimization/psd-acceptance-audit.json",
+    "12.12": "docs/evidence/optimization/psd-acceptance-audit.json",
+    "4.16": "docs/evidence/optimization/flat-acceptance-audit.json",
+    "4.17": "docs/evidence/optimization/flat-acceptance-audit.json",
+    "4.18": "docs/evidence/optimization/flat-acceptance-audit.json",
+    "10.3": "docs/evidence/optimization/capability-acceptance-audit.json",
+    "9.3": "docs/evidence/optimization/routing-acceptance-audit.json",
+    "9.9": "docs/evidence/optimization/identity-acceptance-audit.json",
+    "5.3": "docs/evidence/optimization/artifact-lineage/acceptance-audit.json",
+    "11.9": "docs/evidence/optimization/artifact-lineage/acceptance-audit.json",
+    "3.9": "docs/evidence/optimization/task-budget-stop/acceptance-audit.json",
+    "10.12": "docs/evidence/optimization/task-budget-stop/acceptance-audit.json",
+    "3.6": "docs/evidence/optimization/task-recovery/acceptance-audit.json",
+    "10.9": "docs/evidence/optimization/task-recovery/acceptance-audit.json",
+    "2.4": "docs/evidence/optimization/runtime-transition/publication.json",
+    "2.5": "docs/evidence/optimization/runtime-transition/publication.json",
+    "2.6": "docs/evidence/optimization/runtime-version/acceptance-audit.json",
+    "14.1": "docs/evidence/photocraft-harness-convergence-20261013.json",
+    "14.2": "docs/evidence/photocraft-harness-convergence-20261013.json"
+  },
+  "hostValidationEvidence": "docs/evidence/craft-full-command-fixed-first-use-20261007.json",
+  "hostValidationStatus": "fixed-five-plugin58-discovery-and-standalone-desktop-passed",
+  "fontlessFixedReleaseEvidence": "docs/evidence/codex-release61-vector-photo-first-use-20261006.json",
+  "currentDomainTaskMatrixEvidence": "docs/evidence/codex-current-domain-task-matrix-20261006.json",
+  "smartFixedDomainEvidence": "docs/evidence/codex-photocraft11-smart-first-use-20261006.json",
+  "smartMixedFixedEvidence": "docs/evidence/codex-artcraft70-smart-mixed-first-use-20261006.json",
+  "completeCommandEntryEvidence": "docs/evidence/complete-commands-20261007.json",
+  "completeCommandAcceptance": "incomplete",
+  "completeCommandColdFirstUseEvidence": "docs/evidence/complete-commands-cold-first-use-20261007.json",
+  "currentFixedFirstUseEvidence": "docs/evidence/craft-full-command-fixed-first-use-20261007.json",
+  "completeCommandRevisionEvidence": "docs/evidence/complete-command-revision-first-use-20261007.json",
+  "completeCommandRevisionStatus": "bounded-source-and-fixed-installed-cold-revision-passed; exhaustive command acceptance remains open",
+  "previousFixedHostEvidence": "docs/evidence/codex-complete-command-first-use-20261007.json",
+  "completeCommandRevisionHostEvidence": "docs/evidence/codex-complete-command-revision-first-use-20261007.json",
+  "protocolFaultCandidateEvidence": "docs/evidence/protocol-fault-first-use-20261007.json",
+  "protocolFaultAcceptance": "bounded-source-and-fixed-installed-cold-faults-passed; exhaustive commands and Art bundle remain open",
+  "previousRevisionHostEvidence": "docs/evidence/codex-complete-command-revision-first-use-20261007.json",
+  "currentReleaseDiscoveryEvidence": "docs/evidence/craft-full-command-fixed-first-use-20261007.json",
+  "protocolFaultHostEvidence": "docs/evidence/codex-protocol-fault-first-use-20261007.json",
+  "publicWorkflowCandidateEvidence": "docs/evidence/public-workflow-session-candidate-20261007.json",
+  "publicWorkflowCandidateStatus": "bounded fixed installed domain clients passed; Art bundled distribution and exhaustive command gates remain open",
+  "publicWorkflowSourceRelease": {
+    "tag": "v0.1.0-dev.14",
+    "commit": "7f26b8d075f0813c3aaf90d8161ce194949d3dcc"
+  },
+  "publicWorkflowFixedHostEvidence": "docs/evidence/codex-public-workflow-session-first-use-20261007.json",
+  "failedStageCandidateEvidence": "docs/evidence/failed-stage-candidate-20261007.json",
+  "failedStageHostEvidence": "docs/evidence/codex-failed-stage-first-use-20261007.json",
+  "nativeDownloadFixedHostEvidence": "docs/evidence/codex-native-download-first-use-20261007.json",
+  "nativeDownloadAcceptance": "bounded-fixed-installed-macos-arm64-passed; exhaustive commands and fullV1 remain open",
+  "adjustmentMaskStatus": "12-fixed-installed-passed; Art updated distribution, exhaustive748 and fullV1 remain open",
+  "adjustmentMaskArtDistributionEvidence": "docs/evidence/codex-art88-photo-adjustment-first-use-20261007.json",
+  "previousFixedFirstUseEvidence": "docs/evidence/codex-complete-command-first-use-20261007.json",
+  "ownedDesktopFirstUseEvidence": "docs/evidence/craft-full-command-fixed-first-use-20261007.json",
+  "advancedDesktopFirstUseEvidence": "docs/evidence/craft-full-command-fixed-first-use-20261007.json",
+  "ownedDesktopAcceptance": "bounded-first-use-and-advanced-desktop-passed; exhaustive commands and full V1 remain open",
+  "skillSourceContractEvidence": "docs/evidence/vendor-self-contained-20261008.json",
+  "skillSourceContractStatus": "current fixed source and self-contained snapshot boundaries verified; complete V1 remains in progress",
+  "candidateImplementation": {
+    "skillsVersion": "0.1.0-dev.59",
+    "pluginWorkingVersion": "0.1.0-dev.77",
+    "fixedSkillSourceVersion": "0.1.0-dev.59",
+    "evidence": "docs/evidence/optimization/task-progress.json",
+    "publication": "PARTIAL_PUBLISHED_COMPONENTS_AND_SOURCE_CONTEXTS",
+    "fullAcceptance": "NOT_RUN",
+    "taskCounts": {
+      "total": 157,
+      "completed": 138,
+      "open": 19,
+      "newlyCompleted": 76
+    },
+    "currentRegressionEvidence": "docs/evidence/optimization/command-acceptance/plugin-validation.json",
+    "publicationEvidence": "docs/evidence/optimization/command-acceptance/source-context-publication.json"
+  },
+  "fixedDomainAcceptanceEvidence": "docs/evidence/optimization/domain-acceptance-audit.json",
+  "fixedDomainAcceptanceStatus": "PC-DM-001/002/003/007 current fixed macOS arm64 scenarios passed with explicit unsupported/unknown boundaries; full V1 remains open",
+  "fixedPsdAcceptanceEvidence": "docs/evidence/optimization/psd-acceptance-audit.json",
+  "fixedPsdAcceptanceStatus": "current fixed macOS arm64 required-feature refusal and source-bound loss acceptance passed; external editor and complete fidelity unknown",
+  "fixedFlatAcceptanceEvidence": "docs/evidence/optimization/flat-acceptance-audit.json",
+  "fixedFlatAcceptanceStatus": "Both PC-DM-006 scenarios passed on fixed dev.41 macOS arm64 RGB8 fixtures; live generation, billing authenticity, external print and full V1 remain unverified",
+  "fixedCapabilityAcceptanceEvidence": "docs/evidence/optimization/capability-acceptance-audit.json",
+  "fixedCapabilityAcceptanceStatus": "Task10.3 and full PC-RT-002 task2.6 accepted for fixed macOS arm64 scope; GUI ownership and complete V1 remain open",
+  "fixedReleaseIdentityEvidence": "docs/evidence/optimization/identity-acceptance-audit.json",
+  "fixedRoutingContractEvidence": "docs/evidence/optimization/routing-acceptance-audit.json",
+  "entryContractEvidence": "docs/evidence/optimization/entry-contract/coverage-audit.json",
+  "entryContractAcceptance": "PARTIAL: public dev.47/source dev.41 passes70 installed Harness tests and14 native readonly reply faults; raw per-command, streaming and full-entry matrix remain open",
+  "fixedReleaseCombinationEvidence": "docs/evidence/optimization/entry-contract/fixed-release-combination.json",
+  "unreleasedEntryCandidate": {
+    "status": "PARTIAL_PUBLISHED",
+    "evidence": "docs/evidence/optimization/native-argv/candidate.json",
+    "published": true,
+    "closedTasks": [],
+    "remainingTask": "9.6",
+    "sourceRef": "v0.1.0-dev.40",
+    "pluginRef": "v0.1.0-dev.45",
+    "publicationEvidence": "docs/evidence/optimization/native-argv-publication.json"
+  },
+  "harnessEntryCandidate": {
+    "status": "PARTIAL_PUBLISHED",
+    "published": true,
+    "evidence": "docs/evidence/optimization/harness-entry/candidate.json",
+    "regressionEvidence": "docs/evidence/optimization/harness-entry-validation.json",
+    "closedTasks": [],
+    "remainingTask": "9.6",
+    "targetPluginRef": "v0.1.0-dev.46",
+    "pluginRef": "v0.1.0-dev.46",
+    "publicationEvidence": "docs/evidence/optimization/harness-entry-publication.json",
+    "fixedInstallation": "PASS_BOUNDED_HARNESS_REGRESSION"
+  },
+  "checkpointContractCandidate": {
+    "status": "PARTIAL_PUBLISHED",
+    "published": true,
+    "evidence": "docs/evidence/optimization/checkpoint-contract-candidate.json",
+    "regressionEvidence": "docs/evidence/optimization/checkpoint-contract-validation.json",
+    "fixedCandidateInstallation": "PASS_BOUNDED_HARNESS_AND_READONLY_REPLY_CONTRACT",
+    "closedTasks": [],
+    "remainingTask": "9.6",
+    "pluginRef": "v0.1.0-dev.47",
+    "sourceRef": "v0.1.0-dev.41",
+    "publicationEvidence": "docs/evidence/optimization/readonly-reply-publication.json"
+  },
+  "readonlyReplyAcceptance": {
+    "published": true,
+    "pluginRef": "v0.1.0-dev.47",
+    "sourceRef": "v0.1.0-dev.41",
+    "evidence": "docs/evidence/optimization/readonly-reply-publication.json",
+    "closedTasks": []
+  },
+  "supervisedConvertCandidate": {
+    "evidence": "docs/evidence/optimization/supervised-convert/candidate.json",
+    "fixedCandidateInstallation": "NOT_RUN",
+    "publicCliIntegration": "NOT_RUN",
+    "closedTasks": []
+  },
+  "supervisedDropletCandidate": {
+    "published": false,
+    "evidence": "docs/evidence/optimization/supervised-droplet/candidate.json",
+    "publicSourceRef": "v0.1.0-dev.42",
+    "publicRuntime": "0.2.0-craft.1",
+    "candidateRuntime": "0.2.0-craft.5",
+    "fixedCandidateInstallation": "NOT_RUN",
+    "publicCliIntegration": "NOT_RUN",
+    "closedTasks": [],
+    "packagedModuleSourceRef": "v0.1.0-dev.43",
+    "targetPluginRef": "v0.1.0-dev.49",
+    "nativePublished": false,
+    "packagedModulesPublished": true,
+    "pluginRef": "v0.1.0-dev.49"
+  },
+  "integerOverflowContract": {
+    "status": "PASS_BOUNDED_PUBLISHED_FIXED_INSTALLED",
+    "evidence": "docs/evidence/optimization/integer-overflow/candidate.json",
+    "sourceRef": "v0.1.0-dev.43",
+    "pluginRef": "v0.1.0-dev.49",
+    "fixedInstallation": "PASS_52_PUBLIC_ENTRY_REFUSALS",
+    "closedTasks": [],
+    "publicationEvidence": "docs/evidence/optimization/integer-overflow/publication.json"
+  },
+  "artifactLineageCandidate": {
+    "evidence": "docs/evidence/optimization/artifact-lineage/candidate-native.json",
+    "status": "PASS_FIXED52_AND_AUTHORITY_CONSUMER",
+    "fixedInstallation": "PASS_17_NATIVE_CASES_DEV52",
+    "closedTasks": [
+      "5.3",
+      "11.9"
+    ],
+    "consumerAcceptance": "PASS_FIXED_SOURCE44_PLUGIN52"
+  },
+  "artifactLineageAcceptanceEvidence": "docs/evidence/optimization/artifact-lineage/acceptance-audit.json",
+  "cancellationBudgetCandidate": {
+    "status": "PASS_FIXED54_NATIVE",
+    "pluginVersion": "0.1.0-dev.54",
+    "sourceRef": "v0.1.0-dev.44",
+    "runtimeVersion": "0.2.0-craft.1",
+    "evidence": "docs/evidence/optimization/task-budget-stop/",
+    "fullAcceptance": "PASS_PC_TX_003_DARWIN_ARM64",
+    "closedTasks": [
+      "3.9",
+      "10.12"
+    ]
+  },
+  "cancellationBudgetAcceptanceEvidence": "docs/evidence/optimization/task-budget-stop/acceptance-audit.json",
+  "recoveryIdentityCandidate": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "pluginVersion": "0.1.0-dev.55",
+    "sourceRef": "v0.1.0-dev.44",
+    "evidence": "docs/evidence/optimization/recovery-identity/",
+    "closedTasks": [],
+    "remainingTasks": [
+      "3.6",
+      "10.9"
+    ],
+    "remainingAcceptance": "Verified checkpoint to bound revision and full restart matrix remain open",
+    "publicationEvidence": "docs/evidence/optimization/recovery-identity/publication.json",
+    "fixedInstallation": "PASS_82_HARNESS_7_NATIVE"
+  },
+  "checkpointRecoveryCandidate": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "pluginVersion": "0.1.0-dev.56",
+    "skillSourceVersion": "0.1.0-dev.45",
+    "evidence": "docs/evidence/optimization/checkpoint-revision/",
+    "fixedInstallation": "PASS_86_HARNESS_8_NATIVE",
+    "closedTasks": [],
+    "remainingTasks": [
+      "3.6",
+      "10.9"
+    ],
+    "remainingAcceptance": [
+      "full crash/restart matrix",
+      "same-plan foreign full-delivery producer binding",
+      "durable progress after hard SIGKILL before failure record",
+      "complete V1"
+    ],
+    "publicationEvidence": "docs/evidence/optimization/checkpoint-revision/publication.json"
+  },
+  "deliveryProducerCandidate": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "pluginVersion": "0.1.0-dev.57",
+    "skillSourceVersion": "0.1.0-dev.46",
+    "evidence": "docs/evidence/optimization/delivery-producer/",
+    "fixedInstallation": "PASS_88_HARNESS_9_NATIVE",
+    "closedTasks": [],
+    "remainingTasks": [
+      "3.6",
+      "10.9"
+    ],
+    "remainingAcceptance": [
+      "full crash/restart matrix",
+      "durable progress after hard SIGKILL before failure record",
+      "complete V1"
+    ],
+    "publicationEvidence": "docs/evidence/optimization/delivery-producer/publication.json"
+  },
+  "preintentRestartCandidate": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "pluginVersion": "0.1.0-dev.58",
+    "skillSourceVersion": "0.1.0-dev.46",
+    "evidence": "docs/evidence/optimization/preintent-restart/",
+    "fixedInstallation": "PASS_91_HARNESS_10_NATIVE",
+    "closedTasks": [],
+    "remainingTasks": [
+      "3.6",
+      "10.9"
+    ],
+    "remainingAcceptance": [
+      "durable progress after hard worker SIGKILL before failure record",
+      "complete crash/restart matrix",
+      "complete V1"
+    ],
+    "publicationEvidence": "docs/evidence/optimization/preintent-restart/publication.json"
+  },
+  "durableProgressCandidate": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "pluginVersion": "0.1.0-dev.59",
+    "skillSourceVersion": "0.1.0-dev.47",
+    "evidence": "docs/evidence/optimization/durable-progress/",
+    "fixedInstallation": "PASS_93_HARNESS_11_NATIVE",
+    "closedTasks": [],
+    "remainingTasks": [
+      "3.6",
+      "10.9"
+    ],
+    "remainingAcceptance": [
+      "explicit interrupted checkpoint and bound recovery",
+      "complete worker crash/restart matrix",
+      "complete V1"
+    ],
+    "publicationEvidence": "docs/evidence/optimization/durable-progress/publication.json"
+  },
+  "interruptedCheckpointCandidate": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "pluginVersion": "0.1.0-dev.60",
+    "skillSourceVersion": "0.1.0-dev.48",
+    "evidence": "docs/evidence/optimization/interrupted-checkpoint/",
+    "fixedInstallation": "PASS_97_HARNESS_12_NATIVE",
+    "closedTasks": [],
+    "remainingTasks": [
+      "3.6",
+      "10.9"
+    ],
+    "remainingAcceptance": [
+      "immutable public installed scenario audit",
+      "full V1"
+    ],
+    "publicationEvidence": "docs/evidence/optimization/interrupted-checkpoint/publication.json"
+  },
+  "taskRecoveryAcceptance": {
+    "status": "PASS",
+    "requirement": "PC-TX-002",
+    "pluginVersion": "0.1.0-dev.61",
+    "sourceRef": "v0.1.0-dev.48",
+    "platform": "darwin-arm64",
+    "evidence": "docs/evidence/optimization/task-recovery/acceptance-audit.json",
+    "closedTaskIds": [
+      "3.6",
+      "10.9"
+    ],
+    "fullV1": "NOT_RUN"
+  },
+  "runtimeTransitionImplementation": {
+    "status": "FIXED_IMPLEMENTATION_PASS",
+    "evidence": "docs/evidence/optimization/runtime-transition/publication.json",
+    "closedTaskIds": [
+      "2.4",
+      "2.5"
+    ],
+    "openAcceptanceTask": null,
+    "sameBinaryOnly": true,
+    "fullV1": "NOT_RUN",
+    "scope": "Historical dev.62 implementation only; different-version acceptance recorded separately"
+  },
+  "runtimeTransitionAcceptance": {
+    "status": "PASS",
+    "evidence": "docs/evidence/optimization/runtime-version/acceptance-audit.json",
+    "closedTaskIds": [
+      "2.6"
+    ],
+    "pluginVersion": "0.1.0-dev.63",
+    "skillSourceVersion": "0.1.0-dev.49",
+    "platform": "darwin-arm64",
+    "sameBinaryOnly": false,
+    "fullV1": "NOT_RUN"
+  },
+  "projectOwnershipCandidate": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "evidence": "docs/evidence/optimization/project-ownership/candidate.json",
+    "fixedInstallation": "PASS_BOUNDED_REVISION_REFUSAL",
+    "closedTaskIds": [],
+    "remainingTaskIds": [
+      "3.3",
+      "10.6"
+    ],
+    "publicationEvidence": "docs/evidence/optimization/project-ownership/publication.json"
+  },
+  "publicCliSupervision": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "publicationEvidence": "docs/evidence/optimization/public-cli-supervision/publication.json",
+    "entries": [
+      "run",
+      "batch",
+      "convert",
+      "droplet"
+    ],
+    "publicNativeFaultCases": 15,
+    "closedTaskIds": [],
+    "remainingTaskIds": [
+      "9.6"
+    ]
+  },
+  "mcpStreamSupervision": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "publicationEvidence": "docs/evidence/optimization/mcp-stream/publication.json",
+    "entries": [
+      "mcp-stdio"
+    ],
+    "publicNativeFaultCases": 6,
+    "healthyNativeCases": 1,
+    "closedTaskIds": [],
+    "remainingTaskIds": [
+      "9.6"
+    ]
+  },
+  "serveStdioCandidate": {
+    "status": "SUPERSEDED_BY_FIXED_SERVE_TCP",
+    "evidence": "docs/evidence/optimization/serve-stream/candidate.json",
+    "sourceFingerprintSha256": "55cc6c0ec2c0807183affeb2f3707a049929e931ea10e2b337afc9bb726fe7d1",
+    "sourceTests": 333,
+    "nativeFaultCases": 7,
+    "healthyCases": 1,
+    "fixedInstallation": "NOT_RUN",
+    "closedTaskIds": [],
+    "remainingTaskIds": [
+      "9.6"
+    ],
+    "supersededBy": "docs/evidence/optimization/serve-tcp/publication.json"
+  },
+  "serveTcpSupervision": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "publicationEvidence": "docs/evidence/optimization/serve-tcp/publication.json",
+    "entries": [
+      "mcp-stdio",
+      "serve-stdio",
+      "serve-tcp"
+    ],
+    "publicNativeFaultCases": 20,
+    "deliveryLossCases": 1,
+    "healthyNativeCases": 3,
+    "closedTaskIds": [],
+    "remainingTaskIds": [
+      "9.6"
+    ]
+  },
+  "serveAggregateSupervision": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "publicationEvidence": "docs/evidence/optimization/serve-aggregate/publication.json",
+    "entries": [
+      "serve-stdio",
+      "serve-tcp"
+    ],
+    "postSaveReplyFaultCases": 14,
+    "nativeErrorCases": 2,
+    "responseBudgetCases": 2,
+    "healthyNativeCases": 2,
+    "serveAggregateCases": 20,
+    "closedTaskIds": [],
+    "remainingTaskIds": [
+      "9.6"
+    ]
+  },
+  "mcpAggregateSupervision": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "publicationEvidence": "docs/evidence/optimization/mcp-aggregate/publication.json",
+    "entries": [
+      "mcp-stdio",
+      "command-plan"
+    ],
+    "postCheckpointReplyFaultCases": 14,
+    "nativeErrorCases": 2,
+    "responseBudgetCases": 2,
+    "healthyNativeCases": 2,
+    "legalNotificationCases": 1,
+    "serveAggregateCases": 20,
+    "mcpAggregateCases": 21,
+    "closedTaskIds": [],
+    "remainingTaskIds": [
+      "9.6"
+    ]
+  },
+  "desktopAggregateSupervision": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "publicationEvidence": "docs/evidence/optimization/desktop-aggregate/publication.json",
+    "entries": [
+      "owned-signed-desktop-command-plan"
+    ],
+    "postCheckpointReplyFaultCases": 7,
+    "nativeErrorCases": 1,
+    "responseBudgetCases": 1,
+    "deadlineCases": 1,
+    "healthyNativeCases": 2,
+    "legalNotificationCases": 1,
+    "desktopAggregateCases": 12,
+    "serveAggregateCases": 20,
+    "mcpAggregateCases": 21,
+    "closedTaskIds": [],
+    "remainingTaskIds": [
+      "9.6"
+    ]
+  },
+  "streamLaunchPreflight": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "publicationEvidence": "docs/evidence/optimization/stream-launch/publication.json",
+    "fixedStartupRefusals": 208,
+    "nativeProcessesPerStream": 1,
+    "guiLaunchesThisIncrement": 0,
+    "closedTaskIds": [],
+    "fullInputMatrix": "OPEN"
+  },
+  "wireBoundaryPreflight": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "publicationEvidence": "docs/evidence/optimization/wire-boundary/publication.json",
+    "fixedInitializationRefusals": 429,
+    "fixedUnicodeRefusals": 65,
+    "fixedWireNativeCases": 3,
+    "fixedStartupRefusals": 208,
+    "nativeProcessesPerStream": 1,
+    "guiLaunchesThisIncrement": 0,
+    "closedTaskIds": [],
+    "fullInputMatrix": "OPEN"
+  },
+  "numericWireLifecycle": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "publicationEvidence": "docs/evidence/optimization/numeric-wire-lifecycle/publication.json",
+    "lifecycleRefusals": 247,
+    "harnessUnicodeRefusals": 25,
+    "harnessUtf8FileRefusals": 5,
+    "nativeProcessesPerStream": 1,
+    "guiLaunchesThisIncrement": 0,
+    "closedTaskIds": [],
+    "fullInputMatrix": "OPEN"
+  },
+  "continuousTaskSession": {
+    "status": "PARTIAL_PUBLISHED_FIXED_NATIVE",
+    "publicationEvidence": "docs/evidence/optimization/task-session/publication.json",
+    "publicJsonlStages": 5,
+    "nativeProcessesPerTask": 1,
+    "candidateDesktopLaunches": 1,
+    "fixedDesktopRerun": false,
+    "closedTaskIds": [],
+    "fullV1": "OPEN"
+  },
+  "commandIndexMaintenance": {
+    "status": "PARTIAL_PUBLISHED_FIXED_INDEX",
+    "evidence": "docs/evidence/optimization/command-acceptance/candidate.json",
+    "commands": 755,
+    "contexts": 1510,
+    "reviewedCommands": 0,
+    "acceptedCommands": 0,
+    "pythonTests": 58,
+    "nativeRerun": false,
+    "closedTaskIds": [],
+    "remainingTaskIds": [
+      "13.2",
+      "13.3"
+    ],
+    "publicationEvidence": "docs/evidence/optimization/command-acceptance/publication.json",
+    "fixedPythonTests": 58,
+    "installedTreeUnchanged": true
+  },
+  "commandSourceContexts": {
+    "status": "PARTIAL_IMPLEMENTATION_PASS",
+    "evidence": "docs/evidence/optimization/command-acceptance/source-context-candidate.json",
+    "sourceBoundCommands": 755,
+    "reviewedCommands": 0,
+    "acceptedCommands": 0,
+    "nativeLaunches": 0,
+    "desktopLaunches": 0,
+    "closedTaskIds": [],
+    "remainingTaskIds": [
+      "13.2",
+      "13.3"
+    ]
+  },
+  "clientComponents": {
+    "status": "PARTIAL_PUBLISHED_STATIC",
+    "evidence": "docs/evidence/optimization/command-acceptance/source-context-publication.json",
+    "commands": 14,
+    "sessionStartHooks": 1,
+    "hostDiscovery": "NOT_PROVEN",
+    "modelRouting": "NOT_RUN"
+  }
+}

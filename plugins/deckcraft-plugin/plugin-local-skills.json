@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "dest": "skills/",
+  "skills": [
+    "deckcraft-brand-template",
+    "deckcraft-data-story",
+    "deckcraft-editor",
+    "deckcraft-pitch-deck",
+    "deckcraft-scenario-playbooks",
+    "deckcraft-slide-redesign",
+    "deckcraft-training-slides",
+    "deckcraft-weekly-report"
+  ]
+}

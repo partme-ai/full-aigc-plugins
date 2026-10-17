@@ -1,0 +1,13 @@
+{
+  "name": "wordcraft",
+  "icon": "wordcraft/icon.png",
+  "source": "https://raw.githubusercontent.com/storytold/wordcraft/04f6f53b8a4d8140c7bb62f949b0a6099a473da1/assets/app-icon/wordcraft.svg",
+  "homepage": "https://github.com/storytold/wordcraft",
+  "matchedBy": "upstream-app-icon",
+  "mimeType": "image/png",
+  "license": "MIT",
+  "modifications": "Square full-bleed background; 256px PNG. Artwork preserved; corner rounding delegated to client.",
+  "sha256": "f445b821783eb9f52685845f586afc8decc30a5590a9dfc42d36a5c39a2c4405",
+  "localFile": "./assets/official-logo.png",
+  "displayName": "WordCraft Use"
+}

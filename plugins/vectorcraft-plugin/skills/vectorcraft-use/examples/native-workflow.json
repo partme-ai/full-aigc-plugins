@@ -1,0 +1,40 @@
+{
+  "document": {
+    "name": "Native gateway",
+    "width": 32,
+    "height": 32,
+    "units": "Pixels"
+  },
+  "operations": [
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 4,
+        "y": 4,
+        "width": 8,
+        "height": 8
+      },
+      "as": "shape"
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "paint.setFill",
+        "params": {
+          "ids": [
+            {
+              "$ref": "shape.id"
+            }
+          ],
+          "color": "#ff0000"
+        }
+      }
+    }
+  ],
+  "exports": [
+    {
+      "format": "png",
+      "artboard": 0
+    }
+  ]
+}

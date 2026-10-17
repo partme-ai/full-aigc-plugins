@@ -1,0 +1,13 @@
+{
+  "name": "soundcraft",
+  "version": "0.1.0-dev.20261017.5",
+  "skills": "./skills/",
+  "mcpServers": "./.codex-plugin/mcp.json",
+  "interface": {
+    "displayName": "SoundCraft Use",
+    "logo": "./assets/official-logo.png",
+    "logoDark": "./assets/official-logo.png",
+    "composerIcon": "./assets/official-logo.png",
+    "composerIconDark": "./assets/official-logo.png"
+  }
+}

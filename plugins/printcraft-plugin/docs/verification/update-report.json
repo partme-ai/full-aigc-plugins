@@ -1,0 +1,39 @@
+{
+  "fixtureOnly": true,
+  "events": [
+    {
+      "marketplaceName": "printcraft-update-fixture",
+      "installedRoot": "/private/tmp/printcraft-acceptance/更新 验证2/market",
+      "alreadyAdded": false
+    },
+    {
+      "pluginId": "printcraft@printcraft-update-fixture",
+      "name": "printcraft",
+      "marketplaceName": "printcraft-update-fixture",
+      "version": "0.1.0-dev.2",
+      "installedPath": "/private/tmp/printcraft-acceptance/更新 验证2/cache/plugins/cache/printcraft-update-fixture/printcraft/0.1.0-dev.2",
+      "authPolicy": "ON_INSTALL"
+    },
+    {
+      "pluginId": "printcraft@printcraft-update-fixture",
+      "name": "printcraft",
+      "marketplaceName": "printcraft-update-fixture",
+      "version": "0.1.0-dev.3",
+      "installedPath": "/private/tmp/printcraft-acceptance/更新 验证2/cache/plugins/cache/printcraft-update-fixture/printcraft/0.1.0-dev.3",
+      "authPolicy": "ON_INSTALL"
+    }
+  ],
+  "preflight": {
+    "status": "UPDATE_ELIGIBLE",
+    "dataMigration": "NONE",
+    "taskDataPreserved": true,
+    "oldVersion": "0.1.0-dev.2",
+    "newVersion": "0.1.0-dev.3",
+    "installation": "NOT_PERFORMED"
+  },
+  "oldCacheRetained": false,
+  "taskDataUnchanged": true,
+  "legacyReadonlyRejected": "{\"error\": \"upstream_protocol_missing_or_unsupported\", \"automaticReplay\": false}\n",
+  "rollbackRejected": "rollback_requires_compatible_explicit_migration",
+  "note": "Codex 管理的旧包缓存可能被删除；用户任务必须位于缓存外，不声称缓存支持回退。"
+}

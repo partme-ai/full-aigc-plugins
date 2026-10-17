@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "package": "photocraft-skills",
+      "repo": "https://github.com/full-aigc-skills/photocraft-skills.git",
+      "ref": "v0.1.0-dev.60",
+      "sha": "c267692b9629bf4f8c96081ff04a8a6ac1a28a63",
+      "skills": [
+        "photocraft-use",
+        "photocraft-cli",
+        "photocraft-cli-setup",
+        "photocraft-cli-project",
+        "photocraft-cli-layers",
+        "photocraft-cli-selection",
+        "photocraft-cli-masks",
+        "photocraft-cli-adjustments",
+        "photocraft-cli-retouch",
+        "photocraft-cli-text",
+        "photocraft-cli-resize",
+        "photocraft-cli-export",
+        "photocraft-cli-filters",
+        "photocraft-harness"
+      ],
+      "dest": "skills/",
+      "sha256": {
+        "photocraft-use": "cf0da202e8a1ba6b190abc01cf76114a9011bbdf3bc85bdfd3b9035c3d01f868",
+        "photocraft-cli": "4c46f83ccaa1543c9eeb616567af4bfcaa1e6c8d5b1c15557a5bbc0455fbc923",
+        "photocraft-cli-setup": "8a15f4598e496c04604a6d8f0f707db4f00e77eaf3f2e00fa64d373d19ea90d1",
+        "photocraft-cli-project": "b2663e13708f749fcec69d29f1f3d35909dbfa70f27952a8c20267b4d90ab56e",
+        "photocraft-cli-layers": "0d93abb38d8e439275318f51b02bd1b9ffa32a2502fc66fe5183890ecdc8a303",
+        "photocraft-cli-selection": "8df201a5c9d8e43f4f806e7e73e43b11da4dd6c1ffedb28a917c791fb5adf4eb",
+        "photocraft-cli-masks": "017f2418b8429dff4fc35b6b4c4d2cdce6dafa54c0e200b65c881fc26c0684b0",
+        "photocraft-cli-adjustments": "182a27a0f11a91210acc03dfb7fc3273b4819f3b51554f13a949ace61f0f4a17",
+        "photocraft-cli-retouch": "6ddff15a0a38227c37f163aaddd27a10b31bf80dd9d506478a5e570355c91e0f",
+        "photocraft-cli-text": "3f6e686bfebfa2818c8eb8a234b6e0be5bc598cde48ed1286995d8fea205d8b9",
+        "photocraft-cli-resize": "a7f25e61d230a40103ada9204a67cc95e8b27655c73c8fa857c64e3cdb89d921",
+        "photocraft-cli-export": "daccc2ae79dc8b13bb2658f25c1ed37a973bbb01e5a369b8c03614d49444da27",
+        "photocraft-cli-filters": "ef599e78e1fe9310cd7a9fd4c44f18b471342e5b91bec5a2860baa606a8957c9",
+        "photocraft-harness": "94e8c612d3e505498370baa6dd24428dad9714f876c673e89135da9b712e7999"
+      }
+    }
+  ]
+}

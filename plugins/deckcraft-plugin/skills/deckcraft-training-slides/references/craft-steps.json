@@ -1,0 +1,62 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "deckcraft",
+  "id": "training-slides",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "仅创建新的16:9示例；已有文稿不得清空",
+      "command": "file.new",
+      "params": {
+        "size": [
+          960,
+          540
+        ],
+        "blank": true
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "按目标、练习、回顾建立三页",
+      "command": "slide.fromOutline",
+      "params": {
+        "text": "课程目标\n\t完成标准\n练习\n\t操作步骤\n回顾\n\t常见错误"
+      }
+    },
+    {
+      "purpose": "给第1页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 0,
+        "text": "课程目标：说明受众、先备知识与完成标准；例子应有来源，不能编造答案。"
+      }
+    },
+    {
+      "purpose": "给第2页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 1,
+        "text": "练习：提供输入材料、操作步骤和可检查的输出；演示后留时间独立完成。"
+      }
+    },
+    {
+      "purpose": "给第3页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 2,
+        "text": "回顾：对照练习答案解释常见错误，并注明课后资料和待确认问题。"
+      }
+    }
+  ],
+  "check": "三页分别具有目标、练习、回顾正文和专属备注；PPTX回读保留活文字和备注。",
+  "boundary": "新建示例仅用于新任务：已有演示文稿先读取页数、选择和内容；不得用file.new清空。索引为0起，仅在此新文稿示例固定；已有文稿重新查询。布局和真实内容质量、外部PowerPoint渲染、宿主同步不由命令通过证明。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "validation": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014846480",
+    "sceneSourceCommit": "49d40a6b73930f267aff0b6e93909635dc1092d4",
+    "platform": "Windows x64",
+    "visualAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

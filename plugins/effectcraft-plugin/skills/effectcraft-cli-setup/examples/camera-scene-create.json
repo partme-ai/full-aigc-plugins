@@ -1,0 +1,256 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "comp.new",
+      "params": {
+        "name": "Camera scene",
+        "width": 128,
+        "height": 96,
+        "duration": 1,
+        "frameRate": 12
+      },
+      "as": "composition"
+    },
+    {
+      "command": "comp.renderer",
+      "params": {
+        "renderer": "advanced3d"
+      },
+      "as": "renderer"
+    },
+    {
+      "command": "layer.newSolid",
+      "params": {
+        "name": "Control",
+        "width": 8,
+        "height": 8,
+        "color": "#00ff00"
+      },
+      "as": "control"
+    },
+    {
+      "tool": "set_property",
+      "params": {
+        "layer": {
+          "$ref": "control.layer"
+        },
+        "path": "transform/position",
+        "value": [
+          120,
+          8
+        ],
+        "time": 0
+      }
+    },
+    {
+      "command": "layer.new3dPrimitive",
+      "params": {
+        "kind": "cube",
+        "name": "Hero cube",
+        "width": 36,
+        "height": 36,
+        "depth": 36,
+        "position": [
+          64,
+          48,
+          0
+        ],
+        "baseColor": "#e05030"
+      },
+      "as": "subject"
+    },
+    {
+      "command": "material.set",
+      "params": {
+        "layers": [
+          {
+            "$ref": "subject.layer"
+          }
+        ],
+        "baseColor": "#e05030",
+        "metallic": 0,
+        "roughness": 0.8,
+        "acceptsLights": true
+      },
+      "as": "material"
+    },
+    {
+      "command": "layer.newLight",
+      "params": {
+        "name": "Fill light",
+        "kind": "Ambient",
+        "color": "#ffffff",
+        "intensity": 80
+      },
+      "as": "light"
+    },
+    {
+      "command": "layer.newCamera",
+      "params": {
+        "name": "Primary camera",
+        "type": "twoNode",
+        "position": [
+          64,
+          48,
+          -250
+        ],
+        "poi": [
+          64,
+          48,
+          0
+        ],
+        "zoom": 250,
+        "dof": false
+      },
+      "as": "camera"
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          {
+            "$ref": "camera.layer"
+          }
+        ]
+      }
+    },
+    {
+      "command": "view.set3DView",
+      "params": {
+        "view": "activeCamera"
+      }
+    },
+    {
+      "command": "camera.orbit",
+      "params": {
+        "layer": {
+          "$ref": "camera.layer"
+        },
+        "yaw": 10,
+        "pitch": 5
+      },
+      "as": "orbit"
+    },
+    {
+      "command": "camera.pan",
+      "params": {
+        "layer": {
+          "$ref": "camera.layer"
+        },
+        "dx": 5,
+        "dy": 0
+      },
+      "as": "pan"
+    },
+    {
+      "command": "layer.cameraSettings",
+      "params": {
+        "layer": {
+          "$ref": "camera.layer"
+        },
+        "position": [
+          64,
+          48,
+          -250
+        ],
+        "poi": [
+          64,
+          48,
+          0
+        ],
+        "zoom": 250,
+        "dof": false
+      },
+      "as": "resetCamera"
+    },
+    {
+      "command": "camera.linkFocusToPoi",
+      "params": {
+        "camera": {
+          "$ref": "camera.layer"
+        }
+      },
+      "as": "focus"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "path": {
+          "$output": "before-dolly.png"
+        },
+        "time": 0,
+        "inline": false
+      }
+    },
+    {
+      "command": "camera.dolly",
+      "params": {
+        "layer": {
+          "$ref": "camera.layer"
+        },
+        "amount": 50
+      },
+      "as": "dolly"
+    },
+    {
+      "command": "view.get3D",
+      "params": {},
+      "as": "view"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": {
+          "$ref": "camera.layer"
+        }
+      },
+      "as": "cameraProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        }
+      },
+      "as": "subjectProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": {
+          "$ref": "light.layer"
+        }
+      },
+      "as": "lightProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": {
+          "$ref": "control.layer"
+        }
+      },
+      "as": "controlProperties"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "path": {
+          "$output": "preview.png"
+        },
+        "time": 0,
+        "inline": false
+      }
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "project.ecproj"
+        }
+      }
+    }
+  ]
+}

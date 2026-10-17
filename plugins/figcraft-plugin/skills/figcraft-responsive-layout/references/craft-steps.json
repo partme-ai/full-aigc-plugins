@@ -1,0 +1,197 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "figcraft",
+  "id": "responsive-layout",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "仅新建任务初始化，已有工程不能清空",
+      "command": "file.new",
+      "params": {
+        "name": "Responsive layout"
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "创建Cards，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "Cards",
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 1024,
+        "props": {
+          "fill": "#ffffff",
+          "clip": true,
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 24
+        }
+      },
+      "capture": "root"
+    },
+    {
+      "purpose": "创建Heading，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Heading",
+        "x": 0,
+        "y": 0,
+        "width": 720,
+        "height": 60,
+        "parent": "$root.id",
+        "text": "根据画板宽度调整的内容标题",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 24,
+          "fill": "#172033",
+          "textAutoResize": "height",
+          "sizingH": "fill"
+        }
+      },
+      "capture": "heading"
+    },
+    {
+      "purpose": "创建ContentCard，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "ContentCard",
+        "x": 0,
+        "y": 0,
+        "width": 720,
+        "height": 120,
+        "parent": "$root.id",
+        "props": {
+          "fill": "#f1f5f9",
+          "cornerRadius": 8,
+          "layout": "vertical",
+          "padding": 16,
+          "gap": 16,
+          "sizingH": "fill",
+          "sizingV": "hug"
+        }
+      },
+      "capture": "card"
+    },
+    {
+      "purpose": "创建Body，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "Body",
+        "x": 0,
+        "y": 0,
+        "width": 688,
+        "height": 48,
+        "parent": "$card.id",
+        "text": "用真实长文案检查换行；容器尺寸变化不等于产品断点已经实现。",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fill": "#172033",
+          "textAutoResize": "height",
+          "sizingH": "fill"
+        }
+      },
+      "capture": "body"
+    },
+    {
+      "purpose": "创建PrimaryAction，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "frame",
+        "name": "PrimaryAction",
+        "x": 0,
+        "y": 0,
+        "width": 720,
+        "height": 48,
+        "parent": "$root.id",
+        "props": {
+          "fill": "#2563eb",
+          "cornerRadius": 8,
+          "sizingH": "fill",
+          "layout": "horizontal",
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
+          "crossAlign": "center"
+        }
+      },
+      "capture": "button"
+    },
+    {
+      "purpose": "创建ButtonLabel，绑定实际返回ID",
+      "command": "node.create",
+      "params": {
+        "type": "text",
+        "name": "ButtonLabel",
+        "x": 0,
+        "y": 0,
+        "width": 688,
+        "height": 24,
+        "parent": "$button.id",
+        "text": "继续",
+        "props": {
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fill": "#ffffff",
+          "textAutoResize": "height",
+          "sizingH": "fill",
+          "textAlign": "center"
+        }
+      },
+      "capture": "label"
+    },
+    {
+      "purpose": "实际切换390宽并检查子项",
+      "command": "node.set",
+      "params": {
+        "id": "$root.id",
+        "props": {
+          "width": 390,
+          "height": 884
+        }
+      }
+    },
+    {
+      "purpose": "实际切换768宽并检查子项",
+      "command": "node.set",
+      "params": {
+        "id": "$root.id",
+        "props": {
+          "width": 768,
+          "height": 1024
+        }
+      }
+    },
+    {
+      "purpose": "实际切换1280宽并检查子项",
+      "command": "node.set",
+      "params": {
+        "id": "$root.id",
+        "props": {
+          "width": 1280,
+          "height": 1024
+        }
+      }
+    }
+  ],
+  "check": "依次实际检查390×884、768×1024、1280×1024；标题/卡片/按钮宽度为父宽减48、左内边距24、间距24，无纵向越界；真实文案另查换行。",
+  "boundary": "数值是原创示例，按真实输入、节点和目标替换；capture/$变量只是手册绑定标记，原生CLI不会自动替换。默认创建会改变选择，后续操作必须传真实id/ids。新建步骤仅用于新任务；已有工程另存并保护已有节点。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "validation": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218",
+    "sceneSourceCommit": "997b6f9ee9dba5ca38da893ba7284e26388e95e0",
+    "platform": "Windows x64",
+    "fullSceneAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

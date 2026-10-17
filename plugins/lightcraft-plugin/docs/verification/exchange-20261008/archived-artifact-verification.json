@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "artifactCount": 4,
+  "root": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/lightcraft-plugin/docs/verification/exchange-20261008/native",
+  "nativeReportSha256": "2a3c406184be558479e5c79b911509d9ec6fbf477d5d673ad16d33b8b489807d",
+  "consumerSha256": "ea87c30275ae57a0baf5880375abcb6f2012b344839318dc6c8f997eb74cd351",
+  "publicVerifierSha256": {
+    "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/artcraft-plugin/src/protocol/contracts.ts": "3fd69dfc7533f1ce3dac4cc5f4764aa3916be7a173694eb8194a619014c23ebb",
+    "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/artcraft-plugin/schemas/craft-artifact-v1.json": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d"
+  },
+  "scope": "Archived artifact hashes and public format verification; no native replay or host execution",
+  "automaticReplay": false
+}

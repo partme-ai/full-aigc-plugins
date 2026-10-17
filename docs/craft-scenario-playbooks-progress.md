@@ -2,17 +2,17 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前198条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/VectorCraft/FigCraft各14条，DesignCraft14条，其余3应用各6条。不是198条都已通过完整效果验收。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前201条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，其余3应用各6条。不是198条都已通过完整效果验收。
 
 | 内容 | 当前事实 |
 | --- | --- |
 | GitHub来源 | 16个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 82个技能中落地198条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 82个技能中落地201条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
-| 画质与完整场景 | 合成输入证明技术链；真实损伤照片审阅和其余104条场景逐项业务验收尚未完成 |
+| 画质与完整场景 | 合成输入证明技术链；真实素材、复杂输入、全部宿主同步及剩余映射仍未逐项验收 |
 
 ## 用法
 
@@ -271,3 +271,82 @@ Windows [39015219333](https://github.com/partme-ai/full-aigc-plugins/actions/run
 CLI原型记录仍明确PARTIAL；另通过隔离Codex原生插件安装和app-server的mcpServer/tool/call，在Codex内置浏览器实际完成Start→Result→Start，并用同会话node.set改变中文标题和按钮填色，画布及proto.preview同时变化，保存原生工程。补验仅使用固定main Web候选，旧内置Web的中文显示未替换；没有用SDK充当宿主调用，也未推广到其他Fig场景或Kimi/ZCode。记录见[Fig核心回归](craft-fig-core-validation.json)与[真实宿主原型补验](craft-fig-prototype-host-validation.json)。三种尺寸的响应PNG及桌面线框已查看，未当作真实产品UX或错误/键盘路径验收。
 
 累计201条映射：188条限定技术验证通过（原型包含单独宿主补验）、1条PDF表单部分通过、12条待执行，另4组合用例。剩余12条为CAD、Design各6条核心。完整创作效果、复杂素材、其他宿主及公共市场发行仍未完成，原OpenSpec继续实施。
+
+
+## CAD核心房间与零件标注重建
+
+重新核对LibreCAD固定提交94801d0的绘图单位、图层与尺寸事实，保留来源内容摘要，原创适配具体坐标和原生命令。旧房间技能仅有封闭矩形和一个宽度标注；现明确分段留出门洞、门扇和开启弧、宽高两个DIMENSION，以及保存后的毫米单位和显示比例。既有图纸不能重建新图、不能用闭合外框封住开口。
+
+旧零件技能没有对应圆孔实体；现先建立80×40轮廓与两个R5圆孔，再生成80宽、40高、40孔距和R5四项原生尺寸，禁止文字覆盖冒充量测。真实任务从现有几何重算坐标，示例不承诺公差或制造设计。
+
+本地先复现两个技能缺少目标几何/尺寸的失败，修复后9项CAD辅助测试及201条静态映射检查通过。Windows main运行[39023108532](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023108532)通过原8条加2个重建入口，共10条配方、48次CLI调用；下载核对固定原生二进制与22份输出摘要，检查实际DXF门洞、孔心/半径、闭合轮廓、四项量测、保存重开与SVG导出。稳定版13应用业务矩阵[39023098371](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023098371)通过。房间缩略图已局部查看，完整导出布局与零件尺寸排布、宿主同步仍未验收。
+
+这是修正既有入口，复用已有绘图方法，不增加场景数量。当前201条映射中190条执行入口有过限定技术检查，1条PDF表单部分通过，10条待执行（CAD余4、Design6）；存在业务步骤复用，不能将映射数量等同独立场景数量或真实创作质量。新技能修正已提交推送技能源和插件feature分支，公开市场dev.20261017.4未包含本轮修正，留待后续场景批次发行。原OpenSpec与完整目标保持实施中。细节见[CAD核心验证](craft-cad-core-validation.json)。
+
+## CAD图层整理与版本比较
+
+图层整理先用真实layer命令读取层状态、getvar读取单位；匹配REFERENCE与WALL后才修改，DIMENSIONS仅在不存在时创建，不删除实体或重设单位。实际原生检查使用有三个实体和未指定KEEP层的既有图纸：验证REFERENCE锁定/禁打印、WALL的0.35mm线宽，核对KEEP完整层记录、原实体与输入文件保持不变。已存在DIMENSIONS时跳过创建的说明已补充；该分支尚未单独执行。
+
+版本比较补充无变化区域时不调用compare.next。首次实际运行[39023786673](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023786673)暴露方向误读：added指当前图独有，removed指对方独有，不是时间上的新增/删除。已将语义写入技能，双向比较并核对返回句柄确实指向B独有的(50,20)、R3圆；比较当前A与自身时变化数为0、regions为空。比较关闭后原实体不变，两个源文件摘要保持。
+
+最终Windows main运行[39023881675](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023881675)通过12条CAD配方（原8条与4个重建入口）、56次CLI调用。下载后核对固定原生二进制与27份输出摘要，当前四份结构化配方逐字节等于实际执行的源提交；之后的手册表格修正不改变运行参数。稳定版13应用业务矩阵[39023868516](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023868516)通过。11项CAD辅助测试及201条静态映射检查通过，原OpenSpec继续实施。
+
+累计仍为201条映射，不增加场景数：192条入口有过限定技术检查、1条PDF表单部分、8条待执行（CAD描图/图纸导出2条、Design6条）。该统计含步骤复用，不能作为数百个独立高质量场景的完成证明。真实复杂图纸、完整视觉审阅、三宿主同步及本批市场发行仍未完成。修改已进入技能源与插件feature分支，公开dev.20261017.4不包含本轮变化。完整记录见[CAD核心验证](craft-cad-core-validation.json)。
+
+## CAD参考描绘与实际纸面比例
+
+重新读取LibreCAD固定提交94801d0的completion.rst，以及CADCraft固定main的PDF参数与比例测试，记录来源摘要，只迁移操作事实。图纸导出补充读取INSUNITS、双方向基准、A4纵向/居中/固定1:50与fit=false；原生生成PDF实际量测为约100×80mm，开启fit的阳性对照为约197.300×157.840mm，确认自动适应与固定比例不等价。检查A4 MediaBox和所有控制线端点均在可打印裁切内，原DXF不变。仅解析该未压缩直线控制PDF，复杂PDF必须用完整解释器，不能推广到任意图纸。
+
+参考描绘不再宣称不存在的位图导入能力：当前CLI无位图附着/自动识别命令。技能先要求宿主只读查看原图、确认控制点和两方向已知长度，再将像素Y轴向下转换为模型Y轴向上。样例0.5mm/px，输出100×60闭合轮廓和6000mm²面积；比例/第二尺寸矛盾时停止，不靠改期望尺寸“修正”。原PNG字节保持。已确认点的转换与原生保存/重开通过，AI读点准确性、复杂曲线与底图附着仍未验收，完整位图描图保持PARTIAL。
+
+Windows main[39024410378](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024410378)通过原8条加6核心入口，共14条配方、63次CLI调用。下载核对固定二进制与33份输出摘要，六份当前结构化配方逐字节等于执行源提交。对相同PDF制品追加离线裁切与比例检查通过，没有改变CLI输入或操作；15项CAD辅助测试与201条静态映射检查通过。稳定13应用业务矩阵[39024392176](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024392176)通过。详见[CAD核心验证](craft-cad-core-validation.json)。
+
+总映射仍201条，不新增场景计数。当前193条入口有过限定技术检查、2条部分（PDF表单、完整位图描图）、6条待执行（Design核心）；该统计不是193个独立高质量场景的证明。真实复杂素材、视觉/实际打印、三宿主同步、场景去重扩展与本批市场发行仍未完成。源码与插件feature分支含本批修正，公开dev.20261017.4仍未更新。OpenSpec与完整目标保持实施中，后续继续Design六项核心。
+
+追加的裁切检查已在当前稳定版Windows矩阵[39024555495](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024555495)实际执行，13应用全部通过；该运行对应baefa8a，覆盖本轮最终检查器。
+
+
+## DesignCraft两页三栏刊物
+
+核心newsletter原来没有调用text.thread，文字框设置与故事查询依赖隐式选择。现改为显式返回ID、正文全文UTF-8字节选择、段落样式创建后实际应用、首框三栏与第二页空续框三栏，只有一次正文输入。新增固定提交611ad2f的Id-Extras框链脚本来源及SHA256，只借鉴故事框顺序和注释保护的事实，不复制脚本，也不承诺脚注迁移。
+
+Windows main运行[39025167041](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025167041)实际通过原8条手册、既有工程保护组合和刊物核心入口，共50次CLI调用。下载独立校验原生二进制和47份输出摘要；两页正文2489字符完整保持、两框均三栏、续文顺序正确，IDML的八个正文段落全部应用Newsletter Body样式。首框溢出返回偏移1229，串接后为null；这不是布尔值，偏移0也必须按溢出处理。技能已据此修正，检查器收紧并加入零偏移拒绝测试。7项Design辅助测试和201条静态映射检查通过。稳定13应用业务矩阵[39025166329](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025166329)通过。
+
+总数仍为201条映射：194条入口经过限定技术检查、2条部分、5条待执行（Design其余核心）。该统计包含方法复用，不等同194个独立高质量场景。当前刊物只证明原生参数与可编辑结构；真实复杂稿件的版式、三宿主同画面同步、去重扩展为数百个场景和市场发行仍未完成。源码和插件修改已推送feature，公开dev.20261017.4不包含本轮变化；OpenSpec与完整目标保持实施中。详见[Design核心验证](craft-design-core-validation.json)。
+
+最终收紧检查器的Windows原生运行[39025295511](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025295511)通过，执行技能源0891aa1，下载后再次核对47份制品摘要与二进制；新增检查实际覆盖八个正文段落样式和null溢出语义。对应稳定13应用业务矩阵[39025294665](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025294665)全部通过。
+
+
+## DesignCraft商品目录图文绑定与可搬运交付
+
+旧catalog只有空网格、单条商品文字和未应用的样式，没有置入任何商品图。现按确认的SKU对应表展开两个商品的独立图片框/文字框，以返回ID调用file.place、object.fit、text.select及style.paragraph.apply，逐商品查询全文、链接状态、使用框和有效PPI。补读le-tex/InDesignScripts固定提交b0fd4bb的image-export说明并记录SHA256，只借鉴图像实例、比例与独立输出的经验；测试商品文字与600×400色块素材均原创，不复制外部图片或脚本。
+
+原生Windows运行[39025741968](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025741968)通过8条既有手册、既有工程保护组合、刊物与目录两个核心入口，共60次CLI调用；下载独立核对原生二进制和68份输出摘要。两商品全文与可编辑段落样式保留，链接分别使用正确图片框，有效PPI为177。file.package收集素材后，测试副本的原素材与原包路径均置为不可用，将交付包复制到新目录并更换CLI工作目录，实际重开后链接解析到接收目录的Links，继续导出PDF成功。原始测试图片摘要保持不变。字体报告说明Source Sans 3为运行时自带，不能据此宣称任意字体都能复制交付。
+
+使用PyMuPDF独立解析搬运后的PDF，确认一页、两张图及两SKU/价格文字；已查看原创色块样例的整页，未做真实商品摄影、复杂排版或生产质量验收。9项Design辅助测试和201条静态映射检查通过，稳定13应用业务矩阵[39025741504](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025741504)通过。另一个打包工作流的契约测试曾因未检出独立技能源失败，已改为从候选锁读取固定提交并实际检出，不跳过测试。
+
+仍为201条映射：195条入口有过限定技术检查、2条部分、4条待执行（Design其余核心）。这不是195个独立高质量场景；真实素材效果、三宿主同画面同步、场景去重扩展及本批发行仍未完成。源码与插件feature含目录修正，公开dev.20261017.4尚不包含本轮更新，完整目标保持实施中。详情见[Design核心验证](craft-design-core-validation.json)。
+
+打包回归修复后的Windows运行[39025884043](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025884043)全部14个job通过（辅助契约回归与13应用原生安装/MCP）；实际检出固定技能源7751f82，没有跳过缺失文件。固定索引包安装结果不等于本轮技能已重新打包发行。最终稳定业务矩阵[39025884061](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025884061)全部13应用通过。
+
+
+## DesignCraft章节、原生目录与脚注
+
+旧long-document只创建单框与样式名称，无实际标题应用、续文或目录。已重建单文档两章、第一章跨页空框串接、明确正文/首段标题选择范围、样式驱动的toc.generate，以及插入证据附录后toc.update。原生目录从2/4变为2/5，正文与脚注实际保存重开；脚注717字节处的引用、内容和数量保持，打包原生文件也一致。补读le-tex固定提交b0fd4bb的章节IDML交付脚本，新增reason-machines固定741547f的InDesign目录工作流，只借鉴事实并原创映射；后者LICENSE仅MIT标签，不复制其代码或正文。本场景不是INDB转换器。
+
+首轮原生[39026382806](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026382806)技术回归通过，但独立查看PDF发现默认制表位使标题与页码粘连。已为Contents Entry添加480点右对齐制表位和点引导线，不以模型目录正确代替可读效果。最终Windows原生[39026566331](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026566331)通过69次CLI调用，下载核对二进制和76份输出摘要。PyMuPDF独立验证五页均有内容、附录在插入页、脚注实际在第五页，目录2/5页码右边界都为522点；查看目录及脚注页确认引导线与注释显示。11项Design辅助测试、201条静态映射和现有OpenSpec验证通过。
+
+当前仍201条映射：196条入口经过限定技术检查、2条部分、3条待执行（Design brochure、poster-layout、print-preflight）。统计包含方法复用，不代表196个独立高质量场景；真实复杂稿件、所有页的完整视觉/印刷检查、三宿主同步、去重扩展和本批市场发行仍未完成。技能和插件feature已同步，公开dev.20261017.4不包含本批新步骤。完整目标和OpenSpec继续实施，详见[Design核心验证](craft-design-core-validation.json)。
+
+对应的稳定13应用Windows业务矩阵[39026565186](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026565186)全部通过；固定索引包安装/MCP及辅助契约回归[39026565163](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026565163)14个job通过，不作为本轮新技能已发行的证明。
+
+
+## DesignCraft印前问题修复与独立导出
+
+旧print-preflight只有一次预检后直接导出。已改为inspect、repair、export三个明确阶段，编译器拒绝缺省阶段或缺少获准绑定的修复。按实际asset ID替换低分辨率和缺失素材，content=false只扩确认的文字框，保留正文、字号、非目标页脚和原工程；设置确认的出血后按相同300PPI阈值复检，错误及低分辨率警告均阻止导出。仅输出普通含出血PDF和可返工包，不把预检当成PDF/X认证。补读le-tex固定提交b0fd4bb的transpect-preflight脚本，记录哈希，只借鉴文档盘点和规则核对事实，不移植脚本或外部行为。
+
+实际Windows稳定0.8.0运行[39027192850](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027192850)发现预检遗漏缓存仍在的磁盘缺链，但links.list准确返回missing。技能及验证改为联合两份原生命令报告，不降低最终缺链要求；main预检已直接报告missingLink。最终main[39027384152](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027384152)77次CLI调用、90份输出，以及稳定13应用业务矩阵[39027383437](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027383437)通过；下载后分别核对90/86份Design输出摘要，main二进制亦核验。图片有效PPI从169升到339，复检零issue，原工程与输入素材摘要保持、字号仍11点、非目标页脚未变。
+
+独立解析两套最终PDF：裁切595×842点、MediaBox613×860点、四边出血9点，两图及页脚存在；已查看原创色块修复样例整页，不代替真实生产物料质量。13项Design辅助测试、201条静态映射与OpenSpec检查通过；固定索引包安装/MCP及辅助回归[39027383439](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027383439)通过，不代表本轮新技能已重新发行。
+
+仍201条映射：197条入口限定技术检查、2条部分、2条待执行（Design brochure、poster-layout）。该计数包含方法复用，不能等同197个独立高质量场景。复杂真实素材、色彩/专色/印刷确认、三宿主同步、去重扩展与本批市场发行仍未完成，完整目标保持实施中。技能和插件feature已同步，公开dev.20261017.4不包含本轮变更。详见[Design核心验证](craft-design-core-validation.json)。

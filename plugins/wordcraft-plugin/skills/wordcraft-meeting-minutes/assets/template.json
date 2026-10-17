@@ -1,0 +1,90 @@
+{
+  "schema": "wordcraft-document-template/v1",
+  "id": "meeting-minutes",
+  "name": "会议纪要",
+  "scope": "新建文档模板；已有文档先定位目标区域，不全篇覆盖",
+  "fields": {
+    "title": {
+      "label": "文档标题",
+      "type": "text",
+      "required": true,
+      "guidance": "按具体对象命名"
+    },
+    "document_date": {
+      "label": "文档日期",
+      "type": "text",
+      "required": false,
+      "guidance": "不确定时待确认"
+    },
+    "author": {
+      "label": "编写人",
+      "type": "text",
+      "required": false,
+      "guidance": "不推断责任归属"
+    },
+    "meeting_info": {
+      "label": "会议基本信息",
+      "type": "text",
+      "required": true,
+      "guidance": "会议时间、地点/方式、参会人员及议题"
+    },
+    "discussion": {
+      "label": "讨论摘要",
+      "type": "text",
+      "required": true,
+      "guidance": "按议题保留主要事实、分歧及依据，不逐句堆录音"
+    },
+    "decisions": {
+      "label": "已明确的决策",
+      "type": "text",
+      "required": true,
+      "guidance": "只写有明确结论的事项，不能将建议或沉默视为同意"
+    },
+    "open_issues": {
+      "label": "未决问题",
+      "type": "text",
+      "required": true,
+      "guidance": "列清还需补充的信息和后续决策点"
+    },
+    "records": {
+      "label": "行动项跟踪",
+      "type": "rows",
+      "required": true,
+      "guidance": "二维字符串数组，按表头列顺序；未知单元格写待确认，不使用制表符或换行"
+    }
+  },
+  "sections": [
+    {
+      "title": "会议基本信息",
+      "field": "meeting_info"
+    },
+    {
+      "title": "讨论摘要",
+      "field": "discussion"
+    },
+    {
+      "title": "已明确的决策",
+      "field": "decisions"
+    },
+    {
+      "title": "未决问题",
+      "field": "open_issues"
+    }
+  ],
+  "table": {
+    "title": "行动项跟踪",
+    "headers": [
+      "任务",
+      "负责人",
+      "期限",
+      "状态"
+    ],
+    "field": "records"
+  },
+  "contentRule": "讨论内容不能自动变成决议；行动项有责任人与期限，缺少时写待确认。",
+  "reviewChecks": [
+    "正文来自本次输入，示例文字已替换",
+    "标题与正文样式分离，表格为原生可编辑对象",
+    "重开核对字段和表格，再逐页审阅PDF"
+  ]
+}

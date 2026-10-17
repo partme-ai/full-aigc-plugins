@@ -1,0 +1,111 @@
+{
+  "document": {
+    "name": "NOVA intro",
+    "width": 320,
+    "height": 180,
+    "frameRate": 12,
+    "duration": 1
+  },
+  "operations": [
+    {
+      "command": "layer.newShape",
+      "params": {
+        "kind": "rounded",
+        "name": "Badge",
+        "size": [
+          48,
+          48
+        ],
+        "position": [
+          60,
+          85
+        ],
+        "fill": "#ef5b36"
+      },
+      "as": "badge"
+    },
+    {
+      "command": "effect.apply",
+      "params": {
+        "effect": "Gaussian Blur",
+        "layers": [
+          {
+            "$ref": "badge.layer"
+          }
+        ]
+      }
+    },
+    {
+      "command": "prop.set",
+      "params": {
+        "layer": {
+          "$ref": "badge.layer"
+        },
+        "path": "effects/#1/blurriness",
+        "value": 1
+      }
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Title",
+        "text": "NOVA",
+        "position": [
+          140,
+          95
+        ],
+        "font": "Arial",
+        "size": 30,
+        "fill": "#f7f8fa"
+      },
+      "as": "title"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": {
+          "$ref": "title.layer"
+        },
+        "path": "transform/opacity",
+        "time": 0,
+        "value": 0
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": {
+          "$ref": "title.layer"
+        },
+        "path": "transform/opacity",
+        "time": 0.5,
+        "value": 100
+      }
+    }
+  ],
+  "frames": [
+    0,
+    0.5,
+    0.9166666667
+  ],
+  "exports": [
+    {
+      "format": "mp4"
+    }
+  ],
+  "revisionScope": [
+    {
+      "layer": "title",
+      "properties": [
+        "text/sourceText",
+        "transform/position"
+      ]
+    },
+    {
+      "layer": "badge",
+      "properties": [
+        "transform/position"
+      ]
+    }
+  ]
+}

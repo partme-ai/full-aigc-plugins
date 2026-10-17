@@ -1,0 +1,107 @@
+# PhotoCraft — Technical-Plan
+
+## Optimization roadmap update — 2026-10-08
+
+The roadmap prioritizes P0 entry validation, routing and release identity; P1 capability snapshots and persistent control; and P2 quality, lineage and domain-result acceptance. Exhaustive commands and actual host-model routing remain separate ongoing gates. Implement in the standalone skill source and publish immutable snapshots before plugin consumption. The local Harness reuses public executors and the authoritative ArtCraft protocol. All new tasks remain open; earlier runtime, installation and size-variant evidence does not validate these additions.
+
+[Scope and compatibility](../../../openspec/changes/establish-v1-plugin/design.md#optimization-ownership-and-compatibility) · [Specifications and tasks](../../../openspec/changes/establish-v1-plugin/tasks.md#optimization-task-policy--2026-10-08)
+
+> **Purpose**: Product boundaries and cross-version decisions.
+>
+> **Version**: 1.0.0
+> **Updated**: 2026-10-05
+> **Status**: Target design, not implemented. Observations and acceptance evidence are identified separately.
+
+Related documents: [Brand boundary](1%E3%80%81PhotoCraft-Naming-and-Brand.md) · [Technical plan](5%E3%80%81PhotoCraft-Technical-Plan.md) · [Detailed architecture](../../../docs/PhotoCraft-Runtime-Architecture.md) · [OpenSpec](../../../openspec/changes/establish-v1-plugin/proposal.md) · [Evidence](../../../docs/evidence/runtime-baseline.json)
+
+## 1. Technical decisions and alternatives
+
+| ADR | Decision and rationale | Alternative and reversal condition |
+| :--- | :--- | :--- |
+| ADR-001 | Independent skills repositories with immutable snapshots inside plugin packages | Reject sibling symlinks; add host dependency resolution only after it is verified |
+| ADR-002 | Reuse official Rust CLIs through controlled MCP/argv | Do not rewrite editors; surface missing APIs before adding adapters |
+| ADR-003 | Target TypeScript and Node.js 24 LTS for orchestration, matching ecosystem experience | Pin patch versions and dependencies during implementation; design is not compatibility proof |
+| ADR-004 | SQLite ledger and content-addressed files for a local single-user workspace | Revisit service storage only when multi-machine collaboration is required |
+| ADR-005 | ArtCraft OpenSpec owns shared task and artifact protocols | Domain repositories own mappings and consumer tests, not competing field definitions |
+| ADR-006 | Separate technical gates from creative review; preserve valid existing authorization | Do not require approval per call; obtain new authority only when scope changes |
+
+## 2. Independent skill supply chain
+
+`photocraft-skills` is an independent published knowledge repository. The plugin vendors source tag `v0.1.0-dev.3`, a fixed commit and the full skill digest recorded in `skills.lock.json`. SKILL.md, references and portable scripts remain owned by the skill repository. `python3 scripts/vendor/skill_vendor.py check --offline` verifies the packaged snapshot; a source release does not imply complete host or creative acceptance.
+
+| Stage | Input | Failure rule |
+| :--- | :--- | :--- |
+| resolve | repository + immutable tag | Stop on unresolved tags or disallowed provenance |
+| verify | commit + tree digests | Reject any content drift |
+| package | skills inventory | Reject escaping links and duplicate names |
+| audit | clean install fixture | Standalone skill installs must resolve public dependencies |
+
+## 3. Domain plan compilation strategy
+
+| Capability | Behavioral boundary | Status |
+| :--- | :--- | :--- |
+| Layered documents and edit identities | Keep explicit text, product and background layers with names, IDs, order, blend modes and visibility; flattening the entire document cannot satisfy editability acceptance. | Planned |
+| Masks and local adjustments | Bind masks to target layers and record their scope; compare protected regions before and after local edits to prevent unintended modifications. | Planned |
+| Typography and font dependencies | Preserve text, font, size, leading and layout; block typography-sensitive delivery when fonts are missing unless substitution is explicitly accepted. | Planned |
+| Poster and cover variants | Derive separate aspect-ratio variants from the source project, recording crops, spacing and safe areas without overwriting the source. | Planned |
+| Native and PSD fidelity | Use .pcraft as native authority; validate the PSD features used and record compatibility losses rather than promising universal lossless PSD support. | Planned |
+| Flat export and provenance | Bind flat exports to source revisions, color profiles and transparency requirements; preserve receipts for generated inputs and account for generation separately from layer editing. | Fixed RGB8 contract verified; live generation/billing unverified |
+
+The planner emits a declarative plan. The compiler validates command availability, fields, units and bounds, then emits typed operations. Inspect source objects to obtain real IDs first. Compilation records planHash and capabilitySnapshotHash and returns unsupported_mapping for unsupported operations; only verified mappings reach submission.
+
+## 4. Runtime installation and management
+
+Runtime management separates discover, verify, install, probe, activate, upgrade and rollback. Reuse compatible existing installs after verification. Pin download URLs and digests, reject archive traversal and escaping symlinks, and verify before execution. Versioned installs do not overwrite active binaries and preserve prior receipts. An untested platform is unverified; a universal ZIP does not prove every architecture works.
+
+## 5. Submission, recovery and artifact protocol
+
+Use persisted intent, idempotency keys and single-writer leases. Even synchronous CLIs without external task IDs require attempt IDs, process identity, checkpoints and expected outputs. After process failure, inspect projects and files rather than blindly rerunning. Reconciliation handles the gap between file creation and ledger registration. Validate native projects and exports separately; list non-redistributable dependencies and fonts with verifiable acquisition instructions.
+
+## 6. Test plan and acceptance assets
+
+| Layer | Required coverage | Evidence |
+| :--- | :--- | :--- |
+| contract | Missing/unknown fields, idempotency and revision conflicts | schema + fixture results |
+| adapter | Real command discovery, mode differences and error mapping | runtime identity + transcript |
+| recovery | Disconnect after submit, late results and unconfirmed cancellation | ledger before/after + duplicate count |
+| native | Create a poster and cover from product images; after reopening .pcraft, text, product and background remain independently editable; export verified PSD where applicable. | project reopen + output inspection |
+| host | Clean host install, upgrade and user-data preserving uninstall | host/version/platform + logs |
+
+## 7. Implementation route
+
+| Phase | Deliverable | Exit evidence |
+| :--- | :--- | :--- |
+| D0 | Bilingual documentation and OpenSpec baseline | Document, link and spec validation; implementation tasks remain open |
+| M1 | Independent skills and runtime adapter | Clean installation, checksums and real MCP invocation |
+| M2 | Complete domain workflow | Representative task, native reopen, decode and targeted revision |
+| M3 | ArtCraft cross-plugin collaboration | Version propagation, selective invalidation and interruption recovery |
+| M4 | Host and release acceptance | Actual host installation, platform evidence and synchronized catalogs |
+
+Use dependency order without invented dates or effort estimates. Each OpenSpec task carries a requirement ID, owner role, output and validation. Start with failing behavior tests, implement minimally, and leave tasks unchecked until evidence exists.
+
+## 8. Operations, upgrade and release
+
+Plugin, skills, upstream CLI and protocol versions evolve independently. Release matrices pin their combinations; host manifests and marketplace metadata must match verified commits and locks. The documentation baseline ships no installable plugin package; M4 gates the first installable release. Roll back to a previously verified plugin/skills/CLI combination; restore backups when state migrations are incompatible.
+
+---
+
+**Document version**: 1.0.0
+**Created**: 2026-10-05
+**Updated**: 2026-10-05
+**Document status**: Ready for review; implementation status is governed by OpenSpec tasks and evidence.
+
+Exchange delivery now includes exchange-loss.json binding native, reopened inspection and exports by digest. Derivatives never substitute for native projects; cross-editor font, effect and mask fidelity remains explicitly unknown until separate acceptance.
+
+## Current host acceptance
+
+Snapshot `0.1.0-dev.2` has scoped installation/discovery and installed-entrypoint evidence. See [verification contracts and exclusions](../../../docs/PhotoCraft-Host-Verification-Architecture.md). Full release tasks remain open; target design sections do not constitute implementation evidence.
+
+## CLI skill suite revision
+
+[PhotoCraft CLI / setup / task suite](../../../docs/PhotoCraft-Skill-Suite-Architecture.md)
+
+## Candidate implementation progress — 2026-10-08
+
+A TypeScript/SQLite candidate now owns durable task intent, writer epochs, budgets, stop and read-only reconciliation while reusing the standalone Python skill executor. Review requests and receipts bind brief, references and candidate hashes; separate revisions are limited to reported text properties and layer names. Native reopening does not constitute creative acceptance. Standalone skills add strict parsing/preflight, recursive object preservation, PSD feature observations and explicit background-filter targets.
+
+Pinned backends have distinct registries: 755 commands for maintained headless and 748 for upstream desktop bridge. Parameter/tool-schema drift is refused. See the [candidate architecture](../../../docs/PhotoCraft-Harness-Candidate.md). Source validation, fixed release installation, per-command contexts, real host/independent review and external PSD-editor evidence remain separate gates; marketplace status and specification archive are unchanged.

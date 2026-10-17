@@ -1,0 +1,36 @@
+{
+  "runtime": {
+    "version": "v0.7.0",
+    "url": "https://github.com/storytold/gridcraft/releases/download/v0.7.0/gridcraft-0.7.0-windows-x64-portable.zip",
+    "sha256": "24bf4ee129769268e27510a260de6c7fd7eded84ea541499132576e3d7ea6a86",
+    "executable": "gridcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "insert.table": {
+      "id": "insert.table",
+      "label": "Table",
+      "menu": [
+        "Insert",
+        "Tables"
+      ],
+      "params": "{range?, header?: true, style?: \"TableStyleMedium2\", name?}",
+      "shortcut": "Cmd+T"
+    },
+    "cell.set": {
+      "id": "cell.set",
+      "label": "Enter Cell",
+      "menu": [],
+      "params": "{cell?: \"B2\", input: \"text, number or =formula\", sheet?, array?: bool}",
+      "shortcut": null
+    },
+    "sheet.read": {
+      "id": "sheet.read",
+      "label": "Read Range",
+      "menu": [],
+      "params": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values",
+      "shortcut": null
+    }
+  },
+  "sceneAcceptance": "NOT_RUN"
+}

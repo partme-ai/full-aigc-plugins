@@ -1,0 +1,424 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "effectcraft",
+  "runtimeVersion": "0.2.0",
+  "upstreamRepository": "https://github.com/storytold/effectcraft",
+  "upstreamCommit": "f5ebe5f6c5e887dddda4a2be1fcb47154e959b81",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "file.newProject",
+      "label": "New Project",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.openDemoProject",
+      "label": "Open Demo Project",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.open",
+      "label": "Open Project...",
+      "params": "{path}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.save",
+      "label": "Save",
+      "params": "{path?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.saveAs",
+      "label": "Save As...",
+      "params": "{path}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.incrementAndSave",
+      "label": "Increment and Save",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.revert",
+      "label": "Revert",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.import",
+      "label": "File...",
+      "params": "{paths: [string], importAs?: footage|composition|compositionLayerSizes (Photoshop, PDF, Illustrator and EPS files), layer?: name|index (footage of one Photoshop layer), page?: number from 1 (PDF / Illustrator page), drag?: bool (dropped files: Settings ▸ Import ▸ Default Drag Import As), addToComp?: bool (also add them to the active comp, at time?, index?, position? as in layer.addItem)}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.projectSettings",
+      "label": "Project Settings...",
+      "params": "{bitDepth?: 8|16|32, colorEngine?: adobe|ocio, workingSpace?: none|srgb|rec709|rec2020|p3|acescg|aces2065, linearize?, blendLinear?, hdr?: clip|compand|toneMap, outputSpace?: srgb|rec709|rec2020|p3|rec2100pq|rec2100hlg, renderer?: gpu|software, timeDisplay?: timecode|frames|feet35|feet16}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.cycleBitDepth",
+      "label": "Cycle Project Bit Depth",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.select",
+      "label": "Select Project Items",
+      "params": "{items: [id|name], add?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.rename",
+      "label": "Rename Item",
+      "params": "{item?: id|name (default: selected), name}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.move",
+      "label": "Move to Folder",
+      "params": "{items?: [id|name] (default: selected), folder: id|name|null (root)}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.setLabel",
+      "label": "Item Label",
+      "params": "{items?, label: name|index}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.setComment",
+      "label": "Item Comment",
+      "params": "{items?, comment}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.delete",
+      "label": "Delete Project Items",
+      "params": "{items?: [id|name] (default: selected)} (folders with their contents; layers using the items go too)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.usage",
+      "label": "Project Item Usage",
+      "params": "{items?: [id|name] (default: selected)} → {items, layers, comps} that deleting them removes",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.duplicate",
+      "label": "Duplicate Project Items",
+      "params": "{items?: [id|name] (default: selected)} → {items}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.summary",
+      "label": "Project Summary",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.newFolder",
+      "label": "New Folder",
+      "params": "{name?, parent?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.close",
+      "label": "Close",
+      "params": "{comp?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.closeProject",
+      "label": "Close Project",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.saveCopy",
+      "label": "Save a Copy...",
+      "params": "{path}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.importMultiple",
+      "label": "Multiple Files...",
+      "params": "{paths: [string]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.importPlaceholder",
+      "label": "Placeholder...",
+      "params": "{name?, width?, height?, frameRate?, duration? (s)}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.importSolid",
+      "label": "Solid...",
+      "params": "{name?, color?, width?, height?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.newCompFromSelection",
+      "label": "New Comp from Selection...",
+      "params": "{duration? (s, for stills), single?: bool (one comp for all), dimensionsFrom?: index, sequence?: bool, overlap?: bool, overlapDuration? (s), transition?: off|dissolveFront|crossDissolve, addToRenderQueue?: bool} → {comps}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.collectFiles",
+      "label": "Collect Files...",
+      "params": "{folder}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.consolidateFootage",
+      "label": "Consolidate All Footage",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.removeUnusedFootage",
+      "label": "Remove Unused Footage",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.reduceProject",
+      "label": "Reduce Project",
+      "params": "{} (keeps the selected comps and what they use)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.findMissing",
+      "label": "Find Missing",
+      "params": "{what: footage|effects|fonts}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.runScript",
+      "label": "Run Script File...",
+      "params": "{path (.jsx/.js JavaScript, or a .jsonl/.json command script) | name (an installed or sample script, see file.scripts.list) | steps: [{command, params}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.interpretFootage",
+      "label": "Main...",
+      "params": "{items?, frameRate?: fps|\"file\", alpha?: straight|premultiplied|ignore|guess, guessAlpha?, matteColor?, invertAlpha?, loop?, pixelAspect?, fields?: off|upper|lower, colorProfile?: srgb|rec709|rec2020|p3|auto, linearLight?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.rememberInterpretation",
+      "label": "Remember Interpretation",
+      "params": "{item?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.applyInterpretation",
+      "label": "Apply Interpretation",
+      "params": "{items?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.replaceFootage",
+      "label": "File...",
+      "params": "{path, item?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.replaceWithPlaceholder",
+      "label": "Placeholder...",
+      "params": "{item?, width?, height?, frameRate?, duration?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.replaceWithSolid",
+      "label": "Solid...",
+      "params": "{item?, color?, width?, height?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.reloadFootage",
+      "label": "Reload Footage",
+      "params": "{items?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.revealInFinder",
+      "label": "Reveal in Finder",
+      "params": "{item?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.exportLottie",
+      "label": "Lottie JSON...",
+      "params": "{comp?, path (.json or .lottie), includeExpressions?: bool, textAsShapes?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.importLottie",
+      "label": "Lottie...",
+      "params": "{path (.json or .lottie)}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.importTimeline",
+      "label": "Adobe Premiere Pro Project...",
+      "params": "{path (.xml Final Cut Pro XML from Premiere Pro or .fcpxml .otio .edl .aaf .omf), format?: auto|xml|fcpxml|otio|edl|aaf|omf, edlFrameRate?: number}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.exportTimeline",
+      "label": "Adobe Premiere Pro Project...",
+      "params": "{comp?, path (Final Cut Pro XML .xml for Premiere Pro or .fcpxml .otio .edl .aaf .omf), format?: xml|fcpxml|otio|edl|aaf|omf, prerender?: none|unsupported|all, precomps?: nest|prerender}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.timelineFormats",
+      "label": "Timeline Interchange Formats",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.watchFolder",
+      "label": "Watch Folder...",
+      "params": "{folder, stop?: bool} → watches the folder for .ecproj files with queued renders, renders them and writes `<project>.status.json`",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.watchFolder.poll",
+      "label": "Poll Watch Folder",
+      "params": "{folder? (default: the watched one)} → renders new projects now: {watching, rendered: [{project, state: done|failed, items: [{comp, status, output}]}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.importVanishingPoint",
+      "label": "Vanishing Point (.vpe)...",
+      "params": "{} (always disabled: undocumented format)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.openRecent",
+      "label": "Open Recent",
+      "params": "{index? | path?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.clearRecent",
+      "label": "Clear Recent Projects",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.autoSave",
+      "label": "Auto-Save Now",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.recoveryInfo",
+      "label": "Auto-Save Status",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.importRecent",
+      "label": "Import Recent Footage",
+      "params": "{index? | path?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.clearRecentFootage",
+      "label": "Clear Recent Footage",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.saveCopyAsXml",
+      "label": "Save a Copy As XML...",
+      "params": "{path: .ecprojx}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.replaceWithLayeredComp",
+      "label": "With Layered Comp",
+      "params": "{item?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.executeFile",
+      "label": "Execute File",
+      "params": "{path, confirmed?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.createProxy",
+      "label": "Create Proxy",
+      "params": "{kind: still|movie, comp?|item?, path?|output? (template), resolution? (default 0.5)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.setProxy",
+      "label": "File...",
+      "params": "{path, items?|item?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.setProxyNone",
+      "label": "None",
+      "params": "{items?|item?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.useProxy",
+      "label": "Use Proxy",
+      "params": "{items?|item?, on?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.interpretProxy",
+      "label": "Proxy...",
+      "params": "{items?|item?, alpha?, matteColor?, invertAlpha?, frameRate?, loop?, pixelAspect?, fields?, colorProfile?, linearLight?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.installScript",
+      "label": "Install Script File...",
+      "params": "{path (.jsx / .js)} → copies it to the Scripts folder; it appears in File ▸ Scripts",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.installScriptUIPanel",
+      "label": "Install ScriptUI Panel...",
+      "params": "{path (.jsx / .js)} → copies it to the ScriptUI Panels folder; it appears in the Window menu",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.uninstallScript",
+      "label": "Uninstall Script",
+      "params": "{name}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.scripts.list",
+      "label": "List Scripts",
+      "params": "{} → [{name, panel, source: installed|sample}]",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "project.setProjectComment",
+      "label": "Project Comment",
+      "params": "{comment}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.newFromTemplate",
+      "label": "New Project from Template...",
+      "params": "{} → the Home screen's Templates tab",
+      "enabledAtEmptySession": true
+    }
+  ]
+}

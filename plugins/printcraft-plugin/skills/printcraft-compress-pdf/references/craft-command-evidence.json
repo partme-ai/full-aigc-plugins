@@ -1,0 +1,150 @@
+{
+  "runtime": {
+    "version": "v0.8.0",
+    "url": "https://github.com/storytold/pdfcraft/releases/download/v0.8.0/pdfcraft-0.8.0-windows-x64-portable.zip",
+    "sha256": "cd7b7fca39bf8fe477e230f40c35291a9a37ecc9175db34ff1c2ef94f785ddfb",
+    "executable": "pdfcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "doc_info": {
+      "command": "file.properties",
+      "description": "Metadata, page sizes and labels, bookmarks, annotations, form fields, links, layers, attachments, fonts, security and repair notes.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "doc"
+        ],
+        "type": "object"
+      },
+      "name": "doc_info",
+      "read_only": true
+    },
+    "doc_optimize": {
+      "command": "optimize.advanced",
+      "description": "Write an optimized copy to `path` (Acrobat's PDF Optimizer). color / gray: { downsample, ppi, above_ppi, compression: jpeg|zip|retain, quality 1–100 } (defaults: downsample to 150 ppi above 225, JPEG 60). Images are measured where pages draw them and replaced only when smaller. discard_*: thumbnails (default true), alternate_images (true), tags, print_settings; flate_unencoded (true); remove_invalid_links and remove_unreferenced_dests (true); images and forms the pages list but never draw are always dropped (unused_xobjects). discard: Remove Hidden Information categories (metadata, attachments, comments, form-fields, hidden-text, hidden-layers, bookmarks, links-actions-scripts, private-data). Signed documents are refused. The open document is unchanged.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "color": {
+            "type": "object"
+          },
+          "discard": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "discard_alternate_images": {
+            "type": "boolean"
+          },
+          "discard_print_settings": {
+            "type": "boolean"
+          },
+          "discard_tags": {
+            "type": "boolean"
+          },
+          "discard_thumbnails": {
+            "type": "boolean"
+          },
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "flate_unencoded": {
+            "type": "boolean"
+          },
+          "gray": {
+            "type": "object"
+          },
+          "path": {
+            "type": "string"
+          },
+          "remove_invalid_links": {
+            "type": "boolean"
+          },
+          "remove_unreferenced_dests": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "doc",
+          "path"
+        ],
+        "type": "object"
+      },
+      "name": "doc_optimize",
+      "read_only": false
+    },
+    "page_render": {
+      "command": null,
+      "description": "Render one page to a PNG image (default 96 dpi, at most 600).",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "dpi": {
+            "maximum": 600,
+            "minimum": 1,
+            "type": "number"
+          },
+          "hide_text_block": {
+            "description": "Render an inline editor background without this paragraph (index from text_paragraphs). Does not modify the document.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "page": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "doc",
+          "page"
+        ],
+        "type": "object"
+      },
+      "name": "page_render",
+      "read_only": true
+    },
+    "doc_open": {
+      "command": "file.open",
+      "description": "Open a PDF file and return its document id, page count and whether it can be edited.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "password": {
+            "description": "User or owner password for encrypted files.",
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "name": "doc_open",
+      "read_only": false
+    }
+  },
+  "sceneAcceptance": "NOT_RUN",
+  "additionalObservation": {
+    "runtime": "official pdfcraft-cli0.8.0 macOS universal",
+    "scope": "actual tools catalog; native example and full scene acceptance separate"
+  }
+}

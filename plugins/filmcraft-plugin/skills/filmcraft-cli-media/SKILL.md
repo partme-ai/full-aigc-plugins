@@ -1,0 +1,91 @@
+---
+name: filmcraft-cli-media
+description: 当需要检查已有音视频、图片和素材引用，导入并收集或重关联素材时使用 FilmCraft；本技能自带首次安装与公开 CLI 入口。
+license: Apache-2.0
+---
+
+# FilmCraft 素材检查与导入
+
+本技能负责检查已有音视频、图片和素材引用，导入并收集或重关联素材。与同包技能按名称交接，单独安装即可使用，不读取兄弟目录。调用固定发布的 filmcraft-cli，保留原生编辑工程。
+
+## 可信目录权限
+
+旧 `cli.py` 原生转发的工程读取与编辑也需要在 `--` 前提供独立根参数；仅精确版本／帮助／无工程目录查询兼容旧调用。模型下载须单独使用 `--model-maintenance`，见本技能 [执行权限](references/execution-permissions.md)。
+
+公开 `workflow.py` 和 `commands.py run` 必须显式提供 `--read-root READ_DIRECTORY --write-root WRITE_DIRECTORY`（可重复）；根须为已存在的规范真实目录，来自用户／宿主授权，不能从计划或素材元数据推导。计划、素材及源交付须位于读取根，交付及其父目录须位于写入根。`--runtime-home` 是安装维护目录，须位于独立明确授权的写入根；编辑原生进程始终禁止修改该缓存、技能、登记输入和源工程。当前根隔离执行支持macOS headless；桌面入口须同时隔离本次拥有的签名应用和MCP客户端，只开放分配的loopback控制端口。无法确认隔离的外部bridge明确拒绝。低层Python测试API不是公开授权入口。详细边界见 [执行权限](references/execution-permissions.md)。
+
+## 输入与交付
+
+输入为用户已确认的任务、素材、工程或对象、输出目录与修改范围；需要现有工程时先核对摘要。返回实际 CLI 结果、保存后的原生工程、需要的派生输出与核验记录。安装成功、命令目录存在与创作任务完成分别报告。
+
+## 首次使用与公共入口
+
+执行实现收敛在内置的 **filmcraft-harness** 技能（随插件捆绑安装；单独安装用 `npx skills add full-aigc-skills/filmcraft-skills --skill filmcraft-harness`）。将 `HARNESS_DIR` 设置为该技能实际加载目录（绝对路径）；本技能的 `SKILL_DIR` 只用于读取自身的 `examples/` 与 `references/`。
+
+定位当前 SKILL.md 的真实目录。当前支持 macOS arm64、Python 3.11+；固定 CLI 安装到用户数据目录。已有任务授权覆盖必要依赖时直接执行 filmcraft-harness 技能安装器，不另造批准流程。
+
+将 `SKILL_DIR` 设置为宿主实际加载的本 `SKILL.md` 所在目录（绝对路径）。用户级安装可能位于 `~/.agents/skills/filmcraft-cli-media`，项目级可能位于 `.agents/skills/filmcraft-cli-media`，插件可能位于其 `skills/filmcraft-cli-media` 或宿主缓存目录；以实际加载路径为准，不按当前工作目录猜测，也不搜索后随意选择重复版本。技能目录与 CLI 的用户数据安装目录是两个独立位置。
+
+```bash
+: "${SKILL_DIR:?请先设置为本 SKILL.md 的实际所在目录}"
+python3 -I -B "$HARNESS_DIR/scripts/bootstrap.py"
+python3 -I -B "$HARNESS_DIR/scripts/cli.py" -- --version
+python3 -I -B "$HARNESS_DIR/scripts/cli.py" -- commands --json
+```
+
+CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔符前；`--runtime-home` 可隔离缓存。锁定制品摘要失败、损坏安装或不支持平台时停止；不改 PATH、不执行浮动升级。原生帮助入口是 `help`；launcher 自身 `--help` 只说明启动参数。
+
+## 场景操作
+
+核对本场景输入、原生工程、目标对象、版本和输出边界。按 [场景指南](references/scenario.md) 选择当前命令，保存独立检查点后执行；完成后重开原生工程并检查实际输出与非目标内容。
+
+`describe <id>` 核对参数，再用 `exec <id> <JSON>` 或 `run <JSONL>`；写命令必须同批次保存或配合 `--save-as`。
+
+probe 核对流、帧率和音轨；移动素材后按摘要重新链接，不能凭同名替换。
+
+原生组合与源工程修订使用 filmcraft-harness 技能的 `scripts/workflow.py`；读取 [工作流合同](references/workflow.md)，模板在本技能 examples 内。只修改授权对象，原生工程和依赖素材保留，派生格式损失读取 [交换报告](references/exchange-loss.md)。
+
+## 核验与恢复
+
+命令非零退出不算完成；需要查看真实保存工程、导出、尺寸及媒体解码。超时结果标 unknown，先检查原任务/工程，不能自动重放编辑。现有原生工作流支持另存修订；对应项目摘要不符时拒绝覆盖。
+
+## 按需参考与交接
+
+- [实际命令证据](references/commands.json)：固定版本观察，仅作为路由与参数参考；实时结果优先，禁用项不执行。
+- [工作流合同](references/workflow.md)：组合操作、原生保存、依赖收集与修订。
+- 安装/诊断需要时交给 **filmcraft-cli-setup**，完整任务路由交给 **filmcraft-use**；缺少技能时使用 `npx skills add full-aigc-skills/filmcraft-skills --skill <skill-name>`。不通过相邻文件路径加载其他技能。
+
+本技能不提供虚构的登录接口；本地 headless 不要求云账户。完整 GUI、跨编辑器保真与创作质量按实际证据陈述。
+
+工作区分段素材消费候选见 [分段素材](references/segmented-assets.md)。固定发布及 Art 集成仍待验收，不能把候选交接当作完整五插件交付。
+
+## 完整原生命令使用
+
+当前技能自带完整目录的参数说明与同会话入口，不受创作模板白名单限制。读取 [完整使用指南](references/command-usage.md)，按需查询 [命令参考](references/command-reference.md)；每条指令有技能路由、前置观察及验收状态。
+
+```bash
+: "${READ_ROOT:?Set READ_ROOT to an existing independently authorized directory}"
+: "${RUNTIME_HOME:?Set RUNTIME_HOME to an existing independently authorized directory}"
+: "${SKILL_DIR:?Set SKILL_DIR to an existing independently authorized directory}"
+: "${WRITE_ROOT:?Set WRITE_ROOT to an existing independently authorized directory}"
+python3 -I -B "$HARNESS_DIR/scripts/commands.py" list --filter QUERY
+python3 -I -B "$HARNESS_DIR/scripts/commands.py" describe COMMAND_ID
+python3 -I -B "$HARNESS_DIR/scripts/commands.py" run "$SKILL_DIR/examples/commands-advanced.json" --output /absolute/new-command-result --runtime-home "$RUNTIME_HOME" --read-root "$SKILL_DIR" --read-root "$READ_ROOT" --write-root "$WRITE_ROOT" --write-root "$RUNTIME_HOME"
+```
+
+新入口执行前检查真实注册表与当前可执行状态，保留返回值引用和逐步回执；语义错误或超时不冒充成功。目录覆盖与直接原生使用不等于所有指令、GUI、交付或 Art 编排已验收。
+
+完整工作流命令网关见 [使用说明](references/native-workflow.md)。固定 CLI 的版本与制品摘要以 filmcraft-harness 技能的 `scripts/runtime.lock.json` 为准；技能包版本以对应发布标签为准。独立安装复验与全量逐命令验收分别记录，不以发布替代验收。
+
+GUI任务可先使用本技能自带的 [固定桌面安装](references/desktop-install.md)；安装、启动与实际GUI编辑分别核验。
+
+完整归属命令按命令族列于 [分类使用清单](references/scenario.md)，每项可通过 filmcraft-harness 技能的 `commands.py describe` 查看参数；通用 CLI 清单也保留未归入专项技能的全部命令。
+
+本技能任务先读取 [专项任务模板](references/task-scene.md)，按对应输入、首次任务、失败边界、局部修订和核验执行。跨能力组合时再读取 [完整业务场景](references/business-scenes.md)。
+
+安装失败时读取 [首次使用诊断](references/first-use-failures.md)，按回执定位当前技能自身的 setup 入口；安装失败与原生调用失败分别处理。
+
+
+同目标执行竞争与中断登记见本技能 [执行登记](references/output-execution.md)；技能源dev.29收录实现，插件固定安装验收单独记录。
+
+连续操作优先使用本技能自带的 [任务级会话](references/task-session.md)：启动一次，逐计划检查、保存和返工，共享同一FilmCraft实例；任务结束才退出。单次run仍保持原兼容行为。

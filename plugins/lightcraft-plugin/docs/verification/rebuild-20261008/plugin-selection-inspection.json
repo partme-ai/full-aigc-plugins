@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "changed": [
+    "photo"
+  ],
+  "invalidated": [
+    "photo",
+    "layout",
+    "pdf"
+  ],
+  "reusable": [
+    "photo-import"
+  ],
+  "previousFingerprint": {
+    "photo": "833e4b55b6955c29a5a8369891a5a4b8904c23e7ba20e39108a9c875969e3aac",
+    "layout": "98e827d4bd5b0735002f7ab157200884cc5c95e94a3eb39832e1244dd1d9b474",
+    "pdf": "a6e0c294a7addb4c443e09a2f7a7016973e084ca1058b3b9c373e5faf38a9643",
+    "photo-import": "540b0539a86939017ec0294b65bea757e190e9f26f3966eed7c522b42ce00244"
+  },
+  "currentFingerprint": {
+    "photo": "9b2164514caa58abb14aa23a43e3bbb917ad8c1f79dc92cdf712c96e81b2c916",
+    "layout": "98e827d4bd5b0735002f7ab157200884cc5c95e94a3eb39832e1244dd1d9b474",
+    "pdf": "a6e0c294a7addb4c443e09a2f7a7016973e084ca1058b3b9c373e5faf38a9643",
+    "photo-import": "540b0539a86939017ec0294b65bea757e190e9f26f3966eed7c522b42ce00244"
+  },
+  "automaticReplay": false,
+  "executionAllowed": false,
+  "taskExecutionAllowed": false
+}

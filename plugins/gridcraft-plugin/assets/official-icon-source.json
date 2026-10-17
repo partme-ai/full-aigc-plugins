@@ -1,0 +1,13 @@
+{
+  "name": "gridcraft",
+  "icon": "gridcraft/icon.png",
+  "source": "https://raw.githubusercontent.com/storytold/gridcraft/84acf6293b1dc1fc09837524e035d674eb4d6741/assets/app-icon/gridcraft.svg",
+  "homepage": "https://github.com/storytold/gridcraft",
+  "matchedBy": "upstream-app-icon",
+  "mimeType": "image/png",
+  "license": "MIT",
+  "modifications": "Square full-bleed background; 256px PNG. Artwork preserved; corner rounding delegated to client.",
+  "sha256": "ed2b93a238a06bf7e399776578fc27ede37d47d44f8b9e1058ab75aa547feda2",
+  "localFile": "./assets/official-logo.png",
+  "displayName": "GridCraft Use"
+}

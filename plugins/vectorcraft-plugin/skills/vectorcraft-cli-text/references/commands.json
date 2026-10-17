@@ -1,0 +1,276 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "vectorcraft",
+  "runtimeVersion": "0.2.0-craft.2",
+  "upstreamRepository": "https://github.com/storytold/vectorcraft",
+  "upstreamCommit": "90e022b0c05f12171a4e9bebe0894fa62f7bc95c",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "text.create",
+      "label": "Create Text",
+      "params": "{x, y, text, size?: pt, font?: family, style?, color?, area?: {width, height}} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.createOutlines",
+      "label": "Create Outlines",
+      "params": "{} convert the selected text to groups of compound paths (one per glyph) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.setText",
+      "label": "Set Text",
+      "params": "{id?|ids?, text} replace the contents of text objects (keeps the first run's style)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.areaOptions",
+      "label": "Area Type Options…",
+      "params": "{ids?, rows?, columns?, gutter?: pt, inset?: pt, firstBaseline?: ascent|capHeight|xHeight|leading|fixed, firstBaselineMin?: pt} set the selected area type's options (none given: query) → the first object's options",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.fitHeadline",
+      "label": "Fit Headline",
+      "params": "{ids?} track the first line of area type so it fills the frame width → {tracking}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.setStyle",
+      "label": "Character",
+      "params": "{ids?|id?, font?, style?, size?: pt, leading?: pt|\"auto\", tracking?: 1/1000 em, justify?: \"left\"|\"center\"|\"right\"|\"justifyAll\", fill?: colour, features?: [\"dlig\", \"-liga\", …] OpenType}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.changeCase",
+      "label": "Change Case",
+      "params": "{case: \"upper\"|\"lower\"|\"title\"|\"sentence\", ids?} → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.smartPunctuation",
+      "label": "Smart Punctuation…",
+      "params": "{quotes?: true (straight quotes become the Document Setup quotes), dashes?: true (-- → en dash, --- → em dash), ellipsis?: true (... → …), scope?: \"selection\"|\"document\"} → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.convertToAreaType",
+      "label": "Convert To Area Type",
+      "params": "{ids?} point type → area type framed by its current layout bounds → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.convertToPointType",
+      "label": "Convert To Point Type",
+      "params": "{ids?} area type → point type; soft line wraps become line breaks → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.pathOptions",
+      "label": "Type on a Path Options…",
+      "params": "{start?: 0..1 (fraction of the path length), flip?: bool (reverse the path), effect?: rainbow|skew|3dRibbon|stairStep|gravity, ids?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.fillPlaceholder",
+      "label": "Fill with Placeholder Text",
+      "params": "{ids?} replace selected text with placeholder text (area type is filled to its frame) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.insert",
+      "label": "Insert Character",
+      "params": "{char: \"bullet\"|\"copyright\"|\"ellipsis\"|\"paragraph\"|\"registered\"|\"section\"|\"trademark\"|\"emDash\"|\"enDash\"|\"discretionaryHyphen\"|\"nonBreakingHyphen\"|\"doubleLeftQuote\"|\"doubleRightQuote\"|\"singleLeftQuote\"|\"singleRightQuote\"|\"emSpace\"|\"enSpace\"|\"hairSpace\"|\"sixthSpace\"|\"thinSpace\"|\"nonBreakingSpace\"|\"figureSpace\"|\"punctuationSpace\"|\"thirdSpace\"|\"quarterSpace\"|\"tab\"|\"forcedLineBreak\"|\"paragraphReturn\" | text: string} append to the selected text objects",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.editRange",
+      "label": "Edit Text",
+      "params": "{id, start: byte, end: byte, insert?: string, runs?: [{text, style}]} replace bytes start..end of the plain text (inserted text takes the replaced text's style unless styled `runs` are given) → {id, caret}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.setRangeStyle",
+      "label": "Character",
+      "params": "{id, start?: byte, end?: byte (default: all text), font?, style?, size?: pt, leading?: pt|\"auto\", tracking?, kerning?: 1/1000 em|\"auto\", baselineShift?: pt, hScale?: %, vScale?: %, rotation?: deg, fill?: colour|\"none\", stroke?: colour|\"none\", strokeWidth?: pt, strokeOptions?: {weight?, cap?, join?, miterLimit?, dash?, dashOffset?, alignDashes?} (as stroke.set: the character stroke), underline?, strikethrough?, allCaps?: bool, smallCaps?: bool, position?: \"normal\"|\"superscript\"|\"subscript\" (sizes from Document Setup), features?: [\"dlig\", \"-liga\", …]} style a character range (runs are split at the range ends) → {id, runs}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.getRange",
+      "label": "Get Text Range",
+      "params": "{id, start?, end?} → {text, runs: [{text, style}], length}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.createInPath",
+      "label": "Area / Path Type",
+      "params": "{path: id, mode: \"area\"|\"onPath\", text?: \"\", at?: [x, y] (on-path start: nearest point), size?, font?} turn a path into an area-type frame or a type-on-a-path baseline (the path's paint is dropped) → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.fitHeadline",
+      "label": "Fit Headline",
+      "params": "{ids?} track the first line of area type so it fills the frame width → {ids, tracking}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.list",
+      "label": "Character Styles",
+      "params": "{} → {styles: [{name, attrs, uses}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.new",
+      "label": "New Character Style",
+      "params": "{name?, attrs?: {…}} (default attrs: the selected text's) → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.apply",
+      "label": "Apply Character Style",
+      "params": "{name, clearOverrides?, ids?|id + start?/end? (a Type tool range)} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.redefine",
+      "label": "Redefine Character Style",
+      "params": "{name, id?, start?} from the selected text; users keep their overrides",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.setAttrs",
+      "label": "Character Style Options",
+      "params": "{name, attrs: {…}} replace the style's attributes; users keep their overrides",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.duplicate",
+      "label": "Duplicate Character Style",
+      "params": "{name} → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.rename",
+      "label": "Rename Character Style",
+      "params": "{name, to}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.delete",
+      "label": "Delete Character Style",
+      "params": "{name} (text keeps its look)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.list",
+      "label": "Paragraph Styles",
+      "params": "{} → {styles: [{name, attrs, uses}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.new",
+      "label": "New Paragraph Style",
+      "params": "{name?, attrs?: {…}} (default attrs: the selected text's) → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.apply",
+      "label": "Apply Paragraph Style",
+      "params": "{name, clearOverrides?, ids?|id + start?/end? (a Type tool range)} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.redefine",
+      "label": "Redefine Paragraph Style",
+      "params": "{name, id?, start?} from the selected text; users keep their overrides",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.setAttrs",
+      "label": "Paragraph Style Options",
+      "params": "{name, attrs: {…}} replace the style's attributes; users keep their overrides",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.duplicate",
+      "label": "Duplicate Paragraph Style",
+      "params": "{name} → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.rename",
+      "label": "Rename Paragraph Style",
+      "params": "{name, to}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.delete",
+      "label": "Delete Paragraph Style",
+      "params": "{name} (text keeps its look)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.fonts",
+      "label": "Fonts in Document",
+      "params": "{selectionOnly?} → [{family, style, runs, objects, missing}] sorted by name",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.replaceFont",
+      "label": "Replace Font",
+      "params": "{from: {family, style?}, to: {family, style?}, selectionOnly?} (style omitted: every style of the family / keep the closest style) → {runs}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.thread.create",
+      "label": "Create",
+      "params": "{} thread the selected area type (and closed paths, which become frames) in stacking order → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.thread.releaseSelection",
+      "label": "Release Selection",
+      "params": "{} take the selected frames out of their threads (the story re-flows through the rest)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.thread.remove",
+      "label": "Remove Threading",
+      "params": "{} break the selected frames' threads; each frame keeps the text it shows",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.thread.info",
+      "label": "Threads",
+      "params": "{} → [[id…]] every thread in order",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.tabs.set",
+      "label": "Set Tab Stops",
+      "params": "{stops: [{position: pt, align?: left|center|right|decimal, leader?: \". \", alignOn?: \".\"}], ids?} replace the tab stops of the selected text",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.tabs.get",
+      "label": "Tab Stops",
+      "params": "{ids?} → {stops} of the first selected text object",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.tabs.clear",
+      "label": "Clear All Tabs",
+      "params": "{ids?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.setFormat",
+      "label": "Character / Paragraph",
+      "params": "{ids?|id?, kerning?: 1/1000 em|\"auto\", baselineShift?: pt, hScale?: %, vScale?: %, rotation?: deg, underline?, strikethrough?, allCaps?, smallCaps?: bool, position?: \"normal\"|\"superscript\"|\"subscript\" (sizes from Document Setup), leftIndent?, rightIndent?, firstLineIndent?, spaceBefore?, spaceAfter?: pt, hyphenate?: bool}",
+      "enabledAtEmptySession": false
+    }
+  ],
+  "runtimePatchSourceCommit": "402de7b5f698797af9195cbd380cc97716883bc8",
+  "analysisCommit": "36a6a8ae49f0e2d1059361ab1f842b1ec172bc9e"
+}

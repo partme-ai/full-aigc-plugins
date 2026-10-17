@@ -1,0 +1,54 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "vectorcraft",
+  "id": "icon-set",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "用统一尺寸创建代表图形",
+      "command": "shape.ellipse",
+      "params": {
+        "x": 8,
+        "y": 8,
+        "width": 32,
+        "height": 32
+      }
+    },
+    {
+      "purpose": "统一颜色",
+      "command": "paint.setFill",
+      "params": {
+        "color": "#243042"
+      }
+    },
+    {
+      "purpose": "实心图标显式去掉继承的描边",
+      "command": "paint.setStroke",
+      "params": {
+        "none": true
+      }
+    },
+    {
+      "purpose": "对齐选中图形",
+      "command": "object.align",
+      "params": {
+        "horizontal": "center",
+        "vertical": "center",
+        "to": "artboard"
+      }
+    },
+    {
+      "purpose": "等比例缩放并控制描边",
+      "command": "object.scale",
+      "params": {
+        "sx": 50,
+        "sy": 50,
+        "strokes": true
+      }
+    }
+  ],
+  "check": "在目标像素尺寸检查线宽、端点、负空间与裁切，圆方做视觉补偿。",
+  "boundary": "当前画板尺寸与选择需先核对；只等比例缩放不能自动生成一致图标语言。 本例画板48×48，最终16×16；新建图形继承的描边须明确清除，真实尺寸/描边另按用途核对。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

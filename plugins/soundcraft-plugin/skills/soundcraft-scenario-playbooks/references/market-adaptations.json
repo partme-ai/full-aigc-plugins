@@ -1,0 +1,487 @@
+{
+  "schema": "craft-market-adaptations/v1",
+  "application": "soundcraft",
+  "skill": "soundcraft-scenario-playbooks",
+  "counting": "existing recipes with adapted task guidance; not additional mapped scenes",
+  "sources": [
+    {
+      "id": "hkuds/cli-anything/cli-anything-audacity",
+      "repository": "hkuds/cli-anything",
+      "commit": "34f519533bc175d2fe287ab8316b0dd99bb9cc43",
+      "path": "skills/cli-anything-audacity/SKILL.md",
+      "url": "https://github.com/hkuds/cli-anything/blob/34f519533bc175d2fe287ab8316b0dd99bb9cc43/skills/cli-anything-audacity/SKILL.md",
+      "sha256": "2d3c1876adf8465b7ce4138b12de5d95c40454ad7ac16da651a6ebab1ce2af6a",
+      "bytes": 5296,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/hkuds/cli-anything/cli-anything-audacity",
+      "repositoryLicense": "Apache-2.0",
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "1ae9f306afc18639f7a72b56a5c0fee843dfbe2327a7483d90a54a384dcbe19e"
+    },
+    {
+      "id": "skillhub:podcast-workflow",
+      "market": "SkillHub",
+      "marketUrl": "https://skillhub.cn/",
+      "downloadUrl": "https://api.skillhub.cn/api/v1/download?slug=podcast-workflow",
+      "slug": "podcast-workflow",
+      "version": "1.0.0",
+      "sha256": "bd55305230c674284d86922256d6afba8260a3d2f944cb1ae3abcb8659b1490d",
+      "bytes": 5573,
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections"
+    },
+    {
+      "id": "calesthio/generative-media-skills/talking-head-podcast-recut",
+      "repository": "calesthio/generative-media-skills",
+      "commit": "8c85352d5d75d4dcbe58480bd138e37b9742bab1",
+      "path": "skills/production/content-formats/talking-head-podcast-recut/SKILL.md",
+      "url": "https://github.com/calesthio/generative-media-skills/blob/8c85352d5d75d4dcbe58480bd138e37b9742bab1/skills/production/content-formats/talking-head-podcast-recut/SKILL.md",
+      "sha256": "728a8ef37ee66a399b306d3af1cba6b7a8cf4ad505025f1325a524566abd6036",
+      "bytes": 29701,
+      "market": "skills.sh",
+      "marketUrl": "https://skills.sh/calesthio/generative-media-skills/talking-head-podcast-recut",
+      "repositoryLicense": "MIT",
+      "declaredSkillLicense": "UNDECLARED",
+      "reuse": "仅借鉴操作事实并原创适配，不复制正文、代码或素材",
+      "reading": "selected sections",
+      "readExcerptSha256": "b102a9178fecb2bdb69a6d1c03c1f43434b0f0508a872b441a90dfe9440359ec"
+    }
+  ],
+  "adaptations": [
+    {
+      "id": "voice-edge-fades",
+      "title": "先处理切口再做全局音量",
+      "sourceIds": [
+        "hkuds/cli-anything/cli-anything-audacity"
+      ],
+      "adaptation": "监听片段首尾是否有切口爆音或截断音节，再对边缘施加短淡变；淡变范围按当前录音调整，不能让字头消失。",
+      "taskCheck": "耳听切口自然，时长与声道保留，源录音未覆盖。",
+      "capabilityBoundary": "峰值检查不能代替监听；不把短淡变称为背景降噪。",
+      "existingRecipe": "skills/soundcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "voice-edge-fades",
+        "title": "配音切口的短淡入淡出",
+        "category": "voice",
+        "inputs": "Voice示例为单声道；实际先probe输入声道并将track.new的format设为mono或stereo，多声道超出当前手册范围时停止。切口两端无需保留尖锐瞬态；示例片段4秒，头尾各100ms。",
+        "steps": [
+          {
+            "purpose": "仅在新建副本任务中创建48kHz空会话",
+            "command": "session.new",
+            "params": {
+              "name": "Audio work copy",
+              "sample_rate": 48000,
+              "bit_depth": 24,
+              "template": "blank"
+            },
+            "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "建立已知名称的单声道人声轨",
+            "command": "track.new",
+            "params": {
+              "name": "Voice",
+              "format": "mono",
+              "kind": "audio"
+            },
+            "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+          },
+          {
+            "purpose": "把源音频放到指定轨道零点，保持原文件",
+            "command": "file.import_audio",
+            "params": {
+              "path": "input.wav",
+              "track": "Voice",
+              "new_tracks": false,
+              "at": {
+                "seconds": 0
+              }
+            },
+            "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+          },
+          {
+            "purpose": "选择导入的整段片段与轨道",
+            "command": "edit.select_all",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "仅在片段起点建立100ms线性淡入",
+            "command": "edit.fades_create",
+            "params": {
+              "tracks": [
+                "Voice"
+              ],
+              "start": {
+                "seconds": 0
+              },
+              "end": {
+                "seconds": 0.1
+              },
+              "shape": "linear"
+            },
+            "parameterReference": "{shape?: linear|equal power|s-curve|exponential|logarithmic, tracks?, start?, end?} or {clip: id, side: in|out, length: samples, shape?, curvature?: -1..1}"
+          },
+          {
+            "purpose": "在片段尾部建立100ms线性淡出",
+            "command": "edit.fades_create",
+            "params": {
+              "tracks": [
+                "Voice"
+              ],
+              "start": {
+                "seconds": 3.9
+              },
+              "end": {
+                "seconds": 4
+              },
+              "shape": "linear"
+            },
+            "parameterReference": "{shape?: linear|equal power|s-curve|exponential|logarithmic, tracks?, start?, end?} or {clip: id, side: in|out, length: samples, shape?, curvature?: -1..1}"
+          },
+          {
+            "purpose": "导出新文件，不覆盖源音频；区间秒数按实际片段重算",
+            "command": "file.bounce_mix",
+            "params": {
+              "path": "result.wav",
+              "format": "wav",
+              "bit_depth": 16,
+              "start": {
+                "seconds": 0
+              },
+              "end": {
+                "seconds": 4
+              },
+              "normalize": false,
+              "dither": false
+            },
+            "parameterReference": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}"
+          }
+        ],
+        "checks": [
+          "头尾波形渐入渐出而非突切",
+          "中间内容基本不变",
+          "首辅音、呼吸和尾音未被吞掉"
+        ],
+        "limits": "淡变区间必须据真实录音定位；不能把头尾时刻原样用于任意录音。",
+        "assertions": {
+          "seconds": 4,
+          "check": "fades"
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "interview-excerpt",
+      "title": "播客章节对应真实音频",
+      "sourceIds": [
+        "skillhub:podcast-workflow"
+      ],
+      "adaptation": "从已核对的章节时间定位采访摘录，截取前后保留足够上下文。输出段与章节标题对应；章节笔记使用摘录实际起点，避免把原片时间误当短片时间。",
+      "taskCheck": "摘录时长、首尾语义和章节时间对应，回听确认无截词。",
+      "capabilityBoundary": "本流程不自动下载播客、转录或发布社交内容。",
+      "existingRecipe": "skills/soundcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "interview-excerpt",
+        "title": "从长采访导出指定引用段",
+        "category": "editing",
+        "inputs": "Voice示例为单声道；实际先probe输入声道并将track.new的format设为mono或stereo，多声道超出当前手册范围时停止。已确认引用的起止时间并有使用权；示例从1秒到3秒。",
+        "steps": [
+          {
+            "purpose": "仅在新建副本任务中创建48kHz空会话",
+            "command": "session.new",
+            "params": {
+              "name": "Audio work copy",
+              "sample_rate": 48000,
+              "bit_depth": 24,
+              "template": "blank"
+            },
+            "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "建立已知名称的单声道人声轨",
+            "command": "track.new",
+            "params": {
+              "name": "Voice",
+              "format": "mono",
+              "kind": "audio"
+            },
+            "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+          },
+          {
+            "purpose": "把源音频放到指定轨道零点，保持原文件",
+            "command": "file.import_audio",
+            "params": {
+              "path": "input.wav",
+              "track": "Voice",
+              "new_tracks": false,
+              "at": {
+                "seconds": 0
+              }
+            },
+            "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+          },
+          {
+            "purpose": "选择导入的整段片段与轨道",
+            "command": "edit.select_all",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "明确引用选区，保留源工程完整片段",
+            "command": "edit.select",
+            "params": {
+              "tracks": [
+                "Voice"
+              ],
+              "start": {
+                "seconds": 1
+              },
+              "end": {
+                "seconds": 3
+              }
+            },
+            "parameterReference": "{tracks?: [id|name], start?, end?, clips?: [id], sources?: [id] (Clip List files), exact?: bool (ignore edit groups)}"
+          },
+          {
+            "purpose": "导出新文件，不覆盖源音频；区间秒数按实际片段重算",
+            "command": "file.bounce_mix",
+            "params": {
+              "path": "result.wav",
+              "format": "wav",
+              "bit_depth": 16,
+              "start": {
+                "seconds": 1
+              },
+              "end": {
+                "seconds": 3
+              },
+              "normalize": false,
+              "dither": false
+            },
+            "parameterReference": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}"
+          }
+        ],
+        "checks": [
+          "导出时长2秒",
+          "导出的样本对应原录音1到3秒",
+          "原会话保留完整4秒录音"
+        ],
+        "limits": "切口是否落在词句边界需试听；不把2秒样例当任意任务时长。",
+        "assertions": {
+          "seconds": 2,
+          "check": "excerpt",
+          "offset": 1
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "two-track-stems",
+      "title": "保留独立人声与背景素材",
+      "sourceIds": [
+        "hkuds/cli-anything/cli-anything-audacity",
+        "calesthio/generative-media-skills/talking-head-podcast-recut"
+      ],
+      "adaptation": "使用真实分轨来源，先核对对齐、采样率和声道，再分别导出。把分轨与混音预览分开命名；重开后再次检查导出的开始位置和持续时间。",
+      "taskCheck": "独立文件确实对应各自素材，混音余量合理。",
+      "capabilityBoundary": "分轨导出不等于从混合音频中自动分离人声，也不等于LUFS达标。",
+      "existingRecipe": "skills/soundcraft-scenario-playbooks/references/recipes.json",
+      "recipe": {
+        "id": "two-track-stems",
+        "title": "人声与背景素材分轨交付",
+        "category": "delivery",
+        "inputs": "仅在专用两轨副本会话执行；示例Voice为mono，Bed为stereo。实际先probe两个输入声道，按其结果建轨，不静默降为mono。",
+        "steps": [
+          {
+            "purpose": "仅在新建副本任务中创建48kHz空会话",
+            "command": "session.new",
+            "params": {
+              "name": "Audio work copy",
+              "sample_rate": 48000,
+              "bit_depth": 24,
+              "template": "blank"
+            },
+            "parameterReference": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+            "newDocumentOnly": true
+          },
+          {
+            "purpose": "建立已知名称的单声道人声轨",
+            "command": "track.new",
+            "params": {
+              "name": "Voice",
+              "format": "mono",
+              "kind": "audio"
+            },
+            "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+          },
+          {
+            "purpose": "把源音频放到指定轨道零点，保持原文件",
+            "command": "file.import_audio",
+            "params": {
+              "path": "input.wav",
+              "track": "Voice",
+              "new_tracks": false,
+              "at": {
+                "seconds": 0
+              }
+            },
+            "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+          },
+          {
+            "purpose": "选择导入的整段片段与轨道",
+            "command": "edit.select_all",
+            "params": {},
+            "parameterReference": "{}"
+          },
+          {
+            "purpose": "建立独立背景轨",
+            "command": "track.new",
+            "params": {
+              "name": "Bed",
+              "format": "stereo",
+              "kind": "audio"
+            },
+            "parameterReference": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}"
+          },
+          {
+            "purpose": "将背景素材放在零点，不改变人声轨",
+            "command": "file.import_audio",
+            "params": {
+              "path": "bed.wav",
+              "track": "Bed",
+              "new_tracks": false,
+              "at": {
+                "seconds": 0
+              }
+            },
+            "parameterReference": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}"
+          },
+          {
+            "purpose": "导出两个音频轨的独立文件，统一起止区间",
+            "command": "file.bounce_stems",
+            "params": {
+              "dir": "stems",
+              "format": "wav",
+              "bit_depth": 16,
+              "start": {
+                "seconds": 0
+              },
+              "end": {
+                "seconds": 4
+              }
+            },
+            "parameterReference": "{dir, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, fold_down?: stereo}"
+          }
+        ],
+        "checks": [
+          "输出轨名集合恰为Voice与Bed，两个stem均为4秒",
+          "Bed左右保留不同内容，不能静默变单声道",
+          "原始输入文件哈希保持"
+        ],
+        "limits": "bounce_stems导出所有未静音活动音轨，不受编辑选区限制。此例仅用于专用两轨会话；已有工程先在副本中核实所有活动轨道，不能只选择两轨就假定仅导出两轨。当前16位stem编码会抖动，样本比较需允许量化噪声。",
+        "assertions": {
+          "seconds": 4,
+          "check": "stems",
+          "files": 2
+        },
+        "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+      },
+      "execution": "REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE"
+    }
+  ],
+  "observedCommands": {
+    "session.new": {
+      "id": "session.new",
+      "label": "New...",
+      "menu": [
+        "File"
+      ],
+      "shortcut": "Cmd+N",
+      "params": "{name?: 'Untitled', sample_rate?: 48000, bit_depth?: 24, template?: blank|demo}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "track.new": {
+      "id": "track.new",
+      "label": "New...",
+      "menu": [
+        "Track"
+      ],
+      "shortcut": "Cmd+Shift+N",
+      "params": "{count?: 1, format?: mono|stereo|5.1…, kind?: audio|aux|master|midi|instrument|vca|folder, name?, timebase?: samples|ticks, instrument?: plugin id}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "file.import_audio": {
+      "id": "file.import_audio",
+      "label": "Audio...",
+      "menu": [
+        "File",
+        "Import"
+      ],
+      "shortcut": "Cmd+Shift+I",
+      "params": "{path | paths: [..], track?: target track, at?: position, new_tracks?: true (default; false uses `track` or the selected audio track)}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "edit.select_all": {
+      "id": "edit.select_all",
+      "label": "Select All",
+      "menu": [
+        "Edit"
+      ],
+      "shortcut": "Cmd+A",
+      "params": "{}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "edit.fades_create": {
+      "id": "edit.fades_create",
+      "label": "Create...",
+      "menu": [
+        "Edit",
+        "Fades"
+      ],
+      "shortcut": "Cmd+F",
+      "params": "{shape?: linear|equal power|s-curve|exponential|logarithmic, tracks?, start?, end?} or {clip: id, side: in|out, length: samples, shape?, curvature?: -1..1}",
+      "enabled": false,
+      "disabled_reason": "make an edit selection first"
+    },
+    "file.bounce_mix": {
+      "id": "file.bounce_mix",
+      "label": "Bounce Mix...",
+      "menu": [
+        "File"
+      ],
+      "shortcut": "Cmd+Alt+B",
+      "params": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "edit.select": {
+      "id": "edit.select",
+      "label": "Set Edit Selection",
+      "menu": [],
+      "shortcut": null,
+      "params": "{tracks?: [id|name], start?, end?, clips?: [id], sources?: [id] (Clip List files), exact?: bool (ignore edit groups)}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "file.bounce_stems": {
+      "id": "file.bounce_stems",
+      "label": "Bounce Stems...",
+      "menu": [],
+      "shortcut": null,
+      "params": "{dir, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, fold_down?: stereo}",
+      "enabled": false,
+      "disabled_reason": "the session has no tracks"
+    }
+  }
+}

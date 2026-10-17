@@ -17,7 +17,7 @@ for n in names:
   try:
    d=json.loads((r/file).read_text());assert d['name']==base['name'] and d['version']==base['version'],'identity/version mismatch'
    if file=='kimi.plugin.json':
-    c=d['mcpServers'][n+'-editor'];assert c['command']=='node' and c['args']==['ui/dist/adapter.mjs'] and c['cwd']=='./','nonportable editor MCP'
+    c=d['mcpServers'][n+'-editor'];assert c['command']=='node' and c['args']==['ui/bootstrap.mjs'] and c['cwd']=='./','nonportable editor MCP'
    if file=='.zcode-plugin/plugin.json':assert d['mcpServers']=='./.mcp.json','editor MCP missing'
   except (OSError,KeyError,AssertionError) as e:errors.append(f'{n}: {file}: {e}')
 if errors:raise SystemExit('\n'.join(errors))

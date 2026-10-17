@@ -1,0 +1,49 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "printcraft",
+  "id": "ocr-scans",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "查看OCR引擎与模型状态",
+      "command": "ocr_status",
+      "params": {}
+    },
+    {
+      "purpose": "识别英文扫描页",
+      "command": "ocr_recognize",
+      "params": {
+        "doc": 1,
+        "language": "en",
+        "pages": [
+          1
+        ],
+        "dpi": 300,
+        "skip_text_pages": true
+      }
+    },
+    {
+      "purpose": "抽取识别文字核对",
+      "command": "text_extract",
+      "params": {
+        "doc": 1,
+        "pages": [
+          1
+        ]
+      }
+    },
+    {
+      "purpose": "保存新副本",
+      "command": "doc_save",
+      "params": {
+        "doc": 1,
+        "path": "output/searchable.pdf",
+        "full": true
+      }
+    }
+  ],
+  "check": "抽查姓名、数字和表格顺序，检查识别文字与图像位置。",
+  "boundary": "当前官方0.8.0 schema语言枚举仅en；中文不能用en假装已支持，需另接实际可用中文后端。 先检查ocr_status.available；缺模型时仅在已授权范围配置PDFCRAFT_MODELS到模型目录，再复查状态；不得把原有可选文字页的skip结果当作OCR成功。模型来源与SHA256见方法手册。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

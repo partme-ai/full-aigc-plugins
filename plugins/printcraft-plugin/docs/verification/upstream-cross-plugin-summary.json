@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0-dev.3",
+  "scope": "UPSTREAM_LOCAL_NATIVE_PLUS_PLUGIN_MODEL_HANDOFF_NOT_FULL_ARTCRAFT_HOST_ORCHESTRATION",
+  "sourceProject": "printcraft-skills",
+  "sourceReportSha256": "6c59eccea9146c3f4cf55aeb0c6b0473515fb3e333201425d07465a1c88dfed6",
+  "producerVersion": "0.1.0-dev.113-runtime.1",
+  "localDependencyHandoff": "PASS_PUBLIC_ENTRY",
+  "selectiveRework": "PASS",
+  "sameMachinePortablePackage": "PASS",
+  "mobileDevice": "NOT_RUN",
+  "crossMachine": "NOT_RUN",
+  "sourceArchiveVerificationSha256": "4a5619362234dd90a7b100ea006f1b029b8ae5132d87e286d6ae0dce631b9a61"
+}

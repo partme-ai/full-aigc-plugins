@@ -1,0 +1,929 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "wordcraft",
+  "templateOnly": true,
+  "argumentPolicy": "从新建空文件开始；示例内容必须由真实输入替换。已有文件先定位目标区域，不能整篇重建或无条件全选。CLI使用argv，不插入shell。",
+  "recipes": [
+    {
+      "id": "project-charter",
+      "title": "项目启动说明书",
+      "category": "business",
+      "inputs": "目标、范围、负责人和验收方式均已提供。",
+      "steps": [
+        {
+          "purpose": "使用A4页面规格",
+          "command": "layout.size",
+          "params": {
+            "name": "A4"
+          },
+          "parameterReference": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "项目启动说明"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "目标：完成资料归档。\n范围：本期历史资料；不包含新系统开发。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "责任与验收"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "负责人：甲。验收：目录与原件逐条对应。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        }
+      ],
+      "checks": [
+        "正文包含输入事实",
+        "标题样式与正文分离",
+        "保存DOCX后重开并导出PDF检查分页"
+      ],
+      "limits": "目标、承诺和责任人须经任务输入确认，示例不构成实际授权。",
+      "assertions": {
+        "textContains": [
+          "项目启动说明",
+          "不包含新系统开发",
+          "目录与原件逐条对应"
+        ],
+        "headingRequired": true
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "sop-numbered-steps",
+      "title": "可执行SOP与停止条件",
+      "category": "procedure",
+      "inputs": "已有操作顺序、必要输入与停止条件。",
+      "steps": [
+        {
+          "purpose": "使用A4页面规格",
+          "command": "layout.size",
+          "params": {
+            "name": "A4"
+          },
+          "parameterReference": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "资料归档SOP"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "开启当前段落的有序步骤列表",
+          "command": "para.numbering",
+          "params": {
+            "kind": "numbered"
+          },
+          "parameterReference": "{\"kind\"?: \"numbered|numberedParen|upperLetter|lowerLetter|lowerRoman|outline\", \"off\"?: bool}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "核对原件编号"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "登记目录与存放位置"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "复核后归档"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "退出列表，后续内容使用正文",
+          "command": "para.numbering",
+          "params": {
+            "off": true
+          },
+          "parameterReference": "{\"kind\"?: \"numbered|numberedParen|upperLetter|lowerLetter|lowerRoman|outline\", \"off\"?: bool}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "停止条件：编号冲突或原件缺失时，暂停归档并报告负责人。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        }
+      ],
+      "checks": [
+        "正文包含输入事实",
+        "标题样式与正文分离",
+        "保存DOCX后重开并导出PDF检查分页"
+      ],
+      "limits": "不得把这些示例步骤用于无关高风险设备操作；编号连续性需看实际DOCX与PDF。",
+      "assertions": {
+        "textContains": [
+          "核对原件编号",
+          "编号冲突或原件缺失"
+        ],
+        "headingRequired": true,
+        "numberingRequired": true
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "release-bullet-notes",
+      "title": "面向用户的版本说明",
+      "category": "publishing",
+      "inputs": "版本号、上线日期和已验证变更清单。",
+      "steps": [
+        {
+          "purpose": "使用A4页面规格",
+          "command": "layout.size",
+          "params": {
+            "name": "A4"
+          },
+          "parameterReference": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "版本说明 1.2"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "适用范围：本次资料管理版本。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "新增与修复"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "启用项目符号列表",
+          "command": "para.bullets",
+          "params": {
+            "kind": "bullet"
+          },
+          "parameterReference": "{\"kind\"?: \"bullet\" | single char, \"off\"?: bool}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "新增：按编号查询资料。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "修复：重复编号提示不明确。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "退出项目列表",
+          "command": "para.bullets",
+          "params": {
+            "off": true
+          },
+          "parameterReference": "{\"kind\"?: \"bullet\" | single char, \"off\"?: bool}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "已知限制"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "历史导入资料仍需人工复核。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        }
+      ],
+      "checks": [
+        "正文包含输入事实",
+        "标题样式与正文分离",
+        "保存DOCX后重开并导出PDF检查分页"
+      ],
+      "limits": "不能把未上线或未验证功能写入已发布项。",
+      "assertions": {
+        "textContains": [
+          "版本说明 1.2",
+          "重复编号提示不明确",
+          "历史导入资料仍需人工复核"
+        ],
+        "headingRequired": true,
+        "numberingRequired": true
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "decision-register-table",
+      "title": "决策记录与候选方案表",
+      "category": "business",
+      "inputs": "提供备选方案、依据、决策人与日期。",
+      "steps": [
+        {
+          "purpose": "使用横向页面容纳方案表",
+          "command": "layout.orientation",
+          "params": {
+            "value": "landscape"
+          },
+          "parameterReference": "{\"value\": \"portrait|landscape\"}"
+        },
+        {
+          "purpose": "写入三行制表符分隔数据",
+          "command": "text.insert",
+          "params": {
+            "text": "方案\t优点\t约束\n方案A\t上线快\t手工核验\n方案B\t自动化高\t实施周期长"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新文档只有待转换表格数据，选择全部",
+          "command": "select.all",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "按制表符转换成可编辑表格",
+          "command": "table.fromText",
+          "params": {
+            "separator": "tab"
+          },
+          "parameterReference": "{\"separator\"?: \"tab|comma\"}"
+        },
+        {
+          "purpose": "表格按页面宽度自动调整",
+          "command": "table.autofit",
+          "params": {
+            "mode": "window"
+          },
+          "parameterReference": "{\"mode\": \"contents|window|fixed\"}"
+        },
+        {
+          "purpose": "将第一行设为重复表头",
+          "command": "table.repeatHeader",
+          "params": {},
+          "parameterReference": "{}"
+        }
+      ],
+      "checks": [
+        "正文包含输入事实",
+        "标题样式与正文分离",
+        "保存DOCX后重开并导出PDF检查分页"
+      ],
+      "limits": "仅用于新建方案表。已有文档应先定位所需段落，不能直接全选替换整篇。补充真实决策人与日期，表格不代替审批。",
+      "assertions": {
+        "textContains": [
+          "方案",
+          "方案A",
+          "方案B"
+        ],
+        "tableCount": 1
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "letter-header-footer",
+      "title": "带页眉页脚的业务函",
+      "category": "business",
+      "inputs": "已确认的发文单位、收件人和正文；不自动发送。",
+      "steps": [
+        {
+          "purpose": "使用A4页面规格",
+          "command": "layout.size",
+          "params": {
+            "name": "A4"
+          },
+          "parameterReference": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}"
+        },
+        {
+          "purpose": "设置适中的页边距",
+          "command": "layout.margins",
+          "params": {
+            "preset": "normal"
+          },
+          "parameterReference": "{\"preset\"?: \"normal|narrow|moderate|wide|mirrored|office2003\", \"top\"?: pt, \"bottom\"?: pt, \"left\"?: pt, \"right\"?: pt, \"gutter\"?: pt}"
+        },
+        {
+          "purpose": "插入单位页眉",
+          "command": "insert.header",
+          "params": {
+            "text": "示例单位 · 项目办公室"
+          },
+          "parameterReference": "{\"text\"?: string, \"preset\"?: \"blank|blankThree|title\"}"
+        },
+        {
+          "purpose": "退出页眉回到正文",
+          "command": "insert.closeHeader",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "资料补充函"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "收件人：项目联系人。\n请补充缺失的归档目录与版本说明。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "插入仅供草稿流转的页脚",
+          "command": "insert.footer",
+          "params": {
+            "text": "草稿 · 待审核"
+          },
+          "parameterReference": "{\"text\"?: string, \"preset\"?: \"blank|blankThree|pageNumber\"}"
+        },
+        {
+          "purpose": "退出页脚回到正文",
+          "command": "insert.closeHeader",
+          "params": {},
+          "parameterReference": "{}"
+        }
+      ],
+      "checks": [
+        "正文包含输入事实",
+        "标题样式与正文分离",
+        "保存DOCX后重开并导出PDF检查分页"
+      ],
+      "limits": "姓名、单位、落款必须来自真实输入；本技能不发送函件。",
+      "assertions": {
+        "textContains": [
+          "资料补充函",
+          "项目联系人"
+        ],
+        "headingRequired": true,
+        "headerContains": "示例单位",
+        "footerContains": "待审核"
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "training-exercise-handout",
+      "title": "培训讲义与独立练习页",
+      "category": "education",
+      "inputs": "提供教学目标、示例内容与练习题，不编造培训结论。",
+      "steps": [
+        {
+          "purpose": "使用A4页面规格",
+          "command": "layout.size",
+          "params": {
+            "name": "A4"
+          },
+          "parameterReference": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "资料核验培训"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "学习目标：识别目录编号与原件编号不一致的情况。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "示例与解释"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "示例：目录写A01，原件写A10。先确认是否录入错误。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "练习单独起页",
+          "command": "text.pageBreak",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "练习"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "请核对三份资料的编号，并写明差异与下一步。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        }
+      ],
+      "checks": [
+        "正文包含输入事实",
+        "标题样式与正文分离",
+        "保存DOCX后重开并导出PDF检查分页"
+      ],
+      "limits": "PDF需逐页检查标题不孤悬、练习留白足够；页面断行受字体影响。",
+      "assertions": {
+        "textContains": [
+          "学习目标",
+          "目录写A01",
+          "练习"
+        ],
+        "headingRequired": true,
+        "pageBreakRequired": true
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "term-normalization-draft",
+      "title": "术语统一的编辑副本",
+      "category": "editing",
+      "inputs": "原文与经批准的术语映射；替换前先审查上下文。",
+      "steps": [
+        {
+          "purpose": "使用A4页面规格",
+          "command": "layout.size",
+          "params": {
+            "name": "A4"
+          },
+          "parameterReference": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "术语统一稿"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "旧称：资料包。请将资料包提交至资料包目录。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "按整词匹配替换术语，保留原文副本",
+          "command": "edit.replaceAll",
+          "params": {
+            "text": "资料包",
+            "matchCase": false,
+            "wholeWord": false,
+            "with": "档案包"
+          },
+          "parameterReference": "{\"text\": string, \"with\": string (^p ^t ^& ^c …; \\\\1 with wildcards), …options of edit.find}"
+        }
+      ],
+      "checks": [
+        "正文包含输入事实",
+        "标题样式与正文分离",
+        "保存DOCX后重开并导出PDF检查分页"
+      ],
+      "limits": "真实任务先保留原文件；不对机构名称、引用或专有名称做未授权全局替换。",
+      "assertions": {
+        "textContains": [
+          "术语统一稿",
+          "档案包"
+        ],
+        "headingRequired": true,
+        "textAbsent": [
+          "资料包"
+        ]
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    },
+    {
+      "id": "two-column-brief",
+      "title": "双栏内部简报",
+      "category": "publishing",
+      "inputs": "简短已确认内容，适合双栏阅读；无宽表或复杂图片。",
+      "steps": [
+        {
+          "purpose": "使用A4页面规格",
+          "command": "layout.size",
+          "params": {
+            "name": "A4"
+          },
+          "parameterReference": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}"
+        },
+        {
+          "purpose": "整篇使用双栏并设置栏间距",
+          "command": "layout.columns",
+          "params": {
+            "count": 2,
+            "space": 18,
+            "separator": true,
+            "apply": "document"
+          },
+          "parameterReference": "{\"count\": 1-12, \"space\"?: pt, \"separator\"?: bool, \"preset\"?: \"left|right\", \"widths\"?: [[width pt, space after pt], …] (unequal columns; sets the count), \"apply\"?: \"section|document|forward\"}"
+        },
+        {
+          "purpose": "设置本段为一级标题",
+          "command": "para.heading1",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入本节标题",
+          "command": "text.insert",
+          "params": {
+            "text": "本周简报"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "新建正文段落",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "恢复正文样式，避免正文进入目录",
+          "command": "para.normal",
+          "params": {},
+          "parameterReference": "{}"
+        },
+        {
+          "purpose": "写入经核实的正文",
+          "command": "text.insert",
+          "params": {
+            "text": "进展：资料目录完成初步整理。\n风险：部分原件仍待补齐。\n下一步：完成缺件核验。"
+          },
+          "parameterReference": "{\"text\": string}"
+        },
+        {
+          "purpose": "段后另起一段",
+          "command": "text.newParagraph",
+          "params": {},
+          "parameterReference": "{}"
+        }
+      ],
+      "checks": [
+        "正文包含输入事实",
+        "标题样式与正文分离",
+        "保存DOCX后重开并导出PDF检查分页"
+      ],
+      "limits": "双栏结构保存不代表分页美观；真实内容较短时可能只占第一栏，需实际PDF检查。",
+      "assertions": {
+        "textContains": [
+          "本周简报",
+          "缺件核验"
+        ],
+        "headingRequired": true,
+        "columns": 2
+      },
+      "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED"
+    }
+  ]
+}

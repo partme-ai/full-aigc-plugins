@@ -1,0 +1,34 @@
+{
+  "runtime": {
+    "version": "v0.10.0",
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.10.0/effectcraft-0.10.0-windows-x64-portable.zip",
+    "sha256": "aa6102df3a514c84c49a08829b2e0da67a5c44cd4a27c743e3681a2c68cade91",
+    "executable": "effectcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "comp.workArea": {
+      "enabled": false,
+      "id": "comp.workArea",
+      "label": "Set Work Area",
+      "params": "{start?, end?, set?: begin|end (at CTI)}",
+      "why": "no composition is open"
+    },
+    "project.summary": {
+      "enabled": true,
+      "id": "project.summary",
+      "label": "Project Summary"
+    },
+    "file.saveCopy": {
+      "enabled": true,
+      "id": "file.saveCopy",
+      "label": "Save a Copy...",
+      "menu": [
+        "File",
+        "Save As"
+      ],
+      "params": "{path}"
+    }
+  },
+  "sceneAcceptance": "NOT_RUN"
+}

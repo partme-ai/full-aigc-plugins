@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VectorCraft domain review receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "requestId", "bindingHash", "reviewer", "verdict", "issues", "scores"],
+  "properties": {
+    "schema": {"const": "vectorcraft-review-receipt/v1"},
+    "requestId": {"type": "string", "minLength": 1},
+    "bindingHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "reviewer": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "identity", "contextOrigin", "independenceEvidence"],
+      "properties": {
+        "kind": {"enum": ["human", "host-model"]},
+        "identity": {"type": "string", "minLength": 1},
+        "contextOrigin": {"type": "string", "minLength": 1},
+        "independenceEvidence": {"type": ["string", "null"]}
+      }
+    },
+    "verdict": {"enum": ["accept", "revise", "reject"]},
+    "issues": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["objectId", "field", "message", "evidence"],
+      "properties": {
+        "objectId": {"type": "integer", "minimum": 1},
+        "field": {"type": "string", "minLength": 1},
+        "message": {"type": "string", "minLength": 1},
+        "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    }},
+    "scores": {
+      "type": "object", "additionalProperties": false,
+      "required": ["structure", "text", "brand", "layout", "legibility"],
+      "properties": {
+        "structure": {"type": "number", "minimum": 0, "maximum": 4},
+        "text": {"type": "number", "minimum": 0, "maximum": 4},
+        "brand": {"type": "number", "minimum": 0, "maximum": 4},
+        "layout": {"type": "number", "minimum": 0, "maximum": 4},
+        "legibility": {"type": "number", "minimum": 0, "maximum": 4}
+      }
+    }
+  }
+}

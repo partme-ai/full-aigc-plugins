@@ -1,0 +1,535 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "native-runtime",
+      "layer": "native",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "creative",
+      "layer": "creative",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "release",
+      "layer": "release",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "target-platform",
+      "layer": "target-platform",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "host",
+      "layer": "host",
+      "status": "PASS",
+      "runId": "8797ea38-a481-4691-9787-ba8169c8f54f",
+      "observedAt": "2026-10-08T16:49:23.702120+00:00",
+      "environment": {
+        "os": "Darwin",
+        "machine": "arm64",
+        "python": "3.13.5",
+        "hostCli": "codex-cli 0.162.0-alpha.2",
+        "model": "gpt-6-astra"
+      },
+      "bindings": {
+        "pluginVersion": "0.1.0-dev.1",
+        "pluginTreeSha256": "a273239da68666f1932e6ecfbb8a5b11868b5bf94cea5a0c5747b4852c4611a0",
+        "sourceLockSha256": "cbe7ca8bacaa5562628202f0b7805ce8342121c286002fecc749a5a0d34d18b9",
+        "runtimeLockSha256": "d6a81aac9587fe5fa46b1b2518083eafe8c2217422b11fbd3b6b44be718d512f",
+        "nativeVersions": [
+          "0.2.1"
+        ],
+        "expectedNativeBinarySha256": [
+          "e18578b28f43d6c6854ded930065feed5c9ee8af6a2e51338aa675ba4a5723a8"
+        ]
+      },
+      "inputs": [],
+      "artifacts": [
+        {
+          "path": "evidence/host/bundled-codex-discovery-show-fix-20261009.json",
+          "sha256": "8f067ed8e4274d365ca95d13686e3910c32fa03dbfd348076edc7e05178600c6"
+        },
+        {
+          "path": "evidence/host/installed-show-fix-20261009.json",
+          "sha256": "ab3646eaed713a4796c65d45e0adcf13cef504e3ecdd4cbbe2b2b30cd1c6ab73"
+        },
+        {
+          "path": "evidence/host/openspec-task-id-compatibility-20261009.json",
+          "sha256": "2bb491875346e29c45db3ffa3e22d175fa618b63fb644c2c8fe23d8c66a6d5f3"
+        },
+        {
+          "path": "evidence/host/show-fix-requalification-basis.json",
+          "sha256": "81f0f1803d4532664048cb2f0105307d4086c82964ba33eb2b1ec4311dd68404"
+        },
+        {
+          "path": "evidence/host/user-layout-signoff-requalification-20261009.json",
+          "sha256": "6c756664a643f69882db60454f5643872f902abfc7b9826defef49305319a499"
+        },
+        {
+          "path": "evidence/host/user-layout-task-count-requalification-20261009.json",
+          "sha256": "821a47057cdf4af922ad4eba0a4cab9387657b1efaeb9d0824538fd972de4186"
+        },
+        {
+          "path": "evidence/native/model-create-20261009/task-metadata-requalification.json",
+          "sha256": "1bb0caef999e405839e0d2d4dc9a1f240fdff10840558eda1b3d38047104df8e"
+        },
+        {
+          "path": "evidence/native/model-revision-export-20261009/task-metadata-requalification.json",
+          "sha256": "ea559ad10ef34e09d512e70ed5600aa2d5085ccf897cab7fd1dd585e84dcdbaa"
+        }
+      ],
+      "environmentSource": "artifact",
+      "environmentArtifactPath": "evidence/host/bundled-codex-discovery-show-fix-20261009.json"
+    },
+    {
+      "id": "model-dispatch",
+      "layer": "model-dispatch",
+      "status": "PASS",
+      "runId": "8797ea38-a481-4691-9787-ba8169c8f54f",
+      "observedAt": "2026-10-08T16:49:23.702120+00:00",
+      "environment": {
+        "os": "Darwin",
+        "machine": "arm64",
+        "python": "3.13.5",
+        "hostCli": "codex-cli 0.162.0-alpha.2",
+        "model": "gpt-6-astra"
+      },
+      "bindings": {
+        "pluginVersion": "0.1.0-dev.1",
+        "pluginTreeSha256": "a273239da68666f1932e6ecfbb8a5b11868b5bf94cea5a0c5747b4852c4611a0",
+        "sourceLockSha256": "cbe7ca8bacaa5562628202f0b7805ce8342121c286002fecc749a5a0d34d18b9",
+        "runtimeLockSha256": "d6a81aac9587fe5fa46b1b2518083eafe8c2217422b11fbd3b6b44be718d512f",
+        "nativeVersions": [
+          "0.2.1"
+        ],
+        "expectedNativeBinarySha256": [
+          "e18578b28f43d6c6854ded930065feed5c9ee8af6a2e51338aa675ba4a5723a8"
+        ]
+      },
+      "inputs": [],
+      "artifacts": [
+        {
+          "path": "evidence/host/bundled-codex-model-routing-show-fix-20261009.json",
+          "sha256": "b2d064a2c3c29c2dce035db4be70e408de27a24566e8991f863fc27c12fd1ec0"
+        },
+        {
+          "path": "evidence/host/installed-show-fix-20261009.json",
+          "sha256": "ab3646eaed713a4796c65d45e0adcf13cef504e3ecdd4cbbe2b2b30cd1c6ab73"
+        },
+        {
+          "path": "evidence/host/openspec-task-id-compatibility-20261009.json",
+          "sha256": "2bb491875346e29c45db3ffa3e22d175fa618b63fb644c2c8fe23d8c66a6d5f3"
+        },
+        {
+          "path": "evidence/host/show-fix-requalification-basis.json",
+          "sha256": "81f0f1803d4532664048cb2f0105307d4086c82964ba33eb2b1ec4311dd68404"
+        },
+        {
+          "path": "evidence/host/user-layout-signoff-requalification-20261009.json",
+          "sha256": "6c756664a643f69882db60454f5643872f902abfc7b9826defef49305319a499"
+        },
+        {
+          "path": "evidence/host/user-layout-task-count-requalification-20261009.json",
+          "sha256": "821a47057cdf4af922ad4eba0a4cab9387657b1efaeb9d0824538fd972de4186"
+        },
+        {
+          "path": "evidence/native/model-create-20261009/task-metadata-requalification.json",
+          "sha256": "1bb0caef999e405839e0d2d4dc9a1f240fdff10840558eda1b3d38047104df8e"
+        },
+        {
+          "path": "evidence/native/model-revision-export-20261009/task-metadata-requalification.json",
+          "sha256": "ea559ad10ef34e09d512e70ed5600aa2d5085ccf897cab7fd1dd585e84dcdbaa"
+        }
+      ],
+      "environmentSource": "artifact",
+      "environmentArtifactPath": "evidence/host/bundled-codex-model-routing-show-fix-20261009.json"
+    },
+    {
+      "id": "ci",
+      "layer": "ci",
+      "status": "PASS",
+      "runId": "14275efb-b349-4152-ab1d-03426cc5df74",
+      "observedAt": "2026-10-08T16:51:00.351413+00:00",
+      "environment": {
+        "provider": "github-actions",
+        "runner": "ubuntu-latest",
+        "pythonVersions": [
+          "3.11",
+          "3.12",
+          "3.13"
+        ]
+      },
+      "bindings": {
+        "pluginVersion": "0.1.0-dev.1",
+        "pluginTreeSha256": "a273239da68666f1932e6ecfbb8a5b11868b5bf94cea5a0c5747b4852c4611a0",
+        "sourceLockSha256": "cbe7ca8bacaa5562628202f0b7805ce8342121c286002fecc749a5a0d34d18b9",
+        "runtimeLockSha256": "d6a81aac9587fe5fa46b1b2518083eafe8c2217422b11fbd3b6b44be718d512f",
+        "nativeVersions": [
+          "0.2.1"
+        ],
+        "expectedNativeBinarySha256": [
+          "e18578b28f43d6c6854ded930065feed5c9ee8af6a2e51338aa675ba4a5723a8"
+        ]
+      },
+      "inputs": [],
+      "artifacts": [
+        {
+          "path": "evidence/ci/current-github-actions.json",
+          "sha256": "2b2064c772c601f279f0710b02fa22b33bbec22bc37dc00af0c1737f1975f63f"
+        },
+        {
+          "path": "evidence/host/openspec-task-id-compatibility-20261009.json",
+          "sha256": "2bb491875346e29c45db3ffa3e22d175fa618b63fb644c2c8fe23d8c66a6d5f3"
+        },
+        {
+          "path": "evidence/host/user-layout-signoff-requalification-20261009.json",
+          "sha256": "6c756664a643f69882db60454f5643872f902abfc7b9826defef49305319a499"
+        },
+        {
+          "path": "evidence/host/user-layout-task-count-requalification-20261009.json",
+          "sha256": "821a47057cdf4af922ad4eba0a4cab9387657b1efaeb9d0824538fd972de4186"
+        },
+        {
+          "path": "evidence/native/model-create-20261009/task-metadata-requalification.json",
+          "sha256": "1bb0caef999e405839e0d2d4dc9a1f240fdff10840558eda1b3d38047104df8e"
+        },
+        {
+          "path": "evidence/native/model-revision-export-20261009/task-metadata-requalification.json",
+          "sha256": "ea559ad10ef34e09d512e70ed5600aa2d5085ccf897cab7fd1dd585e84dcdbaa"
+        }
+      ],
+      "environmentSource": "artifact",
+      "environmentArtifactPath": "evidence/ci/current-github-actions.json"
+    },
+    {
+      "id": "offline-tests",
+      "layer": "offline-tests",
+      "status": "PASS",
+      "runId": "26eb6c49-7397-4b0f-bcb8-ac600099aa7e",
+      "observedAt": "2026-10-08T16:51:00.541304+00:00",
+      "environment": {
+        "os": "Darwin",
+        "machine": "arm64",
+        "python": "3.13.5"
+      },
+      "bindings": {
+        "pluginVersion": "0.1.0-dev.1",
+        "pluginTreeSha256": "a273239da68666f1932e6ecfbb8a5b11868b5bf94cea5a0c5747b4852c4611a0",
+        "sourceLockSha256": "cbe7ca8bacaa5562628202f0b7805ce8342121c286002fecc749a5a0d34d18b9",
+        "runtimeLockSha256": "d6a81aac9587fe5fa46b1b2518083eafe8c2217422b11fbd3b6b44be718d512f",
+        "nativeVersions": [
+          "0.2.1"
+        ],
+        "expectedNativeBinarySha256": [
+          "e18578b28f43d6c6854ded930065feed5c9ee8af6a2e51338aa675ba4a5723a8"
+        ]
+      },
+      "inputs": [
+        {
+          "path": "tests/test_business_evidence.py",
+          "sha256": "978a23986ac4ca8c3882d515be5431208494d1fb1a4fa198360f594bd6a98235"
+        },
+        {
+          "path": "tests/test_evidence_freshness.py",
+          "sha256": "2ab23b72b1ba110b9c4bc39ba1ec72b4ec7c9b0ef88722ff07df05b0ec6bacfc"
+        },
+        {
+          "path": "tests/test_execution_handoff.py",
+          "sha256": "db388c8d03422d3d7a9510c01c930ef77b3cbeec01c2a3d983ebc90551f1fb01"
+        },
+        {
+          "path": "tests/test_harness_state.py",
+          "sha256": "baeddac10b76fbfc6ee027b30a66965a2a832e683f0fe06f2adcd9d3f25001e7"
+        },
+        {
+          "path": "tests/test_release_candidate.py",
+          "sha256": "58ff68e0cd2ecb154193af9985497f319eb17cb7c8ebc418d36d8e3d8d5f4b5e"
+        },
+        {
+          "path": "tests/test_release_lock.py",
+          "sha256": "d94cf47b106b1ed9fd1329a8e45b27bd1db14f8f38db9b5b1f2560ceb2472fb3"
+        },
+        {
+          "path": "tests/test_revision_evidence.py",
+          "sha256": "cfb38d472f58ab9f536754fe196f7f986aa7ebc9e544e5d76de324c167e5a8b3"
+        },
+        {
+          "path": "tests/test_snapshot.py",
+          "sha256": "58c1a6b8ec4861daca5c03f6117cf97f7afe86e551bd9d07ef8db443f5b7c527"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "evidence/current-offline-validation.json",
+          "sha256": "29d3f178e3289a7753f5c1f071c7d69292061c3da1dd25a81d5d15ea79f0207c"
+        },
+        {
+          "path": "evidence/host/openspec-task-id-compatibility-20261009.json",
+          "sha256": "2bb491875346e29c45db3ffa3e22d175fa618b63fb644c2c8fe23d8c66a6d5f3"
+        },
+        {
+          "path": "evidence/host/user-layout-signoff-requalification-20261009.json",
+          "sha256": "6c756664a643f69882db60454f5643872f902abfc7b9826defef49305319a499"
+        },
+        {
+          "path": "evidence/host/user-layout-task-count-requalification-20261009.json",
+          "sha256": "821a47057cdf4af922ad4eba0a4cab9387657b1efaeb9d0824538fd972de4186"
+        },
+        {
+          "path": "evidence/native/model-create-20261009/task-metadata-requalification.json",
+          "sha256": "1bb0caef999e405839e0d2d4dc9a1f240fdff10840558eda1b3d38047104df8e"
+        },
+        {
+          "path": "evidence/native/model-revision-export-20261009/task-metadata-requalification.json",
+          "sha256": "ea559ad10ef34e09d512e70ed5600aa2d5085ccf897cab7fd1dd585e84dcdbaa"
+        }
+      ]
+    },
+    {
+      "id": "package-validation",
+      "layer": "package-validation",
+      "status": "PASS",
+      "runId": "26eb6c49-7397-4b0f-bcb8-ac600099aa7e",
+      "observedAt": "2026-10-08T16:51:00.541304+00:00",
+      "environment": {
+        "os": "Darwin",
+        "machine": "arm64",
+        "python": "3.13.5"
+      },
+      "bindings": {
+        "pluginVersion": "0.1.0-dev.1",
+        "pluginTreeSha256": "a273239da68666f1932e6ecfbb8a5b11868b5bf94cea5a0c5747b4852c4611a0",
+        "sourceLockSha256": "cbe7ca8bacaa5562628202f0b7805ce8342121c286002fecc749a5a0d34d18b9",
+        "runtimeLockSha256": "d6a81aac9587fe5fa46b1b2518083eafe8c2217422b11fbd3b6b44be718d512f",
+        "nativeVersions": [
+          "0.2.1"
+        ],
+        "expectedNativeBinarySha256": [
+          "e18578b28f43d6c6854ded930065feed5c9ee8af6a2e51338aa675ba4a5723a8"
+        ]
+      },
+      "inputs": [
+        {
+          "path": "candidate-source.json",
+          "sha256": "cbe7ca8bacaa5562628202f0b7805ce8342121c286002fecc749a5a0d34d18b9"
+        },
+        {
+          "path": "plugin.json",
+          "sha256": "3ee67bebff8aee1f49dc12213a9a9b685e4c7688528d2da5f5a493a05eca6390"
+        },
+        {
+          "path": "scripts/validate_package.py",
+          "sha256": "b38ec3c4e1136e7eb471d4f6cc56d179a98a72aa8d7ca2d6dd8642633ea41e31"
+        },
+        {
+          "path": "support-matrix.json",
+          "sha256": "0085f23ff919aa3e90bf765873c47060ed69fbdbbfd4e34e933dadfbca691554"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "evidence/current-offline-validation.json",
+          "sha256": "29d3f178e3289a7753f5c1f071c7d69292061c3da1dd25a81d5d15ea79f0207c"
+        },
+        {
+          "path": "evidence/host/openspec-task-id-compatibility-20261009.json",
+          "sha256": "2bb491875346e29c45db3ffa3e22d175fa618b63fb644c2c8fe23d8c66a6d5f3"
+        },
+        {
+          "path": "evidence/host/user-layout-signoff-requalification-20261009.json",
+          "sha256": "6c756664a643f69882db60454f5643872f902abfc7b9826defef49305319a499"
+        },
+        {
+          "path": "evidence/host/user-layout-task-count-requalification-20261009.json",
+          "sha256": "821a47057cdf4af922ad4eba0a4cab9387657b1efaeb9d0824538fd972de4186"
+        },
+        {
+          "path": "evidence/native/model-create-20261009/task-metadata-requalification.json",
+          "sha256": "1bb0caef999e405839e0d2d4dc9a1f240fdff10840558eda1b3d38047104df8e"
+        },
+        {
+          "path": "evidence/native/model-revision-export-20261009/task-metadata-requalification.json",
+          "sha256": "ea559ad10ef34e09d512e70ed5600aa2d5085ccf897cab7fd1dd585e84dcdbaa"
+        }
+      ]
+    },
+    {
+      "id": "shared-contract-handoff",
+      "layer": "compatibility",
+      "status": "PASS",
+      "runId": "243a2640-4f5f-41f9-8523-e145b5bdf4da",
+      "observedAt": "2026-10-08T16:51:37.601108+00:00",
+      "environment": {
+        "os": "Darwin",
+        "machine": "arm64",
+        "python": "3.13.5"
+      },
+      "bindings": {
+        "pluginVersion": "0.1.0-dev.1",
+        "pluginTreeSha256": "a273239da68666f1932e6ecfbb8a5b11868b5bf94cea5a0c5747b4852c4611a0",
+        "sourceLockSha256": "cbe7ca8bacaa5562628202f0b7805ce8342121c286002fecc749a5a0d34d18b9",
+        "runtimeLockSha256": "d6a81aac9587fe5fa46b1b2518083eafe8c2217422b11fbd3b6b44be718d512f",
+        "nativeVersions": [
+          "0.2.1"
+        ],
+        "expectedNativeBinarySha256": [
+          "e18578b28f43d6c6854ded930065feed5c9ee8af6a2e51338aa675ba4a5723a8"
+        ]
+      },
+      "inputs": [],
+      "artifacts": [
+        {
+          "path": "evidence/host/openspec-task-id-compatibility-20261009.json",
+          "sha256": "2bb491875346e29c45db3ffa3e22d175fa618b63fb644c2c8fe23d8c66a6d5f3"
+        },
+        {
+          "path": "evidence/host/user-layout-signoff-requalification-20261009.json",
+          "sha256": "6c756664a643f69882db60454f5643872f902abfc7b9826defef49305319a499"
+        },
+        {
+          "path": "evidence/host/user-layout-task-count-requalification-20261009.json",
+          "sha256": "821a47057cdf4af922ad4eba0a4cab9387657b1efaeb9d0824538fd972de4186"
+        },
+        {
+          "path": "evidence/native/model-create-20261009/task-metadata-requalification.json",
+          "sha256": "1bb0caef999e405839e0d2d4dc9a1f240fdff10840558eda1b3d38047104df8e"
+        },
+        {
+          "path": "evidence/native/model-revision-export-20261009/task-metadata-requalification.json",
+          "sha256": "ea559ad10ef34e09d512e70ed5600aa2d5085ccf897cab7fd1dd585e84dcdbaa"
+        },
+        {
+          "path": "evidence/source-handoff-20261008.json",
+          "sha256": "05bb933e113ed11f3d78d6eded811fa71a97f8ca83eae3a79a1873b1d1ba7036"
+        }
+      ]
+    },
+    {
+      "id": "native-capabilities",
+      "layer": "native-capabilities",
+      "status": "PASS",
+      "runId": "425e19c9-fc80-4aa7-8003-28c3e2e8787b",
+      "observedAt": "2026-10-08T17:01:09.736897+00:00",
+      "environment": {
+        "os": "Darwin",
+        "machine": "arm64",
+        "python": "3.13.5"
+      },
+      "bindings": {
+        "pluginVersion": "0.1.0-dev.1",
+        "pluginTreeSha256": "a273239da68666f1932e6ecfbb8a5b11868b5bf94cea5a0c5747b4852c4611a0",
+        "sourceLockSha256": "cbe7ca8bacaa5562628202f0b7805ce8342121c286002fecc749a5a0d34d18b9",
+        "runtimeLockSha256": "d6a81aac9587fe5fa46b1b2518083eafe8c2217422b11fbd3b6b44be718d512f",
+        "nativeVersions": [
+          "0.2.1"
+        ],
+        "expectedNativeBinarySha256": [
+          "e18578b28f43d6c6854ded930065feed5c9ee8af6a2e51338aa675ba4a5723a8"
+        ]
+      },
+      "inputs": [
+        {
+          "path": "skills/designcraft-cli/scripts/bootstrap.py",
+          "sha256": "27e87459d328ef8fd4894e1e96d9b14ddd0c83ddc98a010d19155d560d47302a"
+        },
+        {
+          "path": "skills/designcraft-cli/scripts/cli.py",
+          "sha256": "09c39a397e2e409edf9a84edc8fa24023f736f794a5f0e21bb79390842141044"
+        },
+        {
+          "path": "skills/designcraft-cli/scripts/command_gateway.py",
+          "sha256": "cc003905fcc082cae36f4ffb90b5e995fce2b210cb523763711a58dd0e2c1afa"
+        },
+        {
+          "path": "skills/designcraft-cli/scripts/commands.py",
+          "sha256": "1c68012b9c9ca0b023a7cbfc05376d9a66059457311734036a8fe7ff13d432b7"
+        },
+        {
+          "path": "skills/designcraft-cli/scripts/runtime.lock.json",
+          "sha256": "3bec92e2eaf7227ee265ec2817413859c709261c41f4eb5363c8915dc1dbbad8"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "evidence/host/openspec-task-id-compatibility-20261009.json",
+          "sha256": "2bb491875346e29c45db3ffa3e22d175fa618b63fb644c2c8fe23d8c66a6d5f3"
+        },
+        {
+          "path": "evidence/host/show-fix-requalification-basis.json",
+          "sha256": "81f0f1803d4532664048cb2f0105307d4086c82964ba33eb2b1ec4311dd68404"
+        },
+        {
+          "path": "evidence/host/user-layout-signoff-requalification-20261009.json",
+          "sha256": "6c756664a643f69882db60454f5643872f902abfc7b9826defef49305319a499"
+        },
+        {
+          "path": "evidence/host/user-layout-task-count-requalification-20261009.json",
+          "sha256": "821a47057cdf4af922ad4eba0a4cab9387657b1efaeb9d0824538fd972de4186"
+        },
+        {
+          "path": "evidence/native-capabilities.json",
+          "sha256": "c8392e3c3cf2063f977f21bb8b7845d7e0fadd401baebabd39b16bed5600fdfd"
+        },
+        {
+          "path": "evidence/native/model-create-20261009/task-metadata-requalification.json",
+          "sha256": "1bb0caef999e405839e0d2d4dc9a1f240fdff10840558eda1b3d38047104df8e"
+        },
+        {
+          "path": "evidence/native/model-revision-export-20261009/task-metadata-requalification.json",
+          "sha256": "ea559ad10ef34e09d512e70ed5600aa2d5085ccf897cab7fd1dd585e84dcdbaa"
+        },
+        {
+          "path": "evidence/native/qualification-20261009/qualification/receipt.json",
+          "sha256": "53927535347d6db5ee8e62c6dff0339d8e09c3cbc10f27c7641f65f85503a8ea"
+        },
+        {
+          "path": "evidence/native/qualification-20261009/qualify-plan.json",
+          "sha256": "d416ec3c88baaceb389625d815af915c65a770cc0d74793dda38f1acc6164530"
+        },
+        {
+          "path": "evidence/native/qualification-20261009/reopen-plan.json",
+          "sha256": "56eb020cd83bb979f0f2b8b2bd01391d5ab7e4228717b76365b42ec915bc83a1"
+        },
+        {
+          "path": "evidence/native/qualification-20261009/reopen-qualification/receipt.json",
+          "sha256": "5cf1ba31d5da482d8799502fa883766cbc7cf55e2da40ab1f65c52f71e80125b"
+        },
+        {
+          "path": "evidence/native/revision-qualification-20261009/native-output/receipt.json",
+          "sha256": "f6d6d7099c9ab941577a1a43029410916aadd1acae566d458e3b78bf3650e012"
+        },
+        {
+          "path": "evidence/native/revision-qualification-20261009/original.designcraft",
+          "sha256": "b7e34dab77d3f1fd21c22dc478bf295ae4ea49ac947a1783aade9e827a5197a6"
+        },
+        {
+          "path": "evidence/native/revision-qualification-20261009/plan.json",
+          "sha256": "130f6eaf9486f2e57378c6fbd3d5cad16472d396e2463fca3d0bb97150d73e94"
+        },
+        {
+          "path": "evidence/native/revision-qualification-20261009/reopen-output/receipt.json",
+          "sha256": "5ef244aff8258daf95ec9ce0ca79e2194129cc3f244712e6b4ed0de1c73d1ea6"
+        },
+        {
+          "path": "evidence/native/revision-qualification-20261009/reopen-plan.json",
+          "sha256": "712e210cc7b9df9886d8d08cf1f8cbffb511068e9148ba5ac9b19af511481b9a"
+        },
+        {
+          "path": "evidence/native/revision-qualification-20261009/report.json",
+          "sha256": "69ebfde28e068d3f00f1d562ea76c6c4066bead26344a2643885c76ed1499326"
+        },
+        {
+          "path": "evidence/native/revision-qualification-20261009/revised.designcraft",
+          "sha256": "9af246d8abe08ac633aa57e1144016078873793586a0bd45c27547e259f43c3e"
+        },
+        {
+          "path": "evidence/native/revision-qualification-20261009/revised.pdf",
+          "sha256": "27f925e1fec6fc322d01f0821e22e0227ecdd006006feb633becf1c04dd4b0b3"
+        }
+      ]
+    }
+  ]
+}

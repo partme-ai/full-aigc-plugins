@@ -1,0 +1,27 @@
+{
+  "domain": "printcraft",
+  "steps": [
+    {
+      "command": "doc_open",
+      "params": {
+        "path": "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/source.pdf"
+      }
+    },
+    {
+      "command": "page_move",
+      "params": {
+        "doc": 1,
+        "pages": [3],
+        "to": 1
+      }
+    },
+    {
+      "command": "doc_save",
+      "params": {
+        "doc": 1,
+        "path": "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/result-dev5.pdf",
+        "full": true
+      }
+    }
+  ]
+}

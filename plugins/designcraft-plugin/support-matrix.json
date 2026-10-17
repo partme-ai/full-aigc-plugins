@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "packageVersion": "0.1.0-dev.1",
+  "offline": {
+    "status": "PASS",
+    "os": "macOS 27 arm64",
+    "python": "Python 3.13.5",
+    "tests": "python3 -I -B -m unittest discover -s tests",
+    "packageValidation": "python3 -I -B scripts/validate_package.py"
+  },
+  "ci": {
+    "status": "PASS",
+    "provider": "GitHub Actions",
+    "runUrl": "https://github.com/full-aigc-plugins/designcraft-plugin/actions/runs/37811463916",
+    "testedCommit": "e936c46ed933b4680faed7fde81414fe2b1eeb7f",
+    "runner": "ubuntu-latest",
+    "pythonVersions": [
+      "3.11",
+      "3.12",
+      "3.13"
+    ],
+    "checks": [
+      "unit-tests",
+      "package-validation",
+      "whitespace"
+    ]
+  },
+  "nativeRuntime": {
+    "cliVersion": "0.2.1",
+    "os": "macOS arm64",
+    "python": "Python 3.11+",
+    "status": "NOT_RUN"
+  },
+  "host": {
+    "name": "Codex",
+    "discovery": "NOT_RUN",
+    "modelDispatch": "NOT_RUN",
+    "testedPlatforms": [],
+    "cliPath": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
+    "scope": "Current local editor/scene candidate has not been installed in the host; prior pinned-package observations remain historical evidence.",
+    "historicalTestedPlatforms": [
+      "macOS arm64 / Python 3.13.5 / bundled Codex CLI 0.162.0-alpha.2 / gpt-6-astra"
+    ]
+  },
+  "creativeAcceptance": "NOT_RUN",
+  "release": "UNPUBLISHED",
+  "futureScope": [
+    "Additional hosts beyond Codex",
+    "Operating systems other than macOS arm64",
+    "Automatic multi-round revisions",
+    "ArtCraft integration"
+  ],
+  "authorization": "Native CLI download and installation requires explicit user authorization; offline checks do not install it or imply host acceptance."
+}

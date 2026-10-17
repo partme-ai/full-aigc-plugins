@@ -1,0 +1,100 @@
+{
+  "schema": "wordcraft-document-template/v1",
+  "id": "business-proposal",
+  "name": "项目方案",
+  "scope": "新建文档模板；已有文档先定位目标区域，不全篇覆盖",
+  "fields": {
+    "title": {
+      "label": "文档标题",
+      "type": "text",
+      "required": true,
+      "guidance": "按具体对象命名"
+    },
+    "document_date": {
+      "label": "文档日期",
+      "type": "text",
+      "required": false,
+      "guidance": "不确定时待确认"
+    },
+    "author": {
+      "label": "编写人",
+      "type": "text",
+      "required": false,
+      "guidance": "不推断责任归属"
+    },
+    "background": {
+      "label": "背景与问题",
+      "type": "text",
+      "required": true,
+      "guidance": "说明为什么需要做及当前证据"
+    },
+    "objectives": {
+      "label": "目标与范围",
+      "type": "text",
+      "required": true,
+      "guidance": "列出可判断的目标、本期范围及不包含事项"
+    },
+    "approach": {
+      "label": "拟采用的方案",
+      "type": "text",
+      "required": true,
+      "guidance": "描述方案、候选比较及选择依据，不假称已批准"
+    },
+    "resources": {
+      "label": "资源与假设",
+      "type": "text",
+      "required": true,
+      "guidance": "说明人员、依赖、预算口径和待核实估算"
+    },
+    "risks": {
+      "label": "风险与验收方式",
+      "type": "text",
+      "required": true,
+      "guidance": "将风险、缓解办法和可观察验收条件关联"
+    },
+    "records": {
+      "label": "实施里程碑",
+      "type": "rows",
+      "required": true,
+      "guidance": "二维字符串数组，按表头列顺序；未知单元格写待确认，不使用制表符或换行"
+    }
+  },
+  "sections": [
+    {
+      "title": "背景与问题",
+      "field": "background"
+    },
+    {
+      "title": "目标与范围",
+      "field": "objectives"
+    },
+    {
+      "title": "拟采用的方案",
+      "field": "approach"
+    },
+    {
+      "title": "资源与假设",
+      "field": "resources"
+    },
+    {
+      "title": "风险与验收方式",
+      "field": "risks"
+    }
+  ],
+  "table": {
+    "title": "实施里程碑",
+    "headers": [
+      "阶段",
+      "交付物",
+      "负责人",
+      "计划日期"
+    ],
+    "field": "records"
+  },
+  "contentRule": "事实、假设、估算分开；范围、里程碑和验收可相互对应。",
+  "reviewChecks": [
+    "正文来自本次输入，示例文字已替换",
+    "标题与正文样式分离，表格为原生可编辑对象",
+    "重开核对字段和表格，再逐页审阅PDF"
+  ]
+}

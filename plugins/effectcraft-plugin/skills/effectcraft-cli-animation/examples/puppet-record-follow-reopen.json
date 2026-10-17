@@ -1,0 +1,55 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "tool": "open_project",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "command": "puppet.info",
+      "params": {
+        "layer": "Deform subject",
+        "time": 0.3333333333333333
+      },
+      "as": "finalInfo"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Deform subject"
+      },
+      "as": "subjectProperties"
+    },
+    {
+      "tool": "get_layer",
+      "params": {
+        "layer": "Control"
+      },
+      "as": "controlProperties"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "time": 0.3333333333333333,
+        "path": {
+          "$output": "reopened.png"
+        },
+        "inline": false
+      }
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "time": 0.25,
+        "path": {
+          "$output": "recorded.png"
+        },
+        "inline": false
+      }
+    }
+  ]
+}

@@ -1,5 +1,11 @@
 # Craft 插件库开发候选
 
+当前候选统一为 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
+
+本次修正的动因：Git插件条目的回退列表不解析包内图片，官方源码及本机原生plugin/list均可复现。仅补composerIcon无法改变未安装列表。快照包含技能、MCP清单、官方图标及bootstrap，不增加Agent运行时，亦不将全部创作和宿主同步视为通过。
+
+## 此前dev.20261017.4交付与验收记录
+
 13 个插件统一为 `0.1.0-dev.20261017.4`。这是可安装开发预发布，生产发布仍 BLOCKED；并非全部上游 main 能力及全部场景已验收。
 
 市场使用固定 Git 标签，官方图标也按标签固定。根 Agent Plugins MCP 和 Codex、ZCode、Kimi 入口统一执行 `ui/bootstrap.mjs`。Git 安装首次启动下载插件发行资源并核验 SHA-256，完整 ZIP 自带资源；运行要求 Node.js 24，不需要 Rust 或 npm 构建。

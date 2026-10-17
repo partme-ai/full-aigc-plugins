@@ -1,0 +1,116 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "deckcraft",
+  "id": "pitch-deck",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "仅创建新的16:9示例；已有文稿不得清空",
+      "command": "file.new",
+      "params": {
+        "size": [
+          960,
+          540
+        ],
+        "blank": true
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "建立用户问题页",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleAndContent",
+        "title": "用户问题",
+        "body": "目标用户、真实痛点与证据来源；规模待确认。"
+      }
+    },
+    {
+      "purpose": "给第1页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 0,
+        "text": "问题证据：区分已验证访谈、观察与假设，注明来源和日期。"
+      }
+    },
+    {
+      "purpose": "建立解决方案页",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleAndContent",
+        "title": "解决方案",
+        "body": "价值、关键能力、适用范围和实施约束。"
+      }
+    },
+    {
+      "purpose": "给第2页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 1,
+        "text": "方案约束：用证据解释方案与问题的关系，说明尚未具备的能力。"
+      }
+    },
+    {
+      "purpose": "建立验证计划页",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleAndContent",
+        "title": "验证计划",
+        "body": "关键假设、试点方法与成功指标待确认。"
+      }
+    },
+    {
+      "purpose": "给第3页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 2,
+        "text": "验证计划：明确输入、样本、比较方法和失败标准；不伪造验证结果。"
+      }
+    },
+    {
+      "purpose": "建立交付路径页",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleAndContent",
+        "title": "交付路径",
+        "body": "阶段、依赖、里程碑；负责人和日期待确认。"
+      }
+    },
+    {
+      "purpose": "给第4页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 3,
+        "text": "里程碑：用可交付结果定义阶段，核实资源依赖与风险。"
+      }
+    },
+    {
+      "purpose": "建立资源与风险页",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleAndContent",
+        "title": "资源与风险",
+        "body": "资源请求、决策事项、主要风险；预算待确认。"
+      }
+    },
+    {
+      "purpose": "给第5页写入专属备注",
+      "command": "slide.notes",
+      "params": {
+        "index": 4,
+        "text": "资源请求：说明资金或人员用途；预测、估计和已发生事实分别标记。"
+      }
+    }
+  ],
+  "check": "五页从问题到资源请求，逐页备注保留；证据和假设明确区分，未知业务数据不捏造。",
+  "boundary": "新建示例仅用于新任务：已有演示文稿先读取页数、选择和内容；不得用file.new清空。索引为0起，仅在此新文稿示例固定；已有文稿重新查询。布局和真实内容质量、外部PowerPoint渲染、宿主同步不由命令通过证明。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "validation": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014846480",
+    "sceneSourceCommit": "49d40a6b73930f267aff0b6e93909635dc1092d4",
+    "platform": "Windows x64",
+    "visualAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

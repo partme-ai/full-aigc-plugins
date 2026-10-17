@@ -1,0 +1,169 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "wordcraft",
+  "id": "resume-layout",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "设置简历页面",
+      "command": "layout.size",
+      "params": {
+        "name": "A4"
+      }
+    },
+    {
+      "purpose": "设置页面边距，单位pt",
+      "command": "layout.margins",
+      "params": {
+        "top": 36,
+        "bottom": 36,
+        "left": 42,
+        "right": 42
+      }
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 1"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "姓名与联系方式：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "工作经历"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "单位、岗位、任职日期与可证实业绩：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "教育经历"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "学校、专业与日期：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "技能与项目"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "实际技能、本人贡献及可核验项目：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "核对结构，不虚构履历",
+      "command": "document.inspect",
+      "params": {
+        "text": true
+      }
+    }
+  ],
+  "check": "姓名联系信息准确，日期连续，PDF无截字，文本可复制。",
+  "boundary": "示例结构需替换为真实履历；不虚构岗位、学历和业绩。 示例章节为结构起点，待核实字段不能当作已填文档交付；每个章节用真实段落与Heading样式。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

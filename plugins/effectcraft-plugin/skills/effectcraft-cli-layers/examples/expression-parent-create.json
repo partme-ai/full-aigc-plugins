@@ -1,0 +1,146 @@
+{
+  "document": {
+    "name": "Expression parent badge",
+    "width": 128,
+    "height": 64,
+    "frameRate": 12,
+    "duration": 1
+  },
+  "operations": [
+    {
+      "command": "native.command",
+      "params": {
+        "command": "layer.newNull",
+        "params": {
+          "name": "Rig"
+        }
+      },
+      "as": "parent"
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "prop.set",
+        "params": {
+          "layer": {
+            "$ref": "parent.layer"
+          },
+          "path": "transform/position",
+          "value": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "command": "layer.newShape",
+      "params": {
+        "name": "Target",
+        "kind": "rect",
+        "size": [
+          40,
+          40
+        ],
+        "position": [
+          32,
+          32
+        ],
+        "fill": "#ef5b36"
+      },
+      "as": "target"
+    },
+    {
+      "command": "layer.newShape",
+      "params": {
+        "name": "Control",
+        "kind": "rect",
+        "size": [
+          40,
+          40
+        ],
+        "position": [
+          96,
+          32
+        ],
+        "fill": "#27ae60"
+      },
+      "as": "control"
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          {
+            "$ref": "target.layer"
+          }
+        ],
+        "add": false,
+        "toggle": false
+      }
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "layer.setParent",
+        "params": {
+          "layers": [
+            {
+              "$ref": "target.layer"
+            }
+          ],
+          "parent": {
+            "$ref": "parent.layer"
+          }
+        }
+      }
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "prop.setExpression",
+        "params": {
+          "layer": {
+            "$ref": "target.layer"
+          },
+          "path": "transform/opacity",
+          "expression": "50 + time * 50",
+          "enabled": true
+        }
+      }
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "layer.expressions",
+        "params": {
+          "layers": [
+            {
+              "$ref": "target.layer"
+            }
+          ],
+          "enabled": false
+        }
+      }
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "layer.expressions",
+        "params": {
+          "layers": [
+            {
+              "$ref": "target.layer"
+            }
+          ],
+          "enabled": true
+        }
+      }
+    }
+  ],
+  "frames": [
+    0,
+    0.5
+  ],
+  "exports": []
+}

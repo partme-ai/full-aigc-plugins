@@ -40,7 +40,7 @@
       "displayName": "CADCraft Use",
       "repository": "full-aigc-plugins/cadcraft-plugin",
       "localDirectory": "cadcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -53,14 +53,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/cadcraft-plugin"
     },
     {
       "id": "designcraft",
       "displayName": "DesignCraft Use",
       "repository": "full-aigc-plugins/designcraft-plugin",
       "localDirectory": "designcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -73,14 +74,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/designcraft-plugin"
     },
     {
       "id": "effectcraft",
       "displayName": "EffectCraft Use",
       "repository": "full-aigc-plugins/effectcraft-plugin",
       "localDirectory": "effectcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -93,14 +95,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/effectcraft-plugin"
     },
     {
       "id": "photocraft",
       "displayName": "PhotoCraft Use",
       "repository": "full-aigc-plugins/photocraft-plugin",
       "localDirectory": "photocraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -113,14 +116,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/photocraft-plugin"
     },
     {
       "id": "figcraft",
       "displayName": "FigCraft Use",
       "repository": "full-aigc-plugins/figcraft-plugin",
       "localDirectory": "figcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -133,14 +137,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/figcraft-plugin"
     },
     {
       "id": "filmcraft",
       "displayName": "FilmCraft Use",
       "repository": "full-aigc-plugins/filmcraft-plugin",
       "localDirectory": "filmcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -153,14 +158,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/filmcraft-plugin"
     },
     {
       "id": "lightcraft",
       "displayName": "LightCraft Use",
       "repository": "full-aigc-plugins/lightcraft-plugin",
       "localDirectory": "lightcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -173,14 +179,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/lightcraft-plugin"
     },
     {
       "id": "printcraft",
       "displayName": "PdfCraft Use",
       "repository": "full-aigc-plugins/printcraft-plugin",
       "localDirectory": "printcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -193,14 +200,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/printcraft-plugin"
     },
     {
       "id": "vectorcraft",
       "displayName": "VectorCraft Use",
       "repository": "full-aigc-plugins/vectorcraft-plugin",
       "localDirectory": "vectorcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -213,14 +221,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/vectorcraft-plugin"
     },
     {
       "id": "deckcraft",
       "displayName": "DeckCraft Use",
       "repository": "full-aigc-plugins/deckcraft-plugin",
       "localDirectory": "deckcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -233,14 +242,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/deckcraft-plugin"
     },
     {
       "id": "soundcraft",
       "displayName": "SoundCraft Use",
       "repository": "full-aigc-plugins/soundcraft-plugin",
       "localDirectory": "soundcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -253,14 +263,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/soundcraft-plugin"
     },
     {
       "id": "gridcraft",
       "displayName": "GridCraft Use",
       "repository": "full-aigc-plugins/gridcraft-plugin",
       "localDirectory": "gridcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -273,14 +284,15 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/gridcraft-plugin"
     },
     {
       "id": "wordcraft",
       "displayName": "WordCraft Use",
       "repository": "full-aigc-plugins/wordcraft-plugin",
       "localDirectory": "wordcraft-plugin",
-      "version": "0.1.0-dev.20261017.4",
+      "version": "0.1.0-dev.20261017.5",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
@@ -293,7 +305,8 @@
         "mcp",
         "editor"
       ],
-      "logo": "assets/official-logo.png"
+      "logo": "assets/official-logo.png",
+      "codexSourcePath": "./plugins/wordcraft-plugin"
     }
   ],
   "plugins": [

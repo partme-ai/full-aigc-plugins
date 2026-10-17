@@ -1,0 +1,38 @@
+{
+  "status": "local-unreleased",
+  "sourcePackage": "full-aigc-skills/vectorcraft-skills",
+  "skills": [
+    {
+      "name": "vectorcraft-editor",
+      "sha256": "1c11185cf6cc1a08a2d7a2387425f1ea274539ec03f2300baac6c0f5a185710f"
+    },
+    {
+      "name": "vectorcraft-logo-system",
+      "sha256": "25ade16ad9baf65bc0e06d1f252b55dd327982d6a0bef274696c988ba01c69f4"
+    },
+    {
+      "name": "vectorcraft-icon-set",
+      "sha256": "64de9cd56b6fdf93ead153bc11535d2294c2c162441a0ab80e6cfb9237a955b4"
+    },
+    {
+      "name": "vectorcraft-infographic",
+      "sha256": "26236684da3305f08ca3aab90f7f39bb6af937dced5507a3c85af843753a4f35"
+    },
+    {
+      "name": "vectorcraft-trace-artwork",
+      "sha256": "4364f678fb515724bd9e928816f0b4c47f7f695fc83fd7f12d1237c2e6eb4b0c"
+    },
+    {
+      "name": "vectorcraft-editable-chart",
+      "sha256": "acf78032fcdfc8f5ea05b07ecf317863c9c74dc774205f8a8fea10b70e9f5c3b"
+    },
+    {
+      "name": "vectorcraft-svg-cleanup",
+      "sha256": "fac7b6425163a8e8ca33a385bb8b69a57eb10927b0c7767c769957f45b2a52f9"
+    },
+    {
+      "name": "vectorcraft-scenario-playbooks",
+      "sha256": "5a375563988d97115b497cd4f39aca74fb35388b87a6a739a0b597eda09d7232"
+    }
+  ]
+}

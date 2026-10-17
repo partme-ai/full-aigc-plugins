@@ -1,0 +1,34 @@
+{
+  "status": "local-unreleased",
+  "sourcePackage": "full-aigc-skills/deckcraft-skills",
+  "skills": [
+    {
+      "name": "deckcraft-editor",
+      "sha256": "9a4d5f9c5ff83ba7bb3e3d6223e29c06d91b48e64afed7ae7ecc00f8a2127800"
+    },
+    {
+      "name": "deckcraft-pitch-deck",
+      "sha256": "2b51345fa073f4151419b9bfd2e9ccbea17eb28b9213c7c14fbbfb4d3edfc3fd"
+    },
+    {
+      "name": "deckcraft-weekly-report",
+      "sha256": "d1d15a51e690e3e7f9d12847c2b43374060fe52682a6c5b08b0508dc8c898fc4"
+    },
+    {
+      "name": "deckcraft-training-slides",
+      "sha256": "abcff14227ac3582a2baf4b8bbd29c56cc68702ee2a98386b73c8db5d3fa8a62"
+    },
+    {
+      "name": "deckcraft-data-story",
+      "sha256": "5f842dfd538acea73f809affb4a7f7c7dbdd46fba10e55d672d95d4919ea7fdf"
+    },
+    {
+      "name": "deckcraft-brand-template",
+      "sha256": "856aaedbd3518ecba3c91b9c1d5ed3ace11d5d0d0dc1fa65a962169f42b9b198"
+    },
+    {
+      "name": "deckcraft-slide-redesign",
+      "sha256": "9b2fc6b6db67d14bc2bb364e0907fc783770a390771109be2a68b2ceeb9b7733"
+    }
+  ]
+}

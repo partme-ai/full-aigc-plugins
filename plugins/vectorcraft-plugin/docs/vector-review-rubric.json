@@ -1,0 +1,27 @@
+{
+  "schema": "vectorcraft-review-rubric/v1",
+  "version": 1,
+  "technicalGate": [
+    "native project reopened",
+    "fonts and linked assets readable",
+    "export range and file decoding verified",
+    "requested brand fields and protected objects verified"
+  ],
+  "scoreRange": [
+    0,
+    4
+  ],
+  "dimensions": {
+    "structure": "Path topology, holes, closed contours, strokes and editable structure",
+    "text": "Correct content, glyphs, font dependencies and legibility",
+    "brand": "Requested token values, variants and protected non-target appearance",
+    "layout": "Alignment, spacing, proportions and artboard consistency",
+    "legibility": "Logo and icon recognition at requested small display sizes"
+  },
+  "lossCategories": [
+    "lost",
+    "observed",
+    "unknown"
+  ],
+  "rule": "Visual scores never override a failed or unrun technical gate. Return a single-round assessment and scoped revision proposal; do not execute another round."
+}

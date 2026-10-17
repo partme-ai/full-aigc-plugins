@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "dest": "skills/",
+  "skills": [
+    "effectcraft-editor",
+    "effectcraft-kinetic-type",
+    "effectcraft-logo-reveal",
+    "effectcraft-lower-thirds",
+    "effectcraft-motion-export",
+    "effectcraft-screen-composite",
+    "effectcraft-social-loop"
+  ]
+}

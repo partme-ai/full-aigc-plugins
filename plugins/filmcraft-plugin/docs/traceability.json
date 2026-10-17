@@ -1,0 +1,243 @@
+{
+  "authority": "openspec/changes/establish-v1-plugin",
+  "entries": [
+    {
+      "requirement": "FC-SK-001",
+      "capability": "skills-distribution",
+      "tasks": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.12"
+      ],
+      "owner": "Skills owner",
+      "status": "planned"
+    },
+    {
+      "requirement": "FC-SK-002",
+      "capability": "skills-distribution",
+      "tasks": [
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "owner": "Skills owner",
+      "status": "planned"
+    },
+    {
+      "requirement": "FC-RT-001",
+      "capability": "runtime-distribution",
+      "tasks": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.7",
+        "2.8"
+      ],
+      "owner": "Runtime owner",
+      "status": "verified",
+      "evidence": "docs/evidence/craft-fixed-runtime-integrity-20261008.json",
+      "scope": "current pinned macOS arm64 CLI matrix; all current requirement scenarios"
+    },
+    {
+      "requirement": "FC-RT-002",
+      "capability": "runtime-distribution",
+      "tasks": [
+        "2.9",
+        "2.10"
+      ],
+      "owner": "Runtime owner",
+      "status": "in-progress",
+      "candidateEvidence": "docs/evidence/filmcraft-native-download-candidate-20261007.json",
+      "fixedNativeDownloadEvidence": "docs/evidence/codex-native-download-first-use-20261007.json"
+    },
+    {
+      "requirement": "FC-DM-001",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.42",
+        "4.43",
+        "4.44"
+      ],
+      "owner": "Domain owner",
+      "status": "in-progress",
+      "evidence": "docs/evidence/film-workflow-tests.json"
+    },
+    {
+      "requirement": "FC-DM-002",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.4",
+        "4.5",
+        "4.6"
+      ],
+      "owner": "Domain owner",
+      "status": "verified",
+      "evidence": "docs/evidence/fc-dm-002/index.json",
+      "implementationScope": "Tasks4.4–4.6: all4 current scenarios qualified using fixed66/source49 actual isolated installed skills on macOS arm64/Codex/headless; fullV1 remains open"
+    },
+    {
+      "requirement": "FC-DM-003",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.7",
+        "4.8",
+        "4.9",
+        "4.23",
+        "4.24",
+        "4.25",
+        "4.26",
+        "4.27",
+        "4.28",
+        "4.29"
+      ],
+      "owner": "Domain owner",
+      "status": "verified",
+      "evidence": "docs/evidence/fc-dm-003/index.json",
+      "implementationScope": "Tasks4.7–4.9: all5 current scenarios qualified using fixed66/source49 actual isolated installed audio skill/reviewer on macOS arm64/Codex/headless; fullV1 remains open"
+    },
+    {
+      "requirement": "FC-DM-004",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.10",
+        "4.11",
+        "4.12",
+        "4.19",
+        "4.20",
+        "4.21",
+        "4.22"
+      ],
+      "owner": "Domain owner",
+      "status": "verified",
+      "evidence": "docs/evidence/fc-dm-004/index.json",
+      "implementationScope": "Tasks4.10,4.11,4.12: all4 scenarios verified using actual fixed66/source49 install on macOS arm64/Codex/headless; Art/fullV1 separate"
+    },
+    {
+      "requirement": "FC-DM-005",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.13",
+        "4.14",
+        "4.15",
+        "4.38",
+        "4.39",
+        "4.40",
+        "4.41"
+      ],
+      "owner": "Domain owner",
+      "status": "verified",
+      "evidence": "docs/evidence/fc-dm-005/index.json",
+      "implementationScope": "Tasks4.13,4.14,4.15: all3 scenarios verified using actual fixed66/source49 install on macOS arm64/Codex/headless; Art/fullV1 separate"
+    },
+    {
+      "requirement": "FC-DM-006",
+      "capability": "domain-workflow",
+      "tasks": [
+        "4.16",
+        "4.17",
+        "4.18"
+      ],
+      "owner": "Domain owner",
+      "status": "verified",
+      "evidence": "docs/evidence/fc-dm-006/index.json",
+      "implementationScope": "Tasks4.16-4.18 all3scenarios/sevenmedia cases fixed66/source49 actualmacOSarm64/Codex/headless; Art/fullV1 separate"
+    },
+    {
+      "requirement": "FC-AR-002",
+      "capability": "artifact-delivery",
+      "tasks": [
+        "5.4",
+        "5.5",
+        "5.6"
+      ],
+      "owner": "Harness owner",
+      "status": "planned"
+    },
+    {
+      "requirement": "FC-QA-002",
+      "capability": "quality-review",
+      "tasks": [],
+      "owner": "Harness owner",
+      "status": "planned"
+    },
+    {
+      "requirement": "FC-RL-002",
+      "capability": "release-compatibility",
+      "tasks": [
+        "7.7"
+      ],
+      "owner": "Release owner",
+      "status": "planned",
+      "domainParameterFieldsEvidence": "docs/evidence/filmcraft68-parameter-fields-20261009/summary.json"
+    },
+    {
+      "requirement": "FC-SK-003",
+      "capability": "skills-distribution",
+      "tasks": [
+        "1.7",
+        "1.8",
+        "1.9",
+        "1.10",
+        "1.11",
+        "1.13",
+        "10.2"
+      ],
+      "owner": "Skills owner",
+      "status": "bounded-verification-passed",
+      "evidence": "docs/evidence/skill-suite.json"
+    },
+    {
+      "requirement": "FC-CM-001",
+      "capability": "domain-workflow",
+      "tasks": [
+        "8.1",
+        "8.2",
+        "8.4",
+        "8.5",
+        "8.6",
+        "8.7",
+        "8.8",
+        "8.9",
+        "8.10",
+        "8.11",
+        "8.12"
+      ],
+      "owner": "Skills owner",
+      "status": "in-progress",
+      "evidence": "docs/evidence/codex-complete-command-revision-first-use-20261007.json",
+      "revisionEvidence": "docs/evidence/complete-command-revision-first-use-20261007.json",
+      "revisionHostEvidence": "docs/evidence/codex-complete-command-revision-first-use-20261007.json",
+      "protocolFaultCandidateEvidence": "docs/evidence/protocol-fault-first-use-20261007.json",
+      "protocolFaultHostEvidence": "docs/evidence/codex-protocol-fault-first-use-20261007.json",
+      "publicWorkflowCandidateEvidence": "docs/evidence/public-workflow-session-candidate-20261007.json",
+      "publicWorkflowFixedHostEvidence": "docs/evidence/codex-public-workflow-session-first-use-20261007.json",
+      "fixedNativeDownloadEvidence": "docs/evidence/codex-native-download-first-use-20261007.json",
+      "fixedCommandParityEvidence": "docs/evidence/filmcraft44-command-parity-20261008.json"
+    },
+    {
+      "requirement": "FC-TX-004",
+      "capability": "task-execution",
+      "tasks": [],
+      "owner": "Harness owner",
+      "status": "verified-darwin-arm64",
+      "candidateEvidence": "docs/evidence/failed-stage-candidate-20261007.json",
+      "fixedHostEvidence": "docs/evidence/codex-failed-stage-first-use-20261007.json"
+    },
+    {
+      "requirement": "FC-DS-001",
+      "capability": "runtime-distribution",
+      "tasks": [
+        "8.16",
+        "8.17",
+        "8.20"
+      ],
+      "owner": "Desktop runtime owner",
+      "status": "verified-bounded-darwin-arm64",
+      "evidence": "docs/evidence/craft-full-command-fixed-first-use-20261007.json"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "craft-runtime-lock/v1",
+  "artifact": "vectorcraft-cli",
+  "resolvedVersion": "0.2.0",
+  "releaseRef": "v0.2.0",
+  "repository": "https://github.com/storytold/vectorcraft",
+  "artifacts": {
+    "darwin-arm64": {
+      "url": "https://github.com/storytold/vectorcraft/releases/download/v0.2.0/vectorcraft-cli-0.2.0-macos-universal.zip",
+      "archiveSha256": "2c394066695d54084f09321bca812c2f0fe38c34a147b421f6963e49347038da",
+      "binarySha256": "4ba62138ff64d7f701fd2d8fd4c833bd3bb077b6ed78244a8909a4fa0129b766",
+      "evidenceScope": "headless MCP smoke only"
+    }
+  },
+  "supportedPluginWorkflows": [],
+  "role": "historical-baseline",
+  "executionAuthority": "skills/*/scripts/runtime.lock.json"
+}

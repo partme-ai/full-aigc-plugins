@@ -1,0 +1,77 @@
+{
+  "protocol": "printcraft.verification/1",
+  "ruleVersion": 1,
+  "runId": "5bac03a2-cc5e-40e8-a515-f7ddbada3e7a",
+  "inputSha256": {
+    "/tmp/printcraft-acceptance/native-final-2/source.pdf": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a"
+  },
+  "requestSha256": "e822ca06968a3794eeca2bb11e9a0a8d40fab07db826907416822dac31169840",
+  "artifacts": [
+    {
+      "path": "/tmp/printcraft-acceptance/宿主 测试/model-handoff-dev3/result.pdf",
+      "role": "delivery",
+      "mediaType": "application/pdf",
+      "size": 917,
+      "sha256": "9df027ccb21e6bb31ec9c49215e3dcaf84753b7e229772bb63f7ada9e9ab919a",
+      "sourcePages": [
+        {
+          "path": "/tmp/printcraft-acceptance/native-final-2/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 3
+        },
+        {
+          "path": "/tmp/printcraft-acceptance/native-final-2/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 1
+        },
+        {
+          "path": "/tmp/printcraft-acceptance/native-final-2/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 2
+        }
+      ],
+      "info": {
+        "annotations": 0,
+        "attachments": 0,
+        "author": null,
+        "bookmarks": 0,
+        "creator": null,
+        "encrypted": false,
+        "fields": 0,
+        "file": "/tmp/printcraft-acceptance/宿主 测试/model-handoff-dev3/result.pdf",
+        "file_size": 917,
+        "first_page_pt": [
+          612.0,
+          792.0
+        ],
+        "javascript": false,
+        "layers": 0,
+        "links": 0,
+        "page_labels": [
+          "1",
+          "2",
+          "3"
+        ],
+        "pages": 3,
+        "pdf_version": "1.5",
+        "producer": null,
+        "tagged": false,
+        "title": null,
+        "warnings": [],
+        "xfa": null
+      },
+      "pageText": [
+        "PAGE-GAMMA",
+        "PAGE-ALPHA",
+        "PAGE-BETA"
+      ],
+      "textClassification": "TEXT_PRESENT",
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "status": "DETERMINISTIC_PASS_REVIEW_REQUIRED",
+  "completeAcceptance": false,
+  "visualReview": "NOT_RUN",
+  "automaticRevision": false
+}

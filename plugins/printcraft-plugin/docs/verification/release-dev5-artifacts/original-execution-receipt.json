@@ -1,0 +1,85 @@
+{
+  "protocol": "printcraft.execution/1",
+  "runId": "005c5a98-0751-4ccf-ab57-984d157799bc",
+  "runRegistry": "/tmp/printcraft-publish-20261008/隔离 runtime/tasks/page-gamma-first-dev5/.printcraft-runs",
+  "attempted": true,
+  "authorizedScope": [],
+  "expectedOutputs": [
+    {
+      "path": "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/result-dev5.pdf",
+      "role": "delivery",
+      "mediaType": "application/pdf"
+    }
+  ],
+  "documentIdsReusable": false,
+  "stepsTransactional": false,
+  "domain": "printcraft",
+  "status": "NATIVE_EXIT_ZERO_REVIEW_REQUIRED",
+  "argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-I",
+    "-B",
+    "/private/tmp/printcraft-publish-20261008/隔离 宿主/codex-home/plugins/cache/printcraft-release-validation/printcraft/0.1.0-dev.5/skills/printcraft-use/scripts/cli.py",
+    "--runtime-home",
+    "/tmp/printcraft-publish-20261008/隔离 runtime",
+    "--",
+    "run",
+    "--script",
+    "/tmp/printcraft-publish-20261008/隔离 runtime/tasks/page-gamma-first-dev5/execution/native-plan.json"
+  ],
+  "catalogSha256": "2cef688df408f49c80db4a9765d0d563baf8f430bb338fc584e0c0e235f54878",
+  "planSha256": "439f82f96cf99d347d581e1431ef96a16e4e5bf95865404698b959380d7fccf0",
+  "automaticReplay": false,
+  "completeAcceptance": false,
+  "inputSha256": {
+    "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/source.pdf": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a"
+  },
+  "runtimeLockSha256": "7db3b75e565e2a4da83118875e1ada8652913f670c401b4f60173af3f1547462",
+  "skillResourceSha256": {
+    "bootstrap.py": "f2f0901641c2ca58d48a00bc2e16d1095ee0e3b0d322279ef3c5edee136e745c",
+    "cli.py": "b7441d0c7c27c8116a874f40f929f44be4285c718b00ccae8f61f20dd8d4fbf8",
+    "command_gateway.py": "1be50fce5946fcb63f7b0848bfdb4a94a76a30ab35be290006b61dd0c79a9704",
+    "commands.py": "35eaaf7866e1104eb7ccd9639d6744182f009b48b26029423e7f4aeb38b57b62",
+    "execution.py": "2423a53f57ef375f32d44339bea15d3c04ff62d65f232ed165a96bc4dba259f5",
+    "runtime.lock.json": "7db3b75e565e2a4da83118875e1ada8652913f670c401b4f60173af3f1547462",
+    "verification.py": "e4caf0fa3984a8ad174efe28feadf86350880ec448f884992d397881f981e7b1"
+  },
+  "phase": "native-exited",
+  "exitCode": 0,
+  "runtimeIdentity": {
+    "executable": "/tmp/printcraft-publish-20261008/隔离 runtime/printcraft/0.2.1/printcraft-cli",
+    "binarySha256": "b7783b596870ed5a326f29456d4647382d2e1e4d7b7ffe75ded192cd15b86995",
+    "version": "0.2.1",
+    "platform": "darwin-arm64",
+    "versionOutput": "printcraft-cli 0.2.1",
+    "artifact": "printcraft-cli"
+  },
+  "descendantsConfirmedStopped": false,
+  "stdout": "{\n  \"dirty\": false,\n  \"doc\": 1,\n  \"editable\": true,\n  \"encrypted\": false,\n  \"name\": \"source.pdf\",\n  \"pages\": 3,\n  \"path\": \"/tmp/printcraft-publish-20261008/隔离 宿主/工作区/source.pdf\",\n  \"read_only_reason\": null,\n  \"redo\": null,\n  \"undo\": null\n}\n{\n  \"dirty\": true,\n  \"doc\": 1,\n  \"editable\": true,\n  \"encrypted\": false,\n  \"name\": \"source.pdf\",\n  \"pages\": 3,\n  \"path\": \"/tmp/printcraft-publish-20261008/隔离 宿主/工作区/source.pdf\",\n  \"read_only_reason\": null,\n  \"redo\": null,\n  \"undo\": \"Move page\"\n}\n{\n  \"bytes\": 918,\n  \"document\": {\n    \"dirty\": false,\n    \"doc\": 1,\n    \"editable\": true,\n    \"encrypted\": false,\n    \"name\": \"result-dev5.pdf\",\n    \"pages\": 3,\n    \"path\": \"/tmp/printcraft-publish-20261008/隔离 宿主/工作区/result-dev5.pdf\",\n    \"read_only_reason\": null,\n    \"redo\": null,\n    \"undo\": \"Move page\"\n  },\n  \"incremental\": false,\n  \"path\": \"/tmp/printcraft-publish-20261008/隔离 宿主/工作区/result-dev5.pdf\"\n}\n",
+  "stderr": "",
+  "pid": 76439,
+  "startedAt": 1791458570.319467,
+  "finishedAt": 1791458570.329329,
+  "inputAfterSha256": {
+    "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/source.pdf": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a"
+  },
+  "skillResourceAfterSha256": {
+    "bootstrap.py": "f2f0901641c2ca58d48a00bc2e16d1095ee0e3b0d322279ef3c5edee136e745c",
+    "cli.py": "b7441d0c7c27c8116a874f40f929f44be4285c718b00ccae8f61f20dd8d4fbf8",
+    "command_gateway.py": "1be50fce5946fcb63f7b0848bfdb4a94a76a30ab35be290006b61dd0c79a9704",
+    "commands.py": "35eaaf7866e1104eb7ccd9639d6744182f009b48b26029423e7f4aeb38b57b62",
+    "execution.py": "2423a53f57ef375f32d44339bea15d3c04ff62d65f232ed165a96bc4dba259f5",
+    "runtime.lock.json": "7db3b75e565e2a4da83118875e1ada8652913f670c401b4f60173af3f1547462",
+    "verification.py": "e4caf0fa3984a8ad174efe28feadf86350880ec448f884992d397881f981e7b1"
+  },
+  "artifacts": [
+    {
+      "path": "/tmp/printcraft-publish-20261008/隔离 宿主/工作区/result-dev5.pdf",
+      "role": "delivery",
+      "mediaType": "application/pdf",
+      "status": "PRESENT",
+      "size": 918,
+      "sha256": "77fdadab2c4ac498b0836b340ef0f1ab0c4a29f3fb294f02d73f59a6b0cefac0"
+    }
+  ]
+}

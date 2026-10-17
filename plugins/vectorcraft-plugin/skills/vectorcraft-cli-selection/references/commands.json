@@ -1,0 +1,3522 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "vectorcraft",
+  "runtimeVersion": "0.2.0-craft.2",
+  "upstreamRepository": "https://github.com/storytold/vectorcraft",
+  "upstreamCommit": "90e022b0c05f12171a4e9bebe0894fa62f7bc95c",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "file.new",
+      "label": "New…",
+      "params": "{preset?: a name from file.newPresets (start from it; the other params change it), name?|title?: document name (default Untitled-N), width?: pt=612|\"210 mm\", height?: pt=792, units?: \"Pixels\"|\"Points\"|\"Picas\"|\"Inches\"|\"Millimeters\"|\"Centimeters\"|\"Feet\"|\"Yards\"|\"Meters\"|\"Feet & Inches\" (default: prefs unitsGeneral, as print presets; screen presets: Pixels), orientation?: \"portrait\"|\"landscape\" (swaps width and height to match), artboards?: n (1–1000), artboardLayout?: {layout?: \"gridByRow\"|\"gridByColumn\"|\"row\"|\"column\", columns?: n (default: all in one row), spacing?: pt=20, rightToLeft?: bool}, bleed?: pt|[top, bottom, left, right]|{top?, …} (0–72 pt), backgroundContents?: \"transparent\"|\"white\" (a white artboard background, not an object), colorMode?: \"rgb\"|\"cmyk\" (a CMYK document starts with CMYK swatches and stores the colours applied to it as CMYK), rasterEffectsPpi?: 72|150|300 (1–2400), previewMode?: \"default\"|\"pixel\"|\"overprint\" (overprint turns Overprint Preview on, pixel Pixel Preview in the app; default leaves both), created?: Unix seconds|null (File Info's created date; default now, recorded in the journal so a replay matches)} → {index, previewMode}; the size is remembered in file.newPresets' Recent",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.close",
+      "label": "Close",
+      "params": "{index?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.activate",
+      "label": "Activate Document",
+      "params": "{index}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.inspect",
+      "label": "Inspect Document",
+      "params": "{} → layer tree, artboards, selection, history",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.node",
+      "label": "Inspect Object",
+      "params": "{id} → full object JSON",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.json",
+      "label": "Document JSON",
+      "params": "{} → complete document model",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.setUnits",
+      "label": "Units",
+      "params": "{units: \"Points\"|\"Picas\"|\"Inches\"|\"Millimeters\"|\"Centimeters\"|\"Pixels\"|\"Feet & Inches\"|\"Meters\"|\"Yards\"|\"Feet\"} the document's units: every length the UI shows and reads (General)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.undo",
+      "label": "Undo",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.redo",
+      "label": "Redo",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.cut",
+      "label": "Cut",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.copy",
+      "label": "Copy",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.paste",
+      "label": "Paste",
+      "params": "{center?: [x, y], dx?, dy?, swatchConflict?} paste centred on `center` (the app passes the view centre), else offset by dx/dy (default: the Paste Offset preference). Pasting brings the image blobs, symbols, patterns, global and spot swatches (with the tint swatches of the tints used), gradient swatches, graphic styles, character and paragraph styles and brushes the objects use; one of the same name that differs comes in renamed. swatchConflict, for a swatch whose name the document gives another colour (clipboard.conflicts): \"merge\" (default: the objects take the document's swatch) | \"add\" (the pasted swatch comes in renamed) | {name: \"merge\"|\"add\"}. With Paste Remembers Layers on (layer.pasteRemembersLayers), objects go back into the layers they came from (by name; made when missing) → {ids, added: resources added, merged: conflicts merged, renamed: [{kind, from, to}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.pasteInFront",
+      "label": "Paste in Front",
+      "params": "{swatchConflict?} paste in place just above the top selected object, or on top of the current layer when nothing is selected (resources and layers as edit.paste) → {ids, added, merged, renamed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.pasteInBack",
+      "label": "Paste in Back",
+      "params": "{swatchConflict?} paste in place just below the bottom selected object, or at the bottom of the current layer when nothing is selected (resources and layers as edit.paste) → {ids, added, merged, renamed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.pasteInPlace",
+      "label": "Paste in Place",
+      "params": "{swatchConflict?} paste where the objects were copied (resources and layers as edit.paste) → {ids, added, merged, renamed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.pasteOnAllArtboards",
+      "label": "Paste on All Artboards",
+      "params": "{swatchConflict?} paste a copy on every artboard at the offset the objects had to the artboard they were copied from (resources and layers as edit.paste) → {ids, added, merged, renamed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.clear",
+      "label": "Clear",
+      "params": "{ids?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.duplicate",
+      "label": "Duplicate",
+      "params": "{dx?, dy?} duplicate the selection in place (offset optional)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "clipboard.exportSvg",
+      "label": "Clipboard as SVG",
+      "params": "{} → {svg} the copied objects as standalone SVG (null when the clipboard is empty)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "clipboard.importSvg",
+      "label": "Load SVG into Clipboard",
+      "params": "{svg | dataBase64 (SVG or SVGZ bytes), center?: [x, y]} replace the clipboard with the SVG's objects (and the images, patterns and symbols they use), centred on `center` (default: the first artboard) → {count}; then run edit.pasteInPlace",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "clipboard.conflicts",
+      "label": "Swatch Conflicts",
+      "params": "{} → {swatches: [{name, document, clipboard, spot}]} the global or spot swatches the copied objects use whose name the active document gives another colour (`document`/`clipboard`: #rrggbb): Paste asks Merge or Add for each (pass the answer as edit.paste* {swatchConflict}). Pasting back into the document the objects came from raises none",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "clipboard.exportPng",
+      "label": "Clipboard as PNG",
+      "params": "{scale?: 1 (pixels per point, up to 64)} → {dataBase64, width, height (px)} the copied objects cropped to their visual bounds, transparent around them (dataBase64 null when the clipboard is empty)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "clipboard.exportPdf",
+      "label": "Clipboard as PDF",
+      "params": "{} → {dataBase64} a one-page PDF of the copied objects, the page their visual bounds (null when the clipboard is empty)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "clipboard.exportText",
+      "label": "Clipboard as Text",
+      "params": "{} → {text} the copied type objects' text, one object per line (null unless every copied object is type, or a group of type)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "clipboard.flavours",
+      "label": "Clipboard Formats",
+      "params": "{} → {flavours: [mime…]} what Copy offers other apps for the current clipboard, best first, by the Clipboard Handling preferences: text/plain (a type-only copy's text, else the SVG markup with copyAsSvg), image/svg+xml (copyAsSvg), application/pdf (copyAsPdf), image/png (always; PDF and PNG only for objects with an area); the app publishes them on Copy and Cut",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "clipboard.importImage",
+      "label": "Load Image into Clipboard",
+      "params": "{dataBase64 (PNG, JPEG, GIF, WebP, TIFF or BMP bytes), mime?: the type the system clipboard gave (an image/… type; the format is read from the bytes), center?: [x, y]} replace the clipboard with the image, embedded at 100% of its physical size (its resolution, else 72 ppi), centred on `center` (default: the first artboard) → {count, width, height (pt), pixelWidth, pixelHeight}; then run edit.paste",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "clipboard.importText",
+      "label": "Load Text into Clipboard",
+      "params": "{text, center?: [x, y]} replace the clipboard with point text of `text` (one paragraph per line; trailing line breaks dropped) in the default type style, centred on `center` (default: the first artboard) → {count}; then run edit.paste",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "clipboard.importPdf",
+      "label": "Load PDF into Clipboard",
+      "params": "{dataBase64, page?: 1, password? (an encrypted PDF), center?: [x, y]} replace the clipboard with the objects of one PDF page (with the images, patterns and swatches they use), centred on `center` (default: the first artboard) → {count, warnings}; then run edit.paste",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "recolor.colors",
+      "label": "Artwork Colors",
+      "params": "{} → {colors: [{key: colour identity (\"rgb 255 0 0\", \"cmyk 0 100 100 0\", \"gray 40\", \"lab 55 60 -40\"), hex, count, swatch?: the global swatch it is linked to}]} unique colours used by the selection (fills, strokes, gradient stops, text, mesh points and the tiles of pattern fills and strokes), most used first",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "recolor.apply",
+      "label": "Recolor Artwork",
+      "params": "{map: rows [{from: [colour keys (recolor.colors) or \"#rrggbb\" (every colour shown as that hex)], to: colour (hex, key, {c,m,y,k} or {l,a,b}) | null, exclude?: false (the row's colours are kept)}] | {\"key or #rrggbb\": colour, …} (one row per colour), method?: \"exact\" (default)|\"preserveTints\"|\"scaleTints\"|\"tintsShades\"|\"hueShift\" (how a row's colours take its new colour, relative to the row's darkest, average or most saturated colour), limitTo?: swatch library id or name, or \"document\" (the document's swatches): new colours snap to its nearest colour, group?: colour group rewritten with groupColors?: [colour] (default: the rows' new colours, in order, excluded rows left out), rename?: the group's new name, includeImages?: true, includePatterns?: true} recolour the selection (gradients, text, meshes, image pixels and pattern tiles included; each new colour keeps the model of the one it replaces) and the group, as one undo step → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "recolor.reduce",
+      "label": "Reduce Colors",
+      "params": "{colors?: n (rows; default: one per colour, with the tints of a global swatch in its row), method?: as recolor.apply, default scaleTints (picks each row's colour), preserve?: {white?: true, black?: true, grays?: false} (left out of the rows), limitTo?: as recolor.apply (new colours snap to it)} group the selection's colours into rows of similar colours (k-means in Lab, weighted by use) → {map: [{from: [keys, the row's colour first], to: key}], preserved: [keys], method}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "recolor.randomize",
+      "label": "Randomize Colors",
+      "params": "{map: rows as recolor.apply, order?: true (shuffle the new colours among the rows that aren't excluded), saturationBrightness?: false (random saturation and brightness, hue kept), seed?: 0} → {map: the rows with their new colours as keys}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.open",
+      "label": "Open Document",
+      "params": "{path} or {name, dataBase64}, PDF/.ai: pages?: \"2-3, 5\" (1-based, default all; one artboard each) | page?: n, cropTo?: bounding|art|crop (default)|trim|bleed|media (the box each artboard gets; bounding: the art's bounds), password? (encrypted PDFs; see document.pdfInfo), textAs?: text (default: point type per line, in the file's fonts by name; missing ones are listed in warnings) | outlines (glyph paths), layers?: true (default: optional content groups become layers with their visibility, print state and lock — art that is off comes in as a hidden layer; other art goes to a layer per page) | false (one layer per page, without the art that is off; Save then asks for a name), colorMode?: rgb|cmyk (the mode the document opens in, its colours converted as file.documentColorMode does; default: the file's — a PDF keeps CMYK, Gray and spot inks (spot swatches at a tint) and opens in CMYK when painted mostly in CMYK) → {index, title, format, warnings, restored, missingLinks, modifiedLinks, updatedLinks: [{name, path, ids}]}; any readable format (see document.formats): .vectorcraft/.drawcraft, .svg/.svgz, .pdf/.ai, .ait, PNG/JPEG/GIF/WebP/TIFF/BMP (an image opens as a document of its pixel size). A PDF/.ai/.ait or SVG saved with Preserve Editing restores the native document it carries (restored: true; a PDF only when no pages are picked), unless the file was changed elsewhere since or the data can't be read: then its artwork is imported and the first warning says why. Templates (native templates, .ait) open as a new untitled document; a restored .ai keeps its path (Save writes .ai again). Linked images are read from their files (looked for at their path, then relative to the document): missing ones show their saved preview (links.relink), modified ones are read again only with Preferences › Update Links: Automatically (else links.update). An SVG's <image> files (relative links from the SVG's folder) stay linked, SVG files become art, missing ones a placeholder in their box (a warning and missingLinks)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.serialize",
+      "label": "Serialize Document",
+      "params": "{format?: vectorcraft (default)|template|svg|svgz|pdf|png|jpg|webp|gif|png8|txt|dxf, …the format's options (see document.formats; SVG ones also as svg: {…}), selectedOnly?: false (the selected objects alone, in their layers), artboardContentOnly?: false (SVG/SVGZ: isolate one explicit artboard using native paint bounds; preserve locked content and whole dependency containers)} → {text, warnings} for svg (plus dataBase64, the file, when its encoding isn't UTF-8), else {dataBase64, warnings}; an SVG of several artboards also gives files: [{name, text}], linked images linked: [{name, dataBase64}]",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.export",
+      "label": "Export Document",
+      "params": "{path?, format?: svg|svgz|pdf|png|jpg|webp|gif|png8|txt|dxf|vectorcraft|template (default: from the path's extension, else png; png8 writes an indexed .png), selectedOnly?: false (the selected objects alone, in their layers), artboardContentOnly?: false (SVG/SVGZ: isolate one explicit artboard using native paint bounds; preserve locked content and whole dependency containers), artboard?: 0, artboards?: [i…], range?: \"1-3, 5\" | \"all\" (1-based; PDF writes one page per artboard, default all; SVG writes one file per artboard, {stem}-{artboard}.svg; raster formats write one artboard), useArtboards?: true (raster: one file per chosen artboard, default all, {stem}-{artboard}.{ext}; pdf: every page) | false (pdf/raster: the bounds of the visible art; SVG has it as an SVG option), raster: ppi?: 72 (pixels per inch, stored in the file; wins over scale), scale?: 1 (pixels per point), background?: transparent|white|black|\"#rrggbb\" (jpg: white when transparent), antiAlias?: none|art (default)|type (text snapped to pixels), interlaced?: false (png, Adam7), jpg: quality?: 90 (0–100), colorModel?: rgb|cmyk|gray, method?: baseline|optimized|progressive, scans?: 3 (3–5, progressive), embedIcc?: true, imageMap?: none|client|server (an HTML or NCSA map of the objects with a URL, written as <stem>.html / <stem>.map), gif/png8: colors?: 256 (2–256), reduction?: perceptual|selective (default)|adaptive|web|blackWhite|gray, dither?: none|diffusion (default)|pattern|noise, ditherAmount?: 100, transparency?: true, matte?: white|\"#rrggbb\"|none, interlaced?, webp: lossless?: true (lossy WebP isn't available yet: written lossless, with a warning), txt: the stories in stacking order (back to front; a thread once), encoding?: utf8|utf16 (with a byte order mark), lineEndings?: lf|crlf, selectionOnly?: false; SVG options flat or as svg: {styling, outlineText, images, objectIds, decimals, minify, responsive, useArtboards, preserveEditing, metadata, fewerTspans, hiddenLayers, encoding, profile, embedFonts} (see document.formats), …the PDF options of document.exportPdf, …the DXF options of document.exportDxf (useArtboards: one drawing per artboard)} → {path, format, bytes, warnings, files?: [path…] (several), linked?: [path…] (linked images, image maps)}; no path → {dataBase64, format, bytes, warnings, files?: [{name, dataBase64}], linked?: [{name, dataBase64}]}. Never changes the document's path",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.exportSelection",
+      "label": "Export Selection…",
+      "params": "{path?, format?: png|jpg|webp|svg|svgz|pdf (default: from the extension, else png), scale?: 1, …the format's options} the selected objects cropped to their bounds (template layers left out) → {path, bytes, bounds} (no path → {dataBase64, bounds})",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.exportForScreens",
+      "label": "Export for Screens",
+      "params": "{folder?, zip?: false (one store-only .zip of every file: no folder → {name, dataBase64, bytes, files: [name…]}; with a folder it is written there → {path, bytes, files}), artboards?: [index…] | range?: \"1-3\" (default all), fullDocument?: false (one file per format instead: a PDF of every artboard, other formats the bounds of all visible art, named after the document), includeBleed?: false (artboards grown by the document's bleed), subfolders?: false (each row's files in a sub-folder: its folder, else its size for raster (1x, 2x, 100w…) or its format (SVG, PDF)), preset?: mobile (PNG 1x, 2x, 3x) | density (PNG 0.75x–4x in ldpi…xxxhdpi sub-folders) instead of formats (turns subfolders on), formats?: [{format: png|png8|jpg|webp|gif|svg|svgz|pdf, scale?: 1 | \"2x\" | \"100w\" | \"100h\" | \"72ppi\", width?: px | height?: px | ppi? (raster only; width, then height, then ppi win over scale), suffix?: (raster default: @2x, @100w, @100h, none at 1x; vector formats drop size suffixes), folder?: (its sub-folder), quality?: (jpg 0–100), …the format's options (antiAlias, background, preset (pdf)…)}], settings?: {png|png8|jpg|webp|gif|svg|pdf: {…options for every row of that format}} (rows' own options win), prefix?, antiAlias?: none|art|type (raster rows without their own), openLocation?: (remembered; the app shows the files after exporting)} one file per artboard and format (a PDF holds its artboard alone; artboards with the same name, in any case, get -2, -3…; an unnamed one is Artboard-N) → {files: [path…]}; no folder → {files: [{name, dataBase64}]} (names include sub-folders: 2x/Icon@2x.png). The params are remembered in the document (document.exportSettings; not an undo step)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "command.batch",
+      "label": "Batch",
+      "params": "{label?, commands: [{command, params}]} run several commands as ONE undo step; stops at the first error and rolls back",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.formats",
+      "label": "File Formats",
+      "params": "{} → {formats: [{id, label, extensions, mime, read, write, raster, options: {name: {type, default, description}}}], readable: [id…], writable: [id…], openExtensions: [ext…], unsupported: [{id, label, extensions, hint}] (formats asked for that can be neither opened nor written, such as DWG and PICT, with what to use instead)}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.pdfInfo",
+      "label": "PDF Info",
+      "params": "{path} or {name?, dataBase64}, password?, thumbnail?: page (1-based), thumbnailSize?: 160 (px, longest side), cropTo?: crop (the thumbnail's box) → {pages, needsPassword, wrongPassword?, pageInfo: [{width, height (pt, as shown), rotation, boxes: {media, crop, bleed, trim, art: [x0, y0, x1, y1] (PDF space, pt)}}], thumbnail?: PNG dataBase64}; an encrypted PDF without its password → {pages: 0, needsPassword: true}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.exportForOffice",
+      "label": "Save for Office Documents…",
+      "params": "{path?, ppi?: 150 (72, 150, 300… pixels per inch), transparent?: false (else on white), artboard?: 0} the artboard as a PNG for office documents and slides → {path, bytes, width, height} (pixels); no path → {dataBase64, bytes, width, height}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.exportSettings",
+      "label": "Export for Screens Settings",
+      "params": "{} → {settings}: the document.exportForScreens params the document last exported with ({} when never; saved with the document, the dialog reopens on them)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.save",
+      "label": "Save Document",
+      "params": "{path?, format?: vectorcraft|template|pdf|svg|svgz|ai (default: the path's extension, else the document's own format), options?: {…the format's options, see file.formatOptions; default: as last saved}, svg?: {…SVG options} (SVG options may also be given flat; an SVG save keeps hidden layers, display:none, unless hiddenLayers is false), native (also flat): compress?: bool (gzip; default: the useCompression preference), version?: 3 (2 or 1: for older VectorCraft versions, never compressed), preview?: false (embed a PNG of the first artboard, at most 256 px), modified?: Unix seconds|null (the File Info modified date, and created date when there is none, a save to a file stamps; default now, recorded in the journal so a replay matches; null: leave the dates)} → {path, format, bytes, warnings, linked?: [path…] (images an SVG links to)}. Save writes one artboard, except a .ai file: a PDF-compatible file of every artboard carrying the native document (preserveEditing always on; PDF options flat or in options), which document.open restores exactly. Without a path it writes the document's own file in its own format: a document opened from or saved as SVG/PDF saves as that again (warnings name what the format loses). No path known (never saved, converted from an older version, or another format) → {dataBase64, format, name, folder?, warnings} and the document stays modified",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.saveAs",
+      "label": "Save As…",
+      "params": "{path?, format?: vectorcraft|template|pdf|svg|svgz|ai (default: the path's extension, else the document's own), options?, svg?, modified? (as document.save)} the document takes on the new path, name and format (except a template, which is always a copy) → {path, format, bytes, warnings}; no path → {dataBase64, format, name, folder?, warnings}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.saveCopy",
+      "label": "Save a Copy…",
+      "params": "{path?, format?, options?} (as file.saveAs) write a copy; the document keeps its path, title and modified state → {path, format, bytes, warnings}; no path → {dataBase64, format, name: \"<name> copy.<ext>\", folder?, warnings}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.saveAsTemplate",
+      "label": "Save as Template…",
+      "params": "{path?, compress?, version?, preview? (as document.save)} a native template (.vctemplate) that opens as a new untitled document; the document is unchanged → {path, format, bytes, warnings}; no path → {dataBase64, format, name: \"<name> template.vctemplate\", folder: the Templates folder (preference templatesFolder), warnings}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.newFromTemplate",
+      "label": "New from Template…",
+      "params": "{path} or {name, dataBase64}: open a template (or any readable file) as a new untitled document → {index, title, format, warnings}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.revert",
+      "label": "Revert",
+      "params": "{} discard the changes: reload the saved file into the same tab (history cleared; the tab keeps its place and view). Saved, modified documents only; if the file can't be read the document is left as it is → {path}. The app asks first (a confirm dialog) unless confirmed: true",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.formatOptions",
+      "label": "Format Options",
+      "params": "{format?: a writable format id (default: the document's own)} → {id, label, extensions, mime, read, write, raster, options: {name: {type, default, description, value}}, saveFormats: [{id, label, extensions}]}; value = the document's option as last saved in that format, else the default",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "shape.rectangle",
+      "label": "Rectangle",
+      "params": "{x, y, width, height, radius?: pt} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.ellipse",
+      "label": "Ellipse",
+      "params": "{x, y, width, height} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.polygon",
+      "label": "Polygon",
+      "params": "{cx, cy, radius, sides=6, rotation?: deg} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.star",
+      "label": "Star",
+      "params": "{cx, cy, radius1, radius2, points=5, rotation?: deg} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.flare",
+      "label": "Flare",
+      "params": "{cx, cy, diameter=100, opacity=50 (%), brightness=30 (%), growth=20 (%), fuzziness=50 (%), rays=15, longest=300 (%), rayFuzziness=100 (%), x2?, y2? (ring end; else pathLength at direction), pathLength=300, rings=10, largest=50 (%), direction=45 (deg), seed?} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.line",
+      "label": "Line Segment",
+      "params": "{x1, y1, x2, y2} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.spiral",
+      "label": "Spiral",
+      "params": "{cx, cy, radius, decay=80 (%), segments=10, clockwise?} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.arc",
+      "label": "Arc",
+      "params": "{x1, y1, x2, y2, closed?} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.rectangularGrid",
+      "label": "Rectangular Grid",
+      "params": "{x, y, width, height, rows=5, columns=5} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shape.polarGrid",
+      "label": "Polar Grid",
+      "params": "{x, y, width, height, concentric=5, radial=5} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.create",
+      "label": "Create Path",
+      "params": "{anchors: [{x, y, in?: [x,y], out?: [x,y]}], closed?: bool, d?: SVG path data} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.drawMode",
+      "label": "Drawing Mode",
+      "params": "{mode?: normal|behind|inside} (no param cycles; inside needs one selected path)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.create",
+      "label": "Create Text",
+      "params": "{x, y, text, size?: pt, font?: family, style?, color?, area?: {width, height}} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.transform",
+      "label": "Transform",
+      "params": "{matrix: [a,b,c,d,e,f], copy?: bool, ids?, strokes?: bool, corners?: bool} apply an affine to the selection (or ids); strokes/corners: Scale Strokes & Effects / Scale Corners (default: the preferences)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.move",
+      "label": "Move…",
+      "params": "{dx, dy, copy?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.rotate",
+      "label": "Rotate…",
+      "params": "{angle: deg (counter-clockwise), origin?: [x,y], copy?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.scale",
+      "label": "Scale…",
+      "params": "{sx: %, sy?: %, origin?: [x,y], copy?, strokes?: bool (Scale Strokes & Effects: stroke weights, dashes and effect distances scale; off keeps them, type strokes included), corners?: bool (Scale Corners: live corner radii scale)} (strokes/corners default to the preferences)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.reflect",
+      "label": "Reflect…",
+      "params": "{axis: \"vertical\"|\"horizontal\"|deg, origin?, copy?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.shear",
+      "label": "Shear…",
+      "params": "{angle: deg, axis?: \"horizontal\"|\"vertical\", origin?, copy?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.transformAgain",
+      "label": "Transform Again",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.nudge",
+      "label": "Nudge",
+      "params": "{dx: -1|0|1, dy: -1|0|1, big?: bool (×10), copy?: bool} arrow-key nudge by the keyboard increment",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.arrange.bringToFront",
+      "label": "Bring to Front",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.arrange.bringForward",
+      "label": "Bring Forward",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.arrange.sendBackward",
+      "label": "Send Backward",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.arrange.sendToBack",
+      "label": "Send to Back",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.arrange.sendToCurrentLayer",
+      "label": "Send to Current Layer",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.group",
+      "label": "Group",
+      "params": "{} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.ungroup",
+      "label": "Ungroup",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.lock",
+      "label": "Selection",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.unlockAll",
+      "label": "Unlock All",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.hide",
+      "label": "Selection",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.showAll",
+      "label": "Show All",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.compoundPath.make",
+      "label": "Make",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.compoundPath.release",
+      "label": "Release",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.clippingMask.make",
+      "label": "Make",
+      "params": "{} the topmost selected object (a path, compound path or text, which loses its paint) clips the others: compound holes, even-odd fills and glyph outlines clip as drawn. Paint given to the clipping path later (paint commands with its id) shows: its fill behind the clipped art, its stroke over it → {id} of the clip group",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.clippingMask.release",
+      "label": "Release",
+      "params": "{} the selected clip groups become plain groups; their clipping path (path, compound path or text) stays, with the paint it has (none unless painted after Make)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.clippingMask.editContents",
+      "label": "Edit Contents",
+      "params": "{} select the clipped art of the selected clip groups → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.clippingMask.editMask",
+      "label": "Edit Clipping Path",
+      "params": "{} select the clipping paths of the selected clip groups → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.isolate",
+      "label": "Enter Isolation Mode",
+      "params": "{id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.exitIsolation",
+      "label": "Exit Isolation Mode",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.setProps",
+      "label": "Object Properties",
+      "params": "{ids?|id?, name?, visible?, locked?, opacity?: 0..100, blend?: \"Multiply\"…, isolate?, knockout?: \"on\"|\"off\"|\"neutral\"|bool (true = on, false = neutral), knockoutShape?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.align",
+      "label": "Align",
+      "params": "{horizontal?: \"left\"|\"center\"|\"right\", vertical?: \"top\"|\"center\"|\"bottom\", to?: \"selection\"|\"artboard\"|\"key\", bounds?: \"preview\"|\"geometric\" (default: the Use Preview Bounds preference; preview bounds take in strokes)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.distribute",
+      "label": "Distribute",
+      "params": "{horizontal?: \"left\"|\"center\"|\"right\", vertical?: \"top\"|\"center\"|\"bottom\", bounds?: \"preview\"|\"geometric\" (default: the Use Preview Bounds preference; preview bounds take in strokes)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.distributeSpacing",
+      "label": "Distribute Spacing",
+      "params": "{axis: \"horizontal\"|\"vertical\", spacing?: pt, bounds?: \"preview\"|\"geometric\" (default: the Use Preview Bounds preference; preview bounds take in strokes)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.setBounds",
+      "label": "Set Bounds",
+      "params": "{x?, y?, width?, height?, reference?: 0..8 (9-point grid), proportional?, strokes?, corners?} (Transform panel; with Use Preview Bounds the values measure the visual bounds; strokes/corners as object.scale)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.expandShape",
+      "label": "Expand Shape",
+      "params": "{} convert live shapes to plain paths",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.setLiveShape",
+      "label": "Live Shape Properties",
+      "params": "{id?, radius?: pt (all corners), sides?: n}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.appendAnchor",
+      "label": "Add Anchor (Pen)",
+      "params": "{id, x, y, in?: [x,y], out?: [x,y]} append to the end of the last open subpath",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.close",
+      "label": "Close Path",
+      "params": "{id, in?: [x,y] (handle into the first anchor), independent?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.moveAnchors",
+      "label": "Move Anchors",
+      "params": "{dx, dy} move direct-selected anchors (whole paths if fully selected)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.setHandle",
+      "label": "Move Direction Handle",
+      "params": "{id, subpath, anchor, which: \"in\"|\"out\", x, y, independent?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.setAnchors",
+      "label": "Set Anchors",
+      "params": "{id, subpaths: [{anchors: [{x,y,in?,out?}], closed}]} replace a path's geometry",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.reverse",
+      "label": "Reverse Path Direction",
+      "params": "{ids?, reversed?: bool (true: every subpath runs counter-clockwise on screen, false: clockwise, the Attributes panel's Reverse Path Direction On / Off; omitted: flip each path)} the paths in ids or the selection (groups and compound paths: the paths inside), as one undo step → {changed: paths}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.join",
+      "label": "Join",
+      "params": "{} join two open paths' nearest endpoints, or close a single open path",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.average",
+      "label": "Average…",
+      "params": "{axis?: \"horizontal\"|\"vertical\"|\"both\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.convertAnchors",
+      "label": "Convert Anchor Points",
+      "params": "{to: \"corner\"|\"smooth\"} (Control bar convert buttons)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.deleteAnchors",
+      "label": "Remove Anchor Points",
+      "params": "{} delete direct-selected anchors",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.reshape",
+      "label": "Reshape",
+      "params": "{id, x, y, dx, dy, tol=3, radius?} Reshape tool: grab the path at (x, y) (adding an anchor there unless one is within tol) and drag it by (dx, dy); nearby anchors follow with a smooth falloff over radius (default: half the subpath's size)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.insertAnchor",
+      "label": "Add Anchor Point",
+      "params": "{id, subpath, segment, t: 0..1}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.cutAtAnchors",
+      "label": "Cut Path at Selected Anchor Points",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.all",
+      "label": "All",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.allOnArtboard",
+      "label": "All on Active Artboard",
+      "params": "{artboard?: index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.none",
+      "label": "Deselect",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.reselect",
+      "label": "Reselect",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.inverse",
+      "label": "Inverse",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.nextAbove",
+      "label": "Next Object Above",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.nextBelow",
+      "label": "Next Object Below",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.set",
+      "label": "Select Objects",
+      "params": "{ids: [id…]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.add",
+      "label": "Add to Selection",
+      "params": "{ids: [id…]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.toggle",
+      "label": "Toggle Selection",
+      "params": "{id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.key",
+      "label": "Set Key Object",
+      "params": "{id?} (none clears)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.anchors",
+      "label": "Select Anchors",
+      "params": "{id, anchors: [[subpath, anchor]…], mode: \"set\"|\"add\"|\"toggle\"}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.anchorsMany",
+      "label": "Select Anchors",
+      "params": "{items: [{id, anchors}], add?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.fillColor",
+      "label": "Fill Color",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.strokeColor",
+      "label": "Stroke Color",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.strokeWeight",
+      "label": "Stroke Weight",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.fillAndStroke",
+      "label": "Fill & Stroke",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.opacity",
+      "label": "Opacity",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.blendingMode",
+      "label": "Blending Mode",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.appearance",
+      "label": "Appearance",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.shapeType",
+      "label": "Shape",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.allOnSameLayers",
+      "label": "All on Same Layers",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.clippingMasks",
+      "label": "Clipping Masks",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.textObjects",
+      "label": "All Text Objects",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.strayPoints",
+      "label": "Stray Points",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.openPaths",
+      "label": "Open Paths",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.graphicStyle",
+      "label": "Graphic Style",
+      "params": "{} the objects linked to the graphic style the first selected object is linked to",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.appearanceAttribute",
+      "label": "Appearance Attribute",
+      "params": "{item?: appearance item index} the objects sharing an appearance attribute of the first selected object: its fill or stroke `item` (default: the Appearance panel's active item), else its first effect, else its topmost fill",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.magicWand",
+      "label": "Magic Wand",
+      "params": "{id, mode?: set|add|subtract} select objects similar to `id` by the Magic Wand settings → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "magicWand.set",
+      "label": "Magic Wand Options",
+      "params": "{fillColor?, fillTolerance?: 0-255, strokeColor?, strokeTolerance?: 0-255, strokeWeight?, weightTolerance?: pt, opacity?, opacityTolerance?: %, blendingMode?, reset?: bool} → the settings",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "magicWand.options",
+      "label": "Magic Wand Settings",
+      "params": "{} → the Magic Wand settings",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "paint.setFill",
+      "label": "Fill",
+      "params": "{color?: \"#rrggbb\"|[r,g,b]|{c,m,y,k}|{gray}|{l,a,b} (CIE Lab), none?: true, swatch?: name (a global or spot colour stays linked, so swatch edits recolour it; a tint swatch links to its base at its tint; a gradient swatch is recorded as the gradient's swatch and fits each object, keeping its aspect; the built-in \"[Registration]\" prints on every plate), tint?: 0..100 (% of a global or spot `swatch`; default 100, or a tint swatch's own), gradient?: {kind?: linear|radial|freeform, stops?: [{offset 0..1, color, opacity? 0..1 (or 0..100), midpoint? 0.13..0.87, swatch?: global or spot colour (or tint) swatch the stop links to (its colour comes from the swatch), tint?: 0..100}] (at least 2; default white→black), angle?: deg, start?: [x,y], end?: [x,y] (the vector in document coordinates, both or neither; type objects keep it in text space), aspect?: % (radial; without start/end the gradient is placed on each object's bounds), focal?: [x,y] (radial, with start/end: the focal point, where the first stop sits), swatch?: linked gradient swatch name}, item?: appearance item index|null (omitted: the Appearance panel's active item if it is a fill, else the top fill), ids?, focus?: true (false keeps the active proxy), keepModel?: false (in a CMYK document, RGB colours and gradient stops are stored as CMYK unless true; Gray stays Gray)} sets the selection's fill and the default (new art fits a gradient to itself)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.setStroke",
+      "label": "Stroke",
+      "params": "same as paint.setFill, for the stroke (item?: the stroke item to set)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.swap",
+      "label": "Swap Fill and Stroke",
+      "params": "{ids?} swap the fill and stroke of the selection (type too) and of the defaults",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.default",
+      "label": "Default Fill and Stroke",
+      "params": "{ids?} white fill and 1 pt black stroke for the selection and the defaults; type gets black fill and no stroke",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.toggleActive",
+      "label": "Toggle Fill/Stroke Focus",
+      "params": "{fill?: bool (true: bring the Fill proxy forward, false: the Stroke proxy; omitted: swap which is in front)} → {fillActive}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "paint.none",
+      "label": "None",
+      "params": "{} set the active proxy (fill or stroke) to None",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.set",
+      "label": "Transparency",
+      "params": "{ids?|id?, opacity?: 0..100, blend?: name, isolate?, knockout?: \"on\"|\"off\"|\"neutral\"|bool (true = on, false = neutral), knockoutShape?: bool, item?: appearance item index|null} for `ids`, the selection, or the object whose opacity mask is being edited; opacity and blend go to the targeted fill/stroke item (omitted: the Appearance panel's active item, else the objects)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.set",
+      "label": "Stroke Options",
+      "params": "{weight?: pt, cap?: butt|round|square, join?: miter|round|bevel, miterLimit?, align?: center|inside|outside, dash?: [d,g,…]|null (a 0 dash with a round or projecting cap draws dots or squares; a new pattern keeps the current offset and alignment), dashOffset? (exact dashes only), alignDashes?: bool (true: dashes fitted to corners and path ends, every run between them holding whole periods with a dash centred on each corner and end; false, the default for a new pattern: exact lengths), startArrow?, endArrow?: Arrow|ArrowOpen|Barbed|Concave|DoubleArrow|HalfArrowLeft|HalfArrowRight|Chevron|Feather|Swallowtail|Triangle|TriangleOpen|TriangleReverse|TriangleBar|Kite|Leaf|Drop|Circle|CircleOpen|HalfCircle|Oval|Target|Square|SquareOpen|Tag|TagOpen|Diamond|DiamondOpen|Hexagon|HexagonOpen|Star|Cross|Plus|Bar|DoubleBar|DotOnBar|Slash|DoubleSlash|Bracket|Fork|null (HalfArrowLeft/Right: one barb, left or right of the direction the head points), arrowAlign?: \"extend\" (tip past the end point, default)|\"tip\" (tip on the end point; the stroke is shortened), profile?: \"uniform\"|\"lens\"|\"taperStart\"|\"taperEnd\"|\"pinch\"|\"teardrop\"|\"wave\"|a saved profile's name (stroke.widthProfile.list), item?: stroke item index|null (omitted: the Appearance panel's active item if it is a stroke, else the top stroke, created when missing), ids?} Without a stroke item, type takes weight, cap, join, miterLimit and the dash options as its characters' stroke (every run; text.setRangeStyle `strokeOptions` styles a range), and images and symbol instances (also in groups) are left alone. With nothing selected (and no ids) they set up the next object drawn (appearance.newArt; weight always does)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.setAdvanced",
+      "label": "Stroke Options",
+      "params": "{arrowScale?: [start %, end %], swapArrows?: bool, flipProfile?: \"along\"|\"across\", brush?: name|null, item?: stroke item index|null, ids?} Stroke panel extras (with nothing selected, all but brush set up the next object drawn)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthProfile.add",
+      "label": "Add to Profiles",
+      "params": "{name?} save the selected stroke's variable width to the Profile list (kept with the preferences) under `name` (default \"Width Profile N\"; unique, not a built-in's) → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthProfile.delete",
+      "label": "Delete Profile",
+      "params": "{name?} remove a saved profile from the Profile list (default: the selected stroke's); built-in profiles can't be deleted, and strokes keep their widths → {deleted}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthProfile.reset",
+      "label": "Reset Profiles",
+      "params": "{} remove every saved profile, leaving the built-ins → {removed: count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthProfile.list",
+      "label": "Width Profiles",
+      "params": "{} → {profiles: [{id (stroke.set `profile`), label, builtIn, points: [[t, left, right]…]}], current: the selected stroke's profile id or name (nothing selected: the next object drawn's), \"custom\" when it isn't listed, null without a stroke}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "appearance.addFill",
+      "label": "Add New Fill",
+      "params": "{ids?, target?: \"object\"|\"contents\"} add a fill on top of each selected object's own stack (a copy of its top fill; type without one: its characters' fill; else the default fill)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.addStroke",
+      "label": "Add New Stroke",
+      "params": "{ids?, target?} add a stroke on top of each selected object's own stack (a copy of its top stroke, else the default stroke)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.clear",
+      "label": "Clear Appearance",
+      "params": "{ids?, target?} leave each object one empty fill and stroke (None; a group none of its own) and reset its opacity and blend mode",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.reduceToBasic",
+      "label": "Reduce to Basic Appearance",
+      "params": "{ids?, target?} keep only the topmost visible fill and stroke, without their own opacity, blend mode or effects (a group keeps no rows it lacked), and drop the object's effects",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.setItem",
+      "label": "Appearance Item",
+      "params": "{index: paint-order item index, ids? (default: the selection), target?: \"object\"|\"contents\", opacity?: 0..100, blend?: name, visible?: bool, weight?: pt (strokes), color?|none?|swatch?|gradient? (as paint.setFill)} edit one fill/stroke of each target object's own appearance stack",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.removeItem",
+      "label": "Remove Item",
+      "params": "{index | indices: [..] (paint-order item indices), ids?, target?} remove those fills/strokes from each target object's own stack",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.addEffect",
+      "label": "Add Effect",
+      "params": "same as effect.apply (an alias): {effect: id, params?: {…}, item?: appearance item index|null, ids?, target?} → {ids, index, item}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.duplicateItem",
+      "label": "Duplicate Item",
+      "params": "{index | indices: [..] (paint-order item indices), to?: paint-order index of the copy (one `index` only; default: right above it, as Alt-dragging a row places it), ids?, target?} copy fills/strokes with their effects",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.moveItem",
+      "label": "Reorder Appearance Item",
+      "params": "{from: paint-order item index | \"contents\", to, contents?: count, ids?, target?} move fill/stroke `from` to paint-order index `to`; on a group, layer or type the Contents (Characters) row stays between the same items (a moved item landing next to it keeps its side) unless `contents` says how many items paint below it afterwards. from \"contents\": move that row so `to` items paint below the members (characters) and the rest above → {index: where the item landed | contents: the row's slot}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.copyFrom",
+      "label": "Eyedropper",
+      "params": "{source: id, ids?, pickUp?, apply? (trees as eyedropper.setOptions, merged over the Eyedropper Options for this call), reverse?: bool, append?: bool} copy the attributes both picked up and applied (by default the whole appearance stack, opacity and blend mode, and from type to type the character and paragraph attributes) from `source` to ids (default: the selection), the fill, stroke and weight also to the paint defaults; `reverse` (Alt-click) copies from the first selected object (or ids) onto `source` instead; `append` (Shift+Alt-click) adds the source's fills, strokes and effects on top of each target's stack; placed gradients land at the same place relative to each target's bounds (defaults: fitted to new art) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.setActiveItem",
+      "label": "Select Appearance Item",
+      "params": "{index: paint-order item index in the first selected object's stack | null} make that fill/stroke row the target of the paint.setFill/setStroke, stroke.set/setAdvanced, paint.editGradient/setGradientGeom, transparency.set and effect.* calls that omit `item` (a fill row brings the Fill proxy forward, a stroke row the Stroke proxy); null or any selection change clears it → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.showAllHidden",
+      "label": "Show All Hidden Attributes",
+      "params": "{ids?, target?} make every hidden fill, stroke and effect (the object's and each item's) of each selected object visible again; errors when nothing is hidden → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.targetContents",
+      "label": "Target Contents",
+      "params": "{ids?} select the members of the selected groups and layers (or `ids`), as double-clicking the Appearance panel's Contents row does: the panel then lists, and appearance edits change, their own appearance; errors when none has members → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.transfer",
+      "label": "Move Appearance",
+      "params": "{source: id, target: id, copy?: bool} give `target` (a layer, group or object) the appearance (fills, strokes, effects) and transparency (opacity, blend mode, isolation, knockout) of `source`, as dragging a target circle onto another in the Layers panel does; the source is left with a cleared appearance (as appearance.clear) unless `copy` (Alt-drag). Opacity masks stay; placed gradients keep their place relative to each object's bounds → {source, target}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.apply",
+      "label": "Apply Graphic Style",
+      "params": "{name, add?: bool, ids? (layers too), target?: \"object\"|\"contents\"} give the objects (default: the selection; a group or layer itself, its fills and strokes painting its members and its effects applying to them as one piece; target contents: the objects inside instead) the style's appearance, opacity, blend mode, isolate and knockout, and link them to it (placed gradients land at the same place relative to each object's bounds); add: true (Alt-click) adds its fills, strokes and effects on top of the existing appearance instead and unlinks. With nothing selected (and no ids) the next object drawn takes the style instead (see appearance.newArt) → {newArt: true}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.new",
+      "label": "New Graphic Style",
+      "params": "{name?, id?} a style from object `id` or the first selected object: its appearance, opacity, blend mode, isolate and knockout (a group without fills or strokes of its own lends its topmost object's, type its characters'; placed gradients are kept relative to its bounds); links the object. Names are made unique → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.delete",
+      "label": "Delete Graphic Style",
+      "params": "{name} | {names: [name…]} delete styles; their objects keep their look but are unlinked",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.duplicate",
+      "label": "Duplicate Graphic Style",
+      "params": "{name} → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.list",
+      "label": "List Graphic Styles",
+      "params": "{} → {styles: [{id, name, fill, stroke, strokeWidth, fills, strokes, effects: [effect id…], opacity: 0..100, blend, isolate, knockout: \"on\"|\"off\"|\"neutral\", linked: [object ids]}], selected: the style the first selected object is linked to, or null, overrideCharColor}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.redefine",
+      "label": "Redefine Graphic Style",
+      "params": "{name?, id?} replace the style (default: the one the object was last linked to) with the look of object `id` or the first selected object; the objects still linked to it update, and that object becomes linked → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.breakLink",
+      "label": "Break Link to Graphic Style",
+      "params": "{ids?} unlink the objects (default: the selection) from their graphic style; they keep their look",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.rename",
+      "label": "Rename Graphic Style",
+      "params": "{name, to} (Graphic Style Options; names are unique and linked objects stay linked) → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.unused",
+      "label": "Select All Unused",
+      "params": "{} → {names: [the styles no object is linked to]} (the panel selects them)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.sortByName",
+      "label": "Sort by Name",
+      "params": "{} sort the styles by name (the Default Graphic Style stays first)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.merge",
+      "label": "Merge Graphic Styles",
+      "params": "{names: [name…] (two or more), name?} add a style combining the styles' fills, strokes and effects (each style's on top of the ones before it) with the first one's opacity, blend mode, isolate and knockout → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.move",
+      "label": "Move Graphic Style",
+      "params": "{name, to: index} move the style to position `to` of the list (0 = first, clamped), as dragging it in the Graphic Styles panel does",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.setOptions",
+      "label": "Graphic Styles Options",
+      "params": "{overrideCharColor?: bool} Override Character Color (the preference `overrideCharColor`, on by default): applying a style to type replaces its characters' fill and stroke with the style's fills and strokes → {overrideCharColor}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "swatch.new",
+      "label": "New Swatch",
+      "params": "{name?, color? | colors?: [colour] (one swatch each, in one undo step) | swatch? | gradient? | pattern?: name (default: the current fill), tint?: 0..100 (% of the global or spot `swatch`, or of the one the current fill links to), mode?: \"gray\"|\"rgb\"|\"hsb\"|\"lab\"|\"cmyk\"|\"web\" (convert the colour; lab: CIE L*a*b*, how spot colours are usually defined), global?, spot? (a spot colour, always global), group?: colour group name (solid colours only; default: ungrouped)} save a colour, gradient or pattern as a swatch. A tint of a global or spot colour (below 100%, without mode, global or spot) becomes a tint swatch, \"Name 40%\", linked to its base: it follows edits to the base and applies as that tint of it. Names are unique (\"Sky 2\"); a colour's default name is its values (\"C=10 M=20 Y=30 K=0\", \"R=255 G=128 B=0\", \"Gray K=40\", \"L=55 a=60 b=40\") → {name, names: [every new swatch]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.delete",
+      "label": "Delete Swatch",
+      "params": "{name? | names?: [swatch or colour group names] (a group goes with its swatches), unlink?: true (art using a deleted global swatch keeps its colour, unlinked; false keeps the stale link)} delete in one undo step → {deleted, unlinked: paints unlinked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.newGroup",
+      "label": "New Color Group",
+      "params": "{name?, swatches?: [names] (solid colours move into the group; gradients, patterns and None stay), colors?: [colour] (added as new swatches), fromArtwork?: false (add the unique colours of the selected art: fills, strokes, text, gradient stops and mesh points; a colour linked to a global swatch moves that swatch into the group), toGlobal?: true (with fromArtwork: the new swatches are global and the selected art's matching unlinked colours link to them), includeTints?: false (with fromArtwork: tints of global swatches also get swatches of their own)} → {name, swatches: [names in the group], linked: paints linked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.duplicate",
+      "label": "Duplicate Swatch",
+      "params": "{name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.sortByName",
+      "label": "Sort by Name",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.edit",
+      "label": "Swatch Options",
+      "params": "{name, newName?, color? (e.g. {l, a, b} for a Lab colour), mode?: \"gray\"|\"rgb\"|\"hsb\"|\"lab\"|\"cmyk\"|\"web\" (convert the colour), global?, spot? (spot colours are always global), paint?: paint.setFill params ({color}, {gradient}, {swatch} or {pattern}) replacing the swatch's colour, gradient or pattern with one of the same kind} edit a swatch in any colour group, as one undo step. Fills, strokes, text, gradient stops and tint swatches linked to a global swatch take its new colour (at their own tint) and name; turning Global off unlinks them (they keep their colour). Colour, mode and spot apply to solid colours only; a tint swatch only takes a new name (edit its base) → {name, relinked: paints changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.list",
+      "label": "Swatches",
+      "params": "{group?: name (only that colour group's swatches)} → {swatches: [{name, kind: \"none\"|\"color\"|\"gradient\"|\"pattern\", group, global, spot, color?, hex?, tintOf?: base swatch of a tint swatch, tint?: its %, gradient?, pattern?}] (the built-in [Registration] after None: it prints on every plate and can't be edited, moved or deleted), groups: [{name, swatches: [names]}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.move",
+      "label": "Move Swatch",
+      "params": "{name? | names?: [swatch names, in order; or colour group names to reorder the groups], to?: index in the destination (they go before the swatch or group now there; default: the end), group?: destination colour group (default: the ungrouped swatches; groups hold solid colours only)} reorder swatches or move them into or out of colour groups, as one undo step → {moved}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.addUsedColors",
+      "label": "Add Used Colors",
+      "params": "{selection?: false (only the selected art's colours; default: all the art's), global?: false (the new swatches are global and the matching unlinked colours in that art link to them)} add a swatch for each colour used (fills, strokes, text, gradient stops, mesh points) that no solid swatch has yet, as one undo step → {added: [names], linked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.unused",
+      "label": "Select All Unused",
+      "params": "{} → {names: [the swatches nothing uses, in panel order]}: a colour is used when a paint links to it or an unlinked paint, gradient stop or mesh point has its colour; a gradient when a gradient links to it or has its stops; a pattern when it fills or strokes anything (art, symbols, pattern tiles and graphic styles count). None is never listed",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.merge",
+      "label": "Merge Swatches",
+      "params": "{names: [two or more solid-colour swatches]} keep the first (its name and colour) and delete the others; paints linked to them take its colour and link to it (or unlink when it isn't global), as one undo step → {name, merged: [deleted names], relinked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.ungroup",
+      "label": "Ungroup Color Group",
+      "params": "{name: colour group} move its swatches to the end of the ungrouped swatches and remove the group, as one undo step → {swatches: [names]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.sortByKind",
+      "label": "Sort by Kind",
+      "params": "{} order the swatches of each list by kind (None first, then process colours, spot colours, gradients, patterns; colour groups stay after them), keeping their order within a kind, as one undo step",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.spotOptions",
+      "label": "Spot Colors",
+      "params": "{useLab?: bool (omitted: unchanged)} the document's Spot Colors options: spot colours defined in Lab show, print and export from their Lab values (true, the default: PDF Separation spaces get a Lab alternate) or from their working-CMYK equivalents (false: a DeviceCMYK alternate, matching older files). Art, gradient stops and tint swatches linked to Lab spot swatches take the chosen colour at their tint, as one undo step → {useLab, relinked: paints changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.editGroup",
+      "label": "Edit Color Group",
+      "params": "{group: colour group, colors: [colour] (hex, key, {c,m,y,k} or {l,a,b}; the group's swatches take them in order, extra colours become new swatches, swatches past the end are removed; built-in swatches can't change), rename?: new group name} rewrite a colour group as one undo step; art linked to its global swatches takes their new colours (and keeps its colour, unlinked, when its swatch goes) → {name, swatches: [names], relinked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.editGradient",
+      "label": "Gradient",
+      "params": "{stroke?: bool (default: the targeted item's kind, else the active proxy), kind?: linear|radial|freeform (freeform places points on each object, coloured along the stops), mode?: points|lines (freeform: how the Gradient tool adds points), stops?: [{offset 0..1, color? (needed without swatch), opacity? 0..1 (or 0..100), midpoint? 0.13..0.87, swatch?: colour swatch name (a global or spot colour or tint swatch links the stop, so swatch edits recolour it and a spot stop prints on its plate; a process colour just gives its colour), tint?: 0..100 (% of the linked swatch; default 100, or a tint swatch's own)}] (at least 2; a freeform gradient's points are recoloured along them), angle?: deg, aspect?: %, reverse?: bool, item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind), ids?, strokeMode?: within|along|across (strokes only: the gradient lies on the page and shows through the stroke, runs from the start of each subpath to its end, or runs from the stroke's left edge to its right all along it; with nothing selected, for the next object drawn; type characters' own strokes always paint within)} edit the gradient in place (keeps its placement); solid/none paints become the default gradient",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.setGradientGeom",
+      "label": "Gradient Vector",
+      "params": "{start?: [x,y], end?: [x,y] (document coordinates; both or neither: omitted, the vector stays), aspect?: % (radial: the extent ellipse's height / width; default: kept), focal?: [x,y] (document coordinates) | null (radial: the focal point, where the first stop sits, pulled inside the extent ellipse; null centres it; default: it keeps its place in the ellipse), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (alias: index; omitted: the Appearance panel's active item when it is of the edited kind)} set the gradient vector, aspect ratio and focal point (solid paints become the default gradient; type objects set it on their runs, in text space)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "gradient.selectStop",
+      "label": "Select Gradient Stop",
+      "params": "{index: stop index (0 = the start) | null to clear} select a stop of the gradient behind the active proxy (the first selected object's, else the default paint): the stop the Gradient tool's annotator, the Gradient and Color panels and Delete/arrow keys act on → {index}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "transparency.makeOpacityMask",
+      "label": "Make Opacity Mask",
+      "params": "{ids?, clip?, invert?} the topmost of the selected objects (or of `ids`) becomes the mask of the others (grouped if several). One object gets an empty mask and enters mask editing: draw the mask, then transparency.stopEditingOpacityMask → {id, editing}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.releaseOpacityMask",
+      "label": "Release Opacity Mask",
+      "params": "{id?|ids?} put the mask art back above each masked object (default: the selection, or the object whose mask is being edited, which leaves mask editing)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.disableOpacityMask",
+      "label": "Disable Opacity Mask",
+      "params": "{id?|ids?} keep the mask but stop applying it",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.enableOpacityMask",
+      "label": "Enable Opacity Mask",
+      "params": "{id?|ids?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.unlinkOpacityMask",
+      "label": "Unlink Opacity Mask",
+      "params": "{id?|ids?} the object moves without its mask",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.linkOpacityMask",
+      "label": "Link Opacity Mask",
+      "params": "{id?|ids?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.setOpacityMask",
+      "label": "Opacity Mask Options",
+      "params": "{id?|ids?, clip?, invert?, disabled?, linked?} change the opacity masks of `ids`, the selection, or the object whose mask is being edited",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.toggleNewMasksClipping",
+      "label": "New Opacity Masks Are Clipping",
+      "params": "{value?} → {value}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "transparency.toggleNewMasksInverted",
+      "label": "New Opacity Masks Are Inverted",
+      "params": "{value?} → {value}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "transparency.opacityMaskInfo",
+      "label": "Opacity Mask Info",
+      "params": "{id?|ids?} → [{id, clip, invert, disabled, linked, art}] the opacity masks of `ids`, the selection, or the object whose mask is being edited",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.info",
+      "label": "Transparency Info",
+      "params": "{id?|ids?} → {ids, opacity: 0..100, blend, isolate, knockout: \"on\"|\"off\"|\"neutral\", knockoutShape, editingMask, pageIsolatedBlending, pageKnockoutGroup} the Transparency panel's values for `ids`, the selection, or the object whose mask is being edited. A value is null where those objects differ (or there are none); editingMask is the id of the object whose mask is being edited, or null; the page values are the document's",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.togglePageIsolatedBlending",
+      "label": "Page Isolated Blending",
+      "params": "{value?} make the page an isolated group (default: toggle): blend modes of top-level objects don't blend with what lies under the page; saved with the document and written to PDF → {value}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.togglePageKnockoutGroup",
+      "label": "Page Knockout Group",
+      "params": "{value?} make the page a knockout group (default: toggle): its layers (the contents of neutral layers) hide what they cover instead of showing it through their transparency; saved with the document and written to PDF → {value}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.new",
+      "label": "New Layer…",
+      "params": "{name?} → {id} (above the current layer)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.newSublayer",
+      "label": "New Sublayer…",
+      "params": "{parent?: id, name?} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.delete",
+      "label": "Delete Layer",
+      "params": "{id?} (default: current layer)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.duplicate",
+      "label": "Duplicate Layer",
+      "params": "{id?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setCurrent",
+      "label": "Set Current Layer",
+      "params": "{id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.setProps",
+      "label": "Layer Options…",
+      "params": "{id, name?, visible?, locked?, template?, printable?, color?: index 0..26}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.collectInNew",
+      "label": "Collect in New Layer",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.selectAll",
+      "label": "Select All Art on Layer",
+      "params": "{id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "node.move",
+      "label": "Reorder",
+      "params": "{id, parent?: id (null = top level), index} drag-reorder in the Layers panel",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.new",
+      "label": "New Artboard",
+      "params": "{x?, y?, width?, height?, name?} (default: right of the last)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.delete",
+      "label": "Delete Artboard",
+      "params": "{index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.setProps",
+      "label": "Artboard Options…",
+      "params": "{index, name?, x?, y?, width?, height?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.fitToArt",
+      "label": "Fit to Artwork Bounds",
+      "params": "{index?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.fitToSelection",
+      "label": "Fit to Selected Art",
+      "params": "{index?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.clippingMask.toggle",
+      "label": "Make/Release Clipping Mask",
+      "params": "{id?: layer or group (default: the one selected group, else the current layer)} make: its top object (a path, compound path or text, which loses its paint) clips the rest and moves to the bottom (new art added on top is clipped); release: it stops clipping, the clipping path stays unpainted → {clip}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.target",
+      "label": "Target",
+      "params": "{id} target a layer, group or object as clicking its target circle in the Layers panel does: a layer gets its visible, unlocked art selected and becomes the current layer, and appearance.*, effect.*, transparency.* and the opacity-mask commands without `ids` then act on the layer itself; anything else is selected. Any other selection change ends the targeting (`document.inspect` → target) → {id, selected: [..]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "layer.pasteRemembersLayers",
+      "label": "Paste Remembers Layers",
+      "params": "{on?} (default: toggle) the document option: on, the Paste commands put objects back into the layers they were copied from (by name; a missing one is made on top), off into the current layer; one undo step when it changes (document.inspect → pasteRemembersLayers) → {on}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.freehand",
+      "label": "Pencil",
+      "params": "{points: [[x,y]…], fidelity?: pt (1.5), closed?, style?: \"pencil\"|\"brush\", fill?: bool, extend?: {id, end: \"start\"|\"end\"}} fit a freehand stroke → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.curvature",
+      "label": "Curvature",
+      "params": "{points: [{x, y, corner?}], closed?, id?} create (or with id: replace) a path curving through the points → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.removeAnchor",
+      "label": "Delete Anchor Point",
+      "params": "{id, subpath, anchor} remove one anchor, re-fitting the curve",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.convertAnchor",
+      "label": "Convert Anchor Point",
+      "params": "{id, subpath, anchor, to: \"corner\"|\"smooth\", x?, y?} (smooth with x/y: out handle there, in handle mirrored)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.reshapeSegment",
+      "label": "Reshape Segment",
+      "params": "{id, subpath, segment, t, dx, dy} bend a segment so the point at t moves by (dx, dy)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.split",
+      "label": "Split Path",
+      "params": "{id, subpath, segment, t} or {id, subpath, anchor}: closed paths open there, open paths become two → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.knife",
+      "label": "Knife",
+      "params": "{points: [[x,y]…]} cut closed shapes (selected, or all when nothing is selected) along the polyline → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.eraseRegion",
+      "label": "Eraser",
+      "params": "{points: [[x,y]…], size?: pt (10)} erase a round-brush stroke from paths (selected, or all) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.eraseSegments",
+      "label": "Path Eraser",
+      "params": "{points: [[x,y]…], width?: pt (8)} erase the parts of selected paths under the drag → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.smoothRegion",
+      "label": "Smooth",
+      "params": "{points: [[x,y]…], radius?: pt (12), fidelity?: pt (2.5)} smooth selected paths near the drag → {ids, before, after}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.joinScrub",
+      "label": "Join",
+      "params": "{points: [[x,y]…], tolerance?: pt (12)} join the open-path endpoints scrubbed over → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.blob",
+      "label": "Blob Brush",
+      "params": "{points: [[x,y]…], size?: pt (10), merge?: true} filled brush shape, merged with touching same-colour blobs → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.distort",
+      "label": "Free Distort",
+      "params": "{corners: [[x,y]×4] (TL, TR, BR, BL), from?: [x0,y0,x1,y1] (default: selection bounds), ids?} projective warp of anchors and handles",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.sampleColor",
+      "label": "Sample Color",
+      "params": "{color, stroke?: bool (default: whichever proxy is active), ids?, stop?: index} sample a colour into the active fill/stroke (and the selection); with `stop`, recolour that stop of the gradient behind the proxy instead (paint.editGradient)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "eyedropper.setOptions",
+      "label": "Eyedropper Options",
+      "params": "{sampleSize?: 1|3|5 (pixels square averaged when sampling an image: point, 3×3, 5×5), pickUp?, apply?: {appearance?: {transparency?, fill?: {color?, transparency?, overprint?}, stroke?: {color?, transparency?, overprint?, weight?, cap?, join?, miter?, dash?}}, character?, paragraph?} (bools; a bool for a branch sets all of it)} Eyedropper Options, kept in the preferences: what appearance.copyFrom picks up from the clicked object and applies (only attributes in both trees are copied; every fill and stroke attribute copies the whole appearance stack); {} reads them → the options",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "artboard.move",
+      "label": "Move Artboard",
+      "params": "{index, dx, dy, moveArt?: bool} move an artboard (and the unlocked art fully inside it)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.apply",
+      "label": "Apply Effect",
+      "params": "{effect: id (see effect.list, e.g. \"stylize.dropShadow\", \"distort.roughen\", \"warp.arc\"), params?: {…} (missing keys take the dialog defaults), item?: appearance item index|null (apply to that fill/stroke only; omitted: the Appearance panel's active item, else the whole object), ids?: [..] (layers too), target?: \"object\"|\"contents\" (contents: the objects inside groups and layers)} append a live effect to each selected object's appearance (a group's or layer's apply to its members as one piece: one combined shadow) → {ids, index, item}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.list",
+      "label": "Effects",
+      "params": "{} → {catalog: [{id, label, menu, params, defaults, raster, lengths: {always, absolute (while relative is false)} (distance params Scale Strokes & Effects scales)}], applied: [{id, effects, items: [{index, kind: fill|stroke, effects}]}], activeItem} for the selection",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "effect.remove",
+      "label": "Remove Effect",
+      "params": "{index: int (position in the effect list), item?: appearance item index|null (that fill/stroke's effects; omitted: the active item, else the object's), ids?: [..]} → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.setParams",
+      "label": "Effect Options",
+      "params": "{index: int, params?: {…} (merged into the current parameters), visible?: bool, item?: appearance item index|null (as effect.remove), ids?: [..]} → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.expandAppearance",
+      "label": "Expand Appearance",
+      "params": "{ids?: [..], target?} turn each object's appearance into objects: every fill and stroke becomes an object of its own (strokes outlined, brushed strokes their brush art) grouped in paint order under the object's id and transparency, geometry effects are baked, raster effects become an embedded image (shadows and outer glows below the art; blur, feather and inner glow replace it), type with effects or fills of its own is outlined; Crop Marks become a group of the object and its marks; a group's or layer's own fills and strokes become objects among its members, which are expanded too. Hidden fills, strokes and effects are dropped. Enabled when a selected or targeted object's appearance isn't basic (`ids` then pick which objects) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.duplicate",
+      "label": "Duplicate Effect",
+      "params": "{index: int, item?: appearance item index|null (as effect.remove), ids?: [..]} insert a copy of the effect right after it → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "effect.move",
+      "label": "Move Effect",
+      "params": "{from: int (position in the source list), to: int (its position in the destination list afterwards), fromItem?: appearance item index|null (the source list: that fill/stroke's effects, null the object's; omitted: the active item, else the object's), toItem?: item index|null (the destination list; default: the source list), copy?: bool (copy instead of move, as Alt-dragging the row), ids?: [..]} reorder an effect or move it between the object and its fills/strokes, as one undo step → {ids, index, item}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.unite",
+      "label": "Unite",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.minusFront",
+      "label": "Minus Front",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.intersect",
+      "label": "Intersect",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.exclude",
+      "label": "Exclude",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.divide",
+      "label": "Divide",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.trim",
+      "label": "Trim",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.merge",
+      "label": "Merge",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.crop",
+      "label": "Crop",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.outline",
+      "label": "Outline",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.minusBack",
+      "label": "Minus Back",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.path.outlineStroke",
+      "label": "Outline Stroke",
+      "params": "{} replace stroked paths with filled outlines → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.path.offsetPath",
+      "label": "Offset Path…",
+      "params": "{offset: pt (negative insets), joins?: \"miter\"|\"round\"|\"bevel\", miterLimit?: 4} → {ids} (new objects above the originals)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.path.simplify",
+      "label": "Simplify…",
+      "params": "{tolerance?: pt (1), cornerAngle?: deg (30), straightLines?: bool} → {ids, before, after} anchor counts",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.path.addAnchorPoints",
+      "label": "Add Anchor Points",
+      "params": "{} → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.path.divideObjectsBelow",
+      "label": "Divide Objects Below",
+      "params": "{} cut the objects below with the selected path (which is removed) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.path.splitIntoGrid",
+      "label": "Split Into Grid…",
+      "params": "{rows?: 2, columns?: 2, gutter?: pt (12)} → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.path.cleanUp",
+      "label": "Clean Up…",
+      "params": "{strayPoints?: true, unpaintedObjects?: true, emptyTextPaths?: true} → {removed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.createOutlines",
+      "label": "Create Outlines",
+      "params": "{} convert the selected text to groups of compound paths (one per glyph) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.setText",
+      "label": "Set Text",
+      "params": "{id?|ids?, text} replace the contents of text objects (keeps the first run's style)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.areaOptions",
+      "label": "Area Type Options…",
+      "params": "{ids?, rows?, columns?, gutter?: pt, inset?: pt, firstBaseline?: ascent|capHeight|xHeight|leading|fixed, firstBaselineMin?: pt} set the selected area type's options (none given: query) → the first object's options",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.fitHeadline",
+      "label": "Fit Headline",
+      "params": "{ids?} track the first line of area type so it fills the frame width → {tracking}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.setStyle",
+      "label": "Character",
+      "params": "{ids?|id?, font?, style?, size?: pt, leading?: pt|\"auto\", tracking?: 1/1000 em, justify?: \"left\"|\"center\"|\"right\"|\"justifyAll\", fill?: colour, features?: [\"dlig\", \"-liga\", …] OpenType}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.lock.above",
+      "label": "All Artwork Above",
+      "params": "{} lock objects in the same layer that are above and overlap the selection → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.lock.otherLayers",
+      "label": "Other Layers",
+      "params": "{} lock every layer that holds no selected object → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.hide.above",
+      "label": "All Artwork Above",
+      "params": "{} hide objects in the same layer that are above and overlap the selection → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.hide.otherLayers",
+      "label": "Other Layers",
+      "params": "{} hide every layer that holds no selected object → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.transformEach",
+      "label": "Transform Each…",
+      "params": "{scaleH?: % (100), scaleV?: % (100), moveH?: pt, moveV?: pt (down = +), rotate?: deg (counter-clockwise), reflectX?: bool (flip vertically), reflectY?: bool (flip horizontally), random?: bool, seed?: n, reference?: 0..8 (9-point grid, 4 = centre), copy?: bool, strokes?: bool (Scale Strokes & Effects), corners?: bool (Scale Corners; both default to the preferences)} transform every selected object about its own reference point → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.resetBoundingBox",
+      "label": "Reset Bounding Box",
+      "params": "{} no-op: VectorCraft bounding boxes are always axis-aligned to the document → {changed: 0}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.rasterize",
+      "label": "Rasterize…",
+      "params": "{ppi?, background?: transparent|white|black|\"#rrggbb\", antiAlias?: none|art|type (text snapped to pixels)|bool, padding?|addAround?: pt (0–1000), colorModel?: \"rgb\"|\"cmyk\"|\"grayscale\"|\"bitmap\", clippingMask?: bool (a clip group with the art's outline)} replace the selection with an embedded PNG image; each defaults to document.rasterEffectsSettings → {id (the image, or its clip group), width, height}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.createObjectMosaic",
+      "label": "Create Object Mosaic…",
+      "params": "{columns=10, rows=10, width?, height? (new size in pt; default the image's), spacingX=0, spacingY=0 (pt between tiles), gray?: bool, deleteRaster?: bool} a group of rectangles coloured by the selected image's average tile colours → {id, tiles}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.cropImage",
+      "label": "Crop Image",
+      "params": "{rect?: [x, y, width, height]} crop the selected image (default: to the artboard it sits on) → {id, width, height}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.createTrimMarks",
+      "label": "Create Trim Marks",
+      "params": "{style?: \"roman\"|\"japanese\" (default: the japaneseCropMarks preference; japanese: double lines at the trim and bleed edges plus centre marks), allArtboards?: bool (default: true when nothing is selected), offset?: pt (9, roman), length?: pt (18), bleed?: pt (8.5, japanese), weight?: pt (0.3)} trim marks stroked in [Registration] (printing on every plate) around the selection, or around every artboard, one group each, as one undo step → {id: the first group, ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.shape.convertToShape",
+      "label": "Convert to Shape",
+      "params": "{} turn paths that are rectangles (any rotation) or axis-aligned ellipses into live shapes → {converted}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.convertToArtboards",
+      "label": "Convert to Artboards",
+      "params": "{} turn each selected object's bounds into a new artboard (the objects are removed) → {artboards}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.rearrange",
+      "label": "Rearrange All Artboards…",
+      "params": "{columns?: n (2), spacing?: pt (20), byColumn?: false, moveArtwork?: true} lay artboards out in a grid",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.blend.make",
+      "label": "Make",
+      "params": "{ids?, steps?: n | distance?: pt | smooth?: bool (default smooth colour), orientation?: page|path} blend the selected objects (paint order) into a live blend → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.blend.release",
+      "label": "Release",
+      "params": "{} release the selected blends, keeping the key objects → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.blend.options",
+      "label": "Blend Options…",
+      "params": "{spacing?: smooth|steps|distance, value?: n, steps?: n, distance?: pt, orientation?: page|path} set the options of the selected blends",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.blend.expand",
+      "label": "Expand",
+      "params": "{} replace the selected blends by groups of their steps → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.blend.replaceSpine",
+      "label": "Replace Spine",
+      "params": "{} use the selected path as the spine of the selected blend (the path is consumed)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.blend.reverseSpine",
+      "label": "Reverse Spine",
+      "params": "{} reverse the order of the key objects along the spine",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.blend.reverseFrontToBack",
+      "label": "Reverse Front to Back",
+      "params": "{} reverse the stacking order of the selected blends",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.envelope.makeWithWarp",
+      "label": "Make with Warp…",
+      "params": "{ids?, style?: arc|arcLower|…|twist (arc), bend?: % (50), h?: %, v?: %, horizontal?: bool (true)} envelope the selected objects with a warp → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.envelope.makeWithMesh",
+      "label": "Make with Mesh…",
+      "params": "{ids?, rows?: n (4), cols?: n (4)} envelope the selected objects with a point mesh → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.envelope.makeWithTopObject",
+      "label": "Make with Top Object",
+      "params": "{ids?} the topmost selected path becomes the envelope of the others → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.envelope.release",
+      "label": "Release",
+      "params": "{} release the selected envelopes → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.envelope.options",
+      "label": "Envelope Options…",
+      "params": "{fidelity?: 0..100, style?, bend?, h?, v?, horizontal?} set envelope options (warp params for warp envelopes)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.envelope.expand",
+      "label": "Expand",
+      "params": "{} replace the selected envelopes by their distorted content → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.envelope.editContents",
+      "label": "Edit Contents",
+      "params": "{editing?: bool} toggle Edit Contents / Edit Envelope → {editing}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.envelope.setMeshPoint",
+      "label": "Move Envelope Mesh Point",
+      "params": "{id, index, x, y} move one point of a mesh envelope",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.mesh.create",
+      "label": "Create Gradient Mesh…",
+      "params": "{ids?, rows?: n (4), cols?: n (4), appearance?: flat|center|edge, highlight?: % (100), at?: [x,y]} convert filled paths into gradient meshes in their fill colour (a gradient fill: the colour it paints at each point), lightened per `appearance` (with `at`: 1×1 mesh plus lines through that point) → {ids, index?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.mesh.setPointColor",
+      "label": "Set Mesh Point Color",
+      "params": "{id, index, color, opacity?: 0..1} colour of one mesh point",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.mesh.movePoint",
+      "label": "Move Mesh Point",
+      "params": "{id, index, x, y, handle?: 0 right|1 left|2 down|3 up} move a mesh point (its handles follow), or with `handle` place that handle end at (x, y)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.mesh.addLine",
+      "label": "Add Mesh Line",
+      "params": "{id, x, y, color?} add a mesh row and column through (x, y) → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.mesh.deletePoint",
+      "label": "Delete Mesh Point",
+      "params": "{id, index} delete the mesh lines through a point",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.mesh.expand",
+      "label": "Expand Gradient Mesh",
+      "params": "{} replace the selected meshes by groups of flat-coloured pieces → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.colors.invert",
+      "label": "Invert Colors",
+      "params": "{fill?: true, stroke?: true, includeImages?: true, includePatterns?: true, ids?} replace each colour by its RGB inverse (keeps the colour model) in fills, strokes, text, gradient meshes (with fills), embedded images (a recoloured copy) and pattern tiles (a new pattern swatch; the original stays), as one undo step → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.colors.toCMYK",
+      "label": "Convert to CMYK",
+      "params": "{fill?, stroke?, includeImages?, includePatterns?, ids?} (as edit.colors.invert) → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.colors.toGrayscale",
+      "label": "Convert to Grayscale",
+      "params": "{fill?, stroke?, includeImages?, includePatterns?, ids?} (as edit.colors.invert) → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.colors.toRGB",
+      "label": "Convert to RGB",
+      "params": "{fill?, stroke?, includeImages?, includePatterns?, ids?} (as edit.colors.invert) → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.colors.saturate",
+      "label": "Saturate…",
+      "params": "{intensity: -100..100 (%), fill?, stroke?, includeImages?, includePatterns?, ids?} scale saturation by (1 + intensity/100), reaching what edit.colors.invert does → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.colors.adjustBalance",
+      "label": "Adjust Color Balance…",
+      "params": "{mode?: \"rgb\"|\"cmyk\"|\"gray\"|\"global\" (default: from the channels given), r?, g?, b? | c?, m?, y?, k? | gray? | tint?: -100..100 (% added per channel, default 0; `tint` is global mode: it shifts the tints of colours and gradient stops linked to global and spot swatches, which stay linked, and leaves other colours and images alone), convert?: false (true: the results stay in the adjusted model; false: each colour keeps its own), fill?, stroke?, includeImages?, includePatterns?, ids?} reaching what edit.colors.invert does → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.colors.blendFrontToBack",
+      "label": "Blend Front to Back",
+      "params": "{} ≥3 filled objects (solid fills or gradient meshes, which keep their shading): intermediate fills graded between the frontmost and backmost fill → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.colors.blendHorizontally",
+      "label": "Blend Horizontally",
+      "params": "{} ≥3 filled objects or meshes: fills graded between the leftmost and rightmost → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.colors.blendVertically",
+      "label": "Blend Vertically",
+      "params": "{} ≥3 filled objects or meshes: fills graded between the topmost and bottommost → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "color.harmony",
+      "label": "Color Guide",
+      "params": "{color, rule: complementary|complementary2|splitComplementary|leftComplement|rightComplement|analogous|analogous2|monochromatic|shades|triad|triad2|triad3|tetrad|tetrad2|tetrad3|compound|compound2|highContrast|highContrast2|highContrast3|pentagram (or its label), steps?: 1..20 (4), variation?: \"tintsShades\"|\"warmCool\"|\"vividMuted\", amount?: 0..100 (50; how far the outermost steps go), limitTo?: swatch library id or name, or \"document\" (the document's swatches): every colour snaps to its nearest colour there (ΔE 2000)} the Color Guide for a base colour → {rule, colors: [\"#rrggbb\", the base first], grid: [per colour, 2·steps+1 variations from shades/cool/muted to tints/warm/vivid with the colour itself in the centre]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "edit.colorSettings",
+      "label": "Color Settings…",
+      "params": "{rgb?: profile, cmyk?: profile, intent?: \"perceptual\"|\"relative\"|\"saturation\"|\"absolute\", bpc?: bool} set the working spaces → {rgb, cmyk, intent, bpc, profiles: [{name, kind, builtin}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "color.loadProfile",
+      "label": "Load Color Profile…",
+      "params": "{path: .icc/.icm file} register an ICC profile (native only) → {name, kind}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "edit.assignProfile",
+      "label": "Assign Profile…",
+      "params": "{rgb?: profile|null, cmyk?: profile|null} tag the document with profiles (colour numbers are kept) → {rgb, cmyk}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.convertDocumentColorMode",
+      "label": "Convert Document Color Mode",
+      "params": "same as file.documentColorMode: {mode: \"cmyk\"|\"rgb\", convert?: true, intent?} → {changed} (an alias kept for older scripts; the command palette leaves it out)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "color.convert",
+      "label": "Convert Color",
+      "params": "{color, to: \"rgb\"|\"cmyk\"|\"gray\"|\"lab\", intent?} → {model, values, hex, lab: [L,a,b], outOfGamut, deltaE}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "color.gamutCheck",
+      "label": "Gamut Warning",
+      "params": "{ids?, colors?: [color]} colours that can't be printed in the working CMYK (selection, or the whole document when nothing is selected) → {checked, outOfGamut: [{hex, deltaE, count}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.proofSetup",
+      "label": "Proof Setup",
+      "params": "{target?: \"workingCmyk\"|\"cmyk:<profile>\"|\"legacyMacRgb\"|\"srgb\"|\"monitorRgb\"|\"protanopia\"|\"deuteranopia\", intent?, simulatePaper?, proof?: bool (also turn Proof Colors on)} → proof state",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "view.proofColors",
+      "label": "Proof Colors",
+      "params": "{on?: bool (default: toggle)} → proof state",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "view.overprintPreview",
+      "label": "Overprint Preview",
+      "params": "{on?: bool (default: toggle)} → proof state",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "view.separationsPreview",
+      "label": "Separations Preview",
+      "params": "{on?: bool, plates?: [names], toggle?: plate, only?: plate} Separations Preview: show the chosen plates (one plate = greyscale ink coverage) → {on, plates: [{name, spot, visible, rgb}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "color.plates",
+      "label": "Plates",
+      "params": "{} → {on, plates: [{name, spot, visible, rgb}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "edit.colors.overprintBlack",
+      "label": "Overprint Black…",
+      "params": "{remove?: false, percentage?: 100, fill?: true, stroke?: true, includeCmyBlacks?: false, includeSpotBlacks?: false, ids?} make the black fills and/or strokes of the selection (or ids; groups: their contents; type: its characters) overprint, or stop (remove). Black: K ≥ percentage with no C, M or Y (any with includeCmyBlacks), not linked to a spot swatch (unless includeSpotBlacks); a gradient is black when every stop is → {changed: objects}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.setSpot",
+      "label": "Spot Color",
+      "params": "{name, spot?: true} make a swatch a spot colour (prints on its own plate; spot swatches are global) → {name, spot}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.changeCase",
+      "label": "Change Case",
+      "params": "{case: \"upper\"|\"lower\"|\"title\"|\"sentence\", ids?} → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.smartPunctuation",
+      "label": "Smart Punctuation…",
+      "params": "{quotes?: true (straight quotes become the Document Setup quotes), dashes?: true (-- → en dash, --- → em dash), ellipsis?: true (... → …), scope?: \"selection\"|\"document\"} → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.convertToAreaType",
+      "label": "Convert To Area Type",
+      "params": "{ids?} point type → area type framed by its current layout bounds → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.convertToPointType",
+      "label": "Convert To Point Type",
+      "params": "{ids?} area type → point type; soft line wraps become line breaks → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.pathOptions",
+      "label": "Type on a Path Options…",
+      "params": "{start?: 0..1 (fraction of the path length), flip?: bool (reverse the path), effect?: rainbow|skew|3dRibbon|stairStep|gravity, ids?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.fillPlaceholder",
+      "label": "Fill with Placeholder Text",
+      "params": "{ids?} replace selected text with placeholder text (area type is filled to its frame) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.insert",
+      "label": "Insert Character",
+      "params": "{char: \"bullet\"|\"copyright\"|\"ellipsis\"|\"paragraph\"|\"registered\"|\"section\"|\"trademark\"|\"emDash\"|\"enDash\"|\"discretionaryHyphen\"|\"nonBreakingHyphen\"|\"doubleLeftQuote\"|\"doubleRightQuote\"|\"singleLeftQuote\"|\"singleRightQuote\"|\"emSpace\"|\"enSpace\"|\"hairSpace\"|\"sixthSpace\"|\"thinSpace\"|\"nonBreakingSpace\"|\"figureSpace\"|\"punctuationSpace\"|\"thirdSpace\"|\"quarterSpace\"|\"tab\"|\"forcedLineBreak\"|\"paragraphReturn\" | text: string} append to the selected text objects",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.findReplace",
+      "label": "Find and Replace…",
+      "params": "{find, replace?: \"\", matchCase?: false, wholeWord?: false, ids?} replace in every text object (or ids) → {count}. Matches never span style runs.",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.findNext",
+      "label": "Find Next",
+      "params": "{find, matchCase?, wholeWord?} select the next text object (after the selected one, wrapping) containing `find` → {id|null}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "edit.pasteWithoutFormatting",
+      "label": "Paste without Formatting",
+      "params": "{center?, dx?, dy?, swatchConflict?} paste as edit.paste; pasted text takes the default character style (one run) and leaves its character and paragraph styles behind → {ids, added, merged, renamed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.editRange",
+      "label": "Edit Text",
+      "params": "{id, start: byte, end: byte, insert?: string, runs?: [{text, style}]} replace bytes start..end of the plain text (inserted text takes the replaced text's style unless styled `runs` are given) → {id, caret}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.setRangeStyle",
+      "label": "Character",
+      "params": "{id, start?: byte, end?: byte (default: all text), font?, style?, size?: pt, leading?: pt|\"auto\", tracking?, kerning?: 1/1000 em|\"auto\", baselineShift?: pt, hScale?: %, vScale?: %, rotation?: deg, fill?: colour|\"none\", stroke?: colour|\"none\", strokeWidth?: pt, strokeOptions?: {weight?, cap?, join?, miterLimit?, dash?, dashOffset?, alignDashes?} (as stroke.set: the character stroke), underline?, strikethrough?, allCaps?: bool, smallCaps?: bool, position?: \"normal\"|\"superscript\"|\"subscript\" (sizes from Document Setup), features?: [\"dlig\", \"-liga\", …]} style a character range (runs are split at the range ends) → {id, runs}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.getRange",
+      "label": "Get Text Range",
+      "params": "{id, start?, end?} → {text, runs: [{text, style}], length}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.createInPath",
+      "label": "Area / Path Type",
+      "params": "{path: id, mode: \"area\"|\"onPath\", text?: \"\", at?: [x, y] (on-path start: nearest point), size?, font?} turn a path into an area-type frame or a type-on-a-path baseline (the path's paint is dropped) → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "type.fitHeadline",
+      "label": "Fit Headline",
+      "params": "{ids?} track the first line of area type so it fills the frame width → {ids, tracking}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.list",
+      "label": "Character Styles",
+      "params": "{} → {styles: [{name, attrs, uses}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.new",
+      "label": "New Character Style",
+      "params": "{name?, attrs?: {…}} (default attrs: the selected text's) → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.apply",
+      "label": "Apply Character Style",
+      "params": "{name, clearOverrides?, ids?|id + start?/end? (a Type tool range)} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.redefine",
+      "label": "Redefine Character Style",
+      "params": "{name, id?, start?} from the selected text; users keep their overrides",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.setAttrs",
+      "label": "Character Style Options",
+      "params": "{name, attrs: {…}} replace the style's attributes; users keep their overrides",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.duplicate",
+      "label": "Duplicate Character Style",
+      "params": "{name} → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.rename",
+      "label": "Rename Character Style",
+      "params": "{name, to}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "charStyle.delete",
+      "label": "Delete Character Style",
+      "params": "{name} (text keeps its look)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.list",
+      "label": "Paragraph Styles",
+      "params": "{} → {styles: [{name, attrs, uses}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.new",
+      "label": "New Paragraph Style",
+      "params": "{name?, attrs?: {…}} (default attrs: the selected text's) → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.apply",
+      "label": "Apply Paragraph Style",
+      "params": "{name, clearOverrides?, ids?|id + start?/end? (a Type tool range)} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.redefine",
+      "label": "Redefine Paragraph Style",
+      "params": "{name, id?, start?} from the selected text; users keep their overrides",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.setAttrs",
+      "label": "Paragraph Style Options",
+      "params": "{name, attrs: {…}} replace the style's attributes; users keep their overrides",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.duplicate",
+      "label": "Duplicate Paragraph Style",
+      "params": "{name} → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.rename",
+      "label": "Rename Paragraph Style",
+      "params": "{name, to}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paraStyle.delete",
+      "label": "Delete Paragraph Style",
+      "params": "{name} (text keeps its look)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.fonts",
+      "label": "Fonts in Document",
+      "params": "{selectionOnly?} → [{family, style, runs, objects, missing}] sorted by name",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.replaceFont",
+      "label": "Replace Font",
+      "params": "{from: {family, style?}, to: {family, style?}, selectionOnly?} (style omitted: every style of the family / keep the closest style) → {runs}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.font",
+      "label": "Select Text by Font",
+      "params": "{family, style?} select the text objects using the font → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "help.discord",
+      "label": "Join Our Discord",
+      "params": "{} → {url} the ArtCraft community Discord",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "help.website",
+      "label": "ArtCraft Website",
+      "params": "{} → {url}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "help.appPage",
+      "label": "VectorCraft on getartcraft.com",
+      "params": "{} → {url} this app's page",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "help.github",
+      "label": "VectorCraft on GitHub",
+      "params": "{} → {url} source code, issues and releases",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "help.links",
+      "label": "Links",
+      "params": "{} → {discord, website, appPage, github}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "text.thread.create",
+      "label": "Create",
+      "params": "{} thread the selected area type (and closed paths, which become frames) in stacking order → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.thread.releaseSelection",
+      "label": "Release Selection",
+      "params": "{} take the selected frames out of their threads (the story re-flows through the rest)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.thread.remove",
+      "label": "Remove Threading",
+      "params": "{} break the selected frames' threads; each frame keeps the text it shows",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.thread.info",
+      "label": "Threads",
+      "params": "{} → [[id…]] every thread in order",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.textWrap.make",
+      "label": "Make",
+      "params": "{offset?: pt (6), invert?: bool, ids?} area type below the selected objects (same layer) wraps around them → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.textWrap.release",
+      "label": "Release",
+      "params": "{ids?} → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.textWrap.options",
+      "label": "Text Wrap Options…",
+      "params": "{offset?: pt, invert?: bool, ids?} set the options of the selected wrap objects; no options → the current {offset, invert}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graph.create",
+      "label": "Create Graph",
+      "params": "{type: column|stackedColumn|bar|stackedBar|line|area|scatter|pie|radar, x, y, width, height, series?: [..], categories?: [..], rows?: [[..]], csv?} → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graph.setData",
+      "label": "Data…",
+      "params": "{id?, series?, categories?, rows?, csv?: first row = series labels (first cell empty), then one row per category: label, values…} replace the graph's data; no data → the current {csv, series, categories, rows}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graph.setType",
+      "label": "Type…",
+      "params": "{id?, type?, columnWidth?: %, clusterWidth?: %, legend?: bool, markPoints?: bool, connectPoints?: bool, ticks?: n, axisMin?, axisMax?} change the graph type and options; no options → the current ones",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.rasterEffectsSettings",
+      "label": "Document Raster Effects Settings…",
+      "params": "{resolution?: ppi (1–2400) | \"screen\" (72) | \"medium\" (150) | \"high\" (300), colorModel?: \"rgb\"|\"cmyk\" (the document's mode)|\"grayscale\"|\"bitmap\", background?: \"transparent\"|\"white\", antiAlias?: bool (off: hard edges), clippingMask?: bool (white background only under the art; Rasterize clips to the art), addAround?: pt (0–1000, room around the art), preserveSpotColors?: bool (stored)} how raster effects (shadows, glows, blurs, feathers) become images in PDF export and Expand Appearance, and the defaults of object.rasterize; one undo step; always → the settings",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.saved.new",
+      "label": "New View…",
+      "params": "{name?, center: [x, y], zoom: (1 = 100%), rotation?: deg} save a view (the app fills in the current one) → {name, index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.saved.edit",
+      "label": "Edit Views…",
+      "params": "{name, newName?, delete?: bool} rename or delete a saved view; no params → {views}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.saved.list",
+      "label": "Saved Views",
+      "params": "{} → {views: [{name, center, zoom, rotation}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.transparencyGrid",
+      "label": "Show Transparency Grid",
+      "params": "{on?: bool (default: toggle)} show the transparency grid behind the active document's artboards (each document has its own setting) → {on}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.editOpacityMask",
+      "label": "Edit Opacity Mask",
+      "params": "{id?} edit the mask art of `id` (default: the first selected object with a mask) in place, as clicking the mask thumbnail in the Transparency panel does → {layer}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.stopEditingOpacityMask",
+      "label": "Stop Editing Opacity Mask",
+      "params": "{} leave mask editing (the object thumbnail) → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "transparency.viewOpacityMask",
+      "label": "View Opacity Mask",
+      "params": "{on?: bool (default: toggle), id?} show only the opacity mask of `id` (default: the object whose mask is edited, else the first selected object with a mask) on the canvas, as greyscale coverage, and edit it, as Alt-clicking the mask thumbnail does; off shows the artwork again (still editing) → {on, id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.tabs.set",
+      "label": "Set Tab Stops",
+      "params": "{stops: [{position: pt, align?: left|center|right|decimal, leader?: \". \", alignOn?: \".\"}], ids?} replace the tab stops of the selected text",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.tabs.get",
+      "label": "Tab Stops",
+      "params": "{ids?} → {stops} of the first selected text object",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.tabs.clear",
+      "label": "Clear All Tabs",
+      "params": "{ids?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.symbolInstance",
+      "label": "Symbol Instance",
+      "params": "{} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.fontFamily",
+      "label": "Font Family",
+      "params": "{} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.fontFamilyStyle",
+      "label": "Font Family & Style",
+      "params": "{} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.fontFamilyStyleSize",
+      "label": "Font Family, Style & Size",
+      "params": "{} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.fontSize",
+      "label": "Font Size",
+      "params": "{} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.textFillColor",
+      "label": "Text Fill Color",
+      "params": "{} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.same.textStrokeColor",
+      "label": "Text Stroke Color",
+      "params": "{} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.directionHandles",
+      "label": "Direction Handles",
+      "params": "{} direct-select every anchor (showing all handles) of the selected paths → {anchors}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.pointText",
+      "label": "Point Text Objects",
+      "params": "{} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.areaText",
+      "label": "Area Text Objects",
+      "params": "{} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.brushStrokes",
+      "label": "Brush Strokes",
+      "params": "{} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.bristleBrushStrokes",
+      "label": "Bristle Brush Strokes",
+      "params": "{} objects whose brush name contains \"bristle\" → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.save",
+      "label": "Save Selection…",
+      "params": "{name?} remember the current selection for this session (default name \"Selection N\") → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.recall",
+      "label": "Recall Selection",
+      "params": "{name} → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.editSaved",
+      "label": "Edit Selection…",
+      "params": "{name, newName?: rename, delete?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.savedList",
+      "label": "Saved Selections",
+      "params": "{} → [name…] for the active document",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.guides.make",
+      "label": "Make Guides",
+      "params": "{} turn the selected paths into guides → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.guides.release",
+      "label": "Release Guides",
+      "params": "{} turn the selected guides (or, with none selected, all guide paths) back into paths → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.guides.lock",
+      "label": "Lock Guides",
+      "params": "{locked?: bool} toggle (or set) the session's guide lock → {locked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.guides.clear",
+      "label": "Clear Guides",
+      "params": "{} delete all ruler guides and guide paths → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "guide.add",
+      "label": "Add Guide",
+      "params": "{vertical: bool, pos: pt (x for vertical, y for horizontal)} → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "guide.remove",
+      "label": "Remove Guide",
+      "params": "{index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "guide.move",
+      "label": "Move Guide",
+      "params": "{index, pos: pt}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.closeAll",
+      "label": "Close All",
+      "params": "{} → {closed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.documentColorMode",
+      "label": "Document Color Mode",
+      "params": "{mode: \"cmyk\"|\"rgb\", convert?: true (convert every colour of the art, symbols and swatches through the colour settings; swatch links kept; greys stay greys), intent?} → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.info",
+      "label": "File Info…",
+      "params": "{title?, author?, authorTitle?, description?, keywords?: [string…]|\"a, b\" (each once), rating?: 0–5, copyrightStatus?: \"unknown\"|\"copyrighted\"|\"publicDomain\", copyrightNotice?, copyrightUrl?} set the File Info in one undo step (SVG with metadata, PDF and PNG exports carry it); no params → {title, author, authorTitle, description, keywords, rating, copyrightStatus, copyrightNotice, copyrightUrl, created, modified (ISO 8601 UTC or null; read-only), colorMode, units, artboards, objects}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.info",
+      "label": "Document Info",
+      "params": "{selectionOnly?, category?: document|objects|graphicStyles|spotColors|patterns|gradients|symbols|fonts|fontDetails|linkedImages|embeddedImages (only that one in sections and the text), format?: \"text\" (→ {text}: the report Document Info › Save… and Package write)} → {document, objects: {paths, compoundPaths, groups, …}, fonts, images, swatches, graphicStyleNames (with selectionOnly: the styles the selected objects are linked to), …, sections: [{id, title, rows: [[label, value]]}] (the panel's categories; fontDetails: each font's file and whether its licence lets it be embedded)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.makePixelPerfect",
+      "label": "Make Pixel Perfect",
+      "params": "{ids?} snap each object's edges to the pixel grid (odd stroke weights on half pixels) and round stroke weights",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.reorder",
+      "label": "Move Artboard Up/Down",
+      "params": "{index, to} change an artboard's number",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "artboard.duplicate",
+      "label": "Duplicate Artboard",
+      "params": "{index} copy placed right of the last artboard",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "text.setFormat",
+      "label": "Character / Paragraph",
+      "params": "{ids?|id?, kerning?: 1/1000 em|\"auto\", baselineShift?: pt, hScale?: %, vScale?: %, rotation?: deg, underline?, strikethrough?, allCaps?, smallCaps?: bool, position?: \"normal\"|\"superscript\"|\"subscript\" (sizes from Document Setup), leftIndent?, rightIndent?, firstLineIndent?, spaceBefore?, spaceAfter?: pt, hyphenate?: bool}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shapeBuilder.merge",
+      "label": "Shape Builder",
+      "params": "{ids?: [id…] (default: selection), points: [[x,y]…] (drag path; one point = click), erase?: bool (Alt-drag deletes the regions), fill?: \"#rrggbb\" | {color|swatch|gradient|none} (default: the fill of the object under the first point)} → {ids, merged, regions}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shapeBuilder.regions",
+      "label": "Shape Builder Regions",
+      "params": "{ids?} → {regions: [{bounds: [x0,y0,x1,y1], area, sources: [id…]}]} faces of the planar arrangement",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "livePaint.make",
+      "label": "Make",
+      "params": "{ids?} build a Live Paint group from the selected paths → {id, faces, edges}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "livePaint.merge",
+      "label": "Merge",
+      "params": "{ids?} add the other selected paths (and Live Paint groups) to the first Live Paint group, keeping its paint → {id, faces, edges}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "livePaint.release",
+      "label": "Release",
+      "params": "{id?} replace Live Paint groups with their original paths → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "livePaint.expand",
+      "label": "Expand",
+      "params": "{id?} turn Live Paint groups into plain groups of their painted faces and edges → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "livePaint.fill",
+      "label": "Live Paint Bucket",
+      "params": "{group?: id | ids?: [id…] (paths to make live first), point: [x,y], color?|swatch?|gradient?|none? (default: current fill)} fill the face containing point → {group, face}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "livePaint.strokeEdge",
+      "label": "Live Paint Bucket (Stroke)",
+      "params": "{group: id, point: [x,y], color?|swatch?|none? (default: current stroke), width?: pt (default: current weight), tolerance?: pt (4)} paint the edge nearest point → {group, edge}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "livePaint.info",
+      "label": "Live Paint Info",
+      "params": "{group} → {faces: [{id, fill, bounds}], edges: [{id, stroke, width}], sources}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "imageTrace.make",
+      "label": "Make",
+      "params": "{id?: image or Image Trace group (default: selection), preset?: name (imageTrace.presets), params?: {mode: \"blackAndWhite\"|\"grayscale\"|\"color\", threshold: 0-255, colors: 2-256, paths: 0-100, corners: 0-100, noise: px, method: \"abutting\"|\"overlapping\", ignoreWhite, snapCurvesToLines}} → {id, paths, anchors, colors}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "imageTrace.makeAndExpand",
+      "label": "Make and Expand",
+      "params": "same as imageTrace.make, then expand → {id, paths, anchors, colors}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "imageTrace.release",
+      "label": "Release",
+      "params": "{id?} put the source image back in place of Image Trace groups → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "imageTrace.expand",
+      "label": "Expand",
+      "params": "{id?} keep only the traced paths (drop the source image) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "imageTrace.presets",
+      "label": "Image Trace Presets",
+      "params": "{} → {presets: [{name, params}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "brush.list",
+      "label": "Brushes",
+      "params": "{} → {brushes: [{name, type}], current}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "brush.get",
+      "label": "Brush Definition",
+      "params": "{name} → the brush definition (JSON)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "brush.apply",
+      "label": "Apply Brush",
+      "params": "{name, ids?} apply a brush to the strokes of the selected paths (adds a stroke if missing) and make it current → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "brush.remove",
+      "label": "Remove Brush Stroke",
+      "params": "{ids?} remove brushes from the selected strokes → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "brush.setCurrent",
+      "label": "Current Brush",
+      "params": "{name: string|null} the brush the Paintbrush tool paints with (not an undo step)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "brush.new",
+      "label": "New Brush…",
+      "params": "{type: calligraphic|scatter|art|pattern|bristle, name?, params?: {…definition fields}, ids?} new brush; art/scatter/pattern brushes take the selected art (pattern: side tile) unless params give it → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "brush.delete",
+      "label": "Delete Brush",
+      "params": "{name} delete a brush; strokes using it become plain strokes",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "brush.duplicate",
+      "label": "Duplicate Brush",
+      "params": "{name, newName?} → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "brush.options",
+      "label": "Brush Options…",
+      "params": "{name, params?: {…fields to change}, newName?} edit a brush definition (strokes using it update) → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.expandBrush",
+      "label": "Expand Brush Strokes",
+      "params": "{ids?} replace brushed paths (in the selection) with groups of the brush art → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "brush.freehand",
+      "label": "Paintbrush",
+      "params": "{…path.freehand params, brush} paint a freehand stroke with a brush → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.list",
+      "label": "Symbols",
+      "params": "{} → {symbols: [{name, instances, size: [w,h]}], current}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.new",
+      "label": "New Symbol…",
+      "params": "{name?, ids?} make a symbol from the selection and replace it with an instance → {name, id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.place",
+      "label": "Place Symbol Instance",
+      "params": "{name?, x?, y?} place an instance centred at (x, y) (default: artboard centre; name default: current) → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.breakLink",
+      "label": "Break Link to Symbol",
+      "params": "{ids?} expand selected instances into plain art → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.edit",
+      "label": "Edit Symbol",
+      "params": "{id?} break the link of the selected instance so its art can be edited; finish with symbol.update → {name, ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.update",
+      "label": "Redefine Symbol",
+      "params": "{name, ids?} replace the symbol's art with the selection (instances update; the selection becomes an instance) → {name, id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.delete",
+      "label": "Delete Symbol",
+      "params": "{name, expandInstances?: true} delete a symbol; its instances are expanded (or deleted with false)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.duplicate",
+      "label": "Duplicate Symbol",
+      "params": "{name, newName?} → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.replace",
+      "label": "Replace Symbol",
+      "params": "{name, ids?} swap the symbol of the selected instances → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.setCurrent",
+      "label": "Current Symbol",
+      "params": "{name} the symbol the symbolism tools spray (not an undo step)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.selectInstances",
+      "label": "Select All Instances",
+      "params": "{name} select every instance of a symbol → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.spray",
+      "label": "Symbol Sprayer",
+      "params": "{points: [[x,y]…], name?, radius?: 40, density?: 1..10 (5), scale?: 1, alt?: bool (remove instances)} spray instances into a symbol set → {id, count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "symbol.adjust",
+      "label": "Symbolism Tool",
+      "params": "{tool: shift|scrunch|size|spin|stain|screen|style, points: [[x,y]…], radius?: 40, intensity?: 1..10 (5), alt?: bool, color?, style?: name} adjust instances near the points (selection, else all) → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pattern.make",
+      "label": "Make",
+      "params": "{ids?, name?, tileType?: grid|brickByRow|brickByColumn|hexByColumn|hexByRow, brickOffset?: 0..1 (0.5), width?, height?, edit?: bool (true)} make a pattern swatch from the selection and enter pattern editing mode → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pattern.edit",
+      "label": "Edit Pattern",
+      "params": "{name?} edit a pattern (default: the selected object's fill pattern) in pattern editing mode",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pattern.done",
+      "label": "Done",
+      "params": "{} leave pattern editing mode, saving the tile art into the pattern",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pattern.cancel",
+      "label": "Cancel",
+      "params": "{} leave pattern editing mode, discarding changes",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pattern.saveCopy",
+      "label": "Save a Copy",
+      "params": "{name?} while editing, save the current tile as a new pattern swatch → {name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "pattern.options",
+      "label": "Pattern Options",
+      "params": "{name? (default: the pattern being edited), newName?, tileType?, brickOffset?, width?, height?, hSpacing?, vSpacing?, sizeTileToArt?: bool, overlap?: {h: left|right, v: top|bottom}, copies?: 3|5|7|9, dimCopies?: %, showTileEdge?: bool, showSwatchBounds?: bool (outline the part of the tiling the swatch repeats, dashed)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "pattern.delete",
+      "label": "Delete Pattern",
+      "params": "{name} delete a pattern swatch (objects painted with it lose that paint)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "pattern.list",
+      "label": "List Patterns",
+      "params": "{} → {patterns: [{name, tileType, width, height, ...}], editing?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "pattern.transform",
+      "label": "Transform Patterns",
+      "params": "{ids?, matrix: [a,b,c,d,e,f]} transform only the pattern placement of the objects' pattern paints (Transform Patterns)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.repeat.radial",
+      "label": "Radial",
+      "params": "{ids?, instances?: n (8), radius?: pt} radial repeat of the selection (or switch the selected repeat to radial) → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.repeat.grid",
+      "label": "Grid",
+      "params": "{ids?, hSpacing?: pt, vSpacing?: pt (¼ of the art size), rows?: n (3), cols?: n (3)} grid repeat of the selection → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.repeat.mirror",
+      "label": "Mirror",
+      "params": "{ids?, angle?: deg (90 = vertical axis), offset?: pt (10)} mirror repeat of the selection → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.repeat.release",
+      "label": "Release",
+      "params": "{} release the selected repeats back to their source art → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.repeat.options",
+      "label": "Options…",
+      "params": "{instances?, radius?, reverseOverlap?, startAngle?, endAngle?, center?: [x,y] | hSpacing?, vSpacing?, rows?, cols?, gridType?, flipRows?, flipCols? | angle?} set the options of the selected repeats",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.repeat.expand",
+      "label": "Expand Repeat",
+      "params": "{} replace the selected repeats by groups of their instances → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "prefs.get",
+      "label": "Get Preferences",
+      "params": "{key?} → the value of one preference (or preference group: eyedropper), or {prefs: {…all…}}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "prefs.set",
+      "label": "Set Preference",
+      "params": "{key, value} or {values: {key: value, …}} set preferences (validated; see prefs.list; lengths in pt or strings with a unit; unitsGeneral also sets the active document's units, one undo step; the eyedropper group takes a partial object, as eyedropper.setOptions)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "prefs.reset",
+      "label": "Reset Preferences",
+      "params": "{category?} reset one category (or everything) to defaults",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "prefs.list",
+      "label": "List Preferences",
+      "params": "{} → [{key, category, section, label, kind, value, …}] every preference",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "stroke.widthPoint.set",
+      "label": "Width Point",
+      "params": "{id, t: 0..1 (fraction of the path length), left, right: side widths in pt, index?: width point to edit or move, adjustAdjoining?: bool (with index: the nearest points either side change their widths in proportion)} → {index}. Without index a point already at t is replaced; a point moved onto another one's t joins it as a discontinuous point (on the side it came from), so the width steps there. Creates a uniform profile first if needed",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthPoint.remove",
+      "label": "Delete Width Point",
+      "params": "{id, index | indices: [..]} remove width points (removing the last one leaves a uniform stroke)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthPoint.copy",
+      "label": "Copy Width Point",
+      "params": "{id, index: the width point to copy, t: 0..1 where the copy goes} → {index} (Alt-drag with the Width tool). Landing on another point makes a discontinuous point, as a stroke.widthPoint.set move does",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "stroke.widthProfile.set",
+      "label": "Width Profile",
+      "params": "{ids?|id?, points: [[t, left, right]…] (width factors, 1 = the stroke weight) | null = uniform}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.liquify",
+      "label": "Liquify",
+      "params": "{tool: warp|twirl|pucker|bloat|scallop|crystallize|wrinkle, points: [[x,y]…] (the brush stroke), diameter?|width?, height? (pt, default 100), angle?, intensity? (0..1 or %), detail? (1..10), simplify? (0..100), rate? (twirl °), complexity?, horizontal?, vertical?, affectAnchors?, affectIn?, affectOut?, ids? (default: selection, else every path the brush touches)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.puppetWarp",
+      "label": "Puppet Warp",
+      "params": "{id?|ids? (default: selection), pins: [[x,y]…] (current pin positions), moved: [[x,y]…] (targets, same length), expand?: pt} as-rigid-as-possible mesh warp of anchors and handles",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "perspective.grid.set",
+      "label": "Define Perspective Grid",
+      "params": "{kind?: 1|2|3, origin?: [x,y], horizon?, vpLeft?, vpRight?, vpVertical?: [x,y], distance?, cell?, extent?, height?, visible?, plane?} merge into the document's grid",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "perspective.grid.preset",
+      "label": "Perspective Grid Preset",
+      "params": "{kind: 1|2|3} reset the grid to the one/two/three-point preset for the first artboard (and show it)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "perspective.grid.show",
+      "label": "Show Perspective Grid",
+      "params": "{visible?: bool} (no param toggles). View state: not an undo step",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "perspective.plane.set",
+      "label": "Active Perspective Plane",
+      "params": "{plane: left|right|ground|none} Plane Switching widget. View state: not an undo step",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "perspective.attach",
+      "label": "Attach to Active Plane",
+      "params": "{ids?, plane?: left|right|ground (default: the active plane)} project the objects onto the plane",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "perspective.release",
+      "label": "Release with Perspective",
+      "params": "{ids?} detach from the grid (geometry unchanged)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "perspective.move",
+      "label": "Move in Perspective",
+      "params": "{ids?, from: [x,y], to: [x,y], plane?} slide objects within their plane (unattached objects attach to `plane`/the active plane first)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "perspective.draw",
+      "label": "Draw in Perspective",
+      "params": "{command: shape.* id, params, plane?} run a shape command and attach the result to the plane",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.invert",
+      "label": "Invert",
+      "params": "{stroke?: bool (default: the active proxy), ids?} invert the active proxy's colours of the selection (or ids; groups recolour their contents) keeping each colour's model, as edit.colors.invert does; the Appearance panel's active fill/stroke item (appearance.setActiveItem) is inverted instead when it is of that kind and no ids are given; with nothing selected, invert the default → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.complement",
+      "label": "Complement",
+      "params": "{stroke?: bool (default: the active proxy), ids?} replace the active proxy's colours by their complements ((highest + lowest) − each component, over RGB or CMY; grey unchanged) keeping each colour's model; honours the Appearance panel's active item as paint.invert does; with nothing selected, the default → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.lastColor",
+      "label": "Apply Last Color",
+      "params": "{stroke?: bool (default: the active proxy), ids?} apply the last solid colour used (paint.recent lastColor) to the active proxy of the selection and the default",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.lastGradient",
+      "label": "Apply Last Gradient",
+      "params": "{stroke?: bool (default: the active proxy), ids?} apply the last gradient used (paint.recent lastGradient), fitted to each object, to the active proxy of the selection and the default",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.recent",
+      "label": "Recent Colors",
+      "params": "{} → {colors: [{hex, color}] newest first (fed by every paint command and the eyedropper), lastColor: {hex, color}, lastGradient: gradient paint}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "paint.proxies",
+      "label": "Fill and Stroke",
+      "params": "{} → {fill, stroke: the paints the Fill/Stroke proxies show (the Appearance panel's active item for the proxy of its kind, else the first selected object's, a group's first painted object's, type: its first run's; else the defaults for new art), fillActive, fillMixed, strokeMixed: the selected objects' (or a selected group's contents') fills (strokes) differ, shown as a \"?\" proxy}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "object.setOverprint",
+      "label": "Overprint",
+      "params": "{fill?: bool, stroke?: bool, item?: appearance item index|null, ids?} make fills and/or strokes overprint (Overprint Preview, Separations Preview) or knock out: item's, else every fill or stroke of the painted objects (groups: their contents; type: its characters too). Without item and ids, the Appearance panel's active item stands in when it is of that kind → {changed: objects}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "attributes.info",
+      "label": "Attributes",
+      "params": "{ids?, item?} → {ids, overprintFill, overprintStroke, showCenter, imageMap: \"none\"|\"rectangle\"|\"polygon\", url, note, fillRule: \"nonZero\"|\"evenOdd\" (of the paths and compound paths in them), reversed (their subpaths run counter-clockwise on screen: Reverse Path Direction On), recentUrls: [newest first]} the Attributes panel's values for `ids` or the selection, overprint aimed as object.setOverprint aims; a value is null where they differ (or nothing has a fill, stroke or path)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.library.list",
+      "label": "Swatch Libraries",
+      "params": "{} → {libraries: [{id, name, category: \"builtIn\"|\"gradients\"|\"user\" (User Defined: the library files in the user library folder, rescanned now)|\"loaded\" (swatch.library.load), count, path?}], userFolder} every library the library panel opens, in menu order",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "swatch.library.get",
+      "label": "Swatch Library",
+      "params": "{library: id or name} → {id, name, category, swatches: [{name, kind, group, global, spot, color?, hex?, gradient?}] (as swatch.list), groups: [{name, swatches: [names]}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "swatch.library.add",
+      "label": "Add to Swatches",
+      "params": "{library: id or name, names?: [swatch or colour group names in the library] (default: all of it; a group comes as a colour group, a single swatch ungrouped), apply?: \"fill\"|\"stroke\" (also apply the first one to the selection and the defaults, as paint.setFill / paint.setStroke), focus?: true (with apply: false keeps the active proxy)} copy library swatches into the document as one undo step. A swatch the document already has (same name and paint) isn't added again; a name taken by another swatch gets a number (\"Clay 1 2\") → {library, added: [names in the document], existing: [names already there], applied?: name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.resetDefaults",
+      "label": "Default Swatches",
+      "params": "{replace?: false} bring back the default swatches and colour groups of the document's colour mode that are missing (by name), as one undo step; replace: true makes the swatches exactly the defaults (art linked to a removed global swatch keeps its colour, unlinked) → {added: [names]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.library.save",
+      "label": "Save Swatch Library…",
+      "params": "{path?, format?: \"vcswatches\" (lossless JSON: colour models, global, spot, gradients, groups) | \"gpl\" (8-bit RGB palette; groups as `# Group:` comments) | \"css\" (custom properties on :root) (default: the path's extension, else vcswatches), names?: [swatch or colour group names] (default: all; None and patterns are never saved), name?: library name (default: the document's), user?: false (save into the user library folder, listed under User Defined)} save the document's swatches as a library → {path, format, count, library?: id when saved to the user folder}; without path or user → {data: the file's text, format, count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "swatch.library.load",
+      "label": "Other Library…",
+      "params": "{path? | data?: file text | dataBase64?, name?: file name (default: the path's)} load a .vcswatches or .gpl library, or the swatches of any document VectorCraft opens (see document.formats), for the library panel (Window → Swatch Libraries lists it until the app quits) → {library: id, name, count}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "paint.freeform.addPoint",
+      "label": "Add Freeform Point",
+      "params": "{at: [x,y] (document coordinates), color? (default: the gradient's colour there), opacity? 0..1 (or 0..100), spread? 0..1 (or 0..100 %; the radius of pure colour around the point, a fraction of half the object's larger side; default 0), line?: true (join it to the selected point: extends the line ending there, else starts one), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind)} add a point to the freeform gradient (an unplaced one keeps its automatic points first) and select it → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.setPoint",
+      "label": "Edit Freeform Point",
+      "params": "{index? (default: the selected point), at?: [x,y] (document coordinates), color?, opacity? 0..1 (or 0..100), spread? 0..1 (or 0..100 %), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind)} move or recolour a point of the freeform gradient → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.deletePoint",
+      "label": "Delete Freeform Point",
+      "params": "{index? (default: the selected point), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind)} remove a point (never the last one); lines through it close up around it and lines left with one point go → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.addLine",
+      "label": "Add Freeform Line",
+      "params": "{points: [index, …] (at least two), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind)} join points with a smooth line through them, in order → {line}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.splitLine",
+      "label": "Split Freeform Line",
+      "params": "{line: line index, segment: the segment from the line's point `segment` to the next, t?: 0..1 along it (default 0.5), ids?, stroke?: bool (default: the targeted item's kind, else the active proxy), item?: fill/stroke item index|null (omitted: the Appearance panel's active item when it is of the edited kind)} add a point on a line there (colour, opacity and spread between the segment's ends) and select it → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.selectPoint",
+      "label": "Select Freeform Point",
+      "params": "{index: point index | null to clear} select a point of the freeform gradient behind the active proxy (the first selected object's): the point the Gradient tool, the Gradient and Color panels and Delete act on → {index}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "paint.freeform.get",
+      "label": "Freeform Gradient",
+      "params": "{stroke?: bool (default: the active proxy)} the freeform gradient behind the proxy of the first selected object → {mode: points|lines, points: [{at: [x,y] (document coordinates), color, opacity, spread}], lines: [[index, …]], selected: index|null}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.flattenTransparency",
+      "label": "Flatten Transparency…",
+      "params": "{preset?: \"high\"|\"medium\"|\"low\" or a saved preset's name (see flattener.presets.list; default medium), balance?: 0..100 (raster/vector balance; 0 rasterizes everything), lineArtPpi?: 1..2400, gradientPpi?: 1..2400 (areas only gradients and meshes reach), textToOutlines?, strokesToOutlines?, clipComplexRegions? (clip images to the region outlines, else rectangles), antiAlias?, preserveAlpha? (composite over nothing instead of white), preserveOverprints? (areas showing one paint keep its colour and overprint; false clears overprints), options?: {the same keys}, ids?} overlapping transparent objects become one group of flat-colour regions (CMYK colours composited ink by ink in CMYK documents), plus an image where gradients, patterns, images, masks or raster effects reach; objects without transparency stay → {ids, rasterized: images made, vector: regions made, options}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "flattener.presets.list",
+      "label": "Transparency Flattener Presets",
+      "params": "{} → {presets: [{name, builtIn, options}]} the built-in presets (High, Medium and Low Resolution), then the saved ones; any of these names works as `preset` wherever flattener options are taken",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "flattener.presets.save",
+      "label": "Save Transparency Flattener Preset",
+      "params": "{name?: (default: a new \"Flattener Preset N\"), newName?: rename it, preset?: the preset to start from (default: the saved preset `name`, else medium), …options (the keys of object.flattenTransparency, at the top level or in `options`)} create or change a saved preset (built-in ones can't change) → {name, options, created}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "flattener.presets.delete",
+      "label": "Delete Transparency Flattener Preset",
+      "params": "{name} delete a saved preset (built-in ones stay) → {deleted: name}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "flattener.presets.import",
+      "label": "Import Transparency Flattener Presets",
+      "params": "{path? | data?: file text | dataBase64?, replace?: false (replace saved presets of the same names; else the imported ones get a number)} add the presets of a .vcflattener file (as flattener.presets.export writes) to the saved ones → {imported: [names]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "flattener.presets.export",
+      "label": "Export Transparency Flattener Presets",
+      "params": "{names?: [preset names, built-in ones too] (default: every saved preset), path?} write the presets as a .vcflattener file (JSON) → {path, count}; without path → {data: the file's text, count}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "flattener.preview",
+      "label": "Flattener Preview",
+      "params": "{highlight?: \"none\"|\"rasterizedRegions\" (areas the raster/vector balance rasterizes whole)|\"transparentObjects\"|\"allAffected\"|\"expandedPatterns\" (pattern art taking part)|\"outlinedStrokes\"|\"outlinedText\"|\"allRasterized\" (default none), overprints?: \"preserve\"|\"simulate\"|\"discard\" (simulate and discard flatten without preserveOverprints), preset?, …options (as object.flattenTransparency), ids?: (default: the whole document)} what flattening would do, without changing anything → {highlight, regions: [{bounds: {x, y, width, height}, id?}] (the highlighted objects, or areas), counts: {transparentObjects, allAffected, expandedPatterns, outlinedStrokes, outlinedText, rasterizedRegions, allRasterized, vectorRegions}, options}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.libraries",
+      "label": "Graphic Style Libraries",
+      "params": "{} → {libraries: [{id, name, category: \"builtIn\"|\"user\" (User Defined: the .vcstyles files in the user library folder, rescanned now)|\"loaded\" (graphicStyle.loadLibrary), count, path?}], userFolder} every graphic style library the library panel opens, in menu order",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "graphicStyle.library",
+      "label": "Graphic Style Library",
+      "params": "{library: id or name} → {id, name, category, styles: [{name, fill, stroke, strokeWidth, fills, strokes, effects: [effect id…], opacity, blend, isolate, knockout}] (as graphicStyle.list)}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "graphicStyle.addFromLibrary",
+      "label": "Add to Graphic Styles",
+      "params": "{library: id or name, name? | names?: [style names in the library] (default: all of it), apply?: false (also apply the first one to `ids` or the selection, if any, as graphicStyle.apply), add?: false (with apply: add its appearance on top, as Alt-click), ids?} copy library styles into the document's Graphic Styles as one undo step (with the apply). A style the document already has (same name and look) isn't added again; a name taken by another style gets a number (\"Halo 2\"). The patterns they paint with come along (a name taken by another pattern or swatch gets a number) → {library, added: [names in the document], existing: [names already there], applied?: name}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.saveLibrary",
+      "label": "Save Graphic Style Library…",
+      "params": "{path?, names?: [style names] (default: all), name?: library name (default: the document's), user?: false (save into the user library folder, listed under User Defined)} save the document's graphic styles as a .vcstyles library (JSON: the styles, unlinked from swatches, and the patterns they paint with) → {path, count, library?: id when saved to the user folder}; without path or user → {data: the file's text, count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "graphicStyle.loadLibrary",
+      "label": "Other Library…",
+      "params": "{path? | data?: file text | dataBase64?, name?: file name (default: the path's)} load a .vcstyles library, or the graphic styles of any document VectorCraft opens (see document.formats), for the library panel (Window → Graphic Style Libraries lists it until the app quits) → {library: id, name, count}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "object.expand",
+      "label": "Expand…",
+      "params": "{object?: true (type → outlines, live shapes → paths, effects baked), fill?: true (gradient fills → `gradient` art), stroke?: true (strokes → filled outlines), gradient?: \"objects\" (default: `steps` solid strips, concentric ellipses for radial gradients) | \"mesh\" (a gradient mesh), both in a clip group shaped like the object (freeform gradients always become a mesh shaped like it), steps?: 1..1000 (255)} one undo step → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.expand.info",
+      "label": "Expand Options",
+      "params": "{} what each Expand option would change in the selection → {object, fill, stroke} (true: something to expand)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "attributes.set",
+      "label": "Attributes",
+      "params": "{overprintFill?: bool, overprintStroke?: bool (aimed as object.setOverprint's fill and stroke, item? too), showCenter?: bool (the canvas shows the selected object's centre point), imageMap?: \"none\"|\"rectangle\"|\"polygon\", url?: string (\"\" removes it; SVG export links the object), note?: string, ids?} set the Attributes panel's values on ids or the selection, as one undo step; a URL given joins the recent URLs (attributes.info) → {changed: objects}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "path.setFillRule",
+      "label": "Fill Rule",
+      "params": "{rule: \"nonZero\"|\"evenOdd\", ids?} the fill rule of the paths and compound paths in ids or the selection (groups: those inside), as one undo step → {changed}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "appearance.setNewArtBasic",
+      "label": "New Art Has Basic Appearance",
+      "params": "{on?: bool (omitted: toggle)} the Appearance panel option (the preference newArtBasic, on by default): on, new art takes one fill and stroke (with the Stroke panel's options); off, the whole appearance of the last selected object (every fill, stroke and effect, opacity and blend mode) → {on}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "appearance.newArt",
+      "label": "New Art Appearance",
+      "params": "{} what the next object drawn gets → {basic: New Art Has Basic Appearance, appearance: {items, effects} (the model's JSON; placed gradients relative to the unit box), opacity: 0..100, blend, graphicStyle: the style it is linked to or null, inherited: taken from the last selection}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "colorTheme.list",
+      "label": "Color Themes",
+      "params": "{} the saved colour themes, in order → {themes: [{name, colors: [\"#rrggbb\"], keys: [colour keys, exact in each colour's model], rule?}]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "colorTheme.save",
+      "label": "Save Theme",
+      "params": "{colors: [1–5 colours] | color + rule (a harmony rule id or label, see color.harmony: its 5-colour theme from that base colour, base first), rule?: the rule it was made with, name?: (default \"Theme N\"), replace?: a saved theme's name (overwrite that theme in place, e.g. after editing it; it may be renamed)} save a colour theme to the local theme library (the preferences) → {name, count: themes saved}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "colorTheme.delete",
+      "label": "Delete Theme",
+      "params": "{name} delete a saved colour theme → {deleted}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "colorTheme.addToSwatches",
+      "label": "Add to Swatches",
+      "params": "{name} add a saved theme's colours to the Swatches panel as a colour group named after it (as swatch.newGroup), as one undo step → {name: the group's, swatches: [names]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.exportPdf",
+      "label": "Export PDF",
+      "params": "{path?, preset?: \"VectorCraft Default\" (built-in or saved: pdf.preset.list), created?: integer Unix seconds|null (PDF metadata date; null/default uses current export time), artboard? | artboards?: [i…] | range?: \"1-3, 5\" (1-based; default all, one page each), standard?: none|pdfA2b|pdfX1a|pdfX3|pdfX4, compatibility?: 1.4|1.5|1.6|1.7 (default)|2.0, preserveEditing? (on in VectorCraft Default: the native document as an embedded file, which document.open restores; choosing a standard turns it off, PDF/A refuses it), thumbnails?, fastWebView?, viewAfterSaving? (the app opens the written file), createLayers?, includeNonPrinting? (keep layers whose Print option is off; left out by default unless createLayers), compression?: {color?, gray?: {downsample: none|average|subsample|bicubic, ppi: 300, abovePpi: 450, compression: none|zip|jpeg|jpeg2000|auto, quality: minimum|low|medium|high|maximum}, mono?: {downsample, ppi: 1200, abovePpi: 1800, compression: none|ccittG3|ccittG4|zip|runLength} (black-and-white images), compressText?: true} (images above abovePpi are resampled to ppi; auto keeps JPEGs JPEG, the others lossless; JPEG needs opaque images; none, jpeg2000, CCITT and runLength are written as ZIP with a warning), marks?: {trim, registration, colorBars, pageInfo, kind: roman|japanese, weight: 0.25 (trim marks and targets), offset: 6 (pt from the artboard, at least the bleed)} (printer's marks in [Registration], every plate: trim marks, registration targets mid-side, CMYK/spot/black-tint colour bars on top, page information (title, artboard, date UTC) below), bleed?: {useDocument (the document's bleed, document.setup), top, bottom, left, right} (pt; art in the bleed is kept). Each page: TrimBox = artboard, BleedBox = artboard + bleed, MediaBox = that + the marks' room (art clipped to the BleedBox), output?: {conversion: none|destination|preserveNumbers, destination, profiles: none|all|destination|taggedSource, outputIntent, outputCondition, outputConditionId, registry, trapped}, advanced?: {fontSubsetPercent: 100, outlineText: true, overprint: preserve|discard}, security?: {openPassword, permissionsPassword, printing: none|low|high, changes: none|pages|forms|comments|any, copy, screenReader, plaintextMetadata}} → {path, bytes, warnings}; no path → {dataBase64, bytes, warnings}. The options apply over the preset (null keeps its value); options accepted but not applied yet come back as warnings; PDF/X, passwords and PDF/A-2b at 2.0 are refused. document.export {format: pdf} takes the same options",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "document.pdfSettings",
+      "label": "PDF Settings",
+      "params": "{preset?, includeDocument?: false, …document.exportPdf options} → {settings (the preset with the options applied), presets: [name…], changed: [{option: \"compression.compressText\", value}] (what differs from the preset), warnings}; includeDocument also exports the active document in memory and adds its warnings (knockout groups approximated, effects left out…)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.setup",
+      "label": "Document Setup",
+      "params": "{units?: \"Points\"|\"Inches\"|\"Millimeters\"|…, bleed?: pt (all sides)|[top, bottom, left, right]|{top?, bottom?, left?, right?} (0–72 pt), outlineImages?: bool (show images in Outline mode), highlightSubstitutedFonts?: bool, highlightSubstitutedGlyphs?: bool, gridSize?: \"small\"|\"medium\"|\"large\", gridColors?: \"Light\"|\"Medium\"|\"Dark\"|\"Red\"|\"Orange\"|\"Green\"|\"Blue\"|\"Purple\"|[colour, colour] (transparency grid; the first is also the paper colour), simulatePaper?: bool, flattenerPreset?: \"High Resolution\"|\"Medium Resolution\"|\"Low Resolution\"|a saved preset (flattener.presets.list), discardWhiteOverprint?: bool, language?: \"English: USA\"|\"German\"|\"French\"|… (also picks its quotes), quotes?: {double?: \"“”\", single?: \"‘’\"} (beside a language: only if they differ from the current ones), typographersQuotes?: bool (typed straight quotes become the document's quotes), superscript?: {size?: %, position?: %}, subscript?: {size?: %, position?: %}, smallCapsSize?: %, exportText?: \"editable\"|\"appearance\" (SVG text as text or as outlines), backgroundContents?: \"transparent\"|\"white\" (white: raster exports are white behind the art)} change the document setup in one undo step; no params → the current setup",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.newPresets",
+      "label": "New Document Presets",
+      "params": "{category?: \"Recent\"|\"Saved\"|\"Mobile\"|\"Web\"|\"Print\"|\"Film & Video\"|\"Art & Illustration\"|\"Branding\"|\"Social\"} the New Document presets by category (Recent: the last sizes used; Saved: the user's presets) → {categories: [{name, presets: [{name, size: \"1920 × 1080 px\", width: pt, height: pt, units, orientation, artboards, artboardLayout: {layout, columns, spacing, rightToLeft}, bleed, backgroundContents, colorMode, rasterEffectsPpi, previewMode}]}]}; file.new {preset: name} starts from one",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.newPresets.save",
+      "label": "Save Preset",
+      "params": "{name, preset?: start from this preset, …settings as file.new (default: Letter in prefs unitsGeneral)} save New Document settings as a user preset (the Saved category; same name = replace) in the preferences → {name, count}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.newPresets.delete",
+      "label": "Delete Preset",
+      "params": "{name} delete a saved New Document preset → {deleted}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.place",
+      "label": "Place…",
+      "params": "{path | name+dataBase64, link?: true (a raster image keeps its file's path; other files are embedded), text?: {characterSet?: \"unicode\" (UTF-8, or UTF-16 with a byte-order mark; other bytes as the platform's 8-bit set) | \"ansi\" (the platform's 8-bit set), platform?: \"windows\" (Windows-1252) | \"mac\" (Mac Roman), removeLineReturns?: false (each block of lines becomes one paragraph; blank lines end paragraphs), removeParagraphReturns?: false (drop blank lines), replaceSpaces?: n (runs of n ≥ 2 spaces become a tab)} (a .txt file, placed as area type filling rect, the replaced object's bounds, or else the artboard less a 36 pt margin), template?: false (onto a new locked template layer below the current layer), replace?: false (swap the one selected object, keeping its stacking place and transform; no at/rect), at?: [x, y] centre (default: the first artboard's centre), rect?: [x, y, width, height] fit inside, aspect kept (wins over at), page?: 1 (PDF/.ai page, or a native document's artboard), crop?: \"crop\" (clipped to that page or artboard, default) | \"bounding\" (the art's bounds) | \"art\" | \"trim\" | \"bleed\" | \"media\" (a PDF page's boxes), password? (an encrypted PDF)} → {ids, name, format, linked, width, height, warnings}. Raster images come in at 100% of their physical size (the file's ppi, else 72); SVG, PDF/.ai and native documents as one group, with the images, symbols, patterns and swatches they use. One undo step; selects what it placed (unless on a template layer); never touches the clipboard",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.place.info",
+      "label": "Placed File Info",
+      "params": "{path | name+dataBase64, page?, crop?, password?, thumbnail?: px} what file.place would place, without placing it → {name, format, width, height (pt at 100%), pixelWidth?, pixelHeight?, ppi?: [x, y], colorMode?: RGB|Grayscale|CMYK (raster images), warnings, thumbnailBase64?: PNG of at most `thumbnail` (≤ 512) px on its longer side}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "image.info",
+      "label": "Image Info",
+      "params": "{id?} an image object (default: the one selected) → {id, name, linked, link, colorMode: RGB|Grayscale|CMYK, pixelWidth, pixelHeight, ppi: [x, y] at its placed size, width, height}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.place.queue",
+      "label": "Load Place Cursor",
+      "params": "{paths?: [path…], files?: [{name, dataBase64}…], link?, template?, page?, crop?, text?, thumbnail?: px} load the place cursor (the `place` tool) with up to 100 files (as file.place reads them): a click places the current file at 100% with its top-left corner there, a drag places it at the dragged size (aspect kept), ←/→ and ↑/↓ cycle the files, Esc discards the current one; each placement is a file.place, and the previous tool returns after the last → {count, files: [{name, format, width, height, thumbnailBase64?}], skipped: [{name, error}]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.check",
+      "label": "Check Links",
+      "params": "{ids?: [image ids] (default: every linked image)} where each linked file is and whether it changed since it was read → {links: [{name, path, status: ok|modified|missing, ids, found?: path (found away from its path: relative to the document, or by name in its folder), preview: true (showing the low-resolution preview, not the file)}], missing, modified}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.update",
+      "label": "Update Links",
+      "params": "{ids?: [image ids] (default: the linked images whose file was modified or is showing its preview)} read their linked files again; each image keeps its bounds. One undo step → {updated: [ids], missing: [ids]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.relink",
+      "label": "Relink",
+      "params": "{ids?: [image ids] (default: the selected images; with folder and nothing selected, every missing link), path | folder} link images to the file at path, or each to the file of its link's name in folder; embedded images become linked; each keeps its bounds. One undo step → {relinked: [ids], notFound: [file names]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.list",
+      "label": "Links",
+      "params": "{show?: all (default)|missing|modified|embedded, sort?: name|kind (file format)|status (missing, modified, ok, embedded); default: stacking order, top first} every image object in the layers, as the Links panel lists them → {links: [{id, name, linked, status: ok|modified|missing|embedded, format, pixelWidth, pixelHeight, path?, found?: path (found away from its path), page?, preview?: true (showing the saved preview)}], missing, modified, embedded}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.goTo",
+      "label": "Go To Link",
+      "params": "{id?} select image `id` (default: the first selected image); the Links panel scrolls it into view → {id, bounds: [x0, y0, x1, y1]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.embed",
+      "label": "Embed Image",
+      "params": "{ids?: [image ids] (default: the selected linked images)} keep the linked files' pixels in the document and drop the links (an image whose file can't be found and that shows the saved preview stays linked: relink it first). One undo step → {embedded: [ids], missing: [ids]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.unembed",
+      "label": "Unembed",
+      "params": "{id?: an embedded image (default: the one selected), path?} write the image's pixels to the file at path (PNG, JPEG, GIF or WebP as stored, other images as PNG; a path ending in .png/.jpg/.jpeg/.gif/.webp/.tif/.tiff/.bmp converts them) and link the image to it, keeping its bounds. One undo step → {id, path}; no path → {name, dataBase64} (nothing changes: there is no file to link to)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.info",
+      "label": "Link Info",
+      "params": "{id?} an image's Link Info (default: the one selected) → image.info's fields (id, name, linked, link, colorMode, pixelWidth, pixelHeight, width, height) and status: ok|modified|missing|embedded, format, ppi: [x, y] (the file's), effectivePpi: [x, y] (at its placed size), scale: [x%, y%] (of its 100% size), rotation (degrees, counter-clockwise), placement: {preserve, align, clip}; linked images also fileName, location (its folder), page?, fileSize? (bytes), modified?, created? (ms since the Unix epoch)",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "links.placementOptions",
+      "label": "Placement Options",
+      "params": "{ids?: [image ids] (default: the selected images), preserve?: transforms|bounds (default)|fileDimensions|fit|fill, align?: topLeft|top|topRight|left|center (default)|right|bottomLeft|bottom|bottomRight (where the new art sits; not for bounds), clip?: false (clip it to the old bounds where it is larger)} how a file read again (links.relink, links.update) takes each image's place: transforms keeps its scale (relative to each file's 100% size), rotation and position; bounds stretches it into the old bounds; fileDimensions puts it at 100%, unrotated; fit and fill scale it proportionally to fit inside or cover the old bounds. Without options → {placement} of the first image; else one undo step → {ids, placement}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "pdf.preset.list",
+      "label": "PDF Presets",
+      "params": "{} → {presets: [{name, builtIn, supported (the writer produces its standard), description, settings (as document.pdfSettings)}]} the built-in presets (VectorCraft Default first), then the saved ones; any of these names works as `preset` wherever PDF options are taken",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "pdf.preset.save",
+      "label": "Save PDF Preset",
+      "params": "{name?: (default: a new \"PDF Preset N\"), newName?: rename it, description?, preset?: the preset to start from (default: the saved preset `name`, else VectorCraft Default), …document.exportPdf options} create or change a saved preset (built-in presets are read-only; passwords are never stored) → {name, created, settings}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "pdf.preset.delete",
+      "label": "Delete PDF Preset",
+      "params": "{name} delete a saved preset (built-in ones stay) → {deleted: name}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "pdf.preset.export",
+      "label": "Export PDF Presets",
+      "params": "{names?: [preset names, built-in ones too] (default: every saved preset), path?} write the presets as a .vcpdfpresets file (JSON) → {path, count}; without path → {data: the file's text, count}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "pdf.preset.import",
+      "label": "Import PDF Presets",
+      "params": "{path? | data?: file text | dataBase64?, replace?: false (replace saved presets of the same names; else imported ones whose name is taken get a number)} add the presets of a .vcpdfpresets file (as pdf.preset.export writes) to the saved ones → {imported: [names]}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "document.exportDxf",
+      "label": "Export DXF",
+      "params": "{path?, version?: R12|R13|R14|2000|2004|2007|2010|2013|2018 (default), unit?: mm (default; any unit name: pt, in, cm…), scale?: 1 (drawing units per unit), scaleLineweights?: false, colors?: 8|16|256|true (default; true colour needs 2004+, else 256), rasterFormat?: png (default)|jpeg (placed images, written next to the file), preserve?: appearance (default: type as outlines; strokes a CAD line can't draw as filled outlines; brush art)|editability (type as text; every stroke a line with its lineweight and dashes), alterPaths?: false (every stroke as its filled outline), outlineText?: false, selectedOnly?: false (the selected objects, in their layers), artboard?: 0 (the origin is its bottom-left corner), useArtboards?: true (one drawing per chosen artboard, artboards?/range?, holding the art over it: {stem}-{artboard}.dxf) | false (the origin at the art's bounds)} → {path, bytes, warnings, files?, linked?: [image files]}; no path → {dataBase64, …, linked?: [{name, dataBase64}]}. Layers become DXF layers (hidden: off; locked; non-printing: not plotted); paths become polylines and splines, fills solid hatches. Same as document.export {format: dxf}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.package",
+      "label": "Package",
+      "params": "{folder?, name?: (default: \"<document> Folder\"), copyLinks?: true, linksFolder?: true (the linked files go in Links/, else next to the document), relink?: true (the packaged document links to the copies), copyFonts?: true (the fonts its type uses go in Fonts/; fonts whose licence doesn't allow embedding are left out), report?: true (<document> Report.txt)} copy the saved document as it is now into folder/name as <document>.vectorcraft with its linked files and fonts; the open document doesn't change → {folder, files: [paths relative to folder/name], links, fonts (counts copied), missingLinks: [file names not found], skippedFonts: [{font, reason}]}; no folder → the same with {name: \"<name>.zip\", dataBase64} (a zip of the files in <name>/) instead of folder",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.make",
+      "label": "Make",
+      "params": "{ids?} make each selected object (or ids) an object slice: its slice follows the object's bounds → {ids: the new object slices}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.release",
+      "label": "Release",
+      "params": "{} release the selected slices: an object slice leaves its object as it was, a user slice becomes an unpainted rectangle; the objects end up selected → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.fromGuides",
+      "label": "Create from Guides",
+      "params": "{} replace the user slices with the grid the ruler guides cut the artboards into (two vertical and two horizontal guides give 9) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.fromSelection",
+      "label": "Create from Selection",
+      "params": "{ids?} a user slice over the visual bounds of the selected objects (or ids), selected → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.duplicate",
+      "label": "Duplicate Slice",
+      "params": "{dx?: pt (default 10), dy?: pt (default 10)} copy the selected slices as user slices with their options, offset by dx, dy; the copies are selected → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.combine",
+      "label": "Combine Slices",
+      "params": "{} replace the two or more selected slices with one user slice over their bounds (the first one's options; object slices are released) → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.divide",
+      "label": "Divide Slices…",
+      "params": "{rows?: slices down, rowHeight?: pt per slice, columns?: slices across, columnWidth?: pt per slice} cut each selected slice into a grid of user slices (evenly by count, or by size with a smaller last one; an object slice is released); the pieces are selected → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.deleteAll",
+      "label": "Delete All",
+      "params": "{} delete every user slice and release every object slice → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.options",
+      "label": "Slice Options…",
+      "params": "{kind?: \"image\"|\"noImage\"|\"htmlText\" (object slices of type only), name?, url?, target?, message?, alt?: (image), text?: cell text, HTML allowed (noImage), background?: \"\"|\"matte\"|\"#rrggbb\", hAlign?: \"default\"|\"left\"|\"center\"|\"right\", vAlign?: \"default\"|\"top\"|\"middle\"|\"baseline\"|\"bottom\"} set the selected slices' options as one undo step; no options: read them → the first slice's {kind, name, url, target, message, alt, text, background, hAlign, vAlign, htmlText: whether HTML Text applies}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.clipToArtboard",
+      "label": "Clip to Artboard",
+      "params": "{on?: bool} toggle (or set) Clip to Artboard: on, slices are clipped to the artboards and auto slices fill them; off, auto slices cover the art and the slices → {on}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.slices.hide",
+      "label": "Hide Slices",
+      "params": "{hidden?: bool} toggle (or set) whether the canvas hides the slices (session view state) → {hidden}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "view.slices.lock",
+      "label": "Lock Slices",
+      "params": "{locked?: bool} toggle (or set) the slice lock: locked slices can't be selected or edited with the Slice Selection tool → {locked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "slice.list",
+      "label": "List Slices",
+      "params": "{} the slices as laid out, numbered left to right and top to bottom → {slices: [{number, id (null for auto slices), source: \"user\"|\"object\"|\"auto\", name, x, y, width, height, options, selected}], clipToArtboard, hidden, locked}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.object.slices",
+      "label": "Slices",
+      "params": "{} select every user and object slice → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.create",
+      "label": "Create Slice",
+      "params": "{x, y, width, height} a user slice over that rectangle, selected (the Slice tool's drag) → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.setRect",
+      "label": "Set Slice Rectangle",
+      "params": "{id: user slice, x, y, width, height} move or resize a user slice (an object slice follows its object) → {id}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.move",
+      "label": "Move Slices",
+      "params": "{slices?: [id…] (default: the selected slices), dx, dy} move the slices: user slices move, object slices move their objects → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.delete",
+      "label": "Delete Slices",
+      "params": "{slices?: [id…] (default: the selected slices)} delete the user slices and release the object slices (their objects stay) → {count}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.slice.select",
+      "label": "Select Slices",
+      "params": "{slices?: [id…] (user slice ids or ids of objects with an object slice; none: deselect the slices), toggle?: bool (Shift: add the unselected ones, drop the selected ones)} select slices as the Slice Selection tool does; the objects are deselected → {selected: [id…]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "file.open",
+      "label": "Open…",
+      "params": "{path} open any readable file (see document.formats) as a new document; templates open untitled",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.save",
+      "label": "Save",
+      "params": "{path?, format?, options?, svg?: {…SVG options}} = document.save: .vectorcraft, .ai (a PDF that reopens editable), .pdf, .svg or .svgz (default: the document's own path and format)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.export",
+      "label": "Export…",
+      "params": "{path?, format?, artboard?, range?, scale?, …} = document.export (no path → dataBase64)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "file.exportForScreens",
+      "label": "Export for Screens…",
+      "params": "{folder?, zip?, artboards? | range? | fullDocument?, includeBleed?, subfolders?, preset?, formats?, settings?, prefix?} = document.exportForScreens (no folder → the files, or one zip, as dataBase64)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "tool.select",
+      "label": "Select Tool",
+      "params": "{tool} e.g. selection, directSelection, pen, rectangle, ellipse, polygon, star, lineSegment",
+      "enabledAtEmptySession": true
+    }
+  ],
+  "runtimePatchSourceCommit": "402de7b5f698797af9195cbd380cc97716883bc8",
+  "analysisCommit": "36a6a8ae49f0e2d1059361ab1f842b1ec172bc9e"
+}

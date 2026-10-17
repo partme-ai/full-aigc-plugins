@@ -1,0 +1,102 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "vectorcraft",
+  "runtimeVersion": "0.2.0-craft.2",
+  "upstreamRepository": "https://github.com/storytold/vectorcraft",
+  "upstreamCommit": "90e022b0c05f12171a4e9bebe0894fa62f7bc95c",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "object.compoundPath.make",
+      "label": "Make",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.compoundPath.release",
+      "label": "Release",
+      "params": "{}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "select.set",
+      "label": "Select Objects",
+      "params": "{ids: [id…]}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.unite",
+      "label": "Unite",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.minusFront",
+      "label": "Minus Front",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.intersect",
+      "label": "Intersect",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.exclude",
+      "label": "Exclude",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.divide",
+      "label": "Divide",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.trim",
+      "label": "Trim",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.merge",
+      "label": "Merge",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.crop",
+      "label": "Crop",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.outline",
+      "label": "Outline",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "object.pathfinder.minusBack",
+      "label": "Minus Back",
+      "params": "{} operate on the selected objects (back → front) → {ids}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shapeBuilder.merge",
+      "label": "Shape Builder",
+      "params": "{ids?: [id…] (default: selection), points: [[x,y]…] (drag path; one point = click), erase?: bool (Alt-drag deletes the regions), fill?: \"#rrggbb\" | {color|swatch|gradient|none} (default: the fill of the object under the first point)} → {ids, merged, regions}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "shapeBuilder.regions",
+      "label": "Shape Builder Regions",
+      "params": "{ids?} → {regions: [{bounds: [x0,y0,x1,y1], area, sources: [id…]}]} faces of the planar arrangement",
+      "enabledAtEmptySession": false
+    }
+  ],
+  "runtimePatchSourceCommit": "402de7b5f698797af9195cbd380cc97716883bc8",
+  "analysisCommit": "36a6a8ae49f0e2d1059361ab1f842b1ec172bc9e"
+}

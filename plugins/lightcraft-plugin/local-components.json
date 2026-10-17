@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "skills": [],
+  "controllers": [
+    "scripts/task_core.py",
+    "scripts/controller.py",
+    "scripts/session_facts.py",
+    "scripts/raw_facts.py",
+    "scripts/sam_contract.py",
+    "scripts/sam_facts.py",
+    "scripts/craft_exchange.ts",
+    "scripts/mobile_delivery.py"
+  ],
+  "hooks": [],
+  "hookDecision": "没有需要自动运行的宿主副作用；显式控制器和包校验足以覆盖当前流程。"
+}

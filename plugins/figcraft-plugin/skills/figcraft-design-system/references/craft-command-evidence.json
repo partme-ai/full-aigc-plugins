@@ -1,0 +1,82 @@
+{
+  "runtime": {
+    "repository": "storytold/figcraft",
+    "commit": "d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08",
+    "exeSha256": "258ebcacd03404ab15e627b0a6c1a654b4f7f54336f4c6f4b48351abc0bb945e",
+    "artifactRun": 39007496391
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218",
+  "observedCommands": {
+    "file.new": {
+      "id": "file.new",
+      "label": "New design file",
+      "menu": "File",
+      "params": "{name?}",
+      "shortcut": "Cmd+N",
+      "undoable": false
+    },
+    "node.create": {
+      "id": "node.create",
+      "label": "Create layer",
+      "menu": null,
+      "params": "{type: rectangle|ellipse|polygon|star|line|arrow|vector|text|frame|section|component|slice, x?, y? (relative to the parent frame; groups don't count), width?, height?, parent? (id; default: the page), index?, name?, text? (for text), path? (SVG path data for vector), props? {node.set keys}, select? (default true)}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "component.create": {
+      "id": "component.create",
+      "label": "Create component",
+      "menu": "Object",
+      "params": "{ids?}  (one frame/group becomes a component; several layers are wrapped in one)",
+      "shortcut": "Alt+Cmd+K",
+      "undoable": true
+    },
+    "component.addProperty": {
+      "id": "component.addProperty",
+      "label": "Add component property",
+      "menu": null,
+      "params": "{id? (component, set, or a layer inside a component: it gets bound), name, type: boolean|text|instanceSwap|variant|slot, default?, layer? (node bound to it; a frame for slots), preferred? (instance swap and slot properties: component or set ids offered first)}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "instance.create": {
+      "id": "instance.create",
+      "label": "Create instance",
+      "menu": null,
+      "params": "{component (component or set: its default variant), x?, y?, parent?}",
+      "shortcut": null,
+      "undoable": true
+    },
+    "instance.setProperties": {
+      "id": "instance.setProperties",
+      "label": "Set instance properties",
+      "menu": null,
+      "params": "{ids?, properties {name: value}} (variant properties switch variants)",
+      "shortcut": null,
+      "undoable": true
+    },
+    "component.list": {
+      "id": "component.list",
+      "label": "List components",
+      "menu": null,
+      "params": "{} → [{id, name, type, page, instances, folder (the Assets panel's folders: page, frames, slash names), label, library?}]",
+      "shortcut": null,
+      "undoable": false
+    },
+    "component.properties": {
+      "id": "component.properties",
+      "label": "Component properties",
+      "menu": null,
+      "params": "{id? (component, set or instance)}",
+      "shortcut": null,
+      "undoable": false
+    }
+  },
+  "sceneAcceptance": "LIMITED_TECHNICAL_PASS",
+  "baselineRuntime": {
+    "version": "v0.6.0",
+    "url": "https://github.com/storytold/figcraft/releases/download/v0.6.0/figcraft-0.6.0-windows-x64-portable.zip",
+    "sha256": "87cc2191f2b00c7701fed7db88222d227488e6f50963b24f61e46fed42a565ce",
+    "executable": "figcraft-cli.exe"
+  }
+}

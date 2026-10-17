@@ -1,0 +1,77 @@
+{
+  "protocol": "printcraft.verification/1",
+  "ruleVersion": 1,
+  "runId": "be46333c-f04d-4573-8c1e-d1d0048a5f84",
+  "inputSha256": {
+    "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/source.pdf": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a"
+  },
+  "requestSha256": "87d0bce0a811b855b13634cafd4e71627e7855e0aa35be15616bf31b719c9f39",
+  "artifacts": [
+    {
+      "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/result.pdf",
+      "role": "delivery",
+      "mediaType": "application/pdf",
+      "size": 919,
+      "sha256": "1ceafa0c23ebad245e0229f8973d9477209e094e1fff888486f5430d4d6937ff",
+      "sourcePages": [
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 3
+        },
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 1
+        },
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 2
+        }
+      ],
+      "info": {
+        "annotations": 0,
+        "attachments": 0,
+        "author": null,
+        "bookmarks": 0,
+        "creator": null,
+        "encrypted": false,
+        "fields": 0,
+        "file": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/model-artifacts/result.pdf",
+        "file_size": 919,
+        "first_page_pt": [
+          612.0,
+          792.0
+        ],
+        "javascript": false,
+        "layers": 0,
+        "links": 0,
+        "page_labels": [
+          "1",
+          "2",
+          "3"
+        ],
+        "pages": 3,
+        "pdf_version": "1.5",
+        "producer": null,
+        "tagged": false,
+        "title": null,
+        "warnings": [],
+        "xfa": null
+      },
+      "pageText": [
+        "PAGE-GAMMA",
+        "PAGE-ALPHA",
+        "PAGE-BETA"
+      ],
+      "textClassification": "TEXT_PRESENT",
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "status": "DETERMINISTIC_PASS_REVIEW_REQUIRED",
+  "completeAcceptance": false,
+  "visualReview": "NOT_RUN",
+  "automaticRevision": false
+}

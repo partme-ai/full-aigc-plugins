@@ -1,0 +1,24 @@
+{
+  "readOnly": true,
+  "compatible": true,
+  "runId": "29596b15-05b3-4d59-9cc9-f2376f436223",
+  "status": "FAILED_OR_PARTIAL",
+  "runtimeIdentity": {
+    "version": "0.2.1",
+    "binarySha256": "45d6f10c7d15c9cf051d23629ab14d0e8ca4c3bb9e3192393f726a918ab1c8da",
+    "executable": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-connect-20261008/runtime/lightcraft/0.2.1/lightcraft-cli",
+    "mode": "Connect",
+    "transport": "stdio-mcp",
+    "connectAddress": "127.0.0.1:55228",
+    "readOnly": true,
+    "nativeMayRetryReads": true,
+    "scriptSha256": null
+  },
+  "backendQuery": "NOT_CONFIRMED",
+  "backendSessionIdentity": "NOT_PROVIDED_BY_NATIVE_PROTOCOL",
+  "sourceSnapshotMatches": false,
+  "taskExecutionAllowed": false,
+  "deliveryAllowed": false,
+  "automaticReplay": false,
+  "scope": "observation only; a probe cannot resume a task, prove desktop session identity, or accept exported images"
+}

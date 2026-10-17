@@ -1,0 +1,106 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "effectcraft",
+  "runtimeVersion": "0.2.0",
+  "upstreamRepository": "https://github.com/storytold/effectcraft",
+  "upstreamCommit": "f5ebe5f6c5e887dddda4a2be1fcb47154e959b81",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "footage.check",
+      "label": "Check Footage",
+      "params": "{items?: [id], wait?} — look for every footage file (in the background unless `wait`) and flag missing items",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "mediaBrowser.list",
+      "label": "List Folder",
+      "params": "{path?, importableOnly?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "mediaBrowser.go",
+      "label": "Go to Folder",
+      "params": "{path?: folder | \"..\", importableOnly?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "mediaBrowser.addFavorite",
+      "label": "Add to Favorites",
+      "params": "{path?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "mediaBrowser.removeFavorite",
+      "label": "Remove from Favorites",
+      "params": "{path?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "mediaBrowser.import",
+      "label": "Import",
+      "params": "{paths, addToComp?, time?, index?, position? (where the layers go, as in layer.addItem)}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "mediaBrowser.action",
+      "label": "Media Browser Action",
+      "params": "{action}: an action from mediaBrowser.list's `actions` (web: openFolder, addFiles, uploadFolder)",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "mediaBrowser.fileInfo",
+      "label": "File Info",
+      "params": "{path}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "footage.open",
+      "label": "Open in Footage Panel",
+      "params": "{item: id|name}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "footage.info",
+      "label": "Footage Panel State",
+      "params": null,
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "footage.setTime",
+      "label": "Footage Panel Time",
+      "params": "{time? (s, source) | frame?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "footage.setIn",
+      "label": "Set In Point",
+      "params": "{time? | frame? (default: the panel's time)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "footage.setOut",
+      "label": "Set Out Point",
+      "params": "{time? | frame? (default: the panel's time)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "footage.clearInOut",
+      "label": "Clear In and Out",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "footage.overlayEdit",
+      "label": "Overlay Edit",
+      "params": "{item?, comp?, in? (s), out? (s), at? (comp s; default the current time)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "footage.rippleInsertEdit",
+      "label": "Ripple Insert Edit",
+      "params": "{item?, comp?, in? (s), out? (s), at? (comp s; default the current time)}",
+      "enabledAtEmptySession": false
+    }
+  ]
+}

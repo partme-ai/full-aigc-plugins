@@ -1,0 +1,45 @@
+{
+  "runtime": {
+    "version": "v0.12.0",
+    "url": "https://github.com/storytold/vectorcraft/releases/download/v0.12.0/vectorcraft-0.12.0-windows-x64-portable.zip",
+    "sha256": "fde42c30d14aadbb565cf0551f72f251321f8c9f875a24811b98e522aea6fe88",
+    "executable": "vectorcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "graph.create": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "graph.create",
+      "label": "Create Graph",
+      "menu": [],
+      "params": "{type: column|stackedColumn|bar|stackedBar|line|area|scatter|pie|radar, x, y, width, height, series?: [..], categories?: [..], rows?: [[number|null]], csv?} → {id}; an empty CSV cell or a null is a blank value, a number in straight quotes is a label",
+      "shortcut": null
+    },
+    "graph.setType": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "graph.setType",
+      "label": "Type…",
+      "menu": [
+        "Object",
+        "Graph"
+      ],
+      "params": "{id?, type?, seriesIndexes?: [index], columnWidth?: % (1–1000; past 100 columns overlap), clusterWidth?: % (1–1000), legend?: bool, markPoints?: bool, connectPoints?: bool, edgeToEdge?: bool (line graphs: true runs the lines across the whole plot, false puts the points at the centres of their categories), ticks?: n, axisMin?, axisMax?, valueAxis?: left|right|both (the bar graphs' value axis stays along the bottom), separateScales?: bool, rightTicks?: n, rightAxisMin?, rightAxisMax?, tickLength?: none|short|full, tickMarks?: n per division, rightTickLength?, rightTickMarks?, categoryTickLength?: none|short|full, categoryTickMarks?: n, ticksBetweenLabels?: bool, prefix?, suffix?, rightPrefix?, rightSuffix?: text around the value axis numbers, firstRowInFront?: bool, firstColumnInFront?: bool (which overlapping columns are drawn on top: the first category over the next within each series, the first series over the others), filledLines?: bool (Draw Filled Lines: connecting lines as 3 pt bands filled with the series colour), dropShadow?: bool (Add Drop Shadow: a translucent black shadow down and right of the columns, bars, lines and pie wedges), legendAcrossTop?: bool (Add Legend Across Top: the legend in rows above the plot), pieLegend?: none|standard|wedges (Legends in Wedges: the series labels inside their wedges), piePosition?: ratio|even|stacked (several pies sized by their totals, at one size (the default), or stacked), pieSort?: all|first|none (wedges largest first in each pie, in the first pie's order, or in data order (the default)); the query lists the pie options for pie graphs} change the graph type and options; with `seriesIndexes`, or (no `id`) with only series selected with Group Selection, `type` goes to those series only and `valueAxis` (left|right; both is refused) puts them on that value axis, while the other options still apply to the whole graph (Combine different graph types: column, stacked column, line and area mix, and so do bar and stacked bar; a series given the graph's type follows the graph again) (axisMin and axisMax together override the calculated value axis: exactly that range in `ticks` divisions, 5 when 0; with the value axis on both sides, separateScales gives the series on the right axis a scale of their own, set the same way with rightTicks, rightAxisMin and rightAxisMax); no options → the current ones",
+      "shortcut": null
+    },
+    "graph.setData": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "graph.setData",
+      "label": "Data…",
+      "menu": [
+        "Object",
+        "Graph"
+      ],
+      "params": "{id?, series?, categories?, rows?, csv?: first row = series labels (first cell empty); then one row per category: label; values…; an empty cell or a null is a blank value; a quoted number a label; a `|` in a label a line break, transpose?: true swaps rows and columns (Transpose row/column), switchXY?: true swaps each scatter series' y and x columns (Switch x/y)} replace the graph's data; no data → the current {csv, series, categories, rows}",
+      "shortcut": null
+    }
+  },
+  "sceneAcceptance": "NOT_RUN"
+}

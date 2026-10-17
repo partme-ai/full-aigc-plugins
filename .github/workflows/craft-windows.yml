@@ -28,7 +28,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+      - name: Resolve pinned Design scene source
+        id: design-source
+        shell: pwsh
+        run: |
+          $revision = python -c "import json; print(next(x['skillsCommit'] for x in json.load(open('scripts/ci/craft_main_candidates.lock.json', encoding='utf-8'))['candidates'] if x['app']=='designcraft'))"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          "revision=$revision" >> $env:GITHUB_OUTPUT
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/designcraft-skills
+          ref: ${{ steps.design-source.outputs.revision }}
+          path: .local/test-design-skills
       - run: python -m unittest discover -s scripts/ci -p "test_*.py" -v
+        env:
+          CRAFT_DESIGN_SKILLS_ROOT: ${{ github.workspace }}/.local/test-design-skills/skills
+          PYTHONUTF8: '1'
 
   native-install:
     if: github.event_name == 'workflow_dispatch' || vars.CRAFT_WINDOWS_INDEX_URL != ''

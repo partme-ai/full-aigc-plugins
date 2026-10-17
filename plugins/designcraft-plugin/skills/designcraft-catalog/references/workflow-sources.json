@@ -1,0 +1,41 @@
+{
+  "policy": "只借鉴工作流事实，场景正文与命令例子原创编写，不复制外部代码、正文或素材。许可不明的来源仅作为参考。",
+  "sources": [
+    {
+      "repository": "le-tex/InDesignScripts",
+      "commit": "b0fd4bbc49f33f860361736a702c1ed5c3e4ac95",
+      "license": {
+        "key": "bsd-2-clause",
+        "name": "BSD 2-Clause \"Simplified\" License",
+        "spdx_id": "BSD-2-Clause",
+        "url": "https://api.github.com/licenses/bsd-2-clause",
+        "node_id": "MDc6TGljZW5zZTQ="
+      },
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/README.md",
+          "bytes": 162
+        },
+        {
+          "path": "image-export/README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/image-export/README.md",
+          "bytes": 1411,
+          "sha256": "47fbe9816854a4c35c250f10b23e86707c03216d72077401ab0c688e2c9dfc2e"
+        },
+        {
+          "path": "insert-alt-text/README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/insert-alt-text/README.md",
+          "bytes": 1148
+        },
+        {
+          "path": "link-endnotes/README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/link-endnotes/README.md",
+          "bytes": 680
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied",
+      "adaptation": "借鉴链接图像实例、逐实例裁切/尺寸与独立名称的工作流事实，原创映射为明确SKU框ID置入、保持比例、链接使用框检查和可搬运打包。没有复制外部代码或商品素材。"
+    }
+  ]
+}

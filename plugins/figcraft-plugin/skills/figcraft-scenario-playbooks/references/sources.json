@@ -1,0 +1,50 @@
+{
+  "policy": "只借鉴工作流事实，场景正文与命令例子原创编写，不复制外部代码、正文或素材。许可不明的来源仅作为参考。",
+  "sources": [
+    {
+      "repository": "figma/plugin-samples",
+      "commit": "03131bef561eb25ee2b704e3b39e40acc70330e0",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/README.md",
+          "bytes": 12929
+        },
+        {
+          "path": "barchart/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/barchart/code.ts",
+          "bytes": 2763
+        },
+        {
+          "path": "metacards/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/metacards/code.ts",
+          "bytes": 4962
+        },
+        {
+          "path": "resizer/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/resizer/code.ts",
+          "bytes": 2358
+        },
+        {
+          "path": "text-search/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/text-search/code.ts",
+          "bytes": 1559
+        },
+        {
+          "path": "vector-path/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/vector-path/code.ts",
+          "bytes": 337
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    }
+  ],
+  "adaptation": "借鉴创建frame、appendChild、可编辑文字、自动布局间距、指定节点resize等工作流事实；本例界面与文案原创，不复制Figma脚本。"
+}

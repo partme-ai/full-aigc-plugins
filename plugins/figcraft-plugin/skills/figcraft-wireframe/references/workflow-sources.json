@@ -1,0 +1,62 @@
+{
+  "policy": "只借鉴工作流事实，场景正文与命令例子原创编写，不复制外部代码、正文或素材。许可不明的来源仅作为参考。",
+  "sources": [
+    {
+      "repository": "figma/plugin-samples",
+      "commit": "03131bef561eb25ee2b704e3b39e40acc70330e0",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/README.md",
+          "bytes": 12929
+        },
+        {
+          "path": "barchart/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/barchart/code.ts",
+          "bytes": 2763
+        },
+        {
+          "path": "metacards/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/metacards/code.ts",
+          "bytes": 4962
+        },
+        {
+          "path": "text-search/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/text-search/code.ts",
+          "bytes": 1559
+        },
+        {
+          "path": "vector-path/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/vector-path/code.ts",
+          "bytes": 337
+        },
+        {
+          "path": "resizer/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/resizer/code.ts",
+          "bytes": 2358,
+          "sha256": "9b462842bc14b5605c8bc06c021491cabbc1dccab5ce3fc7a7221a35661b2c2d"
+        },
+        {
+          "path": "codegen/plugin-src/code.js",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/codegen/plugin-src/code.js",
+          "bytes": 3498,
+          "sha256": "d17e4d37cf553e345922a23060885a9e28ac62af49f3092d2a8a209f7dcc4a1b"
+        },
+        {
+          "path": "create-rects-shapes/code.ts",
+          "url": "https://github.com/figma/plugin-samples/blob/03131bef561eb25ee2b704e3b39e40acc70330e0/create-rects-shapes/code.ts",
+          "bytes": 2527,
+          "sha256": "d25bebb7f56e7045349d209392f7fe27925cfdefc5b00f34f27f23ae982f73d3"
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    }
+  ]
+}

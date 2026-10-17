@@ -1,0 +1,7 @@
+{
+  "ruleVersion": 1,
+  "requestSha256": "87d0bce0a811b855b13634cafd4e71627e7855e0aa35be15616bf31b719c9f39",
+  "decision": "approve",
+  "reviewer": "Codex image inspection (not human signoff)",
+  "notes": "实际查看当前模型产物三页 PNG；依序 PAGE-GAMMA、PAGE-ALPHA、PAGE-BETA 可读，未见截断或页标丢失。限当前原创夹具，归档副本 SHA 与模型原始产物一致。"
+}

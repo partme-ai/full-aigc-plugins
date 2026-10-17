@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lightcraft task state v1",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "taskId",
+    "status",
+    "goal",
+    "goalSha256",
+    "plan",
+    "planSha256",
+    "originals",
+    "inputRoots",
+    "library",
+    "outputRoot",
+    "history",
+    "revision",
+    "maxRevisions",
+    "acceptance"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "taskId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "PLANNED",
+        "RUNNING",
+        "VERIFYING",
+        "AWAITING_REVIEW",
+        "COMPLETED",
+        "FAILED_OR_PARTIAL",
+        "UNKNOWN",
+        "BLOCKED"
+      ]
+    },
+    "goal": {
+      "type": "object"
+    },
+    "goalSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "plan": {
+      "type": "object"
+    },
+    "planSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "originals": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "inputRoots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "library": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "outputRoot": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "history": {
+      "type": "array"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 20
+    },
+    "maxRevisions": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 20
+    },
+    "acceptance": {
+      "type": "object",
+      "required": [
+        "execution",
+        "persistence",
+        "artifacts",
+        "reopen",
+        "visual"
+      ]
+    }
+  }
+}

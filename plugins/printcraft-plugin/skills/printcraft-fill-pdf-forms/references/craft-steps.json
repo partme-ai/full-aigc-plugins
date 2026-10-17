@@ -1,0 +1,47 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "printcraft",
+  "id": "fill-pdf-forms",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "读取真实字段名与类型",
+      "command": "form_fields",
+      "params": {
+        "doc": 1
+      }
+    },
+    {
+      "purpose": "按字段映射填写值",
+      "command": "form_fill",
+      "params": {
+        "doc": 1,
+        "values": {
+          "CustomerName": "Sample Customer"
+        }
+      }
+    },
+    {
+      "purpose": "保存保留可编辑字段的副本",
+      "command": "doc_save",
+      "params": {
+        "doc": 1,
+        "path": "output/filled.pdf",
+        "full": true
+      }
+    },
+    {
+      "purpose": "渲染表单页检查显示",
+      "command": "page_render",
+      "params": {
+        "doc": 1,
+        "page": 1,
+        "dpi": 144
+      }
+    }
+  ],
+  "check": "重开核对字段值、复选框、长文本、字体和签名区域。",
+  "boundary": "CustomerName必须由form_fields实际返回确认；填写不等于电子签名或身份认证。 此ASCII值是虚构测试输入，实际用户值不得转拼音或替换。官方0.8.0在本轮Helvetica表单的中文外观测试中显示????，虽字段存储值正确也不能验收中文外观；无可用中文字体能力时保留原件、明确未完成，并按用户确认选择其他后端。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

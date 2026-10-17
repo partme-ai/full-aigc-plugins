@@ -1,0 +1,142 @@
+{
+  "schema": "craft-skill-command-evidence/v1",
+  "pluginId": "effectcraft",
+  "runtimeVersion": "0.2.0",
+  "upstreamRepository": "https://github.com/storytold/effectcraft",
+  "upstreamCommit": "f5ebe5f6c5e887dddda4a2be1fcb47154e959b81",
+  "scope": "observed command catalogue, not capability or creative acceptance",
+  "commands": [
+    {
+      "id": "track.motion",
+      "label": "Track Motion",
+      "params": "{layer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.stabilize",
+      "label": "Stabilize Motion",
+      "params": "{layer?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.new",
+      "label": "New Tracker",
+      "params": "{layer?, kind?: transform|stabilize|affine|perspective|raw, position?, rotation?, scale?, target?: layer}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.property",
+      "label": "Track this Property",
+      "params": "{layer?, source?: layer}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.select",
+      "label": "Current Track",
+      "params": "{layer?, tracker?: uid|name|#n}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.setType",
+      "label": "Track Type",
+      "params": "{layer?, tracker?, kind?: transform|stabilize|affine|perspective|raw, position?, rotation?, scale?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.setTarget",
+      "label": "Edit Target",
+      "params": "{layer?, tracker?, target: layer|null}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.options",
+      "label": "Motion Tracker Options",
+      "params": "{layer?, tracker?, name?, channel?: rgb|luminance|saturation, blur? (px, 0 = off), enhance?, subpixel?, adaptEveryFrame?, threshold? (%), action?: continue|stop|extrapolate|adapt, trackShape?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.setPoint",
+      "label": "Move Track Point",
+      "params": "{layer?, tracker?, point: n (1-based), center?: [x,y], featureSize?: [w,h], searchOffset?: [x,y], searchSize?: [w,h], attachOffset?: [x,y], move?: [dx,dy], time? (s)}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.analyze",
+      "label": "Analyze",
+      "params": "{layer?, tracker?, direction?: forward|backward|frameForward|frameBackward, start? (s), end? (s), wait?: block until done}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.stop",
+      "label": "Stop Analysis",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.apply",
+      "label": "Apply",
+      "params": "{layer?, tracker?, dimensions?: xy|x|y}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.reset",
+      "label": "Reset",
+      "params": "{layer?, tracker?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.delete",
+      "label": "Delete Tracker",
+      "params": "{layer?, tracker?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.editTargetDialog",
+      "label": "Edit Target...",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.optionsDialog",
+      "label": "Options...",
+      "params": null,
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.status",
+      "label": "Tracker Status",
+      "params": "{layer?, tracker?}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "track.mask",
+      "label": "Track Mask",
+      "params": "{layer?, mask?: uid|index|name, method?: position|positionScale|positionScaleRotation|positionScaleRotationSkew|perspective|faceOutline|faceDetailed, direction?: forward|backward|frameForward|frameBackward, start? (s), end? (s), wait?: block until done}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.maskMethod",
+      "label": "Mask Tracking Method",
+      "params": "{method: position|positionScale|positionScaleRotation|positionScaleRotationSkew|perspective|faceOutline|faceDetailed}",
+      "enabledAtEmptySession": true
+    },
+    {
+      "id": "track.extractFaceMeasurements",
+      "label": "Extract & Copy Face Measurements",
+      "params": "{layer?} → keys a Face Measurements effect from the layer's Face Track Points (one key per tracked frame) and copies those keys",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.warpStabilizer",
+      "label": "Warp Stabilizer VFX",
+      "params": "{layer?, wait?}",
+      "enabledAtEmptySession": false
+    },
+    {
+      "id": "track.camera",
+      "label": "Track Camera",
+      "params": "{layer?, shotType?: fixed|variable|specify, aov?: degrees, solveMethod?: auto|typical|flat|tripod, detailed?, lensDistortion?: solve k1/k2, undistort?: render undistorted, wait?}",
+      "enabledAtEmptySession": false
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "protocol": "printcraft.ocr/1",
+  "runId": "da7f006c-4d51-42e2-af60-54e940504174",
+  "status": "DETERMINISTIC_PASS_REVIEW_REQUIRED",
+  "nextAction": "REVIEW_ARTIFACTS",
+  "automaticReplay": false,
+  "completeAcceptance": false,
+  "inputs": "85a798a710287131bc4365fdb17ac8d345308677550db46106e8b215e00ee665",
+  "artifacts": [
+    {
+      "path": "/private/tmp/printcraft-ocr-20261008/插件 Harness 验收/searchable.pdf",
+      "role": "delivery",
+      "mediaType": "application/pdf",
+      "status": "PRESENT",
+      "size": 85645,
+      "sha256": "2a28138efc9d92c6faa20aeeeebe4313711add5bf4ab0e1f24de1865d10c9dab"
+    },
+    {
+      "path": "/private/tmp/printcraft-ocr-20261008/插件 Harness 验收/searchable.txt",
+      "role": "recognized-text",
+      "mediaType": "text/plain",
+      "status": "PRESENT",
+      "size": 125,
+      "sha256": "42bfaca9a36f2b4a97129bd1aa2a15441fe8bab208ad8ec14df5b4f57b8ea918"
+    }
+  ],
+  "backendIdentity": {
+    "protocol": "printcraft.ocr-backend/1",
+    "backend": "tesseract",
+    "executable": "/opt/homebrew/Cellar/tesseract/5.5.3/bin/tesseract",
+    "tessdataDir": "/opt/homebrew/share/tessdata",
+    "version": "tesseract 5.5.3",
+    "platform": "darwin-arm64",
+    "language": "chi_tra",
+    "binarySha256": "21674e0595020d02c049765fba6a51cedccdbae26eac94c5d15b55e3e6ecdec3",
+    "modelSha256": "529c5b5797d64b126065cd55f2bb4c7fd7b15790798091b1ff259941a829330b",
+    "pdfFontSha256": "c7845420925a23d88ed830a63957b8af85a66a8daf8d9fc90e843673b2ef1a59"
+  },
+  "nativeIdentity": {
+    "executable": "/tmp/printcraft-publish-20261008/隔离 runtime/printcraft/0.2.1/printcraft-cli",
+    "reused": true,
+    "binarySha256": "b7783b596870ed5a326f29456d4647382d2e1e4d7b7ffe75ded192cd15b86995",
+    "version": "0.2.1",
+    "platform": "darwin-arm64",
+    "versionOutput": "printcraft-cli 0.2.1",
+    "artifact": "printcraft-cli",
+    "status": "VERIFIED",
+    "installed": true,
+    "readOnly": true
+  },
+  "visualReview": "NOT_RUN",
+  "losses": [
+    "forms",
+    "bookmarks",
+    "attachments",
+    "signatures",
+    "vector-and-original-text-semantics"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "runtime": {
+    "version": "v0.7.0",
+    "url": "https://github.com/storytold/soundcraft/releases/download/v0.7.0/soundcraft-0.7.0-windows-x64-portable.zip",
+    "sha256": "8ef3c5fd89c5a3e797b01afdcf3398a81743f518d8978cac766cbd3665e6861d",
+    "executable": "soundcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "session.inspect": {
+      "id": "session.inspect",
+      "label": "Inspect Session",
+      "menu": [],
+      "shortcut": null,
+      "params": "{detail?: summary|full}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "file.bounce_mix": {
+      "id": "file.bounce_mix",
+      "label": "Bounce Mix...",
+      "menu": [
+        "File"
+      ],
+      "shortcut": "Cmd+Alt+B",
+      "params": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "file.export_session_text": {
+      "id": "file.export_session_text",
+      "label": "Session Info as Text...",
+      "menu": [
+        "File",
+        "Export"
+      ],
+      "shortcut": null,
+      "params": "{path?}",
+      "enabled": true,
+      "disabled_reason": null
+    }
+  },
+  "sceneAcceptance": "NOT_RUN"
+}

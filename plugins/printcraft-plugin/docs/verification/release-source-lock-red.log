@@ -1,0 +1,17 @@
+test_formal_lock_format_never_claims_remote_verification (test_provenance.FormalOfflineIdentity.test_formal_lock_format_never_claims_remote_verification) ... ok
+test_reject_false_identity_and_invalid_manifest (test_provenance.Provenance.test_reject_false_identity_and_invalid_manifest) ... ok
+test_formal_source_needs_independent_repository_bound_release_lock (test_provenance.PublishedSourceLock.test_formal_source_needs_independent_repository_bound_release_lock) ... FAIL
+
+======================================================================
+FAIL: test_formal_source_needs_independent_repository_bound_release_lock (test_provenance.PublishedSourceLock.test_formal_source_needs_independent_repository_bound_release_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/tests/test_provenance.py", line 37, in test_formal_source_needs_independent_repository_bound_release_lock
+    with self.assertRaisesRegex(ValueError,'release_lock_missing'):m.validate()
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.421s
+
+FAILED (failures=1)

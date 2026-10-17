@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "dest": "skills/",
+  "skills": [
+    "wordcraft-business-proposal",
+    "wordcraft-document-comparison",
+    "wordcraft-document-style",
+    "wordcraft-editor",
+    "wordcraft-meeting-minutes",
+    "wordcraft-research-report",
+    "wordcraft-resume-layout",
+    "wordcraft-scenario-playbooks"
+  ]
+}

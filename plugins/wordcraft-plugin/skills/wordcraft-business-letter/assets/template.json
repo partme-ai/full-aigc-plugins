@@ -1,0 +1,100 @@
+{
+  "schema": "wordcraft-document-template/v1",
+  "id": "business-letter",
+  "name": "业务函",
+  "scope": "新建文档模板；已有文档先定位目标区域，不全篇覆盖",
+  "fields": {
+    "title": {
+      "label": "文档标题",
+      "type": "text",
+      "required": true,
+      "guidance": "按具体对象命名"
+    },
+    "document_date": {
+      "label": "文档日期",
+      "type": "text",
+      "required": false,
+      "guidance": "不确定时待确认"
+    },
+    "author": {
+      "label": "编写人",
+      "type": "text",
+      "required": false,
+      "guidance": "不推断责任归属"
+    },
+    "recipient": {
+      "label": "收件方与主题",
+      "type": "text",
+      "required": true,
+      "guidance": "列明单位/人员及本函要处理的具体事项"
+    },
+    "background": {
+      "label": "事由与已确认事实",
+      "type": "text",
+      "required": true,
+      "guidance": "只写可核对的背景，不把猜测写成事实"
+    },
+    "request": {
+      "label": "请求事项",
+      "type": "text",
+      "required": true,
+      "guidance": "逐项说明对方需要提供什么、格式和用途"
+    },
+    "reply": {
+      "label": "回复方式与时间",
+      "type": "text",
+      "required": true,
+      "guidance": "明确回复渠道和期望时间，未确认的时间标期望或待确认"
+    },
+    "attachments": {
+      "label": "附件与落款说明",
+      "type": "text",
+      "required": true,
+      "guidance": "列明实际随附材料，未附文件不写已随附"
+    },
+    "records": {
+      "label": "事项清单",
+      "type": "rows",
+      "required": true,
+      "guidance": "二维字符串数组，按表头列顺序；未知单元格写待确认，不使用制表符或换行"
+    }
+  },
+  "sections": [
+    {
+      "title": "收件方与主题",
+      "field": "recipient"
+    },
+    {
+      "title": "事由与已确认事实",
+      "field": "background"
+    },
+    {
+      "title": "请求事项",
+      "field": "request"
+    },
+    {
+      "title": "回复方式与时间",
+      "field": "reply"
+    },
+    {
+      "title": "附件与落款说明",
+      "field": "attachments"
+    }
+  ],
+  "table": {
+    "title": "事项清单",
+    "headers": [
+      "序号",
+      "事项",
+      "所需材料",
+      "当前状态"
+    ],
+    "field": "records"
+  },
+  "contentRule": "正文礼貌明确；收件方、事项和截止时间来自资料，不伪造对方承诺或签署。",
+  "reviewChecks": [
+    "正文来自本次输入，示例文字已替换",
+    "标题与正文样式分离，表格为原生可编辑对象",
+    "重开核对字段和表格，再逐页审阅PDF"
+  ]
+}

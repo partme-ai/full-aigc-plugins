@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "sourceFingerprint": "d4c864650259852d10180a11998969aed6b4e894d9be0e5e29ac1c926cda2488",
+  "layers": {
+    "structure": {
+      "status": "PASS",
+      "evidence": [
+        "README.md"
+      ],
+      "scope": "package/protected 108-file snapshot, strict OpenSpec and workflow syntax checked locally"
+    },
+    "mock": {
+      "status": "PASS",
+      "evidence": [
+        "plugin-tests-312-final.log",
+        "plugin-tests-313-final.log",
+        "node-tests.log"
+      ],
+      "scope": "65 tests each Python 3.12/3.13 and 14 Node 24 protocol tests"
+    },
+    "native": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "host": {
+      "status": "NOT_RUN",
+      "evidence": [
+        "../current-host-20261008/scenario-index.json",
+        "../current-host-20261008/plugin-discovery.json",
+        "../current-mcp-20261009/README.md"
+      ],
+      "partial": "PASS five skill routing/readonly scenarios and manually configured current-host native MCP empty-library query; desktop Connect and plugin automatic MCP integration remain open"
+    },
+    "visual": {
+      "status": "FAIL",
+      "evidence": [
+        "../current-host-20261008/visual/review.json",
+        "../current-host-20261008/visual/nikon-cli-export.png",
+        "../current-host-20261008/visual/nikon-embedded-8256.jpg"
+      ],
+      "scope": "Nikon RAW color counterevidence; synthetic-only visual pass is insufficient"
+    },
+    "platform": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "remoteCI": {
+      "status": "PASS",
+      "evidence": [
+        "offline-ci.json"
+      ],
+      "scope": "current controller/helper/workflow commit 25df290; subsequent evidence-only commit leaves tested implementation unchanged"
+    },
+    "mobile": {
+      "status": "PASS",
+      "evidence": [
+        "device-transfer.json",
+        "device-visual.json"
+      ],
+      "scope": "Android phone byte transfer and synthetic PNG/PDF only; tablet and project editing NOT_RUN"
+    }
+  },
+  "completeAcceptance": false,
+  "scope": "current candidate; remaining extension and release gates stay open"
+}

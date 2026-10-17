@@ -1,0 +1,46 @@
+{
+  "document": {
+    "name": "Native gateway",
+    "width": 32,
+    "height": 32,
+    "frameRate": 12,
+    "duration": 1
+  },
+  "operations": [
+    {
+      "command": "layer.newShape",
+      "params": {
+        "kind": "rounded",
+        "name": "Badge",
+        "size": [
+          8,
+          8
+        ],
+        "position": [
+          16,
+          16
+        ],
+        "fill": "#ef5b36"
+      },
+      "as": "badge"
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "layer.setBlendMode",
+        "params": {
+          "layers": [
+            {
+              "$ref": "badge.layer"
+            }
+          ],
+          "mode": "Multiply"
+        }
+      }
+    }
+  ],
+  "frames": [
+    0
+  ],
+  "exports": []
+}

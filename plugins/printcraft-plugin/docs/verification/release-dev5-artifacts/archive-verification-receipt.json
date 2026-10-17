@@ -1,0 +1,77 @@
+{
+  "protocol": "printcraft.verification/1",
+  "ruleVersion": 1,
+  "runId": "005c5a98-0751-4ccf-ab57-984d157799bc",
+  "inputSha256": {
+    "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/release-dev5-artifacts/source.pdf": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a"
+  },
+  "requestSha256": "a40547cbac25223b2c9fe60b9339e67e56612e115e1d31b061c2c2217f5ceab8",
+  "artifacts": [
+    {
+      "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/release-dev5-artifacts/result-dev5.pdf",
+      "role": "delivery",
+      "mediaType": "application/pdf",
+      "size": 918,
+      "sha256": "77fdadab2c4ac498b0836b340ef0f1ab0c4a29f3fb294f02d73f59a6b0cefac0",
+      "sourcePages": [
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/release-dev5-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 3
+        },
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/release-dev5-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 1
+        },
+        {
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/release-dev5-artifacts/source.pdf",
+          "sha256": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a",
+          "page": 2
+        }
+      ],
+      "info": {
+        "annotations": 0,
+        "attachments": 0,
+        "author": null,
+        "bookmarks": 0,
+        "creator": null,
+        "encrypted": false,
+        "fields": 0,
+        "file": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins-repositories/printcraft-plugin/docs/verification/release-dev5-artifacts/result-dev5.pdf",
+        "file_size": 918,
+        "first_page_pt": [
+          612.0,
+          792.0
+        ],
+        "javascript": false,
+        "layers": 0,
+        "links": 0,
+        "page_labels": [
+          "1",
+          "2",
+          "3"
+        ],
+        "pages": 3,
+        "pdf_version": "1.5",
+        "producer": null,
+        "tagged": false,
+        "title": null,
+        "warnings": [],
+        "xfa": null
+      },
+      "pageText": [
+        "PAGE-GAMMA",
+        "PAGE-ALPHA",
+        "PAGE-BETA"
+      ],
+      "textClassification": "TEXT_PRESENT",
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "status": "DETERMINISTIC_PASS_REVIEW_REQUIRED",
+  "completeAcceptance": false,
+  "visualReview": "NOT_RUN",
+  "automaticRevision": false
+}

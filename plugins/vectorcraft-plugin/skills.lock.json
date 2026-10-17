@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "package": "vectorcraft-skills",
+      "repo": "https://github.com/full-aigc-skills/vectorcraft-skills.git",
+      "ref": "v0.1.0-dev.47",
+      "sha": "3d102cedc084d410fe5adf9425c34c626dc95112",
+      "skills": [
+        "vectorcraft-use",
+        "vectorcraft-cli",
+        "vectorcraft-cli-setup",
+        "vectorcraft-cli-project",
+        "vectorcraft-cli-paths",
+        "vectorcraft-cli-shapes",
+        "vectorcraft-cli-boolean",
+        "vectorcraft-cli-text",
+        "vectorcraft-cli-appearance",
+        "vectorcraft-cli-artboards",
+        "vectorcraft-cli-assets",
+        "vectorcraft-cli-export",
+        "vectorcraft-cli-selection",
+        "vectorcraft-harness"
+      ],
+      "dest": "skills/",
+      "sha256": {
+        "vectorcraft-use": "4570a405163704c69cc7dd2103445be5a01429291ee0ae7c1bfc92dbb99d72cb",
+        "vectorcraft-cli": "1aa5a7f9d227ebea0249abdb61369fec239a3e196baf8c04edbf3dfee9d517b8",
+        "vectorcraft-cli-setup": "867fac54922705b770565644a4abf24925927e32f3408f46843e964591199b41",
+        "vectorcraft-cli-project": "be98af733401234154a22e3fa9c9242feb5107365858ab82176b5c95482dd814",
+        "vectorcraft-cli-paths": "f54f3b1f4241892803d90e3530384cbefea3b3c5d58ed47cb24d1795de69deb9",
+        "vectorcraft-cli-shapes": "d3fe284bbc27aec597d72caf4b619093e4281a35252ac003ca5316259e3a257c",
+        "vectorcraft-cli-boolean": "ef795515fab3834b36d329daf36c00cf381e6a0602e8df39953ceb63d16ec3b2",
+        "vectorcraft-cli-text": "69801e3d54d2a1c252c8e61af0e25cb18ff6439dbf91517ee00f7a19a4e12631",
+        "vectorcraft-cli-appearance": "09f9d80e6cef04fc5f9d4569c70584740311019c4db91dc1c0e808af740afac7",
+        "vectorcraft-cli-artboards": "9d6a03a7d61bc6c44fd0344355fe01a03685414b6418c3a5b6424cf83844ab02",
+        "vectorcraft-cli-assets": "f197d9b6f510c029ac56b4f466a26c20c6c2eafea241aa38fdcab94f07852de7",
+        "vectorcraft-cli-export": "39122bf2d970efe363bc9899a8487d579134cb22286588540c6be5af11ccaa92",
+        "vectorcraft-cli-selection": "d59fcfde4122555148076161a49111d2918a940af8b0dbedca13069fc92c773d",
+        "vectorcraft-harness": "b44b096294960386f9e2a6320b311273b9ce2f06acee19a9984d298e00a937ff"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "policy": "只借鉴工作流事实，场景正文与命令例子原创编写，不复制外部代码、正文或素材。许可不明的来源仅作为参考。",
+  "sources": [
+    {
+      "repository": "audacity/audacity-manual",
+      "commit": "92794e43861704433b0af65dbe503ef9253ff4e4",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "manual/man/noise_reduction.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/noise_reduction.html",
+          "bytes": 25937
+        },
+        {
+          "path": "manual/man/normalize.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/normalize.html",
+          "bytes": 17644
+        },
+        {
+          "path": "manual/man/tutorial_click_and_pop_removal_techniques.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/tutorial_click_and_pop_removal_techniques.html",
+          "bytes": 9617
+        },
+        {
+          "path": "manual/man/license.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/license.html",
+          "bytes": 33735
+        },
+        {
+          "path": "manual/man/mixing.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/mixing.html",
+          "sha256": "55ade4e6c35e9edfb8985b010c98e3ad3fcb8affb40ba3a0c186717ac5f39515",
+          "bytes": 28565
+        },
+        {
+          "path": "manual/man/amplify.html",
+          "url": "https://github.com/audacity/audacity-manual/blob/92794e43861704433b0af65dbe503ef9253ff4e4/manual/man/amplify.html",
+          "sha256": "492969d08b1b34fe9c05179ff945b4613d2adda775372e8be413991d1d684568",
+          "bytes": 14393
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    }
+  ]
+}

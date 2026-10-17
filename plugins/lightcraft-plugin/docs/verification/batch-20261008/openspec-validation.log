@@ -1,0 +1,8 @@
+✓ spec/artifact-review
+✓ change/extend-lightcraft-connect-mcp-plugin
+✓ change/extend-lightcraft-expanded-photo-capabilities-plugin
+✓ change/extend-lightcraft-portable-artcraft-delivery-plugin
+✓ spec/host-delivery
+✓ spec/provenance-distribution
+✓ spec/task-recovery
+Totals: 7 passed, 0 failed (7 items)

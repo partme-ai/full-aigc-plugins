@@ -1,0 +1,42 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "printcraft",
+  "id": "pdf-preflight",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "读取文档结构",
+      "command": "doc_info",
+      "params": {
+        "doc": 1
+      }
+    },
+    {
+      "purpose": "检查代表页渲染",
+      "command": "page_render",
+      "params": {
+        "doc": 1,
+        "page": 1,
+        "dpi": 144
+      }
+    },
+    {
+      "purpose": "抽取文本看字体映射",
+      "command": "text_extract",
+      "params": {
+        "doc": 1
+      }
+    },
+    {
+      "purpose": "检查表单字段完整性",
+      "command": "form_fields",
+      "params": {
+        "doc": 1
+      }
+    }
+  ],
+  "check": "按要求核对每页尺寸、字体、文本、图像与书签，文件可打开不代表印前合规。",
+  "boundary": "该流程不自动认证PDF/X、PDF/A或可访问性标准；对应标准需当前真实检测工具。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

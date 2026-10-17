@@ -1,0 +1,100 @@
+{
+  "schema": "wordcraft-document-template/v1",
+  "id": "acceptance-report",
+  "name": "验收报告",
+  "scope": "新建文档模板；已有文档先定位目标区域，不全篇覆盖",
+  "fields": {
+    "title": {
+      "label": "文档标题",
+      "type": "text",
+      "required": true,
+      "guidance": "按具体对象命名"
+    },
+    "document_date": {
+      "label": "文档日期",
+      "type": "text",
+      "required": false,
+      "guidance": "不确定时待确认"
+    },
+    "author": {
+      "label": "编写人",
+      "type": "text",
+      "required": false,
+      "guidance": "不推断责任归属"
+    },
+    "scope": {
+      "label": "验收对象与范围",
+      "type": "text",
+      "required": true,
+      "guidance": "列出版本、交付物及本次包含/不包含范围"
+    },
+    "criteria": {
+      "label": "验收依据",
+      "type": "text",
+      "required": true,
+      "guidance": "引用已确认的需求、测试条件或交付标准"
+    },
+    "environment": {
+      "label": "环境与过程",
+      "type": "text",
+      "required": true,
+      "guidance": "记录实际日期、环境、人员和验证方式"
+    },
+    "conclusion": {
+      "label": "验收结论与依据",
+      "type": "text",
+      "required": true,
+      "guidance": "写实际结论及对应失败项，签署人未知标待确认"
+    },
+    "follow_up": {
+      "label": "遗留问题与复测",
+      "type": "text",
+      "required": true,
+      "guidance": "每项有影响、处理人、下一步，未定期限标待确认"
+    },
+    "records": {
+      "label": "逐项核验记录",
+      "type": "rows",
+      "required": true,
+      "guidance": "二维字符串数组，按表头列顺序；未知单元格写待确认，不使用制表符或换行"
+    }
+  },
+  "sections": [
+    {
+      "title": "验收对象与范围",
+      "field": "scope"
+    },
+    {
+      "title": "验收依据",
+      "field": "criteria"
+    },
+    {
+      "title": "环境与过程",
+      "field": "environment"
+    },
+    {
+      "title": "验收结论与依据",
+      "field": "conclusion"
+    },
+    {
+      "title": "遗留问题与复测",
+      "field": "follow_up"
+    }
+  ],
+  "table": {
+    "title": "逐项核验记录",
+    "headers": [
+      "编号",
+      "检查项",
+      "预期",
+      "实际/结论"
+    ],
+    "field": "records"
+  },
+  "contentRule": "标准与实测一一对应；未测不是通过，有失败项时不得伪造通过结论。",
+  "reviewChecks": [
+    "正文来自本次输入，示例文字已替换",
+    "标题与正文样式分离，表格为原生可编辑对象",
+    "重开核对字段和表格，再逐页审阅PDF"
+  ]
+}

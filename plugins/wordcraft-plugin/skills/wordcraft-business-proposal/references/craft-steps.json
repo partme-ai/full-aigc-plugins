@@ -1,0 +1,190 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "wordcraft",
+  "id": "business-proposal",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "设置页面基本规格",
+      "command": "layout.size",
+      "params": {
+        "name": "A4"
+      }
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 1"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "业务方案"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "目标"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "目标与衡量方式：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "方案与边界"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "实施范围、非目标与责任人：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "成本依据"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "金额、币种、来源与估算日期：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "验收方式"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    },
+    {
+      "purpose": "应用本段语义样式",
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      }
+    },
+    {
+      "purpose": "输入已核实内容或明确待确认占位",
+      "command": "text.insert",
+      "params": {
+        "text": "交付项、检查方式与验收人：待核实"
+      }
+    },
+    {
+      "purpose": "创建真实段落边界",
+      "command": "text.newParagraph",
+      "params": {}
+    }
+  ],
+  "check": "标题样式可生成目录，方案中的承诺、数字、版本和责任人一致。",
+  "boundary": "样式名需由 styles.list 确认；英文内置名在当前运行时不一定等于界面本地化名称。 示例章节为结构起点，待核实字段不能当作已填文档交付；每个章节用真实段落与Heading样式。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

@@ -1,0 +1,324 @@
+{
+  "baselineCount": 617,
+  "mainCount": 629,
+  "added": [
+    "arrange.copyTo",
+    "file.rename",
+    "font.loadSystem",
+    "insert.createFooter",
+    "insert.createHeader",
+    "insert.deleteBookmark",
+    "insert.removeEmptyHeaders",
+    "link.targets",
+    "mailings.filterRecipients",
+    "mailings.sortRecipients",
+    "text.typeCode",
+    "view.fullScreen"
+  ],
+  "removed": [],
+  "contractsChanged": [
+    {
+      "id": "edit.goto",
+      "baseline": {
+        "params": "{\"page\"?: n, \"pageBy\"?: int (pages forward, negative back, from the caret's page), \"bookmark\"?: string, \"paragraph\"?: n}; none opens Find and Replace on its Go To tab",
+        "mutates": false
+      },
+      "main": {
+        "params": "{\"page\"?: n, \"pageBy\"?: int (pages forward, negative back, from the caret's page), \"bookmark\"?: string (selects its text), \"paragraph\"?: n}; none opens Find and Replace on its Go To tab",
+        "mutates": false
+      }
+    },
+    {
+      "id": "file.close",
+      "baseline": {
+        "params": "{}",
+        "mutates": false
+      },
+      "main": {
+        "params": "{\"force\"?: bool (desktop app's control channel and MCP bridge only: without it a document with unsaved changes is an error and stays open; with it the changes are discarded. Headless sessions never ask)}",
+        "mutates": false
+      }
+    },
+    {
+      "id": "file.inspect",
+      "baseline": {
+        "params": "{\"remove\"?: [\"comments\", \"revisions\", \"properties\", \"hidden\", \"headers\"]}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"remove\"?: [\"comments\", \"revisions\", \"properties\", \"hidden\", \"headers\"]} → {found: {comments, revisions, properties, hiddenText, hiddenCount, hidden: [{story: \"body|header|footer|footnote|endnote|comment|textBox\", part?, text}] (at most 1000), truncated, unsupported: [{story, object: \"table|opaque\", ..}] (hidden text not inspected: table styles, verbatim objects), headers}, removed, residual: [..] (hidden text a removal couldn't reach), removedNotes: [{kind, part, text}] (notes whose hidden reference was removed)}; whole hidden paragraphs go with their marks",
+        "mutates": true
+      }
+    },
+    {
+      "id": "file.options",
+      "baseline": {
+        "params": "{\"pane\"?: \"general|display|proofing|save|language|accessibility|advanced|agents\", \"author\"?: string, \"initials\"?: string, \"units\"?: \"inches|centimeters|millimeters|points|picas|auto\" (auto: the region's), \"region\"?: string (a locale tag like pl-PL, saved: the paper File › New starts on, the default units and the decimal separator; auto: the system's), \"typingReplacesSelection\"?: bool, \"insertKeyOvertype\"?: bool, \"overtype\"?: bool, \"marks\"?: {\"tabs\"?: bool, \"spaces\"?: bool, \"paragraphs\"?: bool, \"hidden\"?: bool}, \"checkSpelling\"?: bool, \"markGrammar\"?: bool, \"ignoreUppercase\"?: bool, \"ignoreNumbers\"?: bool, \"ignoreInternet\"?: bool, \"addWords\"?: [string], \"removeWords\"?: [string]} — with any setting it changes them and opens nothing; without, it opens File › Options (at `pane`). Returns the settings.",
+        "mutates": false
+      },
+      "main": {
+        "params": "{\"pane\"?: \"general|display|proofing|save|language|accessibility|advanced|agents\", \"author\"?: string, \"initials\"?: string, \"units\"?: \"inches|centimeters|millimeters|points|picas|auto\" (auto: the region's), \"region\"?: string (a locale tag like pl-PL, saved: the paper File › New starts on, the default units and the decimal separator; auto: the system's), \"typingReplacesSelection\"?: bool, \"insertKeyOvertype\"?: bool, \"overtype\"?: bool, \"marks\"?: {\"tabs\"?: bool, \"spaces\"?: bool, \"paragraphs\"?: bool, \"hidden\"?: bool}, \"checkSpelling\"?: bool, \"markGrammar\"?: bool, \"ignoreUppercase\"?: bool, \"ignoreNumbers\"?: bool, \"ignoreInternet\"?: bool, \"dictionariesFolder\"?: string (a folder of Hunspell .aff/.dic files searched first, saved; auto: the system locations only), \"addWords\"?: [string], \"removeWords\"?: [string]} — with any setting it changes them and opens nothing; without, it opens File › Options (at `pane`). Returns the settings.",
+        "mutates": false
+      }
+    },
+    {
+      "id": "file.recover",
+      "baseline": {
+        "params": "{}",
+        "mutates": false
+      },
+      "main": {
+        "params": "{\"restore\"?: recoveryId, \"discard\"?: recoveryId, \"refresh\"?: true}; desktop only; returns {enabled,busy,documents,error}; restore loads asynchronously without a file path",
+        "mutates": false
+      }
+    },
+    {
+      "id": "insert.crossReference",
+      "baseline": {
+        "params": "{\"to\": \"heading|bookmark|figure|table\", \"target\": string (text / name / number), \"show\"?: \"text|page|number|aboveBelow\"} or {} to list targets",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"to\": \"heading|bookmark|figure|table|equation\", \"target\": string (text / name / number), \"show\"?: \"text|page|number|aboveBelow\"} or {} to list targets",
+        "mutates": true
+      }
+    },
+    {
+      "id": "insert.editFooter",
+      "baseline": {
+        "params": "{}",
+        "mutates": false
+      },
+      "main": {
+        "params": "{\"page\"?: number (0-based: the footer that page shows, created if it has none)}",
+        "mutates": false
+      }
+    },
+    {
+      "id": "insert.editHeader",
+      "baseline": {
+        "params": "{}",
+        "mutates": false
+      },
+      "main": {
+        "params": "{\"page\"?: number (0-based: the header that page shows, created if it has none)}",
+        "mutates": false
+      }
+    },
+    {
+      "id": "insert.link",
+      "baseline": {
+        "params": "{\"url\": string, \"text\"?: string}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"url\": string} | {\"bookmark\": name} | {\"heading\": block (see link.targets)} | {\"top\": true}, \"text\"?: string (Place in This Document: a bookmark, a heading or the top of the document)",
+        "mutates": true
+      }
+    },
+    {
+      "id": "layout.margins",
+      "baseline": {
+        "params": "{\"preset\"?: \"normal|narrow|moderate|wide|mirrored|office2003\", \"top\"?: pt, \"bottom\"?: pt, \"left\"?: pt, \"right\"?: pt, \"gutter\"?: pt}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"preset\"?: \"normal|narrow|moderate|wide|mirrored|office2003\", \"top\"?: pt, \"bottom\"?: pt, \"left\"?: pt, \"right\"?: pt, \"gutter\"?: pt, \"mirror\"?: bool}",
+        "mutates": true
+      }
+    },
+    {
+      "id": "layout.pageSetup",
+      "baseline": {
+        "params": "{\"section\"?: SectionProps}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"section\"?: SectionProps} (replaces the whole section, headers and footers included; checked like Size, Margins, Columns, Line Numbers, Footnotes and Page Borders: non-finite numbers and margins that leave no room for text are refused; page sides 7.2–1584 pt, 1–12 columns with 0–300 pt gaps, header/footer/gutter 0–1584 pt, page border width 0.25–6 pt and distance 0–31 pt, note start 1–32767, line numbers start 1–32767, countBy 1–100, distance 0–1584 pt are clamped)",
+        "mutates": true
+      }
+    },
+    {
+      "id": "layout.size",
+      "baseline": {
+        "params": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt} (each side clamped to 7.2–1584 pt, 0.1–22 in; the section keeps its orientation)",
+        "mutates": true
+      }
+    },
+    {
+      "id": "layout.verticalAlign",
+      "baseline": {
+        "params": "{}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"value\": \"top|center|justify|bottom\"} (also both|justified; anything else is top). Justified shares each page's spare room between its paragraphs and tables",
+        "mutates": true
+      }
+    },
+    {
+      "id": "mailings.editRecipients",
+      "baseline": {
+        "params": "{\"rows\"?: [{field: value}] | [[value]], \"fields\"?: [string]}",
+        "mutates": false
+      },
+      "main": {
+        "params": "{\"rows\"?: [{field: value}] | [[value]], \"fields\"?: [string]} (no params: the list as {headers, rows (every record), records (how many merge), rules, sort})",
+        "mutates": false
+      }
+    },
+    {
+      "id": "mailings.recipients",
+      "baseline": {
+        "params": "{\"csv\"?: string, \"path\"?: string (.csv/.tsv/.txt, or a .xlsx/.xlsm/.ods workbook), \"data\"?: base64 (a file's bytes, as for path), \"sheet\"?: name | number (1 = first; a workbook with several sheets and no sheet answers {\"sheets\": [...], \"chooseSheet\": true} and loads nothing), \"headers\"?: bool (default true: the first non-blank row names the fields; false: fields are Column 1…N), \"rows\"?: [{field: value}] | [[value]], \"fields\"?: [string] (column order; required with array rows)}",
+        "mutates": false
+      },
+      "main": {
+        "params": "{\"csv\"?: string, \"path\"?: string (.csv/.tsv/.txt, or a .xlsx/.xlsm/.xls/.ods workbook), \"data\"?: base64 (a file's bytes, as for path), \"encoding\"?: string (a text list's encoding, e.g. \"gbk\", \"big5\", \"shift_jis\", \"utf-16le\"; default: detected), \"sheet\"?: name | number (1 = first; a workbook with several sheets and no sheet answers {\"sheets\": [...], \"chooseSheet\": true} and loads nothing), \"headers\"?: bool (default true: the first non-blank row names the fields; false: fields are Column 1…N), \"rows\"?: [{field: value}] | [[value]], \"fields\"?: [string] (column order; required with array rows)}",
+        "mutates": false
+      }
+    },
+    {
+      "id": "para.keepLines",
+      "baseline": {
+        "params": "{}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"value\"?: bool}",
+        "mutates": true
+      }
+    },
+    {
+      "id": "para.keepNext",
+      "baseline": {
+        "params": "{}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"value\"?: bool}",
+        "mutates": true
+      }
+    },
+    {
+      "id": "para.pageBreakBefore",
+      "baseline": {
+        "params": "{}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"value\"?: bool}",
+        "mutates": true
+      }
+    },
+    {
+      "id": "para.set",
+      "baseline": {
+        "params": "{\"props\": ParaProps}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"props\": ParaProps, \"onPage\"?: {\"align\"?: \"left|center|right|justify|distribute\", \"left\"?: pt, \"right\"?: pt} (alignment and indents as seen on the page: each paragraph's own direction, after `props`, says which edge is its start)}",
+        "mutates": true
+      }
+    },
+    {
+      "id": "para.widowControl",
+      "baseline": {
+        "params": "{}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"value\"?: bool}",
+        "mutates": true
+      }
+    },
+    {
+      "id": "picture.crop",
+      "baseline": {
+        "params": "{\"left\"?, \"top\"?, \"right\"?, \"bottom\"? (fractions 0–0.45)}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"left\"?, \"top\"?, \"right\"?, \"bottom\"? (fractions of the source 0–0.45; a side left out is uncropped), \"width\"?: pt, \"height\"?: pt (the new display size, in the same undo step; a floating picture also moves by what a left/top crop trims, so the visible part stays put)}",
+        "mutates": true
+      }
+    },
+    {
+      "id": "review.trackingOptions",
+      "baseline": {
+        "params": "{\"comments\"?: bool, \"ink\"?: bool, \"insertionsDeletions\"?: bool, \"formatting\"?: bool, \"balloons\"?: \"revisions|inline|commentsAndFormatting\", \"insertMark\"?: \"underline|doubleUnderline|bold|italic|strikethrough|colorOnly|none\", \"insertColor\"?: \"byAuthor\" | \"RRGGBB\", \"deleteMark\"?: \"strikethrough|doubleStrikethrough|hidden|caret|hash|underline|colorOnly\", \"deleteColor\"?: \"byAuthor\" | \"RRGGBB\", \"changedLines\"?: \"outside|left|right|none\", \"changedLinesColor\"?: \"auto\" | \"RRGGBB\", \"trackFormatting\"?: bool} → the options (omit all to read them)",
+        "mutates": false
+      },
+      "main": {
+        "params": "{\"comments\"?: bool, \"ink\"?: bool, \"insertionsDeletions\"?: bool, \"formatting\"?: bool, \"balloons\"?: \"revisions|inline|commentsAndFormatting\", \"commentDisplay\"?: \"margin|selected\", \"insertMark\"?: \"underline|doubleUnderline|bold|italic|strikethrough|colorOnly|none\", \"insertColor\"?: \"byAuthor\" | \"RRGGBB\", \"deleteMark\"?: \"strikethrough|doubleStrikethrough|hidden|caret|hash|underline|colorOnly\", \"deleteColor\"?: \"byAuthor\" | \"RRGGBB\", \"changedLines\"?: \"outside|left|right|none\", \"changedLinesColor\"?: \"auto\" | \"RRGGBB\", \"trackFormatting\"?: bool} → the options (omit all to read them)",
+        "mutates": false
+      }
+    },
+    {
+      "id": "table.columnWidth",
+      "baseline": {
+        "params": "{\"width\": pt} (the caret cell's column; the table's preferred width is cleared so the column gets exactly this)",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"width\": pt} (every column the selection covers, the caret cell's without one; the table's preferred width is cleared so the columns get exactly this)",
+        "mutates": true
+      }
+    },
+    {
+      "id": "table.eraser",
+      "baseline": {
+        "params": "{\"page\": n, \"x\": pt, \"y\": pt} (removes the border between two cells within 4 pt of the point by merging them. In the app the button turns the eraser on.)",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"page\": n, \"x\": pt, \"y\": pt} (removes the border between two cells within 4 pt of the point: cells that make one rectangle merge, including cells merged down the same rows; otherwise the border is hidden along the whole edge. In the app the button turns the eraser on.)",
+        "mutates": true
+      }
+    },
+    {
+      "id": "table.modifyStyle",
+      "baseline": {
+        "params": "{\"style\"?: string (default: the current table's), \"name\"?: string, \"basedOn\"?: string, \"wholeTable\"?: Region, \"headerRow\"?: Region, \"lastRow\"?: Region (total row), \"firstColumn\"?: Region, \"lastColumn\"?: Region, \"bandedRows\"?: Region, \"bandedColumns\"?: Region, \"bandSize\"?: n (rows per band), \"para\"?: ParaProps, \"apply\"?: bool} where Region = {\"borders\"?: bool | null (true: single lines, false: none, null: inherit), \"borderColor\"?: \"RRGGBB\", \"borderWidth\"?: pt, \"fill\"?: \"RRGGBB\" | null, \"bold\"?: bool, \"italic\"?: bool, \"color\"?: \"RRGGBB\" | null, \"size\"?: pt, \"font\"?: string}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"style\"?: string (default: the current table's), \"name\"?: string, \"basedOn\"?: string, \"<part>\"?: Part for each part name (wholeTable, headerRow|firstRow, lastRow|totalRow, firstColumn|firstCol, lastColumn|lastCol, bandedRows|band1Horz, band2Horz, bandedColumns|band1Vert, band2Vert, nwCell, neCell, swCell, seCell), \"part\"?: part name (the Part fields then sit at the top level), \"parts\"?: [Part & {\"part\": name}], \"bandSize\"?: n (rows per band), \"para\"?: ParaProps, \"apply\"?: bool} where Part = {\"fill\"?: \"RRGGBB\" | null, \"font\"?: string | null (null or \"\": inherited), \"size\"?: pt, \"bold\"?: bool, \"italic\"?: bool, \"underline\"?: bool | \"single\" | \"double\" | \"thick\" | \"words\" | \"dotted\" | \"dash\" | \"wave\" | \"none\", \"color\"?: \"RRGGBB\" | null, \"align\"?: \"left\" | \"center\" | \"right\" | \"justify\" | null, \"vAlign\"?: \"top\" | \"center\" | \"bottom\" | null, \"cellAlign\"?: \"topLeft\" | \"topCenter\" | \"topRight\" | \"centerLeft\" | \"center\" | \"centerRight\" | \"bottomLeft\" | \"bottomCenter\" | \"bottomRight\" | null (both alignments), \"borders\"?: bool | null (true: single lines on every edge, false: none, null: inherit) | Edges | [Edges], \"borderColor\"?: \"RRGGBB\", \"borderWidth\"?: pt} and Edges = {\"edges\"?: \"all\" | \"none\" | \"outside\" | \"inside\" | \"top\" | \"bottom\" | \"left\" | \"right\" | \"insideH\" | \"insideV\" (default all), \"style\"?: \"single\" | \"double\" | \"dotted\" | \"dashed\" | \"dotDash\" | \"thick\" | \"triple\" | \"wave\" | \"none\", \"width\"?: pt, \"color\"?: \"RRGGBB\" | null}",
+        "mutates": true
+      }
+    },
+    {
+      "id": "table.newStyle",
+      "baseline": {
+        "params": "{\"name\": string, \"basedOn\"?: string, \"wholeTable\"?: Region, \"headerRow\"?: Region, \"lastRow\"?: Region (total row), \"firstColumn\"?: Region, \"lastColumn\"?: Region, \"bandedRows\"?: Region, \"bandedColumns\"?: Region, \"bandSize\"?: n (rows per band), \"para\"?: ParaProps, \"apply\"?: bool} where Region = {\"borders\"?: bool | null (true: single lines, false: none, null: inherit), \"borderColor\"?: \"RRGGBB\", \"borderWidth\"?: pt, \"fill\"?: \"RRGGBB\" | null, \"bold\"?: bool, \"italic\"?: bool, \"color\"?: \"RRGGBB\" | null, \"size\"?: pt, \"font\"?: string}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"name\": string, \"basedOn\"?: string, \"<part>\"?: Part for each part name (wholeTable, headerRow|firstRow, lastRow|totalRow, firstColumn|firstCol, lastColumn|lastCol, bandedRows|band1Horz, band2Horz, bandedColumns|band1Vert, band2Vert, nwCell, neCell, swCell, seCell), \"part\"?: part name (the Part fields then sit at the top level), \"parts\"?: [Part & {\"part\": name}], \"bandSize\"?: n (rows per band), \"para\"?: ParaProps, \"apply\"?: bool} where Part = {\"fill\"?: \"RRGGBB\" | null, \"font\"?: string | null (null or \"\": inherited), \"size\"?: pt, \"bold\"?: bool, \"italic\"?: bool, \"underline\"?: bool | \"single\" | \"double\" | \"thick\" | \"words\" | \"dotted\" | \"dash\" | \"wave\" | \"none\", \"color\"?: \"RRGGBB\" | null, \"align\"?: \"left\" | \"center\" | \"right\" | \"justify\" | null, \"vAlign\"?: \"top\" | \"center\" | \"bottom\" | null, \"cellAlign\"?: \"topLeft\" | \"topCenter\" | \"topRight\" | \"centerLeft\" | \"center\" | \"centerRight\" | \"bottomLeft\" | \"bottomCenter\" | \"bottomRight\" | null (both alignments), \"borders\"?: bool | null (true: single lines on every edge, false: none, null: inherit) | Edges | [Edges], \"borderColor\"?: \"RRGGBB\", \"borderWidth\"?: pt} and Edges = {\"edges\"?: \"all\" | \"none\" | \"outside\" | \"inside\" | \"top\" | \"bottom\" | \"left\" | \"right\" | \"insideH\" | \"insideV\" (default all), \"style\"?: \"single\" | \"double\" | \"dotted\" | \"dashed\" | \"dotDash\" | \"thick\" | \"triple\" | \"wave\" | \"none\", \"width\"?: pt, \"color\"?: \"RRGGBB\" | null}",
+        "mutates": true
+      }
+    },
+    {
+      "id": "table.rowHeight",
+      "baseline": {
+        "params": "{\"height\": pt, \"rule\"?: \"atLeast|exact\"}",
+        "mutates": true
+      },
+      "main": {
+        "params": "{\"height\": pt, \"rule\"?: \"atLeast|exact\"} (every row the selection covers, the caret's without one)",
+        "mutates": true
+      }
+    }
+  ],
+  "upstreamCommit": "eae242176108d328c5dd81fbc10370c51ab90706",
+  "observedNativeRun": 39006638202,
+  "baseline": "official v0.7.0 observed native commands; not embedded editor catalog",
+  "runtimeValidation": "two main workflows PASS on Windows native CLI; installed host sync NOT_TESTED",
+  "mainWorkflowRun": 39007814128,
+  "validatedSkillsCommit": "5867872"
+}

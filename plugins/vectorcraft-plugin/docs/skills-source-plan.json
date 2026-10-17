@@ -1,0 +1,26 @@
+{
+  "status": "published-and-vendored",
+  "package": "vectorcraft-skills",
+  "proposedRepository": "https://github.com/full-aigc-skills/vectorcraft-skills",
+  "skills": [
+    "vectorcraft-use",
+    "vectorcraft-cli",
+    "vectorcraft-cli-setup",
+    "vectorcraft-cli-project",
+    "vectorcraft-cli-paths",
+    "vectorcraft-cli-shapes",
+    "vectorcraft-cli-boolean",
+    "vectorcraft-cli-text",
+    "vectorcraft-cli-appearance",
+    "vectorcraft-cli-artboards",
+    "vectorcraft-cli-assets",
+    "vectorcraft-cli-export",
+    "vectorcraft-cli-selection",
+    "vectorcraft-harness"
+  ],
+  "sourceOfTruth": "independent skills repository",
+  "packaging": "immutable vendored snapshot with tag, commit and whole-tree checksums",
+  "suiteManifest": "https://github.com/full-aigc-skills/vectorcraft-skills/blob/v0.1.0-dev.47/skill-suite.json",
+  "sourceRef": "v0.1.0-dev.47",
+  "sourceSha": "3d102cedc084d410fe5adf9425c34c626dc95112"
+}

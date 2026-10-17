@@ -1,0 +1,7 @@
+
+# 保持候选摘要和独立技能在各系统检出后的文本字节一致。
+*.md text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf

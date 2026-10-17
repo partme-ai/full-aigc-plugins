@@ -1,0 +1,14 @@
+{
+  "status": "PASS_REMOTE_TAG_RELEASE_ARCHIVE_AND_81_SKILL_FILES",
+  "releaseUrl": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.6",
+  "releaseId": 406818257,
+  "tag": "v0.1.0-dev.6",
+  "commit": "8b1091dced36b11c44dcaff108c9394555977831",
+  "archiveSha256": "c75b2af52f2630223099aafc7669aaaa3b6ba59365a928811b354a98f45791f6",
+  "skillFileCount": 81,
+  "sourceTag": "v0.1.0-dev.6",
+  "githubAssetDigests": {
+    "printcraft-plugin-0.1.0-dev.6.zip": "sha256:c75b2af52f2630223099aafc7669aaaa3b6ba59365a928811b354a98f45791f6",
+    "SHA256SUMS": "sha256:4f7b71b14ab7955343e46056b304948cfe252779a39dc6202c9de377c38da682"
+  }
+}

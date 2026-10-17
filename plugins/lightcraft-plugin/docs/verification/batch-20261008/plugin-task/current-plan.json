@@ -1,0 +1,109 @@
+{
+  "domain": "lightcraft",
+  "steps": [
+    {
+      "command": "photo.inspect",
+      "params": {
+        "id": 1
+      }
+    },
+    {
+      "command": "develop.get",
+      "params": {
+        "id": 1
+      }
+    },
+    {
+      "command": "photo.inspect",
+      "params": {
+        "id": 2
+      }
+    },
+    {
+      "command": "develop.get",
+      "params": {
+        "id": 2
+      }
+    },
+    {
+      "command": "photo.inspect",
+      "params": {
+        "id": 3
+      }
+    },
+    {
+      "command": "develop.get",
+      "params": {
+        "id": 3
+      }
+    },
+    {
+      "command": "develop.set",
+      "params": {
+        "ids": [
+          3
+        ],
+        "values": {
+          "light.exposure": 0.125
+        }
+      }
+    },
+    {
+      "command": "photo.inspect",
+      "params": {
+        "id": 1
+      }
+    },
+    {
+      "command": "develop.get",
+      "params": {
+        "id": 1
+      }
+    },
+    {
+      "command": "photo.inspect",
+      "params": {
+        "id": 2
+      }
+    },
+    {
+      "command": "develop.get",
+      "params": {
+        "id": 2
+      }
+    },
+    {
+      "command": "photo.inspect",
+      "params": {
+        "id": 3
+      }
+    },
+    {
+      "command": "develop.get",
+      "params": {
+        "id": 3
+      }
+    },
+    {
+      "command": "library.info",
+      "params": {}
+    },
+    {
+      "command": "library.select",
+      "params": {
+        "ids": [
+          3
+        ],
+        "active": 3
+      }
+    },
+    {
+      "command": "app.export",
+      "params": {
+        "path": "/Users/wandl/workspaces/workspace-agent-skills/evaluation-results/lightcraft-batch-20261008/exports/plugin-revision-3.png",
+        "format": "png",
+        "width": 60
+      }
+    }
+  ]
+}

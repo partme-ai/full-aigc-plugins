@@ -78,7 +78,7 @@ jobs:
         if: matrix.plugin == 'cadcraft'
         with:
           repository: full-aigc-skills/cadcraft-skills
-          ref: 9cd1e3ccd2d6c2d14552cd3b8c1f7fc859fb9e96
+          ref: f0b1cb57b28a31a18de3e07712b5ea03ae408e33
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'vectorcraft'
@@ -96,7 +96,7 @@ jobs:
         if: matrix.plugin == 'designcraft'
         with:
           repository: full-aigc-skills/designcraft-skills
-          ref: 1d620a5c6c2abf01e69e33c4010d370b15585e84
+          ref: 3686f7906cd56eefb2186ae0a4d0a59b5471cabd
           path: scene-source
       - name: Run native CLI business operations
         env:

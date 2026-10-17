@@ -1,0 +1,31 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "tool": "open_project",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "command": "puppet.info",
+      "params": {
+        "layer": "Deform subject",
+        "time": 0.5
+      },
+      "as": "puppet"
+    },
+    {
+      "tool": "render_frame",
+      "params": {
+        "time": 0.5,
+        "path": {
+          "$output": "reopened.png"
+        },
+        "inline": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,1612 @@
+{
+  "upstreamCommit": "1dc69720db64323370dda061226becb09ad79fd4",
+  "observedNativeRun": 39007814128,
+  "scope": "observed native main engine commands; current host schema and enabled state remain authoritative",
+  "commands": [
+    {
+      "id": "file.new",
+      "label": "New Presentation",
+      "params": "{theme?: name, template?: starter name, size?: [w,h] pt, blank?: bool}"
+    },
+    {
+      "id": "file.templates",
+      "label": "Starter Templates",
+      "params": "{} → [{name, summary, theme, slides}]"
+    },
+    {
+      "id": "file.open",
+      "label": "Open…",
+      "params": "{path}"
+    },
+    {
+      "id": "file.adopt",
+      "label": "Open",
+      "params": "{path, token?} (a presentation the host read in the background and staged with Session::stage_loaded; without one, reads path like file.open)"
+    },
+    {
+      "id": "file.openBytes",
+      "label": "Open Data",
+      "params": "{name, data: base64}"
+    },
+    {
+      "id": "file.save",
+      "label": "Save",
+      "params": "{path?, format?: deckcraft|pptx}"
+    },
+    {
+      "id": "file.saveAs",
+      "label": "Save As…",
+      "params": "{path, format?}"
+    },
+    {
+      "id": "file.saveTemplate",
+      "label": "Save as Template…",
+      "params": "{path}"
+    },
+    {
+      "id": "file.saveBytes",
+      "label": "Save to Data",
+      "params": "{format?: deckcraft|pptx} → {data: base64}"
+    },
+    {
+      "id": "file.export",
+      "label": "Export…",
+      "params": "{path, format?: png|jpeg|pptx|deckcraft|outline|pdf|gif (else by path), slide?: index, all?: bool, scale?: px per pt, layout?: slides|notes|handouts (pdf), perPage?: 1|2|3|4|6|9, paper?: letter|a4|legal|a3 (pdf), orientation?: portrait|landscape (pdf), dpi?, slides?: [index]|range (\"1-3,5\"), includeHidden?, textLayer?, frame?, width?: px 16-3840|small|medium|large|extraLarge (gif), secondsPerSlide?: 0.1-600 (gif; 5), loop?: bool (gif; true: forever)} → {path, bytes} or {files} (png, jpeg); gif adds frames, width, height, secondsPerSlide"
+    },
+    {
+      "id": "file.info",
+      "label": "Info",
+      "params": "{} → {title, path, format, dirty, slides, hiddenSlides, sections, bytes?, properties}"
+    },
+    {
+      "id": "file.render",
+      "label": "Render Slide",
+      "params": "{slide?: index, scale?, edit?: bool} → {png: base64, width, height}"
+    },
+    {
+      "id": "slide.colorAt",
+      "label": "Color At",
+      "params": "{slide?: index, x, y (slide units), scale?: px per unit (2)} → {color: \"RRGGBB\", alpha: 0..255, x, y}: the colour drawn at a point of the slide (the Eyedropper)"
+    },
+    {
+      "id": "file.close",
+      "label": "Close",
+      "params": "{}"
+    },
+    {
+      "id": "file.properties",
+      "label": "Properties",
+      "params": "{title?, subject?, author?, keywords?, comments?, category?, company?} → properties"
+    },
+    {
+      "id": "file.recovery.save",
+      "label": "Save AutoRecover Information",
+      "params": "{} → {written}"
+    },
+    {
+      "id": "file.recovery.list",
+      "label": "Recovered Presentations",
+      "params": "{} → [{uid, path, title, saved}]"
+    },
+    {
+      "id": "file.recovery.open",
+      "label": "Open Recovered Presentations",
+      "params": "{} → {opened: [document index]}"
+    },
+    {
+      "id": "file.recovery.discard",
+      "label": "Discard Recovered Presentations",
+      "params": "{uid?: one entry (else all)}"
+    },
+    {
+      "id": "file.revert",
+      "label": "Revert",
+      "params": "{}"
+    },
+    {
+      "id": "window.next",
+      "label": "Next Window",
+      "params": "{index?}"
+    },
+    {
+      "id": "edit.undo",
+      "label": "Undo",
+      "params": "{}"
+    },
+    {
+      "id": "edit.redo",
+      "label": "Redo",
+      "params": "{}"
+    },
+    {
+      "id": "edit.cut",
+      "label": "Cut",
+      "params": "{scope?: slides} → {text, html?}"
+    },
+    {
+      "id": "edit.copy",
+      "label": "Copy",
+      "params": "{scope?: slides} → {text, html?}"
+    },
+    {
+      "id": "edit.paste",
+      "label": "Paste",
+      "params": "{text?: plain text to paste, html?: rich text from another app, scope?: slides}"
+    },
+    {
+      "id": "edit.pasteSpecial",
+      "label": "Paste Special",
+      "params": "{as: destinationTheme|keepSource|picture|text} — Use Destination Theme, Keep Source Formatting, Picture (PNG), Keep Text Only"
+    },
+    {
+      "id": "edit.pasteText",
+      "label": "Paste and Match Formatting",
+      "params": "{text?}"
+    },
+    {
+      "id": "edit.duplicate",
+      "label": "Duplicate",
+      "params": "{ids?}"
+    },
+    {
+      "id": "edit.delete",
+      "label": "Delete",
+      "params": "{ids?, scope?: slides}"
+    },
+    {
+      "id": "edit.selectAll",
+      "label": "Select All",
+      "params": "{scope?: slides}"
+    },
+    {
+      "id": "edit.deselect",
+      "label": "Deselect",
+      "params": "{}"
+    },
+    {
+      "id": "edit.select",
+      "label": "Select Objects",
+      "params": "{ids: [id], add?: bool, toggle?: bool}"
+    },
+    {
+      "id": "slide.new",
+      "label": "New Slide",
+      "params": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}"
+    },
+    {
+      "id": "slide.duplicate",
+      "label": "Duplicate Slide",
+      "params": "{index?}"
+    },
+    {
+      "id": "slide.delete",
+      "label": "Delete Slide",
+      "params": "{index?, ids?: [slide id]}"
+    },
+    {
+      "id": "slide.move",
+      "label": "Move Slide",
+      "params": "{from?: index, to: index}"
+    },
+    {
+      "id": "slide.go",
+      "label": "Go to Slide",
+      "params": "{index} | {id}"
+    },
+    {
+      "id": "slide.next",
+      "label": "Next Slide",
+      "params": "{}"
+    },
+    {
+      "id": "slide.previous",
+      "label": "Previous Slide",
+      "params": "{}"
+    },
+    {
+      "id": "slide.first",
+      "label": "First Slide",
+      "params": "{}"
+    },
+    {
+      "id": "slide.last",
+      "label": "Last Slide",
+      "params": "{}"
+    },
+    {
+      "id": "slide.selectSlides",
+      "label": "Select Slides",
+      "params": "{ids?: [slide id], indices?: [index], add?: bool}"
+    },
+    {
+      "id": "slide.hide",
+      "label": "Hide Slide",
+      "params": "{index?, hidden?: bool}"
+    },
+    {
+      "id": "slide.layout",
+      "label": "Layout",
+      "params": "{layout: name or kind, index?}"
+    },
+    {
+      "id": "slide.reset",
+      "label": "Reset",
+      "params": "{index?}"
+    },
+    {
+      "id": "slide.notes",
+      "label": "Notes",
+      "params": "{text | body: formatted notes (as in slide.inspect's notesBody), index?} (text as typed: untouched notes keep their formatting)"
+    },
+    {
+      "id": "slide.rename",
+      "label": "Rename Slide",
+      "params": "{name, index?}"
+    },
+    {
+      "id": "section.add",
+      "label": "Add Section",
+      "params": "{name?, at?: slide index}"
+    },
+    {
+      "id": "section.rename",
+      "label": "Rename Section",
+      "params": "{index, name}"
+    },
+    {
+      "id": "section.remove",
+      "label": "Remove Section",
+      "params": "{index, slides?: bool (also delete its slides)}"
+    },
+    {
+      "id": "section.removeAll",
+      "label": "Remove All Sections",
+      "params": "{}"
+    },
+    {
+      "id": "section.move",
+      "label": "Move Section",
+      "params": "{index, to}"
+    },
+    {
+      "id": "slide.fromOutline",
+      "label": "Slides from Outline…",
+      "params": "{text, markdown?: bool (headings are slides, list items bullets)}"
+    },
+    {
+      "id": "slide.reuse",
+      "label": "Reuse Slides…",
+      "params": "{path? | data: base64, name?, slides?: [index] (0-based, default all), keepFormatting?: bool (default false: use the destination theme), at?: index (default after the current slide)}"
+    },
+    {
+      "id": "shape.insert",
+      "label": "Shapes",
+      "params": "{preset: rect|roundRect|ellipse|triangle|rightArrow|star5|… (see shape.presets), rect: [x,y,w,h] pt, text?: string}"
+    },
+    {
+      "id": "insert.icon",
+      "label": "Icons",
+      "params": "{name: star|arrow-right|… (see insert.icons), rect?: [x,y,w,h]}"
+    },
+    {
+      "id": "insert.icons",
+      "label": "Icon Gallery",
+      "params": "{} → [{name, label, category}]"
+    },
+    {
+      "id": "shape.presets",
+      "label": "Shape Gallery",
+      "params": "{} → [{name, label, category}]"
+    },
+    {
+      "id": "insert.textBox",
+      "label": "Text Box",
+      "params": "{rect?: [x,y,w,h], text?: string}"
+    },
+    {
+      "id": "insert.picture",
+      "label": "Picture from File…",
+      "params": "{path? | data: base64, name?, rect?: [x,y,w,h]}"
+    },
+    {
+      "id": "insert.photoAlbum",
+      "label": "Photo Album…",
+      "params": "{pictures?: [{path?|data: base64, name?, rot?: deg, brightness?: -1..1, contrast?: -1..1} | {text}], layout?: fit|1|2|4|1title|2title|4title, frame?: none|rect|rounded|simple, captions?: bool, grayscale?: bool, theme?: name} — omit pictures to open the dialog"
+    },
+    {
+      "id": "insert.photoAlbumEdit",
+      "label": "Edit Photo Album…",
+      "params": "{album?: id, pictures?: same as insert.photoAlbum, layout?, frame?, captions?, grayscale?, theme?} — omit pictures to reopen the dialog on the current album"
+    },
+    {
+      "id": "insert.table",
+      "label": "Table…",
+      "params": "{rows, cols, rect?}"
+    },
+    {
+      "id": "insert.chart",
+      "label": "Chart…",
+      "params": "{type?: column|bar|line|pie|doughnut|area|scatter|stackedColumn|…, rect?, categories?: [..], series?: [{name, values}]}"
+    },
+    {
+      "id": "insert.audio",
+      "label": "Audio from File…",
+      "params": "{path? | data: base64, name?, rect?}"
+    },
+    {
+      "id": "insert.video",
+      "label": "Video from File…",
+      "params": "{path? | data: base64, name?, rect?}"
+    },
+    {
+      "id": "insert.wordArt",
+      "label": "WordArt",
+      "params": "{text?, style?: 0..}"
+    },
+    {
+      "id": "insert.slideNumber",
+      "label": "Slide Number",
+      "params": "{}"
+    },
+    {
+      "id": "insert.dateTime",
+      "label": "Date & Time",
+      "params": "{format?: datetime1..datetime13, update?: bool, language?: en-US|en-GB|fr-FR|ja-JP|sv-SE} — no keys opens the dialog"
+    },
+    {
+      "id": "insert.symbol",
+      "label": "Symbol",
+      "params": "{text: character(s)}"
+    },
+    {
+      "id": "shape.action",
+      "label": "Action Settings",
+      "params": "{on?: click|hover, action: none|next|previous|first|last|lastViewed|endShow|playMedia|slide|url|customShow|program, slide?: index, url?, show?: custom show name, path?, highlight?: bool, tooltip?, ids?}"
+    },
+    {
+      "id": "insert.hyperlink",
+      "label": "Link",
+      "params": "{url? | slide?: index, tooltip?, text?: shown when nothing is selected, highlightClick?, ids?}"
+    },
+    {
+      "id": "chart.type",
+      "label": "Change Chart Type",
+      "params": "{type, id?}"
+    },
+    {
+      "id": "chart.data",
+      "label": "Edit Data",
+      "params": "{categories?: [..], levels?: [[..]] (outer category levels, innermost first), series?: [{name, values}], id?}"
+    },
+    {
+      "id": "chart.options",
+      "label": "Chart Elements",
+      "params": "{title?: string|null, legend?: b|t|l|r|null, dataLabels?: bool, gridlines?: bool, palette?, binCount?: n|null, binSize?: n|null, subtotals?: [point index], quartiles?: exclusive|inclusive, upDownBars?: bool, id?}"
+    },
+    {
+      "id": "insert.smartArt",
+      "label": "SmartArt",
+      "params": "{kind: list|process|cycle|hierarchy|pyramid|matrix, items?: [text] (leading tabs = sub-points), nodes?: [{text, level}]} → {id}"
+    },
+    {
+      "id": "insert.actionButton",
+      "label": "Action Buttons",
+      "params": "{kind: back|forward|beginning|end|home|information|return|movie|document|sound|help|custom, rect?}"
+    },
+    {
+      "id": "smartArt.nodes",
+      "label": "Text Pane",
+      "params": "{id?} → {id, kind, nodes: [{text, level}]} (id: the SmartArt group or one of its shapes; default the selection)"
+    },
+    {
+      "id": "smartArt.setNodes",
+      "label": "Edit SmartArt Text",
+      "params": "{id?, nodes?: [{text, level}], lines?: [string] (leading tabs set the level), index?, text?, title?} (index + text edits one node; title: its Name and Title box)"
+    },
+    {
+      "id": "smartArt.addNode",
+      "label": "Add Shape",
+      "params": "{id?, index?, position?: after|before|below|above|assistant, text?} → {index} (default: after the last node)"
+    },
+    {
+      "id": "smartArt.removeNode",
+      "label": "Remove Shape",
+      "params": "{id?, index} (its sub-points move up one level)"
+    },
+    {
+      "id": "smartArt.promote",
+      "label": "Promote",
+      "params": "{id?, index}"
+    },
+    {
+      "id": "smartArt.demote",
+      "label": "Demote",
+      "params": "{id?, index}"
+    },
+    {
+      "id": "smartArt.layout",
+      "label": "Change Layout",
+      "params": "{id?, kind: list|blockList|hBulletList|process|chevron|verticalProcess|stepUp|cycle|blockCycle|radial|hierarchy|pyramid|invertedPyramid|matrix|titledMatrix|pictureList|pictureCaption|pictureProcess|pictureHList|timeline|venn|target|textCycle|continuousCycle|horizontalHierarchy|gridMatrix|gear|funnel|segmentedCycle|multidirectionalCycle|orgChart|halfCircleOrgChart|cycleMatrix|segmentedPyramid|pie|nameTitleOrgChart|verticalBoxList|trapezoidList|tableList|accentProcess|continuousBlockProcess|bendingProcess|linearVenn|stackedVenn|nestedTarget}"
+    },
+    {
+      "id": "smartArt.fromText",
+      "label": "Convert to SmartArt",
+      "params": "{id?, kind?} → {id} (a text box or placeholder becomes a SmartArt graphic in its place: one node per paragraph, indent levels kept)"
+    },
+    {
+      "id": "smartArt.toText",
+      "label": "Convert to Text",
+      "params": "{id?} → {id} (the graphic becomes a text box of its outline, bulleted by level)"
+    },
+    {
+      "id": "smartArt.toShapes",
+      "label": "Convert to Shapes",
+      "params": "{id?} (the graphic becomes a plain group of its shapes; the outline is dropped)"
+    },
+    {
+      "id": "smartArt.picture",
+      "label": "Insert Picture in SmartArt",
+      "params": "{id?, index, data?: base64 | path?: string | reset?: bool} (the node's picture placeholder in picture layouts)"
+    },
+    {
+      "id": "smartArt.style",
+      "label": "SmartArt Styles",
+      "params": "{id?, style: flat|subtle|intense|outline|polished|inset|cartoon|powder|brick}"
+    },
+    {
+      "id": "smartArt.colors",
+      "label": "Change Colors",
+      "params": "{id?, colors: colorful|range23|range34|range45|range56|accent1|…|accent6|accent1Grad|…|accent6Grad}"
+    },
+    {
+      "id": "shape.connect",
+      "label": "Connect Shapes",
+      "params": "{from: shape id, to: shape id, fromSite?, toSite?: site index (default: the closest pair), id?: existing line to glue (else a new connector), preset?: straightConnector1|bentConnector3|curvedConnector3} → {id}"
+    },
+    {
+      "id": "shape.freeform",
+      "label": "Freeform",
+      "params": "{points: [[x, y], …] slide pt (≥ 2), closed?: bool (filled shape), smooth?: bool (curve through the points)} → {id}"
+    },
+    {
+      "id": "draw.inkToShape",
+      "label": "Ink to Shape",
+      "params": "{} → {shapes: [ids], kept: n} turns recognisable ink strokes on the slide into lines, rectangles, ellipses and triangles"
+    },
+    {
+      "id": "shape.sites",
+      "label": "Connection Sites",
+      "params": "{id} → [[x, y]] connection sites in slide points"
+    },
+    {
+      "id": "shape.move",
+      "label": "Move",
+      "params": "{dx?: pt (relative), dy?: pt (relative), ids?} | {x?: pt (absolute), y?: pt (absolute), ids?}"
+    },
+    {
+      "id": "shape.resize",
+      "label": "Size",
+      "params": "{w?: pt, h?: pt, lockAspect?: bool, ids?}"
+    },
+    {
+      "id": "shape.setBounds",
+      "label": "Position and Size",
+      "params": "{x, y, w, h, ids?}"
+    },
+    {
+      "id": "shape.rotate",
+      "label": "Rotation",
+      "params": "{deg?: absolute, by?: relative, ids?, gesture?: move|end}"
+    },
+    {
+      "id": "shape.sizePosition",
+      "label": "Size and Position…",
+      "params": "{x?, y?: pt, w?, h?: pt, rot?: deg, scaleW?, scaleH?: percent of the current size (100 = unchanged), lockAspect?: bool, ids?} — with none of those keys, opens the dialog"
+    },
+    {
+      "id": "shape.flip",
+      "label": "Flip",
+      "params": "{axis: horizontal|vertical, ids?}"
+    },
+    {
+      "id": "shape.adjust",
+      "label": "Adjust Shape",
+      "params": "{index, value (file units), ids?}"
+    },
+    {
+      "id": "shape.change",
+      "label": "Change Shape",
+      "params": "{preset, ids?}"
+    },
+    {
+      "id": "shape.smoothCorners",
+      "label": "Smooth Corners",
+      "params": "{smoothing: 0..100 (%), radius?: pt (default: the rounded rectangle's own), ids?} → rectangle outline with smoothed (squircle) corners"
+    },
+    {
+      "id": "shape.fill",
+      "label": "Shape Fill",
+      "params": "{color? | none?: true | gradient?: {stops: [[pos, color]], angle?, kind?: linear|radial} | picture?: base64 | pattern?: {preset, fg, bg} | transparency?: 0..1 | reset?: true, ids?}; pictureProps?: {tile?: bool, offsetX?, offsetY?: pt, scaleX?, scaleY?: 0..10, align?: tl|t|tr|l|ctr|r|bl|b|br, mirror?: none|x|y|xy, stretch?: [l, t, r, b] fractions, rotateWithShape?: bool} adjusts a picture fill"
+    },
+    {
+      "id": "shape.line",
+      "label": "Shape Outline",
+      "params": "{color?, none?, width?: pt, dash?: solid|dot|dash|lgDash|dashDot|sysDot|sysDash, cap?: flat|round|square, join?: round|bevel|miter, compound?: single|double|thickThin|thinThick|triple, head?: none|triangle|stealth|diamond|oval|arrow, tail?, headSize?: sm|med|lg, tailSize?, reset?, ids?}"
+    },
+    {
+      "id": "shape.effects",
+      "label": "Shape Effects",
+      "params": "{shadow?: none|outer|inner|perspective|{color, blur, dist, dir}, glow?: none|{color, radius}, softEdges?: pt, reflection?: none|tight|half|full, bevel?: none|circle|…, threeD?: {camera?: preset, rotX?, rotY?, rotZ?: deg, z?: pt, bevelTop?, bevelBottom?: none|circle|…, bevelTopW?, bevelTopH?, bevelBottomW?, bevelBottomH?, depth?, contour?: pt, material?, lighting?, reset?: true}, shadowProps?: {color?, transparency?: 0..1, blur?: pt, dist?: pt, dir?: deg}, glowProps?: {color?, transparency?, radius?: pt}, reflectionProps?: {transparency?, size?: 0..1, dist?: pt, blur?: pt}, reset?, ids?} (the *Props keys adjust the current effect, adding a default one when there is none)"
+    },
+    {
+      "id": "shape.quickStyle",
+      "label": "Quick Styles",
+      "params": "{index: 0..41 (theme style row×accent), ids?}"
+    },
+    {
+      "id": "shape.rename",
+      "label": "Rename",
+      "params": "{name, id?}"
+    },
+    {
+      "id": "shape.altText",
+      "label": "Alt Text",
+      "params": "{text, decorative?: bool, ids?}"
+    },
+    {
+      "id": "shape.visible",
+      "label": "Show/Hide",
+      "params": "{visible?: bool, ids?}"
+    },
+    {
+      "id": "shape.lock",
+      "label": "Lock",
+      "params": "{locked?: bool (default: toggle), ids?} (a group locks or unlocks with everything in it)"
+    },
+    {
+      "id": "shape.setDefault",
+      "label": "Set as Default Shape",
+      "params": "{}"
+    },
+    {
+      "id": "picture.crop",
+      "label": "Crop",
+      "params": "{left?: fraction 0..1, top?: fraction 0..1, right?: fraction 0..1, bottom?: fraction 0..1, ids?}"
+    },
+    {
+      "id": "picture.adjust",
+      "label": "Corrections",
+      "params": "{brightness?: -1..1, contrast?: -1..1, saturation?: 0..4, grayscale?: bool, transparency?: 0..1, reset?: bool, ids?}"
+    },
+    {
+      "id": "picture.reset",
+      "label": "Reset Picture",
+      "params": "{ids?}"
+    },
+    {
+      "id": "picture.change",
+      "label": "Change Picture",
+      "params": "{path? | data: base64, name?, ids?}"
+    },
+    {
+      "id": "media.options",
+      "label": "Playback",
+      "params": "{autoplay?, loop?, rewind?, acrossSlides?, hide?, fullScreen?, volume?: 0..1, trimStart?: ms, trimEnd?: ms, fadeIn?: ms, fadeOut?: ms, ids?}"
+    },
+    {
+      "id": "picture.removeBackground",
+      "label": "Remove Background",
+      "params": "{tolerance?: 0..100 (how different a colour may be from the edge's, default 20), ids?}"
+    },
+    {
+      "id": "picture.style",
+      "label": "Picture Styles",
+      "params": "{style: simpleFrameWhite|dropShadowRectangle|softEdgeOval|… | none (see picture.styles), ids?}"
+    },
+    {
+      "id": "picture.styles",
+      "label": "Picture Style Gallery",
+      "params": "{} → [{id, label}]"
+    },
+    {
+      "id": "picture.recolor",
+      "label": "Recolor",
+      "params": "{preset: none|grayscale|sepia|washout|bw25|bw50|bw75|accent1Dark…accent6Dark|accent1Light…accent6Light|tx2Dark|tx2Light (see picture.recolors), ids?}"
+    },
+    {
+      "id": "picture.recolors",
+      "label": "Recolor Gallery",
+      "params": "{} → [{id, label}]"
+    },
+    {
+      "id": "picture.transparentColor",
+      "label": "Set Transparent Color",
+      "params": "{color: #RRGGBB | none: true, ids?} (pixels of that colour become transparent)"
+    },
+    {
+      "id": "guide.add",
+      "label": "Add Guide",
+      "params": "{vertical: bool, pos?: pt (default: the slide's centre)} → {index}. `defaults: true` adds the two centre guides when there are none"
+    },
+    {
+      "id": "guide.move",
+      "label": "Move Guide",
+      "params": "{index, pos: pt}"
+    },
+    {
+      "id": "guide.delete",
+      "label": "Delete Guide",
+      "params": "{index}"
+    },
+    {
+      "id": "guide.list",
+      "label": "Guides",
+      "params": "{} → [{vertical, pos}]"
+    },
+    {
+      "id": "arrange.bringToFront",
+      "label": "Bring to Front",
+      "params": "{ids?}"
+    },
+    {
+      "id": "arrange.bringForward",
+      "label": "Bring Forward",
+      "params": "{ids?}"
+    },
+    {
+      "id": "arrange.sendBackward",
+      "label": "Send Backward",
+      "params": "{ids?}"
+    },
+    {
+      "id": "arrange.sendToBack",
+      "label": "Send to Back",
+      "params": "{ids?}"
+    },
+    {
+      "id": "arrange.reorder",
+      "label": "Reorder Objects",
+      "params": "{id, index: position among its siblings (0 = back; a group's child stays in its group)} → {index}"
+    },
+    {
+      "id": "arrange.group",
+      "label": "Group",
+      "params": "{ids?}"
+    },
+    {
+      "id": "arrange.ungroup",
+      "label": "Ungroup",
+      "params": "{ids?}"
+    },
+    {
+      "id": "arrange.regroup",
+      "label": "Regroup",
+      "params": "{}"
+    },
+    {
+      "id": "arrange.align",
+      "label": "Align",
+      "params": "{edge: left|center|right|top|middle|bottom, to?: slide|selection (default: slide for one object), ids?}"
+    },
+    {
+      "id": "arrange.distribute",
+      "label": "Distribute",
+      "params": "{dir: horizontal|vertical, to?: slide|selection, ids?}"
+    },
+    {
+      "id": "arrange.rotateLeft",
+      "label": "Rotate Left 90°",
+      "params": "{ids?}"
+    },
+    {
+      "id": "arrange.rotateRight",
+      "label": "Rotate Right 90°",
+      "params": "{ids?}"
+    },
+    {
+      "id": "arrange.flipHorizontal",
+      "label": "Flip Horizontal",
+      "params": "{ids?}"
+    },
+    {
+      "id": "arrange.flipVertical",
+      "label": "Flip Vertical",
+      "params": "{ids?}"
+    },
+    {
+      "id": "arrange.nudge",
+      "label": "Nudge",
+      "params": "{dx, dy, ids?} (arrow keys: 6 pt, with Alt 1 pt)"
+    },
+    {
+      "id": "selection.select",
+      "label": "Select",
+      "params": "{ids | id, toggle?: bool (Ctrl+click), add?: bool} → {selected}: objects in groups too; a hidden object picked from the list is shown"
+    },
+    {
+      "id": "selection.showAll",
+      "label": "Show All",
+      "params": "{} shows every object on the slide, inside groups too"
+    },
+    {
+      "id": "selection.hideAll",
+      "label": "Hide All",
+      "params": "{} hides every top-level object on the slide"
+    },
+    {
+      "id": "shape.merge",
+      "label": "Merge Shapes",
+      "params": "{op: union|combine|fragment|intersect|subtract, ids?: shapes in selection order (the first one's formatting is kept)} → {ids}"
+    },
+    {
+      "id": "shape.editPoints",
+      "label": "Edit Points",
+      "params": "{on?: bool (default: toggle), id?} — enter or leave Edit Points for one selected shape; entering turns a preset into a freeform"
+    },
+    {
+      "id": "shape.points",
+      "label": "Points",
+      "params": "{id?} → {id, paths: [[[x, y] slide pt]], types: [[smooth|straight|corner]]} vertices of a freeform"
+    },
+    {
+      "id": "shape.movePoint",
+      "label": "Move Point",
+      "params": "{path?: 0, index, x, y: slide pt, id?}"
+    },
+    {
+      "id": "shape.addPoint",
+      "label": "Add Point",
+      "params": "{path?: 0, segment: index of the vertex ending it, t?: 0..1 (0.5), id?}"
+    },
+    {
+      "id": "shape.pointType",
+      "label": "Point Type",
+      "params": "{path?: 0, index, type: smooth|straight|corner, id?} — smooth: handles in line and equal; straight: in line; corner: independent"
+    },
+    {
+      "id": "shape.moveHandle",
+      "label": "Move Handle",
+      "params": "{path?: 0, index, side: in|out, x, y: slide pt, type?: smooth|straight|corner (default: read from the handles), id?}"
+    },
+    {
+      "id": "shape.deletePoint",
+      "label": "Delete Point",
+      "params": "{path?: 0, index, id?}"
+    },
+    {
+      "id": "font.used",
+      "label": "Fonts in Presentation",
+      "params": "{} → [family] (theme fonts resolved)"
+    },
+    {
+      "id": "font.replace",
+      "label": "Replace Fonts",
+      "params": "{from, to} — every explicit use of family `from`, theme fonts included → {replaced}"
+    },
+    {
+      "id": "text.edit",
+      "label": "Edit Text",
+      "params": "{id?, at?: [paragraph, char], end?: bool, cell?: [row, col], notes?: bool}"
+    },
+    {
+      "id": "text.exit",
+      "label": "Stop Editing Text",
+      "params": "{}"
+    },
+    {
+      "id": "text.autocorrect",
+      "label": "AutoCorrect Options",
+      "params": "{on?, twoInitials?, sentenceCaps?, days?, capsLock?, fractions?: bool, add?: [from, to], remove?: from} → the options and the replacement list"
+    },
+    {
+      "id": "text.insert",
+      "label": "Type Text",
+      "params": "{text} (\\n = new paragraph, \\u000b = line break)"
+    },
+    {
+      "id": "text.compose",
+      "label": "Compose Text",
+      "params": "{text, active?: [start, end]} — an input method's composition (preedit) at the insertion point; empty text cancels it"
+    },
+    {
+      "id": "text.commit",
+      "label": "Commit Composition",
+      "params": "{text} — the input method's result replaces its composition, as one undo step"
+    },
+    {
+      "id": "text.delete",
+      "label": "Delete Text",
+      "params": "{dir?: backward|forward|wordBackward|wordForward} — the word directions are Ctrl+Backspace/Delete: they work from the start of a selection without deleting it"
+    },
+    {
+      "id": "text.move",
+      "label": "Move Insertion Point",
+      "params": "{to: left|right|up|down|wordLeft|wordRight|lineStart|lineEnd|paraStart|paraEnd|paraUp|paraDown|start|end, extend?: bool} — left/right are on screen: in a right-to-left paragraph left goes forward"
+    },
+    {
+      "id": "text.select",
+      "label": "Select Text",
+      "params": "{anchor: [p, c], caret: [p, c]}"
+    },
+    {
+      "id": "text.selectAll",
+      "label": "Select All Text",
+      "params": "{}"
+    },
+    {
+      "id": "text.selectWord",
+      "label": "Select Word",
+      "params": "{at?: [p, c]}"
+    },
+    {
+      "id": "text.selectParagraph",
+      "label": "Select Paragraph",
+      "params": "{at?: [p, c]}"
+    },
+    {
+      "id": "text.set",
+      "label": "Set Text",
+      "params": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting"
+    },
+    {
+      "id": "text.get",
+      "label": "Get Text",
+      "params": "{id?} → {text, paragraphs}"
+    },
+    {
+      "id": "font.add",
+      "label": "Add Font",
+      "params": "{data: base64 TTF/OTF/TTC} → {faces} added for this session"
+    },
+    {
+      "id": "font.rescan",
+      "label": "Rescan Installed Fonts",
+      "params": "{} → {faces, families} (fonts installed since start-up)"
+    },
+    {
+      "id": "format.bold",
+      "label": "Bold",
+      "params": "{on?: bool}"
+    },
+    {
+      "id": "format.italic",
+      "label": "Italic",
+      "params": "{on?: bool}"
+    },
+    {
+      "id": "format.underline",
+      "label": "Underline",
+      "params": "{on?: bool, style?: sng|dbl|heavy|dotted|dash|wavy}"
+    },
+    {
+      "id": "format.strikethrough",
+      "label": "Strikethrough",
+      "params": "{on?: bool, double?: bool}"
+    },
+    {
+      "id": "format.superscript",
+      "label": "Superscript",
+      "params": "{on?: bool}"
+    },
+    {
+      "id": "format.subscript",
+      "label": "Subscript",
+      "params": "{on?: bool}"
+    },
+    {
+      "id": "format.font",
+      "label": "Font",
+      "params": "{family}"
+    },
+    {
+      "id": "format.size",
+      "label": "Font Size",
+      "params": "{size: pt}"
+    },
+    {
+      "id": "format.grow",
+      "label": "Increase Font Size",
+      "params": "{}"
+    },
+    {
+      "id": "format.shrink",
+      "label": "Decrease Font Size",
+      "params": "{}"
+    },
+    {
+      "id": "format.color",
+      "label": "Font Color",
+      "params": "{color: #RRGGBB|accent1..6|tx1…|{scheme, lumMod…}}"
+    },
+    {
+      "id": "format.textTransparency",
+      "label": "Text Transparency",
+      "params": "{value: 0..1} — 0 opaque, 1 invisible; keeps the text's colour (inherited colours included)"
+    },
+    {
+      "id": "format.language",
+      "label": "Language",
+      "params": "{lang?, noProof?: bool} (proofing language of the selected text, and Do Not Check Spelling)"
+    },
+    {
+      "id": "format.highlight",
+      "label": "Text Highlight Color",
+      "params": "{color? (absent = none)}"
+    },
+    {
+      "id": "format.case",
+      "label": "Change Case",
+      "params": "{mode?: cycle|sentence|lower|upper|title|toggle} — cycle (Shift+F3, the default) goes lowercase → Capitalize Each Word → UPPERCASE; a caret in a word changes that word"
+    },
+    {
+      "id": "format.caps",
+      "label": "Caps",
+      "params": "{caps: none|small|all}"
+    },
+    {
+      "id": "format.spacing",
+      "label": "Character Spacing",
+      "params": "{pt} (veryTight -3, tight -1.5, normal 0, loose 3, veryLoose 6)"
+    },
+    {
+      "id": "format.clear",
+      "label": "Clear All Formatting",
+      "params": "{}"
+    },
+    {
+      "id": "format.fontDialog",
+      "label": "Font…",
+      "params": "{family?, size?: pt, bold?: bool, italic?: bool, underline?: none|sng|dbl|heavy|dotted|dash|wavy, color?, strike?: none|sng|dbl, baseline?: none|super|sub|<fraction>, caps?: none|small|all, spacing?: pt} — with none of these, opens the Font dialog"
+    },
+    {
+      "id": "format.textShadow",
+      "label": "Text Shadow",
+      "params": "{on?: bool}"
+    },
+    {
+      "id": "format.textOutline",
+      "label": "Text Outline",
+      "params": "{color?, width?: pt} (no color = none)"
+    },
+    {
+      "id": "format.textWarp",
+      "label": "Text Transform",
+      "params": "{preset: a prstTxWarp name or none, adj?: [finite raw guide values, at most 8]} — none clears the transform; omitted adj uses the preset's defaults"
+    },
+    {
+      "id": "format.align",
+      "label": "Align",
+      "params": "{align: left|center|right|justify|justifyLow|distributed}"
+    },
+    {
+      "id": "format.rtl",
+      "label": "Right-to-Left Text Direction",
+      "params": "{on?: bool} (off = left-to-right; switching mirrors left/right alignment)"
+    },
+    {
+      "id": "format.alignLeft",
+      "label": "Align Left",
+      "params": "{}"
+    },
+    {
+      "id": "format.alignCenter",
+      "label": "Center",
+      "params": "{}"
+    },
+    {
+      "id": "format.alignRight",
+      "label": "Align Right",
+      "params": "{}"
+    },
+    {
+      "id": "format.justify",
+      "label": "Justify",
+      "params": "{}"
+    },
+    {
+      "id": "format.bullets",
+      "label": "Bullets",
+      "params": "{on?: bool, char?: •|○|■|□|◆|➢|✓|–, color?, size?: % of text}"
+    },
+    {
+      "id": "format.numbering",
+      "label": "Numbering",
+      "params": "{on?: bool, scheme?: arabicPeriod|arabicParenR|romanUcPeriod|romanLcPeriod|alphaUcPeriod|alphaLcParenR|alphaLcPeriod, start?: n, color?, size?: % of text}"
+    },
+    {
+      "id": "format.indent",
+      "label": "Increase List Level",
+      "params": "{}"
+    },
+    {
+      "id": "format.outdent",
+      "label": "Decrease List Level",
+      "params": "{}"
+    },
+    {
+      "id": "format.lineSpacing",
+      "label": "Line Spacing",
+      "params": "{lines?: 1.0|1.5|2.0…, pt?: exactly}"
+    },
+    {
+      "id": "format.paragraph",
+      "label": "Paragraph…",
+      "params": "{align?, indentLeft?: pt, indentFirst?: pt (negative = hanging), spaceBefore?: pt, spaceAfter?: pt, lineSpacing?: lines}"
+    },
+    {
+      "id": "format.ruler",
+      "label": "Ruler",
+      "params": "{} → {x, y, width, rotated, marginLeft, indent, tabs: [{pos, align}], defaultTab} for the paragraph with the caret (x, y: the text area's top-left in slide pt)"
+    },
+    {
+      "id": "format.paragraphDialog",
+      "label": "Paragraph…",
+      "params": "{align?: left|center|right|justify|justLow|distributed, indentLeft?: pt, indentRight?: pt, special?: none|first|hanging, specialBy?: pt, indentFirst?: pt, spaceBefore?: pt, spaceAfter?: pt, spaceBeforeKind?: pts|pct, spaceAfterKind?: pts|pct, lineSpacing?: lines, lineSpacingPt?: pt} — with none of these, opens the Paragraph dialog"
+    },
+    {
+      "id": "format.tabs",
+      "label": "Tabs…",
+      "params": "{set?: [{pos, align?}] (replaces all), add?: {pos, align?: l|ctr|r|dec}, move?: {from, to}, remove?: pos, clear?: bool, defaultTab?: pt} on the selected paragraphs; with none of them, opens the Tabs dialog (pos in pt from the text area's left)"
+    },
+    {
+      "id": "format.anchor",
+      "label": "Align Text",
+      "params": "{anchor: top|middle|bottom}"
+    },
+    {
+      "id": "format.direction",
+      "label": "Text Direction",
+      "params": "{dir: horizontal|rotate90|rotate270|stacked}"
+    },
+    {
+      "id": "format.columns",
+      "label": "Columns",
+      "params": "{count, spacing?: pt}"
+    },
+    {
+      "id": "format.autofit",
+      "label": "Autofit",
+      "params": "{mode: none|shrink|resize}"
+    },
+    {
+      "id": "format.wrap",
+      "label": "Wrap Text in Shape",
+      "params": "{on: bool}"
+    },
+    {
+      "id": "format.margins",
+      "label": "Text Box Margins",
+      "params": "{left?: pt, top?: pt, right?: pt, bottom?: pt}"
+    },
+    {
+      "id": "format.painter",
+      "label": "Format Painter",
+      "params": "{sticky?: bool}"
+    },
+    {
+      "id": "format.painterApply",
+      "label": "Paste Formatting",
+      "params": "{ids?}"
+    },
+    {
+      "id": "format.state",
+      "label": "Formatting State",
+      "params": "{} → the effective formatting at the selection (font, size, bold, …)"
+    },
+    {
+      "id": "design.theme",
+      "label": "Themes",
+      "params": "{name} (see design.themes)"
+    },
+    {
+      "id": "design.browseTheme",
+      "label": "Browse for Themes…",
+      "params": "{path} | {name, data: base64} — apply the theme of a .thmx, .pptx or .potx file"
+    },
+    {
+      "id": "design.themes",
+      "label": "Theme Gallery",
+      "params": "{} → themes, colour schemes, font schemes and effect schemes"
+    },
+    {
+      "id": "design.colors",
+      "label": "Colors",
+      "params": "{} opens Create New Theme Colors | {name} | {colors: {dk1|lt1|dk2|lt2|accent1..6|hlink|folHlink: #RRGGBB}}"
+    },
+    {
+      "id": "design.variant",
+      "label": "Variants",
+      "params": "{index: 0..3} (see design.variants)"
+    },
+    {
+      "id": "design.variants",
+      "label": "Variant Gallery",
+      "params": "{} → the current theme's four colour variants and which is applied"
+    },
+    {
+      "id": "design.fonts",
+      "label": "Fonts",
+      "params": "{} opens Create New Theme Fonts | {name} | {major, minor}"
+    },
+    {
+      "id": "design.effects",
+      "label": "Effects",
+      "params": "{name} (see design.themes)"
+    },
+    {
+      "id": "design.background",
+      "label": "Format Background",
+      "params": "{color? | gradient? | picture?: base64 | pattern? | style?: 1..12 | reset?, all?: bool, index?, transparency?: 0..1, pictureProps?: {tile?, offsetX?, offsetY?: pt, scaleX?, scaleY?: 0.01..10, align?, mirror?, stretch?: [l,t,r,b], rotateWithShape?}, copy?: bool}"
+    },
+    {
+      "id": "design.hideBackgroundGraphics",
+      "label": "Hide Background Graphics",
+      "params": "{hide?: bool}"
+    },
+    {
+      "id": "design.slideSize",
+      "label": "Slide Size",
+      "params": "{preset: widescreen|standard|…, orientation?: portrait|landscape, scale?: maximize|ensureFit|none} | {w: pt, h: pt, orientation?: portrait|landscape, scale?: maximize|ensureFit|none}"
+    },
+    {
+      "id": "design.headerFooter",
+      "label": "Header and Footer…",
+      "params": "{date?: bool, dateText?: fixed text, slideNumber?: bool, footer?: bool, footerText?, hideOnTitle?: bool, all?: bool (default true)}"
+    },
+    {
+      "id": "view.slideMaster",
+      "label": "Slide Master",
+      "params": "{master?: index, layout?: index}"
+    },
+    {
+      "id": "view.handoutMaster",
+      "label": "Handout Master",
+      "params": "{} (creates the handout master with header, date, footer and page number if the deck has none)"
+    },
+    {
+      "id": "handout.placeholders",
+      "label": "Handout Placeholders",
+      "params": "{header?: bool, date?: bool, footer?: bool, pageNumber?: bool} (show or hide each)"
+    },
+    {
+      "id": "view.notesMaster",
+      "label": "Notes Master",
+      "params": "{} (creates the notes master with header, date, slide image, notes body, footer and page number if the deck has none)"
+    },
+    {
+      "id": "notes.placeholders",
+      "label": "Notes Placeholders",
+      "params": "{header?, date?, slideImage?, body?, footer?, pageNumber?: bool} (show or hide each)"
+    },
+    {
+      "id": "view.closeMaster",
+      "label": "Close Master View",
+      "params": "{}"
+    },
+    {
+      "id": "master.insertLayout",
+      "label": "Insert Layout",
+      "params": "{name?}"
+    },
+    {
+      "id": "master.renameLayout",
+      "label": "Rename Layout",
+      "params": "{name, master?, layout?}"
+    },
+    {
+      "id": "master.deleteLayout",
+      "label": "Delete Layout",
+      "params": "{master?, layout?}"
+    },
+    {
+      "id": "master.insertPlaceholder",
+      "label": "Insert Placeholder",
+      "params": "{kind: content|text|picture|chart|table|media, rect?: [x,y,w,h]}"
+    },
+    {
+      "id": "master.preserve",
+      "label": "Preserve",
+      "params": "{preserve?: bool}"
+    },
+    {
+      "id": "master.placeholders",
+      "label": "Layout Placeholders",
+      "params": "{title?: bool, footers?: bool}"
+    },
+    {
+      "id": "design.ideas",
+      "label": "Design Ideas",
+      "params": "{slide?} → [{id, label}] ideas for the slide"
+    },
+    {
+      "id": "design.applyIdea",
+      "label": "Apply Design Idea",
+      "params": "{id, slide?}"
+    },
+    {
+      "id": "transition.set",
+      "label": "Transition",
+      "params": "{kind: none|morph|fade|push|wipe|split|reveal|cut|randomBar|shape|uncover|cover|flash|… (transition.list), option?, duration?: ms, index?}"
+    },
+    {
+      "id": "transition.options",
+      "label": "Effect Options",
+      "params": "{option, index?}"
+    },
+    {
+      "id": "transition.timing",
+      "label": "Timing",
+      "params": "{duration?: ms, onClick?: bool, after?: ms | null, index?}"
+    },
+    {
+      "id": "transition.sound",
+      "label": "Sound",
+      "params": "{builtin?: chime|click|camera|whoosh|drumRoll|laser | path? | data: base64, name?, none?: true (No Sound), stopPrevious?: true, loop?: bool (Loop Until Next Sound), index?} — the sound plays as the slide comes in"
+    },
+    {
+      "id": "transition.applyAll",
+      "label": "Apply To All",
+      "params": "{}"
+    },
+    {
+      "id": "transition.list",
+      "label": "Transition Gallery",
+      "params": "{} → [{id, label, category, duration, options}]"
+    },
+    {
+      "id": "animation.set",
+      "label": "Animation Styles",
+      "params": "{effect: fade|fly|zoom|wipe|appear|spin|pulse|fadeOut|lines|… (animation.list), class?: entrance|emphasis|exit|path, option?, ids?} — replaces the shapes' animations"
+    },
+    {
+      "id": "animation.add",
+      "label": "Add Animation",
+      "params": "{effect, class?, option?, start?: onClick|withPrevious|afterPrevious, duration?: ms, delay?: ms, ids?}"
+    },
+    {
+      "id": "animation.remove",
+      "label": "Remove Animation",
+      "params": "{index} | {ids? (all of the shapes' animations)}"
+    },
+    {
+      "id": "animation.move",
+      "label": "Reorder Animation",
+      "params": "{index, to}"
+    },
+    {
+      "id": "animation.timing",
+      "label": "Timing",
+      "params": "{index? (else selected shapes), start?: onClick|withPrevious|afterPrevious, duration?: ms, delay?: ms, repeat?: n, rewind?: bool, trigger?: shape id | null}"
+    },
+    {
+      "id": "animation.options",
+      "label": "Effect Options",
+      "params": "{option?, textBuild?: asOne|byParagraph|byWord|byLetter, index?}"
+    },
+    {
+      "id": "animation.clear",
+      "label": "Remove All Animations",
+      "params": "{index?: slide}"
+    },
+    {
+      "id": "animation.painter",
+      "label": "Animation Painter",
+      "params": "{sticky?: bool, id?}"
+    },
+    {
+      "id": "animation.painterApply",
+      "label": "Apply Animation",
+      "params": "{ids?}"
+    },
+    {
+      "id": "animation.list",
+      "label": "Animation Gallery",
+      "params": "{} → [{id, label, class, options}]"
+    },
+    {
+      "id": "animation.get",
+      "label": "Animations on Slide",
+      "params": "{slide?} → [animation]"
+    },
+    {
+      "id": "table.insertRowAbove",
+      "label": "Insert Above",
+      "params": "{row?, id?}"
+    },
+    {
+      "id": "table.insertRowBelow",
+      "label": "Insert Below",
+      "params": "{row?, id?}"
+    },
+    {
+      "id": "table.insertColumnLeft",
+      "label": "Insert Left",
+      "params": "{col?, id?}"
+    },
+    {
+      "id": "table.insertColumnRight",
+      "label": "Insert Right",
+      "params": "{col?, id?}"
+    },
+    {
+      "id": "table.deleteRow",
+      "label": "Delete Rows",
+      "params": "{row?, id?}"
+    },
+    {
+      "id": "table.deleteColumn",
+      "label": "Delete Columns",
+      "params": "{col?, id?}"
+    },
+    {
+      "id": "table.merge",
+      "label": "Merge Cells",
+      "params": "{from: [r, c], to: [r, c], id?}"
+    },
+    {
+      "id": "table.split",
+      "label": "Split Cells",
+      "params": "{cell?: [r, c] (else the edited cell), id?} | {row?: index, col?: index, id?}"
+    },
+    {
+      "id": "table.style",
+      "label": "Table Styles",
+      "params": "{style: medium2-accent1|light1-accent2|dark1-tx1|grid|none…, id?}"
+    },
+    {
+      "id": "table.options",
+      "label": "Table Style Options",
+      "params": "{headerRow?: bool, totalRow?: bool, bandedRows?: bool, firstColumn?: bool, lastColumn?: bool, bandedColumns?: bool, id?}"
+    },
+    {
+      "id": "table.cellFill",
+      "label": "Shading",
+      "params": "{color? | none?, cells?: [[r,c],…] (default: selected cells or all), id?}"
+    },
+    {
+      "id": "table.borders",
+      "label": "Borders",
+      "params": "{which: all|outside|inside|insideH|insideV|top|bottom|left|right|diagDown|diagUp|none, color?, width?: pt, dash?: solid|dash|dot…, cells?: [[r,c],…] (default: selected cells or all), id?}"
+    },
+    {
+      "id": "table.cellMargins",
+      "label": "Cell Margins",
+      "params": "{preset?: normal|none|narrow|wide, left?, right?, top?, bottom?: pt, cells?, id?}"
+    },
+    {
+      "id": "table.cellAlign",
+      "label": "Align Cell Text",
+      "params": "{anchor: top|middle|bottom, cells?, id?}"
+    },
+    {
+      "id": "table.distributeRows",
+      "label": "Distribute Rows",
+      "params": "{id?}"
+    },
+    {
+      "id": "table.distributeColumns",
+      "label": "Distribute Columns",
+      "params": "{id?}"
+    },
+    {
+      "id": "table.columnWidth",
+      "label": "Width",
+      "params": "{col, width: pt, keepTotal?: bool (the next column absorbs the change), id?}"
+    },
+    {
+      "id": "table.rowHeight",
+      "label": "Height",
+      "params": "{row, height: pt, id?}"
+    },
+    {
+      "id": "table.drawLine",
+      "label": "Draw Table",
+      "params": "{from: [x, y], to: [x, y] slide pt, id?: table (default: the one under `from`)} splits the cells the line crosses"
+    },
+    {
+      "id": "table.eraseLine",
+      "label": "Table Eraser",
+      "params": "{at: [x, y] slide pt, id?, tol?: pt (default 6)} merges the two cells on either side of the nearest border"
+    },
+    {
+      "id": "table.selectCells",
+      "label": "Select Cells",
+      "params": "{from: [r,c], to: [r,c], id?}"
+    },
+    {
+      "id": "text.find",
+      "label": "Find",
+      "params": "{text, matchCase?: bool, wholeWords?: bool} → [{slide, shape (null = notes), cell?: [row, col], para, start, end}] (char offsets in the paragraph)"
+    },
+    {
+      "id": "text.replace",
+      "label": "Replace",
+      "params": "{text, with, matchCase?, wholeWords?, at?: a text.find match (replace just that one; default: replace all)} → {replaced}"
+    },
+    {
+      "id": "comment.add",
+      "label": "New Comment",
+      "params": "{text, x?, y?, id?: shape}"
+    },
+    {
+      "id": "comment.reply",
+      "label": "Reply",
+      "params": "{index, text}"
+    },
+    {
+      "id": "comment.delete",
+      "label": "Delete Comment",
+      "params": "{index? | all?: bool}"
+    },
+    {
+      "id": "comment.resolve",
+      "label": "Resolve Thread",
+      "params": "{index, resolved?: bool}"
+    },
+    {
+      "id": "comment.list",
+      "label": "Comments",
+      "params": "{slide?} → comments"
+    },
+    {
+      "id": "comment.next",
+      "label": "Next Comment",
+      "params": "{slide?, index?} → {slide, index, text}"
+    },
+    {
+      "id": "comment.prev",
+      "label": "Previous Comment",
+      "params": "{slide?, index?} → {slide, index, text}"
+    },
+    {
+      "id": "review.accessibility",
+      "label": "Check Accessibility",
+      "params": "{} → [{slide, shape, issue}]"
+    },
+    {
+      "id": "review.spelling",
+      "label": "Spelling",
+      "params": "{lang?, ignore?:[word]} → [{slide, shape?, row?, col?, notes?, para, start, end, word, lang, suggestions}] (shapes, table cells and notes; repeated words as {repeated, deleteFrom}; runs marked noProof skipped; each run in its own language, lang? for runs without one; Hunspell dictionaries installed on the system, else a built-in list of common misspellings)"
+    },
+    {
+      "id": "review.spellingChange",
+      "label": "Change Spelling",
+      "params": "{shape, word, to, all?, para?, start?, row?, col?} → {changed} (replace the whole word in that shape's text, the one at para/start, or in every shape with all)"
+    },
+    {
+      "id": "review.addToDictionary",
+      "label": "Add to Dictionary",
+      "params": "{word} → {word, file} (append to the user dictionary file; not an undo step)"
+    },
+    {
+      "id": "review.dictionary",
+      "label": "Spelling Dictionary",
+      "params": "{lang?} → {lang, available, found, folders} (whether review.spelling has a dictionary, and which file)"
+    },
+    {
+      "id": "review.thesaurus",
+      "label": "Thesaurus",
+      "params": "{word? (default: the selected word, or the word at the caret)} → {word, senses: [{word, synonyms}]}"
+    },
+    {
+      "id": "review.replaceWord",
+      "label": "Insert Synonym",
+      "params": "{with}: replace the selected word (or the word at the caret) while editing text"
+    },
+    {
+      "id": "review.compare",
+      "label": "Compare",
+      "params": "{path} | {name, data: base64} — compare with a revised copy → {name, changes}"
+    },
+    {
+      "id": "review.revisions",
+      "label": "Revisions",
+      "params": "{} → {name, changes: [{kind: inserted|deleted|changed, slide, revised, details}]}"
+    },
+    {
+      "id": "review.accept",
+      "label": "Accept Revision",
+      "params": "{index} | {all: true}"
+    },
+    {
+      "id": "review.endCompare",
+      "label": "End Review",
+      "params": "{}"
+    },
+    {
+      "id": "show.fromStart",
+      "label": "Play from Start",
+      "params": "{}"
+    },
+    {
+      "id": "show.fromCurrent",
+      "label": "Play from Current Slide",
+      "params": "{}"
+    },
+    {
+      "id": "show.setup",
+      "label": "Set Up Slide Show…",
+      "params": "{type?: speaker|browsed|kiosk, loop?: bool, noNarration?, noAnimation?, useTimings?, showMediaControls?, from?, to?, custom?: name}"
+    },
+    {
+      "id": "show.customShow",
+      "label": "Custom Slide Show",
+      "params": "{name, slides: [index]} | {name, delete: true}"
+    },
+    {
+      "id": "document.inspect",
+      "label": "Inspect Presentation",
+      "params": "{} → slides with titles, layouts, shape counts; selection; size; theme"
+    },
+    {
+      "id": "slide.inspect",
+      "label": "Inspect Slide",
+      "params": "{index?} → the slide's shapes with ids, kinds, boxes, text, fills, animations, transition, notes (text, and notesBody with its formatting)"
+    },
+    {
+      "id": "shape.inspect",
+      "label": "Inspect Shape",
+      "params": "{id} → full shape JSON plus its effective box"
+    },
+    {
+      "id": "commands.list",
+      "label": "List Commands",
+      "params": "{filter?: substring} → [{id, label, params, enabled}]"
+    },
+    {
+      "id": "media.play",
+      "label": "Play",
+      "params": "{id?, from?: ms}"
+    },
+    {
+      "id": "media.pause",
+      "label": "Pause",
+      "params": "{id?}"
+    },
+    {
+      "id": "media.toggle",
+      "label": "Play/Pause",
+      "params": "{id?}"
+    },
+    {
+      "id": "media.stop",
+      "label": "Stop",
+      "params": "{id?}"
+    },
+    {
+      "id": "media.seek",
+      "label": "Seek",
+      "params": "{id?, ms}"
+    },
+    {
+      "id": "media.info",
+      "label": "Media Info",
+      "params": "{id?} → {id, name, contentType, bytes, durationMs, video, width, height, probe: {container, audio?, video?}, options, status?}"
+    },
+    {
+      "id": "media.posterFrame",
+      "label": "Poster Frame",
+      "params": "{id?, ms?: frame time (default: current position)}"
+    },
+    {
+      "id": "media.gifPlay",
+      "label": "Play/Pause GIF",
+      "params": "{id?, play?: bool (default: toggle)} → {id, playing}"
+    },
+    {
+      "id": "picture.artisticEffect",
+      "label": "Artistic Effects",
+      "params": "{effect: none|artisticBlur|artisticPencilGrayscale|artisticLineDrawing|artisticFilmGrain|artisticCutout|artisticGlowEdges|artisticPhotocopy, ids?}"
+    },
+    {
+      "id": "insert.zoom",
+      "label": "Zoom",
+      "params": "{kind?: slide|section|summary (default slide); slides?: [index] (slide and summary zooms); sections?: [index] (section zoom); returnToZoom?: bool (default: on for section and summary, off for slide)}"
+    },
+    {
+      "id": "picture.compress",
+      "label": "Compress Pictures",
+      "params": "{ppi?: 330|220|150|96 (default 220), deleteCropped?: bool (default true), all?: bool (every picture in the presentation; default the selected pictures), ids?} → {pictures, before, after}"
+    }
+  ]
+}

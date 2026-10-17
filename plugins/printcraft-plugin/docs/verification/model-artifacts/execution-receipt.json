@@ -1,0 +1,85 @@
+{
+  "protocol": "printcraft.execution/1",
+  "runId": "be46333c-f04d-4573-8c1e-d1d0048a5f84",
+  "runRegistry": "/tmp/printcraft-acceptance/宿主 测试/model-pdf-current/.printcraft-runs",
+  "attempted": true,
+  "authorizedScope": [],
+  "expectedOutputs": [
+    {
+      "path": "/tmp/printcraft-acceptance/宿主 测试/model-pdf-current/result.pdf",
+      "role": "delivery",
+      "mediaType": "application/pdf"
+    }
+  ],
+  "documentIdsReusable": false,
+  "stepsTransactional": false,
+  "domain": "printcraft",
+  "status": "NATIVE_EXIT_ZERO_REVIEW_REQUIRED",
+  "argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-I",
+    "-B",
+    "/private/tmp/printcraft-acceptance/宿主 测试/codex-cache/plugins/cache/printcraft-local-validation/printcraft/0.1.0-dev.2/skills/printcraft-use/scripts/cli.py",
+    "--runtime-home",
+    "/tmp/printcraft-acceptance/隔离 runtime",
+    "--",
+    "run",
+    "--script",
+    "/tmp/printcraft-acceptance/宿主 测试/model-pdf-current/task/native-plan.json"
+  ],
+  "catalogSha256": "2cef688df408f49c80db4a9765d0d563baf8f430bb338fc584e0c0e235f54878",
+  "planSha256": "ee2d348684c873ef56c800899729d0c4eaa565c000ffa2ff50f0e346f58748bb",
+  "automaticReplay": false,
+  "completeAcceptance": false,
+  "inputSha256": {
+    "/tmp/printcraft-acceptance/native-final-2/source.pdf": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a"
+  },
+  "runtimeLockSha256": "7db3b75e565e2a4da83118875e1ada8652913f670c401b4f60173af3f1547462",
+  "skillResourceSha256": {
+    "bootstrap.py": "f2f0901641c2ca58d48a00bc2e16d1095ee0e3b0d322279ef3c5edee136e745c",
+    "cli.py": "b7441d0c7c27c8116a874f40f929f44be4285c718b00ccae8f61f20dd8d4fbf8",
+    "command_gateway.py": "42dcc8711bbf62b93acb6142715ed22d22a04068e50bda3204aa95d3564fe3d1",
+    "commands.py": "35eaaf7866e1104eb7ccd9639d6744182f009b48b26029423e7f4aeb38b57b62",
+    "execution.py": "2423a53f57ef375f32d44339bea15d3c04ff62d65f232ed165a96bc4dba259f5",
+    "runtime.lock.json": "7db3b75e565e2a4da83118875e1ada8652913f670c401b4f60173af3f1547462",
+    "verification.py": "358c0e202024655d4fec4ef7f210500532f17f51a23257817258ec46a10749c5"
+  },
+  "phase": "native-exited",
+  "exitCode": 0,
+  "runtimeIdentity": {
+    "executable": "/tmp/printcraft-acceptance/隔离 runtime/printcraft/0.2.1/printcraft-cli",
+    "binarySha256": "b7783b596870ed5a326f29456d4647382d2e1e4d7b7ffe75ded192cd15b86995",
+    "version": "0.2.1",
+    "platform": "darwin-arm64",
+    "versionOutput": "printcraft-cli 0.2.1",
+    "artifact": "printcraft-cli"
+  },
+  "descendantsConfirmedStopped": false,
+  "stdout": "{\n  \"dirty\": false,\n  \"doc\": 1,\n  \"editable\": true,\n  \"encrypted\": false,\n  \"name\": \"source.pdf\",\n  \"pages\": 3,\n  \"path\": \"/tmp/printcraft-acceptance/native-final-2/source.pdf\",\n  \"read_only_reason\": null,\n  \"redo\": null,\n  \"undo\": null\n}\n{\n  \"dirty\": true,\n  \"doc\": 1,\n  \"editable\": true,\n  \"encrypted\": false,\n  \"name\": \"source.pdf\",\n  \"pages\": 3,\n  \"path\": \"/tmp/printcraft-acceptance/native-final-2/source.pdf\",\n  \"read_only_reason\": null,\n  \"redo\": null,\n  \"undo\": \"Move page\"\n}\n{\n  \"bytes\": 919,\n  \"document\": {\n    \"dirty\": false,\n    \"doc\": 1,\n    \"editable\": true,\n    \"encrypted\": false,\n    \"name\": \"result.pdf\",\n    \"pages\": 3,\n    \"path\": \"/tmp/printcraft-acceptance/宿主 测试/model-pdf-current/result.pdf\",\n    \"read_only_reason\": null,\n    \"redo\": null,\n    \"undo\": \"Move page\"\n  },\n  \"incremental\": false,\n  \"path\": \"/tmp/printcraft-acceptance/宿主 测试/model-pdf-current/result.pdf\"\n}\n",
+  "stderr": "",
+  "pid": 27983,
+  "startedAt": 1791453897.548022,
+  "finishedAt": 1791453897.56144,
+  "inputAfterSha256": {
+    "/tmp/printcraft-acceptance/native-final-2/source.pdf": "9d035b63e05cfeb06b0985db1582f14185f99931a51eda69718764e91fdc0a0a"
+  },
+  "skillResourceAfterSha256": {
+    "bootstrap.py": "f2f0901641c2ca58d48a00bc2e16d1095ee0e3b0d322279ef3c5edee136e745c",
+    "cli.py": "b7441d0c7c27c8116a874f40f929f44be4285c718b00ccae8f61f20dd8d4fbf8",
+    "command_gateway.py": "42dcc8711bbf62b93acb6142715ed22d22a04068e50bda3204aa95d3564fe3d1",
+    "commands.py": "35eaaf7866e1104eb7ccd9639d6744182f009b48b26029423e7f4aeb38b57b62",
+    "execution.py": "2423a53f57ef375f32d44339bea15d3c04ff62d65f232ed165a96bc4dba259f5",
+    "runtime.lock.json": "7db3b75e565e2a4da83118875e1ada8652913f670c401b4f60173af3f1547462",
+    "verification.py": "358c0e202024655d4fec4ef7f210500532f17f51a23257817258ec46a10749c5"
+  },
+  "artifacts": [
+    {
+      "path": "/tmp/printcraft-acceptance/宿主 测试/model-pdf-current/result.pdf",
+      "role": "delivery",
+      "mediaType": "application/pdf",
+      "status": "PRESENT",
+      "size": 919,
+      "sha256": "1ceafa0c23ebad245e0229f8973d9477209e094e1fff888486f5430d4d6937ff"
+    }
+  ]
+}

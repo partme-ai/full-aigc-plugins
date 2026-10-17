@@ -1,0 +1,140 @@
+{
+  "runtime": "gridcraft-cli 0.7.0 Windows x64",
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "sceneAcceptance": "TECHNICAL_PASS_LAYOUT_NOT_RUN",
+  "observedCommands": {
+    "data.sort": {
+      "id": "data.sort",
+      "label": "Sort…",
+      "menu": [
+        "Data",
+        "Sort & Filter"
+      ],
+      "params": "{range?, header?: bool, keys: [{column: \"B\", order: asc|desc, by?: values|cellColor|fontColor, customList?: [..]}], orientation?: rows|columns, matchCase?}",
+      "shortcut": null
+    },
+    "data.validation": {
+      "id": "data.validation",
+      "label": "Data Validation…",
+      "menu": [
+        "Data",
+        "Data Tools"
+      ],
+      "params": "{range?, type: any|whole|decimal|list|date|time|textLength|custom, operator?: between|notBetween|equal|notEqual|greater|less|greaterOrEqual|lessOrEqual, formula1, formula2?, ignoreBlank?, dropdown?, inputTitle?, inputMessage?, errorStyle?: stop|warning|information, errorTitle?, errorMessage?, clear?: bool}",
+      "shortcut": null
+    },
+    "home.columnWidth": {
+      "id": "home.columnWidth",
+      "label": "Column Width…",
+      "menu": [
+        "Home",
+        "Cells",
+        "Format"
+      ],
+      "params": "{cols?: \"B:D\" | \"B:B,D:F\", width: 64 (points) | chars: 8.43}",
+      "shortcut": null
+    },
+    "home.conditionalFormat": {
+      "id": "home.conditionalFormat",
+      "label": "Conditional Formatting",
+      "menu": [
+        "Home",
+        "Styles"
+      ],
+      "params": "{range?, rule: {type: cellIs|expression|containsText|beginsWith|endsWith|blanks|noBlanks|errors|noErrors|duplicate|unique|top10|aboveAverage|timePeriod|colorScale|dataBar|iconSet, operator?, value?, value2?, formula?, text?, rank?, bottom?, percent?, below?, period?, colors?: [..], color?, set?, style?: {font..fill..}|preset: lightRedFill|redText|yellowFill|greenFill|redBorder|lightRedFillDarkRedText…}}",
+      "shortcut": null
+    },
+    "home.numberFormat": {
+      "id": "home.numberFormat",
+      "label": "Number Format",
+      "menu": [
+        "Home",
+        "Number"
+      ],
+      "params": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}",
+      "shortcut": null
+    },
+    "insert.chart": {
+      "id": "insert.chart",
+      "label": "Insert Chart",
+      "menu": [
+        "Insert",
+        "Charts"
+      ],
+      "params": "{range?, type?: column|bar|line|pie|doughnut|area|scatter|bubble|radar|combo|histogram|waterfall|funnel|treemap|sunburst|boxWhisker|stock, subtype?: clustered|stacked|stacked100|markers, title?, at?: \"H2\", width?, height?}",
+      "shortcut": null
+    },
+    "insert.table": {
+      "id": "insert.table",
+      "label": "Table",
+      "menu": [
+        "Insert",
+        "Tables"
+      ],
+      "params": "{range?, header?: true, style?: \"TableStyleMedium2\", name?}",
+      "shortcut": "Cmd+T"
+    },
+    "range.setValues": {
+      "id": "range.setValues",
+      "label": "Set Values",
+      "menu": [],
+      "params": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}",
+      "shortcut": null
+    },
+    "sheet.read": {
+      "id": "sheet.read",
+      "label": "Read Range",
+      "menu": [],
+      "params": "{range?: \"A1:D10\" (default: used range), sheet?, formulas?: bool, formatted?: bool} → rows of values",
+      "shortcut": null
+    },
+    "view.freezeTopRow": {
+      "id": "view.freezeTopRow",
+      "label": "Freeze Top Row",
+      "menu": [
+        "View",
+        "Window",
+        "Freeze Panes"
+      ],
+      "params": "{}",
+      "shortcut": null
+    }
+  },
+  "technicalRoundtrip": {
+    "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38928803118",
+    "sourceCommit": "be98a0b0356f50f938502880469cc2412d45ff4a",
+    "recipes": [
+      "controlled-status-entry",
+      "delivery-acceptance-ratio",
+      "duplicate-order-review",
+      "expense-threshold-review",
+      "inventory-reorder",
+      "invoice-line-tax",
+      "margin-sensitivity",
+      "month-growth-guard",
+      "project-input-table",
+      "regional-sales-sum",
+      "sales-ranked-rows",
+      "weighted-vendor-score"
+    ],
+    "stepHashes": {
+      "invoice-line-tax": "2b63b99f0f4f430fa4d03bf561bb848650db8bc5ea30560491d04ccd6ea1dd09",
+      "inventory-reorder": "fb93e19a3285d6762ed18d172c929b00beb739a207e2eebffd7407d857183163",
+      "weighted-vendor-score": "db39b1bdcf6f1331d38f7ac09d53737be2026c1feb9944163d09261357149df8",
+      "margin-sensitivity": "e443e650eb4078151f5e41990afd5a130f3fe631449aa28a5e9735e08d542cb4",
+      "expense-threshold-review": "9498fa1324da6d2102974d9db6ab178c1634e3e8ea18326a16c3e227e7ac119d",
+      "duplicate-order-review": "9211d42cdafce5cc9a25c562af2b8a81e148b9cd8833094b846cdc3b978f0e57",
+      "controlled-status-entry": "ceb27f6260bcae6aecde16cc83527c4226f9653ed205fc584746c7896674a845",
+      "sales-ranked-rows": "075555d1d1e3bafbedb8b19a7931fe5fddbddadad6a63ad31b91a4967885a5c2",
+      "regional-sales-sum": "9252dcda4ef0e00fd0073bb5497d46a78a3f613754914b3db3b1e3b0e902962f",
+      "month-growth-guard": "adf0e526b6ec5a773e171711921dc03f7d1b857dc90455bd5e2a45ddefba2229",
+      "delivery-acceptance-ratio": "79dac8ed2cbd72668ffc1e846f09d0ca853261472e88337080aa46e92763d7a7",
+      "project-input-table": "7cd0afdaf30f276948bed3263b2e7dcf2bc618727a4a948c91b9ccab4e36704a"
+    },
+    "input": "fictional examples embedded in recipes.json; replace values for real tasks",
+    "semanticChecks": "PASS",
+    "layoutAcceptance": "NOT_TESTED"
+  },
+  "archiveSha256": "24bf4ee129769268e27510a260de6c7fd7eded84ea541499132576e3d7ea6a86",
+  "executableSha256": "8ca1844f5b892db9dfa2256b33bf5ad350823ed71898bfe20832c55e965b2b13"
+}

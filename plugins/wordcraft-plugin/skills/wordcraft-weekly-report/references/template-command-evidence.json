@@ -1,0 +1,152 @@
+{
+  "runtime": "wordcraft-cli 0.7.0 Windows x64",
+  "catalogCiRun": 38995872602,
+  "acceptance": "SAMPLE_DOCX_PDF_TECHNICAL_AND_VISUAL_PASS",
+  "observedCommands": {
+    "layout.size": {
+      "id": "layout.size",
+      "label": "Size",
+      "location": "Layout › Page Setup",
+      "mutates": true,
+      "params": "{\"name\"?: \"Letter|Legal|A4|…\", \"width\"?: pt, \"height\"?: pt}",
+      "shortcut": ""
+    },
+    "layout.margins": {
+      "id": "layout.margins",
+      "label": "Margins",
+      "location": "Layout › Page Setup",
+      "mutates": true,
+      "params": "{\"preset\"?: \"normal|narrow|moderate|wide|mirrored|office2003\", \"top\"?: pt, \"bottom\"?: pt, \"left\"?: pt, \"right\"?: pt, \"gutter\"?: pt}",
+      "shortcut": ""
+    },
+    "para.heading1": {
+      "id": "para.heading1",
+      "label": "Heading 1",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Alt+1"
+    },
+    "para.alignCenter": {
+      "id": "para.alignCenter",
+      "label": "Center",
+      "location": "Home › Paragraph",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+E"
+    },
+    "text.insert": {
+      "id": "text.insert",
+      "label": "Type Text",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{\"text\": string}",
+      "shortcut": ""
+    },
+    "text.newParagraph": {
+      "id": "text.newParagraph",
+      "label": "New Paragraph",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Enter"
+    },
+    "para.normal": {
+      "id": "para.normal",
+      "label": "Normal Style",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Shift+N"
+    },
+    "para.alignLeft": {
+      "id": "para.alignLeft",
+      "label": "Align Left",
+      "location": "Home › Paragraph",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+L"
+    },
+    "para.heading2": {
+      "id": "para.heading2",
+      "label": "Heading 2",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Mod+Alt+2"
+    },
+    "table.fromText": {
+      "id": "table.fromText",
+      "label": "Convert Text to Table",
+      "location": "Insert › Tables",
+      "mutates": true,
+      "params": "{\"separator\"?: \"tab|comma\"}",
+      "shortcut": ""
+    },
+    "table.autofit": {
+      "id": "table.autofit",
+      "label": "AutoFit",
+      "location": "Table Layout › Cell Size",
+      "mutates": true,
+      "params": "{\"mode\": \"contents|window|fixed\"}",
+      "shortcut": ""
+    },
+    "table.repeatHeader": {
+      "id": "table.repeatHeader",
+      "label": "Repeat Header Rows",
+      "location": "Table Layout › Data",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "table.selectTable": {
+      "id": "table.selectTable",
+      "label": "Select Table",
+      "location": "Table Layout › Table › Select",
+      "mutates": false,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "table.borders": {
+      "id": "table.borders",
+      "label": "Borders",
+      "location": "Table Design › Borders",
+      "mutates": true,
+      "params": "{\"kind\": \"all|outside|inside|none|top|bottom|left|right\", \"width\"?: pt, \"color\"?: \"RRGGBB\"}",
+      "shortcut": ""
+    },
+    "table.look": {
+      "id": "table.look",
+      "label": "Table Style Options",
+      "location": "Table Design › Table Style Options",
+      "mutates": true,
+      "params": "{\"headerRow\"?: bool, \"totalRow\"?: bool, \"bandedRows\"?: bool, \"firstColumn\"?: bool, \"lastColumn\"?: bool, \"bandedColumns\"?: bool}",
+      "shortcut": ""
+    },
+    "caret.docEnd": {
+      "id": "caret.docEnd",
+      "label": "Document End",
+      "location": "Navigation",
+      "mutates": false,
+      "params": "{\"extend\"?: bool}",
+      "shortcut": "Mod+End"
+    },
+    "caret.paraUp": {
+      "id": "caret.paraUp",
+      "label": "Paragraph Up",
+      "location": "Navigation",
+      "mutates": false,
+      "params": "{\"extend\"?: bool}",
+      "shortcut": "Mod+Up / Alt+Up"
+    }
+  },
+  "technicalRoundtrip": {
+    "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38997182436",
+    "sourceCommit": "d3cdeaa9c948f1f2de582d4637a4d373025da88f",
+    "input": "examples/input.json; fictional, replace for real use",
+    "stepsSha256": "00ca3d114cde1884459be10842240163f7228711a7d0473f853b5191b1a416fa",
+    "docx": "reopened text, heading levels, exact table cells and columns PASS",
+    "pdf": "converted and all six sample pages rendered and visually reviewed",
+    "scope": "six supplied examples; arbitrary long input and host UI synchronization not accepted by this run"
+  }
+}

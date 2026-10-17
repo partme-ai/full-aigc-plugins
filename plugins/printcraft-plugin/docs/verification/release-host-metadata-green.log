@@ -1,0 +1,9 @@
+test_marketplace_host_metadata_is_generated_without_identity_drift (test_update_and_manifest.ReleaseHostManifests.test_marketplace_host_metadata_is_generated_without_identity_drift) ... ok
+test_compatibility_manifest_is_generated_from_portable (test_update_and_manifest.Updates.test_compatibility_manifest_is_generated_from_portable) ... ok
+test_missing_replaced_component_rejected (test_update_and_manifest.Updates.test_missing_replaced_component_rejected) ... ok
+test_update_preserves_user_data_rejects_rollback_and_legacy (test_update_and_manifest.Updates.test_update_preserves_user_data_rejects_rollback_and_legacy) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.337s
+
+OK

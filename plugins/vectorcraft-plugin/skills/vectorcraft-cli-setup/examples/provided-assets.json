@@ -1,0 +1,8 @@
+{
+  "document": {"name": "Provided brand", "width": 120, "height": 80},
+  "operations": [
+    {"command": "asset.place", "params": {"asset": "product", "rect": [8, 8, 32, 24]}, "as": "productObject"},
+    {"command": "asset.place", "params": {"asset": "logo", "rect": [60, 8, 24, 24]}, "as": "logoObject"}
+  ],
+  "exports": [{"format": "png"}, {"format": "svg"}, {"format": "pdf"}]
+}

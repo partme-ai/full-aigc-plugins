@@ -1,0 +1,106 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "soundcraft",
+  "id": "podcast-cleanup",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "读取实际轨道、片段和编辑范围，示例四秒/48kHz",
+      "command": "session.inspect",
+      "params": {
+        "detail": "full"
+      }
+    },
+    {
+      "purpose": "明确选择Voice四秒片段，不沿用其他轨道的临时选区",
+      "command": "edit.select",
+      "params": {
+        "tracks": [
+          "Voice"
+        ],
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        }
+      }
+    },
+    {
+      "purpose": "对本次选中人声片段设置-3dB增益保留余量",
+      "command": "clip.gain",
+      "params": {
+        "db": -3
+      }
+    },
+    {
+      "purpose": "仅在人声头部100ms做等功率淡入",
+      "command": "edit.fades_create",
+      "params": {
+        "tracks": [
+          "Voice"
+        ],
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 0.1
+        },
+        "shape": "equal power"
+      }
+    },
+    {
+      "purpose": "仅在人声尾部100ms做等功率淡出",
+      "command": "edit.fades_create",
+      "params": {
+        "tracks": [
+          "Voice"
+        ],
+        "start": {
+          "seconds": 3.9
+        },
+        "end": {
+          "seconds": 4
+        },
+        "shape": "equal power"
+      }
+    },
+    {
+      "purpose": "读取真实效果目录；仅查询不代表已做均衡或降噪",
+      "command": "engine.plugins",
+      "params": {}
+    },
+    {
+      "purpose": "输出明确四秒24位PCM审核混音",
+      "command": "file.bounce_mix",
+      "params": {
+        "path": "output/podcast-review.wav",
+        "format": "wav",
+        "bit_depth": 24,
+        "start": {
+          "seconds": 0
+        },
+        "end": {
+          "seconds": 4
+        },
+        "normalize": false,
+        "dither": false
+      }
+    }
+  ],
+  "check": "整段试听切口、呼吸声、尾音和电平，保留原轨。",
+  "boundary": "Voice、四秒范围、100ms和-3dB仅为示例；先核实真实首辅音、尾音和边界，不能把有效语音吞进淡变。示例只完成增益与边缘淡变：engine.plugins仅列出目录，没有执行EQ、压缩或降噪；必须找到真实处理方法并验证后才能声称已做该处理。错误语句、呼吸与内容连贯仍需按真实素材逐段试听，不能用门限器冒充频谱降噪。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。",
+  "limitedTechnicalValidation": {
+    "run": 39012439447,
+    "stableMatrixRun": 39012427784,
+    "nativeMainCommit": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+    "fixture": "4-second 48kHz synthetic sources; 24-bit stereo PCM",
+    "sampleAndNativeStructureChecks": "PASS",
+    "saveReopenRenderedSamples": "PASS",
+    "inputSessionAndSourcesUnchanged": "PASS",
+    "auditoryAcceptance": "NOT_TESTED",
+    "installedHostSync": "NOT_TESTED"
+  }
+}

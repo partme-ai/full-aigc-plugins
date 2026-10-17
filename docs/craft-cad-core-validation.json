@@ -1,0 +1,356 @@
+{
+  "scope": "Six CAD core entries executed on controlled inputs; reference trace covers confirmed-point mapping only, not automatic raster detection or attachment",
+  "nativeRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024410378",
+  "stableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024555495",
+  "previousComparisonFailure": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023786673",
+  "executedSceneSourceCommit": "f0b1cb57b28a31a18de3e07712b5ea03ae408e33",
+  "pluginCandidateCommit": "2d542260554108b4fc5933524276570e588e2601",
+  "runtime": {
+    "app": "cadcraft",
+    "repository": "storytold/cadcraft",
+    "commit": "9b2308b138e90a01d28d46c84021a74b1ae7ef4a",
+    "date": "2026-10-16T03:26:48Z",
+    "message": "Merge pull request #1382 from dylanmtaylor/ci/add-platform-checks",
+    "pluginCommit": "eaa97f0fd2a10d9aebd84cab7593d4fae268cd8f",
+    "skillsCommit": "7a80c83f5e11dc86382585702ebab40065628e53",
+    "engine": "cadcraft",
+    "status": "development-candidate-not-accepted",
+    "editorMode": "source-overlay",
+    "fontsCommit": "3d9ab3a132ed0eff457e424226a435a901da30d3",
+    "baselineCommit": "fc4e98315a8d771b5ab832f0ade0b5e7b106df7f",
+    "executable": "cadcraft-cli.exe",
+    "exeSha256": "3ca27d2a973d6940100c5d4063eaec7611ef6d7ff8a4727eccde41b6ff089763",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+  },
+  "exeSha256": "3ca27d2a973d6940100c5d4063eaec7611ef6d7ff8a4727eccde41b6ff089763",
+  "downloadedExecutableAndOutputs": "PASS",
+  "processCount": 63,
+  "recipes": [
+    {
+      "skill": "cadcraft-floor-plan",
+      "recipeSha256": "ff3787ac37c4806ecee55d445c2a5d4c35c208d6f64b39a07df9f323d54335f1",
+      "matchesExecutedSource": true
+    },
+    {
+      "skill": "cadcraft-dimension-part",
+      "recipeSha256": "7e502c51805bc51ecfc1b0a4f4e2235b46c107a36252955e3198bbc1a86e111a",
+      "matchesExecutedSource": true
+    },
+    {
+      "skill": "cadcraft-layer-cleanup",
+      "recipeSha256": "515fba3c378878f045117f1fd45a012f1c15d854cba6e94bd310c240a5e5ba02",
+      "matchesExecutedSource": true
+    },
+    {
+      "skill": "cadcraft-compare-revisions",
+      "recipeSha256": "4c6f0245426021202eb1a8bd4d844174027eed0411c99573b4fe27e1eea0791c",
+      "matchesExecutedSource": true
+    },
+    {
+      "skill": "cadcraft-sheet-export",
+      "recipeSha256": "3b66eaeeb0d8f549e95d52e84d8d07f48fa697ff88c42417a74feed56fd0d6e8",
+      "matchesExecutedSource": true
+    },
+    {
+      "skill": "cadcraft-trace-reference",
+      "recipeSha256": "9835017c4c28390bbb8fd8abed156729ea5e426ef76486a414b56cc2409a37ea",
+      "matchesExecutedSource": true
+    }
+  ],
+  "playbooks": [
+    {
+      "id": "mounting-plate-four-holes",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "flange-bolt-circle",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "room-door-opening",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "equipment-grid-layout",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "pipe-route-length",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "linear-hole-pattern",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "notched-part-area",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "drawing-border-title",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "floor-plan",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "doorOpeningAndNativeDimensions": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "dimension-part",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "nativeDimensionsAndRealHoles": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "layer-cleanup",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "layerPropertiesAndInputPreserved": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "compare-revisions",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "realAddedEntityAndIdenticalVersions": "PASS",
+      "inputPreserved": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "sheet-export",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "actualA4And100By80mmControl": "PASS",
+      "fitPositiveControl": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "physicalPrinting": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "trace-reference",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "confirmedPointScaleAndTwoAxes": "PASS",
+      "inputPreserved": "PASS",
+      "automaticPointDetection": "NOT_TESTED",
+      "rasterUnderlayViaCli": "UNAVAILABLE",
+      "drawingReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "drawing-border-title.dxf",
+      "bytes": 16105,
+      "sha256": "90d7cb5675b1c0d30352d14f24d2656b95f9d326adc11e283a9a7c8fb23e5228"
+    },
+    {
+      "path": "drawing-border-title.svg",
+      "bytes": 8875,
+      "sha256": "f4f7dba6b37f9d39c00232f3d1b8d19fd8b14ed37f5d3fa5f0f4e655ded7bd0c"
+    },
+    {
+      "path": "equipment-grid-layout.dxf",
+      "bytes": 17268,
+      "sha256": "b5c901a6aa44774a790c175fc1485ec64020d7620e58c8faa1a88fb1ab7ac6a7"
+    },
+    {
+      "path": "equipment-grid-layout.svg",
+      "bytes": 8183,
+      "sha256": "91796d15c0e873da9bd74f1394a930e4846f6ae273ec37f4576b20da5659a4fc"
+    },
+    {
+      "path": "flange-bolt-circle.dxf",
+      "bytes": 20054,
+      "sha256": "b16e15a596807ce5d3ad0cd3f32504e7419de23f43c11017e486227e47eb1628"
+    },
+    {
+      "path": "flange-bolt-circle.svg",
+      "bytes": 26822,
+      "sha256": "ce7be605f61de0d32d94c5f2ba3506e1c371311328f276592d617d5389e9dc36"
+    },
+    {
+      "path": "linear-hole-pattern.dxf",
+      "bytes": 21427,
+      "sha256": "cee0b06ec4d29ac4834187495478e5708bb72c83e11a10cc5cc3da542bccb8d9"
+    },
+    {
+      "path": "linear-hole-pattern.svg",
+      "bytes": 16317,
+      "sha256": "9f9c3f3c51c1cdb9676f2a50018834a93cec93e453d7a4d04e0284dcbef52a95"
+    },
+    {
+      "path": "mounting-plate-four-holes.dxf",
+      "bytes": 23035,
+      "sha256": "d0b3a2ff3af6116fcbbf0a91a44a618d8acccd4d1642feb7f07daf373aa4d1a1"
+    },
+    {
+      "path": "mounting-plate-four-holes.svg",
+      "bytes": 15225,
+      "sha256": "42c6a56fdbcd50654f4c477d8f97d3b3735a30340953ee4c5ac9a1c2ef1acc98"
+    },
+    {
+      "path": "notched-part-area.dxf",
+      "bytes": 20602,
+      "sha256": "9bc6cb8e5401eb234214309dc95dac03d249aa5df6a0c427f43182b2fd226682"
+    },
+    {
+      "path": "notched-part-area.svg",
+      "bytes": 3723,
+      "sha256": "62dd53f684b2e0ff62cb32f3b5cfc17969df17335a2ec65d2a1b9e647659fe88"
+    },
+    {
+      "path": "pipe-route-length.dxf",
+      "bytes": 23170,
+      "sha256": "0e9015716bb869a2a2e2ed425f83d3a5728d5d2e9dfc3eea7b3e36ebcb5496ed"
+    },
+    {
+      "path": "pipe-route-length.svg",
+      "bytes": 5020,
+      "sha256": "e14a0bcb382c872d3a9434c82cf57bc8cdd29ca7260953cc6b559f8b56be553a"
+    },
+    {
+      "path": "room-door-opening.dxf",
+      "bytes": 22045,
+      "sha256": "2bcc5a73d32e0315e6c98a7e7a578a959e430ea47582fb024b32905c9238cbc2"
+    },
+    {
+      "path": "room-door-opening.svg",
+      "bytes": 20652,
+      "sha256": "238431e97c8e720848e2f64decdcc59c09b6b1994377b2b2cf4c9c44f65c97d6"
+    },
+    {
+      "path": "图纸.dxf",
+      "bytes": 14811,
+      "sha256": "029b496765c0ff0a2eae09579fca383baa9bcf8a5e1b4b9d1a8d8fa8d8d9e64e"
+    },
+    {
+      "path": "图纸.svg",
+      "bytes": 2829,
+      "sha256": "6c5ce73858546623f8cb20112e22f6cd98e9ef754e749fcd66e4d0d2ae1d71a0"
+    },
+    {
+      "path": "core-compare\\review.dxf",
+      "bytes": 14866,
+      "sha256": "4bed93b794e3a279fc46183ae2aca9d004e433b5e173a979933f649f8354c389"
+    },
+    {
+      "path": "core-compare\\revision-a.dxf",
+      "bytes": 14814,
+      "sha256": "98ca9751fdd4c801b7227d61d5c3409536f7ec7739776a6bc5d048692189c000"
+    },
+    {
+      "path": "core-dimension-part\\part.dxf",
+      "bytes": 24916,
+      "sha256": "8d21965dc56c8de9ffaff0e013af94a83b0a32acc4210024f82ede38d70995f3"
+    },
+    {
+      "path": "core-dimension-part\\part.svg",
+      "bytes": 12219,
+      "sha256": "1c87727a470a5c3902c549df1ad4f158ec28e785a34343ee88670d449a33ad51"
+    },
+    {
+      "path": "core-floor-plan\\room.dxf",
+      "bytes": 22045,
+      "sha256": "2bcc5a73d32e0315e6c98a7e7a578a959e430ea47582fb024b32905c9238cbc2"
+    },
+    {
+      "path": "core-floor-plan\\room.svg",
+      "bytes": 20652,
+      "sha256": "238431e97c8e720848e2f64decdcc59c09b6b1994377b2b2cf4c9c44f65c97d6"
+    },
+    {
+      "path": "core-layer-cleanup\\cleaned.dxf",
+      "bytes": 15803,
+      "sha256": "36e8449cfd5e8fc337f5b6a065590e5ec440c956cfce85055b8d26f535573b90"
+    },
+    {
+      "path": "core-layer-cleanup\\original.dxf",
+      "bytes": 15584,
+      "sha256": "047cd3991c9dc790f80b2a08cb224ec5b4874876ffbd3056818cf63a42efcdc3"
+    },
+    {
+      "path": "core-reference-trace\\reference.png",
+      "bytes": 517,
+      "sha256": "003fa5dc45c83817223ddc1523aa13ab9ccee717ae4ccab4c09ab869d2fb7c75"
+    },
+    {
+      "path": "core-reference-trace\\traced.dxf",
+      "bytes": 15041,
+      "sha256": "a27e4c40827d850e19e02765272a2441677e838786e229bb5ec3997d42f493a5"
+    },
+    {
+      "path": "core-reference-trace\\traced.svg",
+      "bytes": 372,
+      "sha256": "7abe026f44c3f8235f8bd34a0dbe1ea11f73a40810cbaa5058f80eaa03702bb1"
+    },
+    {
+      "path": "core-sheet-export\\control.dxf",
+      "bytes": 14974,
+      "sha256": "387a4cb5970520aa68194600b1fc6188d7d800b33e1af066d891315378da3849"
+    },
+    {
+      "path": "core-sheet-export\\output\\fit-control.pdf",
+      "bytes": 934,
+      "sha256": "b462580ffb924778f6a80a340c498fe27a3fa2692d4142bea9e209374a5366ad"
+    },
+    {
+      "path": "core-sheet-export\\output\\sheet.pdf",
+      "bytes": 948,
+      "sha256": "bd2cd4434adc443e2e95bc3420dabf625a29d02cfec0435202c908d83da5509b"
+    },
+    {
+      "path": "core-compare\\input\\revision-b.dxf",
+      "bytes": 14984,
+      "sha256": "20aa63ab513b451f01c691a16b2c38c6d8e6ae1663bf4be0948dd79f1ad2a711"
+    }
+  ],
+  "supplementalPdfInspection": {
+    "scope": "Offline inspection of the same hash-verified native PDF artifacts; adds clip-boundary checks, no changed CLI input or operation",
+    "verifierSha256": "516dbfe8cf188ca2a11a41d7710de83ea8eefb19a9472b72390049b08564e8a7",
+    "fixedPaperLengthsMm": [
+      80.00012222222222,
+      99.9998
+    ],
+    "fitPaperLengthsMm": [
+      157.83983333333333,
+      197.3001444444444
+    ],
+    "insidePrintableClip": "PASS",
+    "windowsStableNativeVerifier": "PASS in the current 13-application Windows matrix"
+  },
+  "traceScope": {
+    "confirmedPointSimilarityTransform": "PASS",
+    "sourceReferencePreserved": "PASS",
+    "automaticImagePointDetection": "NOT_TESTED",
+    "rasterAttachmentViaCli": "UNAVAILABLE",
+    "completeRasterTracing": "PARTIAL"
+  },
+  "installedHostSync": "NOT_TESTED",
+  "physicalPrinting": "NOT_TESTED",
+  "completeVisualReview": "NOT_TESTED",
+  "marketplacePublication": "NOT_PUBLISHED; public dev.20261017.4 unchanged"
+}

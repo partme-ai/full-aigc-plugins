@@ -1,0 +1,6 @@
+interface:
+  display_name: "effectcraft-use"
+  short_description: "EffectCraft 原生创作、环境准备和可核验交付"
+  default_prompt: "使用 $effectcraft-use 完成任务，通过受管理入口准备依赖、执行、检查并交付原生工程。"
+policy:
+  allow_implicit_invocation: true

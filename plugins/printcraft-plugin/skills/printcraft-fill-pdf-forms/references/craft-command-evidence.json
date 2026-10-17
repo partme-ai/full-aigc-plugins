@@ -1,0 +1,128 @@
+{
+  "runtime": {
+    "version": "v0.8.0",
+    "url": "https://github.com/storytold/pdfcraft/releases/download/v0.8.0/pdfcraft-0.8.0-windows-x64-portable.zip",
+    "sha256": "cd7b7fca39bf8fe477e230f40c35291a9a37ecc9175db34ff1c2ef94f785ddfb",
+    "executable": "pdfcraft-cli.exe"
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38921194883",
+  "observedCommands": {
+    "form_fields": {
+      "command": null,
+      "description": "Every interactive form field: name, type (text, checkbox, radio, combo, list, button, signature), value, options, page, rect (top-left-origin points) and rotation (0, 90, 180 or 270 degrees counterclockwise), read-only and required flags.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "doc"
+        ],
+        "type": "object"
+      },
+      "name": "form_fields",
+      "read_only": true
+    },
+    "form_fill": {
+      "command": null,
+      "description": "Set several fields at once (one undo step). values maps field names (from form_fields) to: a string for text fields, combo boxes and radio groups (an option), true/false for check boxes, an array of strings for multi-select lists. Appearances are regenerated so every viewer shows the values. A value whose characters the field's font can't draw (Chinese in a Helvetica field) is still saved; `warnings` in the result names the field and character: PdfCraft draws `?` there and asks other viewers to redraw the field from its value.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "values": {
+            "description": "Field name → value.",
+            "type": "object"
+          }
+        },
+        "required": [
+          "doc",
+          "values"
+        ],
+        "type": "object"
+      },
+      "name": "form_fill",
+      "read_only": false
+    },
+    "doc_save": {
+      "command": "file.save",
+      "description": "Save to its own file (an incremental update, which keeps signatures valid) or to a new path (a full rewrite). The write is atomic. flatten_fill_sign bakes Fill & Sign text, marks and signatures into the page first and removes those annotations; other comments and form fields stay. Omit it, or pass false, to leave them editable.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "flatten_fill_sign": {
+            "description": "Bake Fill & Sign marks into the page before writing. Default false.",
+            "type": "boolean"
+          },
+          "full": {
+            "description": "Force a full rewrite (or, with false, an incremental update).",
+            "type": "boolean"
+          },
+          "path": {
+            "description": "Save as this file. Omit to save in place.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "doc"
+        ],
+        "type": "object"
+      },
+      "name": "doc_save",
+      "read_only": false
+    },
+    "page_render": {
+      "command": null,
+      "description": "Render one page to a PNG image (default 96 dpi, at most 600).",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "dpi": {
+            "maximum": 600,
+            "minimum": 1,
+            "type": "number"
+          },
+          "hide_text_block": {
+            "description": "Render an inline editor background without this paragraph (index from text_paragraphs). Does not modify the document.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "page": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "doc",
+          "page"
+        ],
+        "type": "object"
+      },
+      "name": "page_render",
+      "read_only": true
+    }
+  },
+  "sceneAcceptance": "NOT_RUN",
+  "additionalObservation": {
+    "runtime": "official pdfcraft-cli0.8.0 macOS universal",
+    "scope": "actual tools catalog; native example and full scene acceptance separate"
+  }
+}

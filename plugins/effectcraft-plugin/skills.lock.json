@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "package": "effectcraft-skills",
+      "repo": "https://github.com/full-aigc-skills/effectcraft-skills.git",
+      "ref": "v0.1.0-dev.69",
+      "sha": "c9efdde083831859367d3d9de83c1be42f492dfc",
+      "skills": [
+        "effectcraft-use",
+        "effectcraft-cli",
+        "effectcraft-cli-setup",
+        "effectcraft-cli-project",
+        "effectcraft-cli-footage",
+        "effectcraft-cli-composition",
+        "effectcraft-cli-layers",
+        "effectcraft-cli-animation",
+        "effectcraft-cli-effects",
+        "effectcraft-cli-masks",
+        "effectcraft-cli-expressions",
+        "effectcraft-cli-camera",
+        "effectcraft-cli-export",
+        "effectcraft-cli-tracking",
+        "effectcraft-cli-puppet",
+        "effectcraft-harness"
+      ],
+      "dest": "skills/",
+      "sha256": {
+        "effectcraft-use": "87113f7d7e6ba6ba646a32d099aa81c3dc36b152ada49de35ac68401bb962bde",
+        "effectcraft-cli": "0d55241b7d31b7c17d72851682ef9208f6ea556a941a9606638526e3f88acf53",
+        "effectcraft-cli-setup": "e842aa35f6ffe07b11ca502446b2b21258d8c671132002aa8262d93f18f1c4de",
+        "effectcraft-cli-project": "341ed2842d3af04b02250a94433c1f1dc23a60acb893baed0d55b830ff37090e",
+        "effectcraft-cli-footage": "68ae6975cd6ce8583f02c42c233813477884c8dfa7adef77efeb497328828b0a",
+        "effectcraft-cli-composition": "9bc0cd5f6e8bb2510f1f826096e0b3f1ec0b52fbd191b4f37ee235c805cb1045",
+        "effectcraft-cli-layers": "181d2810e2e10843e6e11f5e3d30750723e8c4443b774d4affef7018d017f8ef",
+        "effectcraft-cli-animation": "4d5f0649edc4902e094d3258f95ec57994dd53c8b7179882bb5055789c488181",
+        "effectcraft-cli-effects": "182b987bd71f514ca7b9d374eaea70941824f4dfd7154b21f5026664fff574ec",
+        "effectcraft-cli-masks": "429e6843e2c9a305acee18abc9a65f1a49e229503e263af287682a1b81c09ec5",
+        "effectcraft-cli-expressions": "2e3ffe9798e57fef0f3e5611a225dcb8f2eba0017a12997445e7dba608621105",
+        "effectcraft-cli-camera": "c606dca4687c7db0722e7222f441f7eacbfa2a9098930eaa11578056a94c6f23",
+        "effectcraft-cli-export": "d704f1910537400b816926ed68b58a13f9f847d27685ee1c5d8932db4f452e53",
+        "effectcraft-cli-tracking": "a15ee6fbd8316e0cfaaa1fcedb7930b55e23c26ed33bacbd45dcbe8a24b92232",
+        "effectcraft-cli-puppet": "59a1780cc550a30fe0655a84ea91b160edc767aab54afa79e95c5415a8440293",
+        "effectcraft-harness": "f4c516f14e08ba276da4f21fcfb2319a561b1044d3ec39449b11896b0d39d550"
+      }
+    }
+  ]
+}

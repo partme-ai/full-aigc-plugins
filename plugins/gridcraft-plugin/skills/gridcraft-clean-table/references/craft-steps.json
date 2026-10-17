@@ -1,0 +1,70 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "gridcraft",
+  "id": "clean-table",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "purpose": "读取原始值与公式",
+      "command": "sheet.read",
+      "params": {
+        "range": "A1:D100",
+        "formulas": true
+      }
+    },
+    {
+      "purpose": "确认空白输出区域；非空时换新区域而不是覆盖",
+      "command": "sheet.read",
+      "params": {
+        "range": "F1:I100",
+        "formulas": true
+      }
+    },
+    {
+      "purpose": "先把目标主键列设为文本，保留001与1的区别",
+      "command": "home.numberFormat",
+      "params": {
+        "range": "F1:F100",
+        "format": "@"
+      }
+    },
+    {
+      "purpose": "连同表头拆列到已确认的空白区域",
+      "command": "data.textToColumns",
+      "params": {
+        "range": "A1:A100",
+        "delimiters": [
+          ","
+        ],
+        "destination": "F1"
+      }
+    },
+    {
+      "purpose": "只删除整行完全相同的记录，主键冲突不丢弃",
+      "command": "data.removeDuplicates",
+      "params": {
+        "range": "F1:I100",
+        "columns": [
+          "F",
+          "G",
+          "H",
+          "I"
+        ],
+        "header": true
+      }
+    },
+    {
+      "purpose": "复核保留的文本主键、冲突记录及数量",
+      "command": "sheet.read",
+      "params": {
+        "range": "F1:I100",
+        "formulas": false,
+        "formatted": false
+      }
+    }
+  ],
+  "check": "抽查行数、空值、主键和前导零，重复合并规则有业务依据。",
+  "boundary": "先读取并确认输出区域为空。原始CSV单列本例包含表头，分隔符/列数/范围按实际输入替换；先设文本格式再拆分，零已经丢失后不能靠设置格式恢复。此默认流程只去除整行一致的重复，主键相同但字段不同的记录必须保留并单列冲突，不按任意首行或末行决策。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数必须按当前输入、选择和实际返回ID替换；$变量先解析，数组变量整字段替换，不能将本文件直接当原生CLI脚本执行。"
+}

@@ -1,0 +1,53 @@
+{
+  "runtime": {
+    "versionReported": "deckcraft-cli 0.7.0",
+    "repository": "storytold/deckcraft",
+    "commit": "1dc69720db64323370dda061226becb09ad79fd4",
+    "exeSha256": "aec949e6253ca3df96473042e7f736233fae32c3ff9ef6e67e870650b0e81cb9",
+    "artifactRun": 39007814128
+  },
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014846480",
+  "observedCommands": {
+    "slide.duplicate": {
+      "id": "slide.duplicate",
+      "catalogLine": "slide.duplicate — Duplicate Slide: {index?}",
+      "params": "{index?}"
+    },
+    "slide.inspect": {
+      "id": "slide.inspect",
+      "catalogLine": "slide.inspect — Inspect Slide: {index?} → the slide's shapes with ids, kinds, boxes, text, fills, animations, transition, notes (text, and notesBody with its formatting)",
+      "params": "{index?} → the slide's shapes with ids, kinds, boxes, text, fills, animations, transition, notes (text, and notesBody with its formatting)"
+    },
+    "slide.go": {
+      "id": "slide.go",
+      "catalogLine": "slide.go — Go to Slide: {index} | {id}",
+      "params": "{index} | {id}"
+    },
+    "slide.layout": {
+      "id": "slide.layout",
+      "catalogLine": "slide.layout — Layout: {layout: name or kind, index?}",
+      "params": "{layout: name or kind, index?}"
+    },
+    "shape.move": {
+      "id": "shape.move",
+      "catalogLine": "shape.move — Move: {dx?: pt (relative), dy?: pt (relative), ids?} | {x?: pt (absolute), y?: pt (absolute), ids?}",
+      "params": "{dx?: pt (relative), dy?: pt (relative), ids?} | {x?: pt (absolute), y?: pt (absolute), ids?}"
+    },
+    "shape.resize": {
+      "id": "shape.resize",
+      "catalogLine": "shape.resize — Size: {w?: pt, h?: pt, lockAspect?: bool, ids?}",
+      "params": "{w?: pt, h?: pt, lockAspect?: bool, ids?}"
+    }
+  },
+  "sceneAcceptance": "LIMITED_TECHNICAL_PASS",
+  "baselineRuntime": {
+    "version": "v0.7.0",
+    "url": "https://github.com/storytold/deckcraft/releases/download/v0.7.0/deckcraft-0.7.0-windows-x64-portable.zip",
+    "sha256": "3d67962a206af89d66ef443a042efcc5386a14d4e0d9c056bc1f62a84bd7954c",
+    "executable": "deckcraft-cli.exe"
+  },
+  "limits": [
+    "Native and PPTX editable structure only",
+    "Visual layout and installed-host synchronization not tested"
+  ]
+}
