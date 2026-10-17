@@ -4,6 +4,14 @@
 
 本次修正的动因：Git插件条目的回退列表不解析包内图片，官方源码及本机原生plugin/list均可复现。仅补composerIcon无法改变未安装列表。快照包含技能、MCP清单、官方图标及bootstrap，不增加Agent运行时，亦不将全部创作和宿主同步视为通过。
 
+## dev.20261017.5 图标发布验收
+
+已按 feature → test/20261017 → main 发布，发行提交为 `7febc0370ca4b5e181d4b79276ea144f7330f2e3`。本机实际订阅市场检出该提交；Codex 0.162.1 和桌面附带的 0.162.0-alpha.17.2 原生 `plugin/list` 均返回13个v5条目，`logo`、`logoDark`、`composerIcon` 对应文件存在且SHA-256与独立插件仓官方PNG一致。此前13个v4条目的logo均为空。详见 [结构化结果](craft-icon-listing-validation.json)。
+
+main 的市场安装工作流 [39028960653](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39028960653) 27项全部通过；[Windows安装/MCP](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39028960677)与[Windows业务回归](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39028960706)也通过。本机隔离安装13包的原生技能发现、MCP调用和编辑器HTML通过。以上不替代桌面列表刷新后的截图、编辑器视觉和同画面编辑同步验收。
+
+本机定向市场升级命令报告另一个条目 `blender-design` 引用的 `v0.15.0` 不存在；市场Git索引实际已更新，随后两个原生宿主均正确读取13个Craft图标。该错误未记为整体升级成功，亦未修改Blender。独立candidate-marketplace保留远端Git来源；此处安装前图标结论对应用户订阅的主市场。
+
 ## 此前dev.20261017.4交付与验收记录
 
 13 个插件统一为 `0.1.0-dev.20261017.4`。这是可安装开发预发布，生产发布仍 BLOCKED；并非全部上游 main 能力及全部场景已验收。
