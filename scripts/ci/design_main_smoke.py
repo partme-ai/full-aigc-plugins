@@ -37,7 +37,7 @@ def run_checks(r):
         verify_pptx(r.work / 'editable.pptx')
         story = run_script(r, [{'command': 'story.get', 'params': {'frame': results[2]['id']}}], source='layout.designcraft')[0]
         assert story['text'] == 'MAIN EDITABLE TITLE', 'Saved native story changed'
-        r.run('convert', 'layout.designcraft', 'layout.pdf')
+        r.run('run', '--in', 'layout.designcraft', '--export', 'layout.pdf')
         assert (r.work / 'layout.pdf').read_bytes().startswith(b'%PDF'), 'Native layout did not render'
         return {'svgNativeImport': 'PASS', 'editablePptxGeometryAndText': 'PASS',
                 'nativeReopen': 'PASS', 'externalPowerPointRendering': 'NOT_TESTED', 'installedHostSync': 'NOT_TESTED'}
