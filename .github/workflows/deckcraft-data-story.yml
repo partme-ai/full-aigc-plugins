@@ -1,0 +1,38 @@
+name: DeckCraft data story on Windows
+on:
+  push:
+    paths: ['scripts/ci/deck_data_story_smoke.py', '.github/workflows/deckcraft-data-story.yml']
+  pull_request:
+    paths: ['scripts/ci/deck_data_story_smoke.py', '.github/workflows/deckcraft-data-story.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  data-story:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/deckcraft-skills
+          ref: 972fb75549af4b0c3e7bd736a51e27e302ca6673
+          path: story-source
+      - name: Validate actual skill input handling
+        run: python -m unittest discover -s story-source/skills/deckcraft-data-story/tests -v
+      - name: Download verified official CLI and run baseline business
+        run: python scripts/ci/craft_cli_windows.py --plugin deckcraft --output baseline-result
+      - name: Check multi-series native chart and editable PPTX roundtrip
+        run: python scripts/ci/deck_data_story_smoke.py --source story-source --runtime-root baseline-result --output story-result
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: deckcraft-data-story-results
+          path: |
+            baseline-result/result.json
+            story-result/**
