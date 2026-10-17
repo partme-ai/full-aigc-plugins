@@ -107,3 +107,7 @@ Windows运行[38998089137](https://github.com/partme-ai/full-aigc-plugins/action
 实际执行发现原采访示例clip=1无对应时间线片段，源选择不会因导入或工程重开自动恢复；改为真实返回ID引用，并补齐短视频/商品视频的source.open、源入出点、source.insert及clip.fitToFrame，按batch保持源监视器有效。源出点包含末帧，示例4秒25fps取0–99、30fps取0–119；不同源帧率必须重新测量。fit保持完整画面和比例，允许黑边，不宣称智能裁切。调色明确目标clip与属于另一镜头的参考帧。
 
 官方macOS0.8.0 CLI在隔离目录执行六份原始技能步骤，四秒实际AVI由Python标准库构造，无全局安装/外部素材。检查采访修剪5帧、短片3秒处分割连续性、商品100帧和尺寸适配、字幕SRT1–4秒及保存后内容、实际H.264导出probe与首中尾重新解码、调色目标相对参考的像素误差下降。已查看调色前后、字幕与尺寸适配预览。辅助测试71项通过；源/插件资源及候选摘要核对一致。本地结果不代替Windows、真实采访语义/音质/音画同步、HDR素材或宿主编辑器同步验收，Windows结果待对应本次固定技能源的运行完成后记录。
+
+Windows运行[38998694183](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38998694183)13应用业务全部通过，FilmCraft六项经59次真实CLI调用通过；下载Windows产物确认实际编码文件、字幕与渲染，调色误差与macOS一致。安装/MCP运行[38998694237](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38998694237)通过。详细步骤摘要、范围与限制见[FilmCraft回归记录](craft-film-playbook-validation.json)。累计198条映射中106条已有技术回归，另有4条组合用例；92条待执行。
+
+FilmCraft插件自身实现CI仍失败：当前38998696272与修改前38995899304下载的Node报告失败用例名称完全相同，仍引用已移除的filmcraft-use/scripts/runtime.lock.json等旧资源；没有恢复旧Harness运行时来凑绿，也不宣称整仓CI通过。插件文档和架构CI通过，宿主同步、真实采访/音频效果未验收。
