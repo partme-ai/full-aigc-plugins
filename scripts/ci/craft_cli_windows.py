@@ -174,6 +174,9 @@ def main():
         require(isinstance(catalog, (list, dict)) and bool(catalog), 'Empty command catalog')
         (out/'commands.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2), encoding='utf-8')
         business(a.plugin,r)
+        if a.plugin == 'vectorcraft':
+            from vector_upstream_smoke import run_checks
+            report['upstreamCapabilities'] = run_checks(r)
         if a.playbook:
             if a.plugin == 'photocraft':
                 from photo_playbook_smoke import run_playbooks
