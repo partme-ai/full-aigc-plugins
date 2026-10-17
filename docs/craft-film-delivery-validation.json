@@ -245,7 +245,7 @@
     "pluginPython": 124
   },
   "publication": {
-    "status": "RELEASE_AND_TEST_MARKET_VERIFIED",
+    "status": "PUBLISHED_MAIN_SUBSCRIBED_MARKET_VERIFIED",
     "version": "0.1.0-dev.20261017.7",
     "pluginMainCommit": "d033b30b7303c92156176e5b7df79a087b8ad543",
     "skillsMainCommit": "12e1e75a2aba053978843c115f744324ef2e7095",
@@ -282,6 +282,21 @@
       }
     },
     "testMarketNativeCodexInstallAndMcp": "PASS",
-    "recipeSourceSnapshotZipBytes": "All three recipe bytes identical"
+    "recipeSourceSnapshotZipBytes": "All three recipe bytes identical",
+    "marketMainSourceCommit": "a030e9291b4987e3f67b74a3aba9ee53e1866fd6",
+    "subscribedNativeList": {
+      "localVersion": "0.1.0-dev.20261017.7",
+      "skills": 24,
+      "newSkillsPresent": true,
+      "logoAndComposerIcon": "PASS",
+      "installed": false,
+      "scope": "actual desktop bundled app-server plugin/list; daily profile not installed"
+    },
+    "mainCi": {
+      "marketplace": 39039823429,
+      "windowsPackageMcp": 39039823442,
+      "windowsBusiness": 39039823453,
+      "status": "RUNNING"
+    }
   }
 }
