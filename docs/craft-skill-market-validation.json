@@ -186,6 +186,11 @@
     "added": 8,
     "localFullTests": 70,
     "localResult": "PASS",
-    "reason": "existing discovered scene skills lacked direct host command files"
+    "reason": "existing discovered scene skills lacked direct host command files",
+    "commit": "548c55e690ce1cf6494b17553a6123cd4baa37c9",
+    "ciRun": 38996108941,
+    "ciPythonAndSnapshot": "PASS",
+    "ciOverall": "FAIL",
+    "ciFailure": "Node runtime tests still reference absent skills/photocraft-use/scripts including plan_identity.py; paths absent in pre-change b369183 tree; src/tests unchanged"
   }
 }

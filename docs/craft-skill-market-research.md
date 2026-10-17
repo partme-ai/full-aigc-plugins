@@ -51,3 +51,5 @@ SkillHub按[官方安装说明](https://skillhub.cn/install/skillhub.md)检查�
 目录仓提交a3630cd的[Windows原生业务矩阵](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38995872602)和[Windows安装/MCP回归](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38995872606)通过。这些运行沿用固定CLI与候选包，验证执行链和参数回归，不代表新指导已逐项通过真实媒体效果验收。DesignCraft技能源与插件CI通过。
 
 PhotoCraft CI发现8个已打包场景技能缺少宿主命令入口，已按现有扩展格式补齐；本地完整70项测试通过。此修复不改可移植技能或执行引擎。LightCraft和PrintCraft包级CI仍复现上文既有失败。
+
+PhotoCraft入口修复后的[CI运行38996108941](https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/38996108941)中，70项Python测试、快照和命令证据检查通过，后续Node运行时测试失败：仍引用不存在的skills/photocraft-use/scripts及plan_identity.py。修改前b369183的Git树中这些路径同样不存在，且本批没有修改src或tests；不为此次商店经验适配重新引入旧Harness平台。完整PhotoCraft运行时CI仍未通过。
