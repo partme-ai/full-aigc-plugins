@@ -51,7 +51,7 @@
       "commit": "5f65579ecb44047c2a619036c18ff273202e1389",
       "date": "2026-10-17T02:20:22Z",
       "message": "perf(panorama): Photomerge 4× faster, bit for bit the same (#6489)",
-      "pluginCommit": "c012fb13d545181cabc6a8bafac09ba884f76e38",
+      "pluginCommit": "698228ddc36fbd5d61e131545fdd7d58d5bb3a2c",
       "skillsCommit": "0f3d39581254e0510f86af359e1c5bc443bfe027",
       "engine": "photocraft",
       "status": "development-candidate-not-accepted",
