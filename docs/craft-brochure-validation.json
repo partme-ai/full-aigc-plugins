@@ -1,0 +1,266 @@
+{
+  "scope": "Four-page brochure scenario; native technical roundtrip and synthetic PDF review, not production media or host sync acceptance",
+  "sceneSourceCommit": "150c1190b4b11e45148733dda7bde277805c7447",
+  "pluginCommit": "cbccb3ae40fc22612017ef5dfc1eed8ced34d74d",
+  "recipeSha256": "627ebb98d593bd92133c631aa80e262a27c280b51b3f673bb0dd27ca1c3f9fa8",
+  "layoutSteps": 61,
+  "separateDeliverySteps": 1,
+  "macOS": {
+    "version": "0.8.0",
+    "archiveSha256": "e663f967d9e1c439e0eb7759147be29121da198cdd71cedd4afb3ae0e0336243",
+    "exeSha256": "983b5a6ea07fabae58ebe82161b4aa1a37fcb4bf239e5ba25a27047366038247",
+    "result": {
+      "id": "brochure",
+      "coreSkill": "designcraft-brochure",
+      "technicalRoundtrip": "PASS",
+      "fourPageReadingOrder": "PASS",
+      "allTwelveStoriesAndStyles": "PASS",
+      "twoProductImageBindings": "PASS",
+      "packagedReopen": "PASS",
+      "sourceImagesUnchanged": "PASS",
+      "layoutReview": "NOT_TESTED",
+      "hostSameCanvas": "NOT_TESTED"
+    },
+    "pdfInspection": {
+      "tool": "PyMuPDF 1.27.1",
+      "pages": [
+        {
+          "page": 1,
+          "heading": "Field kit",
+          "imageCount": 0,
+          "pageSize": [
+            420,
+            595
+          ],
+          "matchesVisuallyInspectedPixels": true
+        },
+        {
+          "page": 2,
+          "heading": "Desk organiser",
+          "imageCount": 1,
+          "pageSize": [
+            420,
+            595
+          ],
+          "matchesVisuallyInspectedPixels": true
+        },
+        {
+          "page": 3,
+          "heading": "Document case",
+          "imageCount": 1,
+          "pageSize": [
+            420,
+            595
+          ],
+          "matchesVisuallyInspectedPixels": true
+        },
+        {
+          "page": 4,
+          "heading": "Plan your selection",
+          "imageCount": 0,
+          "pageSize": [
+            420,
+            595
+          ],
+          "matchesVisuallyInspectedPixels": true
+        }
+      ],
+      "pdfSha256": "8010002c98dc4b51a4b82a3292ed5d71b866fd142c1d9c0a1194d0937ba958f3",
+      "visualScope": "Four synthetic sample pages viewed; no actual product photography or commercial production approval."
+    },
+    "outputs": [
+      {
+        "path": "brochure-input/case.png",
+        "sha256": "5b01dff12730871e755d97b3802838ad5ed583a797f5f66c2cc512e4a91b8a05",
+        "bytes": 2678
+      },
+      {
+        "path": "brochure-input/organiser.png",
+        "sha256": "0a1fe1095fab80ab6d5da2d16128c787062815cfc42eec13d305945ed366abbc",
+        "bytes": 2678
+      },
+      {
+        "path": "brochure-package/Instructions.txt",
+        "sha256": "339b063598a31f1d01a83e4530925694f206c7a63e8e44025d40d53263accfec",
+        "bytes": 288
+      },
+      {
+        "path": "brochure-package/Links/case.png",
+        "sha256": "5b01dff12730871e755d97b3802838ad5ed583a797f5f66c2cc512e4a91b8a05",
+        "bytes": 2678
+      },
+      {
+        "path": "brochure-package/Links/organiser.png",
+        "sha256": "0a1fe1095fab80ab6d5da2d16128c787062815cfc42eec13d305945ed366abbc",
+        "bytes": 2678
+      },
+      {
+        "path": "brochure-package/product brochure.designcraft",
+        "sha256": "e9f0f345ee97f22cb5803a6d92b0fe190e825b078750c200d59918c54d71e3b8",
+        "bytes": 10763
+      },
+      {
+        "path": "brochure-package/product brochure.idml",
+        "sha256": "77a2b88939babb3d57eaac4b7a0a4298858039b759e78150dfad7dc2adc31f29",
+        "bytes": 20959
+      },
+      {
+        "path": "brochure-package/product brochure.pdf",
+        "sha256": "8010002c98dc4b51a4b82a3292ed5d71b866fd142c1d9c0a1194d0937ba958f3",
+        "bytes": 21943
+      },
+      {
+        "path": "core-brochure-inspection.json",
+        "sha256": "e33bc2a69f4a41472f09a8fcf54f9a63973e361741875ba2844fb35e52c58f37",
+        "bytes": 39194
+      },
+      {
+        "path": "core-brochure.designcraft",
+        "sha256": "ebd4f6b9ac823fa935e10964a7f763814e91bd345f0cd0df24ba2d89c56e5704",
+        "bytes": 10757
+      },
+      {
+        "path": "core-brochure.idml",
+        "sha256": "398c92fb30e73e3b434995c1e9c847b08c78be12d658063532ab25a7eb42720d",
+        "bytes": 20955
+      },
+      {
+        "path": "core-brochure.pdf",
+        "sha256": "8010002c98dc4b51a4b82a3292ed5d71b866fd142c1d9c0a1194d0937ba958f3",
+        "bytes": 21943
+      },
+      {
+        "path": "steps.json",
+        "sha256": "33a8330916064876da2e159102259d5e2c908a8e669d2c1111168ed0128f29e5",
+        "bytes": 612
+      }
+    ]
+  },
+  "windows": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39029743390",
+    "status": "PASS",
+    "sceneSourceCommit": "150c1190b4b11e45148733dda7bde277805c7447",
+    "exeSha256": "fd7aef6536032c9219d12c0461bcef39bbc318959be2a8e7989d52add7f35d54",
+    "verifiedOutputCount": 102,
+    "processCount": 85,
+    "result": {
+      "id": "brochure",
+      "coreSkill": "designcraft-brochure",
+      "technicalRoundtrip": "PASS",
+      "fourPageReadingOrder": "PASS",
+      "allTwelveStoriesAndStyles": "PASS",
+      "twoProductImageBindings": "PASS",
+      "packagedReopen": "PASS",
+      "sourceImagesUnchanged": "PASS",
+      "layoutReview": "NOT_TESTED",
+      "hostSameCanvas": "NOT_TESTED"
+    },
+    "independentPdfInspection": {
+      "tool": "PyMuPDF 1.27.1",
+      "pages": [
+        {
+          "page": 1,
+          "correctHeadingAndPageNumber": true,
+          "imageCount": 0,
+          "matchesViewedMacPixels": true
+        },
+        {
+          "page": 2,
+          "correctHeadingAndPageNumber": true,
+          "imageCount": 1,
+          "matchesViewedMacPixels": true
+        },
+        {
+          "page": 3,
+          "correctHeadingAndPageNumber": true,
+          "imageCount": 1,
+          "matchesViewedMacPixels": true
+        },
+        {
+          "page": 4,
+          "correctHeadingAndPageNumber": true,
+          "imageCount": 0,
+          "matchesViewedMacPixels": true
+        }
+      ]
+    },
+    "selectedOutputs": [
+      {
+        "path": "core-brochure-inspection.json",
+        "bytes": 41052,
+        "sha256": "e8677759ba21964a970d9577b025621fba897383a8ec02a10e0d7f347698e421"
+      },
+      {
+        "path": "core-brochure.designcraft",
+        "bytes": 23339,
+        "sha256": "2f86e10c5dec815535e0c4a27953ae82ca0c93abc238c760cf2b67a825b7b843"
+      },
+      {
+        "path": "core-brochure.idml",
+        "bytes": 23089,
+        "sha256": "0b0fd2a88538623e1abd8352c3b6018ede124b4827542a3694420a0277e2868a"
+      },
+      {
+        "path": "core-brochure.pdf",
+        "bytes": 21943,
+        "sha256": "fa25b18ff2b5c137ceef9360018062093a583116d5327ae0a16ebd90ce23be5d"
+      },
+      {
+        "path": "brochure-input\\case.png",
+        "bytes": 2678,
+        "sha256": "5b01dff12730871e755d97b3802838ad5ed583a797f5f66c2cc512e4a91b8a05"
+      },
+      {
+        "path": "brochure-input\\organiser.png",
+        "bytes": 2678,
+        "sha256": "0a1fe1095fab80ab6d5da2d16128c787062815cfc42eec13d305945ed366abbc"
+      },
+      {
+        "path": "brochure-package\\Instructions.txt",
+        "bytes": 288,
+        "sha256": "339b063598a31f1d01a83e4530925694f206c7a63e8e44025d40d53263accfec"
+      },
+      {
+        "path": "brochure-package\\product brochure.designcraft",
+        "bytes": 10871,
+        "sha256": "b31ea6ddaba3960e01187d3c81014510dc1f89192152cd4ce804e3d0df0ee522"
+      },
+      {
+        "path": "brochure-package\\product brochure.idml",
+        "bytes": 22270,
+        "sha256": "dc9da426d263b8b3b456894e846f3d454315d5e1f524e3f54b9b86af7ac1f4cd"
+      },
+      {
+        "path": "brochure-package\\product brochure.pdf",
+        "bytes": 21943,
+        "sha256": "fa25b18ff2b5c137ceef9360018062093a583116d5327ae0a16ebd90ce23be5d"
+      },
+      {
+        "path": "brochure-package\\Links\\case.png",
+        "bytes": 2678,
+        "sha256": "5b01dff12730871e755d97b3802838ad5ed583a797f5f66c2cc512e4a91b8a05"
+      },
+      {
+        "path": "brochure-package\\Links\\organiser.png",
+        "bytes": 2678,
+        "sha256": "0a1fe1095fab80ab6d5da2d16128c787062815cfc42eec13d305945ed366abbc"
+      }
+    ]
+  },
+  "tests": {
+    "designHelpers": 15,
+    "referenceCompiler": 3,
+    "staticMappedScenes": 201
+  },
+  "delivery": {
+    "independentSkillsFeature": "PUSHED",
+    "independentPluginFeature": "PUSHED",
+    "subscribedMarketplace": "NOT_RELEASED_IN_V5"
+  },
+  "remaining": [
+    "DesignCraft poster-layout reconstruction",
+    "Real product imagery and typography quality",
+    "Same-canvas editing in installed hosts",
+    "Deduplicated expansion across all 13 Craft applications into hundreds of distinct workflows"
+  ]
+}

@@ -2,7 +2,7 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前201条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，其余3应用各6条。不是198条都已通过完整效果验收。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前201条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，其余3应用各6条。这些映射未全部通过完整效果验收，且存在方法复用。
 
 | 内容 | 当前事实 |
 | --- | --- |
@@ -350,3 +350,11 @@ Windows main运行[39025167041](https://github.com/partme-ai/full-aigc-plugins/a
 独立解析两套最终PDF：裁切595×842点、MediaBox613×860点、四边出血9点，两图及页脚存在；已查看原创色块修复样例整页，不代替真实生产物料质量。13项Design辅助测试、201条静态映射与OpenSpec检查通过；固定索引包安装/MCP及辅助回归[39027383439](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027383439)通过，不代表本轮新技能已重新发行。
 
 仍201条映射：197条入口限定技术检查、2条部分、2条待执行（Design brochure、poster-layout）。该计数包含方法复用，不能等同197个独立高质量场景。复杂真实素材、色彩/专色/印刷确认、三宿主同步、去重扩展与本批市场发行仍未完成，完整目标保持实施中。技能和插件feature已同步，公开dev.20261017.4不包含本轮变更。详见[Design核心验证](craft-design-core-validation.json)。
+
+## DesignCraft四页产品宣传册
+
+旧brochure只有单个文字框和未应用的Body样式。现按确认内容计划重建封面、产品A、产品B、下一步四页阅读顺序；61条排版/检查步骤明确绑定12份文字和两张产品图，三种段落样式逐故事实际应用。打包独立为检查通过后的一条deliverySteps，不拼接到未经检查的排版批次。补读MrBoyard7/indesign-brochure-automator固定提交92b4e68的模板说明，记录SHA256，只借鉴字段与框对应及比例置图经验；无JSX移植或CSV合并能力宣称。
+
+官方macOS 0.8.0下载包SHA256核验后，在隔离目录执行最终配方，保存/重开、四页顺序、12个故事及样式、两SKU图框和PPI、打包资源与原图摘要检查通过。实际四页PDF已逐页查看。Windows main运行[39029743390](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39029743390)执行固定技能源150c119，通过原8场景、既有工程保护组合及5个已重建核心入口，共85次CLI调用；下载独立核对102份输出及二进制摘要。Windows四页PDF经PyMuPDF解析，尺寸、标题、页码和图像页归属正确，四页像素与已查看的macOS输出完全一致。15项Design辅助回归、3项引用编译测试、技能源包校验和201条静态映射检查通过。源/插件原有5项场景SKILL摘要过时，确认双方内容一致后刷新；未改冻结基础技能。
+
+映射总数仍201条，包含方法复用；198条入口有过限定技术检查、2条部分、1条待重建运行（Design poster-layout），不等于198个独立高质量场景。样本为原创商品文字与色块，不代替真实产品素材的商业设计审阅。独立源与插件feature已同步；本次brochure未进入订阅市场v5。此前newsletter/catalog/long-document/preflight的重建已随v5发行，不再沿用上节“市场待发行”的旧时间点。三宿主同画面同步、去重扩展为数百个独立场景及剩余质量验收继续推进。详见[宣传册验证](craft-brochure-validation.json)。
