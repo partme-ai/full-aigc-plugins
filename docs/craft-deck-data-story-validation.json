@@ -131,7 +131,43 @@
       "hostSync": "NOT_TESTED"
     },
     "visual": "12 categories/3 series rendered and inspected; overlapping labels removed",
-    "release": "18.2 immutable and retained; fix awaiting new candidate",
-    "windows": "PENDING"
+    "release": "18.3 published;public ZIP download,clean extraction,native Codex install/MCP and runtime digests PASS",
+    "windows": {
+      "status": "PASS",
+      "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39080736199",
+      "result": {
+        "status": "PASS",
+        "platform": "win32",
+        "nativeProcesses": 12,
+        "variants": [
+          {
+            "name": "sample",
+            "chartDataCategoryOrderAndNotes": "PASS",
+            "editablePptxRoundtrip": "PASS",
+            "inputPreserved": "PASS"
+          },
+          {
+            "name": "multi-negative-zero",
+            "chartDataCategoryOrderAndNotes": "PASS",
+            "editablePptxRoundtrip": "PASS",
+            "inputPreserved": "PASS"
+          },
+          {
+            "name": "maximum-density",
+            "chartDataCategoryOrderAndNotes": "PASS",
+            "editablePptxRoundtrip": "PASS",
+            "inputPreserved": "PASS"
+          }
+        ],
+        "visualReview": "NOT_TESTED",
+        "hostSync": "NOT_TESTED"
+      }
+    }
+  },
+  "publishedRelease18_3": {
+    "version": "0.1.0-dev.20261018.3",
+    "commit": "ec48b2b5c92a6f7dfe93450739289779a1f77549",
+    "archiveSha256": "9206475f435dee9fff66e4207b6d9cc9e7e969bd74dc13878505ce91b79b13bd",
+    "marketMain": "PENDING"
   }
 }

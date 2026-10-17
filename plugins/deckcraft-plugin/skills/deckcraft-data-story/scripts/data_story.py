@@ -43,7 +43,7 @@ def compile_story(data):
     commands=[command('file.new',{'size':[960,540],'blank':True}),
         command('slide.new',{'layout':'titleOnly','title':fields['title']+'（'+fields['unit']+'）','body':''}),
         command('insert.chart',{'type':'column','rect':[80,150,800,300],'categories':categories,'series':series}),
-        command('chart.options',{'title':fields['period'],'dataLabels':True,'gridlines':True,'legend':'r'}),
+        command('chart.options',{'title':fields['period'],'dataLabels':len(categories)*len(series)<=12,'gridlines':True,'legend':'r'}),
         command('slide.notes',{'index':0,'text':notes}),
         command('slide.new',{'layout':'titleAndContent','title':'解释边界与下一步','body':fields['limitations']+'\n下一步：'+fields['action']}),
         command('slide.notes',{'index':1,'text':notes+'；行动：'+fields['action']})]

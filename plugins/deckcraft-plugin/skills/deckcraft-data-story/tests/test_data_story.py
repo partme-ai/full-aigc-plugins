@@ -30,6 +30,10 @@ class DataStoryTests(unittest.TestCase):
     def test_negative_and_zero_preserved(self):
         d=self.fixture();d['series'][0]['values']=[-2,0]
         self.assertEqual(module.compile_story(d)['commands'][2]['params']['series'][0]['values'],[-2,0])
+    def test_dense_chart_avoids_overlapping_labels(self):
+        d=self.fixture();d['categories']=[str(i) for i in range(12)];d['series']=[{'name':name,'values':[6]*12} for name in ('甲','乙','丙')]
+        self.assertFalse(module.compile_story(d)['commands'][3]['params']['dataLabels'])
+
     def test_required_source_and_limits(self):
         for field in ('source','unit','definition','limitations','period'):
             d=self.fixture();d[field]=''

@@ -1,6 +1,6 @@
 {
   "name": "@partme-dsh/deckcraft",
-  "version": "0.1.0-dev.20261018.2",
+  "version": "0.1.0-dev.20261018.3",
   "description": "通过 DeckCraft 原生 MCP 和技能创建、检查与导出演示文稿。",
   "type": "module",
   "main": "lib/index.js",
