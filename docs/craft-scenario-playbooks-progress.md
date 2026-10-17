@@ -358,3 +358,13 @@ Windows main运行[39025167041](https://github.com/partme-ai/full-aigc-plugins/a
 官方macOS 0.8.0下载包SHA256核验后，在隔离目录执行最终配方，保存/重开、四页顺序、12个故事及样式、两SKU图框和PPI、打包资源与原图摘要检查通过。实际四页PDF已逐页查看。Windows main运行[39029743390](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39029743390)执行固定技能源150c119，通过原8场景、既有工程保护组合及5个已重建核心入口，共85次CLI调用；下载独立核对102份输出及二进制摘要。Windows四页PDF经PyMuPDF解析，尺寸、标题、页码和图像页归属正确，四页像素与已查看的macOS输出完全一致。15项Design辅助回归、3项引用编译测试、技能源包校验和201条静态映射检查通过。源/插件原有5项场景SKILL摘要过时，确认双方内容一致后刷新；未改冻结基础技能。
 
 映射总数仍201条，包含方法复用；198条入口有过限定技术检查、2条部分、1条待重建运行（Design poster-layout），不等于198个独立高质量场景。样本为原创商品文字与色块，不代替真实产品素材的商业设计审阅。独立源与插件feature已同步；本次brochure未进入订阅市场v5。此前newsletter/catalog/long-document/preflight的重建已随v5发行，不再沿用上节“市场待发行”的旧时间点。三宿主同画面同步、去重扩展为数百个独立场景及剩余质量验收继续推进。详见[宣传册验证](craft-brochure-validation.json)。
+
+## DesignCraft成品规格海报与真实扫码
+
+旧poster-layout只有两个文字框和一次预检，没有成品尺寸、样式应用、主题图、QR或点击入口。现按297×420mm精确换算pt建立A3样例，35步排版/检查显式绑定五个文字故事与样式、主题图片框、可点击报名链接及原生object.qrCode。URL在确认输入、可见文字、超链接和QR编码中一致；图片保持比例，打包为检查后单独执行的一步。补读pchiorean/Indentz固定7ce1e0c的README，记录SHA256，只借鉴尺寸、安全区域和QR交付经验，未复制InDesign脚本或正文。
+
+实际macOS0.8.0试跑发现QR对象bounds只覆盖黑色路径，预留白边应按请求rect核对；检查器已改为白边、方形与居中约束，并加入负例。OpenCV4.13.0在该样本未检测到QR，其控制样本可解码，未把失败隐去或因此断言编码损坏；系统Apple Vision分别对实际原生PNG与独立PDF渲染图成功解码，payload与预期示例URL一致。PDF独立解析确认297×420mm、入口链接目标和图片1.5长宽比，整页已查看。
+
+Windows main[39030420015](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39030420015)执行技能源ea34074，通过原8条场景、既有工程保护组合及六个重建核心入口，共92次CLI调用。下载后独立核对113份输出和二进制摘要；实际Windows导出PNG及PDF渲染图也经Apple Vision解码成功，PDF入口、尺寸和图片比例通过，Windows整页另外查看，未宣称与macOS像素完全一致。18项Design辅助测试、3项引用编译测试、技能源包校验、201条静态映射及OpenSpec严格校验通过。详见[海报验证](craft-poster-validation.json)。
+
+总映射仍201条：199条入口有过限定技术检查，PDF表单及完整位图描图2条部分；不是199个独立高质量场景。Design原有六项核心入口已重建执行，不因此把全部商业版式或三宿主同画面同步标记完成。虚构活动、示例URL与色块只作为可复现测试输入，不证明真实报名网站或商业海报质量。源与插件feature均已同步，本次宣传册与海报尚未进入订阅市场v5。后续继续对13应用场景去重、补充有区别的工作流、真实素材效果及宿主同步验收，完整目标和OpenSpec保持实施中。
