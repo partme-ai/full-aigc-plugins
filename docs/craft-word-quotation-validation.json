@@ -80,7 +80,11 @@
     "quotation.pdf": "c718b09d6cf374e5cf3922dc4cd1034cb51788981c0bcdbbedfccaf1b7372b99",
     "page.png": "5fb5977f6aac6843d3a35bf197fd646f45fda0e1b50270511ef00092d4839418"
   },
-  "windows": "PENDING",
+  "windows": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39077218440",
+    "status": "IN_PROGRESS",
+    "scope": "actual native CLI business and reopened tables; no SDK substitution"
+  },
   "nativeHostSync": "NOT_RUN",
   "marketplace": "NOT_RELEASED",
   "sourceCommit": "af833c5",

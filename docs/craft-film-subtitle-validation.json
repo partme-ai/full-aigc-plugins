@@ -156,7 +156,6 @@
   },
   "remaining": [
     "Chinese Web font display",
-    "main branch CI completion",
     "other hosts and remaining scenarios"
   ],
   "regression": {
@@ -224,7 +223,7 @@
     "publicMainInstallation": "PASS",
     "dailyMarketplaceSourceRefresh": "PASS: no errors; installed daily plugins not upgraded",
     "mainCI": {
-      "status": "IN_PROGRESS_OR_QUEUED",
+      "status": "PASS",
       "runs": [
         39076521600,
         39076521643,
