@@ -88,17 +88,94 @@
     "page.png": "5fb5977f6aac6843d3a35bf197fd646f45fda0e1b50270511ef00092d4839418"
   },
   "windows": {
-    "status": "PENDING_NEW_FIXED_COMMIT",
-    "scope": "actual native CLI; new row layout assertions included"
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39077788513",
+    "status": "PASS",
+    "artifact": "wordcraft-document-template-results",
+    "quotation": {
+      "result": "PASS",
+      "variants": [
+        {
+          "name": "sample",
+          "itemCount": 2,
+          "total": "2740.80",
+          "pages": 1,
+          "nativeTableAndAmounts": "PASS",
+          "allRowsUnsplit": "PASS",
+          "columnWidthsAndNumericAlignment": "PASS",
+          "inputPreserved": "PASS",
+          "allPagesRendered": "PASS",
+          "visualReview": "NOT_PERFORMED_BY_CI"
+        },
+        {
+          "name": "small-decimal",
+          "itemCount": 1,
+          "total": "0.30",
+          "pages": 1,
+          "nativeTableAndAmounts": "PASS",
+          "allRowsUnsplit": "PASS",
+          "columnWidthsAndNumericAlignment": "PASS",
+          "inputPreserved": "PASS",
+          "allPagesRendered": "PASS",
+          "visualReview": "NOT_PERFORMED_BY_CI"
+        },
+        {
+          "name": "many-items",
+          "itemCount": 20,
+          "total": "205.00",
+          "pages": 2,
+          "nativeTableAndAmounts": "PASS",
+          "allRowsUnsplit": "PASS",
+          "columnWidthsAndNumericAlignment": "PASS",
+          "inputPreserved": "PASS",
+          "allPagesRendered": "PASS",
+          "visualReview": "NOT_PERFORMED_BY_CI"
+        }
+      ],
+      "scope": "specified fixtures and native structure; real quote approval, arbitrary typography and host sync not proven",
+      "nativeProcesses": 15,
+      "platform": "win32"
+    }
   },
-  "nativeHostSync": "NOT_RUN",
+  "nativeHostSync": {
+    "status": "PASS",
+    "host": "actual native Codex app-server + plugin MCP + Codex in-app browser",
+    "pluginCandidateCommit": "40456e1",
+    "version": "0.1.0-dev.20261018.3",
+    "engineCommands": 85,
+    "nativeMcpCalls": 16,
+    "creation": "79 commands from the skill-produced plan, executed in2 native MCP batches",
+    "revision": "6 native commands;1250.10->1300.10,2500.20->2600.20,2740.80->2840.80",
+    "positionReplies": "all requested selections matched actual replies",
+    "samePageSync": "observed body creation, table creation and repricing in same live editor",
+    "saveAndReopen": "PASS",
+    "nonTargetProtection": "saved document.xml identical after normalizing exactly3 expected text replacements",
+    "savedRowProtection": "all4 rows cantSplit",
+    "viewportCss": {
+      "width": 1280,
+      "height": 1024
+    },
+    "temporaryViewportReset": true,
+    "runtime": "checksummed bundled enhanced0.7.0 resources after update404; not proof of newest upstream main",
+    "scope": "two-item Chinese quotation and a targeted repricing; not all-host or20-item editor pagination acceptance",
+    "screenshots": {
+      "live-head.jpg": "0bc6dd640a6a8190c99cc33ca61c0d6ad3bb59e2b5522e635ea90e5af41da43e",
+      "live-table.jpg": "72276f3183022f019f64021dd62854e92f925bdb7d563414783306913a550711",
+      "live-reopened-desktop.jpg": "42826bce38238fc331c3f25a12d2f98f1067d1d435cc15027af9de62a9990545",
+      "live-reopened.jpg": "42826bce38238fc331c3f25a12d2f98f1067d1d435cc15027af9de62a9990545"
+    },
+    "savedArtifacts": {
+      "quotation-host.docx": "bf2c88fdb090a261cbdac763ce0e583ba86e8e17c3b3894e715bacbb7edbca67",
+      "quotation-host.pdf": "5ffe458cb62be94ec70b654764134deeeebd5ab347275e4f5f94d48cf6379ed9",
+      "quotation-revised-host.docx": "499639640f3af04e6f08c3b5af204c4cb4a1fb2876175048e9646dc5d4f0cf1d",
+      "quotation-revised-host.pdf": "124e8b1669c583f9003a3cff03a987aedbea4c64f3a668748e142de45b21b794"
+    }
+  },
   "marketplace": "NOT_RELEASED",
   "sourceCommit": "3bc1a90aabe41310578de1e576b3ba0dffe70a7c",
   "pluginCommit": "9decb4eac2aabb572ab719b4d910f5794a98ad41",
   "remaining": [
-    "Windows actual native business",
-    "shared-editor host acceptance",
-    "release packaging and marketplace"
+    "release packaging and marketplace",
+    "other hosts, arbitrary user inputs and20-item host pagination"
   ],
   "layoutFix": {
     "allNativeRowsCantSplit": "PASS",
