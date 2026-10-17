@@ -1,7 +1,7 @@
 {
   "scope": "animated extension of existing lower-thirds scene; no scene count increment",
-  "sourceCommit": "873bbece929b2e43109ccf03b22a9bbe226d4595",
-  "pluginCommit": "a24f2d154e433a0f6575beffae62f253ea7cce6f",
+  "sourceCommit": "e1eca1478d04f5ed5dc02211ac54d9705d53e2e7",
+  "pluginCommit": "8af386b662830556365ddf2d2d79a0294a0024c3",
   "workflowSource": {
     "repository": "https://github.com/ishu86/after-effects-mcp",
     "commit": "5223c17a8e8c1273b25c6a9d306839259ad35143",
@@ -92,8 +92,146 @@
       "caption outside safe plate accepted"
     ]
   },
-  "windows": "PENDING",
-  "sameEditorHost": "NOT_TESTED",
-  "publicRelease": "NOT_PUBLISHED",
-  "mediaScope": "example text, not real interview footage, arbitrary fonts or languages"
+  "windows": {
+    "run": 39072031958,
+    "job": 117511450192,
+    "result": "PASS",
+    "animatedLowerThird": {
+      "variants": [
+        {
+          "variant": "standard",
+          "layers": 3,
+          "sampleTimes": [
+            0,
+            0.2,
+            0.4,
+            5.4,
+            5.96
+          ],
+          "alphaSums": [
+            0,
+            6145728,
+            12113188,
+            12113188,
+            0
+          ],
+          "captionSafeArea": "PASS",
+          "rgbaSequenceFrames": 150,
+          "sequenceSampleAlphaSums": [
+            0,
+            6145728,
+            12113188,
+            12113188,
+            0
+          ]
+        },
+        {
+          "variant": "long-name",
+          "layers": 3,
+          "sampleTimes": [
+            0,
+            0.2,
+            0.4,
+            5.4,
+            5.96
+          ],
+          "alphaSums": [
+            0,
+            6193567,
+            12113188,
+            12113188,
+            0
+          ],
+          "captionSafeArea": "PASS"
+        }
+      ],
+      "scope": "sample text; no universal font fit or full host acceptance inferred"
+    },
+    "wholeEffectProcessCount": 163
+  },
+  "sameEditorHost": {
+    "host": "native Codex app-server; actual plugin install and mcpServer/tool/call",
+    "calls": 31,
+    "candidateCommit": "6d425eda61a978892fc50f6b3aafeb3845a74886",
+    "runtime": "official immutable 0.10.0 cached Web archive",
+    "archiveSha256": "b922abeda2420391a7fd887f53ebae6948730e63720bad6a6eb3dc48dc1b46a8",
+    "observations": [
+      "three new layers visibly added",
+      "frame0 hidden",
+      "frame10 fully visible",
+      "frame149 hidden",
+      "save_project and open_file preserve active comp and layers"
+    ],
+    "result": "PASS",
+    "scope": "standard sample only; not all hosts or interview footage"
+  },
+  "publicRelease": {
+    "version": "0.1.0-dev.20261018.3",
+    "url": "https://github.com/full-aigc-plugins/effectcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
+    "publicZipVerification": {
+      "plugin": "effectcraft",
+      "version": "0.1.0-dev.20261018.3",
+      "source": "https://github.com/full-aigc-plugins/effectcraft-plugin/releases/download/v0.1.0-dev.20261018.3/effectcraft-plugin-0.1.0-dev.20261018.3.zip",
+      "archiveSha256": "e296e44dfcb595e31ce256811eab096433e6a37bd2c80b0c5b38bbb099c63874",
+      "remoteTagCommit": "8af386b662830556365ddf2d2d79a0294a0024c3",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    "mainMarketplace": "PENDING"
+  },
+  "mediaScope": "example text, not real interview footage, arbitrary fonts or languages",
+  "validatedPlanCommit": "873bbece929b2e43109ccf03b22a9bbe226d4595",
+  "candidateVersion": "0.1.0-dev.20261018.3",
+  "independentHostProjectReadback": {
+    "projectSha256": "f226045dde58fd83916635104deafcb28bd0118f056fe78b8b84849af3a8b7d1",
+    "layers": 3,
+    "savedOpacityProperties": 15,
+    "nativeReadbackAlphaSums": [
+      0,
+      12113188,
+      0
+    ],
+    "projectUnchanged": true,
+    "scope": "saved Web engine project independently read by native CLI; no pixel parity claim"
+  },
+  "pluginTestCi": {
+    "runs": [
+      39072586167,
+      39072586180,
+      39072586341
+    ],
+    "result": "PASS"
+  },
+  "desktopViewport": {
+    "pageClientSize": [
+      1280,
+      1024
+    ],
+    "overrideReset": true
+  },
+  "screenshots": {
+    "live-start.jpg": "e8e5fa29c9fab8f72ff1192beadcb13530c78b42a459439c9ab0100825f4d214",
+    "live-hold.jpg": "582df96fb17b80eacaf926839d3b8dd91a8b9324f240b0603ae50b47ccb3ecc9",
+    "live-end.jpg": "ebb8106d5580945c1241a445336194fbfeb58c095978c2304a81200d81de9611",
+    "live-reopened.jpg": "11334497495c90c9660ab33fcb80059cf9e3d9ccb5fecf50f84e881aec4d2034",
+    "live-desktop.jpg": "50fb66f51723e579ac0a75d2537f43856cc571f7a55bdadfd64dfc5f8524be32"
+  },
+  "pluginMainCi": {
+    "runs": [
+      39072652637,
+      39072652603,
+      39072652835
+    ],
+    "result": "PASS"
+  },
+  "guiVsPublishedExecutionFiles": {
+    "ui/bootstrap.mjs": true,
+    "ui/runtime.lock.json": true,
+    "ui/editor.lock.json": true,
+    "skills/effectcraft-lower-thirds/references/animated-lower-third.json": true
+  }
 }

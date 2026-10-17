@@ -1,6 +1,6 @@
 # EffectCraft Use
 
-当前可安装开发候选：`0.1.0-dev.20261017.6`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+当前本地开发候选：`0.1.0-dev.20261018.3`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -14,11 +14,11 @@
 
 Create editable `.ecproj` projects, dependencies and media from text, graphics and footage. This is a development release; full V1 remains open. Published releases and local documentation candidates have separate evidence.
 
-Current plugin: `0.1.0-dev.20261017.6`; skill source: `0.1.0-dev.69`; 16 independent skills (15 domain + 1 bundled execution harness).
+Current plugin: `0.1.0-dev.20261018.3`; skill source: `0.1.0-dev.69`; 16 independent skills (15 domain + 1 bundled execution harness).
 
 | Field | Value |
 | --- | --- |
-| Metadata version | 0.1.0-dev.20261017.6 |
+| Metadata version | 0.1.0-dev.20261018.3 |
 | Skills source | effectcraft-skills / v0.1.0-dev.69 |
 | Acceptance | Development; full V1 OPEN |
 
@@ -186,3 +186,5 @@ Plugin display name: **EffectCraft Use**. Official upstream icon provenance and 
 - [effectcraft-chapter-card](skills/effectcraft-chapter-card/SKILL.md)
 - [effectcraft-countdown-intro](skills/effectcraft-countdown-intro/SKILL.md)
 - [effectcraft-credits-roll](skills/effectcraft-credits-roll/SKILL.md)
+
+Development scene extension: interview lower thirds now include a separate plate, paragraph name/role boxes and opacity entrance/hold/exit. Standard and long-name native macOS checks plus a 150-frame RGBA sequence passed; Windows standard/long-name plus RGBA sequence tests and native Codex shared-editor standard-plate checks passed; real interview footage, arbitrary fonts and other hosts remain pending.

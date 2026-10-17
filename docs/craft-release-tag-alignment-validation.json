@@ -17,9 +17,9 @@
     },
     {
       "plugin": "effectcraft",
-      "version": "0.1.0-dev.20261017.6",
-      "expectedCommit": "3ee1832e9a9a38aa6b153e689b61de9b111e02c4",
-      "remoteTagCommit": "3ee1832e9a9a38aa6b153e689b61de9b111e02c4",
+      "version": "0.1.0-dev.20261018.3",
+      "expectedCommit": "8af386b662830556365ddf2d2d79a0294a0024c3",
+      "remoteTagCommit": "8af386b662830556365ddf2d2d79a0294a0024c3",
       "result": "PASS"
     },
     {

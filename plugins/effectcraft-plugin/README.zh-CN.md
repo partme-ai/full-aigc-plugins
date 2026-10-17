@@ -1,6 +1,6 @@
 # EffectCraft Use
 
-当前可安装开发候选：`0.1.0-dev.20261017.6`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+当前本地开发候选：`0.1.0-dev.20261018.3`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -14,11 +14,11 @@
 
 从文字、图形和素材创建可编辑 `.ecproj` 工程、依赖和媒体。当前为开发版，完整 V1 未完成；已发布版本与本地文档候选分别记录。
 
-当前插件：`0.1.0-dev.70`；技能源：`0.1.0-dev.68`；15 个独立技能。
+当前插件：`0.1.0-dev.20261018.3`；技能源：`0.1.0-dev.68`；15 个独立技能。
 
 | Field | Value |
 | --- | --- |
-| Metadata version | 0.1.0-dev.20261017.6 |
+| Metadata version | 0.1.0-dev.20261018.3 |
 | Skills source | effectcraft-skills / v0.1.0-dev.69 |
 | Acceptance | Development; full V1 OPEN |
 
@@ -186,3 +186,5 @@ Source dev.67 / plugin dev.69 correct a Windows absolute-path test fixture witho
 - [effectcraft-chapter-card](skills/effectcraft-chapter-card/SKILL.md)
 - [effectcraft-countdown-intro](skills/effectcraft-countdown-intro/SKILL.md)
 - [effectcraft-credits-roll](skills/effectcraft-credits-roll/SKILL.md)
+
+开发场景扩展：采访人物条新增底板、姓名职位段落框及透明入场/停留/退场，附独立命令参数计划。macOS两版样稿及150帧RGBA序列通过；Windows及Codex同画面标准样稿通过，真实采访素材、任意字体和其他宿主待验收。固定基础技能源快照未修改。

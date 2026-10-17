@@ -1,0 +1,205 @@
+{
+  "schema": "effectcraft-animated-lower-third/v1",
+  "canonicalSceneId": "lower-thirds",
+  "countsAsNewScene": false,
+  "inputPolicy": "Example names and colors; adapt to actual interview and longest text, not factual identity",
+  "composition": {
+    "width": 1920,
+    "height": 1080,
+    "frameRate": 25,
+    "duration": 6
+  },
+  "steps": [
+    {
+      "command": "comp.new",
+      "params": {
+        "name": "Interview lower third",
+        "width": 1920,
+        "height": 1080,
+        "frameRate": 25,
+        "duration": 6
+      }
+    },
+    {
+      "command": "layer.newShape",
+      "params": {
+        "name": "Plate",
+        "kind": "rect",
+        "size": [
+          1000,
+          190
+        ],
+        "fill": "#16324f",
+        "strokeWidth": 0,
+        "position": [
+          600,
+          915
+        ]
+      }
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Name",
+        "text": "Ada Lovelace",
+        "box": [
+          180,
+          830,
+          840,
+          75
+        ],
+        "size": 48,
+        "fill": "#ffffff",
+        "justify": "left"
+      }
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Role",
+        "text": "Research lead",
+        "box": [
+          180,
+          915,
+          840,
+          55
+        ],
+        "size": 28,
+        "fill": "#ffffff",
+        "justify": "left"
+      }
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          "Plate"
+        ]
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 0,
+        "value": 0
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 0.4,
+        "value": 100
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 5.4,
+        "value": 100
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 5.96,
+        "value": 0
+      }
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 0,
+        "value": 0
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 0.4,
+        "value": 100
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 5.4,
+        "value": 100
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 5.96,
+        "value": 0
+      }
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          "Role"
+        ]
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 0,
+        "value": 0
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 0.4,
+        "value": 100
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 5.4,
+        "value": 100
+      }
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "path": "transform/opacity",
+        "time": 5.96,
+        "value": 0
+      }
+    }
+  ],
+  "sampleTimes": [
+    0,
+    0.2,
+    0.4,
+    5.4,
+    5.96
+  ],
+  "longNameVariant": {
+    "text": "Alexandria Catherine Montgomery-Wellington",
+    "size": 36
+  },
+  "acceptance": "Transparent first/last frames, hold unchanged, three editable layers, readable text within plate, RGBA sequence retains alpha"
+}

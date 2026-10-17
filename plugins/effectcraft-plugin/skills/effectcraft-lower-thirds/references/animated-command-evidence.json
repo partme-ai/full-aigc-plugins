@@ -1,0 +1,54 @@
+{
+  "runtime": "official EffectCraft CLI 0.10.0 macOS universal",
+  "executableSha256": "5570da407d1511f95e1ffbafb515edaaaee08ad713e6146570493a3d5881c09e",
+  "scope": "observed command schemas; enabled=false is expected with --empty before comp.new; scene operation tested separately",
+  "observedCommands": [
+    {
+      "enabled": true,
+      "id": "comp.new",
+      "label": "New Composition...",
+      "menu": [
+        "Composition"
+      ],
+      "params": "{name?, width?, height?, frameRate?, duration? (s), startTime? (s) | startTimecode?, background? [r,g,b]|#hex, pixelAspect?, shutterAngle?, shutterPhase?, motionBlurSamples?, adaptiveSampleLimit? (16–256), preserveFrameRate?: bool, preserveResolution?: bool, renderer?: classic3D|advanced3D, anchor?, open?}",
+      "shortcut": "Cmd+N"
+    },
+    {
+      "enabled": false,
+      "id": "layer.newShape",
+      "label": "Shape Layer",
+      "menu": [
+        "Layer",
+        "New"
+      ],
+      "params": "{kind?: rect|rounded|ellipse|star|polygon|none, name?, size?, fill?, fillType?, fillBlend?, fillOpacity?, stroke?, strokeType?, strokeBlend?, strokeOpacity?, strokeWidth?, position?}",
+      "why": "no composition is open"
+    },
+    {
+      "enabled": false,
+      "id": "layer.newText",
+      "label": "Text",
+      "menu": [
+        "Layer",
+        "New"
+      ],
+      "params": "{text?, name? (layer name; default the text), position? [x,y], box? [x,y,w,h] (paragraph text, comp space), vertical?, edit? (start editing), font?, style?, size?, fill?, stroke?, applyFill?, applyStroke?, strokeWidth?, tracking?, leading?, baselineShift?, hScale?, vScale?, tsume?, fauxBold?, fauxItalic?, allCaps?, smallCaps?, baseline?, superscript?, subscript?, kerning?, ligatures?, justify?, indentLeft?, indentRight?, indentFirst?, spaceBefore?, spaceAfter?, direction?, composer?, hangingPunctuation?, strokeOverFill?} (attributes as layer.setText)",
+      "shortcut": "Cmd+Alt+Shift+T",
+      "why": "no composition is open"
+    },
+    {
+      "enabled": false,
+      "id": "layer.select",
+      "label": "Select Layers",
+      "params": "{layers: [id|name|#n], add?, toggle?}",
+      "why": "no composition is open"
+    },
+    {
+      "enabled": false,
+      "id": "prop.addKey",
+      "label": "Add Keyframe",
+      "params": "{layer?, path|prop, time? (layer s by default), timeBase?: layer|comp, value?}",
+      "why": "no composition is open"
+    }
+  ]
+}

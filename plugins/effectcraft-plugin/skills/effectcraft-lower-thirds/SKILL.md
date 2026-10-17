@@ -22,6 +22,10 @@ license: Apache-2.0
 3. 用最长名称验证尺寸和换行。
 4. 生成变体并检查透明输出。
 
+## 带底板及透明入退场的具体计划
+
+按[人物条制作手册](references/animated-lower-third.md)及[有序命令计划](references/animated-lower-third.json)创建可编辑底板、姓名与职位，并检查渐入、停留与最后有效帧渐退。手册说明段落框和点文本锚点差异、长姓名试排、CLI/MCP调用及透明交付边界；它深化本场景，不增加场景计数。
+
 ## 工具落地
 
 使用 command_list 读取当前 Web 引擎命令；command_run 的 id 和 params 对应实际 execute 接口；inspect 检查画面，save_project 保存新工程路径，save_file 取回已生成虚拟文件。
