@@ -393,3 +393,5 @@ Windows main[39031956861](https://github.com/partme-ai/full-aigc-plugins/actions
 ## 三个具体剪辑工作流扩展
 
 新增FilmCraft教学定格、讲者画中画及J-cut声音先入三个独立技能。固定Kdenlive官方帮助提交读取流程事实，原创适配真实命令、批次、ID与时间参数。macOS完整九场景117次CLI调用通过；新增三项真实H.264重新导入解码，核对定格帧与恢复动作、80×60叠加边界及背景、J-cut音频提前1秒且B画面使用匹配源1秒入点，AAC解码后的音频采样窗可区分合成声源。真实采访语义、音质和宿主同步不由此证明，Windows与市场发布待完成。[本批结果](craft-film-delivery-validation.json)。
+
+FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675，123次CLI），73个下载输出摘要一致；安装/MCP矩阵39038858593通过。独立插件仓及技能源已按feature→test→main推送，公开完整ZIP v0.1.0-dev.20261017.7含24技能，Codex真实安装/发现/MCP及包内资源摘要通过。v6的ZCode清单版本遗漏已在v7修正，旧标签未替换。主市场更新进行中，真实素材质量及宿主编辑同步仍未验收。

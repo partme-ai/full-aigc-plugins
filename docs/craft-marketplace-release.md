@@ -1,6 +1,6 @@
 # Craft 插件库开发候选
 
-当前 DesignCraft、PdfCraft、EffectCraft、PhotoCraft 候选为 `0.1.0-dev.20261017.6`，其余 9 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
+当前 DesignCraft、PdfCraft、EffectCraft、PhotoCraft 候选为 `0.1.0-dev.20261017.6`，FilmCraft 为 `0.1.0-dev.20261017.7`，其余 8 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
 
 本次修正的动因：Git插件条目的回退列表不解析包内图片，官方源码及本机原生plugin/list均可复现。仅补composerIcon无法改变未安装列表。快照包含技能、MCP清单、官方图标及bootstrap，不增加Agent运行时，亦不将全部创作和宿主同步视为通过。
 
@@ -72,3 +72,7 @@ Windows兼容修正版dev.20261017.4统一入口真实路径，能力描述符�
 ZCode的12个市场入口采用完整ZIP地址、整包SHA-256和包内目录，安装即带运行资源；EffectCraft官方WASM约60MiB，当前ZCode0.16.9实际安装被单文件50MiB上限拒绝，因此该应用显式保留固定Git入口，完整ZIP在其他已验收路径可用；Codex原生Git来源仍保留独立的首次下载兼容路径。两种交付不混称为相同机制。
 
 本机ZCode0.16.9真实安装器已安装13个候选：12个完整ZIP的已安装ui/dist逐文件摘要通过；EffectCraft为上述Git兼容例外。此次ZCode检查只覆盖安装，MCP调用及内嵌编辑同步不在该结论中。可用`verify-craft-zcode-install.py --cli-js <宿主CLI路径> --output <新隔离目录>`复验，不修改日常宿主配置。
+
+## FilmCraft dev.20261017.7 三个具体剪辑场景
+
+新增定格说明、讲解画中画、采访 J-cut 三个独立技能。macOS 九场景117次、Windows九场景123次原生CLI操作通过；Windows下载73个输出摘要一致。完整候选ZIP通过真实Codex安装、24个技能发现、MCP基础调用和编辑器HTML检查。运行资源沿用dev.20261017.2；真实素材语义、主观音质和宿主同步尚未验收。详见[回归记录](craft-film-delivery-validation.json)。

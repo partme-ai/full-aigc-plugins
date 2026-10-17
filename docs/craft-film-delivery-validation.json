@@ -121,11 +121,147 @@
     ],
     "visualReview": "Viewed native held frame with caption and presenter inset; not real footage review"
   },
-  "windows": "PENDING",
+  "windows": {
+    "runId": 39038858675,
+    "headSha": "6b9ccc208be1cb9c1a70c38bc7e90abb9e263185",
+    "business": "PASS",
+    "processCount": 123,
+    "playbooks": [
+      {
+        "id": "color-match",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      },
+      {
+        "id": "freeze-explainer",
+        "sourceInputsUnchanged": "PASS",
+        "nativeSaveAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realFootageSpeechQuality": "NOT_TESTED",
+        "encodedHoldRedMeans": [
+          99.48403645833334,
+          99.48403645833334,
+          99.48403645833334
+        ]
+      },
+      {
+        "id": "interview-edit",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      },
+      {
+        "id": "jcut-dialogue",
+        "sourceInputsUnchanged": "PASS",
+        "nativeSaveAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realFootageSpeechQuality": "NOT_TESTED",
+        "decodedVoiceWindows": [
+          {
+            "time": 0.5,
+            "dominantFixtureHz": 440,
+            "rms": 0.1078924437121454
+          },
+          {
+            "time": 1.5,
+            "dominantFixtureHz": 880,
+            "rms": 0.1079001423809503
+          },
+          {
+            "time": 3,
+            "dominantFixtureHz": 880,
+            "rms": 0.10789275024137612
+          },
+          {
+            "time": 4.5,
+            "dominantFixtureHz": 880,
+            "rms": 0.10789312654847179
+          }
+        ]
+      },
+      {
+        "id": "presenter-inset",
+        "sourceInputsUnchanged": "PASS",
+        "nativeSaveAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realFootageSpeechQuality": "NOT_TESTED",
+        "actualInsetChangedBounds": [
+          224,
+          162,
+          304,
+          222
+        ],
+        "decodedVoiceWindows": [
+          {
+            "time": 0.5,
+            "dominantFixtureHz": 660,
+            "rms": 0.10789202137919873
+          },
+          {
+            "time": 2,
+            "dominantFixtureHz": 660,
+            "rms": 0.10789027914892539
+          },
+          {
+            "time": 3.5,
+            "dominantFixtureHz": 660,
+            "rms": 0.10789159472828846
+          }
+        ]
+      },
+      {
+        "id": "product-video",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      },
+      {
+        "id": "short-video",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      },
+      {
+        "id": "subtitle-delivery",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      },
+      {
+        "id": "video-export",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      }
+    ],
+    "downloadedOutputsVerified": 73,
+    "packageMcpRunId": 39038858593,
+    "visualReview": "Viewed actual downloaded presenter inset PNG; synthetic gradient only"
+  },
   "tests": {
     "filmDeliveryHelpers": 7,
     "existingPlaybookHelpers": 52,
     "pluginPython": 124
   },
-  "publication": "FEATURE_CANDIDATE_NOT_IN_MARKET"
+  "publication": {
+    "status": "PUBLIC_PRERELEASE_MARKET_UPDATE_IN_PROGRESS",
+    "version": "0.1.0-dev.20261017.7",
+    "pluginMainCommit": "d033b30b7303c92156176e5b7df79a087b8ad543",
+    "skillsMainCommit": "12e1e75a2aba053978843c115f744324ef2e7095",
+    "v6": "Superseded before main marketplace update due ZCode manifest version omission; immutable assets retained",
+    "nativeCodexSkillCount": 24,
+    "publishedZipVerification": {
+      "plugin": "filmcraft",
+      "version": "0.1.0-dev.20261017.7",
+      "source": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/download/v0.1.0-dev.20261017.7/filmcraft-plugin-0.1.0-dev.20261017.7.zip",
+      "archiveSha256": "2696d68f43b6508079515782f8cf115fa63a058a9ee51f393633cba4d0fe2997",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    }
+  }
 }

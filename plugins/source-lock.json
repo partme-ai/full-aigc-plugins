@@ -81,12 +81,12 @@
   },
   {
     "plugin": "filmcraft",
-    "version": "0.1.0-dev.20261017.5",
+    "version": "0.1.0-dev.20261017.7",
     "repository": "full-aigc-plugins/filmcraft-plugin",
-    "commit": "f721323b9ecb65f3e55eb6466916ed7d87357ce4",
-    "tag": "v0.1.0-dev.20261017.5",
-    "fileCount": 886,
-    "treeSha256": "be87fbe8359f00b92b125fa97215854cc07d181beef0c9a4a9c123266c1bb121",
+    "commit": "d033b30b7303c92156176e5b7df79a087b8ad543",
+    "tag": "v0.1.0-dev.20261017.7",
+    "fileCount": 901,
+    "treeSha256": "9971396a6f91fd99b06554ae64f8b2e5fa0c4d8ddac30be7ed5bc73a1c1f4f2e",
     "excluded": [
       "evidence/",
       "docs/evidence/",
