@@ -34,10 +34,11 @@ def fixture(path, name):
             elif name == 'yellow-paper-neutralize':
                 pixel = (180, 165, 120)
             elif name == 'moire-small-radius':
-                pixel = (70, 70, 70) if x % 4 == 0 and y % 4 == 0 else (150, 150, 150)
+                tone = 150 if x < 128 else 190
+                pixel = (70, 70, 70) if x % 4 == 0 and y % 4 == 0 else (tone, tone, tone)
             elif name == 'gentle-color-noise':
                 sign = 1 if (x + y) % 2 else -1
-                pixel = (128 + sign * 15, 128 - sign * 15, 128)
+                pixel = (48 + sign * 15, 48 - sign * 15, 48)
             elif name == 'restore-final-sharpen':
                 value = 120 + ((x // 2 + y // 2) % 2) * 30
                 pixel = (value, value, value)
@@ -133,18 +134,24 @@ def run_playbooks(r, path):
                 require(new < old * 0.98, 'Yellow paper cast did not decrease')
                 metrics = {'yellowBiasBefore': old, 'yellowBiasAfter': new}
             elif name == 'moire-small-radius':
-                old = sum(abs(v - 150) for v in before_rgb)
-                new = sum(abs(v - 150) for v in pixels)
+                expected = bytes(value for _ in range(192) for x in range(256)
+                                 for value in [150 if x < 128 else 190] * 3)
+                old = sum(abs(a - b) for a, b in zip(before_rgb, expected))
+                new = sum(abs(a - b) for a, b in zip(pixels, expected))
                 require(new < old * 0.2, 'Median did not remove the controlled fine-dot pattern')
+                require(pixels[(80 * 256 + 64) * 3] == 150 and pixels[(80 * 256 + 192) * 3] == 190,
+                        'Median removed the coarse tonal structure')
                 metrics = {'dotPatternErrorBefore': old, 'dotPatternErrorAfter': new}
             elif name == 'gentle-color-noise':
                 old, new = chroma(before_rgb), chroma(pixels)
                 require(new < old * 0.98, 'Synthetic color noise was not reduced')
-                require(abs(sum(pixels) / len(pixels) - 128) < 2, 'Noise reduction shifted mean brightness')
+                require(abs(sum(pixels) / len(pixels) - 48) < 2, 'Noise reduction shifted shadow brightness')
                 metrics = {'chromaBefore': old, 'chromaAfter': new}
             elif name == 'restore-final-sharpen':
                 old, new = edge_energy(before_rgb, 256, (16, 16, 240, 176)), edge_energy(pixels, 256, (16, 16, 240, 176))
                 require(new > old, 'Final sharpening did not increase edge contrast')
+                require(max(abs(a - b) for a, b in zip(before_rgb, pixels)) < 10,
+                        'Final sharpening overcorrected the controlled sample')
                 metrics = {'edgeBefore': old, 'edgeAfter': new}
             elif name == 'portrait-backlit':
                 dark = [pixels[(y * 256 + x) * 3] for y in range(16, 176) for x in range(16, 112)]
