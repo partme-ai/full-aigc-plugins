@@ -199,3 +199,7 @@ Windows运行[39002942504](https://github.com/partme-ai/full-aigc-plugins/action
 SVG整理以真实透明SVG输入测试：共线节点减少、原始SVG及原生母版摘要保持、未授权文字保留，PNG的RGBA在简化前后及SVG重开后完全相同。原生白画板不会自动成为SVG背景对象，该格式边界写入手册，不把透明输入验收推广成不透明底色保持。描摹预设实际返回ignoreWhite true，展开后无当前Image对象，中心孔洞/外部alpha0、黑带alpha255；原始扫描PNG摘要保持。
 
 官方macOS0.12原生CLI六项经52次调用通过；95项辅助测试、201条映射静态检查、OpenSpec严格检查及插件8个候选/文档检查通过。源15cdd6d、插件63f786e已推送，Windows将把11条手册+6核心+1组合合并验证。真实复杂曲线、品牌设计、图标家族风格及六场景的宿主同步仍另行验收。
+
+最终Windows[39005885352](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39005885352)绑定目录仓b75fbd8与技能源15cdd6d，13应用业务矩阵全部通过；VectorCraft17个映射配方+1组合经125次真实CLI调用通过。下载85份输出核对SHA256，并独立核对描摹alpha与SVG简化前后/重开RGBA一致，日志中核对活文字CRAFT保留。既有安装/MCP矩阵39005885501通过；不替代本次六场景真实宿主加载/同步验收。完整范围见[核心场景回归记录](craft-vector-core-validation.json)。
+
+累计201条映射：164条完成限定技术回归、1条PDF表单部分通过、36条待逐项执行，另有4条组合用例。VectorCraft17条具备技术样例执行记录；六核心的真实设计与宿主同步未验收。插件文档/架构CI通过，完整实现CI39005811428仍失败；整体目标与OpenSpec继续实施中。
