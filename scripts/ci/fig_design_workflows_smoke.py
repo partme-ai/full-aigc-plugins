@@ -3,8 +3,11 @@ import hashlib
 import importlib.util
 import json
 import math
+import os
 from pathlib import Path
 import struct
+import subprocess
+import sys
 import xml.etree.ElementTree as ET
 import zipfile
 from fig_playbook_smoke import read_nodes, near
@@ -33,6 +36,29 @@ def verify_alias_export(tokens, semantic_id, palette_id):
     values = tokens['meta']['variables'][semantic_id]['valuesByMode']
     assert len(values) == 2 and all(value == {'type': 'VARIABLE_ALIAS', 'id': palette_id}
                                   for value in values.values()), 'Semantic alias was flattened or points elsewhere'
+
+
+def run_standalone_entry(r, skill_root, scene, legacy=False):
+    """实际执行Python CLI入口，强制ASCII标准输出以覆盖非UTF-8终端。"""
+    folder = Path(skill_root) / ('figcraft-scenario-playbooks' if legacy else 'figcraft-' + scene)
+    out = r.work / ('legacy-standalone' if legacy else 'standalone') / '中文目录'
+    out.mkdir(parents=True)
+    target = out / '输出.figcraft'
+    args = [sys.executable, str(folder / 'scripts/run_recipe.py'), '--cli', str(r.exe), '--output', str(target)]
+    if legacy:
+        args += ['--recipes', str(folder / 'references/recipes.json'), '--scene', 'mobile-login-wireframe']
+    result = subprocess.run(args, cwd=out, env={**os.environ, 'PYTHONIOENCODING': 'ascii'},
+                            capture_output=True, timeout=120)
+    (out / 'stdout.json').write_bytes(result.stdout)
+    (out / 'stderr.txt').write_bytes(result.stderr)
+    assert result.returncode == 0, result.stderr.decode('utf-8', errors='replace')
+    receipt = json.loads(result.stdout.decode('ascii'))
+    assert Path(receipt['output']).resolve() == target.resolve() and target.is_file()
+    nodes = read_nodes(r, target, {'root': receipt['bindings']['root']})
+    expected = [390, 884] if legacy else [1280, 1024]
+    assert [nodes['root']['width'], nodes['root']['height']] == expected
+    return {'result': 'PASS', 'stdoutEncoding': 'ASCII JSON decoded without losing Chinese output path',
+            'nativeCommands': len(receipt['steps']), 'scope': 'real separate Python process invoking native CLI; nested invocations are not in direct Runner processCount'}
 
 
 def run_design_workflows(r, skill_root, scenes=None):
@@ -167,9 +193,14 @@ def run_design_workflows(r, skill_root, scenes=None):
             new = helper.execute_recipe(recipe, r.run, r.work, fresh)
             fresh_nodes = read_nodes(r, fresh, {k: new['bindings'][k] for k in recipe['nodeBindings']})
             assert [fresh_nodes['root']['width'], fresh_nodes['root']['height']] == [1280, 1024]
-            records.append({'id': scene, 'nativeRoundtrip': 'PASS', 'existingNodesAndInputProtected': 'PASS',
+            standalone = run_standalone_entry(r, skill_root, scene)
+            record = {'id': scene, 'nativeRoundtrip': 'PASS', 'existingNodesAndInputProtected': 'PASS',
                             'freshAndExistingDocumentPaths': 'PASS', 'modifiedResultReopened': 'PASS',
-                            'actualPngAndSvgExport': 'PASS', 'designQuality': 'NOT_TESTED', 'installedHostSync': 'NOT_TESTED'})
+                            'actualPngAndSvgExport': 'PASS', 'standaloneCliEntry': standalone,
+                            'designQuality': 'NOT_TESTED', 'installedHostSync': 'NOT_TESTED'}
+            if scene == 'light-dark-token-card':
+                record['legacyScenarioStandaloneEntry'] = run_standalone_entry(r, skill_root, scene, legacy=True)
+            records.append(record)
         return records
     finally:
         r.work = original

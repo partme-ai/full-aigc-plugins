@@ -23,8 +23,42 @@
     "tests": 209,
     "result": "PASS"
   },
-  "windows": "PENDING",
-  "installedHostSync": "PENDING",
+  "windows": {
+    "run": 39060824250,
+    "sourceCommit": "4e2308b59624f32389f7d4fa4d66f368a518988e",
+    "records": 18,
+    "trackedCliProcesses": 292,
+    "outputHashesVerified": 128,
+    "result": "PASS",
+    "scope": "native steps; four standalone Python-entry ASCII/Chinese-path regression newly added and pending rerun"
+  },
+  "installedHostSync": {
+    "result": "LIMITED_SYNTHETIC_PASS",
+    "host": "native Codex app-server + IAB",
+    "thread": "01a14b40-5f4c-7db3-988a-7f1edcca9b1e",
+    "mcpCalls": 96,
+    "canonicalRecipeMcpSteps": 60,
+    "sourceRecipeCommit": "64b447d22c3f65c909e869ff455b435069da27ce",
+    "distribution": "isolated local candidate; not yet public new release",
+    "checks": [
+      "Light/Dark cards created from actual MCP returns; Dark variable changed independently",
+      "real nested icon swap, hidden icon and text overrides; main fill and Publish label change visibly",
+      "signed chart changed to all-zero, retaining zero labels and no false columns",
+      "seven actual saved .figcraft files independently read by stable native CLI",
+      "new-path chart copy actually opened at index4 with repairs[]; PNG pixels unchanged after reopen"
+    ],
+    "runtime": {
+      "source": "bundled",
+      "latestLookup": "HTTP404 fallback, not a successful latest download",
+      "upstreamCommit": "d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08",
+      "upstreamVersion": "0.6.0"
+    },
+    "limits": [
+      "synthetic only",
+      "other hosts not tested",
+      "old prototype clicks not qualified"
+    ]
+  },
   "marketRelease": "NOT_PUBLISHED",
   "knownCorrections": [
     "fill:null rejected by native; transparent icon components use fills:[]",
@@ -214,6 +248,66 @@
     "full-business/中文 业务 workspace/core-import-fig/nodes.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
     "full-business/中文 业务 workspace/core-import-fig/receipt.json": "1346380aedb665585d308ab7c92cfdb198e23ed7c45491e3ad76603450a8df5d",
     "full-business/中文 业务 workspace/core-dev-handoff/handoff-assets/Icon/Primary@2x.png": "0ee4629b36749d2463322f4afb5ffcedebdb82ec6c1e68c8382d86df009c0e98",
-    "full-business/中文 业务 workspace/core-dev-handoff/handoff-assets/Icon/Primary.png": "a711add5e5dc2d2ef731f3cecd0f3d45c1429b8cf505ca4866773a3bba886520"
+    "full-business/中文 业务 workspace/core-dev-handoff/handoff-assets/Icon/Primary.png": "a711add5e5dc2d2ef731f3cecd0f3d45c1429b8cf505ca4866773a3bba886520",
+    "fresh-native-tty/chart-all-zero.jpg": "7ad572b2b72f8af4b6e7a34133170ab7741ad06566da7b1c539622596715515b",
+    "fresh-native-tty/frozen-native-rpc.json": "6d57bbe0421a883de7d05ce4403040b3f47edaf1bca38323984080c2b6d47b1e",
+    "fresh-native-tty/chart-signed-initial.jpg": "acb54d52787b87b5d538613bf61d5a9a0abe19f0b0268a919084703266704d56",
+    "fresh-native-tty/buttons-initial.jpg": "27aa67f3887b8583e492722cb5b72a0f5415d98ed88afce28be98aee5d439f4a",
+    "fresh-native-tty/frozen-calls.json": "2a0101b9886c445300055ce85d9d4e83d81191bbf8e08aaa7012696735b1825e",
+    "fresh-native-tty/buttons-main-changed.jpg": "e8f5d7057ec766a7be51e5664135a0ee039e0f7798e4d1653339c7f0eded4c72",
+    "fresh-native-tty/chart-reopened.jpg": "e3ad813ed7576d7931052eea980881c824fd536e8f91fb59d2c853233b665919",
+    "fresh-native-tty/theme-dark-changed.jpg": "d5b049a8e2d3ce6c01cb4d8e235ae624d9b5bbba59bf9c60bea95b67411d9261",
+    "fresh-native-tty/theme-initial.jpg": "57f62a82e7e685c853def9e6c389ae7dc4725f1ca78c97a3155cede6c6bc7a91",
+    "fresh-native-tty/workspace/host-chart-zero.figcraft": "2b561b81b9989bf37093ff106edb1b35da5c10f1fc3afe88063c76825acda4a4",
+    "fresh-native-tty/workspace/host-chart-zero.png": "2dca9b663cf145704add9600ad5e9ea735b1ea6170e3f7312f0fa1669b90a8be",
+    "fresh-native-tty/workspace/host-theme.figcraft": "748f9fdbb9915c6edd7ccba37c7ffab2131729435bfa6b3b52ad95403e28030c",
+    "fresh-native-tty/workspace/host-chart.png": "82de2c232c2f526ac8fd2ecdd5686dc4f4309bebddc2e017dfae694fdbf14c0d",
+    "fresh-native-tty/workspace/host-theme-dark-changed.figcraft": "50df1ae2a01a232c551342d1a788add74c8564cf5a2c17af0995b4aee0f5e7a4",
+    "fresh-native-tty/workspace/host-chart.figcraft": "068b50b948ab597a9c3abe01036537a132c8afdb518b12067d70b0c49fa9bece",
+    "fresh-native-tty/workspace/host-buttons-main-changed.figcraft": "ef40f69b3ee692a0728260d46628d08320720065656e664675c38b9a312d7132",
+    "fresh-native-tty/workspace/host-chart-reopened.png": "2dca9b663cf145704add9600ad5e9ea735b1ea6170e3f7312f0fa1669b90a8be",
+    "fresh-native-tty/workspace/host-chart-reopened.figcraft": "2b561b81b9989bf37093ff106edb1b35da5c10f1fc3afe88063c76825acda4a4",
+    "fresh-native-tty/workspace/host-buttons.figcraft": "a3cb60abfad59f736a05147a9fc593ee0730d51c5d95a039cc91fd410c449dc0",
+    "host-independent-readback/result.json": "ea63273628023b68b191bff2c7a4903aa3d17bf17c4dff1810c0c248058dc030"
+  },
+  "packageMcpRegression": {
+    "run": 39060824192,
+    "result": "PASS",
+    "scope": "previous published package matrix, not new scene release"
+  },
+  "standaloneEncodingRegression": {
+    "before": "actual native file completed, final Python JSON print failed with UnicodeEncodeError under forced ASCII stdout",
+    "fix": "ASCII-escaped JSON in three new executors plus existing scenario runner; Unicode values preserved after JSON decoding",
+    "macOSActualEntries": [
+      {
+        "scene": "light-dark-token-card",
+        "result": "PASS",
+        "stdoutEncoding": "ASCII JSON decoded without losing Chinese output path",
+        "nativeCommands": 24,
+        "scope": "real separate Python process invoking native CLI; nested invocations are not in direct Runner processCount"
+      },
+      {
+        "scene": "swappable-icon-button",
+        "result": "PASS",
+        "stdoutEncoding": "ASCII JSON decoded without losing Chinese output path",
+        "nativeCommands": 19,
+        "scope": "real separate Python process invoking native CLI; nested invocations are not in direct Runner processCount"
+      },
+      {
+        "scene": "signed-bar-chart",
+        "result": "PASS",
+        "stdoutEncoding": "ASCII JSON decoded without losing Chinese output path",
+        "nativeCommands": 17,
+        "scope": "real separate Python process invoking native CLI; nested invocations are not in direct Runner processCount"
+      },
+      {
+        "scene": "legacy-mobile-login",
+        "result": "PASS",
+        "stdoutEncoding": "ASCII JSON decoded without losing Chinese output path",
+        "nativeCommands": 10,
+        "scope": "real separate Python process invoking native CLI; nested invocations are not in direct Runner processCount"
+      }
+    ],
+    "windows": "PENDING"
   }
 }
