@@ -60,7 +60,7 @@ jobs:
         if: matrix.plugin == 'deckcraft'
         with:
           repository: full-aigc-skills/deckcraft-skills
-          ref: 0d0468eeebe81cd7a427ed1da102535498d286c7
+          ref: 9ce5ea0f64278daba7459f8379a9b01fd891e32e
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'soundcraft'

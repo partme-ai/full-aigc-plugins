@@ -505,11 +505,12 @@
     "oldVersion": "0.11.0",
     "newVersion": "0.12.0",
     "editingCommandCounts": {
-      "old": 770,
+      "old": 749,
       "new": 770,
-      "addedIds": 0,
+      "addedIds": 21,
       "removedIds": 0,
-      "changedParamDescriptions": 0
+      "changedParamDescriptions": 72,
+      "baseline": "official0.11.0 macOS binary, archive SHA256 verified; replaces wrongly reused0.12 cache"
     },
     "nativeMcpSchemaChanges": [
       "command_list.query",
@@ -541,7 +542,218 @@
       "menuPathCount": 11,
       "detailedCommandCount": 1,
       "briefOmitsParams": true
-    }
+    },
+    "addedCommands": [
+      {
+        "enabled": true,
+        "id": "action.batch",
+        "label": "Batch…",
+        "menu": [],
+        "params": "{commands: [{command, params}] (the action's steps), source?: folder (default) | datasets, folder? (required for folder: the source folder), includeSubdirs?: false, destination?: none (default: leave each file open) | saveAndClose (save over the source and close) | folder (save or export into destinationFolder and close), destinationFolder? (required when destination is folder; also the folder Override Save/Export write into), overrideOpen?: true (skip document.open / file.open steps: the batch opens each source file), overrideSave?: true (point document.save / file.save / file.saveAs at destinationFolder/{stem}.{ext}), overrideExport?: true (point document.export / document.exportForScreens / document.exportSelection the same way), stopOnError?: true, label?} play the commands on every readable file in folder (and its subfolders when includeSubdirs), or on every data set of the open document (source: datasets; File + Data Set Name for Override Save/Export). Caps: 500 files or data sets, 8 folder levels, 256 steps. Batches cannot nest. → {processed: [{path|dataset, result|error}…], count, failed, stopped}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "dataset.export",
+        "label": "Export Data Sets…",
+        "menu": [
+          "Window",
+          "Variables"
+        ],
+        "params": "{path?} write every dataset as CSV (header: name, then variables); without path → {csv, datasets}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "dataset.import",
+        "label": "Import Data Sets…",
+        "menu": [
+          "Window",
+          "Variables"
+        ],
+        "params": "{path? | data? | dataBase64? | csv?} load datasets from CSV (header: name, then variable names; one row per dataset). Rows whose name already exists are replaced → {imported, updated, names}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "dimension.applyToAll",
+        "label": "Apply to All",
+        "menu": [],
+        "params": "{id?: dimension id (default the first selected dimension)} gives every dimension in the document that dimension's style (its scale too), as one undo step → {ids}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "dimension.create",
+        "label": "Create Dimension",
+        "menu": [],
+        "params": "{mode?: linear|angular|radius|diameter, a?: [x,y], b?: [x,y], vertex?: [x,y], source?: {kind: segment, edge: {node,subpath,segment}}|{kind: angle, first: edge, second: edge}|{kind: circle, node}|{kind: arc, edge}|{kind: points, a?, b?, vertex?: {node,subpath,anchor}}, offset?: pt, options?: {units: in|mm|pt|pc|px|cm|m|ft|yd, precision: 0-6, scale: drawing:real, hideUnits, lineWeight, lineType: solid|dashed|dotted, lineColor: [r,g,b], arrowStyle: filled|open|tick|none, arrowScale: %, extensionWeight, extensionType, extensionColor, extensionOffset, extensionLength, hideExtensions, fontFamily, fontStyle, fontSize, textColor, textPosition: away|between, textAlignment: left|center|right, textOffset}} → {id,label}; linked measurements follow source edits",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "dimension.update",
+        "label": "Update Dimensions",
+        "menu": [],
+        "params": "{ids?: [dimension ids] (default selection), options?: dimension options, offset?: pt} restyle or move existing dimensions → {ids}",
+        "shortcut": null
+      },
+      {
+        "enabled": true,
+        "id": "document.exportPresets.delete",
+        "label": "Delete Export Preset",
+        "menu": [],
+        "params": "{name} delete a saved batch export preset (built-in ones stay) → {deleted}",
+        "shortcut": null
+      },
+      {
+        "enabled": true,
+        "id": "document.exportPresets.list",
+        "label": "Export Presets",
+        "menu": [],
+        "params": "{} → {presets: [{name, builtIn, settings}]} the built-in batch export presets (Logo Package, Print-Ready PDF), then the saved ones; any name works as document.exportForScreens' exportPreset",
+        "shortcut": null
+      },
+      {
+        "enabled": true,
+        "id": "document.exportPresets.save",
+        "label": "Save Export Preset",
+        "menu": [],
+        "params": "{name, settings: {formats, settings, preset, name, prefix, counterStart, counterPer, folders, subfolders, includeBleed, antiAlias, folder, fullDocument} (as document.exportForScreens; other keys are left out)} save (or replace) a batch export preset, kept with the preferences; built-in names are refused → {name, created, settings}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "object.intertwine.arrange",
+        "label": "Arrange Intertwine Area",
+        "menu": [],
+        "params": "{id?: Intertwine group (default: the selected one), at?: [x,y] (the overlap area under this point, as a click picks it) | area?: [[x,y]…] (a closed polygon drawn around overlap areas: every area whose inside it encloses), order?: toggle|front|back (toggle: the object drawn right below the top comes to the front, so two objects swap), member?: id (front and back: the object to move; default: front brings the object right below the top, back sends the top one)} → {count: areas changed, top: [id of the object now on top in each area]}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "object.intertwine.edit",
+        "label": "Edit",
+        "menu": [
+          "Object",
+          "Intertwine"
+        ],
+        "params": "{} choose the Intertwine tool for the selected Intertwine group (Esc or Enter goes back to the tool before)",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "object.intertwine.make",
+        "label": "Make",
+        "menu": [
+          "Object",
+          "Intertwine"
+        ],
+        "params": "{ids?: two or more objects (default: the selection)} put the objects in an Intertwine group and choose the Intertwine tool, which arranges its overlap areas (object.intertwine.arrange) → {id}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "object.intertwine.release",
+        "label": "Release",
+        "menu": [
+          "Object",
+          "Intertwine"
+        ],
+        "params": "{} give the objects of the selected Intertwine groups back as they were made, dropping the arranged areas → {ids}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "select.update",
+        "label": "Update Selection",
+        "menu": [
+          "Select"
+        ],
+        "params": "{} make the saved selection last recalled (`select.recall`) hold the selected objects instead of its own, in one undo step → {name}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "symbol.options",
+        "label": "Symbol Options…",
+        "menu": [],
+        "params": "{name?, newName?, registration?: 0..8, exportType?: movieClip|graphic} rename a symbol and/or set Symbol Options › Registration and Export Type (default name: current) → {name, registration, exportType}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "type.resetHorizontalScale",
+        "label": "Reset Horizontal Scale",
+        "menu": [],
+        "params": "{ids?: [id…]} set the horizontal scale to 100% (as the Character panel shows it, the object's own transform included) in all the text of the type objects in `ids`, else in the text the Type tool has selected (nothing at a caret), else in every selected type object, as one undo step → {ids}",
+        "shortcut": "Cmd+Shift+X"
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "type.resetTracking",
+        "label": "Reset Tracking and Kerning",
+        "menu": [],
+        "params": "{ids?: [id…]} set tracking to 0 and kerning to Auto (the font's own kerning, which the Character panel shows as 0) in all the text of the type objects in `ids`, else in the text the Type tool has selected (at a caret: only the kerning of the character before it), else in every selected type object, as one undo step → {ids}",
+        "shortcut": "Cmd+Alt+Q"
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "type.size.decreaseByFive",
+        "label": "Decrease Font Size by Five Steps",
+        "menu": [],
+        "params": "{} type.step {attribute: size, by: -5}: five times the Size/Leading increment (typeSizeIncrement)",
+        "shortcut": "Cmd+Alt+Shift+,"
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "type.size.increaseByFive",
+        "label": "Increase Font Size by Five Steps",
+        "menu": [],
+        "params": "{} type.step {attribute: size, by: 5}: five times the Size/Leading increment (typeSizeIncrement)",
+        "shortcut": "Cmd+Alt+Shift+."
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "variable.makeGraphDynamic",
+        "label": "Make Graph Dynamic",
+        "menu": [
+          "Window",
+          "Variables"
+        ],
+        "params": "{} define a graph variable over the selected graph root(s), named after it and bound to it; each dataset row supplies CSV as graph.setData",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "variable.makeImageDynamic",
+        "label": "Make Image Dynamic",
+        "menu": [
+          "Window",
+          "Variables"
+        ],
+        "params": "{} define an image variable over the selection, named after it and bound to it",
+        "shortcut": null
+      }
+    ],
+    "nativeCiBaselineAlreadyVersion": "0.12.0"
   },
   "openWork": [
     "Review unreleased main API/behavior changes, including truncated comparisons; do not silently advertise them as released capabilities.",

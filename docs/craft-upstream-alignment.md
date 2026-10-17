@@ -18,7 +18,7 @@
 | gridcraft | [v0.7.0](https://github.com/storytold/gridcraft/releases/tag/v0.7.0) | 同一提交 | 7 |
 | wordcraft | [v0.7.0](https://github.com/storytold/wordcraft/releases/tag/v0.7.0) | 同一提交 | 274 |
 
-VectorCraft0.12原生CLI已下载并核对官方SHA256：770个编辑命令ID和参数描述与旧观察目录相同；原生MCP的两个目录入口新增query/menu/brief。插件适配层补齐目录检索兼容，保留引擎enabled状态。旧AI7导出已分别通过CLI与原生stdio MCP实际执行，重开检查组/图层/活文字和母版不变。技能新增具体调用与版本边界，未扩大198条场景计数。
+VectorCraft0.12原生CLI已下载并核对官方SHA256：使用真正0.11与0.12二进制比较，命令749→770，新增21个、72个参数描述变化；原生MCP的两个目录入口新增query/menu/brief。原有Windows CI已经固定0.12，旧观察目录来自0.12，不能作为0.11基线。插件适配层补齐目录检索兼容，保留引擎enabled状态。旧AI7导出已分别通过CLI与原生stdio MCP实际执行，重开检查组/图层/活文字和母版不变。技能新增具体调用与版本边界，未扩大198条场景计数。
 
 内嵌引擎仍是0.11，尚未将旧AI导出等引擎行为标成内嵌可用。原生0.12与旧内嵌版本并存必须明确说明，不能只改source.lock或editor.lock冒充构建完成。
 

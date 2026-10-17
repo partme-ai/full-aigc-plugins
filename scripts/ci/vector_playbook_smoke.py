@@ -75,6 +75,28 @@ def run_playbooks(r,path):
         require(any(e.tag.endswith(('path','rect','ellipse','text')) for e in tree.iter()),'No exported vector objects')
         if a.get('outlinedRequired'):require(not any(e.tag.endswith('}text') for e in tree.iter()),'Outlined SVG has live text')
         png=recipe['id']+'.png';r.run('convert',target,png);verify_pixels(r.work/png,a)
+        if recipe['id']=='dimension-unit-delivery':
+            group=next(n for n in nodes(info) if n['kind']=='Group')
+            changed='dimension-reopened-inches.vectorcraft'
+            r.run('run','--in',target,'--cmd','dimension.update','--params',json.dumps({'ids':[group['id']],'options':{'units':'in','precision':2}}),'--export',changed)
+            require(any(n.get('text')=='2.00 in' for n in nodes(inspect(r,changed))),'Reopened dimension lost unit editing')
+        if recipe['id']=='intertwine-overlap-order':
+            def pixel(path,x,y):
+                w,h,p=rgb_pixels(path);return list(p[(y*w+x)*3:(y*w+x)*3+3])
+            require(pixel(r.work/png,100,80)==[255,0,0],'Intertwine did not change the overlap order')
+            released='intertwine-released.vectorcraft'
+            r.run('run','--in',target,'--cmd','select.all','--cmd','object.intertwine.release','--export',released)
+            require(not any(n['kind']=='Intertwine' for n in nodes(inspect(r,released))),'Intertwine release lost editability')
+            r.run('convert',released,'intertwine-released.png')
+            require(pixel(r.work/'intertwine-released.png',100,80)==[0,0,255],'Release did not restore original stacking')
+            require(pixel(r.work/png,30,80)==pixel(r.work/'intertwine-released.png',30,80)==[255,0,0],
+                    'Intertwine changed non-overlap artwork')
+        if recipe['id']=='csv-text-variants':
+            changed='dataset-reopened-alpha.vectorcraft'
+            output=r.run('run','--in',target,'--cmd','dataset.select','--params',json.dumps({'name':'A'}),'--cmd','dataset.export','--export',changed)
+            require(any(n.get('text')=='ALPHA' for n in nodes(inspect(r,changed))),'Saved datasets cannot switch text')
+            exported=next(x['result']['csv'] for x in map(json.loads,output.splitlines()) if x.get('command')=='dataset.export')
+            require('A,ALPHA' in exported and 'B,BETA' in exported,'Dataset export lost variants')
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','editableGeometry':'PASS','pixelChecks':'PASS' if a.get('ringPixels') or a.get('cropPixels') else 'NOT_SELECTED','designReview':'NOT_TESTED'})
     require(bool(records),'No Vector workflows selected')
     records.append(existing_document(r))
