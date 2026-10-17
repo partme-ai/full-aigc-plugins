@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前213条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，EffectCraft9条、FilmCraft9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前216条命令映射：PhotoCraft50条，GridCraft18条，WordCraft17条，DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，EffectCraft9条、FilmCraft9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
 
 | 内容 | 当前事实 |
 | --- | --- |
-| GitHub来源 | 21个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
+| GitHub来源 | 22个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 94个技能中落地213条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 97个技能中落地216条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -395,3 +395,7 @@ Windows main[39031956861](https://github.com/partme-ai/full-aigc-plugins/actions
 新增FilmCraft教学定格、讲者画中画及J-cut声音先入三个独立技能。固定Kdenlive官方帮助提交读取流程事实，原创适配真实命令、批次、ID与时间参数。macOS完整九场景117次CLI调用通过；新增三项真实H.264重新导入解码，核对定格帧与恢复动作、80×60叠加边界及背景、J-cut音频提前1秒且B画面使用匹配源1秒入点，AAC解码后的音频采样窗可区分合成声源。真实采访语义、音质和宿主同步不由此证明，Windows与市场发布待完成。[本批结果](craft-film-delivery-validation.json)。
 
 FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675，123次CLI），73个下载输出摘要一致；安装/MCP矩阵39038858593通过。独立插件仓及技能源已按feature→test→main推送，公开完整ZIP v0.1.0-dev.20261017.7含24技能，Codex真实安装/发现/MCP及包内资源摘要通过。v6的ZCode清单版本遗漏已在v7修正，旧标签未替换。主市场更新进行中，真实素材质量及宿主编辑同步仍未验收。
+
+## WordCraft具体排版场景
+
+新增独立可更新目录手册、图解连续题注、纵向正文与横向附录三个技能，借鉴LibreOffice/help固定提交的工作流事实。修正layout.section不建立分节及表格末尾空段落产生额外行的问题。macOS17场景67次、Windows17场景72次实际CLI回归通过；下载54个输出摘要及三个原始配方摘要一致。检查真实TOC域和有效书签、图片及关系、连续SEQ题注、两节方向及两页PDF方向；查看了macOS实际渲染。来源与插件一致，完整候选v6正在进入主市场。真实文档质量、长文档分页和宿主同步尚未验收。详见craft-word-publishing-validation.json。

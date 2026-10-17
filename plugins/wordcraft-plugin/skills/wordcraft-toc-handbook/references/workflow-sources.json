@@ -1,0 +1,21 @@
+{
+  "policy": "只借鉴工作流事实，场景正文、步骤和参数原创编写。",
+  "sources": [
+    {
+      "repository": "LibreOffice/help",
+      "commit": "8f72ca906e16f3bd2056cd6bb3f3b604621072f8",
+      "license": {
+        "notice": "MPL 2.0 and incorporated Apache 2.0 notices in the read help files; no original prose/code/media redistributed"
+      },
+      "readFiles": [
+        {
+          "path": "source/text/swriter/guide/indices_toc.xhp",
+          "url": "https://github.com/LibreOffice/help/blob/8f72ca906e16f3bd2056cd6bb3f3b604621072f8/source/text/swriter/guide/indices_toc.xhp",
+          "bytes": 5313,
+          "sha256": "d19b98569e8fb8a9a44327c539fc20319167a66dd866aa49ad8c15e008a85ffb"
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    }
+  ]
+}

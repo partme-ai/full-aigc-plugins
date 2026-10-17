@@ -1,0 +1,172 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "wordcraft",
+  "id": "toc-handbook",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Heading 1"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "安装准备"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "核对系统与素材。"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "安装步骤"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "使用已批准的安装包。"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Heading 1"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "使用与排错"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Heading 2"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "排错路径"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "记录实际错误与修复。"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "caret.docStart",
+      "params": {},
+      "purpose": "将目录插入点移到正文之前"
+    },
+    {
+      "command": "references.toc",
+      "params": {
+        "levels": 2,
+        "title": "目录",
+        "pageNumbers": true,
+        "hyperlinks": true
+      },
+      "purpose": "创建基于一二级标题的可更新目录"
+    },
+    {
+      "command": "references.updateToc",
+      "params": {},
+      "purpose": "更新目录文字、页码和书签"
+    },
+    {
+      "command": "document.inspect",
+      "params": {
+        "text": true
+      },
+      "purpose": "核对真实内容和对象结构"
+    }
+  ],
+  "check": "先创建正文标题及段落，再在文首插入两级自动目录；修改后更新目录，核对真实TOC域、四个标题和有效书签跳转。",
+  "boundary": "根据真实内容创建一二级标题；标题层级来自文档逻辑，不能仅凭字体大小推断。新建文档样例，不在既有目录上重复插入。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数按真实输入替换，不含可执行变量；相同CLI进程保持光标和选择。"
+}

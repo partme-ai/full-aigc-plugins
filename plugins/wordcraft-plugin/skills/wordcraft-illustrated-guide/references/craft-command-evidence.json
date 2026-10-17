@@ -1,0 +1,73 @@
+{
+  "runtime": {
+    "version": "0.7.0",
+    "platform": "macOS universal",
+    "observation": "Actual native commands --json"
+  },
+  "observedCommands": {
+    "para.style": {
+      "id": "para.style",
+      "label": "Apply Style",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{\"style\": string (name or id)}",
+      "shortcut": ""
+    },
+    "text.insert": {
+      "id": "text.insert",
+      "label": "Type Text",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{\"text\": string}",
+      "shortcut": ""
+    },
+    "text.newParagraph": {
+      "id": "text.newParagraph",
+      "label": "New Paragraph",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Enter"
+    },
+    "insert.picture": {
+      "id": "insert.picture",
+      "label": "Pictures",
+      "location": "Insert › Illustrations",
+      "mutates": true,
+      "params": "{\"path\"?: string, \"data\"?: base64, \"width\"?: pt, \"alt\"?: string}",
+      "shortcut": ""
+    },
+    "references.caption": {
+      "id": "references.caption",
+      "label": "Insert Caption",
+      "location": "References › Captions",
+      "mutates": true,
+      "params": "{\"label\"?: \"Figure|Table|Equation|any label\", \"text\"?: string, \"position\"?: \"below|above\", \"excludeLabel\"?: bool, \"format\"?: \"ARABIC|alphabetic|ALPHABETIC|roman|ROMAN\", \"chapter\"?: heading level 1-9, \"separator\"?: \"-|.|:|—|–\"}",
+      "shortcut": ""
+    },
+    "caret.docEnd": {
+      "id": "caret.docEnd",
+      "label": "Document End",
+      "location": "Navigation",
+      "mutates": false,
+      "params": "{\"extend\"?: bool}",
+      "shortcut": "Mod+End"
+    },
+    "references.updateFields": {
+      "id": "references.updateFields",
+      "label": "Update Field",
+      "location": "References",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "F9"
+    },
+    "document.inspect": {
+      "id": "document.inspect",
+      "label": "Inspect Document",
+      "location": "Agents",
+      "mutates": false,
+      "params": "{\"text\"?: bool}",
+      "shortcut": ""
+    }
+  }
+}

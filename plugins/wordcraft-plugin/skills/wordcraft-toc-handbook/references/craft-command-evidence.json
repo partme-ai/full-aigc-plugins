@@ -1,0 +1,65 @@
+{
+  "runtime": {
+    "version": "0.7.0",
+    "platform": "macOS universal",
+    "observation": "Actual native commands --json"
+  },
+  "observedCommands": {
+    "para.style": {
+      "id": "para.style",
+      "label": "Apply Style",
+      "location": "Home › Styles",
+      "mutates": true,
+      "params": "{\"style\": string (name or id)}",
+      "shortcut": ""
+    },
+    "text.insert": {
+      "id": "text.insert",
+      "label": "Type Text",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{\"text\": string}",
+      "shortcut": ""
+    },
+    "text.newParagraph": {
+      "id": "text.newParagraph",
+      "label": "New Paragraph",
+      "location": "Editing",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": "Enter"
+    },
+    "caret.docStart": {
+      "id": "caret.docStart",
+      "label": "Document Start",
+      "location": "Navigation",
+      "mutates": false,
+      "params": "{\"extend\"?: bool}",
+      "shortcut": "Mod+Home"
+    },
+    "references.toc": {
+      "id": "references.toc",
+      "label": "Table of Contents",
+      "location": "References › Table of Contents",
+      "mutates": true,
+      "params": "{\"levels\"?: 1-9, \"title\"?: string, \"pageNumbers\"?: bool, \"rightAlign\"?: bool, \"tabLeader\"?: \"dot|hyphen|underscore|none\", \"hyperlinks\"?: bool, \"headingStyles\"?: bool, \"outlineLevels\"?: bool, \"tcFields\"?: bool, \"styleLevels\"?: {style name: 1-9}} (replaces an existing table; {} updates it)",
+      "shortcut": ""
+    },
+    "references.updateToc": {
+      "id": "references.updateToc",
+      "label": "Update Table",
+      "location": "References › Table of Contents",
+      "mutates": true,
+      "params": "{}",
+      "shortcut": ""
+    },
+    "document.inspect": {
+      "id": "document.inspect",
+      "label": "Inspect Document",
+      "location": "Agents",
+      "mutates": false,
+      "params": "{\"text\"?: bool}",
+      "shortcut": ""
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "wordcraft",
+  "id": "landscape-appendix",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "command": "layout.size",
+      "params": {
+        "name": "A4"
+      },
+      "purpose": "确定新文档A4页面"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Heading 1"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "正文摘要"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "正文保留纵向，附录单独横向。"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "layout.break",
+      "params": {
+        "kind": "nextPage"
+      },
+      "purpose": "新起一页并创建真正的分节，不能用layout.section对话框代替"
+    },
+    {
+      "command": "layout.orientation",
+      "params": {
+        "value": "landscape"
+      },
+      "purpose": "只将新附录节改为横向"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Heading 1"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "附录：对照矩阵"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "方案\t适用范围\t限制\t负责人"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "方案甲\t示例范围\t待核实\t待确认"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "caret.docEnd",
+      "params": {},
+      "purpose": "移动到当前文档末尾"
+    },
+    {
+      "command": "caret.paraUp",
+      "params": {
+        "extend": true
+      },
+      "purpose": "向上扩选刚插入的两行表格原文，不触及正文标题"
+    },
+    {
+      "command": "caret.paraUp",
+      "params": {
+        "extend": true
+      },
+      "purpose": "向上扩选刚插入的两行表格原文，不触及正文标题"
+    },
+    {
+      "command": "table.fromText",
+      "params": {
+        "separator": "tab"
+      },
+      "purpose": "将精确选中的制表文本转换为原生表格"
+    },
+    {
+      "command": "table.autofit",
+      "params": {
+        "mode": "window"
+      },
+      "purpose": "让四列适应当前横向节宽"
+    },
+    {
+      "command": "table.repeatHeader",
+      "params": {},
+      "purpose": "设置首行重复表头"
+    },
+    {
+      "command": "document.inspect",
+      "params": {
+        "text": true
+      },
+      "purpose": "核对真实内容和对象结构"
+    }
+  ],
+  "check": "正文A4纵向；通过nextPage分节后仅附录横向，建立原生四列表格并重复表头，核对两节方向、准确两行数据及PDF两页尺寸。",
+  "boundary": "真实矩阵字段及数据已确认，单元格不能含制表或换行。仅新建文档；既有文档需先读分节和页眉页脚，不能整篇改方向。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数按真实输入替换，不含可执行变量；相同CLI进程保持光标和选择。"
+}

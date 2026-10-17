@@ -1,0 +1,127 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "wordcraft",
+  "id": "illustrated-guide",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Heading 1"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "设备配置图解"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "仅使用已确认的截图，不编造界面步骤。"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "insert.picture",
+      "params": {
+        "path": "input/config.png",
+        "width": 240,
+        "alt": "配置步骤截图"
+      },
+      "purpose": "从工作区导入已核对的截图并设置pt宽度与替代文本"
+    },
+    {
+      "command": "references.caption",
+      "params": {
+        "label": "Figure",
+        "text": "配置位置示例",
+        "position": "below"
+      },
+      "purpose": "紧跟所选图片插入原生SEQ题注"
+    },
+    {
+      "command": "caret.docEnd",
+      "params": {},
+      "purpose": "移动到当前文档末尾"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "para.style",
+      "params": {
+        "style": "Normal"
+      },
+      "purpose": "为当前段落应用真实语义样式"
+    },
+    {
+      "command": "text.insert",
+      "params": {
+        "text": "核对连接"
+      },
+      "purpose": "插入已核实内容；示例字段按任务替换"
+    },
+    {
+      "command": "text.newParagraph",
+      "params": {},
+      "purpose": "创建独立段落，不能用软换行代替"
+    },
+    {
+      "command": "insert.picture",
+      "params": {
+        "path": "input/connect.png",
+        "width": 180,
+        "alt": "连接检查截图"
+      },
+      "purpose": "从工作区导入已核对的截图并设置pt宽度与替代文本"
+    },
+    {
+      "command": "references.caption",
+      "params": {
+        "label": "Figure",
+        "text": "连接检查示例",
+        "position": "below"
+      },
+      "purpose": "紧跟所选图片插入原生SEQ题注"
+    },
+    {
+      "command": "references.updateFields",
+      "params": {},
+      "purpose": "更新原生题注序号字段"
+    },
+    {
+      "command": "document.inspect",
+      "params": {
+        "text": true
+      },
+      "purpose": "核对真实内容和对象结构"
+    }
+  ],
+  "check": "按步骤插图并立即添加连续编号题注；保留图片比例与替代文本，检查两幅嵌入图片、SEQ编号1/2和题注位置，逐页看图文是否分离。",
+  "boundary": "input/config.png与input/connect.png是用户批准的截图，先核对顺序、内容及像素尺寸。单位为pt，不能将像素宽度直接当打印尺寸。",
+  "templateOnly": true,
+  "argumentPolicy": "示例参数按真实输入替换，不含可执行变量；相同CLI进程保持光标和选择。"
+}

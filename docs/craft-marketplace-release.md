@@ -1,6 +1,6 @@
 # Craft 插件库开发候选
 
-当前 DesignCraft、PdfCraft、EffectCraft、PhotoCraft 候选为 `0.1.0-dev.20261017.6`，FilmCraft 为 `0.1.0-dev.20261017.7`，其余 8 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
+当前 DesignCraft、PdfCraft、EffectCraft、PhotoCraft、WordCraft 候选为 `0.1.0-dev.20261017.6`，FilmCraft 为 `0.1.0-dev.20261017.7`，其余 7 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
 
 本次修正的动因：Git插件条目的回退列表不解析包内图片，官方源码及本机原生plugin/list均可复现。仅补composerIcon无法改变未安装列表。快照包含技能、MCP清单、官方图标及bootstrap，不增加Agent运行时，亦不将全部创作和宿主同步视为通过。
 
@@ -78,3 +78,7 @@ ZCode的12个市场入口采用完整ZIP地址、整包SHA-256和包内目录，
 新增定格说明、讲解画中画、采访 J-cut 三个独立技能。macOS 九场景117次、Windows九场景123次原生CLI操作通过；Windows下载73个输出摘要一致。完整候选ZIP通过真实Codex安装、24个技能发现、MCP基础调用和编辑器HTML检查。运行资源沿用dev.20261017.2；真实素材语义、主观音质和宿主同步尚未验收。详见[回归记录](craft-film-delivery-validation.json)。
 
 FilmCraft v7已按feature→test→main进入主市场，当前源码提交`a030e9291b4987e3f67b74a3aba9ee53e1866fd6`。test三组CI全部通过，实际订阅刷新errors为空；桌面原生plugin/list确认v7、官方logo/composerIcon及三个新技能文件，市场包共24技能。日常配置中仍显示未安装；隔离真实Codex安装与MCP通过，不将列表可见写成日常已安装。main同源码三组CI也全部通过：市场27项（39039823429）、Windows安装/MCP14项（39039823442）、13应用原生业务（39039823453）。
+
+## WordCraft dev.20261017.6 文档排版场景
+
+新增可更新目录、图片题注、横向附录三个独立技能。macOS/Windows官方0.7.0原生17场景均通过；Windows54个输出和原始配方摘要一致。真实Codex完整包安装与MCP基础调用通过，发现15个技能。此候选复用v2运行资源；真实文档质量、长文档分页和宿主内编辑同步未验收。详见[回归记录](craft-word-publishing-validation.json)。

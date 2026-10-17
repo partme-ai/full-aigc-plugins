@@ -45,6 +45,18 @@
     {
       "name": "wordcraft-business-letter",
       "sha256": "f14b9b9f29c53b6a5c2a1896615f3689a3c1dd0dd30e119307592f0d2683a072"
+    },
+    {
+      "name": "wordcraft-toc-handbook",
+      "sha256": "8e9b4422699793eed1f1e551e8cc64681da49844e409edebeb56832e323fb9ec"
+    },
+    {
+      "name": "wordcraft-illustrated-guide",
+      "sha256": "8e32a5b0cffd724fa7a4041abce3563fc0684f14abbc381e762036a7ab9ee05d"
+    },
+    {
+      "name": "wordcraft-landscape-appendix",
+      "sha256": "e9125ee4464f7e2ac94ad866b8654a0ecefd7b15389877cfbcc808b5e6e2592f"
     }
   ]
 }

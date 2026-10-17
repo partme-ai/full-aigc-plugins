@@ -1,0 +1,21 @@
+{
+  "policy": "只借鉴工作流事实，场景正文、步骤和参数原创编写。",
+  "sources": [
+    {
+      "repository": "LibreOffice/help",
+      "commit": "8f72ca906e16f3bd2056cd6bb3f3b604621072f8",
+      "license": {
+        "notice": "MPL 2.0 and incorporated Apache 2.0 notices in the read help files; no original prose/code/media redistributed"
+      },
+      "readFiles": [
+        {
+          "path": "source/text/swriter/guide/pageorientation.xhp",
+          "url": "https://github.com/LibreOffice/help/blob/8f72ca906e16f3bd2056cd6bb3f3b604621072f8/source/text/swriter/guide/pageorientation.xhp",
+          "bytes": 13242,
+          "sha256": "5f7084616684569208902c60c01bfde8422c052372df7b5e1c659b32be717057"
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+    }
+  ]
+}

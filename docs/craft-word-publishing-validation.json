@@ -1,0 +1,278 @@
+{
+  "scope": "Three original document publishing skills; short synthetic documents and two synthetic PNGs; no host editor sync or real document quality claim",
+  "sourceRecipeCommit": "886b63aafad80a1cf660397ca989a7fdb87bdcfc",
+  "sourceMainCommit": "9274dd4604c5b84496e8a64ecd4ff6eacfb2b663",
+  "pluginMainCommit": "e9588c681f32c402613653244f3217806b360a4a",
+  "version": "0.1.0-dev.20261017.6",
+  "macOS": {
+    "results": [
+      {
+        "id": "project-charter",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "sop-numbered-steps",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "release-bullet-notes",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "decision-register-table",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "letter-header-footer",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "training-exercise-handout",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "term-normalization-draft",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "two-column-brief",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "business-proposal",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "document-comparison",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "document-style",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "meeting-minutes",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "research-report",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "resume-layout",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "toc-handbook",
+        "recipeSha256": "5ebe3414ba40661c5cd63c7a167f51b80b2d0c4223e2880e7fe328ad306e8d2e",
+        "nativeSaveReopenAndStructure": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realContentLayout": "NOT_TESTED",
+        "scope": "original short synthetic documents and two synthetic PNG inputs"
+      },
+      {
+        "id": "illustrated-guide",
+        "recipeSha256": "0cf74b889bf4e7c4f93246b70ff40cd7b2e96b5ff04287824963e781ac632024",
+        "nativeSaveReopenAndStructure": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realContentLayout": "NOT_TESTED",
+        "scope": "original short synthetic documents and two synthetic PNG inputs"
+      },
+      {
+        "id": "landscape-appendix",
+        "recipeSha256": "2da3c4dc3503b882a39ac397879de24d2971808650a6263cbcddc4b70ab49ab4",
+        "nativeSaveReopenAndStructure": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realContentLayout": "NOT_TESTED",
+        "scope": "original short synthetic documents and two synthetic PNG inputs"
+      }
+    ],
+    "processCount": 67
+  },
+  "windows": {
+    "runId": 39040691350,
+    "headSha": "a301e3dad56c823c03d853e23ac8042bcbc20e3e",
+    "processCount": 72,
+    "results": [
+      {
+        "id": "project-charter",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "sop-numbered-steps",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "release-bullet-notes",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "decision-register-table",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "letter-header-footer",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "training-exercise-handout",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "term-normalization-draft",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "two-column-brief",
+        "technicalRoundtrip": "PASS",
+        "semanticChecks": "PASS",
+        "layoutAcceptance": "NOT_TESTED"
+      },
+      {
+        "id": "business-proposal",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "document-comparison",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "document-style",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "meeting-minutes",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "research-report",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "resume-layout",
+        "nativeDocumentChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "visualLayoutAcceptance": "NOT_TESTED",
+        "scope": "synthetic document structure and native save/reopen"
+      },
+      {
+        "id": "toc-handbook",
+        "recipeSha256": "5ebe3414ba40661c5cd63c7a167f51b80b2d0c4223e2880e7fe328ad306e8d2e",
+        "nativeSaveReopenAndStructure": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realContentLayout": "NOT_TESTED",
+        "scope": "original short synthetic documents and two synthetic PNG inputs"
+      },
+      {
+        "id": "illustrated-guide",
+        "recipeSha256": "0cf74b889bf4e7c4f93246b70ff40cd7b2e96b5ff04287824963e781ac632024",
+        "nativeSaveReopenAndStructure": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realContentLayout": "NOT_TESTED",
+        "scope": "original short synthetic documents and two synthetic PNG inputs"
+      },
+      {
+        "id": "landscape-appendix",
+        "recipeSha256": "2da3c4dc3503b882a39ac397879de24d2971808650a6263cbcddc4b70ab49ab4",
+        "nativeSaveReopenAndStructure": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realContentLayout": "NOT_TESTED",
+        "scope": "original short synthetic documents and two synthetic PNG inputs"
+      }
+    ],
+    "downloadedOutputDigestsVerified": 54,
+    "recipeDigestsMatch": true
+  },
+  "tests": {
+    "publishingHelpers": 6,
+    "existingPlaybookHelpers": 52,
+    "pluginNode": 2
+  },
+  "visualReview": "Viewed macOS actual rendered TOC, illustrated guide and appendix second page; no real screenshot or long-document acceptance",
+  "limitations": [
+    "Real document content and long pagination not verified",
+    "Other office viewers not verified",
+    "Same-session MCP scenario execution and embedded editor sync not verified"
+  ],
+  "publication": {
+    "status": "PUBLIC_PRERELEASE_MARKET_UPDATE_IN_PROGRESS",
+    "publishedZip": {
+      "plugin": "wordcraft",
+      "version": "0.1.0-dev.20261017.6",
+      "source": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/download/v0.1.0-dev.20261017.6/wordcraft-plugin-0.1.0-dev.20261017.6.zip",
+      "archiveSha256": "f690b58a1e1701f4be3ff037e82f21df4be89edc3d665081206299bd4a1895eb",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    "candidateBusinessRun": 39040691350,
+    "candidatePackageMcpRun": 39040691353,
+    "candidateCiConclusion": "success"
+  }
+}
