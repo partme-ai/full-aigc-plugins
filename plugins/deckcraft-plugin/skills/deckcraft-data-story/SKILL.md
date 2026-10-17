@@ -15,6 +15,20 @@ license: Apache-2.0
 
 需要可见编辑器时交给 **deckcraft-editor** 技能。独立安装：`npx skills add full-aigc-skills/deckcraft-skills --skill deckcraft-editor`。当前新增技能为本地候选，发布前使用本地配套插件，不把此安装命令当作已发布证明。
 
+## 从真实数据生成命令计划
+
+使用本技能自带的 `scripts/data_story.py`，不依赖其他技能脚本：
+
+```bash
+python3 <本技能目录>/scripts/data_story.py --input data.json --output plan.json
+```
+
+输入结构见 [可填写示例](assets/example-input.json)。`title` 为用户提供、待核实的结论；`unit`、`period`、`source`、`definition`、`limitations`、`action` 必填。保留类别顺序，2至12类、1至3组同口径数值；拒绝缺失值、重复类别、布尔值及非有限数值，不能把缺失值补零。编译器不验证来源真假，也不推断因果。标题较长时仍需预览调整。
+
+计划仅限新建文稿，含 `file.new`，不得对现有编辑会话直接执行。确认新建后，CLI 用 argv 逐项传入 `run --cmd <command>=<JSON params> --save <新路径>`；需要同步画面时，经编辑器就绪后的同一会话逐条 `run_command`，不能另起 CLI 冒充同步。输出计划使用独占创建，不覆盖现有文件。
+
+图表保存为原生分类柱状图；单位进入标题，期间、来源、口径与解释边界进入逐页备注。保存后检查图表数值和备注，并预览所有页面；真实图表轴、字体和投影效果仍需单独验收。
+
 ## 执行步骤
 
 1. 核对指标定义、期间和筛选范围。

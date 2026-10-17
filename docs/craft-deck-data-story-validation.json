@@ -84,5 +84,12 @@
       "reopened.jpg": "d46919325b833988bb0de35db13d6e622bde9985dcab3e5e810264d7898eea6b"
     },
     "scope": "two-category sample only; other hosts and arbitrary data not accepted"
+  },
+  "publishedRelease": {
+    "version": "0.1.0-dev.20261018.2",
+    "commit": "57c6c12139302f66da2e3cf9d5d6b8ddaea50961",
+    "url": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261018.2",
+    "completeZipPublicDownloadInstallMcpRuntimeDigests": "PASS",
+    "marketMain": "PENDING"
   }
 }

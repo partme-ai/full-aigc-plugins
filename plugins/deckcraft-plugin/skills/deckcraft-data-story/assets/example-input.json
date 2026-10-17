@@ -1,0 +1,22 @@
+{
+  "title": "本月签约额增长",
+  "unit": "万元",
+  "period": "2026年9至10月",
+  "source": "合成验证台账",
+  "definition": "已签合同金额，不含意向",
+  "limitations": "不代表已回款",
+  "action": "核查回款计划",
+  "categories": [
+    "9月",
+    "10月"
+  ],
+  "series": [
+    {
+      "name": "签约额",
+      "values": [
+        21,
+        42
+      ]
+    }
+  ]
+}

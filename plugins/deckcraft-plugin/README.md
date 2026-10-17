@@ -1,6 +1,6 @@
 # DeckCraft Use
 
-当前开发预发布版本：`0.1.0-dev.20261017.6`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+当前开发预发布版本：`0.1.0-dev.20261018.2`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -106,3 +106,5 @@ Training, redesign, brand templates, weekly reports, pitches and data stories no
 ## 方案评审对比表开发候选
 
 新增 `deckcraft-option-comparison` 独立技能入口，深化已有比较表流程：显式表格ID、逐格数据口径、完整列宽及PPTX重开改单元格。参考PptxGenJS固定GitHub提交的表格工作流，步骤及Craft参数原创；官方0.7.0 CLI结构与PPTX回读通过，Windows16条记录回归通过；隔离Codex原生MCP与内置浏览器已观察合成短表内容和单元格修改同步。候选发行记录见目录仓；真实素材、外部PowerPoint和其他宿主仍未验收。
+
+数据叙事技能新增可填写输入与原生命令计划，显式图表期间标题、数值标签及右侧图例；macOS/Windows业务往返和真实Codex同会话修改已验证指定样例。重开可能报告Arial缺失，精确字体保真和其他宿主尚未验收。

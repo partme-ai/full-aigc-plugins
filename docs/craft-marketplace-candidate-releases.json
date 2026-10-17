@@ -154,20 +154,20 @@
   },
   {
     "plugin": "deckcraft",
-    "version": "0.1.0-dev.20261017.6",
+    "version": "0.1.0-dev.20261018.2",
     "runtime": "deckcraft-runtime.tgz",
     "sha256": "24299545007e29e38f44cdbdc4ee2dcb3828d8312683d523e49e640a3652cc6b",
     "bytes": 39340189,
     "runtimeRef": "v0.1.0-dev.20261017.2",
     "reuseRuntime": true,
-    "commit": "b01d8d717747c3da0c54e28b50bd5dac7b82544d",
-    "archive": "deckcraft-plugin-0.1.0-dev.20261017.6.zip",
-    "archiveSha256": "20d1547ba438372bbcc1cc129e32147635ff8e378355ea51ae3b344a6504e85e",
-    "releaseUrl": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261017.6",
+    "commit": "57c6c12139302f66da2e3cf9d5d6b8ddaea50961",
+    "archive": "deckcraft-plugin-0.1.0-dev.20261018.2.zip",
+    "archiveSha256": "7fde1fd95a0a743e141c5d7f7c9cadb8ffe59356832dcdd60f224e022285b30b",
+    "releaseUrl": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261018.2",
+    "maximumZipEntryBytes": 38540148,
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS",
-    "maximumZipEntryBytes": 38540148
+    "remoteAssetDigests": "PASS"
   },
   {
     "plugin": "soundcraft",
