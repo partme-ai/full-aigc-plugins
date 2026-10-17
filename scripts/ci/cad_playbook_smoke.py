@@ -123,6 +123,7 @@ def run_playbooks(r,path):
     records.append(run_core_part(r, path))
     records.append(run_core_layers(r, path))
     records.append(run_core_compare(r, path))
+    records.append(run_core_sheet(r, path))
     return records
 
 
@@ -237,4 +238,50 @@ def run_core_compare(r,path):
         assert not same['regions'],'Identical versions contain change regions'
         assert (r.work/'revision-a.dxf').read_bytes()==before and (r.work/'input/revision-b.dxf').read_bytes()==other,'Comparison overwrote source'
         return {'id':'compare-revisions','technicalRoundtrip':'PASS','geometryChecks':'PASS','realAddedEntityAndIdenticalVersions':'PASS','inputPreserved':'PASS','drawingReview':'NOT_TESTED','installedHostSync':'NOT_TESTED'}
+    finally:r.work=original
+
+
+def pdf_control_lengths(data):
+    """只解析本测试的未压缩直线控制PDF，拒绝复杂PDF，不当作通用PDF解释器。"""
+    import re
+    text=data.decode('latin-1')
+    assert '/FlateDecode' not in text,'Control PDF unexpectedly compressed'
+    boxes=re.findall(r'/MediaBox\s*\[([^]]+)\]',text)
+    assert len(boxes)==1,'Control PDF must have one page'
+    box=[float(x) for x in boxes[0].split()]
+    assert len(box)==4 and near(box[:2],[0,0])
+    assert abs(box[2]*25.4/72-210)<0.02 and abs(box[3]*25.4/72-297)<0.02,'Wrong A4 portrait MediaBox'
+    streams=re.findall(r'stream\r?\n(.*?)\r?\nendstream',text,re.S)
+    assert streams,'No PDF content stream'
+    segments=[];start=None
+    for stream in streams:
+        assert not re.search(r'(?m)\s+cm\s*$',stream),'Unexpected PDF transform needs a full PDF interpreter'
+        for line in stream.splitlines():
+            m=re.fullmatch(r'\s*([-+0-9.eE]+)\s+([-+0-9.eE]+)\s+([ml])\s*',line)
+            if not m:continue
+            point=[float(m[1]),float(m[2])]
+            if m[3]=='m':start=point
+            elif start is not None:segments.append(math.dist(start,point)*25.4/72);start=point
+    assert len(segments)==2,'Control PDF must contain exactly two line segments'
+    return sorted(segments)
+
+
+def run_core_sheet(r,path):
+    """从真实模型导出PDF并量测纸面控制线，保全源图。"""
+    recipe=json.loads((Path(path).parents[2]/'cadcraft-sheet-export/references/craft-steps.json').read_text(encoding='utf-8'))
+    original=r.work;r.work=original/'core-sheet-export';r.work.mkdir();(r.work/'output').mkdir()
+    try:
+        r.run('run','--metric','--cmd','line {"points":[[0,0],[5000,0]]}','--cmd','line {"points":[[0,0],[0,4000]]}','--save','control.dxf')
+        before=(r.work/'control.dxf').read_bytes();args=['run','control.dxf']
+        for step in recipe['steps']:args+=['--cmd',step['command']+' '+json.dumps(step['params'])]
+        r.run(*args)
+        lengths=pdf_control_lengths((r.work/'output/sheet.pdf').read_bytes())
+        assert all(abs(a-b)<0.02 for a,b in zip(lengths,[80,100])),('Wrong fixed plot scale',lengths)
+        opts=dict(next(s['params'] for s in recipe['steps'] if s['command']=='plot'));opts.update({'path':'output/fit-control.pdf','fit':True})
+        r.run('run','control.dxf','--cmd','plot '+json.dumps(opts))
+        fitted=pdf_control_lengths((r.work/'output/fit-control.pdf').read_bytes())
+        assert abs(fitted[-1]-100)>1,'Fit control failed to change output length'
+        assert (r.work/'control.dxf').read_bytes()==before,'Plot changed original DXF'
+        info=json.loads(r.run('info','control.dxf'));assert info['entityCount']==2
+        return {'id':'sheet-export','technicalRoundtrip':'PASS','geometryChecks':'PASS','actualA4And100By80mmControl':'PASS','fitPositiveControl':'PASS','drawingReview':'NOT_TESTED','physicalPrinting':'NOT_TESTED','installedHostSync':'NOT_TESTED'}
     finally:r.work=original

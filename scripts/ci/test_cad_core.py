@@ -43,5 +43,16 @@ class CoreFloorPlanTests(unittest.TestCase):
         step = next(row for row in recipe['steps'] if row['command'] == 'compare.next')
         self.assertEqual(step.get('when'), 'comparison_has_regions')
 
+    def test_sheet_export_checks_units_before_plot(self):
+        path = ROOT / 'full-aigc-skills-repositories/cadcraft-skills/skills/cadcraft-sheet-export/references/craft-steps.json'
+        if not path.exists():
+            self.skipTest('Source checkout unavailable')
+        recipe = json.loads(path.read_text())
+        self.assertEqual(recipe['steps'][0]['command'], 'getvar')
+        self.assertEqual(recipe['steps'][0]['params']['name'], 'INSUNITS')
+        plot = next(s['params'] for s in recipe['steps'] if s['command'] == 'plot')
+        self.assertFalse(plot['fit'])
+        self.assertEqual(plot['scale'], '1:50')
+
 if __name__ == '__main__':
     unittest.main()
