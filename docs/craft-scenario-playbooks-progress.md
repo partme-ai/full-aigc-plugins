@@ -258,3 +258,16 @@ Windows main [39013647220](https://github.com/partme-ai/full-aigc-plugins/action
 Windows main [39014846480](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014846480)通过14条唯一场景及1条既有组合用例，共78次进程调用；下载核对原生二进制与54份输出摘要。六项核心逐项检查原生保存/PPTX导入、文字顺序和备注；周报与数据故事在PPTX回读后实际修改图表为21/48，再导出检查活数据，另独立核对行动表九个单元格。稳定CLI的13应用矩阵 [39014843673](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39014843673)全部通过。完整记录见[Deck核心回归](craft-deck-core-validation.json)。辅助测试122项与201条静态映射检查通过；真实提案内容、外部PowerPoint渲染、版式和宿主同步未验收。
 
 累计201条映射：182条限定技术回归通过、1条PDF表单部分通过、18条待执行，另4组合用例。剩余18条为CAD、Design、Fig各6条核心；不据结构回归宣称完整场景有效或市场已发布，原OpenSpec继续实施。
+
+
+## FigCraft六项核心界面场景
+
+补读固定Figma plugin-samples的resizer、codegen、create-rects-shapes，重建桌面线框、三个目标尺寸自动布局、组件真实实例与文字属性覆盖、CSS/1x/2x资产交付、双向原型与真实二进制.fig导入。所有ID来自返回结果，操作显式绑定父节点和目标；独立技能资源已同步插件。
+
+Windows [39015219333](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39015219333)先复现旧线框缺少内容区。最终使用未打补丁的原始main二进制，运行[39017122218](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122218)通过，覆盖14条唯一场景及1条既有文件组合用例，共158次进程调用；下载核对二进制和90份输出摘要。稳定CLI的13应用矩阵[39017122019](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39017122019)全部通过。128项辅助测试与201条静态映射校验通过。
+
+导入核查曾把真实.fig中矢量节点的通用圆角属性当成实际几何，造成误报；实际顶点半径与画框圆角由原始运行时保留。已修正检查器并撤回不必要的运行时补丁。不能从节点名称或warnings为空推断保真。
+
+CLI原型记录仍明确PARTIAL；另通过隔离Codex原生插件安装和app-server的mcpServer/tool/call，在Codex内置浏览器实际完成Start→Result→Start，并用同会话node.set改变中文标题和按钮填色，画布及proto.preview同时变化，保存原生工程。补验仅使用固定main Web候选，旧内置Web的中文显示未替换；没有用SDK充当宿主调用，也未推广到其他Fig场景或Kimi/ZCode。记录见[Fig核心回归](craft-fig-core-validation.json)与[真实宿主原型补验](craft-fig-prototype-host-validation.json)。三种尺寸的响应PNG及桌面线框已查看，未当作真实产品UX或错误/键盘路径验收。
+
+累计201条映射：188条限定技术验证通过（原型包含单独宿主补验）、1条PDF表单部分通过、12条待执行，另4组合用例。剩余12条为CAD、Design各6条核心。完整创作效果、复杂素材、其他宿主及公共市场发行仍未完成，原OpenSpec继续实施。

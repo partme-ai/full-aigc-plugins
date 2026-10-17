@@ -1,0 +1,37 @@
+{
+  "application": "figcraft",
+  "host": "Codex isolated native plugin installation and app-server MCP; observed in Codex in-app browser",
+  "scope": "Only the prototype-flow fixture and explicit live text/fill changes",
+  "webCandidateRun": 39006903491,
+  "webSourceMain": "d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08",
+  "webOverlayPluginCommit": "850ce203022acb4957b4da5f714193b7e1d552df",
+  "hostInstall": "PASS",
+  "mcpViaNativeHost": "PASS",
+  "nativeMcpRoute": "mcpServer/tool/call",
+  "stdioSdkSubstitution": false,
+  "browser": "Codex in-app browser",
+  "actualForwardClick": "PASS Start to Result",
+  "actualBackClick": "PASS Result to Start",
+  "chineseRendered": "PASS on main Web candidate; old bundled 0.6.0 did not show Chinese",
+  "sameSessionEdit": "PASS: node.set changed Chinese title and blue button to green, visible in editor and live preview",
+  "savedNative": "PASS prototype.figcraft",
+  "savedSha256": "86c0b5fbbd6b453bbaeb6448e1d843a8ef607856fdc5d479301864d9000a9521",
+  "previewMethod": "proto.preview",
+  "screenshots": {
+    "start": "0532311bae441d5e4f9f3ee589ad7db1dd5fcdd2506b3021f00437a52eebf3b1",
+    "result": "5fac302c263cd067255a4c798e1248e0fbcf12fdadf2646ce9138e5937d2e484",
+    "before-edit": "73b6359d505bf71f1ac075e7c2f82ad2c58e0f739066e5d4a384b37892ac0103",
+    "after-edit": "bb0d8de94446db32805bcc13d7522a98bae1ab9b4ac42bd6d991787c97b964fa"
+  },
+  "viewport": [
+    1265,
+    712
+  ],
+  "limitations": [
+    "No Kimi or ZCode acceptance in this check",
+    "Not the public marketplace or this active chat plugin registration",
+    "Web candidate precedes the new independent-corner fix; import fix not tested in this host",
+    "Only one synthetic prototype, not all Fig scenes or real product UX",
+    "Default bundled editor was not replaced"
+  ]
+}

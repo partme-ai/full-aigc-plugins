@@ -29,7 +29,7 @@ class FigCoreTests(unittest.TestCase):
     def test_vector_geometry_takes_priority_over_generic_radius(self):
         verify_imported_corners(self.corner_document())
 
-    def test_original_frame_import_loss_is_rejected(self):
+    def test_uniform_frame_corners_are_rejected_for_mixed_fixture(self):
         doc=self.corner_document();doc['nodes']['frame radius=4:8:12:16']['corners']['radii']=[12]*4
         with self.assertRaisesRegex(AssertionError,'frame corner geometry'):
             verify_imported_corners(doc)

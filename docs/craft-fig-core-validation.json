@@ -1,0 +1,99 @@
+{
+  "application": "figcraft",
+  "scope": "Six core workflows: five native technical checks plus prototype native structure and separate real Codex host clicks/live editing; not complete product or all-host acceptance",
+  "oldRecipeFailureRun": 39015219333,
+  "windowsMainRun": 39017122218,
+  "windowsStableMatrixRun": 39017122019,
+  "sourceMain": "d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08",
+  "sceneSourceCommit": "997b6f9ee9dba5ca38da893ba7284e26388e95e0",
+  "driverCommit": "87deccb7318ecac01d11e1fe5ec0b1ae326f28a4",
+  "executableSha256": "258ebcacd03404ab15e627b0a6c1a654b4f7f54336f4c6f4b48351abc0bb945e",
+  "runtimePatchRequired": false,
+  "processCount": 158,
+  "uniqueRecipes": 14,
+  "additionalCombinationCases": 1,
+  "verifiedOutputHashes": 90,
+  "nativeCoreResults": [
+    {
+      "id": "wireframe",
+      "technicalRoundtrip": "PASS",
+      "returnedIdBinding": "PASS",
+      "designReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "responsive-layout",
+      "technicalRoundtrip": "PASS",
+      "returnedIdBinding": "PASS",
+      "designReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED",
+      "actualThreeViewportLayouts": "PASS"
+    },
+    {
+      "id": "design-system",
+      "technicalRoundtrip": "PASS",
+      "returnedIdBinding": "PASS",
+      "designReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED",
+      "instanceOverrideAndMainPropagation": "PASS"
+    },
+    {
+      "id": "dev-handoff",
+      "technicalRoundtrip": "PASS",
+      "returnedIdBinding": "PASS",
+      "designReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED",
+      "actualCssAndTwoScaleAssets": "PASS"
+    },
+    {
+      "id": "prototype-flow",
+      "technicalRoundtrip": "PARTIAL",
+      "returnedIdBinding": "PASS",
+      "designReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED",
+      "prototypeLinksPersisted": "PASS",
+      "actualBrowserClick": "NOT_TESTED"
+    },
+    {
+      "id": "import-fig",
+      "technicalRoundtrip": "PASS",
+      "returnedIdBinding": "PASS",
+      "designReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED",
+      "actualBinaryFigFixture": "PASS",
+      "broadImportFidelity": "NOT_TESTED",
+      "importWarnings": []
+    }
+  ],
+  "prototypeHostSupplement": "craft-fig-prototype-host-validation.json",
+  "limitedTechnicalOutcome": "PASS after combining five native PASS records with one prototype native/host supplement",
+  "fixture": {
+    "repository": "sketch-hq/fig2sketch",
+    "commit": "4eddfd4f4e6185264ab59a3a65922a33843fc34d",
+    "path": "tests/data/corners.fig",
+    "url": "https://raw.githubusercontent.com/sketch-hq/fig2sketch/4eddfd4f4e6185264ab59a3a65922a33843fc34d/tests/data/corners.fig",
+    "sha256": "2d1aa94b4fffa882bb229dfebd7c5e30ed6fc9ae3390071cb40c953ff2d942b6",
+    "bytes": 31478,
+    "license": "MIT",
+    "purpose": "Real Figma binary import fixture; not broad import fidelity proof"
+  },
+  "verificationCorrections": [
+    "info requires explicit --json",
+    "A layer named rect in the real fixture is a vector; validate network vertex radii, not its generic corners field",
+    "Independent frame corners and vector vertex geometry were preserved by the original runtime; experimental runtime patch was removed",
+    "Original executable SHA256 was verified after final recheck"
+  ],
+  "sampleVisualReview": [
+    "390x884,768x1024,1280x1024 native responsive PNGs viewed",
+    "1280x1024 wireframe PNG viewed",
+    "Real Codex IAB prototype and live edits viewed; see host supplement"
+  ],
+  "limitations": [
+    "Only one real Figma binary fixture; not universal Figma import fidelity",
+    "Prototype error-state and keyboard navigation acceptance not performed",
+    "Other five scenes not accepted in installed host",
+    "No Kimi or ZCode acceptance in this batch",
+    "Old default bundled Web Chinese rendering issue remains; verified host used pinned main candidate",
+    "No public marketplace release"
+  ]
+}
