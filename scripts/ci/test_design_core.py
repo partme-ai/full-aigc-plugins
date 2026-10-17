@@ -141,4 +141,40 @@ class BrochureContract(unittest.TestCase):
         wrong=copy.deepcopy(stories);wrong[0]['overset']=0
         with self.assertRaisesRegex(AssertionError,'remains overset'):verify_brochure(info,wrong,bindings,recipe)
 
+
+class PosterContract(unittest.TestCase):
+    def test_poster_has_a3_size_native_qr_and_matching_visible_link(self):
+        recipe=json.loads((ROOT.parent/'designcraft-poster-layout/references/craft-steps.json').read_text(encoding='utf-8'))
+        steps=recipe['steps'];new=next((s for s in steps if s['command']=='file.new'),None)
+        self.assertIsNotNone(new,'Poster must set the confirmed final dimensions')
+        self.assertAlmostEqual(new['params']['width'],297*72/25.4)
+        self.assertAlmostEqual(new['params']['height'],420*72/25.4)
+        qr=next((s for s in steps if s['command']=='object.qrCode'),None)
+        self.assertIsNotNone(qr,'Do not replace a scannable registration code with an empty square')
+        link=next(s for s in steps if s['command']=='hyperlink.create')
+        self.assertEqual(qr['params']['content'],link['params']['url'])
+        copy=next(s for s in steps if s.get('capture')=='registration')
+        self.assertIn(qr['params']['content'],copy['params']['text'])
+        self.assertGreaterEqual(sum(s['command']=='style.paragraph.apply' for s in steps),5)
+        self.assertNotIn('file.package',[s['command'] for s in steps])
+
+
+    def test_qr_bounds_keep_native_ink_and_reserved_white_border_separate(self):
+        from design_poster_smoke import verify_qr_bounds
+        verify_qr_bounds([10,10,90,90],[0,0,100,100])
+        for bounds in [[0,0,100,100],[10,10,90,80],[0,10,80,90]]:
+            with self.assertRaises(AssertionError):verify_qr_bounds(bounds,[0,0,100,100])
+
+
+    def test_registration_checks_destination_and_actual_source_not_link_name(self):
+        from design_poster_smoke import verify_registration
+        url='https://example.org/workshop';link={'dest':{'kind':'url','value':url},'source':{'id':13,'kind':'item'}}
+        verify_registration(url,url,'Register: '+url,13,[link])
+        wrong=copy.deepcopy(link);wrong['name']=url;wrong['dest']['value']='https://example.org/other'
+        with self.assertRaisesRegex(AssertionError,'lost or changed'):verify_registration(url,url,url,13,[wrong])
+        wrong=copy.deepcopy(link);wrong['source']['id']=99
+        with self.assertRaisesRegex(AssertionError,'wrong frame'):verify_registration(url,url,url,13,[wrong])
+        with self.assertRaisesRegex(AssertionError,'Visible'):verify_registration(url,url,'An unrelated address',13,[link])
+        with self.assertRaisesRegex(AssertionError,'different destination'):verify_registration(url,'https://example.org/other',url,13,[link])
+
 if __name__=='__main__':unittest.main()
