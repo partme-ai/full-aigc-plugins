@@ -33,9 +33,13 @@
 | Windows：Design、Print、Film、Vector、Effect、Light | [39007949879](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39007949879) |
 | Windows：Photo，含上游两项预设持久化测试 | [39008034368](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39008034368) |
 | Windows：Print新增文字统计与无障碍检查 | [39008588714](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39008588714) |
+| Windows：Deck实际starter和品牌页复用 | [39010982169](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39010982169) |
+| Windows：Light新增模板恢复和联系印样PDF | [39010884426](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39010884426) |
 | Windows：Design新增SVG导入与可编辑PPTX交付 | [39008681404](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39008681404) |
 
 原生报告及落盘输出摘要已核对。复验使用同一份已校验SHA-256的main二进制；测试报告保留二进制构建时的插件固定点和本次技能源固定点，不把后续纯文档提交冒充旧CI执行版本。源提交与插件构建适配见每份CI provenance；候选清单记录当前适配源码，不能反推所有历史产物均由最新文档提交构建。
+
+新增流程的结构化验证摘要见[业务验证](craft-main-new-workflow-validation.json)。
 
 ## 差异与技能补充
 
@@ -45,8 +49,8 @@
 | WordCraft | +12、27变化 | 原生页眉页脚、筛选排序邮件合并 | Windows实际DOCX部件、收件人顺序、重开读取通过 |
 | DesignCraft | +60、119变化 | SVG导入、可编辑PPTX、Flex操作指引 | Windows原生保存重开、活文字与矢量对象PPTX、PDF通过；Flex未执行 |
 | PrintCraft（上游PdfCraft） | +7 MCP工具、16变化 | 文字统计、选定无障碍规则及其能力边界 | Windows统计3个英文词、重复页去重、未标记内容检测及输入摘要保持通过；非完整无障碍认证 |
-| LightCraft | +58、7变化 | 联系印样PDF、版式模板、蒙版效果模板、幻灯片导出 | 真实契约已适配，新流程未专项执行 |
-| DeckCraft | +89、36个无歧义契约变化 | starter模板、指定页面复用、结构化MCP目录读取 | main目录与既有业务回归通过；模板/复用新流程未专项执行 |
+| LightCraft | +58、7变化 | 联系印样PDF、版式模板、蒙版效果模板、幻灯片导出 | Windows模板恢复、两张照片单页PDF及原片保持通过；蒙版和幻灯片未执行 |
+| DeckCraft | +89、36个无歧义契约变化 | starter模板、指定页面复用、结构化MCP目录读取 | Windows实际starter、指定品牌页顺序、可编辑PPTX和源文件保护通过；外部渲染未执行 |
 | FigCraft | +2、5变化 | 自动保存、显式协作成员移除及宿主限制 | 真实契约已适配，新流程未专项执行 |
 | FilmCraft | 无新增ID、1变化 | timeline.select linked单侧音视频选择及全局设置边界 | 真实契约与上游源码已核对；关联音视频新场景未专项执行 |
 | CAD、Grid、Sound、Effect、Vector | 相对此处稳定目录无方法/契约变化 | 沿用现有指导，按main重新构建回归 | 既有原生业务通过，未据此宣称所有主线行为已验收 |
