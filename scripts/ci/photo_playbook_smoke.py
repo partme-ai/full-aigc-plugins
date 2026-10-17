@@ -123,4 +123,6 @@ def run_playbooks(r, path):
     require({x['id'] for x in records}==selected,'Missing required recipe')
     from photo_more_smoke import run_playbooks as run_more
     records.extend(run_more(r, path))
+    from photo_repair_smoke import run_playbooks as run_repairs
+    records.extend(run_repairs(r, path))
     return records
