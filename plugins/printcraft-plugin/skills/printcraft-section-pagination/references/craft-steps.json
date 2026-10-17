@@ -1,0 +1,108 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "printcraft",
+  "id": "section-pagination",
+  "title": "前言与正文分别编号",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "templateOnly": true,
+  "sourceFiles": [
+    "input.pdf"
+  ],
+  "steps": [
+    {
+      "command": "doc_info",
+      "params": {
+        "doc": 1
+      },
+      "purpose": "核对前言/正文的实际页区间及页脚留白"
+    },
+    {
+      "command": "doc_header_footer",
+      "params": {
+        "doc": 1,
+        "pages": [
+          1
+        ],
+        "footer_center": "i",
+        "margins": [
+          12,
+          12,
+          20,
+          20
+        ],
+        "font_size": 9,
+        "replace": false
+      },
+      "purpose": "确认只有一页前言，显示i"
+    },
+    {
+      "command": "doc_header_footer",
+      "params": {
+        "doc": 1,
+        "pages": [
+          2
+        ],
+        "footer_center": "Page 1 of 3",
+        "margins": [
+          12,
+          12,
+          20,
+          20
+        ],
+        "font_size": 9,
+        "replace": false
+      },
+      "purpose": "正文第1页对应PDF物理第2页"
+    },
+    {
+      "command": "doc_header_footer",
+      "params": {
+        "doc": 1,
+        "pages": [
+          3
+        ],
+        "footer_center": "Page 2 of 3",
+        "margins": [
+          12,
+          12,
+          20,
+          20
+        ],
+        "font_size": 9,
+        "replace": false
+      },
+      "purpose": "正文第2页对应PDF物理第3页"
+    },
+    {
+      "command": "doc_header_footer",
+      "params": {
+        "doc": 1,
+        "pages": [
+          4
+        ],
+        "footer_center": "Page 3 of 3",
+        "margins": [
+          12,
+          12,
+          20,
+          20
+        ],
+        "font_size": 9,
+        "replace": false
+      },
+      "purpose": "正文第3页对应PDF物理第4页"
+    },
+    {
+      "command": "doc_save",
+      "params": {
+        "doc": 1,
+        "path": "output/numbered-report.pdf",
+        "full": true
+      },
+      "purpose": "完整另存交付副本，不覆盖源PDF"
+    }
+  ],
+  "check": "重开输出检查前言i及正文1/3、2/3、3/3仅出现在对应页，页脚不遮挡正文；四页原文字与源摘要保持。",
+  "boundary": "此处添加可见页脚，不修改PDF阅读器PageLabels，也不是书签页码或Bates连续编号。实际正文页数变化后重新生成映射；replace=false不会清理旧页脚，不能对已有编号盲目重复执行。",
+  "argumentPolicy": "doc/other是sourceFiles中1起始逻辑槽，仅用于随技能编译器生成的全新CLI脚本；MCP必须替换成当前doc_open实际返回ID。页号1起始，路径和坐标按真实输入替换，保持同一会话。"
+}

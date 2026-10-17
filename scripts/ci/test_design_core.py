@@ -3,7 +3,7 @@ import json
 import os
 from pathlib import Path
 import unittest
-from design_core_smoke import verify_newsletter,verify_catalog_links,verify_toc_entries
+from design_core_smoke import verify_newsletter,verify_catalog_links,verify_toc_entries,verify_brochure
 import copy
 from design_preflight_smoke import verify_repaired
 
@@ -106,5 +106,75 @@ class PrintPreflightContract(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'export must stop'):verify_repaired(before,{'issues':[{'kind':'lowResolution','severity':'warning'}]})
         with self.assertRaisesRegex(AssertionError,'all target defects'):verify_repaired({'issues':[]},{'issues':[]})
 
+
+
+class BrochureContract(unittest.TestCase):
+    def test_brochure_has_four_distinct_pages_and_bound_product_images(self):
+        recipe=json.loads((ROOT.parent/'designcraft-brochure/references/craft-steps.json').read_text(encoding='utf-8'))
+        steps=recipe['steps'];new=next((s for s in steps if s['command']=='file.new'),None)
+        self.assertIsNotNone(new,'Brochure needs a real multipage document')
+        self.assertEqual(new['params']['pages'],4)
+        self.assertEqual({s['params']['spread'] for s in steps if s['command']=='frame.create'},set(range(4)))
+        placements=[s for s in steps if s['command']=='file.place']
+        self.assertEqual(len(placements),2)
+        self.assertTrue(all(s['params'].get('frame') and s['params'].get('link') for s in placements))
+        for i,s in enumerate(steps):
+            if s['command']=='style.paragraph.apply':self.assertEqual(steps[i-1]['command'],'text.select')
+        self.assertGreaterEqual(sum(s['command']=='style.paragraph.apply' for s in steps),8)
+        self.assertNotIn('file.package',[s['command'] for s in steps])
+        self.assertEqual([s['command'] for s in recipe['deliverySteps']],['file.package'])
+
+    def test_brochure_rejects_wrong_page_truncation_and_zero_offset_overset(self):
+        recipe=json.loads((ROOT.parent/'designcraft-brochure/references/craft-steps.json').read_text(encoding='utf-8'))
+        frames=[step for step in recipe['steps'] if step['command']=='frame.create']
+        bindings={step['capture']:{'id':i+1} for i,step in enumerate(frames)}
+        spreads=[{'items':[]} for _ in range(4)];stories=[]
+        for step in frames:
+            item={'id':bindings[step['capture']]['id']};spreads[step['params']['spread']]['items'].append(item)
+            if step['params']['content']=='text':stories.append({'frames':[item['id']],'text':step['params']['text'],'overset':None})
+        info={'pageCount':4,'settings':{'pageWidth':420,'pageHeight':595},'spreads':spreads,'stories':stories}
+        verify_brochure(info,stories,bindings,recipe)
+        wrong=copy.deepcopy(info);wrong['spreads'][1]['items'].append(wrong['spreads'][0]['items'].pop(0))
+        with self.assertRaisesRegex(AssertionError,'wrong page'):verify_brochure(wrong,stories,bindings,recipe)
+        wrong=copy.deepcopy(stories);wrong[0]['text']='truncated'
+        with self.assertRaisesRegex(AssertionError,'full text'):verify_brochure(info,wrong,bindings,recipe)
+        wrong=copy.deepcopy(stories);wrong[0]['overset']=0
+        with self.assertRaisesRegex(AssertionError,'remains overset'):verify_brochure(info,wrong,bindings,recipe)
+
+
+class PosterContract(unittest.TestCase):
+    def test_poster_has_a3_size_native_qr_and_matching_visible_link(self):
+        recipe=json.loads((ROOT.parent/'designcraft-poster-layout/references/craft-steps.json').read_text(encoding='utf-8'))
+        steps=recipe['steps'];new=next((s for s in steps if s['command']=='file.new'),None)
+        self.assertIsNotNone(new,'Poster must set the confirmed final dimensions')
+        self.assertAlmostEqual(new['params']['width'],297*72/25.4)
+        self.assertAlmostEqual(new['params']['height'],420*72/25.4)
+        qr=next((s for s in steps if s['command']=='object.qrCode'),None)
+        self.assertIsNotNone(qr,'Do not replace a scannable registration code with an empty square')
+        link=next(s for s in steps if s['command']=='hyperlink.create')
+        self.assertEqual(qr['params']['content'],link['params']['url'])
+        copy=next(s for s in steps if s.get('capture')=='registration')
+        self.assertIn(qr['params']['content'],copy['params']['text'])
+        self.assertGreaterEqual(sum(s['command']=='style.paragraph.apply' for s in steps),5)
+        self.assertNotIn('file.package',[s['command'] for s in steps])
+
+
+    def test_qr_bounds_keep_native_ink_and_reserved_white_border_separate(self):
+        from design_poster_smoke import verify_qr_bounds
+        verify_qr_bounds([10,10,90,90],[0,0,100,100])
+        for bounds in [[0,0,100,100],[10,10,90,80],[0,10,80,90]]:
+            with self.assertRaises(AssertionError):verify_qr_bounds(bounds,[0,0,100,100])
+
+
+    def test_registration_checks_destination_and_actual_source_not_link_name(self):
+        from design_poster_smoke import verify_registration
+        url='https://example.org/workshop';link={'dest':{'kind':'url','value':url},'source':{'id':13,'kind':'item'}}
+        verify_registration(url,url,'Register: '+url,13,[link])
+        wrong=copy.deepcopy(link);wrong['name']=url;wrong['dest']['value']='https://example.org/other'
+        with self.assertRaisesRegex(AssertionError,'lost or changed'):verify_registration(url,url,url,13,[wrong])
+        wrong=copy.deepcopy(link);wrong['source']['id']=99
+        with self.assertRaisesRegex(AssertionError,'wrong frame'):verify_registration(url,url,url,13,[wrong])
+        with self.assertRaisesRegex(AssertionError,'Visible'):verify_registration(url,url,'An unrelated address',13,[link])
+        with self.assertRaisesRegex(AssertionError,'different destination'):verify_registration(url,'https://example.org/other',url,13,[link])
 
 if __name__=='__main__':unittest.main()

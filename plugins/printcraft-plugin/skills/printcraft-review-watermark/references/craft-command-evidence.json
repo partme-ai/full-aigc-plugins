@@ -1,0 +1,351 @@
+{
+  "runtime": {
+    "version": "v0.8.0",
+    "platform": "macos-universal",
+    "archiveSha256": "8151d648892589a33ec474ec1eae5fcc57a8932d92b1c9566bc7dd0a5725024b"
+  },
+  "catalogSource": "Actual pdfcraft-cli tools JSON",
+  "sceneAcceptance": "NOT_TESTED",
+  "observedCommands": {
+    "doc_info": {
+      "command": "file.properties",
+      "description": "Metadata, page sizes and labels, bookmarks, annotations, form fields, links, layers, attachments, fonts, security and repair notes.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "doc"
+        ],
+        "type": "object"
+      },
+      "name": "doc_info",
+      "read_only": true
+    },
+    "doc_open": {
+      "command": "file.open",
+      "description": "Open a PDF file and return its document id, page count and whether it can be edited.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "password": {
+            "description": "User or owner password for encrypted files.",
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "name": "doc_open",
+      "read_only": false
+    },
+    "doc_save": {
+      "command": "file.save",
+      "description": "Save to its own file (an incremental update, which keeps signatures valid) or to a new path (a full rewrite). The write is atomic. flatten_fill_sign bakes Fill & Sign text, marks and signatures into the page first and removes those annotations; other comments and form fields stay. Omit it, or pass false, to leave them editable.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "flatten_fill_sign": {
+            "description": "Bake Fill & Sign marks into the page before writing. Default false.",
+            "type": "boolean"
+          },
+          "full": {
+            "description": "Force a full rewrite (or, with false, an incremental update).",
+            "type": "boolean"
+          },
+          "path": {
+            "description": "Save as this file. Omit to save in place.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "doc"
+        ],
+        "type": "object"
+      },
+      "name": "doc_save",
+      "read_only": false
+    },
+    "doc_watermark": {
+      "command": "edit.watermark",
+      "description": "Add a watermark to pages: text, or a picture from `file` (an image, or page `file_page` of a PDF) at `scale` of the page (default 0.5); rotated (degrees counter-clockwise, default 45), semi-transparent (opacity 0–1, default 0.5), text fitted to the page unless font_size is given, on top unless behind: true; moved from the page centre by `offset_x` (right) and `offset_y` (up) points (default 0). replace: true swaps out existing ones. Undoable.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "behind": {
+            "type": "boolean"
+          },
+          "color": {
+            "type": "string"
+          },
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "file": {
+            "type": "string"
+          },
+          "file_page": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "font_size": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "offset_x": {
+            "description": "Points right of the page centre (negative: left).",
+            "type": "number"
+          },
+          "offset_y": {
+            "description": "Points above the page centre (negative: below).",
+            "type": "number"
+          },
+          "opacity": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "pages": {
+            "description": "1-based page numbers to mark (default: all).",
+            "items": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "replace": {
+            "type": "boolean"
+          },
+          "rotation": {
+            "type": "number"
+          },
+          "scale": {
+            "exclusiveMinimum": 0,
+            "maximum": 1,
+            "type": "number"
+          },
+          "text": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "doc"
+        ],
+        "type": "object"
+      },
+      "name": "doc_watermark",
+      "read_only": false
+    }
+  },
+  "mcpCatalog": {
+    "source": "PrintCraft plugin ui/catalog.lock.json at current v5 source",
+    "sha256": "57313b7c7705e110f968d030736bdc5dac895b76cd42b7a21239fe9a3af4a4d1",
+    "callStyle": "direct named MCP tool on printcraft-editor",
+    "observedTools": {
+      "doc_info": {
+        "name": "doc_info",
+        "title": "Inspect a document",
+        "description": "Metadata, page sizes and labels, bookmarks, annotations, form fields, links, layers, page transitions and display times, attachments, fonts, security and repair notes.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "doc": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991,
+              "description": "Document id from doc_open or doc_list."
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      "doc_open": {
+        "name": "doc_open",
+        "title": "Open a PDF",
+        "description": "Open a PDF file and return its document id, page count and whether it can be edited.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "password": {
+              "type": "string",
+              "description": "User or owner password for encrypted files."
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      "doc_watermark": {
+        "name": "doc_watermark",
+        "title": "Add watermark",
+        "description": "Add a watermark to pages: text, or a picture from `file` (an image, or page `file_page` of a PDF) at `scale` of the page (default 0.5); rotated (degrees counter-clockwise, default 45), semi-transparent (opacity 0–1, default 0.5), text fitted to the page unless font_size is given, on top unless behind: true; moved from the page centre by `offset_x` (right) and `offset_y` (up) points (default 0). replace: true swaps out existing ones. Undoable.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "behind": {
+              "type": "boolean"
+            },
+            "color": {
+              "type": "string"
+            },
+            "doc": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991,
+              "description": "Document id from doc_open or doc_list."
+            },
+            "file": {
+              "type": "string"
+            },
+            "file_page": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "font_size": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "offset_x": {
+              "type": "number",
+              "description": "Points right of the page centre (negative: left)."
+            },
+            "offset_y": {
+              "type": "number",
+              "description": "Points above the page centre (negative: below)."
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "pages": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              },
+              "description": "1-based page numbers to mark (default: all)."
+            },
+            "replace": {
+              "type": "boolean"
+            },
+            "rotation": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      "doc_save": {
+        "name": "doc_save",
+        "title": "Save a document",
+        "description": "Save to its own file (an incremental update, which keeps signatures valid) or to a new path (a full rewrite). The write is atomic. flatten_fill_sign bakes Fill & Sign text, marks and signatures into the page first and removes those annotations; other comments and form fields stay. Omit it, or pass false, to leave them editable.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "doc": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991,
+              "description": "Document id from doc_open or doc_list."
+            },
+            "flatten_fill_sign": {
+              "type": "boolean",
+              "description": "Bake Fill & Sign marks into the page before writing. Default false."
+            },
+            "full": {
+              "type": "boolean",
+              "description": "Force a full rewrite (or, with false, an incremental update)."
+            },
+            "path": {
+              "type": "string",
+              "description": "Save as this file. Omit to save in place."
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      }
+    }
+  }
+}

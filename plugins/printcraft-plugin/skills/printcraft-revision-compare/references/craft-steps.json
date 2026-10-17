@@ -1,0 +1,50 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "printcraft",
+  "id": "revision-compare",
+  "title": "新旧版本差异报告",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "templateOnly": true,
+  "sourceFiles": [
+    "newer.pdf",
+    "older.pdf"
+  ],
+  "steps": [
+    {
+      "command": "doc_info",
+      "params": {
+        "doc": 1
+      },
+      "purpose": "doc槽1为新版，确认标题及页数"
+    },
+    {
+      "command": "doc_info",
+      "params": {
+        "doc": 2
+      },
+      "purpose": "doc槽2为旧版，确认版本身份"
+    },
+    {
+      "command": "doc_compare",
+      "params": {
+        "doc": 1,
+        "other": 2,
+        "limit": 500,
+        "visual": false
+      },
+      "purpose": "新版对旧版比较文字，读取旧/新文本及页号，检查是否截断"
+    },
+    {
+      "command": "doc_compare_report",
+      "params": {
+        "doc": 1,
+        "other": 2,
+        "path": "output/revision-report.pdf"
+      },
+      "purpose": "另写差异报告，不标注或改写任一原PDF"
+    }
+  ],
+  "check": "报告明确旧值与新值，差异方向正确、同页不变内容没有误报；独立提取报告文字核对。新旧两源摘要都不变。",
+  "boundary": "文字比较不证明图像、矢量、复杂重排和扫描内容完全相同；limit可能截断，必须检查总变化数与返回列表，超限不能当作完整审阅。比较矩形为PDF左下角坐标，不直接作为link_add热点。",
+  "argumentPolicy": "doc/other是sourceFiles中1起始逻辑槽，仅用于随技能编译器生成的全新CLI脚本；MCP必须替换成当前doc_open实际返回ID。页号1起始，路径和坐标按真实输入替换，保持同一会话。"
+}

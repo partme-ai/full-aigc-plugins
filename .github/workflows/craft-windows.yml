@@ -40,8 +40,21 @@ jobs:
           repository: full-aigc-skills/designcraft-skills
           ref: ${{ steps.design-source.outputs.revision }}
           path: .local/test-design-skills
+      - name: Resolve pinned Print scene source
+        id: print-source
+        shell: pwsh
+        run: |
+          $revision = python -c "import json; print(next(x['skillsCommit'] for x in json.load(open('scripts/ci/craft_main_candidates.lock.json', encoding='utf-8'))['candidates'] if x['app']=='printcraft'))"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          "revision=$revision" >> $env:GITHUB_OUTPUT
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/printcraft-skills
+          ref: ${{ steps.print-source.outputs.revision }}
+          path: .local/test-print-skills
       - run: python -m unittest discover -s scripts/ci -p "test_*.py" -v
         env:
+          CRAFT_PRINT_SKILLS_ROOT: ${{ github.workspace }}/.local/test-print-skills/skills
           CRAFT_DESIGN_SKILLS_ROOT: ${{ github.workspace }}/.local/test-design-skills/skills
           PYTHONUTF8: '1'
 

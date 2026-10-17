@@ -33,7 +33,6 @@
     "status": "PASS"
   },
   "remaining": [
-    "Design其余两个核心场景：brochure、poster-layout",
     "复杂实际稿件的视觉审阅",
     "宿主内Agent操作与编辑器同步",
     "场景去重和扩展为数百个独立工作流",
@@ -1125,5 +1124,9 @@
     "visualReview": "PARTIAL: synthetic one-page fixture inspected; real production media not reviewed",
     "installedHostSync": "NOT_TESTED",
     "marketplacePublication": "PENDING"
+  },
+  "additionalCoreScenarioReports": {
+    "brochure": "craft-brochure-validation.json",
+    "poster-layout": "craft-poster-validation.json"
   }
 }

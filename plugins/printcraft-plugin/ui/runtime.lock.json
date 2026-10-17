@@ -1,6 +1,6 @@
 {
   "name": "printcraft",
-  "version": "0.1.0-dev.20261017.5",
+  "version": "0.1.0-dev.20261017.6",
   "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261017.2/printcraft-runtime.tgz",
   "sha256": "80422a359de88252384cea86f6835373413ca275369968dacc86e18427680555",
   "files": {

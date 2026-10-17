@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前201条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，其余3应用各6条。不是198条都已通过完整效果验收。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前207条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，EffectCraft、FilmCraft各6条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
 
 | 内容 | 当前事实 |
 | --- | --- |
 | GitHub来源 | 16个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 82个技能中落地201条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 88个技能中落地207条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -350,3 +350,34 @@ Windows main运行[39025167041](https://github.com/partme-ai/full-aigc-plugins/a
 独立解析两套最终PDF：裁切595×842点、MediaBox613×860点、四边出血9点，两图及页脚存在；已查看原创色块修复样例整页，不代替真实生产物料质量。13项Design辅助测试、201条静态映射与OpenSpec检查通过；固定索引包安装/MCP及辅助回归[39027383439](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027383439)通过，不代表本轮新技能已重新发行。
 
 仍201条映射：197条入口限定技术检查、2条部分、2条待执行（Design brochure、poster-layout）。该计数包含方法复用，不能等同197个独立高质量场景。复杂真实素材、色彩/专色/印刷确认、三宿主同步、去重扩展与本批市场发行仍未完成，完整目标保持实施中。技能和插件feature已同步，公开dev.20261017.4不包含本轮变更。详见[Design核心验证](craft-design-core-validation.json)。
+
+## DesignCraft四页产品宣传册
+
+旧brochure只有单个文字框和未应用的Body样式。现按确认内容计划重建封面、产品A、产品B、下一步四页阅读顺序；61条排版/检查步骤明确绑定12份文字和两张产品图，三种段落样式逐故事实际应用。打包独立为检查通过后的一条deliverySteps，不拼接到未经检查的排版批次。补读MrBoyard7/indesign-brochure-automator固定提交92b4e68的模板说明，记录SHA256，只借鉴字段与框对应及比例置图经验；无JSX移植或CSV合并能力宣称。
+
+官方macOS 0.8.0下载包SHA256核验后，在隔离目录执行最终配方，保存/重开、四页顺序、12个故事及样式、两SKU图框和PPI、打包资源与原图摘要检查通过。实际四页PDF已逐页查看。Windows main运行[39029743390](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39029743390)执行固定技能源150c119，通过原8场景、既有工程保护组合及5个已重建核心入口，共85次CLI调用；下载独立核对102份输出及二进制摘要。Windows四页PDF经PyMuPDF解析，尺寸、标题、页码和图像页归属正确，四页像素与已查看的macOS输出完全一致。15项Design辅助回归、3项引用编译测试、技能源包校验和201条静态映射检查通过。源/插件原有5项场景SKILL摘要过时，确认双方内容一致后刷新；未改冻结基础技能。
+
+映射总数仍201条，包含方法复用；198条入口有过限定技术检查、2条部分、1条待重建运行（Design poster-layout），不等于198个独立高质量场景。样本为原创商品文字与色块，不代替真实产品素材的商业设计审阅。独立源与插件feature已同步；本次brochure未进入订阅市场v5。此前newsletter/catalog/long-document/preflight的重建已随v5发行，不再沿用上节“市场待发行”的旧时间点。三宿主同画面同步、去重扩展为数百个独立场景及剩余质量验收继续推进。详见[宣传册验证](craft-brochure-validation.json)。
+
+## DesignCraft成品规格海报与真实扫码
+
+旧poster-layout只有两个文字框和一次预检，没有成品尺寸、样式应用、主题图、QR或点击入口。现按297×420mm精确换算pt建立A3样例，35步排版/检查显式绑定五个文字故事与样式、主题图片框、可点击报名链接及原生object.qrCode。URL在确认输入、可见文字、超链接和QR编码中一致；图片保持比例，打包为检查后单独执行的一步。补读pchiorean/Indentz固定7ce1e0c的README，记录SHA256，只借鉴尺寸、安全区域和QR交付经验，未复制InDesign脚本或正文。
+
+实际macOS0.8.0试跑发现QR对象bounds只覆盖黑色路径，预留白边应按请求rect核对；检查器已改为白边、方形与居中约束，并加入负例。OpenCV4.13.0在该样本未检测到QR，其控制样本可解码，未把失败隐去或因此断言编码损坏；系统Apple Vision分别对实际原生PNG与独立PDF渲染图成功解码，payload与预期示例URL一致。PDF独立解析确认297×420mm、入口链接目标和图片1.5长宽比，整页已查看。
+
+Windows main[39030420015](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39030420015)执行技能源ea34074，通过原8条场景、既有工程保护组合及六个重建核心入口，共92次CLI调用。下载后独立核对113份输出和二进制摘要；实际Windows导出PNG及PDF渲染图也经Apple Vision解码成功，PDF入口、尺寸和图片比例通过，Windows整页另外查看，未宣称与macOS像素完全一致。18项Design辅助测试、3项引用编译测试、技能源包校验、201条静态映射及OpenSpec严格校验通过。详见[海报验证](craft-poster-validation.json)。
+
+总映射仍201条：199条入口有过限定技术检查，PDF表单及完整位图描图2条部分；不是199个独立高质量场景。Design原有六项核心入口已重建执行，不因此把全部商业版式或三宿主同画面同步标记完成。虚构活动、示例URL与色块只作为可复现测试输入，不证明真实报名网站或商业海报质量。源与插件feature均已同步，本次宣传册与海报尚未进入订阅市场v5。后续继续对13应用场景去重、补充有区别的工作流、真实素材效果及宿主同步验收，完整目标和OpenSpec保持实施中。
+
+
+## PrintCraft六类独立PDF交付场景
+
+从py-pdf/pypdf固定提交1a6de8d阅读水印、合并、注释、坐标变换和文字提取工作流及完整许可，新增六个独立技能：报告层级书签、定向审阅水印、按确认边界拆分单据包、前言正文分别编号、议程/附录双向链接、新旧文字差异报告。每项有独立业务输入和检查、原生工具schema、当前插件直接MCP字段映射和自带CLI槽位编译器；不复制外部Python代码或文档正文，不宣称具备未观察到的附件封装能力。原生CLI以0.8.0观察并与固定main分别验证，不把冻结基础技能的其他CLI版本自动视为支持。
+
+本机原生六项和独立PDF解析通过；水印、差异报告和页码样本已查看。真实试跑纠正link_list不能接收page参数；当前脚本用诱饵文件把真实doc从2起步，两文档比较的other也绑定正确。负例拒绝错误书签目标、热点错位、比较方向反转与文档槽位越界。
+
+Windows main[39031956861](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39031956861)执行固定技能源639f035，原六场景加新六场景通过，62次CLI调用；下载核对84份输出与二进制摘要，六份实际执行脚本逐项等于当前技能配方的编译结果。独立PDF解释器核对书签层级/目标、发票2/1/3页完整顺序、议程正反跳转原始页对象引用及热点覆盖全文、正文编号与前言分开、水印仅第1/3页、差异100→120方向正确；旧PDF摘要保持，非目标水印页像素不变。复杂实际文档、图像差异和宿主同画面同步不在此结论中。
+
+此前稳定Windows失败来自旧Design技能源缺少宣传册脚本，不是由main通过自动抵消；本轮将Design/Print检出固定到所需版本并加入防脱节测试。最终稳定13应用业务矩阵[39032001626](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39032001626)通过，固定发行包安装/MCP及辅助测试[39032001638](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39032001638)通过。Print源码登记独立场景候选后包检查通过；插件旧校验误把冻结技能源记录中的历史插件版本与当前v5等同，现只核对历史版本格式及完整来源身份，基础技能摘要仍逐字节核验，旧锁未改写。编辑器入口断言同步为实际bootstrap，19项插件测试与源候选测试通过。详见[PDF交付验证](craft-pdf-delivery-validation.json)。
+
+总映射207条，88个入口承载；205条入口有过限定技术检查、2条部分（中文表单外观、完整位图描图），仍包含方法复用，不能作为205个独立高质量场景的证明。六个新增技能已同步到插件feature；本批以及Design宣传册/海报尚未进入订阅市场v5，继续推进可安装候选发行、真实素材质量、去重扩展与三宿主同步，完整目标保持实施中。

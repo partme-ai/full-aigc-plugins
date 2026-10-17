@@ -12,10 +12,10 @@ ROOT=Path(__file__).resolve().parents[1]
 NAMES='cadcraft designcraft effectcraft photocraft figcraft filmcraft lightcraft printcraft vectorcraft deckcraft soundcraft gridcraft wordcraft'.split()
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--releases',type=Path,required=True);args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--releases',type=Path,required=True);parser.add_argument('--output',type=Path);args=parser.parse_args()
     rows=json.loads(args.releases.read_text(encoding='utf-8'))
     if {r['plugin'] for r in rows}!=set(NAMES):raise ValueError('Exactly thirteen verified releases required')
-    snapshots=ROOT/'plugins';snapshots.mkdir(exist_ok=True);records=[]
+    snapshots=args.output.resolve() if args.output else ROOT/'plugins';snapshots.mkdir(parents=True,exist_ok=True);records=[]
     for row in rows:
         name=row['plugin'];repo=ROOT.parent/'full-aigc-plugins-repositories'/(name+'-plugin');target=snapshots/(name+'-plugin')
         if target.exists():raise ValueError('Refusing existing snapshot: '+str(target))

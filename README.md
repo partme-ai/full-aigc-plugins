@@ -113,14 +113,14 @@ codex plugin add volcengine-design@full-aigc-plugins
 |------|----|:----:|------|------|
 | [**CADCraft Use (RC)**](https://github.com/full-aigc-plugins/cadcraft-plugin) | `cadcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [cadcraft-plugin](https://github.com/full-aigc-plugins/cadcraft-plugin) |
 | [**DeckCraft Use (RC)**](https://github.com/full-aigc-plugins/deckcraft-plugin) | `deckcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [deckcraft-plugin](https://github.com/full-aigc-plugins/deckcraft-plugin) |
-| [**DesignCraft Use (RC)**](https://github.com/full-aigc-plugins/designcraft-plugin) | `designcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [designcraft-plugin](https://github.com/full-aigc-plugins/designcraft-plugin) |
+| [**DesignCraft Use (RC)**](https://github.com/full-aigc-plugins/designcraft-plugin) | `designcraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [designcraft-plugin](https://github.com/full-aigc-plugins/designcraft-plugin) |
 | [**EffectCraft Use (RC)**](https://github.com/full-aigc-plugins/effectcraft-plugin) | `effectcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [effectcraft-plugin](https://github.com/full-aigc-plugins/effectcraft-plugin) |
 | [**FigCraft Use (RC)**](https://github.com/full-aigc-plugins/figcraft-plugin) | `figcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [figcraft-plugin](https://github.com/full-aigc-plugins/figcraft-plugin) |
 | [**FilmCraft Use (RC)**](https://github.com/full-aigc-plugins/filmcraft-plugin) | `filmcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [filmcraft-plugin](https://github.com/full-aigc-plugins/filmcraft-plugin) |
 | [**GridCraft Use (RC)**](https://github.com/full-aigc-plugins/gridcraft-plugin) | `gridcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [gridcraft-plugin](https://github.com/full-aigc-plugins/gridcraft-plugin) |
 | [**LightCraft Use (RC)**](https://github.com/full-aigc-plugins/lightcraft-plugin) | `lightcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [lightcraft-plugin](https://github.com/full-aigc-plugins/lightcraft-plugin) |
 | [**PhotoCraft Use (RC)**](https://github.com/full-aigc-plugins/photocraft-plugin) | `photocraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [photocraft-plugin](https://github.com/full-aigc-plugins/photocraft-plugin) |
-| [**PdfCraft Use (RC)**](https://github.com/full-aigc-plugins/printcraft-plugin) | `printcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [printcraft-plugin](https://github.com/full-aigc-plugins/printcraft-plugin) |
+| [**PdfCraft Use (RC)**](https://github.com/full-aigc-plugins/printcraft-plugin) | `printcraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [printcraft-plugin](https://github.com/full-aigc-plugins/printcraft-plugin) |
 | [**SoundCraft Use (RC)**](https://github.com/full-aigc-plugins/soundcraft-plugin) | `soundcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [soundcraft-plugin](https://github.com/full-aigc-plugins/soundcraft-plugin) |
 | [**VectorCraft Use (RC)**](https://github.com/full-aigc-plugins/vectorcraft-plugin) | `vectorcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [vectorcraft-plugin](https://github.com/full-aigc-plugins/vectorcraft-plugin) |
 | [**WordCraft Use (RC)**](https://github.com/full-aigc-plugins/wordcraft-plugin) | `wordcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [wordcraft-plugin](https://github.com/full-aigc-plugins/wordcraft-plugin) |
@@ -218,13 +218,13 @@ Made with ❤️ by PartMe.AI Team
 [源码增强接入说明](docs/craft-source-integration.md) · [独立插件与源码清单](docs/craft-plugin-map.json)。本地开发候选，不改变已发布市场的固定版本。
 
 - **CADCraft Use**：`cadcraft-plugin`，7 个候选技能（含编辑器入口）。
-- **DesignCraft Use**：`designcraft-plugin`，7 个候选技能（含编辑器入口）。
+- **DesignCraft Use**：`designcraft-plugin`，15 个候选技能（含编辑器入口）。
 - **EffectCraft Use**：`effectcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **PhotoCraft Use**：`photocraft-plugin`，7 个候选技能（含编辑器入口）。
 - **FigCraft Use**：`figcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **FilmCraft Use**：`filmcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **LightCraft Use**：`lightcraft-plugin`，7 个候选技能（含编辑器入口）。
-- **PdfCraft Use**：`printcraft-plugin`，7 个候选技能（含编辑器入口）。
+- **PdfCraft Use**：`printcraft-plugin`，20 个候选技能（含编辑器入口）。
 - **VectorCraft Use**：`vectorcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **DeckCraft Use**：`deckcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **SoundCraft Use**：`soundcraft-plugin`，7 个候选技能（含编辑器入口）。

@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "printcraft",
-  "version": "0.1.0-dev.20261017.5",
+  "version": "0.1.0-dev.20261017.6",
   "description": "PDF 检查、页面编辑、单会话计划与摘要绑定验收；受控测试预发布，专项门禁仍开放。",
   "license": "Apache-2.0",
   "extensions": {
