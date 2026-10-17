@@ -111,6 +111,7 @@ def run_playbooks(r,path):
     records.append(run_poster(r,path.parents[2]))
     from design_preflight_smoke import run_preflight
     records.append(run_preflight(r,path.parents[2]))
+    records.append(run_badge_merge(r,path))
     return records
 
 
@@ -130,3 +131,43 @@ def existing_story_revision(r,compiler,data):
     require('ACME' not in new_story['text'] and new_story['text'].count('Craft Studio')==2,'Target replacement did not stay scoped')
     require(hashlib.sha256(source.read_bytes()).hexdigest()==digest,'Original input changed')
     return {'id':'existing-story-scope-preservation','technicalRoundtrip':'PASS','originalStoryUnchanged':'PASS','sourceUnchanged':'PASS','nativeReferenceReindexing':'PASS','layoutReview':'NOT_TESTED'}
+
+
+def run_badge_merge(r,path):
+    """独立Python入口调用原生CLI，核对多语言、长姓名、缺字与拒绝覆盖。"""
+    import subprocess
+    import os
+    import sys
+    entry=Path(path).resolve().parents[2]/'designcraft-data-merge-badges/scripts/build_badges.py'
+    root=r.work/'中文 胸牌';root.mkdir();font=root/'fonts'
+    fetched=subprocess.run([sys.executable,str(entry.with_name('fetch_font.py')),'--directory',str(font.resolve())],capture_output=True,timeout=240)
+    require(fetched.returncode==0,fetched.stderr.decode('utf-8',errors='replace'));font_file=json.loads(fetched.stdout)['fontFile']
+    receipts=[]
+    for name,text,use_font,should_pass in [
+        ('bilingual','Name,Role\nGuest A,Speaker\n"Guest, B",Visitor\n访客丙,演讲者\n',True,True),
+        ('long','Name,Role\nA long conference participant name for review only,Speaker\n',False,True),
+        ('missing-glyph','Name,Role\nGuest '+chr(0x10ffff)+',Visitor\n',False,False),
+        ('extreme','Name,Role\n'+('Long name '*60)+',Speaker\n',False,False)]:
+        csv_file=root/(name+'.csv');csv_file.write_text(text,encoding='utf-8-sig');before=csv_file.read_bytes();out=root/name
+        argv=[sys.executable,str(entry),'--cli',str(Path(r.exe).resolve()),'--csv',str(csv_file.resolve()),'--output-dir',str(out.resolve())]+(['--font-file',font_file] if use_font else [])
+        p=subprocess.run(argv,env={**os.environ,'PYTHONIOENCODING':'ascii'},capture_output=True,timeout=240)
+        (root/(name+'-stdout.json')).write_bytes(p.stdout);(root/(name+'-stderr.txt')).write_bytes(p.stderr)
+        require(csv_file.read_bytes()==before,'CSV source changed')
+        if should_pass:
+            require(p.returncode==0,p.stderr.decode('utf-8',errors='replace'));receipt=json.loads(p.stdout.decode('ascii'))
+            require(receipt['result']=='PASS' and receipt['preflight']=='PASS','Missing native preflight')
+            require(Path(receipt['output']).resolve()==(out/'badges.designcraft').resolve(),'Chinese output path changed')
+            require(receipt['records']==(3 if name=='bilingual' else 1),'Record count changed')
+            if name=='long':require(receipt['nameSize']<22,'Long input never exercised font reduction')
+            native=run_script(r,[{'command':'document.inspect','params':{}},{'command':'preflight.run','params':{}}],source=out/'badges.designcraft')
+            require(native[0]['pageCount']==receipt['records'] and not native[1]['errors'],'Independent native reopen failed')
+            for image in (out/'pages').glob('*.png'):require(image.read_bytes().startswith(b'\x89PNG\r\n\x1a\n'),'Invalid PNG page')
+            rejected=subprocess.run(argv,capture_output=True,timeout=60);require(rejected.returncode!=0,'Existing output overwritten')
+            receipts.append({'variant':name,'result':'PASS','records':receipt['records'],'nameSize':receipt['nameSize'],'nativeProcessesInChild':receipt['nativeProcesses']})
+        else:
+            require(p.returncode!=0,'Invalid output accepted')
+            expected=b'missing glyphs' if name=='missing-glyph' else b'text remains overset at14pt'
+            require(expected in p.stderr,'Wrong failure reason')
+            require(not (out/'badges.designcraft').exists(),'Unqualified merged file published')
+            receipts.append({'variant':name,'rejectedWithExpectedReason':'PASS'})
+    return {'id':'data-merge-badges','variants':receipts,'technicalRoundtrip':'PASS','scope':'actual standalone native entry; nested CLI counts in receipts, not direct Runner count; host sync NOT_TESTED'}

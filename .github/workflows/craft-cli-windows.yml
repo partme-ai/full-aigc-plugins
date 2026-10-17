@@ -96,7 +96,7 @@ jobs:
         if: matrix.plugin == 'designcraft'
         with:
           repository: full-aigc-skills/designcraft-skills
-          ref: ea34074148669624c71dc86b5b169487132a25ba
+          ref: 1f6564bb4d260929e11b92329fb7aa94840f461e
           path: scene-source
       - name: Run native CLI business operations
         env:
