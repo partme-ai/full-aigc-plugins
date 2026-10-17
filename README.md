@@ -111,7 +111,7 @@ codex plugin add volcengine-design@full-aigc-plugins
 
 | 插件 | ID | 版本 | 定位 | 仓库 |
 |------|----|:----:|------|------|
-| [**CADCraft Use (RC)**](https://github.com/full-aigc-plugins/cadcraft-plugin) | `cadcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [cadcraft-plugin](https://github.com/full-aigc-plugins/cadcraft-plugin) |
+| [**CADCraft Use (RC)**](https://github.com/full-aigc-plugins/cadcraft-plugin) | `cadcraft` | 0.1.0-dev.20261018.2 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [cadcraft-plugin](https://github.com/full-aigc-plugins/cadcraft-plugin) |
 | [**DeckCraft Use (RC)**](https://github.com/full-aigc-plugins/deckcraft-plugin) | `deckcraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [deckcraft-plugin](https://github.com/full-aigc-plugins/deckcraft-plugin) |
 | [**DesignCraft Use (RC)**](https://github.com/full-aigc-plugins/designcraft-plugin) | `designcraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [designcraft-plugin](https://github.com/full-aigc-plugins/designcraft-plugin) |
 | [**EffectCraft Use (RC)**](https://github.com/full-aigc-plugins/effectcraft-plugin) | `effectcraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [effectcraft-plugin](https://github.com/full-aigc-plugins/effectcraft-plugin) |

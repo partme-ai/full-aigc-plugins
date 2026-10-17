@@ -90,7 +90,13 @@
       "larger.jpg"
     ]
   },
-  "publicRelease": "NOT_RELEASED",
+  "publicRelease": {
+    "version": "0.1.0-dev.20261018.2",
+    "url": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261018.2",
+    "zipSha256": "90193c9150409d0900d5092abd393094f8df6043ac24176c7e43e4f1a82d6794",
+    "downloadInstallMcpAndRuntimeDigests": "PASS",
+    "marketplace": "PENDING"
+  },
   "staticMappedSceneIncrement": 1,
   "packageMcpCi": {
     "run": 39063632552,
@@ -124,8 +130,8 @@
       "result": "PASS"
     }
   ],
-  "finalSkillSourceCommit": "c58adeaad349f56dba93ca31712413c74e6652d3",
-  "finalPluginCommit": "d0a440022a052f58071b5e68c7823f8e76ead19f",
+  "finalSkillSourceCommit": "e0b5bfb2ee25e38e32889328483097e2847b810a",
+  "finalPluginCommit": "14326d79eafc8b27d2b4e03f9b762cda74e99569",
   "testBranchCi": {
     "source": 39063911543,
     "plugin": 39063915260,
@@ -136,5 +142,23 @@
     "bootstrap entry checked instead of removed dist adapter",
     "Claude marketplace version aligned with root manifest",
     "scenario digests refreshed only after every source/plugin skill file compared equal; frozen base lock untouched"
-  ]
+  ],
+  "handshakeVersionCorrection": {
+    "before": "full archive real install failed MCP/plugin version mismatch: manifest18.1, lock17.5",
+    "after": "runtime.lock metadata corrected; runtime file hashes unchanged; rebuilt archive real install passed",
+    "regressionTest": "test_handshake_version_matches_plugin;9 plugin tests:6 passed,3 skipped",
+    "testCi": 39064032846
+  },
+  "supersededRelease": {
+    "version": "0.1.0-dev.20261018.1",
+    "reason": "complete ZIP install passed but immutable artifact contains stale release gate17.5; not promoted to main marketplace; tag/assets retained"
+  },
+  "releaseVersionChecks": {
+    "pluginTests": 10,
+    "passed": 7,
+    "skipped": 3,
+    "testCi": 39064183558,
+    "sourceTestCi": 39064197645,
+    "gate": "release status remains BLOCKED for production; currentVersion/tag aligned"
+  }
 }

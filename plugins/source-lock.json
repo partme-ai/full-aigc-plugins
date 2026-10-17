@@ -1,12 +1,12 @@
 [
   {
     "plugin": "cadcraft",
-    "version": "0.1.0-dev.20261017.5",
+    "version": "0.1.0-dev.20261018.2",
     "repository": "full-aigc-plugins/cadcraft-plugin",
-    "commit": "56c54d7dbd8582507e6721b7195518c59d5b3fbe",
-    "tag": "v0.1.0-dev.20261017.5",
-    "fileCount": 119,
-    "treeSha256": "b5cde11e9ec27f72cf261c6740632a09c1822f3fafe304ad97997f091c71bd75",
+    "commit": "14326d79eafc8b27d2b4e03f9b762cda74e99569",
+    "tag": "v0.1.0-dev.20261018.2",
+    "fileCount": 130,
+    "treeSha256": "84445fe9f0570cfe83eefa6776f6d68065b9315bca06972550739e23f091889a",
     "excluded": [
       "evidence/",
       "docs/evidence/",

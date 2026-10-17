@@ -106,7 +106,7 @@ The plugins below belong to **AIGC**. Open a plugin name or repository link for 
 
 | Plugin | ID | Version | Focus | Repository |
 |--------|----|:-------:|-------|------------|
-| [**CADCraft Use (RC)**](https://github.com/full-aigc-plugins/cadcraft-plugin) | `cadcraft` | 0.1.0-dev.20261017.5 | Scenario skills, stdio MCP and a shared-session editor; development candidate, creative acceptance incomplete | [cadcraft-plugin](https://github.com/full-aigc-plugins/cadcraft-plugin) |
+| [**CADCraft Use (RC)**](https://github.com/full-aigc-plugins/cadcraft-plugin) | `cadcraft` | 0.1.0-dev.20261018.2 | Scenario skills, stdio MCP and a shared-session editor; development candidate, creative acceptance incomplete | [cadcraft-plugin](https://github.com/full-aigc-plugins/cadcraft-plugin) |
 | [**DeckCraft Use (RC)**](https://github.com/full-aigc-plugins/deckcraft-plugin) | `deckcraft` | 0.1.0-dev.20261017.6 | Scenario skills, stdio MCP and a shared-session editor; development candidate, creative acceptance incomplete | [deckcraft-plugin](https://github.com/full-aigc-plugins/deckcraft-plugin) |
 | [**DesignCraft Use (RC)**](https://github.com/full-aigc-plugins/designcraft-plugin) | `designcraft` | 0.1.0-dev.20261017.6 | Scenario skills, stdio MCP and a shared-session editor; development candidate, creative acceptance incomplete | [designcraft-plugin](https://github.com/full-aigc-plugins/designcraft-plugin) |
 | [**EffectCraft Use (RC)**](https://github.com/full-aigc-plugins/effectcraft-plugin) | `effectcraft` | 0.1.0-dev.20261017.6 | Scenario skills, stdio MCP and a shared-session editor; development candidate, creative acceptance incomplete | [effectcraft-plugin](https://github.com/full-aigc-plugins/effectcraft-plugin) |

@@ -17,8 +17,8 @@
     {
       "id": "cadcraft",
       "displayName": "CADCraft Use (RC)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261017.5"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261018.2"
     },
     {
       "id": "comfy-design",
