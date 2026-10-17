@@ -426,4 +426,4 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 
 ## CADCraft等角孔分布图
 
-新增cadcraft-bolt-circle独立技能，固定ezdxf GitHub提交参考实体/分层/半径尺寸，孔阵列编排原创。真实circle返回句柄后执行arraypolar，count包含种子孔，拒绝重复终点、孔相交、非有限参数和覆盖输出。原生完整15记录58次直接CLI及新入口10次子进程CLI通过；Windows完整15记录63次直接CLI，新六孔/偏移七孔入口通过，39个上传输出摘要逐一核对。真实Codex MCP/IAB看到六孔创建、R3改R6后的同步，两个保存DXF独立解析验证圆及关联尺寸3/6。GUI尺寸文字尚未验收；完整ZIP18.2已公开发布并重新下载安装/MCP/资源摘要通过，主市场更新进行中；18.1因发行门禁版本过期未推广，保留原标签。源/插件已按feature→test→main同步，测试分支CI通过。累计231条静态映射，主检出源/插件已核对一致；不能当作全部场景通过。详见craft-cad-bolt-circle-validation.json。
+新增cadcraft-bolt-circle独立技能，固定ezdxf GitHub提交参考实体/分层/半径尺寸，孔阵列编排原创。真实circle返回句柄后执行arraypolar，count包含种子孔，拒绝重复终点、孔相交、非有限参数和覆盖输出。原生完整15记录58次直接CLI及新入口10次子进程CLI通过；Windows完整15记录63次直接CLI，新六孔/偏移七孔入口通过，39个上传输出摘要逐一核对。真实Codex MCP/IAB看到六孔创建、R3改R6后的同步，两个保存DXF独立解析验证圆及关联尺寸3/6。GUI尺寸文字尚未验收；完整ZIP18.2已公开发布并重新下载安装/MCP/资源摘要通过，主市场真实安装/12技能发现/MCP版本及日常市场源刷新通过，test同源码三组CI通过，main同源码三组CI全部通过；18.1因发行门禁版本过期未推广，保留原标签。源/插件已按feature→test→main同步，测试分支CI通过。累计231条静态映射，主检出源/插件已核对一致；不能当作全部场景通过。详见craft-cad-bolt-circle-validation.json。

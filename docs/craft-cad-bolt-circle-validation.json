@@ -67,7 +67,7 @@
     "result": "LIMITED_SYNTHETIC_PASS",
     "host": "native Codex app-server + IAB",
     "thread": "01a14b63-849a-7ee0-bc1a-831d635d73db",
-    "distribution": "isolated local candidate",
+    "distribution": "prior isolated local candidate18.1; release18.2 metadata-only differences and unchanged runtime file hashes, not retested GUI under public install",
     "checks": [
       "original recipe executed via execute, actual seed102 returned",
       "array created five copies, six total",
@@ -95,7 +95,58 @@
     "url": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261018.2",
     "zipSha256": "90193c9150409d0900d5092abd393094f8df6043ac24176c7e43e4f1a82d6794",
     "downloadInstallMcpAndRuntimeDigests": "PASS",
-    "marketplace": "PENDING"
+    "marketplace": "PASS: remote main actual native Codex install,12 skills,MCP version and HTML",
+    "testMarketNative": {
+      "result": "PASS",
+      "version": "0.1.0-dev.20261018.2",
+      "skillsDiscovered": 12,
+      "scope": "native Codex public Git install, skill discovery, MCP version and HTML; no GUI sync inferred"
+    },
+    "testMarketSourceCommit": "27d1992af4bbf8da9947ef95bdac53012726ce40",
+    "marketSourceCommit": "27d1992af4bbf8da9947ef95bdac53012726ce40",
+    "testCi": {
+      "business": 39064315027,
+      "packageMcp": 39064315002,
+      "marketInstall": 39064315036,
+      "result": "PASS"
+    },
+    "mainCi": {
+      "business": 39064667259,
+      "packageMcp": 39064667256,
+      "marketInstall": 39064667254,
+      "result": "PASS"
+    },
+    "dailyMarketplaceSource": {
+      "result": "PASS",
+      "sourceCommit": "27d1992af4bbf8da9947ef95bdac53012726ce40",
+      "version": "0.1.0-dev.20261018.2",
+      "newSkillFile": "PASS",
+      "scope": "source refresh only; daily installed plugin was not upgraded"
+    },
+    "currentWindowsBusinessArtifact": {
+      "run": 39064315027,
+      "platform": "win32",
+      "records": 15,
+      "directNativeProcesses": 63,
+      "verifiedOutputHashes": 39,
+      "boltVariants": [
+        {
+          "id": "bolt-circle-six",
+          "standaloneEntry": "PASS",
+          "reopenedGeometry": "PASS",
+          "nativeProcessesInChild": 5,
+          "scope": "child CLI calls logged in receipt, excluded from direct Runner process count; host sync NOT_TESTED"
+        },
+        {
+          "id": "bolt-circle-offset-seven",
+          "standaloneEntry": "PASS",
+          "reopenedGeometry": "PASS",
+          "nativeProcessesInChild": 5,
+          "scope": "child CLI calls logged in receipt, excluded from direct Runner process count; host sync NOT_TESTED"
+        }
+      ],
+      "result": "PASS"
+    }
   },
   "staticMappedSceneIncrement": 1,
   "packageMcpCi": {
@@ -160,5 +211,17 @@
     "testCi": 39064183558,
     "sourceTestCi": 39064197645,
     "gate": "release status remains BLOCKED for production; currentVersion/tag aligned"
-  }
+  },
+  "newReleaseBusinessCodeUnchanged": [
+    {
+      "path": "skills/cadcraft-bolt-circle/scripts/draw_bolt_circle.py",
+      "sha256": "8324f236e572e1338bf6d3ebeaa542300e86d759c34c38f5335dc37a49ec1b44",
+      "matchesWindowsTested8da3317": "PASS"
+    },
+    {
+      "path": "skills/cadcraft-bolt-circle/references/craft-steps.json",
+      "sha256": "2c415e92c781561cd91ef506806b90d1b3ae58e688e945d27c575ad241e286ac",
+      "matchesWindowsTested8da3317": "PASS"
+    }
+  ]
 }
