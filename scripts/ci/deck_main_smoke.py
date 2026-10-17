@@ -26,7 +26,9 @@ def run_checks(r):
         rows = [json.loads(line) for line in r.run('mcp', stdin=''.join(json.dumps(x) + '\n' for x in requests)).splitlines() if line.strip()]
         result = next(x['result'] for x in rows if x.get('id') == 2)
         assert not result.get('isError'), 'Template listing failed'
-        templates = json.loads(result['content'][0]['text'])
+        payload = json.loads(result['content'][0]['text'])
+        # main帮助写成数组，实际引擎/MCP返回{templates:[...]}。
+        templates = payload['templates'] if isinstance(payload, dict) else payload
         assert isinstance(templates, list) and templates and templates[0]['name'], 'No actual starter returned'
         chosen = templates[0]
         batch([('file.new', {'template': chosen['name']})], 'starter.deckcraft')
