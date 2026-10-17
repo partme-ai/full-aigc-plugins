@@ -1,0 +1,131 @@
+{
+  "scope": "Three actual editing workflows, synthetic moving AVI and PCM tone inputs; no real interview/voice quality or host sync acceptance",
+  "sourceCommit": "b38d467e766e35dbe5e6192934000441784a71f3",
+  "pluginFeatureCommit": "d67ff9f033368e3ac6dcae16da515767480a0397",
+  "recipeSha256": {
+    "freeze-explainer": "d0c5bc110ee5e8f1dca35852d292329815066ab1d180547b7dc64cbf98855208",
+    "presenter-inset": "d6e7b12e6093247ec5fbadee3bd8179e1a01d64c1c16d04006c5c288bd2b103d",
+    "jcut-dialogue": "a250af397d9800f6ace54b262231df45f072f86d637ec6bd6123cc5fb6c09eed"
+  },
+  "macOS": {
+    "runtimeVersion": "0.8.0",
+    "processCount": 117,
+    "results": [
+      {
+        "id": "color-match",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      },
+      {
+        "id": "freeze-explainer",
+        "sourceInputsUnchanged": "PASS",
+        "nativeSaveAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realFootageSpeechQuality": "NOT_TESTED",
+        "encodedHoldRedMeans": [
+          99.48403645833334,
+          99.48403645833334,
+          99.48403645833334
+        ]
+      },
+      {
+        "id": "interview-edit",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      },
+      {
+        "id": "jcut-dialogue",
+        "sourceInputsUnchanged": "PASS",
+        "nativeSaveAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realFootageSpeechQuality": "NOT_TESTED",
+        "decodedVoiceWindows": [
+          {
+            "time": 0.5,
+            "dominantFixtureHz": 440,
+            "rms": 0.1078924437121454
+          },
+          {
+            "time": 1.5,
+            "dominantFixtureHz": 880,
+            "rms": 0.1079001423809503
+          },
+          {
+            "time": 3,
+            "dominantFixtureHz": 880,
+            "rms": 0.10789275024137612
+          },
+          {
+            "time": 4.5,
+            "dominantFixtureHz": 880,
+            "rms": 0.10789312654847179
+          }
+        ]
+      },
+      {
+        "id": "presenter-inset",
+        "sourceInputsUnchanged": "PASS",
+        "nativeSaveAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realFootageSpeechQuality": "NOT_TESTED",
+        "actualInsetChangedBounds": [
+          224,
+          162,
+          304,
+          222
+        ],
+        "decodedVoiceWindows": [
+          {
+            "time": 0.5,
+            "dominantFixtureHz": 660,
+            "rms": 0.10789202137919873
+          },
+          {
+            "time": 2,
+            "dominantFixtureHz": 660,
+            "rms": 0.10789027914892539
+          },
+          {
+            "time": 3.5,
+            "dominantFixtureHz": 660,
+            "rms": 0.10789159472828846
+          }
+        ]
+      },
+      {
+        "id": "product-video",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      },
+      {
+        "id": "short-video",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      },
+      {
+        "id": "subtitle-delivery",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      },
+      {
+        "id": "video-export",
+        "savedStructureAndMedia": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic silent AVI; no interview semantics, audio sync or real footage grade acceptance"
+      }
+    ],
+    "visualReview": "Viewed native held frame with caption and presenter inset; not real footage review"
+  },
+  "windows": "PENDING",
+  "tests": {
+    "filmDeliveryHelpers": 7,
+    "existingPlaybookHelpers": 52,
+    "pluginPython": 124
+  },
+  "publication": "FEATURE_CANDIDATE_NOT_IN_MARKET"
+}

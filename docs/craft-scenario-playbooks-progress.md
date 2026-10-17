@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前210条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，EffectCraft9条、FilmCraft6条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前213条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，EffectCraft9条、FilmCraft9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
 
 | 内容 | 当前事实 |
 | --- | --- |
-| GitHub来源 | 20个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
+| GitHub来源 | 21个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 91个技能中落地210条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 94个技能中落地213条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -389,3 +389,7 @@ Windows main[39031956861](https://github.com/partme-ai/full-aigc-plugins/actions
 ## 老照片修复独立技能深化
 
 完善已有photocraft-restore-old-photo，内含五条真实方法、两阶段CLI/MCP调用、参数模板、检查点和原层核验，不增加210条映射。macOS合成夹具局部损伤误差13347→2061，保护区0变化；最终原层可逐像素还原输入。真实Codex原生MCP执行同一流程，内置浏览器已观察修补、工作层、整体调色与三层结构同步变化，保存重开及独立CLI读取通过。局部导出与CLI相同，整体导出最大1/255通道差异保留；最新资源查询404后使用已核验内置运行时，不称下载成功。真实照片损伤质量、其他场景和其他宿主仍未由此证明；Windows运行39036648418通过，下载195产物摘要及配方摘要复核一致；v6公开完整ZIP的安装/MCP和22个技能发现已通过，已按feature→test→main发布，主市场刷新和原生列表确认v6及独立修复计划。[回归记录](craft-photo-restoration-validation.json)。
+
+## 三个具体剪辑工作流扩展
+
+新增FilmCraft教学定格、讲者画中画及J-cut声音先入三个独立技能。固定Kdenlive官方帮助提交读取流程事实，原创适配真实命令、批次、ID与时间参数。macOS完整九场景117次CLI调用通过；新增三项真实H.264重新导入解码，核对定格帧与恢复动作、80×60叠加边界及背景、J-cut音频提前1秒且B画面使用匹配源1秒入点，AAC解码后的音频采样窗可区分合成声源。真实采访语义、音质和宿主同步不由此证明，Windows与市场发布待完成。[本批结果](craft-film-delivery-validation.json)。

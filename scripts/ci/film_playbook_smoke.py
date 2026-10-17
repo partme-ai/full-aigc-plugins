@@ -9,7 +9,7 @@ from photo_playbook_smoke import rgb_pixels
 TICKS = 254016000000
 
 
-def avi_fixture(path, fps=25, warm=False):
+def avi_fixture(path, fps=25, warm=False, moving=False):
     """纯stdlib生成4秒实际无压缩AVI，避免测试夹具依赖全局FFmpeg。"""
     def chunk(tag, data):
         return tag + struct.pack('<I', len(data)) + data + (b'\0' if len(data) % 2 else b'')
@@ -25,8 +25,12 @@ def avi_fixture(path, fps=25, warm=False):
     image = b''.join(bytes((60 if warm else 100, 50 + y * 3, min(255, 50 + x * 2 + (40 if warm else 0))))
                      for y in reversed(range(height)) for x in range(width))
     body, index, offset = bytearray(), bytearray(), 4
-    for _ in range(frames):
-        encoded = chunk(b'00db', image)
+    for frame_number in range(frames):
+        frame_image = bytearray(image) if moving else image
+        if moving:
+            for channel in range(2, len(frame_image), 3):
+                frame_image[channel] = 50 + frame_number
+        encoded = chunk(b'00db', frame_image)
         body.extend(encoded)
         index.extend(struct.pack('<4sIII', b'00db', 16, offset, len(image)))
         offset += len(encoded)
@@ -195,14 +199,18 @@ def run_recipe(r, recipe):
 
 def run_playbooks(r, path):
     files = sorted(Path(path).glob('filmcraft-*/references/craft-steps.json'))
-    require(len(files) == 6, 'Expected six FilmCraft skill recipes')
+    require(len(files) == 9, 'Expected nine FilmCraft skill recipes')
     records, original = [], r.work
     try:
         for file in files:
             recipe = json.loads(file.read_text(encoding='utf-8'))
             r.work = original / recipe['id']
             r.work.mkdir()
-            records.append(run_recipe(r, recipe))
+            if recipe['id'] in {'freeze-explainer','presenter-inset','jcut-dialogue'}:
+                from film_delivery_smoke import run_recipe as run_delivery_recipe
+                records.append(run_delivery_recipe(r, recipe))
+            else:
+                records.append(run_recipe(r, recipe))
     finally:
         r.work = original
     return records

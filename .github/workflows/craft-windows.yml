@@ -62,8 +62,14 @@ jobs:
           repository: full-aigc-skills/photocraft-skills
           ref: 0f3d39581254e0510f86af359e1c5bc443bfe027
           path: .local/test-photo-skills
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/filmcraft-skills
+          ref: b38d467e766e35dbe5e6192934000441784a71f3
+          path: .local/test-film-skills
       - run: python -m unittest discover -s scripts/ci -p "test_*.py" -v
         env:
+          CRAFT_FILM_SKILLS_ROOT: ${{ github.workspace }}/.local/test-film-skills/skills
           CRAFT_PHOTO_SKILLS_ROOT: ${{ github.workspace }}/.local/test-photo-skills/skills
           CRAFT_EFFECT_SKILLS_ROOT: ${{ github.workspace }}/.local/test-effect-skills/skills
           CRAFT_PRINT_SKILLS_ROOT: ${{ github.workspace }}/.local/test-print-skills/skills
