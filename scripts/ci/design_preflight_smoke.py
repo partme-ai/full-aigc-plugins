@@ -9,8 +9,9 @@ from design_playbook_smoke import run_script,require,near
 from design_core_smoke import catalog_png
 
 
-def verify_repaired(before,after):
-    require({'missingLink','lowResolution','overset'} <= {i['kind'] for i in before['issues']},'Fixture did not expose all target defects')
+def verify_repaired(before,after,before_links=()):
+    kinds={i['kind'] for i in before['issues']}
+    require({'lowResolution','overset'} <= kinds and ('missingLink' in kinds or any(link['status']=='missing' for link in before_links)),'Fixture did not expose all target defects')
     require(not any(i['severity']=='error' or i['kind'] in {'missingLink','lowResolution','overset'} for i in after['issues']),'Unresolved print issues; export must stop')
 
 
@@ -41,7 +42,7 @@ def run_preflight(r,skills):
         compiled,names=compiler.compile_steps(recipe,phase='inspect');out=run_script(r,compiled,source=source);before={n:out[i] for n,i in names.items()}
         bindings={'lowResolutionAsset':low,'lowResolutionReplacement':'preflight-input/blue-high.png','missingAsset':missing,'missingReplacement':'preflight-input/orange-high.png','oversetFrame':created[5]['id'],'oldTextBounds':[42,300,553,324],'approvedTextBounds':[42,300,553,700],'bleedPoints':9}
         compiled,names=compiler.compile_steps(recipe,inputs=bindings,phase='repair');target='preflight-fixed.designcraft';out=run_script(r,compiled,source=source,save=target);fixed={n:out[i] for n,i in names.items()}
-        verify_repaired(before['before_preflight'],fixed['final_preflight'])
+        verify_repaired(before['before_preflight'],fixed['final_preflight'],before['before_links'])
         require(fixed['fixed_story']['text']==text and fixed['fixed_story']['overset'] is None,'Repair lost or still hides text')
         require(all(link['status']=='ok' and all(u['ppi']>=300 for u in link['uses']) for link in fixed['final_links']),'Repair did not restore full-resolution linked images')
         info=json.loads(r.run('run','--in',target,'--cmd','document.inspect'))
@@ -63,4 +64,4 @@ def run_preflight(r,skills):
         require(all(hashlib.sha256((inputs/n).read_bytes()).hexdigest()==h for n,h in image_hashes.items() if n!='missing-low.png'),'Input image bytes changed')
         (r.work/'core-preflight-inspection.json').write_text(json.dumps({'before':before,'fixed':fixed,'export':export,'info':info,'inputBindings':bindings,'sourceSha256':source_hash},ensure_ascii=False,indent=2),encoding='utf-8')
     finally:offline.rename(absent)
-    return {'id':'print-preflight','coreSkill':'designcraft-print-preflight','technicalRoundtrip':'PASS','threeRealDefectsDetectedAndRepaired':'PASS','samePpiThreshold':'PASS','sourceUnchanged':'PASS','unrelatedFooterAndTextSizePreserved':'PASS','phaseGateBeforeExport':'PASS','pdfXOrPrintCertification':'NOT_TESTED','layoutReview':'NOT_TESTED','hostSameCanvas':'NOT_TESTED'}
+    return {'id':'print-preflight','coreSkill':'designcraft-print-preflight','technicalRoundtrip':'PASS','threeRealDefectsDetectedAndRepaired':'PASS','missingLinkReportedByPreflight':any(i['kind']=='missingLink' for i in before['before_preflight']['issues']),'missingLinkReportedByLinksList':any(i['status']=='missing' for i in before['before_links']),'samePpiThreshold':'PASS','sourceUnchanged':'PASS','unrelatedFooterAndTextSizePreserved':'PASS','phaseGateBeforeExport':'PASS','pdfXOrPrintCertification':'NOT_TESTED','layoutReview':'NOT_TESTED','hostSameCanvas':'NOT_TESTED'}

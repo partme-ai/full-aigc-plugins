@@ -100,6 +100,9 @@ class PrintPreflightContract(unittest.TestCase):
     def test_resolution_warning_stops_export(self):
         before={'issues':[{'kind':kind,'severity':'error' if kind!='lowResolution' else 'warning'} for kind in ['overset','missingLink','lowResolution']]}
         verify_repaired(before,{'issues':[]})
+        legacy={'issues':[i for i in before['issues'] if i['kind']!='missingLink']}
+        verify_repaired(legacy,{'issues':[]},[{'status':'missing'}])
+        with self.assertRaisesRegex(AssertionError,'all target defects'):verify_repaired(legacy,{'issues':[]})
         with self.assertRaisesRegex(AssertionError,'export must stop'):verify_repaired(before,{'issues':[{'kind':'lowResolution','severity':'warning'}]})
         with self.assertRaisesRegex(AssertionError,'all target defects'):verify_repaired({'issues':[]},{'issues':[]})
 
