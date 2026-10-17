@@ -33,7 +33,7 @@
     "status": "PASS"
   },
   "remaining": [
-    "Design其余四个核心场景：brochure、long-document、poster-layout、print-preflight",
+    "Design其余三个核心场景：brochure、poster-layout、print-preflight",
     "复杂实际稿件的视觉审阅",
     "宿主内Agent操作与编辑器同步",
     "场景去重和扩展为数百个独立工作流",
@@ -674,5 +674,144 @@
       }
     ],
     "finalStableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025884061"
+  },
+  "longDocumentValidation": {
+    "nativeRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026382806",
+    "executedSceneSourceCommit": "45e17344a07dc739d405db9abd85787a225e2fd0",
+    "scope": "单文档章节、原生目录、跨页正文和一条原生脚注；不是INDB转换或任意注释导入",
+    "firstPdfInspection": "模型及页码通过，发现默认制表位使第二章标题与页码粘连；已补480点右对齐和点引导线，待新制品复核",
+    "finalRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026566331",
+    "finalStatus": "PASS",
+    "layoutReview": "PARTIAL synthetic sample only",
+    "hostSameCanvas": "NOT_TESTED",
+    "executedFinalSceneSourceCommit": "149cd433820ee5372dbb279200099c910fbd0a38",
+    "pluginCandidateCommit": "057b958",
+    "hubRuntimeTestCommit": "635cc85552c8e7bc7aa9c9cf67fef0fdb8dab67c",
+    "processCount": 69,
+    "verifiedOutputCount": 76,
+    "exeSha256": "fd7aef6536032c9219d12c0461bcef39bbc318959be2a8e7989d52add7f35d54",
+    "tocBefore": [
+      {
+        "level": 1,
+        "page": "2",
+        "text": "Chapter 1 / Project evidence"
+      },
+      {
+        "level": 1,
+        "page": "4",
+        "text": "Chapter 2 / Review and handoff"
+      }
+    ],
+    "tocAfter": [
+      {
+        "level": 1,
+        "page": "2",
+        "text": "Chapter 1 / Project evidence"
+      },
+      {
+        "level": 1,
+        "page": "5",
+        "text": "Chapter 2 / Review and handoff"
+      }
+    ],
+    "footnotes": [
+      {
+        "anchor": 717,
+        "id": 1,
+        "index": 0,
+        "story": 18,
+        "text": "Source note: sample review protocol, prepared for the workflow fixture."
+      }
+    ],
+    "nativeResult": {
+      "id": "long-document",
+      "coreSkill": "designcraft-long-document",
+      "technicalRoundtrip": "PASS",
+      "fullChapterTextAndThread": "PASS",
+      "tocPaginationUpdate": "PASS",
+      "nativeFootnoteTextAndAnchor": "PASS",
+      "chapterBodyStylesInIdml": "PASS",
+      "packagedNativeReopen": "PASS",
+      "layoutReview": "NOT_TESTED",
+      "hostSameCanvas": "NOT_TESTED"
+    },
+    "pdfInspection": {
+      "pages": 5,
+      "tocNumbers": [
+        {
+          "number": "2",
+          "bbox": [
+            516.5330200195312,
+            64.20001220703125,
+            522.0,
+            78.7860107421875
+          ]
+        },
+        {
+          "number": "5",
+          "bbox": [
+            516.5330200195312,
+            77.4000244140625,
+            522.0,
+            91.98602294921875
+          ]
+        }
+      ],
+      "leadersVisible": true,
+      "noteVisibleOnChapter2Page": true,
+      "appendixOnInsertedPage": true,
+      "blankPages": false
+    },
+    "finalPdfInspection": "目录页码x右边界均522点，点引导线可见；第五页脚注和插入页附录存在；五页非空。只查看示例目录与脚注页，不是复杂长文完整视觉验收。",
+    "selectedBookOutputs": [
+      {
+        "path": "core-book-inspection.json",
+        "bytes": 12694,
+        "sha256": "d57aa805b60822de41603acca5c23c79d36c2e26ded2489c86b74b867a8f3e8f"
+      },
+      {
+        "path": "core-book.designcraft",
+        "bytes": 9928,
+        "sha256": "a35dcbf32c28b6ade1436ad1e4bdb585160ac238ce216a4bade72bd461b1bb02"
+      },
+      {
+        "path": "core-book.idml",
+        "bytes": 19485,
+        "sha256": "0b6c37cf8aa7d471309665ddfa1c01f3d52bc2bb1d2cb1bf4ba0b2bde5f036b2"
+      },
+      {
+        "path": "core-book.pdf",
+        "bytes": 17835,
+        "sha256": "af7a94d2231960aa16c9ff51f87a370e82851569b788aab0be35b6fa2119b96b"
+      },
+      {
+        "path": "book-package\\Instructions.txt",
+        "bytes": 129,
+        "sha256": "0505716fd8dfe75690b1f6bc57b28bed7d8ba87efdde09dcbebc245983d89fcf"
+      },
+      {
+        "path": "book-package\\Project review report.designcraft",
+        "bytes": 5264,
+        "sha256": "5f33597497e2f99324f73677ec729b72515cac4f09a9a63d2e678c7685ad1363"
+      },
+      {
+        "path": "book-package\\Project review report.idml",
+        "bytes": 19485,
+        "sha256": "0b6c37cf8aa7d471309665ddfa1c01f3d52bc2bb1d2cb1bf4ba0b2bde5f036b2"
+      },
+      {
+        "path": "book-package\\Project review report.pdf",
+        "bytes": 17835,
+        "sha256": "af7a94d2231960aa16c9ff51f87a370e82851569b788aab0be35b6fa2119b96b"
+      }
+    ],
+    "allOutputsReportSha256": "f88bb4d33f28b4c8a52f14d418147062352d4b0541fb3264218a79939f9f37ab",
+    "stableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026565186",
+    "packagingCi": {
+      "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026565163",
+      "status": "PASS",
+      "jobs": 14,
+      "scope": "固定索引包安装/MCP与当前固定技能源辅助契约测试，不代表本轮技能已重新发行"
+    }
   }
 }

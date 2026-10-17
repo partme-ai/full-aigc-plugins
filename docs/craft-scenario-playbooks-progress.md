@@ -328,3 +328,14 @@ Windows main运行[39025167041](https://github.com/partme-ai/full-aigc-plugins/a
 仍为201条映射：195条入口有过限定技术检查、2条部分、4条待执行（Design其余核心）。这不是195个独立高质量场景；真实素材效果、三宿主同画面同步、场景去重扩展及本批发行仍未完成。源码与插件feature含目录修正，公开dev.20261017.4尚不包含本轮更新，完整目标保持实施中。详情见[Design核心验证](craft-design-core-validation.json)。
 
 打包回归修复后的Windows运行[39025884043](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025884043)全部14个job通过（辅助契约回归与13应用原生安装/MCP）；实际检出固定技能源7751f82，没有跳过缺失文件。固定索引包安装结果不等于本轮技能已重新打包发行。最终稳定业务矩阵[39025884061](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025884061)全部13应用通过。
+
+
+## DesignCraft章节、原生目录与脚注
+
+旧long-document只创建单框与样式名称，无实际标题应用、续文或目录。已重建单文档两章、第一章跨页空框串接、明确正文/首段标题选择范围、样式驱动的toc.generate，以及插入证据附录后toc.update。原生目录从2/4变为2/5，正文与脚注实际保存重开；脚注717字节处的引用、内容和数量保持，打包原生文件也一致。补读le-tex固定提交b0fd4bb的章节IDML交付脚本，新增reason-machines固定741547f的InDesign目录工作流，只借鉴事实并原创映射；后者LICENSE仅MIT标签，不复制其代码或正文。本场景不是INDB转换器。
+
+首轮原生[39026382806](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026382806)技术回归通过，但独立查看PDF发现默认制表位使标题与页码粘连。已为Contents Entry添加480点右对齐制表位和点引导线，不以模型目录正确代替可读效果。最终Windows原生[39026566331](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026566331)通过69次CLI调用，下载核对二进制和76份输出摘要。PyMuPDF独立验证五页均有内容、附录在插入页、脚注实际在第五页，目录2/5页码右边界都为522点；查看目录及脚注页确认引导线与注释显示。11项Design辅助测试、201条静态映射和现有OpenSpec验证通过。
+
+当前仍201条映射：196条入口经过限定技术检查、2条部分、3条待执行（Design brochure、poster-layout、print-preflight）。统计包含方法复用，不代表196个独立高质量场景；真实复杂稿件、所有页的完整视觉/印刷检查、三宿主同步、去重扩展和本批市场发行仍未完成。技能和插件feature已同步，公开dev.20261017.4不包含本批新步骤。完整目标和OpenSpec继续实施，详见[Design核心验证](craft-design-core-validation.json)。
+
+对应的稳定13应用Windows业务矩阵[39026565186](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026565186)全部通过；固定索引包安装/MCP及辅助契约回归[39026565163](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026565163)14个job通过，不作为本轮新技能已发行的证明。
