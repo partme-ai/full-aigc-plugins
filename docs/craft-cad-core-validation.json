@@ -1,0 +1,321 @@
+{
+  "scope": "CAD two rebuilt core skill entries; native geometry and roundtrip, not all-scene or host UI acceptance",
+  "sourceRepository": "full-aigc-skills/cadcraft-skills",
+  "sceneSourceCommit": "71a0a453ebc2015f48c2c1d6d22a18778806d33e",
+  "pluginCandidateCommit": "88461f310dd6f9d244918e3e790d885d0807c4dd",
+  "nativeRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023108532",
+  "stableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023098371",
+  "runtime": {
+    "app": "cadcraft",
+    "repository": "storytold/cadcraft",
+    "commit": "9b2308b138e90a01d28d46c84021a74b1ae7ef4a",
+    "date": "2026-10-16T03:26:48Z",
+    "message": "Merge pull request #1382 from dylanmtaylor/ci/add-platform-checks",
+    "pluginCommit": "eaa97f0fd2a10d9aebd84cab7593d4fae268cd8f",
+    "skillsCommit": "7a80c83f5e11dc86382585702ebab40065628e53",
+    "engine": "cadcraft",
+    "status": "development-candidate-not-accepted",
+    "editorMode": "source-overlay",
+    "fontsCommit": "3d9ab3a132ed0eff457e424226a435a901da30d3",
+    "baselineCommit": "fc4e98315a8d771b5ab832f0ade0b5e7b106df7f",
+    "executable": "cadcraft-cli.exe",
+    "exeSha256": "3ca27d2a973d6940100c5d4063eaec7611ef6d7ff8a4727eccde41b6ff089763",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+  },
+  "exeSha256": "3ca27d2a973d6940100c5d4063eaec7611ef6d7ff8a4727eccde41b6ff089763",
+  "downloadedExecutableDigest": "PASS",
+  "downloadedOutputDigests": "PASS",
+  "processCount": 48,
+  "recipes": [
+    {
+      "skill": "cadcraft-floor-plan",
+      "recipeSha256": "ff3787ac37c4806ecee55d445c2a5d4c35c208d6f64b39a07df9f323d54335f1",
+      "assertions": {
+        "dimensions": 2,
+        "texts": [
+          "ROOM A"
+        ],
+        "doorGap": [
+          2000,
+          3000
+        ],
+        "arc": [
+          2000,
+          0,
+          1000,
+          0,
+          90
+        ],
+        "dimensionValues": [
+          5000,
+          4000
+        ],
+        "wallSegments": [
+          [
+            0,
+            0,
+            2000,
+            0
+          ],
+          [
+            3000,
+            0,
+            5000,
+            0
+          ],
+          [
+            5000,
+            0,
+            5000,
+            4000
+          ],
+          [
+            5000,
+            4000,
+            0,
+            4000
+          ],
+          [
+            0,
+            4000,
+            0,
+            0
+          ]
+        ],
+        "doorLeaf": [
+          2000,
+          0,
+          2000,
+          1000
+        ],
+        "dimscale": 100
+      }
+    },
+    {
+      "skill": "cadcraft-dimension-part",
+      "recipeSha256": "7e502c51805bc51ecfc1b0a4f4e2235b46c107a36252955e3198bbc1a86e111a",
+      "assertions": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            80,
+            0
+          ],
+          [
+            80,
+            40
+          ],
+          [
+            0,
+            40
+          ]
+        ],
+        "area": 3200,
+        "circles": [
+          [
+            20,
+            20,
+            5
+          ],
+          [
+            60,
+            20,
+            5
+          ]
+        ],
+        "dimensions": 4,
+        "dimensionValues": [
+          80,
+          40,
+          40,
+          5
+        ],
+        "dimscale": 1
+      }
+    }
+  ],
+  "playbooks": [
+    {
+      "id": "mounting-plate-four-holes",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "flange-bolt-circle",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "room-door-opening",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "equipment-grid-layout",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "pipe-route-length",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "linear-hole-pattern",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "notched-part-area",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "drawing-border-title",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "drawingReview": "NOT_TESTED"
+    },
+    {
+      "id": "floor-plan",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "doorOpeningAndNativeDimensions": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "dimension-part",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "nativeDimensionsAndRealHoles": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "drawing-border-title.dxf",
+      "bytes": 16105,
+      "sha256": "90d7cb5675b1c0d30352d14f24d2656b95f9d326adc11e283a9a7c8fb23e5228"
+    },
+    {
+      "path": "drawing-border-title.svg",
+      "bytes": 8875,
+      "sha256": "f4f7dba6b37f9d39c00232f3d1b8d19fd8b14ed37f5d3fa5f0f4e655ded7bd0c"
+    },
+    {
+      "path": "equipment-grid-layout.dxf",
+      "bytes": 17268,
+      "sha256": "b5c901a6aa44774a790c175fc1485ec64020d7620e58c8faa1a88fb1ab7ac6a7"
+    },
+    {
+      "path": "equipment-grid-layout.svg",
+      "bytes": 8183,
+      "sha256": "91796d15c0e873da9bd74f1394a930e4846f6ae273ec37f4576b20da5659a4fc"
+    },
+    {
+      "path": "flange-bolt-circle.dxf",
+      "bytes": 20054,
+      "sha256": "b16e15a596807ce5d3ad0cd3f32504e7419de23f43c11017e486227e47eb1628"
+    },
+    {
+      "path": "flange-bolt-circle.svg",
+      "bytes": 26822,
+      "sha256": "ce7be605f61de0d32d94c5f2ba3506e1c371311328f276592d617d5389e9dc36"
+    },
+    {
+      "path": "linear-hole-pattern.dxf",
+      "bytes": 21427,
+      "sha256": "cee0b06ec4d29ac4834187495478e5708bb72c83e11a10cc5cc3da542bccb8d9"
+    },
+    {
+      "path": "linear-hole-pattern.svg",
+      "bytes": 16317,
+      "sha256": "9f9c3f3c51c1cdb9676f2a50018834a93cec93e453d7a4d04e0284dcbef52a95"
+    },
+    {
+      "path": "mounting-plate-four-holes.dxf",
+      "bytes": 23035,
+      "sha256": "d0b3a2ff3af6116fcbbf0a91a44a618d8acccd4d1642feb7f07daf373aa4d1a1"
+    },
+    {
+      "path": "mounting-plate-four-holes.svg",
+      "bytes": 15225,
+      "sha256": "42c6a56fdbcd50654f4c477d8f97d3b3735a30340953ee4c5ac9a1c2ef1acc98"
+    },
+    {
+      "path": "notched-part-area.dxf",
+      "bytes": 20602,
+      "sha256": "9bc6cb8e5401eb234214309dc95dac03d249aa5df6a0c427f43182b2fd226682"
+    },
+    {
+      "path": "notched-part-area.svg",
+      "bytes": 3723,
+      "sha256": "62dd53f684b2e0ff62cb32f3b5cfc17969df17335a2ec65d2a1b9e647659fe88"
+    },
+    {
+      "path": "pipe-route-length.dxf",
+      "bytes": 23170,
+      "sha256": "0e9015716bb869a2a2e2ed425f83d3a5728d5d2e9dfc3eea7b3e36ebcb5496ed"
+    },
+    {
+      "path": "pipe-route-length.svg",
+      "bytes": 5020,
+      "sha256": "e14a0bcb382c872d3a9434c82cf57bc8cdd29ca7260953cc6b559f8b56be553a"
+    },
+    {
+      "path": "room-door-opening.dxf",
+      "bytes": 22045,
+      "sha256": "2bcc5a73d32e0315e6c98a7e7a578a959e430ea47582fb024b32905c9238cbc2"
+    },
+    {
+      "path": "room-door-opening.svg",
+      "bytes": 20652,
+      "sha256": "238431e97c8e720848e2f64decdcc59c09b6b1994377b2b2cf4c9c44f65c97d6"
+    },
+    {
+      "path": "图纸.dxf",
+      "bytes": 14811,
+      "sha256": "029b496765c0ff0a2eae09579fca383baa9bcf8a5e1b4b9d1a8d8fa8d8d9e64e"
+    },
+    {
+      "path": "图纸.svg",
+      "bytes": 2829,
+      "sha256": "6c5ce73858546623f8cb20112e22f6cd98e9ef754e749fcd66e4d0d2ae1d71a0"
+    },
+    {
+      "path": "core-dimension-part\\part.dxf",
+      "bytes": 24916,
+      "sha256": "8d21965dc56c8de9ffaff0e013af94a83b0a32acc4210024f82ede38d70995f3"
+    },
+    {
+      "path": "core-dimension-part\\part.svg",
+      "bytes": 12219,
+      "sha256": "1c87727a470a5c3902c549df1ad4f158ec28e785a34343ee88670d449a33ad51"
+    },
+    {
+      "path": "core-floor-plan\\room.dxf",
+      "bytes": 22045,
+      "sha256": "2bcc5a73d32e0315e6c98a7e7a578a959e430ea47582fb024b32905c9238cbc2"
+    },
+    {
+      "path": "core-floor-plan\\room.svg",
+      "bytes": 20652,
+      "sha256": "238431e97c8e720848e2f64decdcc59c09b6b1994377b2b2cf4c9c44f65c97d6"
+    }
+  ],
+  "visualReview": "PARTIAL: floor plan thumbnail reviewed; full export and part layout NOT_TESTED",
+  "installedHostSync": "NOT_TESTED",
+  "marketplacePublication": "NOT_PUBLISHED: feature candidates; public tag dev.20261017.4 unchanged"
+}

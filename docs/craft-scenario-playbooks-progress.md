@@ -2,17 +2,17 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前198条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/VectorCraft/FigCraft各14条，DesignCraft14条，其余3应用各6条。不是198条都已通过完整效果验收。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前201条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，其余3应用各6条。不是198条都已通过完整效果验收。
 
 | 内容 | 当前事实 |
 | --- | --- |
 | GitHub来源 | 16个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 82个技能中落地198条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 82个技能中落地201条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
-| 画质与完整场景 | 合成输入证明技术链；真实损伤照片审阅和其余104条场景逐项业务验收尚未完成 |
+| 画质与完整场景 | 合成输入证明技术链；真实素材、复杂输入、全部宿主同步及剩余映射仍未逐项验收 |
 
 ## 用法
 
@@ -271,3 +271,14 @@ Windows [39015219333](https://github.com/partme-ai/full-aigc-plugins/actions/run
 CLI原型记录仍明确PARTIAL；另通过隔离Codex原生插件安装和app-server的mcpServer/tool/call，在Codex内置浏览器实际完成Start→Result→Start，并用同会话node.set改变中文标题和按钮填色，画布及proto.preview同时变化，保存原生工程。补验仅使用固定main Web候选，旧内置Web的中文显示未替换；没有用SDK充当宿主调用，也未推广到其他Fig场景或Kimi/ZCode。记录见[Fig核心回归](craft-fig-core-validation.json)与[真实宿主原型补验](craft-fig-prototype-host-validation.json)。三种尺寸的响应PNG及桌面线框已查看，未当作真实产品UX或错误/键盘路径验收。
 
 累计201条映射：188条限定技术验证通过（原型包含单独宿主补验）、1条PDF表单部分通过、12条待执行，另4组合用例。剩余12条为CAD、Design各6条核心。完整创作效果、复杂素材、其他宿主及公共市场发行仍未完成，原OpenSpec继续实施。
+
+
+## CAD核心房间与零件标注重建
+
+重新核对LibreCAD固定提交94801d0的绘图单位、图层与尺寸事实，保留来源内容摘要，原创适配具体坐标和原生命令。旧房间技能仅有封闭矩形和一个宽度标注；现明确分段留出门洞、门扇和开启弧、宽高两个DIMENSION，以及保存后的毫米单位和显示比例。既有图纸不能重建新图、不能用闭合外框封住开口。
+
+旧零件技能没有对应圆孔实体；现先建立80×40轮廓与两个R5圆孔，再生成80宽、40高、40孔距和R5四项原生尺寸，禁止文字覆盖冒充量测。真实任务从现有几何重算坐标，示例不承诺公差或制造设计。
+
+本地先复现两个技能缺少目标几何/尺寸的失败，修复后9项CAD辅助测试及201条静态映射检查通过。Windows main运行[39023108532](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023108532)通过原8条加2个重建入口，共10条配方、48次CLI调用；下载核对固定原生二进制与22份输出摘要，检查实际DXF门洞、孔心/半径、闭合轮廓、四项量测、保存重开与SVG导出。稳定版13应用业务矩阵[39023098371](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023098371)通过。房间缩略图已局部查看，完整导出布局与零件尺寸排布、宿主同步仍未验收。
+
+这是修正既有入口，复用已有绘图方法，不增加场景数量。当前201条映射中190条执行入口有过限定技术检查，1条PDF表单部分通过，10条待执行（CAD余4、Design6）；存在业务步骤复用，不能将映射数量等同独立场景数量或真实创作质量。新技能修正已提交推送技能源和插件feature分支，公开市场dev.20261017.4未包含本轮修正，留待后续场景批次发行。原OpenSpec与完整目标保持实施中。细节见[CAD核心验证](craft-cad-core-validation.json)。
