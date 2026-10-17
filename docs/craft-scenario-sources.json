@@ -550,6 +550,12 @@
           "path": "src/menus/colors/desaturate/mono-mixer.xml",
           "url": "https://github.com/GNOME/gimp-help/blob/47eda5c8db56271d30e19e8bd53a88a619fcee7f/src/menus/colors/desaturate/mono-mixer.xml",
           "bytes": 500
+        },
+        {
+          "path": "src/menus/colors/levels.xml",
+          "url": "https://github.com/GNOME/gimp-help/blob/47eda5c8db56271d30e19e8bd53a88a619fcee7f/src/menus/colors/levels.xml",
+          "bytes": 25574,
+          "sha256": "5019fb5c267aa1a5db3502cb20ce7960470cda36c661aaa618d64626e4fa1269"
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied",

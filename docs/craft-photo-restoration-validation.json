@@ -1,0 +1,59 @@
+{
+  "scope": "Existing conservative old-photo workflow, synthetic 256x192 damage; no real-photo restoration-quality claim",
+  "sourceCommit": "0f3d39581254e0510f86af359e1c5bc443bfe027",
+  "pluginFeatureCommit": "9e0a5f8434325c6e0729872d9d0ffb859b870716",
+  "newSceneCount": 0,
+  "macOSCLI": {
+    "id": "old-photo-conservative",
+    "recipeSha256": "9838cbd1b99aab5191e75fb73bf8cd8035cc46e265c7d3def7f304c903b61afa",
+    "localRepair": {
+      "targetErrorBefore": 13347,
+      "targetErrorAfter": 2061,
+      "protectedDelta": 0
+    },
+    "inputFileUnchanged": "PASS",
+    "originalLayerPixelRoundtrip": "PASS",
+    "editableWorkingAndLevels": "PASS",
+    "globalToneChangesPixels": "PASS",
+    "dimensions": "PASS",
+    "realPhotoQuality": "NOT_TESTED",
+    "hostEditorSync": "NOT_TESTED"
+  },
+  "actualCodexHost": {
+    "cli": "0.162.0-alpha.17.2",
+    "pluginVersion": "0.1.0-dev.20261017.5",
+    "runtimeVersion": "0.1.0-dev.77",
+    "nativeAppServerMcp": "PASS",
+    "inAppBrowserAttached": "PASS",
+    "sameCanvasLocalRepairAndLayers": "PASS_OBSERVED",
+    "sameCanvasLevelsAndThreeLayers": "PASS_OBSERVED",
+    "saveAndReopen": "PASS",
+    "sourceLayerIndependentCliPixelCheck": "PASS",
+    "scope": "Only this fixture in Codex; not all 13 apps or other hosts",
+    "initialQueued": "resolved when actual tab attached",
+    "initialWorkspaceSwitchFailure": "Preserved existing MCP instance; used isolated native Codex profile and task workspace",
+    "latestRuntimeDownload": "HTTP 404, verified bundled fallback used",
+    "finalRenderComparison": {
+      "local": "exact decoded pixel match",
+      "global": "not bit identical",
+      "maxChannelDelta": 1,
+      "meanChannelDelta": 0.051472981770833336
+    },
+    "screenshots": [
+      {
+        "path": ".local/photo-restoration-20261017/native-local-repair.jpg",
+        "sha256": "f7775b6edeb8d153c14ac4ac3eae2f779a7fb413e61aef7ac135d3f11d3e8910"
+      },
+      {
+        "path": ".local/photo-restoration-20261017/native-restored.jpg",
+        "sha256": "6901a3a4c5dbd8754c90e43e0f546677d63c2773d2c565760439580d1b47d777"
+      }
+    ]
+  },
+  "windows": "PENDING",
+  "publication": "FEATURE_CANDIDATE_NOT_IN_SUBSCRIBED_MARKET",
+  "tests": {
+    "phaseTests": 4,
+    "pluginPython": 70
+  }
+}
