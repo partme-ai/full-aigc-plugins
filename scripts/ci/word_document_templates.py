@@ -2,6 +2,7 @@
 import argparse
 import importlib.util
 import json
+import os
 from pathlib import Path
 
 
@@ -28,4 +29,6 @@ def prepare(source):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--source',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
-    args.output.write_text(json.dumps(prepare(args.source),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    data=prepare(args.source)
+    data['sourceSkills']=Path(os.path.relpath(args.source.resolve()/'skills',args.output.resolve().parent)).as_posix()
+    args.output.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

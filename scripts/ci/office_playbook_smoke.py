@@ -95,6 +95,12 @@ def verify_grid(r, target, assertion):
             if key in assertion:require(sum(bool(re.fullmatch(re.escape(prefix)+r'\d+\.xml',n)) for n in z.namelist())==assertion[key],key+' mismatch')
 
 
+def source_skills(path, data):
+    """显式路径相对于配方文件，旧的技能内布局保持原语义。"""
+    recipe=Path(path).resolve()
+    return (recipe.parent/data['sourceSkills']).resolve() if data.get('sourceSkills') else recipe.parents[2]
+
+
 def run_playbooks(r,path,app):
     data=json.loads(Path(path).read_text(encoding='utf-8'));require(data['application']==app,'Wrong scenario application')
     records=[]
@@ -122,19 +128,19 @@ def run_playbooks(r,path,app):
     require(bool(records),'No Office scenarios selected')
     if app=='gridcraft':
         from grid_core_smoke import run_playbooks as run_core
-        records.extend(run_core(r, Path(path).resolve().parents[2]))
+        records.extend(run_core(r, source_skills(path,data)))
         from grid_templates_smoke import run_templates
-        records.extend(run_templates(r, Path(path).resolve().parents[2]))
+        records.extend(run_templates(r, source_skills(path,data)))
     if app=='wordcraft':
         from word_core_smoke import run_playbooks as run_core
-        records.extend(run_core(r, Path(path).resolve().parents[2]))
+        records.extend(run_core(r, source_skills(path,data)))
         from word_publishing_smoke import run_playbooks as run_publishing
-        records.extend(run_publishing(r, Path(path).resolve().parents[2]))
+        records.extend(run_publishing(r, source_skills(path,data)))
     if app=='deckcraft':
         from deck_comparison_smoke import run_comparison
-        records.append(run_comparison(r, Path(path).resolve().parents[2]))
+        records.append(run_comparison(r, source_skills(path,data)))
         from deck_core_smoke import run_core
-        records.extend(run_core(r, Path(path).resolve().parents[2]))
+        records.extend(run_core(r, source_skills(path,data)))
         # 真实组合两条手册，防止后一个file.new清空已有页。
         combined=[next(x for x in data['recipes'] if x['id']==id) for id in ['option-comparison-table','trend-actual-plan']]
         args=['run']; initialized=False
