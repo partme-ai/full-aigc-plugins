@@ -67,8 +67,14 @@ jobs:
           repository: full-aigc-skills/filmcraft-skills
           ref: b38d467e766e35dbe5e6192934000441784a71f3
           path: .local/test-film-skills
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/wordcraft-skills
+          ref: 886b63aafad80a1cf660397ca989a7fdb87bdcfc
+          path: .local/test-word-skills
       - run: python -m unittest discover -s scripts/ci -p "test_*.py" -v
         env:
+          CRAFT_WORD_SKILLS_ROOT: ${{ github.workspace }}/.local/test-word-skills/skills
           CRAFT_FILM_SKILLS_ROOT: ${{ github.workspace }}/.local/test-film-skills/skills
           CRAFT_PHOTO_SKILLS_ROOT: ${{ github.workspace }}/.local/test-photo-skills/skills
           CRAFT_EFFECT_SKILLS_ROOT: ${{ github.workspace }}/.local/test-effect-skills/skills

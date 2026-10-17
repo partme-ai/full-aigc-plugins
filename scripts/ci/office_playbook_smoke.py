@@ -126,6 +126,8 @@ def run_playbooks(r,path,app):
     if app=='wordcraft':
         from word_core_smoke import run_playbooks as run_core
         records.extend(run_core(r, Path(path).resolve().parents[2]))
+        from word_publishing_smoke import run_playbooks as run_publishing
+        records.extend(run_publishing(r, Path(path).resolve().parents[2]))
     if app=='deckcraft':
         from deck_core_smoke import run_core
         records.extend(run_core(r, Path(path).resolve().parents[2]))

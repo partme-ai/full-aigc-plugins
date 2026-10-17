@@ -54,7 +54,7 @@ jobs:
         if: matrix.plugin == 'wordcraft'
         with:
           repository: full-aigc-skills/wordcraft-skills
-          ref: 58af9510210099ddb2a14899e3ebd4274d676330
+          ref: 886b63aafad80a1cf660397ca989a7fdb87bdcfc
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'deckcraft'

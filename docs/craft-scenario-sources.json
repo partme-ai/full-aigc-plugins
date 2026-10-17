@@ -796,6 +796,34 @@
       ],
       "reuse": "workflow facts only; original Craft prose, recipes and fixtures; no manual text, code or media redistributed",
       "licenseEvidence": "credits_and_license.rst: Creative Commons License SA 4.0; no manual text/code/images redistributed"
+    },
+    {
+      "repository": "LibreOffice/help",
+      "commit": "8f72ca906e16f3bd2056cd6bb3f3b604621072f8",
+      "license": {
+        "notice": "MPL 2.0 and incorporated Apache 2.0 notices in the read help files; no original prose/code/media redistributed"
+      },
+      "readFiles": [
+        {
+          "path": "source/text/swriter/guide/captions.xhp",
+          "sha256": "cf677e1d57268479fe5dda49fd9adc0846a1702def6f6a87eea6831f9d9ac0ae",
+          "bytes": 5136,
+          "url": "https://github.com/LibreOffice/help/blob/8f72ca906e16f3bd2056cd6bb3f3b604621072f8/source/text/swriter/guide/captions.xhp"
+        },
+        {
+          "path": "source/text/swriter/guide/indices_toc.xhp",
+          "sha256": "d19b98569e8fb8a9a44327c539fc20319167a66dd866aa49ad8c15e008a85ffb",
+          "bytes": 5313,
+          "url": "https://github.com/LibreOffice/help/blob/8f72ca906e16f3bd2056cd6bb3f3b604621072f8/source/text/swriter/guide/indices_toc.xhp"
+        },
+        {
+          "path": "source/text/swriter/guide/pageorientation.xhp",
+          "sha256": "5f7084616684569208902c60c01bfde8422c052372df7b5e1c659b32be717057",
+          "bytes": 13242,
+          "url": "https://github.com/LibreOffice/help/blob/8f72ca906e16f3bd2056cd6bb3f3b604621072f8/source/text/swriter/guide/pageorientation.xhp"
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
     }
   ]
 }

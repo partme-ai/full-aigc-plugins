@@ -79,8 +79,10 @@ def run_playbooks(r, skills):
     root.mkdir()
     records = []
     try:
-        files = sorted(Path(skills).glob('wordcraft-*/references/craft-steps.json'))
-        require(len(files) == 6, 'Expected six WordCraft core recipes')
+        names = ['business-proposal', 'document-comparison', 'document-style', 'meeting-minutes',
+                 'research-report', 'resume-layout']
+        files = [Path(skills) / ('wordcraft-' + name) / 'references/craft-steps.json' for name in names]
+        require(all(file.is_file() for file in files), 'Missing one of six WordCraft core recipes')
         for file in files:
             recipe = json.loads(file.read_text(encoding='utf-8'))
             name = recipe['id']
