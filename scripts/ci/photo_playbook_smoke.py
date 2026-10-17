@@ -121,4 +121,6 @@ def run_playbooks(r, path):
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','pixelEffect':pixel_check,
                         'locality':local_check,'creativeAcceptance':'NOT_TESTED'})
     require({x['id'] for x in records}==selected,'Missing required recipe')
+    from photo_more_smoke import run_playbooks as run_more
+    records.extend(run_more(r, path))
     return records
