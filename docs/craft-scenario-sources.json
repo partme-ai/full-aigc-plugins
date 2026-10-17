@@ -118,6 +118,21 @@
           "path": "link-endnotes/README.md",
           "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/link-endnotes/README.md",
           "bytes": 680
+        },
+        {
+          "path": "line-numbers/README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/line-numbers/README.md",
+          "bytes": 654
+        },
+        {
+          "path": "pagenames/README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/pagenames/README.md",
+          "bytes": 1403
+        },
+        {
+          "path": "paragraph-textDestinations/README.md",
+          "url": "https://github.com/le-tex/InDesignScripts/blob/b0fd4bbc49f33f860361736a702c1ed5c3e4ac95/paragraph-textDestinations/README.md",
+          "bytes": 225
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
