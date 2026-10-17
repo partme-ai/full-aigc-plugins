@@ -331,7 +331,7 @@
       "displayName": "Blender Design",
       "repository": "full-aigc-plugins/blender-design-plugin",
       "localDirectory": "blender-design-plugin",
-      "version": "0.15.0",
+      "version": "0.14.1",
       "description": "Design, review, and export Blender scenes through controlled operations, visual milestones, and recovery checkpoints.",
       "shortDescription": "Design, review, and export Blender projects",
       "category": "Creativity",
