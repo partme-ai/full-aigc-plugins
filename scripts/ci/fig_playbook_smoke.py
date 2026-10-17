@@ -1,6 +1,8 @@
 """使用技能自带返回ID绑定脚本驱动真实FigCraft CLI，重开检查节点与布局。"""
 import importlib.util
 import json
+import copy
+import hashlib
 import math
 from pathlib import Path
 import struct
@@ -62,4 +64,25 @@ def run_playbooks(r,path):
         require(list(struct.unpack('>II',(r.work/png).read_bytes()[16:24]))==recipe['assertions']['rootSize'],'Root export pixel size wrong')
         r.run('export',target,'--node',root_id,'-o',svg,'--format','svg');ET.fromstring((r.work/svg).read_bytes())
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','returnedIdBinding':'PASS','layoutStructure':'PASS','designReview':'NOT_TESTED'})
-    require(bool(records),'No Fig scenes');return records
+    require(bool(records),'No Fig scenes')
+    records.append(existing_component(r,m,data))
+    return records
+
+
+def existing_component(r,helper,data):
+    fixture={'steps':[
+        {'command':'file.new','params':{'name':'User content'},'newDocumentOnly':True},
+        {'command':'node.create','params':{'type':'frame','name':'UserFrame','x':0,'y':0,'width':200,'height':200,'props':{'fill':'#f1f5f9'}},'capture':'old_root'},
+        {'command':'node.create','params':{'type':'text','name':'UserNote','x':16,'y':24,'width':168,'height':40,'parent':{'$ref':'old_root.id'},'text':'KEEP THIS NOTE','props':{'fontSize':16,'fill':'#172033'}},'capture':'old_text'}]}
+    source=r.work/'existing-user.figcraft';first=helper.execute_recipe(fixture,r.run,r.work,source)
+    before=read_nodes(r,str(source),first['bindings']);digest=hashlib.sha256(source.read_bytes()).hexdigest()
+    recipe=copy.deepcopy(next(x for x in data['recipes'] if x['id']=='metric-card-component'))
+    next(x for x in recipe['steps'] if x.get('capture')=='root')['params']['x']=260
+    target=r.work/'existing-with-component.figcraft';receipt=helper.execute_recipe(recipe,r.run,r.work,target,source)
+    after=read_nodes(r,str(target),first['bindings']);require(before==after,'Existing user nodes changed')
+    require(hashlib.sha256(source.read_bytes()).hexdigest()==digest,'Original source file changed')
+    added=read_nodes(r,str(target),receipt['bindings']);verify(added,receipt['bindings'],recipe['assertions'])
+    require(near(added['root']['x'],260),'New component was not placed away from user frame')
+    require(not any(row['command']=='file.new' for row in receipt['steps']),'Existing file was initialized')
+    r.run('export',str(target),'-o','existing-with-component.png','--format','png')
+    return {'id':'existing-file-component-addition','technicalRoundtrip':'PASS','preservedUserNodes':len(before),'sourceUnchanged':'PASS','newDocumentSkipped':'PASS','returnedIdBinding':'PASS','designReview':'NOT_TESTED'}
