@@ -51,3 +51,14 @@ class DeliveryContract(unittest.TestCase):
         verify_revision(report)
         report['changes'][0]['old']['text']='120';report['changes'][0]['new']['text']='100'
         with self.assertRaisesRegex(AssertionError,'direction'):verify_revision(report)
+
+    def test_stable_business_checks_out_sources_required_by_current_helpers(self):
+        import re
+        hub=Path(__file__).resolve().parents[2]
+        lock=json.loads((hub/'scripts/ci/craft_main_candidates.lock.json').read_text(encoding='utf-8'))
+        workflow=(hub/'.github/workflows/craft-cli-windows.yml').read_text(encoding='utf-8')
+        for app in ['printcraft','designcraft']:
+            match=re.search(r'repository: full-aigc-skills/'+app+r'-skills\s+ref: ([0-9a-f]{40})',workflow)
+            self.assertIsNotNone(match)
+            expected=next(c['skillsCommit'] for c in lock['candidates'] if c['app']==app)
+            self.assertEqual(match.group(1),expected,'Stable job uses an old skill tree without current native recipe files: '+app)

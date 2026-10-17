@@ -36,7 +36,7 @@ jobs:
         if: matrix.plugin == 'printcraft'
         with:
           repository: full-aigc-skills/printcraft-skills
-          ref: 6e972545d691bfbb8e9bc69b67aafe7b20dae3d9
+          ref: 639f0358266e51f781976463f0520589f4d559f9
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'photocraft'
