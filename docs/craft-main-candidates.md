@@ -33,6 +33,7 @@
 | Windows：Design、Print、Film、Vector、Effect、Light | [39007949879](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39007949879) |
 | Windows：Photo，含上游两项预设持久化测试 | [39008034368](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39008034368) |
 | Windows：Print新增文字统计与无障碍检查 | [39008588714](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39008588714) |
+| Windows：Film关联素材单侧删除与撤销 | [39011329666](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39011329666) |
 | Windows：Deck实际starter和品牌页复用 | [39010982169](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39010982169) |
 | Windows：Light新增模板恢复和联系印样PDF | [39010884426](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39010884426) |
 | Windows：Design新增SVG导入与可编辑PPTX交付 | [39008681404](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39008681404) |
@@ -52,7 +53,7 @@
 | LightCraft | +58、7变化 | 联系印样PDF、版式模板、蒙版效果模板、幻灯片导出 | Windows模板恢复、两张照片单页PDF及原片保持通过；蒙版和幻灯片未执行 |
 | DeckCraft | +89、36个无歧义契约变化 | starter模板、指定页面复用、结构化MCP目录读取 | Windows实际starter、指定品牌页顺序、可编辑PPTX和源文件保护通过；外部渲染未执行 |
 | FigCraft | +2、5变化 | 自动保存、显式协作成员移除及宿主限制 | 真实契约已适配，新流程未专项执行 |
-| FilmCraft | 无新增ID、1变化 | timeline.select linked单侧音视频选择及全局设置边界 | 真实契约与上游源码已核对；关联音视频新场景未专项执行 |
+| FilmCraft | 无新增ID、1变化 | timeline.select linked单侧音视频选择及全局设置边界 | Windows演示工程验证单侧删除、伙伴保护、撤销和重开；真实媒体试听与宿主同步未执行 |
 | CAD、Grid、Sound、Effect、Vector | 相对此处稳定目录无方法/契约变化 | 沿用现有指导，按main重新构建回归 | 既有原生业务通过，未据此宣称所有主线行为已验收 |
 
 Deck旧目录234条仅232个唯一ID：text.delete/text.move存在不同参数的重复定义。比较器保留歧义，不任意取最后一个覆盖；89是唯一ID集合差，36处契约变化排除了这两个歧义ID。Print比较使用实际MCP工具的snake_case input_schema，与其他应用的引擎命令分开统计。

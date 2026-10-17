@@ -73,6 +73,25 @@
         "installedHostSync": "NOT_TESTED"
       },
       "complexFormattingPreservation": "NOT_TESTED"
+    },
+    {
+      "app": "filmcraft",
+      "run": 39011329666,
+      "sourceCommit": "09aaf9bf15d510eda1c413c0ccabb1d7e08b41c5",
+      "driverCommit": "dafacfaad1b9f4a906868af1204c1398015dcdd4",
+      "sceneSourceCommit": "254dd949baaf65ebfc49f100efd5bd7050fe0728",
+      "exeSha256": "1f5d733fe36307bee2df600010075333f75e0455f3a852e754b86143f92a31cf",
+      "mainCapabilities": {
+        "videoOnlyDeletion": "PASS",
+        "audioOnlyDeletion": "PASS",
+        "explicitTargetExpandsPartnerReproduced": "PASS",
+        "localSelectionKeepsGlobalLinking": "PASS",
+        "partnerAndOtherClipsUnchanged": "PASS",
+        "undoAndNativeReopen": "PASS",
+        "scope": "Built-in demo project model; no real media playback or J/L-cut quality certification",
+        "installedHostSync": "NOT_TESTED"
+      },
+      "scope": "Built-in demo AV project model, separate from 201 mapped workflows; no real-media auditory or installed-host proof"
     }
   ],
   "photoHostReport": "craft-main-photo-host-validation.json"

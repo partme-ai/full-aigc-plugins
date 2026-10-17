@@ -203,3 +203,12 @@ SVG整理以真实透明SVG输入测试：共线节点减少、原始SVG及原�
 最终Windows[39005885352](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39005885352)绑定目录仓b75fbd8与技能源15cdd6d，13应用业务矩阵全部通过；VectorCraft17个映射配方+1组合经125次真实CLI调用通过。下载85份输出核对SHA256，并独立核对描摹alpha与SVG简化前后/重开RGBA一致，日志中核对活文字CRAFT保留。既有安装/MCP矩阵39005885501通过；不替代本次六场景真实宿主加载/同步验收。完整范围见[核心场景回归记录](craft-vector-core-validation.json)。
 
 累计201条映射：164条完成限定技术回归、1条PDF表单部分通过、36条待逐项执行，另有4条组合用例。VectorCraft17条具备技术样例执行记录；六核心的真实设计与宿主同步未验收。插件文档/架构CI通过，完整实现CI39005811428仍失败；整体目标与OpenSpec继续实施中。
+
+
+## FilmCraft关联素材单侧删除修正
+
+核对main固定提交09aaf9bf的individual_selection_tests.rs时发现原指导将linked:false单选与显式edit.clear clips目标混用：后者仍依全局关联设置展开伙伴。已改为读取当前选择、确认精确目标后edit.clear {}，两次调用间选择改变时先重新确认。不能以单次选择参数推断后续命令不会展开关联。
+
+Windows专项[39011329666](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39011329666)使用已校验main二进制，真实CLI复现显式目标同时删除伙伴，分别验证仅删视频、仅删音频、其余片段完整不变、全局关联设置保持、撤销及原生工程保存重开。下载后核对主线二进制与32份输出摘要，70次调用已落盘；独立读取fcproj JSON验证非目标片段完整一致、撤销后完整序列一致。测试使用内置演示工程模型，真实媒体解码试听、J/L-cut创作质量和宿主同步未验收。技能源与插件同步同一修正，未修改不可变发行快照。
+
+本专项独立于201条场景计数，累计仍为164条限定技术通过、1条部分、36条待执行及另4组合。完整目标与现有OpenSpec保持实施中。详见[专项记录](craft-film-linked-selection-validation.json)。
