@@ -71,13 +71,20 @@
       "commit": "d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08",
       "date": "2026-10-16T16:08:58Z",
       "message": "ci: standardize FreeBSD workflow on shared FreeBSD 15.1 action (#640)",
-      "pluginCommit": "a3fd1813a77aab149e864f71e21d899583a1f6a6",
+      "pluginCommit": "83ce11ef65bd95fcbf81561a2e9096336e4c4836",
       "skillsCommit": "d004b17a2736bc7e24004b5a62675182ec2273d1",
       "engine": "figcraft",
       "status": "development-candidate-not-accepted",
       "editorMode": "source-overlay",
       "fontsCommit": "43913056ce82a3fdad0ef69f6b88d1dc922a8104",
-      "baselineCommit": "833f0d2c27f0acbae5394848930ae531fc89c724"
+      "baselineCommit": "833f0d2c27f0acbae5394848930ae531fc89c724",
+      "candidatePatches": [
+        {
+          "file": "fig-independent-corners.patch",
+          "sha256": "0a53d39068ad50c7732b2e74444a7603acbe9c8718ebcb7759cd27e762b8d916",
+          "purpose": "Preserve four explicit corner radii when Figma omits the independent flag; explicit false keeps uniform corners"
+        }
+      ]
     },
     {
       "app": "filmcraft",

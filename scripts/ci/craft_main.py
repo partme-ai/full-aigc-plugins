@@ -154,9 +154,17 @@ def main():
                             'export_preset_cmds::tests', '--', '--nocapture'], cwd=source,
                            env=env, stdout=log, stderr=subprocess.STDOUT, check=True)
         tests = 'PASS'
+    fig_tests = 'NOT_RUN'
+    if row['app'] == 'figcraft' and row.get('candidatePatches'):
+        with (dest / 'fig-independent-corners-tests.log').open('wb') as log:
+            subprocess.run(['cargo', 'test', '--release', '--locked', '-p', 'figcraft-format',
+                            'imports_independent_corners_when_flag_is_absent', '--', '--nocapture'],
+                           cwd=source, env=env, stdout=log, stderr=subprocess.STDOUT, check=True)
+        fig_tests = 'PASS'
     (dest / 'provenance.json').write_text(json.dumps({**row, 'executable': exe.name,
         'exeSha256': hashlib.sha256(exe.read_bytes()).hexdigest(),
         'upstreamExportPresetTests': tests,
+        'figIndependentCornersTests': fig_tests,
         'rustc': subprocess.check_output(['rustc', '--version'], text=True).strip()}, indent=2) + '\n')
 
 
