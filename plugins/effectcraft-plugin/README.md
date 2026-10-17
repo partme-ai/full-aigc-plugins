@@ -1,10 +1,10 @@
 # EffectCraft Use
 
-当前可安装开发候选：`0.1.0-dev.20261017.5`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+当前可安装开发候选：`0.1.0-dev.20261017.6`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
-`0.1.0-dev.20261017.3` is distributed through the Full AIGC plugin marketplace as a development prerelease. Node.js 24 is required. Git installations use `ui/bootstrap.mjs` to download and verify the pinned editor archive on first start; complete release ZIPs also include that archive unpacked for offline startup. No Rust build or npm installation is required. Startup diagnostics use stderr; stdio remains MCP-only. The editor shares its session with Agent commands. Full creative quality and all-host embedded UI acceptance are still incomplete. Existing dated validation below describes its original version.
+`0.1.0-dev.20261017.6` is distributed through the Full AIGC plugin marketplace as a development prerelease. Node.js 24 is required. Git installations use `ui/bootstrap.mjs` to download and verify the pinned editor archive on first start; complete release ZIPs also include that archive unpacked for offline startup. No Rust build or npm installation is required. Startup diagnostics use stderr; stdio remains MCP-only. The editor shares its session with Agent commands. Full creative quality and all-host embedded UI acceptance are still incomplete. Existing dated validation below describes its original version.
 
 
 ## Previous development candidate
@@ -14,11 +14,11 @@
 
 Create editable `.ecproj` projects, dependencies and media from text, graphics and footage. This is a development release; full V1 remains open. Published releases and local documentation candidates have separate evidence.
 
-Current plugin: `0.1.0-dev.70`; skill source: `0.1.0-dev.69`; 16 independent skills (15 domain + 1 bundled execution harness).
+Current plugin: `0.1.0-dev.20261017.6`; skill source: `0.1.0-dev.69`; 16 independent skills (15 domain + 1 bundled execution harness).
 
 | Field | Value |
 | --- | --- |
-| Metadata version | 0.1.0-dev.70 |
+| Metadata version | 0.1.0-dev.20261017.6 |
 | Skills source | effectcraft-skills / v0.1.0-dev.69 |
 | Acceptance | Development; full V1 OPEN |
 
@@ -177,3 +177,12 @@ Plugin display name: **EffectCraft Use**. Official upstream icon provenance and 
 ### 候选启动修正
 
 本候选先完成轻量MCP握手及能力发现，在首次工具或资源调用时校验/获取固定编辑器资源。修复多个编辑器首次下载阻塞宿主握手的问题。Windows通过Git安装时须启用Git长路径支持（`git config --global core.longpaths true`）；完整ZIP不包含历史验收记录，可避免Git检出长路径的问题。运行资源沿用已核验的dev.20261017.2制品，不以入口版本号冒充上游升级。
+
+
+## 片头片尾场景候选 / Intro and outro scene candidates
+
+新增章节标题卡、3–2–1开场倒数、片尾滚动署名三个独立技能。每项含原生CLI与同会话MCP方法、明确参数、时间单位、输入替换和输出检查。源于固定GitHub流程事实的原创适配，不复制模板代码。原生合成样本验证与真实成片、宿主同步分开记录；冻结基础技能版本与运行时不变。
+
+- [effectcraft-chapter-card](skills/effectcraft-chapter-card/SKILL.md)
+- [effectcraft-countdown-intro](skills/effectcraft-countdown-intro/SKILL.md)
+- [effectcraft-credits-roll](skills/effectcraft-credits-roll/SKILL.md)

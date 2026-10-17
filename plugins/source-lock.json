@@ -33,12 +33,12 @@
   },
   {
     "plugin": "effectcraft",
-    "version": "0.1.0-dev.20261017.5",
+    "version": "0.1.0-dev.20261017.6",
     "repository": "full-aigc-plugins/effectcraft-plugin",
-    "commit": "fa8b36708ad103336eb5b4c7d33b394f66f12712",
-    "tag": "v0.1.0-dev.20261017.5",
-    "fileCount": 961,
-    "treeSha256": "ce89388801006362a8b0ae759baa9c1f512564a0abd49c9641ad2d651b316685",
+    "commit": "3ee1832e9a9a38aa6b153e689b61de9b111e02c4",
+    "tag": "v0.1.0-dev.20261017.6",
+    "fileCount": 976,
+    "treeSha256": "45cb144b2d9111a15fec33c106b052adfaf5a1e587c49f8a1cf56325df6fa6b4",
     "excluded": [
       "evidence/",
       "docs/evidence/",

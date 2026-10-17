@@ -1,0 +1,294 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "effectcraft",
+  "id": "credits-roll",
+  "title": "片尾滚动署名",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "templateOnly": true,
+  "steps": [
+    {
+      "command": "comp.new",
+      "params": {
+        "name": "CreditsRoll",
+        "width": 1920,
+        "height": 1080,
+        "frameRate": 25,
+        "duration": 12
+      },
+      "purpose": "新建专用1920×1080、25fps合成"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Credit1",
+        "text": "Direction",
+        "position": [
+          960,
+          1180
+        ],
+        "size": 48,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Credit1"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit1",
+        "path": "transform/position",
+        "time": 0,
+        "timeBase": "comp",
+        "value": [
+          960,
+          1180,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit1的transform/position"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit1",
+        "path": "transform/position",
+        "time": 12,
+        "timeBase": "comp",
+        "value": [
+          960,
+          -850,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit1的transform/position"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Credit2",
+        "text": "Approved Director",
+        "position": [
+          960,
+          1310
+        ],
+        "size": 60,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Credit2"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit2",
+        "path": "transform/position",
+        "time": 0,
+        "timeBase": "comp",
+        "value": [
+          960,
+          1310,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit2的transform/position"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit2",
+        "path": "transform/position",
+        "time": 12,
+        "timeBase": "comp",
+        "value": [
+          960,
+          -720,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit2的transform/position"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Credit3",
+        "text": "Camera",
+        "position": [
+          960,
+          1440
+        ],
+        "size": 48,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Credit3"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit3",
+        "path": "transform/position",
+        "time": 0,
+        "timeBase": "comp",
+        "value": [
+          960,
+          1440,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit3的transform/position"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit3",
+        "path": "transform/position",
+        "time": 12,
+        "timeBase": "comp",
+        "value": [
+          960,
+          -590,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit3的transform/position"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Credit4",
+        "text": "Approved Camera",
+        "position": [
+          960,
+          1570
+        ],
+        "size": 60,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Credit4"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit4",
+        "path": "transform/position",
+        "time": 0,
+        "timeBase": "comp",
+        "value": [
+          960,
+          1570,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit4的transform/position"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit4",
+        "path": "transform/position",
+        "time": 12,
+        "timeBase": "comp",
+        "value": [
+          960,
+          -460,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit4的transform/position"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Credit5",
+        "text": "Sound",
+        "position": [
+          960,
+          1700
+        ],
+        "size": 48,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Credit5"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit5",
+        "path": "transform/position",
+        "time": 0,
+        "timeBase": "comp",
+        "value": [
+          960,
+          1700,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit5的transform/position"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit5",
+        "path": "transform/position",
+        "time": 12,
+        "timeBase": "comp",
+        "value": [
+          960,
+          -330,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit5的transform/position"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Credit6",
+        "text": "Approved Sound",
+        "position": [
+          960,
+          1830
+        ],
+        "size": 60,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Credit6"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit6",
+        "path": "transform/position",
+        "time": 0,
+        "timeBase": "comp",
+        "value": [
+          960,
+          1830,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit6的transform/position"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Credit6",
+        "path": "transform/position",
+        "time": 12,
+        "timeBase": "comp",
+        "value": [
+          960,
+          -200,
+          0
+        ]
+      },
+      "purpose": "按合成秒设置Credit6的transform/position"
+    }
+  ],
+  "check": "独立角色/姓名层以相同速度向上滚动；确认名单、角色对应与顺序，首帧和最后有效帧为空，文本中段可读且完整离场。",
+  "boundary": "Direction/Camera/Sound及Approved字段全是占位例子，必须替换为确认名单。六行12秒只是演示；名单加长或改变分辨率后重新按总高度/可读速度计算时长和离场坐标，不能只复用12秒。",
+  "argumentPolicy": "新工程专用。所有图层名称必须唯一，prop.addKey显式layer按当前实际名称/返回ID绑定，timeBase=comp为合成秒；已有工程先选择正确合成并清理名称歧义，不无条件comp.new。"
+}

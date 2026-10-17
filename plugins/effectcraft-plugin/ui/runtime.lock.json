@@ -1,6 +1,6 @@
 {
   "name": "effectcraft",
-  "version": "0.1.0-dev.20261017.5",
+  "version": "0.1.0-dev.20261017.6",
   "url": "https://github.com/full-aigc-plugins/effectcraft-plugin/releases/download/v0.1.0-dev.20261017.2/effectcraft-runtime.tgz",
   "sha256": "c0eb3cd0ccd589c4ebbf9f6c83ed38e25ffcc7df8f8904268d3b853ab6bdd7d2",
   "files": {

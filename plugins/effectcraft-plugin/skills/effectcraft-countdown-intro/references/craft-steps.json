@@ -1,0 +1,128 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "effectcraft",
+  "id": "countdown-intro",
+  "title": "3–2–1开场倒数",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "templateOnly": true,
+  "steps": [
+    {
+      "command": "comp.new",
+      "params": {
+        "name": "CountdownIntro",
+        "width": 1920,
+        "height": 1080,
+        "frameRate": 25,
+        "duration": 4
+      },
+      "purpose": "新建专用1920×1080、25fps合成"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Three",
+        "text": "3",
+        "position": [
+          960,
+          610
+        ],
+        "size": 180,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Three"
+    },
+    {
+      "command": "layer.timing",
+      "params": {
+        "layers": [
+          "Three"
+        ],
+        "in": 0,
+        "out": 1
+      },
+      "purpose": "仅让该数字出现在独占的一秒区间"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Two",
+        "text": "2",
+        "position": [
+          960,
+          610
+        ],
+        "size": 180,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Two"
+    },
+    {
+      "command": "layer.timing",
+      "params": {
+        "layers": [
+          "Two"
+        ],
+        "in": 1,
+        "out": 2
+      },
+      "purpose": "仅让该数字出现在独占的一秒区间"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "One",
+        "text": "1",
+        "position": [
+          960,
+          610
+        ],
+        "size": 180,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层One"
+    },
+    {
+      "command": "layer.timing",
+      "params": {
+        "layers": [
+          "One"
+        ],
+        "in": 2,
+        "out": 3
+      },
+      "purpose": "仅让该数字出现在独占的一秒区间"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Start",
+        "text": "START",
+        "position": [
+          960,
+          610
+        ],
+        "size": 120,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Start"
+    },
+    {
+      "command": "layer.timing",
+      "params": {
+        "layers": [
+          "Start"
+        ],
+        "in": 3,
+        "out": 4
+      },
+      "purpose": "仅让该数字出现在独占的一秒区间"
+    }
+  ],
+  "check": "0–1秒3、1–2秒2、2–3秒1、3–4秒START；逐个边界帧检查没有重叠、空白或重复数，文字可编辑。",
+  "boundary": "这是视觉倒数，不是现实世界准确计时器。无自动音效或圆环进度；用户要求音效另行对齐，不假称已音画同步。",
+  "argumentPolicy": "新工程专用。所有图层名称必须唯一，prop.addKey显式layer按当前实际名称/返回ID绑定，timeBase=comp为合成秒；已有工程先选择正确合成并清理名称歧义，不无条件comp.new。"
+}

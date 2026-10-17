@@ -29,6 +29,18 @@
     {
       "name": "effectcraft-motion-export",
       "sha256": "aa78e24b08015788cc0174b62c62ef2a7d3e713027a9417db115766efc8f3521"
+    },
+    {
+      "name": "effectcraft-chapter-card",
+      "sha256": "109b02bf90d0868962c41224bdb023e726ddb1e277fd1455c73fbac8a33a973f"
+    },
+    {
+      "name": "effectcraft-countdown-intro",
+      "sha256": "196e58d701c5dfd5bb05a48a83c0d4039f0b40229ed7ebb7ce9d81395d818c7c"
+    },
+    {
+      "name": "effectcraft-credits-roll",
+      "sha256": "d5f49fce77c1e2e2702771cf09d73efea3f303b70a00ab7dbfb183cfb0432b4b"
     }
   ]
 }
