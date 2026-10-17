@@ -9,21 +9,21 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/lightcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261018.1"
+        "ref": "v0.1.0-dev.20261018.2"
       },
       "policy": {
         "installation": "AVAILABLE",
         "authentication": "ON_USE"
       },
       "category": "Creativity",
-      "version": "0.1.0-dev.20261018.1",
+      "version": "0.1.0-dev.20261018.2",
       "description": "Lightcraft 照片管理与无损显影；CLI 0.2.1/macOS arm64 开发预发行，扩展能力未启用。",
       "interface": {
         "displayName": "LightCraft Use",
         "shortDescription": "Photo management and non-destructive development",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png"
       },
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png"
     }
   ]
 }

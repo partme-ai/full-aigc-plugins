@@ -23,7 +23,7 @@ def prepare(source,tag,commit):
     spec=importlib.util.spec_from_file_location('provenance',ROOT/'scripts/provenance.py')
     p=importlib.util.module_from_spec(spec);spec.loader.exec_module(p)
     old=json.loads((ROOT/'candidate-source.json').read_text())
-    if p.inventory(ROOT/'skills')!=old.get('skillFileSha256'):raise ValueError('preserve_modified_plugin_snapshot')
+    if {k:v for k,v in p.inventory(ROOT/'skills').items() if k.split('/')[0] in p.EXPECTED_SKILLS}!=old.get('skillFileSha256'):raise ValueError('preserve_modified_plugin_snapshot')
     actual=git(source,'rev-parse','--verify','refs/tags/'+tag+'^{commit}')
     if actual!=commit:raise ValueError('release_tag_commit_mismatch')
     remote=git(source,'remote','get-url','origin')
@@ -35,6 +35,7 @@ def prepare(source,tag,commit):
     files={}
     for path in paths:
         relative=str(Path(path).relative_to('skills'))
+        if relative.split('/')[0] not in p.EXPECTED_SKILLS:continue
         files[relative]=hashlib.sha256(git(source,'show',commit+':'+path,binary=True)).hexdigest()
     if not files or set(old['skillFileSha256'])-set(files):raise ValueError('source_removal_requires_review')
     lock={'schemaVersion':1,'sourceProject':'lightcraft-skills','sourceVersion':suite['version'],
@@ -51,7 +52,7 @@ def apply(source,migration):
     if current!=migration['oldSource']:raise ValueError('source_lock_changed_since_preflight')
     spec=importlib.util.spec_from_file_location('provenance',ROOT/'scripts/provenance.py')
     p=importlib.util.module_from_spec(spec);spec.loader.exec_module(p)
-    if p.inventory(ROOT/'skills')!=current['skillFileSha256']:raise ValueError('preserve_modified_plugin_snapshot')
+    if {k:v for k,v in p.inventory(ROOT/'skills').items() if k.split('/')[0] in p.EXPECTED_SKILLS}!=current['skillFileSha256']:raise ValueError('preserve_modified_plugin_snapshot')
     # 在临时目录先验证完整发行内容，再做普通文件更新；异常时保留迁移日志，不声称完成。
     history=ROOT/'source-migrations';history.mkdir(exist_ok=True)
     journal=history/(migration['migrationId']+'.json')

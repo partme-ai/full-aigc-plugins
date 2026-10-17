@@ -430,4 +430,8 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 
 ## DesignCraft可编辑数据合并胸牌
 
-新增designcraft-data-merge-badges，借鉴固定ScribusGenerator工作流事实，原创适配真实数据源选择、空故事占位符、UTF-8字节选择、逐条预览、停止预览恢复模板和合并新文档。原生三条中英文含逗号记录、长姓名22→18pt、缺字拒绝和极长文字拒绝通过；发现并修正仅查字段未选源、插入字段残留NAME、中文缺字及新建重置文档字体环境。任务字体固定SHA/OFL，不全局安装。Windows完整16记录91次直接CLI及197输出摘要通过，成功子入口另有13次CLI，失败入口不混入该数字。209项辅助测试通过；候选构建技能提交锁不一致导致首轮包回归失败，保留检查并只更新Design技能提交后重跑通过。真实Codex/IAB预览英文/中文、退出预览、font.replace切换内置LXGW、合并3条/3页、保存新路径重开通过，两份宿主工程独立原生CLI核对全部文字及预检。原生Noto版与Web LXGW版字体不同，不宣称像素相同。源和插件按feature→test→main同步，最新市场包尚未发布；其他宿主与商业印刷未验收。累计232条静态映射。详见craft-design-badge-merge-validation.json。
+新增designcraft-data-merge-badges，借鉴固定ScribusGenerator工作流事实，原创适配真实数据源选择、空故事占位符、UTF-8字节选择、逐条预览、停止预览恢复模板和合并新文档。原生三条中英文含逗号记录、长姓名22→18pt、缺字拒绝和极长文字拒绝通过；发现并修正仅查字段未选源、插入字段残留NAME、中文缺字及新建重置文档字体环境。任务字体固定SHA/OFL，不全局安装。Windows完整16记录91次直接CLI及197输出摘要通过，成功子入口另有13次CLI，失败入口不混入该数字。209项辅助测试通过；候选构建技能提交锁不一致导致首轮包回归失败，保留检查并只更新Design技能提交后重跑通过。真实Codex/IAB预览英文/中文、退出预览、font.replace切换内置LXGW、合并3条/3页、保存新路径重开通过，两份宿主工程独立原生CLI核对全部文字及预检。原生Noto版与Web LXGW版字体不同，不宣称像素相同。源和插件按feature→test→main同步，完整ZIP18.2已公开发布并重新下载安装/MCP/资源摘要及远端标签校验通过，主市场更新进行中；其他宿主与商业印刷未验收。累计232条静态映射。详见craft-design-badge-merge-validation.json。
+
+## 2026-10-18 发行来源修复
+
+DesignCraft、FigCraft、LightCraft、GridCraft 的18.1标签与ZIP源码不一致，已保留原标签并标注替代，发布18.2。四个公开ZIP均通过实际下载、隔离Codex安装、MCP调用与内置资源摘要校验；新验证器额外核对远端标签提交。LightCraft基础技能源升级脚本修复了对扩展场景的误判，65项测试与test分支CI通过。市场main切换仍待本次test分支验证，以上不代表新增场景全部完成媒体效果或宿主同步验收。

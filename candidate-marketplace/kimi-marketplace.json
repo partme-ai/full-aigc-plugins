@@ -17,8 +17,8 @@
     {
       "id": "designcraft",
       "displayName": "DesignCraft Use (RC)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261017.6"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261018.2"
     },
     {
       "id": "effectcraft",
@@ -29,8 +29,8 @@
     {
       "id": "figcraft",
       "displayName": "FigCraft Use (RC)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261018.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261018.2"
     },
     {
       "id": "filmcraft",
@@ -41,14 +41,14 @@
     {
       "id": "gridcraft",
       "displayName": "GridCraft Use (RC)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261018.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261018.2"
     },
     {
       "id": "lightcraft",
       "displayName": "LightCraft Use (RC)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/tag/v0.1.0-dev.20261018.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/tag/v0.1.0-dev.20261018.2"
     },
     {
       "id": "printcraft",

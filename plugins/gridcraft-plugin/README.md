@@ -1,6 +1,6 @@
 # GridCraft Use
 
-本轮待发布开发候选：`0.1.0-dev.20261018.1`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+本轮待发布开发候选：`0.1.0-dev.20261018.2`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -43,3 +43,7 @@ Plugin display name: **GridCraft Use**. Official upstream icon provenance and li
 ## 工时、分期测算及月历模板开发候选
 
 新增三个独立技能：`gridcraft-shift-timesheet`、`gridcraft-fixed-payment`、`gridcraft-month-calendar`，参考Apache POI固定GitHub提交的Excel示例并原创适配方法、参数、输入与检查。官方0.7.0 macOS完整21记录147次CLI通过，新模板包含跨午夜/午夜0、零利率、非整数月数、闰年、缺失/非法月份的重算，20个XLSX输出保留公式、输入规则和格式。原表除活动页选择标志外XML一致，原文件摘要不变。本轮开发候选已整合，Windows21记录及输出摘要通过；隔离本地候选真实Codex MCP与内置浏览器已观察午夜、零利率和闰年/平年切换同步，七个实际XLSX独立回读通过。真实内容、外部Excel显示和其他宿主仍未验收。
+
+## 18.2发行标签修正
+
+18.2对齐Git标签与完整ZIP的源码提交。旧18.1标签及制品保留并标记替代；技能和固定编辑器资源字节保持，此前媒体/宿主验收仍保留原版本与平台限定。本次补充标签、完整ZIP与实际安装核对。

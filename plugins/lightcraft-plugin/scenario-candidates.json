@@ -41,6 +41,10 @@
     {
       "name": "lightcraft-tone-curve-transfer",
       "sha256": "28bd34cf28de4c88212b9870da38b72772c14a2b16fe29e80f5483a4a245a08c"
+    },
+    {
+      "name": "lightcraft-scenario-playbooks",
+      "sha256": "b35006eb1a3d2952b5ebc7464a545ac4995b56a859ac96178fcc69c84135b3ee"
     }
   ]
 }

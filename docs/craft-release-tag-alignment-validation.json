@@ -1,0 +1,109 @@
+{
+  "scope": "remote immutable tags for current thirteen candidate rows; public ZIP and GUI evidence remain separate",
+  "tags": [
+    {
+      "plugin": "cadcraft",
+      "version": "0.1.0-dev.20261018.2",
+      "expectedCommit": "14326d79eafc8b27d2b4e03f9b762cda74e99569",
+      "remoteTagCommit": "14326d79eafc8b27d2b4e03f9b762cda74e99569",
+      "result": "PASS"
+    },
+    {
+      "plugin": "designcraft",
+      "version": "0.1.0-dev.20261018.2",
+      "expectedCommit": "90eb0f9db13652004e1606e3ed1b1bbdc416025b",
+      "remoteTagCommit": "90eb0f9db13652004e1606e3ed1b1bbdc416025b",
+      "result": "PASS"
+    },
+    {
+      "plugin": "effectcraft",
+      "version": "0.1.0-dev.20261017.6",
+      "expectedCommit": "3ee1832e9a9a38aa6b153e689b61de9b111e02c4",
+      "remoteTagCommit": "3ee1832e9a9a38aa6b153e689b61de9b111e02c4",
+      "result": "PASS"
+    },
+    {
+      "plugin": "photocraft",
+      "version": "0.1.0-dev.20261017.6",
+      "expectedCommit": "698228ddc36fbd5d61e131545fdd7d58d5bb3a2c",
+      "remoteTagCommit": "698228ddc36fbd5d61e131545fdd7d58d5bb3a2c",
+      "result": "PASS"
+    },
+    {
+      "plugin": "figcraft",
+      "version": "0.1.0-dev.20261018.2",
+      "expectedCommit": "c5bce79c6c7b9cc0aae35fc9db9fe7fcadefc606",
+      "remoteTagCommit": "c5bce79c6c7b9cc0aae35fc9db9fe7fcadefc606",
+      "result": "PASS"
+    },
+    {
+      "plugin": "filmcraft",
+      "version": "0.1.0-dev.20261017.7",
+      "expectedCommit": "d033b30b7303c92156176e5b7df79a087b8ad543",
+      "remoteTagCommit": "d033b30b7303c92156176e5b7df79a087b8ad543",
+      "result": "PASS"
+    },
+    {
+      "plugin": "lightcraft",
+      "version": "0.1.0-dev.20261018.2",
+      "expectedCommit": "cd701733216b10421637e6d0863a3ae72b4674ee",
+      "remoteTagCommit": "cd701733216b10421637e6d0863a3ae72b4674ee",
+      "result": "PASS"
+    },
+    {
+      "plugin": "printcraft",
+      "version": "0.1.0-dev.20261017.6",
+      "expectedCommit": "13fca80287e358b8745842b5583bd96de38822f5",
+      "remoteTagCommit": "13fca80287e358b8745842b5583bd96de38822f5",
+      "result": "PASS"
+    },
+    {
+      "plugin": "vectorcraft",
+      "version": "0.1.0-dev.20261017.6",
+      "expectedCommit": "74b5f60f391ec0ab7107db8c1c360a50fdc70b0b",
+      "remoteTagCommit": "74b5f60f391ec0ab7107db8c1c360a50fdc70b0b",
+      "result": "PASS"
+    },
+    {
+      "plugin": "deckcraft",
+      "version": "0.1.0-dev.20261017.6",
+      "expectedCommit": "b01d8d717747c3da0c54e28b50bd5dac7b82544d",
+      "remoteTagCommit": "b01d8d717747c3da0c54e28b50bd5dac7b82544d",
+      "result": "PASS"
+    },
+    {
+      "plugin": "soundcraft",
+      "version": "0.1.0-dev.20261018.1",
+      "expectedCommit": "6f3466aea2d4fdec48d6b43dc5fa55b5ac393c5e",
+      "remoteTagCommit": "6f3466aea2d4fdec48d6b43dc5fa55b5ac393c5e",
+      "result": "PASS"
+    },
+    {
+      "plugin": "gridcraft",
+      "version": "0.1.0-dev.20261018.2",
+      "expectedCommit": "848f5f7dc99c6b920979ad77057978d1f24a0c71",
+      "remoteTagCommit": "848f5f7dc99c6b920979ad77057978d1f24a0c71",
+      "result": "PASS"
+    },
+    {
+      "plugin": "wordcraft",
+      "version": "0.1.0-dev.20261017.6",
+      "expectedCommit": "e9588c681f32c402613653244f3217806b360a4a",
+      "remoteTagCommit": "e9588c681f32c402613653244f3217806b360a4a",
+      "result": "PASS"
+    }
+  ],
+  "lightcraftUpgradeFix": {
+    "commit": "cd701733216b10421637e6d0863a3ae72b4674ee",
+    "tests": 65,
+    "testCi": 39068910201,
+    "result": "PASS"
+  },
+  "publicZipChecks": [
+    "designcraft",
+    "figcraft",
+    "lightcraft",
+    "gridcraft"
+  ],
+  "marketplaceMain": "PENDING"
+}

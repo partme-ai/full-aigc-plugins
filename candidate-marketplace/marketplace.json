@@ -54,13 +54,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/download/v0.1.0-dev.20261017.6/designcraft-plugin-0.1.0-dev.20261017.6.zip",
-        "sha256": "ea8ae24b0d4f6a0d07048e87ce30b8967c2fc6f2bc656243d50e0b2b16f0cb11",
+        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/download/v0.1.0-dev.20261018.2/designcraft-plugin-0.1.0-dev.20261018.2.zip",
+        "sha256": "02e932de06105b7cd3ba8295cf5bb16ab84d23a351dce3fcd0e83cf158c42042",
         "path": "designcraft-plugin"
       },
       "displayName": "DesignCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.6",
+      "version": "0.1.0-dev.20261018.2",
       "category": "Creativity",
       "tags": [
         "designcraft",
@@ -69,7 +69,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -98,13 +98,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/download/v0.1.0-dev.20261018.1/figcraft-plugin-0.1.0-dev.20261018.1.zip",
-        "sha256": "d60e1bd1fd1b16d28879f620045ef899faf64855fe821feddd58d1a48a9d4fdd",
+        "url": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/download/v0.1.0-dev.20261018.2/figcraft-plugin-0.1.0-dev.20261018.2.zip",
+        "sha256": "26ec38720f982979c8ca78653e460873a75f0f05a4fa4a7c76e89113cde47057",
         "path": "figcraft-plugin"
       },
       "displayName": "FigCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261018.1",
+      "version": "0.1.0-dev.20261018.2",
       "category": "Creativity",
       "tags": [
         "figcraft",
@@ -113,7 +113,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -144,13 +144,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/download/v0.1.0-dev.20261018.1/gridcraft-plugin-0.1.0-dev.20261018.1.zip",
-        "sha256": "64d386efab58b1f5a47826a0f3969e233d1984909140ddc861a1b9f0a7875665",
+        "url": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/download/v0.1.0-dev.20261018.2/gridcraft-plugin-0.1.0-dev.20261018.2.zip",
+        "sha256": "d30d6be20474e3a40c47fe05e5af52215e3006d63207048a22e7abfab0c4274c",
         "path": "gridcraft-plugin"
       },
       "displayName": "GridCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261018.1",
+      "version": "0.1.0-dev.20261018.2",
       "category": "Productivity",
       "tags": [
         "gridcraft",
@@ -159,7 +159,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -167,13 +167,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/download/v0.1.0-dev.20261018.1/lightcraft-plugin-0.1.0-dev.20261018.1.zip",
-        "sha256": "5e035268bb32b9305a1f7acf4e2e43aed178406d65bf116969f456c17b926eb8",
+        "url": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/download/v0.1.0-dev.20261018.2/lightcraft-plugin-0.1.0-dev.20261018.2.zip",
+        "sha256": "92bacd0fe4dfc4c44ebddb9c02e6f9f1cb1274f79caa3c5f818a1f9300344597",
         "path": "lightcraft-plugin"
       },
       "displayName": "LightCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261018.1",
+      "version": "0.1.0-dev.20261018.2",
       "category": "Creativity",
       "tags": [
         "lightcraft",
@@ -182,7 +182,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
       "strict": true
     },
     {

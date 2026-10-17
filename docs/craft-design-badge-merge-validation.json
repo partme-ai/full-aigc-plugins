@@ -154,7 +154,7 @@
       },
       "result": "PASS"
     },
-    "marketRelease": "NOT_PUBLISHED",
+    "marketRelease": "published completeZIP passed; marketplace pending",
     "WindowsPackage": {
       "run": 39065751310,
       "result": "PASS"
@@ -188,8 +188,8 @@
     }
   ],
   "webFontAdaptation": "native Document Fonts not automatically available inWeb; use verified bundled LXGW WenKai only when no brand font requirement, then repreview/preflight",
-  "finalSkillSourceCommit": "265a7daf818e83caabbf062d3565dce53093d644",
-  "finalPluginCommit": "caf4a176261d1032c702f726d10f6e06894026ce",
+  "finalSkillSourceCommit": "9fb58c6cb8b93bc776bf339725bbec7ef7c689c8",
+  "finalPluginCommit": "90eb0f9db13652004e1606e3ed1b1bbdc416025b",
   "auxiliaryTests": {
     "hub": 209,
     "inputGuardMethods": 2,
@@ -240,6 +240,23 @@
   },
   "mainArchitectureCi": {
     "run": 39066286551,
+    "result": "PASS"
+  },
+  "release": {
+    "version": "0.1.0-dev.20261018.2",
+    "url": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261018.2",
+    "commit": "90eb0f9db13652004e1606e3ed1b1bbdc416025b",
+    "zipSha256": "02e932de06105b7cd3ba8295cf5bb16ab84d23a351dce3fcd0e83cf158c42042",
+    "publicZipActualDownloadInstallMcpAndRuntimeDigests": "PASS",
+    "mainMarketplace": "PENDING",
+    "runtimeFilesUnchanged": 45,
+    "scope": "public install verifier does not prove GUI sync; prior local-candidate GUI acceptance remains separate",
+    "remoteTagCommit": "90eb0f9db13652004e1606e3ed1b1bbdc416025b",
+    "supersededVersion": "0.1.0-dev.20261018.1; tag and ZIP source mismatch, preserved"
+  },
+  "releaseMetadataTestCi": {
+    "plugin": 39068143182,
+    "source": 39068148201,
     "result": "PASS"
   }
 }

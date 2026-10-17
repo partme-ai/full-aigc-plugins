@@ -13,7 +13,7 @@ class ReleaseUpgrade(unittest.TestCase):
             root=Path(temporary)/'plugin';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('__pycache__'))
             suite=json.loads((root/'source-suite.json').read_text());suite['version']='0.1.0-dev.2'
             commit='a'*40;tag='v'+suite['version']
-            blobs={str(path.relative_to(root/'skills')):path.read_bytes() for path in (root/'skills').rglob('*') if path.is_file()}
+            blobs={str(path.relative_to(root/'skills')):path.read_bytes() for path in (root/'skills').rglob('*') if path.is_file() and str(path.relative_to(root/'skills')).split('/')[0] in suite['skills']}
             changed=next(key for key in blobs if key.endswith('SKILL.md'));blobs[changed]+=b'\n'
             def git(source,*args,binary=False):
                 if args[0]=='rev-parse':return commit
@@ -29,6 +29,7 @@ class ReleaseUpgrade(unittest.TestCase):
                 before=(root/'candidate-source.json').read_bytes()
                 result=m.prepare(Path(temporary)/'source',tag,commit)
                 self.assertEqual(result['changed'],[changed])
+                self.assertTrue(all(k.split('/')[0] in suite['skills'] for k in result['newSource']['skillFileSha256']))
                 self.assertEqual(result['newSource']['skillFileSha256'][changed],hashlib.sha256(blobs[changed]).hexdigest())
                 self.assertEqual(result['hostUpdate'],'NOT_RUN')
                 self.assertEqual(before,(root/'candidate-source.json').read_bytes())
