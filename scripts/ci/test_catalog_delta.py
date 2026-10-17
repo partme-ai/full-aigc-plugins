@@ -20,6 +20,12 @@ class CatalogDeltaTest(unittest.TestCase):
                     [{'name': 'execute', 'inputSchema': {'type': 'object', 'required': ['id']}}])
         self.assertEqual(len(d['contractsChanged']), 1)
 
+    def test_native_snake_case_schema_and_engine_mapping(self):
+        d = compare([{'name': 'count', 'input_schema': {'required': ['doc']}, 'command': 'file.count'}],
+                    [{'name': 'count', 'input_schema': {'required': ['doc', 'pages']}, 'command': 'file.word_count'}])
+        self.assertEqual(d['contractsChanged'][0]['main']['command'], 'file.word_count')
+        self.assertEqual(d['contractsChanged'][0]['main']['input_schema']['required'], ['doc', 'pages'])
+
     def test_duplicate_ids_are_not_silently_overwritten(self):
         with self.assertRaises(ValueError):
             compare([{'id': 'run'}, {'id': 'run'}], [])

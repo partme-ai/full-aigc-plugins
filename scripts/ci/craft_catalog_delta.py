@@ -14,7 +14,8 @@ def index(rows):
         if not isinstance(key, str) or not key or key in result:
             raise ValueError('Missing/duplicate catalog identifier')
         result[key] = {field: row[field] for field in
-                       ['params', 'inputSchema', 'outputSchema', 'description', 'mutates', 'interactive', 'aliases']
+                       ['params', 'inputSchema', 'outputSchema', 'input_schema', 'output_schema',
+                        'command', 'description', 'mutates', 'read_only', 'interactive', 'aliases']
                        if field in row}
     return result
 
