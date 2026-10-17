@@ -9,11 +9,37 @@
   "sourcePeriodLimitationsNotes": "PASS",
   "nativeAndPptxGenerated": "PASS",
   "hostSync": "NOT_TESTED",
-  "visualReview": "NOT_TESTED",
+  "visualReview": "sample chart and explanation page inspected; revised multi-series chart inspected",
   "sha256": {
     "input.json": "7458d332df28d7940c6b5c4407697e6f576cdc8bcd83b9b454ab379f099aadd6",
     "plan.json": "f75c173ce867b83b5ea4d9be1ad0cf4cd42ab055fef6a40f802ce770a53fcb53",
     "story.deckcraft": "299c5bf81768f5d353051db3dfaf8b81dbbc4fbc88f90fa0a45684a060e0e10f",
     "story.pptx": "6a8b6cb7f500f12860307a56a53a16225094416b9e05e9468804c2b528e3c178"
-  }
+  },
+  "macosRoundtrip": {
+    "status": "PASS",
+    "platform": "darwin",
+    "nativeProcesses": 8,
+    "variants": [
+      {
+        "name": "sample",
+        "chartDataCategoryOrderAndNotes": "PASS",
+        "editablePptxRoundtrip": "PASS",
+        "inputPreserved": "PASS"
+      },
+      {
+        "name": "multi-negative-zero",
+        "chartDataCategoryOrderAndNotes": "PASS",
+        "editablePptxRoundtrip": "PASS",
+        "inputPreserved": "PASS"
+      }
+    ],
+    "visualReview": "NOT_TESTED",
+    "hostSync": "NOT_TESTED"
+  },
+  "visualFixes": [
+    "Set explicit period title and numeric labels",
+    "Move legend right after observed multi-series bottom overlap"
+  ],
+  "windowsCurrent": "PENDING final legend revision"
 }
