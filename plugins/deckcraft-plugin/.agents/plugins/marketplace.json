@@ -6,13 +6,13 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/deckcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261017.5"
+        "ref": "v0.1.0-dev.20261017.6"
       },
       "interface": {
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png"
       },
-      "version": "0.1.0-dev.20261017.5",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png"
+      "version": "0.1.0-dev.20261017.6",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png"
     }
   ]
 }

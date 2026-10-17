@@ -1,0 +1,245 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "deckcraft",
+  "id": "option-comparison",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "steps": [
+    {
+      "purpose": "仅为新任务创建文稿，禁止清空已有文稿",
+      "command": "file.new",
+      "params": {
+        "size": [
+          960,
+          540
+        ],
+        "blank": true
+      },
+      "newDocumentOnly": true
+    },
+    {
+      "purpose": "建立评审页，不自动替用户选胜者",
+      "command": "slide.new",
+      "params": {
+        "layout": "titleOnly",
+        "title": "Options review — illustrative data"
+      }
+    },
+    {
+      "purpose": "建立可编辑4行3列表格并查询其实际ID",
+      "command": "insert.table",
+      "params": {
+        "rows": 4,
+        "cols": 3,
+        "rect": [
+          60,
+          150,
+          840,
+          280
+        ]
+      },
+      "capture": "table.id"
+    },
+    {
+      "purpose": "填写第1行第1列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          0,
+          0
+        ],
+        "text": "Criterion"
+      }
+    },
+    {
+      "purpose": "填写第1行第2列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          0,
+          1
+        ],
+        "text": "Option A"
+      }
+    },
+    {
+      "purpose": "填写第1行第3列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          0,
+          2
+        ],
+        "text": "Option B"
+      }
+    },
+    {
+      "purpose": "填写第2行第1列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          1,
+          0
+        ],
+        "text": "Cost"
+      }
+    },
+    {
+      "purpose": "填写第2行第2列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          1,
+          1
+        ],
+        "text": "1200 USD/year"
+      }
+    },
+    {
+      "purpose": "填写第2行第3列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          1,
+          2
+        ],
+        "text": "1600 USD/year"
+      }
+    },
+    {
+      "purpose": "填写第3行第1列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          2,
+          0
+        ],
+        "text": "Delivery"
+      }
+    },
+    {
+      "purpose": "填写第3行第2列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          2,
+          1
+        ],
+        "text": "4 weeks"
+      }
+    },
+    {
+      "purpose": "填写第3行第3列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          2,
+          2
+        ],
+        "text": "3 weeks"
+      }
+    },
+    {
+      "purpose": "填写第4行第1列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          3,
+          0
+        ],
+        "text": "Risk"
+      }
+    },
+    {
+      "purpose": "填写第4行第2列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          3,
+          1
+        ],
+        "text": "Vendor dependency"
+      }
+    },
+    {
+      "purpose": "填写第4行第3列；替换为用户核实数据",
+      "command": "text.set",
+      "params": {
+        "id": "$table.id",
+        "cell": [
+          3,
+          2
+        ],
+        "text": "Training required"
+      }
+    },
+    {
+      "purpose": "逐列设置宽度，复核总宽仍为840pt",
+      "command": "table.columnWidth",
+      "params": {
+        "id": "$table.id",
+        "col": 0,
+        "width": 220
+      }
+    },
+    {
+      "purpose": "逐列设置宽度，复核总宽仍为840pt",
+      "command": "table.columnWidth",
+      "params": {
+        "id": "$table.id",
+        "col": 1,
+        "width": 310
+      }
+    },
+    {
+      "purpose": "逐列设置宽度，复核总宽仍为840pt",
+      "command": "table.columnWidth",
+      "params": {
+        "id": "$table.id",
+        "col": 2,
+        "width": 310
+      }
+    },
+    {
+      "purpose": "使用原生表格样式",
+      "command": "table.style",
+      "params": {
+        "id": "$table.id",
+        "style": "medium2-accent1"
+      }
+    },
+    {
+      "purpose": "标明表头和交替行，不增加总计行",
+      "command": "table.options",
+      "params": {
+        "id": "$table.id",
+        "headerRow": true,
+        "bandedRows": true,
+        "totalRow": false
+      }
+    },
+    {
+      "purpose": "记录来源与决策口径",
+      "command": "slide.notes",
+      "params": {
+        "index": 0,
+        "text": "Illustrative data only. Confirm currency, tax, period, delivery assumptions and source dates. Unknown is not zero. Do not infer a winner without agreed criteria."
+      }
+    }
+  ],
+  "check": "逐格文字、4行3列、列宽220/310/310pt、表宽840pt、原生PPTX表格和备注均需回读；另存后再改一格检查可编辑性。",
+  "boundary": "所有数据均为合成示例，不构成采购建议。已有文件先查询目标页和表格ID，保留非目标页；不覆盖输入。未实现自动分页，不把长表强塞一页。",
+  "templateOnly": true,
+  "argumentPolicy": "capture和$table.id为人工绑定记号；插表后slide.inspect取得唯一新表格ID，再整字段替换，不可直接将模板送进CLI。",
+  "extendsScene": "option-comparison-table"
+}

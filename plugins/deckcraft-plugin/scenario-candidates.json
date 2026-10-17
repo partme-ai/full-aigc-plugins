@@ -29,6 +29,10 @@
     {
       "name": "deckcraft-slide-redesign",
       "sha256": "9b2fc6b6db67d14bc2bb364e0907fc783770a390771109be2a68b2ceeb9b7733"
+    },
+    {
+      "name": "deckcraft-option-comparison",
+      "sha256": "a0b5148a2e1c9ca9745367ed02695599cad98044694d71fb902740313e417844"
     }
   ]
 }

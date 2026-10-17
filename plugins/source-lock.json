@@ -145,12 +145,12 @@
   },
   {
     "plugin": "deckcraft",
-    "version": "0.1.0-dev.20261017.5",
+    "version": "0.1.0-dev.20261017.6",
     "repository": "full-aigc-plugins/deckcraft-plugin",
-    "commit": "82ad412685f22da4547840645abac14bef907780",
-    "tag": "v0.1.0-dev.20261017.5",
-    "fileCount": 129,
-    "treeSha256": "cab422fb80a047ffb1a3973eab87485005653b7fb121e56b8b521f06db3dbca3",
+    "commit": "b01d8d717747c3da0c54e28b50bd5dac7b82544d",
+    "tag": "v0.1.0-dev.20261017.6",
+    "fileCount": 134,
+    "treeSha256": "e2a17a78d50aa19bf6c3ec1c592c02735160b973d9cf7847450c0551f120bbf3",
     "excluded": [
       "evidence/",
       "docs/evidence/",

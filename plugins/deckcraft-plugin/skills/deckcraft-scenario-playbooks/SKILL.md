@@ -30,3 +30,7 @@ license: Apache-2.0
 ## main模板与复用
 
 在main候选中使用starter模板或从品牌文稿插入指定页时，读取[main新增工作流与目录变化](references/main-workflows.md)。CLI帮助已改为人类可读文本；结构化发现使用当前MCP方法。
+
+## 对比表深入操作
+
+需要显式表格ID、完整列宽、来源备注及PPTX回读后改单元格时，交给 **deckcraft-option-comparison** 技能。独立安装：`npx skills add full-aigc-skills/deckcraft-skills --skill deckcraft-option-comparison`。该入口深化现有比较表场景，不增加独立场景数；随配套插件开发预发布提供。

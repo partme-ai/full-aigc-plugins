@@ -403,3 +403,7 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 ## VectorCraft可继续编辑的制作场景
 
 新增非破坏蒙版插画、共享源贴纸阵列、独立偏移白边三个技能，借鉴creold/illustrator-scripts与iconifyit/ai-step-n-repeat固定提交。macOS/Windows官方0.12.0实际完成20个场景加1个已有文档保护用例；Windows118个输出摘要通过，逐批方法参数及真实ID绑定与原配方一致。文本CRLF摘要独立记录，二进制仍逐字节校验。插件481项Python测试、9项新辅助及52项既有辅助回归通过；修复身份元数据与历史正向夹具，未改写冻结基础锁或历史资格。完整候选v6已发布主市场，test及main三组CI均通过；隔离原生Codex MCP与内置浏览器已观察三个限定场景同步操作，六个实际保存工程独立CLI重开通过，包含MCP展开为12个独立图形且渲染不变。真实设计/印刷质量与其他宿主仍未验收。详见craft-vector-production-validation.json。
+
+## DeckCraft方案评审对比表深化
+
+将已有option-comparison-table配方深化为deckcraft-option-comparison独立技能，固定PptxGenJS表格工作流事实并原创映射逐格参数、动态ID、完整列宽、备注和可编辑性检查。映射仍219条，不把独立入口重复计作新场景；校验器确认extendsScene指向实际配方。官方0.7.0 macOS完整16条记录69次CLI通过，新增场景PPTX重开可修改单元格，原输入摘要保持，已查看合成表格整页渲染。Windows完整16记录74次CLI通过（39045187681），下载55输出摘要一致；同SHA安装/MCP矩阵39045187684通过。新隔离本地候选经真实Codex安装发现10技能，原生MCP与内置浏览器观察表格内容、费用修改同步，保存重开保持。旧隔离缓存为空的注册超时已明确记录；不当作通过。市场新版尚未交付，真实商业数据和其他宿主仍未验收。详见craft-deck-comparison-validation.json。

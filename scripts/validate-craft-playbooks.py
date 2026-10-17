@@ -73,7 +73,18 @@ def validate_skill(skill, plugin_skill=None):
             if not path.is_relative_to(skill.resolve()) or not path.exists():errors.append(str(file)+': invalid local reference '+target)
     paths=list(skill.glob('references/craft-steps.json'))+list(skill.glob('references/recipes.json'))
     for path in paths:
-        data=json.loads(path.read_text(encoding='utf-8'));recipes=data.get('recipes',[data]); count+=len(recipes)
+        data=json.loads(path.read_text(encoding='utf-8'));recipes=data.get('recipes',[data])
+        # 独立入口可以深化既有配方；有可核实的原场景才排除重复计数。
+        original=data.get('extendsScene')
+        if original:
+            siblings=[]
+            for other in skill.parent.glob('*/references/recipes.json'):
+                if other.parent.parent==skill:continue
+                siblings.extend(json.loads(other.read_text(encoding='utf-8')).get('recipes',[]))
+            if not any(recipe.get('id')==original for recipe in siblings):
+                errors.append(str(path)+': unknown original scene '+str(original))
+        else:
+            count+=len(recipes)
         evidence=path.with_name('command-evidence.json' if path.name=='recipes.json' else 'craft-command-evidence.json')
         record=json.loads(evidence.read_text(encoding='utf-8'));commands=record['observedCommands']
         for recipe in recipes:
