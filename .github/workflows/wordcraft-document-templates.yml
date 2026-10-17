@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: full-aigc-skills/wordcraft-skills
-          ref: f38f49d2c6a6a20b5a154ca73ced65728e9f22fe
+          ref: a836599d18b3c171f05870472b023f08423233d6
           path: template-source
       - name: Validate template filling and standalone helpers
         run: python -m unittest discover -s template-source/tests -v
