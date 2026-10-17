@@ -172,4 +172,8 @@ def light(r,data):
 
 def run_playbooks(r,path,app):
     data=json.loads(Path(path).read_text(encoding='utf-8'));require(data['application']==app,'Wrong media scenario application')
-    return sound(r,data) if app=='soundcraft' else light(r,data)
+    if app == 'soundcraft':
+        records = sound(r, data)
+        from sound_core_smoke import run_core
+        return records + run_core(r, Path(path).resolve().parents[2])
+    return light(r, data)
