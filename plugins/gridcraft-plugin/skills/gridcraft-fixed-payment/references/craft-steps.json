@@ -1,0 +1,198 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "gridcraft",
+  "id": "fixed-payment",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "sheetNameExample": "PaymentPlan",
+  "steps": [
+    {
+      "purpose": "只在确认无同名工作表后新建本任务工作表",
+      "command": "home.insertSheet",
+      "params": {
+        "name": "$sheet.name"
+      },
+      "newOwnedSheetOnly": true
+    },
+    {
+      "purpose": "显式激活刚建立的工作表",
+      "command": "sheet.activate",
+      "params": {
+        "sheet": "$sheet.name"
+      }
+    },
+    {
+      "purpose": "分离虚构输入、单位与派生结果",
+      "command": "range.setValues",
+      "params": {
+        "range": "A1",
+        "values": [
+          [
+            "Fixed payment example",
+            "Value"
+          ],
+          [
+            "Principal",
+            12000
+          ],
+          [
+            "Nominal annual rate",
+            0.06
+          ],
+          [
+            "Number of months",
+            12
+          ],
+          [
+            ""
+          ],
+          [
+            "Monthly payment"
+          ],
+          [
+            "Total payments"
+          ],
+          [
+            "Interest only"
+          ]
+        ]
+      }
+    },
+    {
+      "purpose": "等额月供；零利率单独处理，缺失和无效不计算",
+      "command": "cell.set",
+      "params": {
+        "cell": "B6",
+        "input": "=IF(OR(B2=\"\",B3=\"\",B4=\"\"),\"Missing input\",IF(AND(ISNUMBER(B2),ISNUMBER(B3),ISNUMBER(B4)),IF(OR(B2<=0,B3<0,B4<=0,MOD(B4,1)<>0),\"Invalid input\",IF(B3=0,B2/B4,-PMT(B3/12,B4,B2))),\"Invalid input\"))"
+      }
+    },
+    {
+      "purpose": "保留内部精度求总支付，不先按显示小数截断",
+      "command": "cell.set",
+      "params": {
+        "cell": "B7",
+        "input": "=IF(ISNUMBER(B6),B6*B4,\"\")"
+      }
+    },
+    {
+      "purpose": "求不含费用的利息部分",
+      "command": "cell.set",
+      "params": {
+        "cell": "B8",
+        "input": "=IF(ISNUMBER(B7),B7-B2,\"\")"
+      }
+    },
+    {
+      "purpose": "写明假设，不当作实际借款报价",
+      "command": "range.setValues",
+      "params": {
+        "range": "A11",
+        "values": [
+          [
+            "Illustrative only; fixed nominal annual rate, monthly payments, no fees."
+          ],
+          [
+            "No payment schedule, lender rounding or variable-rate assumptions are included."
+          ]
+        ]
+      }
+    },
+    {
+      "purpose": "设置显示格式；不改变底层数值和公式",
+      "command": "home.numberFormat",
+      "params": {
+        "range": "B2",
+        "code": "#,##0.00"
+      }
+    },
+    {
+      "purpose": "设置显示格式；不改变底层数值和公式",
+      "command": "home.numberFormat",
+      "params": {
+        "range": "B3",
+        "code": "0.00%"
+      }
+    },
+    {
+      "purpose": "设置显示格式；不改变底层数值和公式",
+      "command": "home.numberFormat",
+      "params": {
+        "range": "B4",
+        "code": "0"
+      }
+    },
+    {
+      "purpose": "设置显示格式；不改变底层数值和公式",
+      "command": "home.numberFormat",
+      "params": {
+        "range": "B6:B8",
+        "code": "#,##0.00"
+      }
+    },
+    {
+      "purpose": "添加输入范围规则；公式仍独立防护",
+      "command": "data.validation",
+      "params": {
+        "range": "B4",
+        "type": "whole",
+        "operator": "between",
+        "formula1": "1",
+        "formula2": "1200",
+        "ignoreBlank": true,
+        "errorStyle": "stop",
+        "errorTitle": "Check input",
+        "errorMessage": "Use values within the documented range."
+      }
+    },
+    {
+      "purpose": "给目标列留足显示宽度",
+      "command": "home.columnWidth",
+      "params": {
+        "cols": "A:A",
+        "width": 245
+      }
+    },
+    {
+      "purpose": "给目标列留足显示宽度",
+      "command": "home.columnWidth",
+      "params": {
+        "cols": "B:B",
+        "width": 140
+      }
+    },
+    {
+      "purpose": "突出用户可修改的输入",
+      "command": "home.fillColor",
+      "params": {
+        "range": "B2:B4",
+        "color": "#FFF2CC"
+      }
+    },
+    {
+      "purpose": "假设说明换行显示",
+      "command": "home.wrapText",
+      "params": {
+        "range": "A11:B12",
+        "on": true
+      }
+    },
+    {
+      "purpose": "给说明留空间",
+      "command": "home.mergeAcross",
+      "params": {
+        "range": "A11:B12"
+      }
+    },
+    {
+      "purpose": "说明行高度",
+      "command": "home.rowHeight",
+      "params": {
+        "rows": "11:12",
+        "height": 34
+      }
+    }
+  ],
+  "check": "示例12000本金、6%名义年利率、12期得到正月供约1032.797；零利率为1000，总支付12000，利息0。缺失与无效值不得变成正常结果。",
+  "boundary": "合成数学示例，不是实际金融报价或借款建议；不含手续费、保险、浮动利率、日计息或机构逐期舍入。只做等额月供估算，不声称建立了逐期还款计划。",
+  "templateOnly": true,
+  "argumentPolicy": "$sheet.name为手工绑定记号；先用CLI info或MCP inspect_workbook确认无重名，选实际唯一名称并替换；后续同一会话串行操作该表，不直接发送模板变量。"
+}

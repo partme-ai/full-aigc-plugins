@@ -57,7 +57,14 @@
       "other hosts not verified"
     ]
   },
-  "marketRelease": "NOT_PUBLISHED",
+  "marketRelease": {
+    "version": "0.1.0-dev.20261018.1",
+    "releaseUrl": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261018.1",
+    "pluginCommit": "650c7fcdb062c6c266f4b4f27e5eb32cc3003989",
+    "skillSourceCommit": "5d9c71ccfeb75043391395b4d949ad0e23b61998",
+    "publicZipAcceptance": "downloaded ZIP, clean extraction, native Codex install/MCP and installed runtime digests PASS; separate logs retained locally",
+    "subscribedMainMarketplace": "PENDING_MERGE"
+  },
   "externalExcelRendering": "NOT_TESTED",
   "limits": [
     "synthetic inputs; no real payroll, loan quote or regional holiday assumptions",

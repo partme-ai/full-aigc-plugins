@@ -144,13 +144,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/download/v0.1.0-dev.20261017.5/gridcraft-plugin-0.1.0-dev.20261017.5.zip",
-        "sha256": "ea018fe5057c63b0355f4cfff992c368af510c4425b7494da23d0b5da5590ab3",
+        "url": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/download/v0.1.0-dev.20261018.1/gridcraft-plugin-0.1.0-dev.20261018.1.zip",
+        "sha256": "64d386efab58b1f5a47826a0f3969e233d1984909140ddc861a1b9f0a7875665",
         "path": "gridcraft-plugin"
       },
       "displayName": "GridCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.5",
+      "version": "0.1.0-dev.20261018.1",
       "category": "Productivity",
       "tags": [
         "gridcraft",
@@ -159,7 +159,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
       "strict": true
     },
     {

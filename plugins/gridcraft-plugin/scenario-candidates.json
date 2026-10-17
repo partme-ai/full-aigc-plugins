@@ -32,7 +32,19 @@
     },
     {
       "name": "gridcraft-scenario-playbooks",
-      "sha256": "7c0966f2802e0f85bb31bc1453153b6d0d34266ae27215d573201923bbffb79d"
+      "sha256": "9c850a68dd2bf223f17124e1e072832e5f09212c4c619fc9f33be88cba6c63a4"
+    },
+    {
+      "name": "gridcraft-shift-timesheet",
+      "sha256": "73f4b28ec6ec801453d1ff40b9401352e18e567c5bf64a67938c6d5396987f9d"
+    },
+    {
+      "name": "gridcraft-fixed-payment",
+      "sha256": "5783197344d721bd2a348358e51315fc672087c3a50d1a95d42944b414448b87"
+    },
+    {
+      "name": "gridcraft-month-calendar",
+      "sha256": "8e5a290fa5342aeaa0880e3d7404e96597f7762b561e2df07b5d60eca513287e"
     }
   ]
 }

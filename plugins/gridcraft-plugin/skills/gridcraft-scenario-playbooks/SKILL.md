@@ -26,3 +26,11 @@ license: Apache-2.0
 ## 技能商店场景经验
 
 遇到保留可重算的报价模型、标记重复而不丢失记录、增长率的零基期边界时，读取[商店工作流适配](references/market-workflows.md)，使用对应的Craft方法和实际结果检查。上游技能不作为运行依赖。
+
+## 可填写办公模板开发候选
+
+- 跨午夜班次工时与缺失行核对：交给 **gridcraft-shift-timesheet** 技能。独立安装：`npx skills add full-aigc-skills/gridcraft-skills --skill gridcraft-shift-timesheet`。
+- 固定名义年利率等额月供、零利率与无效期数检查：交给 **gridcraft-fixed-payment** 技能。独立安装：`npx skills add full-aigc-skills/gridcraft-skills --skill gridcraft-fixed-payment`。
+- 周一起始、闰年与相邻月日期的月历模板：交给 **gridcraft-month-calendar** 技能。独立安装：`npx skills add full-aigc-skills/gridcraft-skills --skill gridcraft-month-calendar`。
+
+本批为开发候选，尚未进入主市场新版本；三项使用新建的本任务工作表，不覆盖原表。输入区域、公式检查和能力边界见各技能，真实业务及宿主同步仍需验收。

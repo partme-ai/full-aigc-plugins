@@ -1,0 +1,25 @@
+{
+  "policy": "只借鉴工作流事实；正文、参数及配方原创，不复制Java代码、正文或素材。",
+  "sources": [
+    {
+      "repository": "apache/poi",
+      "commit": "51aa88f8b216c2763b1e6d521717642c70de1090",
+      "license": "Apache-2.0 with notices in legal/LICENSE",
+      "readFiles": [
+        {
+          "path": "poi-examples/src/main/java/org/apache/poi/examples/ss/TimesheetDemo.java",
+          "url": "https://github.com/apache/poi/blob/51aa88f8b216c2763b1e6d521717642c70de1090/poi-examples/src/main/java/org/apache/poi/examples/ss/TimesheetDemo.java",
+          "bytes": 9438,
+          "sha256": "429562cbf4cc82e80e10e64b73226f0eaefcfce5ec827a243c65c70b182faf67"
+        },
+        {
+          "path": "legal/LICENSE",
+          "url": "https://github.com/apache/poi/blob/51aa88f8b216c2763b1e6d521717642c70de1090/legal/LICENSE",
+          "bytes": 14416,
+          "sha256": "6e7c918e5a49f677c1b85a9eb2d035cd85c217fc42af6b4a336964a434001a9c"
+        }
+      ],
+      "adaptation": "参考实际Excel示例的输入/计算/格式与模板组织；Craft使用独立方法与单元格引用，不运行外部Java代码。"
+    }
+  ]
+}

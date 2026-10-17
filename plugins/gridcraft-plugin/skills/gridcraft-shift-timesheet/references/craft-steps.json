@@ -1,0 +1,224 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "gridcraft",
+  "id": "shift-timesheet",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "sheetNameExample": "ShiftHours",
+  "steps": [
+    {
+      "purpose": "只在确认无同名工作表后新建本任务工作表",
+      "command": "home.insertSheet",
+      "params": {
+        "name": "$sheet.name"
+      },
+      "newOwnedSheetOnly": true
+    },
+    {
+      "purpose": "显式激活刚建立的工作表",
+      "command": "sheet.activate",
+      "params": {
+        "sheet": "$sheet.name"
+      }
+    },
+    {
+      "purpose": "写入虚构班次输入，不读取员工个人资料",
+      "command": "range.setValues",
+      "params": {
+        "range": "A1",
+        "values": [
+          [
+            "Shift",
+            "Start",
+            "End",
+            "Break hours",
+            "Work hours",
+            "Review"
+          ],
+          [
+            "Night",
+            0.8958333333333334,
+            0.25,
+            0.5
+          ],
+          [
+            "Day",
+            0.375,
+            0.7291666666666666,
+            0.5
+          ],
+          [
+            "Missing",
+            null,
+            0.7083333333333334,
+            0
+          ],
+          [
+            "Invalid",
+            0.375,
+            0.4166666666666667,
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "purpose": "按日小数处理跨午夜；排除缺失、等时刻和无效休息",
+      "command": "cell.set",
+      "params": {
+        "cell": "E2",
+        "input": "=IF(AND(ISNUMBER(B2),ISNUMBER(C2),ISNUMBER(D2)),IF(OR(B2<0,B2>=1,C2<0,C2>=1,D2<0,B2=C2,D2>MOD(C2-B2,1)*24),\"\",MOD(C2-B2,1)*24-D2),\"\")"
+      }
+    },
+    {
+      "purpose": "显示缺失和无效行；不能只看合计",
+      "command": "cell.set",
+      "params": {
+        "cell": "F2",
+        "input": "=IF(OR(B2=\"\",C2=\"\",D2=\"\"),\"Missing input\",IF(E2=\"\",\"Review input\",\"OK\"))"
+      }
+    },
+    {
+      "purpose": "按日小数处理跨午夜；排除缺失、等时刻和无效休息",
+      "command": "cell.set",
+      "params": {
+        "cell": "E3",
+        "input": "=IF(AND(ISNUMBER(B3),ISNUMBER(C3),ISNUMBER(D3)),IF(OR(B3<0,B3>=1,C3<0,C3>=1,D3<0,B3=C3,D3>MOD(C3-B3,1)*24),\"\",MOD(C3-B3,1)*24-D3),\"\")"
+      }
+    },
+    {
+      "purpose": "显示缺失和无效行；不能只看合计",
+      "command": "cell.set",
+      "params": {
+        "cell": "F3",
+        "input": "=IF(OR(B3=\"\",C3=\"\",D3=\"\"),\"Missing input\",IF(E3=\"\",\"Review input\",\"OK\"))"
+      }
+    },
+    {
+      "purpose": "按日小数处理跨午夜；排除缺失、等时刻和无效休息",
+      "command": "cell.set",
+      "params": {
+        "cell": "E4",
+        "input": "=IF(AND(ISNUMBER(B4),ISNUMBER(C4),ISNUMBER(D4)),IF(OR(B4<0,B4>=1,C4<0,C4>=1,D4<0,B4=C4,D4>MOD(C4-B4,1)*24),\"\",MOD(C4-B4,1)*24-D4),\"\")"
+      }
+    },
+    {
+      "purpose": "显示缺失和无效行；不能只看合计",
+      "command": "cell.set",
+      "params": {
+        "cell": "F4",
+        "input": "=IF(OR(B4=\"\",C4=\"\",D4=\"\"),\"Missing input\",IF(E4=\"\",\"Review input\",\"OK\"))"
+      }
+    },
+    {
+      "purpose": "按日小数处理跨午夜；排除缺失、等时刻和无效休息",
+      "command": "cell.set",
+      "params": {
+        "cell": "E5",
+        "input": "=IF(AND(ISNUMBER(B5),ISNUMBER(C5),ISNUMBER(D5)),IF(OR(B5<0,B5>=1,C5<0,C5>=1,D5<0,B5=C5,D5>MOD(C5-B5,1)*24),\"\",MOD(C5-B5,1)*24-D5),\"\")"
+      }
+    },
+    {
+      "purpose": "显示缺失和无效行；不能只看合计",
+      "command": "cell.set",
+      "params": {
+        "cell": "F5",
+        "input": "=IF(OR(B5=\"\",C5=\"\",D5=\"\"),\"Missing input\",IF(E5=\"\",\"Review input\",\"OK\"))"
+      }
+    },
+    {
+      "purpose": "合计当前有效工时",
+      "command": "cell.set",
+      "params": {
+        "cell": "E7",
+        "input": "=SUM(E2:E5)"
+      }
+    },
+    {
+      "purpose": "提示无效和缺失行未计入",
+      "command": "cell.set",
+      "params": {
+        "cell": "F7",
+        "input": "=IF(COUNT(E2:E5)=ROWS(E2:E5),\"Complete\",\"Incomplete rows excluded\")"
+      }
+    },
+    {
+      "purpose": "设置显示格式；不改变底层数值和公式",
+      "command": "home.numberFormat",
+      "params": {
+        "range": "B2:C5",
+        "code": "hh:mm"
+      }
+    },
+    {
+      "purpose": "设置显示格式；不改变底层数值和公式",
+      "command": "home.numberFormat",
+      "params": {
+        "range": "D2:E7",
+        "code": "0.00"
+      }
+    },
+    {
+      "purpose": "添加输入范围规则；公式仍独立防护",
+      "command": "data.validation",
+      "params": {
+        "range": "B2:C5",
+        "type": "time",
+        "operator": "between",
+        "formula1": "0",
+        "formula2": "0.999999999",
+        "ignoreBlank": true,
+        "errorStyle": "stop",
+        "errorTitle": "Check input",
+        "errorMessage": "Use values within the documented range."
+      }
+    },
+    {
+      "purpose": "添加输入范围规则；公式仍独立防护",
+      "command": "data.validation",
+      "params": {
+        "range": "D2:D5",
+        "type": "decimal",
+        "operator": "between",
+        "formula1": "0",
+        "formula2": "24",
+        "ignoreBlank": true,
+        "errorStyle": "stop",
+        "errorTitle": "Check input",
+        "errorMessage": "Use values within the documented range."
+      }
+    },
+    {
+      "purpose": "给目标列留足显示宽度",
+      "command": "home.columnWidth",
+      "params": {
+        "cols": "A:A",
+        "width": 110
+      }
+    },
+    {
+      "purpose": "给目标列留足显示宽度",
+      "command": "home.columnWidth",
+      "params": {
+        "cols": "B:E",
+        "width": 90
+      }
+    },
+    {
+      "purpose": "给目标列留足显示宽度",
+      "command": "home.columnWidth",
+      "params": {
+        "cols": "F:F",
+        "width": 215
+      }
+    },
+    {
+      "purpose": "冻结标题行",
+      "command": "view.freezeTopRow",
+      "params": {}
+    }
+  ],
+  "check": "两条有效示例各8小时、合计16；缺失和休息超过区间的行不计入且有提示。修改时间、午夜0、缺失/无效值后重算。",
+  "boundary": "仅含时刻、最长不足24小时；相同时刻不能推断零小时还是整天，标记待核对。跨多日须提供完整日期另行计算。模板不计算工资、加班或适用劳动规则。",
+  "templateOnly": true,
+  "argumentPolicy": "$sheet.name为手工绑定记号；先用CLI info或MCP inspect_workbook确认无重名，选实际唯一名称并替换；后续同一会话串行操作该表，不直接发送模板变量。"
+}

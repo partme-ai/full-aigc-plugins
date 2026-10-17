@@ -48,7 +48,7 @@ jobs:
         if: matrix.plugin == 'gridcraft'
         with:
           repository: full-aigc-skills/gridcraft-skills
-          ref: 508bf0157b7bad7e6b69b9a3031f55f425526837
+          ref: 5d9c71ccfeb75043391395b4d949ad0e23b61998
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'wordcraft'

@@ -1,0 +1,80 @@
+{
+  "runtime": "official gridcraft-cli 0.7.0 macOS universal",
+  "archiveSha256": "be76dda3e81828f8d4a96965eac5df905dc20712bafd3cfe703ffad32cfa0ed9",
+  "observedCommands": {
+    "cell.set": {
+      "id": "cell.set",
+      "label": "Enter Cell",
+      "menu": [],
+      "params": "{cell?: \"B2\", input: \"text, number or =formula\", sheet?, array?: bool}",
+      "shortcut": null
+    },
+    "range.setValues": {
+      "id": "range.setValues",
+      "label": "Set Values",
+      "menu": [],
+      "params": "{range?: \"A1\", values: [[...]] (rows of numbers/strings/bools/null; strings starting with = are formulas)}",
+      "shortcut": null
+    },
+    "home.numberFormat": {
+      "id": "home.numberFormat",
+      "label": "Number Format",
+      "menu": [
+        "Home",
+        "Number"
+      ],
+      "params": "{range?, format: \"General\"|\"Number\"|\"Currency\"|\"Accounting\"|\"Short Date\"|\"Long Date\"|\"Time\"|\"Percentage\"|\"Fraction\"|\"Scientific\"|\"Text\" | code: \"0.00\"}",
+      "shortcut": null
+    },
+    "home.columnWidth": {
+      "id": "home.columnWidth",
+      "label": "Column Width…",
+      "menu": [
+        "Home",
+        "Cells",
+        "Format"
+      ],
+      "params": "{cols?: \"B:D\" | \"B:B,D:F\", width: 64 (points) | chars: 8.43}",
+      "shortcut": null
+    },
+    "home.insertSheet": {
+      "id": "home.insertSheet",
+      "label": "Insert Sheet",
+      "menu": [
+        "Home",
+        "Cells",
+        "Insert"
+      ],
+      "params": "{name?, before?: index}",
+      "shortcut": "Shift+F11"
+    },
+    "sheet.activate": {
+      "id": "sheet.activate",
+      "label": "Activate Sheet",
+      "menu": [],
+      "params": "{sheet: index | name}",
+      "shortcut": null
+    },
+    "data.validation": {
+      "id": "data.validation",
+      "label": "Data Validation…",
+      "menu": [
+        "Data",
+        "Data Tools"
+      ],
+      "params": "{range?, type: any|whole|decimal|list|date|time|textLength|custom, operator?: between|notBetween|equal|notEqual|greater|less|greaterOrEqual|lessOrEqual, formula1, formula2?, ignoreBlank?, dropdown?, inputTitle?, inputMessage?, errorStyle?: stop|warning|information, errorTitle?, errorMessage?, clear?: bool}",
+      "shortcut": null
+    },
+    "view.freezeTopRow": {
+      "id": "view.freezeTopRow",
+      "label": "Freeze Top Row",
+      "menu": [
+        "View",
+        "Window",
+        "Freeze Panes"
+      ],
+      "params": "{}",
+      "shortcut": null
+    }
+  }
+}

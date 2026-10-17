@@ -177,12 +177,12 @@
   },
   {
     "plugin": "gridcraft",
-    "version": "0.1.0-dev.20261017.5",
+    "version": "0.1.0-dev.20261018.1",
     "repository": "full-aigc-plugins/gridcraft-plugin",
-    "commit": "ea995605082a3262c935d929bb6169835de01b2a",
-    "tag": "v0.1.0-dev.20261017.5",
-    "fileCount": 101,
-    "treeSha256": "67ac9bf83844e97e5331af176a920f804dd5a4fade89db4a39db5afe8ae99971",
+    "commit": "650c7fcdb062c6c266f4b4f27e5eb32cc3003989",
+    "tag": "v0.1.0-dev.20261018.1",
+    "fileCount": 121,
+    "treeSha256": "f1163f61a4fb654c660598943a3cf5f0ce88143ac5f7042727fbc371597fc938",
     "excluded": [
       "evidence/",
       "docs/evidence/",

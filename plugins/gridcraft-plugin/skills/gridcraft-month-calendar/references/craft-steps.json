@@ -1,0 +1,219 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "gridcraft",
+  "id": "month-calendar",
+  "execution": "LIMITED_TECHNICAL_PASS",
+  "sheetNameExample": "MonthPlanner",
+  "steps": [
+    {
+      "purpose": "只在确认无同名工作表后新建本任务工作表",
+      "command": "home.insertSheet",
+      "params": {
+        "name": "$sheet.name"
+      },
+      "newOwnedSheetOnly": true
+    },
+    {
+      "purpose": "显式激活刚建立的工作表",
+      "command": "sheet.activate",
+      "params": {
+        "sheet": "$sheet.name"
+      }
+    },
+    {
+      "purpose": "明确年份和月份输入",
+      "command": "range.setValues",
+      "params": {
+        "range": "A1",
+        "values": [
+          [
+            "Year",
+            2028
+          ],
+          [
+            "Month",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "purpose": "使用周一起始的七列，不隐含地区默认值",
+      "command": "range.setValues",
+      "params": {
+        "range": "A4",
+        "values": [
+          [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat",
+            "Sun"
+          ]
+        ]
+      }
+    },
+    {
+      "purpose": "建立可重算的六周日期网格",
+      "command": "range.setValues",
+      "params": {
+        "range": "A5",
+        "values": [
+          [
+            "=IF(AND(ISNUMBER(B1),ISNUMBER(B2)),IF(OR(B1<1901,B1>9999,B2<1,B2>12,MOD(B1,1)<>0,MOD(B2,1)<>0),\"\",DATE(B1,B2,1)-WEEKDAY(DATE(B1,B2,1),2)+1),\"\")",
+            "=IF($A$5=\"\",\"\",$A$5+1)",
+            "=IF($A$5=\"\",\"\",$A$5+2)",
+            "=IF($A$5=\"\",\"\",$A$5+3)",
+            "=IF($A$5=\"\",\"\",$A$5+4)",
+            "=IF($A$5=\"\",\"\",$A$5+5)",
+            "=IF($A$5=\"\",\"\",$A$5+6)"
+          ],
+          [
+            "=IF($A$5=\"\",\"\",$A$5+7)",
+            "=IF($A$5=\"\",\"\",$A$5+8)",
+            "=IF($A$5=\"\",\"\",$A$5+9)",
+            "=IF($A$5=\"\",\"\",$A$5+10)",
+            "=IF($A$5=\"\",\"\",$A$5+11)",
+            "=IF($A$5=\"\",\"\",$A$5+12)",
+            "=IF($A$5=\"\",\"\",$A$5+13)"
+          ],
+          [
+            "=IF($A$5=\"\",\"\",$A$5+14)",
+            "=IF($A$5=\"\",\"\",$A$5+15)",
+            "=IF($A$5=\"\",\"\",$A$5+16)",
+            "=IF($A$5=\"\",\"\",$A$5+17)",
+            "=IF($A$5=\"\",\"\",$A$5+18)",
+            "=IF($A$5=\"\",\"\",$A$5+19)",
+            "=IF($A$5=\"\",\"\",$A$5+20)"
+          ],
+          [
+            "=IF($A$5=\"\",\"\",$A$5+21)",
+            "=IF($A$5=\"\",\"\",$A$5+22)",
+            "=IF($A$5=\"\",\"\",$A$5+23)",
+            "=IF($A$5=\"\",\"\",$A$5+24)",
+            "=IF($A$5=\"\",\"\",$A$5+25)",
+            "=IF($A$5=\"\",\"\",$A$5+26)",
+            "=IF($A$5=\"\",\"\",$A$5+27)"
+          ],
+          [
+            "=IF($A$5=\"\",\"\",$A$5+28)",
+            "=IF($A$5=\"\",\"\",$A$5+29)",
+            "=IF($A$5=\"\",\"\",$A$5+30)",
+            "=IF($A$5=\"\",\"\",$A$5+31)",
+            "=IF($A$5=\"\",\"\",$A$5+32)",
+            "=IF($A$5=\"\",\"\",$A$5+33)",
+            "=IF($A$5=\"\",\"\",$A$5+34)"
+          ],
+          [
+            "=IF($A$5=\"\",\"\",$A$5+35)",
+            "=IF($A$5=\"\",\"\",$A$5+36)",
+            "=IF($A$5=\"\",\"\",$A$5+37)",
+            "=IF($A$5=\"\",\"\",$A$5+38)",
+            "=IF($A$5=\"\",\"\",$A$5+39)",
+            "=IF($A$5=\"\",\"\",$A$5+40)",
+            "=IF($A$5=\"\",\"\",$A$5+41)"
+          ]
+        ]
+      }
+    },
+    {
+      "purpose": "设置显示格式；不改变底层数值和公式",
+      "command": "home.numberFormat",
+      "params": {
+        "range": "A5:G10",
+        "code": "mm-dd"
+      }
+    },
+    {
+      "purpose": "添加输入范围规则；公式仍独立防护",
+      "command": "data.validation",
+      "params": {
+        "range": "B1",
+        "type": "whole",
+        "operator": "between",
+        "formula1": "1901",
+        "formula2": "9999",
+        "ignoreBlank": true,
+        "errorStyle": "stop",
+        "errorTitle": "Check input",
+        "errorMessage": "Use values within the documented range."
+      }
+    },
+    {
+      "purpose": "添加输入范围规则；公式仍独立防护",
+      "command": "data.validation",
+      "params": {
+        "range": "B2",
+        "type": "whole",
+        "operator": "between",
+        "formula1": "1",
+        "formula2": "12",
+        "ignoreBlank": true,
+        "errorStyle": "stop",
+        "errorTitle": "Check input",
+        "errorMessage": "Use values within the documented range."
+      }
+    },
+    {
+      "purpose": "给目标列留足显示宽度",
+      "command": "home.columnWidth",
+      "params": {
+        "cols": "A:G",
+        "width": 90
+      }
+    },
+    {
+      "purpose": "标题行强调",
+      "command": "home.fillColor",
+      "params": {
+        "range": "A4:G4",
+        "color": "#DCE6F1"
+      }
+    },
+    {
+      "purpose": "固定星期六日所在两列",
+      "command": "home.fillColor",
+      "params": {
+        "range": "F5:G10",
+        "color": "#E7F0FA"
+      }
+    },
+    {
+      "purpose": "日期行留出记录空间",
+      "command": "home.rowHeight",
+      "params": {
+        "rows": "5:10",
+        "height": 38
+      }
+    },
+    {
+      "purpose": "标明前后月份显示策略",
+      "command": "cell.set",
+      "params": {
+        "cell": "A12",
+        "input": "Monday first; adjacent-month dates are shown as mm-dd. No holidays assumed."
+      }
+    },
+    {
+      "purpose": "说明合并显示",
+      "command": "home.mergeCells",
+      "params": {
+        "range": "A12:G12"
+      }
+    },
+    {
+      "purpose": "说明换行",
+      "command": "home.wrapText",
+      "params": {
+        "range": "A12:G12",
+        "on": true
+      }
+    }
+  ],
+  "check": "42格逐日连续且首格为周一，2028年2月包含29日一次；改为2027年2月只有28日。月份13、缺失或非整数输入清空日期网格，不生成错误月份。",
+  "boundary": "只处理1901至9999年Gregorian/Excel日期，周一起始，展示相邻月份日期；不假定地区节假日、调休或团队工作日。每个格子是日期公式，事项需放在独立区域，不覆盖公式。",
+  "templateOnly": true,
+  "argumentPolicy": "$sheet.name为手工绑定记号；先用CLI info或MCP inspect_workbook确认无重名，选实际唯一名称并替换；后续同一会话串行操作该表，不直接发送模板变量。"
+}

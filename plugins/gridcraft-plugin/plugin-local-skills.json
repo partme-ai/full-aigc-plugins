@@ -6,9 +6,12 @@
     "gridcraft-clean-table",
     "gridcraft-dashboard",
     "gridcraft-editor",
+    "gridcraft-fixed-payment",
     "gridcraft-formula-audit",
+    "gridcraft-month-calendar",
     "gridcraft-reconcile-data",
     "gridcraft-sales-summary",
-    "gridcraft-scenario-playbooks"
+    "gridcraft-scenario-playbooks",
+    "gridcraft-shift-timesheet"
   ]
 }
