@@ -32,6 +32,17 @@ def verify_responsive(nodes, width, height):
         assert near(nodes[last]['y']-nodes[first]['y']-nodes[first]['height'], 24), 'Responsive gap wrong'
 
 
+
+def verify_prototype(nodes, bindings):
+    for key, target in [('button','result'), ('back','start')]:
+        interactions=nodes[key].get('interactions',[])
+        assert len(interactions)==1, 'Prototype hotspot missing'
+        interaction=interactions[0]
+        assert interaction.get('trigger',{}).get('type')=='onClick', 'Prototype trigger is not a click'
+        actions=interaction.get('actions',[])
+        assert actions==[{'type':'navigate','dest':bindings[target]['id']}], 'Prototype destination wrong'
+
+
 def bind_strings(value):
     if isinstance(value, str) and value.startswith('$'):
         return {'$ref': value[1:]}
@@ -114,10 +125,12 @@ def run_core(r, helper, skill_root):
                 record['actualCssAndTwoScaleAssets']='PASS'
             elif name == 'prototype-flow':
                 root_id=bindings['start']['id']
-                for key in ['button','back']:
-                    interactions=nodes[key].get('interactions',[])
-                    assert len(interactions)==1, 'Prototype hotspot missing'
-                assert str(bindings['result']['id']) in json.dumps(nodes['button']['interactions']), 'Forward target missing'
+                verify_prototype(nodes,bindings)
+                import zipfile
+                with zipfile.ZipFile(target) as archive:
+                    doc=json.loads(archive.read('document.json'))
+                page=doc['nodes'][str(doc['pages'][0])]
+                assert any(f['name']=='Main flow' and f['start']==root_id for f in page.get('flows',[])), 'Flow start not persisted'
                 record['technicalRoundtrip']='PARTIAL'
                 record['prototypeLinksPersisted']='PASS'
                 record['actualBrowserClick']='NOT_TESTED'

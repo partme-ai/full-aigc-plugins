@@ -1,5 +1,5 @@
 import unittest
-from fig_core_smoke import verify_wireframe, verify_responsive
+from fig_core_smoke import verify_wireframe, verify_responsive, verify_prototype
 
 class FigCoreTests(unittest.TestCase):
     def test_old_wireframe_without_content_and_action_is_rejected(self):
@@ -12,3 +12,8 @@ class FigCoreTests(unittest.TestCase):
             nodes[name]={'x':24,'width':720,'y':24,'height':48}
         with self.assertRaisesRegex(AssertionError, 'did not fill'):
             verify_responsive(nodes,390,884)
+
+    def test_prototype_destination_must_not_match_duration_digits(self):
+        nodes={key:{'interactions':[{'trigger':{'type':'onClick'},'actions':[{'type':'navigate','dest':99}],'duration_ms':300}]} for key in ['button','back']}
+        with self.assertRaisesRegex(AssertionError,'destination wrong'):
+            verify_prototype(nodes,{'result':{'id':3},'start':{'id':2}})
