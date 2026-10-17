@@ -161,12 +161,12 @@
   },
   {
     "plugin": "soundcraft",
-    "version": "0.1.0-dev.20261017.5",
+    "version": "0.1.0-dev.20261018.1",
     "repository": "full-aigc-plugins/soundcraft-plugin",
-    "commit": "11ff39d92e554b4e4dfa04e30180f471b57ea477",
-    "tag": "v0.1.0-dev.20261017.5",
-    "fileCount": 97,
-    "treeSha256": "354c177e41cea8e2c826ac726bf8fcf8020475002b9ffc73d0f0fcfdd546f8e3",
+    "commit": "6f3466aea2d4fdec48d6b43dc5fa55b5ac393c5e",
+    "tag": "v0.1.0-dev.20261018.1",
+    "fileCount": 108,
+    "treeSha256": "e77eb09b0637d828dbd5bf564dbbe7080c59a6f15cfc1b344e3fd18bf7434fbc",
     "excluded": [
       "evidence/",
       "docs/evidence/",

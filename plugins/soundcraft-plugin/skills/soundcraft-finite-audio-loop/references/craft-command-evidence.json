@@ -1,0 +1,48 @@
+{
+  "runtime": "official soundcraft-cli 0.7.0 macos-universal",
+  "archiveSha256": "a4272112e9ab6e489cfab1b169741f70a5fc151ce1c1b2300cd92d66fa6f9d3d",
+  "observedCommands": {
+    "clip.loop": {
+      "id": "clip.loop",
+      "label": "Loop...",
+      "menu": [
+        "Clip"
+      ],
+      "shortcut": "Cmd+Alt+L",
+      "params": "{clips?, count?: n, length?: samples}",
+      "enabled": false,
+      "disabled_reason": "nothing is selected"
+    },
+    "clip.unloop": {
+      "id": "clip.unloop",
+      "label": "Unloop...",
+      "menu": [
+        "Clip"
+      ],
+      "shortcut": null,
+      "params": "{clips?, mode?: remove|flatten} — remove = keep only the original clip; flatten = keep the copies as ordinary clips",
+      "enabled": false,
+      "disabled_reason": "nothing is selected"
+    },
+    "file.bounce_mix": {
+      "id": "file.bounce_mix",
+      "label": "Bounce Mix...",
+      "menu": [
+        "File"
+      ],
+      "shortcut": "Cmd+Alt+B",
+      "params": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "session.inspect": {
+      "id": "session.inspect",
+      "label": "Inspect Session",
+      "menu": [],
+      "shortcut": null,
+      "params": "{detail?: summary|full}",
+      "enabled": true,
+      "disabled_reason": null
+    }
+  }
+}

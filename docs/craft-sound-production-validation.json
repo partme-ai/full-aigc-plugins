@@ -27,7 +27,18 @@
     "soundcraftJob": "PASS",
     "wholeMatrix": "PASS"
   },
-  "newSkillsPublished": "NOT_PUBLISHED",
+  "newSkillsPublished": {
+    "version": "0.1.0-dev.20261018.1",
+    "releaseUrl": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261018.1",
+    "archiveSha256": "93f8c704f0655969a8c9b0c2ecc59478f9409b07d2a355fa656b402c905adc0c",
+    "pluginCommit": "6f3466aea2d4fdec48d6b43dc5fa55b5ac393c5e",
+    "skillsCommit": "d67bf86ab01ece25e612fd1d0911c2115cf21f67",
+    "downloadedPublicZip": "PASS",
+    "actualCodexInstallAndMcp": "PASS",
+    "installedUiDistDigests": "PASS",
+    "mainMarketplace": "PENDING",
+    "publishedZipGuiSync": "NOT_TESTED; earlier same-runtime candidate result remains separately scoped"
+  },
   "installedHostSync": {
     "result": "LIMITED_SYNTHETIC_PASS",
     "host": "real native Codex app-server + Codex IAB",

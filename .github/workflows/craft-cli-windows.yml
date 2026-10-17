@@ -66,7 +66,7 @@ jobs:
         if: matrix.plugin == 'soundcraft'
         with:
           repository: full-aigc-skills/soundcraft-skills
-          ref: 7dd9541980ef53934840274901f8e9664938429a
+          ref: d67bf86ab01ece25e612fd1d0911c2115cf21f67
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'lightcraft'

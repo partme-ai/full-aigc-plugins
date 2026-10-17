@@ -6,9 +6,11 @@
     "soundcraft-audio-edit",
     "soundcraft-dialogue-leveling",
     "soundcraft-editor",
+    "soundcraft-finite-audio-loop",
     "soundcraft-music-demo",
     "soundcraft-podcast-cleanup",
     "soundcraft-scenario-playbooks",
-    "soundcraft-voice-over-mix"
+    "soundcraft-voice-over-mix",
+    "soundcraft-voice-silence-gaps"
   ]
 }

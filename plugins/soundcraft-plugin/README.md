@@ -1,6 +1,6 @@
 # SoundCraft Use
 
-当前可安装开发候选：`0.1.0-dev.20261017.5`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+当前开发预发布版本：`0.1.0-dev.20261018.1`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -43,3 +43,7 @@ Plugin display name: **SoundCraft Use**. Official upstream icon provenance and l
 ### 候选启动修正
 
 本候选先完成轻量MCP握手及能力发现，在首次工具或资源调用时校验/获取固定编辑器资源。修复多个编辑器首次下载阻塞宿主握手的问题。Windows通过Git安装时须启用Git长路径支持（`git config --global core.longpaths true`）；完整ZIP不包含历史验收记录，可避免Git检出长路径的问题。运行资源沿用已核验的dev.20261017.2制品，不以入口版本号冒充上游升级。
+
+## 对时静音与有限循环开发候选
+
+新增 `soundcraft-voice-silence-gaps` 与 `soundcraft-finite-audio-loop`，参考Audacity固定GitHub提交的工作流事实，原创映射实际方法、参数、ID及采样检查。官方0.7.0 macOS实际完成两场景11次CLI，保留原时轴、循环三份/展开及源文件保护通过；Windows完整16记录与输出摘要复核通过；隔离本地候选已通过真实Codex MCP与内置浏览器限定同步、scraftz保存重开及独立CLI音频回读。发行记录见目录仓；真实素材试听和其他宿主待验证。双麦克风拆轨在0.7.0导出时左右内容未分离，本批不提供该技能，不以轨道元数据当成音频正确性证明。

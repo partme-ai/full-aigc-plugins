@@ -1,0 +1,46 @@
+{
+  "runtime": "official soundcraft-cli 0.7.0 macos-universal",
+  "archiveSha256": "a4272112e9ab6e489cfab1b169741f70a5fc151ce1c1b2300cd92d66fa6f9d3d",
+  "observedCommands": {
+    "edit.select": {
+      "id": "edit.select",
+      "label": "Set Edit Selection",
+      "menu": [],
+      "shortcut": null,
+      "params": "{tracks?: [id|name], start?, end?, clips?: [id], sources?: [id] (Clip List files), exact?: bool (ignore edit groups)}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "edit.strip_silence": {
+      "id": "edit.strip_silence",
+      "label": "Strip Silence",
+      "menu": [
+        "Edit"
+      ],
+      "shortcut": "Cmd+U",
+      "params": "{threshold_db?: -48, min_length_ms?: 50, pad_before_ms?: 5, pad_after_ms?: 20}",
+      "enabled": false,
+      "disabled_reason": "make an edit selection first"
+    },
+    "file.bounce_mix": {
+      "id": "file.bounce_mix",
+      "label": "Bounce Mix...",
+      "menu": [
+        "File"
+      ],
+      "shortcut": "Cmd+Alt+B",
+      "params": "{path, format?: wav|aiff|flac, bit_depth?: 16|24|32f, start?, end?, source?: main|bus name, normalize?: false, dither?: true, fold_down?: stereo}",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    "session.inspect": {
+      "id": "session.inspect",
+      "label": "Inspect Session",
+      "menu": [],
+      "shortcut": null,
+      "params": "{detail?: summary|full}",
+      "enabled": true,
+      "disabled_reason": null
+    }
+  }
+}
