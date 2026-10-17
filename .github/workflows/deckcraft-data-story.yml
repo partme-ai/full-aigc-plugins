@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: full-aigc-skills/deckcraft-skills
-          ref: 49e07ca3ae63138af940ca51e2434cc2b2ff5575
+          ref: bef43c7371eecffd547456526c53c3952d14eb05
           path: story-source
       - name: Validate actual skill input handling
         run: python -m unittest discover -s story-source/skills/deckcraft-data-story/tests -v

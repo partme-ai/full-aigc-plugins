@@ -100,5 +100,38 @@
       "dataStory": 39080584687,
       "status": "QUEUED_AT_RECORDING"
     }
+  },
+  "densityFix": {
+    "regressionTest": "7 tests PASS; dense label test failed before fix",
+    "macos": {
+      "status": "PASS",
+      "platform": "darwin",
+      "nativeProcesses": 12,
+      "variants": [
+        {
+          "name": "sample",
+          "chartDataCategoryOrderAndNotes": "PASS",
+          "editablePptxRoundtrip": "PASS",
+          "inputPreserved": "PASS"
+        },
+        {
+          "name": "multi-negative-zero",
+          "chartDataCategoryOrderAndNotes": "PASS",
+          "editablePptxRoundtrip": "PASS",
+          "inputPreserved": "PASS"
+        },
+        {
+          "name": "maximum-density",
+          "chartDataCategoryOrderAndNotes": "PASS",
+          "editablePptxRoundtrip": "PASS",
+          "inputPreserved": "PASS"
+        }
+      ],
+      "visualReview": "NOT_TESTED",
+      "hostSync": "NOT_TESTED"
+    },
+    "visual": "12 categories/3 series rendered and inspected; overlapping labels removed",
+    "release": "18.2 immutable and retained; fix awaiting new candidate",
+    "windows": "PENDING"
   }
 }

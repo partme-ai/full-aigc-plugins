@@ -21,7 +21,8 @@ def verify_chart(path, data):
         title=''.join(x.text or '' for x in root.findall('.//{'+C+'}title//{'+A+'}t'))
         require(title==data['period'],'Chart period title lost')
         labels=root.findall('.//{'+C+'}showVal')
-        require(any(x.attrib.get('val') in ('1','true') for x in labels),'Numeric labels lost')
+        expected_labels=len(data['categories'])*len(data['series'])<=12
+        require(any(x.attrib.get('val') in ('1','true') for x in labels)==expected_labels,'Numeric label density policy lost')
         require(len(series)==len(data['series']),'Chart series lost')
         for actual,expected in zip(series,data['series']):
             values=[float(x.text) for x in actual.findall('.//{'+C+'}val/{'+C+'}numRef/{'+C+'}numCache/{'+C+'}pt/{'+C+'}v')]
@@ -44,8 +45,9 @@ def main():
     spec=importlib.util.spec_from_file_location('story',home/'scripts/data_story.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
     sample=json.loads((home/'assets/example-input.json').read_text(encoding='utf-8'))
     multi=copy.deepcopy(sample);multi['title']='分类指标对比';multi['categories']=['第一组','第二组','第三组'];multi['series']=[{'name':'本期','values':[-2,0,4.5]},{'name':'上期','values':[1,3,2.25]}]
+    dense=copy.deepcopy(sample);dense['title']='月度渠道指标对比';dense['period']='2026年1月至12月';dense['categories']=[f'{i}月' for i in range(1,13)];dense['series']=[{'name':'渠道甲','values':list(range(1,13))},{'name':'渠道乙','values':list(range(12,0,-1))},{'name':'渠道丙','values':[6]*12}]
     work=out/'数据 中文 workspace';work.mkdir();r=Runner(exe,work,out);results=[]
-    for name,data in [('sample',sample),('multi-negative-zero',multi)]:
+    for name,data in [('sample',sample),('multi-negative-zero',multi),('maximum-density',dense)]:
         root=work/name;root.mkdir();inp=root/'input.json';inp.write_text(json.dumps(data,ensure_ascii=False),encoding='utf-8');before=inp.read_bytes()
         plan=m.compile_story(data);(root/'plan.json').write_text(json.dumps(plan,ensure_ascii=False,indent=2),encoding='utf-8');args=['run']
         for c in plan['commands']:args+=['--cmd',c['command']+'='+json.dumps(c['params'],ensure_ascii=False,separators=(',',':'))]
