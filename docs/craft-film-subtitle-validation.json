@@ -1,0 +1,163 @@
+{
+  "schema": "craft-film-subtitle-validation/v1",
+  "status": "PARTIAL",
+  "scope": "constant offset; no ASR, speech judgement or complete subtitle typography acceptance",
+  "sourceImplementation": "28a6275",
+  "pluginCandidate": "931fdd3",
+  "candidateVersion": "0.1.0-dev.20261018.3",
+  "macos": {
+    "variants": [
+      {
+        "sourceSha256": "b4c23c467a2f5b7ae0bbf2c0ac4429bedd93031f68fd55c583866d4cba700e98",
+        "offsetMs": 500,
+        "cueCount": 3,
+        "targetTrack": 12,
+        "precisionRepairOperations": 6,
+        "nonTargetTracksUnchanged": true,
+        "inputHashesUnchanged": true,
+        "mediaTimelineUnchanged": true,
+        "sourceProjectSha256": "ac378283aa2c12530aba89ab2b26fec26d147ae19130303d88663ce8017cf1c1",
+        "project": "synced.fcproj",
+        "exports": [
+          "synced.srt",
+          "synced.vtt"
+        ],
+        "asrPerformed": false,
+        "unrelatedWorkingDirectoryRender": "PASS"
+      },
+      {
+        "sourceSha256": "b4c23c467a2f5b7ae0bbf2c0ac4429bedd93031f68fd55c583866d4cba700e98",
+        "offsetMs": -500,
+        "cueCount": 3,
+        "targetTrack": 12,
+        "precisionRepairOperations": 6,
+        "nonTargetTracksUnchanged": true,
+        "inputHashesUnchanged": true,
+        "mediaTimelineUnchanged": true,
+        "sourceProjectSha256": "ac378283aa2c12530aba89ab2b26fec26d147ae19130303d88663ce8017cf1c1",
+        "project": "synced.fcproj",
+        "exports": [
+          "synced.srt",
+          "synced.vtt"
+        ],
+        "asrPerformed": false,
+        "unrelatedWorkingDirectoryRender": "PASS"
+      }
+    ],
+    "standalone": {
+      "sourceSha256": "b4c23c467a2f5b7ae0bbf2c0ac4429bedd93031f68fd55c583866d4cba700e98",
+      "offsetMs": 500,
+      "cueCount": 3,
+      "targetTrack": 8,
+      "precisionRepairOperations": 6,
+      "nonTargetTracksUnchanged": true,
+      "inputHashesUnchanged": true,
+      "mediaTimelineUnchanged": false,
+      "sourceProjectSha256": null,
+      "project": "synced.fcproj",
+      "exports": [
+        "synced.srt",
+        "synced.vtt"
+      ],
+      "asrPerformed": false
+    },
+    "nativeProcesses": 35,
+    "negativeRejectedBeforeCli": true,
+    "scope": "known offset and synthetic timeline; no ASR or speech synchronization judgement"
+  },
+  "windows": {
+    "job": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39074688021/job/117519293498",
+    "artifactId": 12116721771,
+    "business": "PASS",
+    "nativeProcesses": 158,
+    "subtitle": {
+      "variants": [
+        {
+          "sourceSha256": "284e16979039d7fbb09e23caf589a65d8e275b9712634e99a72851839920cca3",
+          "offsetMs": 500,
+          "cueCount": 3,
+          "targetTrack": 12,
+          "precisionRepairOperations": 6,
+          "nonTargetTracksUnchanged": true,
+          "inputHashesUnchanged": true,
+          "mediaTimelineUnchanged": true,
+          "sourceProjectSha256": "ac378283aa2c12530aba89ab2b26fec26d147ae19130303d88663ce8017cf1c1",
+          "project": "synced.fcproj",
+          "exports": [
+            "synced.srt",
+            "synced.vtt"
+          ],
+          "asrPerformed": false,
+          "unrelatedWorkingDirectoryRender": "PASS"
+        },
+        {
+          "sourceSha256": "284e16979039d7fbb09e23caf589a65d8e275b9712634e99a72851839920cca3",
+          "offsetMs": -500,
+          "cueCount": 3,
+          "targetTrack": 12,
+          "precisionRepairOperations": 6,
+          "nonTargetTracksUnchanged": true,
+          "inputHashesUnchanged": true,
+          "mediaTimelineUnchanged": true,
+          "sourceProjectSha256": "ac378283aa2c12530aba89ab2b26fec26d147ae19130303d88663ce8017cf1c1",
+          "project": "synced.fcproj",
+          "exports": [
+            "synced.srt",
+            "synced.vtt"
+          ],
+          "asrPerformed": false,
+          "unrelatedWorkingDirectoryRender": "PASS"
+        }
+      ],
+      "standalone": {
+        "sourceSha256": "284e16979039d7fbb09e23caf589a65d8e275b9712634e99a72851839920cca3",
+        "offsetMs": 500,
+        "cueCount": 3,
+        "targetTrack": 8,
+        "precisionRepairOperations": 6,
+        "nonTargetTracksUnchanged": true,
+        "inputHashesUnchanged": true,
+        "mediaTimelineUnchanged": false,
+        "sourceProjectSha256": null,
+        "project": "synced.fcproj",
+        "exports": [
+          "synced.srt",
+          "synced.vtt"
+        ],
+        "asrPerformed": false
+      },
+      "nativeProcesses": 35,
+      "negativeRejectedBeforeCli": true,
+      "scope": "known offset and synthetic timeline; no ASR or speech synchronization judgement"
+    }
+  },
+  "nativeCodex": {
+    "isolatedInstall": "PASS",
+    "mcpHandshake": "PASS",
+    "versionAgreement": "PASS",
+    "sameEditorShift": "PASS",
+    "offsetMs": 500,
+    "cueCount": 3,
+    "srtTextAndExactTimes": "PASS",
+    "saveAndReopen": "PASS",
+    "visualObservation": "At0.8s first cue visible before shift and absent after; at1.2s visible after shift. Timeline blocks moved in same editor.",
+    "visualChineseGlyphs": "FAIL: Chinese shown as missing glyph boxes; export retains original Unicode",
+    "availableWebFonts": [
+      "Inter",
+      "JetBrains Mono",
+      "Noto Serif"
+    ],
+    "scope": "caption-only new sequence; does not prove actual video decoding in browser",
+    "screenshots": {
+      "live-before.jpg": "76e2a30ed8f43cb0dfb4cf4e68041cb7bd4fabe9197b89878d607c3b47dab22a",
+      "live-shifted.jpg": "acb2d5e5a0cfb5d89e419bb08abcc44cbe0c99b28c737ee87a07b45442597531",
+      "live-after.jpg": "44ca427429179e91676df37eb7e144d8b365dd4c61b6dedf458088ef589d67ab"
+    }
+  },
+  "remaining": [
+    "Chinese Web font display",
+    "full plugin regression and immutable release packaging",
+    "marketplace publication of this candidate",
+    "other hosts and remaining scenarios"
+  ]
+}
