@@ -57,8 +57,14 @@ jobs:
           repository: full-aigc-skills/effectcraft-skills
           ref: 5ac35af6859c73690830646514f942db9ce46725
           path: .local/test-effect-skills
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/photocraft-skills
+          ref: 0f3d39581254e0510f86af359e1c5bc443bfe027
+          path: .local/test-photo-skills
       - run: python -m unittest discover -s scripts/ci -p "test_*.py" -v
         env:
+          CRAFT_PHOTO_SKILLS_ROOT: ${{ github.workspace }}/.local/test-photo-skills/skills
           CRAFT_EFFECT_SKILLS_ROOT: ${{ github.workspace }}/.local/test-effect-skills/skills
           CRAFT_PRINT_SKILLS_ROOT: ${{ github.workspace }}/.local/test-print-skills/skills
           CRAFT_DESIGN_SKILLS_ROOT: ${{ github.workspace }}/.local/test-design-skills/skills

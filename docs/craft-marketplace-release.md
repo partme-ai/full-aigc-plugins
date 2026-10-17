@@ -1,8 +1,12 @@
 # Craft 插件库开发候选
 
-当前 DesignCraft、PdfCraft、EffectCraft 候选为 `0.1.0-dev.20261017.6`，其余 10 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
+当前 DesignCraft、PdfCraft、EffectCraft、PhotoCraft 候选为 `0.1.0-dev.20261017.6`，其余 9 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
 
 本次修正的动因：Git插件条目的回退列表不解析包内图片，官方源码及本机原生plugin/list均可复现。仅补composerIcon无法改变未安装列表。快照包含技能、MCP清单、官方图标及bootstrap，不增加Agent运行时，亦不将全部创作和宿主同步视为通过。
+
+## PhotoCraft dev.20261017.6 老照片工作流深化
+
+完善已有老照片技能的五条方法及两阶段检查，场景总数保持210。macOS/Windows合成夹具验证局部保护区、原层保留、可编辑色阶、保存重开；真实Codex原生MCP及内置浏览器中，v5已安装实例的同一画布观察到修补、工作层及色阶同步，v6复用完全相同运行资源，不将v5视觉样例写成v6新增GUI验收。公开v6完整ZIP安装、22个技能发现、MCP基础调用和资源摘要通过。全局渲染Web/CLI最大1/255差异、首次下载404后内置回退均保留；真实旧照片质量与其他宿主仍未证明。详见[回归记录](craft-photo-restoration-validation.json)。
 
 ## EffectCraft dev.20261017.6 场景技能交付
 

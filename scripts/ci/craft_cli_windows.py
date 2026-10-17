@@ -227,6 +227,8 @@ def main():
             if a.plugin == 'photocraft':
                 from photo_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve())
+                from photo_restoration_smoke import run_restoration
+                report['restorationPhases'] = run_restoration(r, a.playbook.resolve())
             elif a.plugin in {'gridcraft','wordcraft','deckcraft'}:
                 from office_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve(), a.plugin)

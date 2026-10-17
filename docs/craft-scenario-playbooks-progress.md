@@ -385,3 +385,7 @@ Windows main[39031956861](https://github.com/partme-ai/full-aigc-plugins/actions
 ## 片头片尾场景扩展
 
 新增EffectCraft章节标题卡、3–2–1倒数、滚动署名三个独立技能，固定reactvideoeditor/remotion-templates提交阅读流程事实，未声明标准许可，正文与Craft配方原创。明确图层选择、合成秒、独占出入点、可编辑文本及署名占位内容确认。原生0.10.0执行完整九个动效配方108次CLI调用，新增三项导出并重新解码500张PNG。实际查看章节完整帧、START帧和署名中段；不是全片播放或宿主同步验收。Windows九场景114次CLI调用通过运行39034553688，下载616个产物摘要和新增三项argv已复核。EffectCraft v6公开完整包安装/MCP已验证，已按feature→test→main发布至主市场，实际订阅刷新成功，原生列表核对26技能及三个新入口和官方图标。累计210条映射、91个场景入口，数量不等于全部效果已验收。详见[回归记录](craft-effect-delivery-validation.json)。
+
+## 老照片修复独立技能深化
+
+完善已有photocraft-restore-old-photo，内含五条真实方法、两阶段CLI/MCP调用、参数模板、检查点和原层核验，不增加210条映射。macOS合成夹具局部损伤误差13347→2061，保护区0变化；最终原层可逐像素还原输入。真实Codex原生MCP执行同一流程，内置浏览器已观察修补、工作层、整体调色与三层结构同步变化，保存重开及独立CLI读取通过。局部导出与CLI相同，整体导出最大1/255量化差异保留；最新资源查询404后使用已核验内置运行时，不称下载成功。真实照片损伤质量、其他场景和其他宿主仍未由此证明；Windows运行39036648418通过，下载195产物摘要及配方摘要复核一致；v6公开完整ZIP的安装/MCP和22个技能发现已通过，主市场清单同步实施中。[回归记录](craft-photo-restoration-validation.json)。
