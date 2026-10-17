@@ -125,6 +125,7 @@ def run_playbooks(r,path):
     records.append(run_core_compare(r, path))
     records.append(run_core_sheet(r, path))
     records.append(run_core_trace(r, path))
+    records.append(run_bolt_circle(r, path))
     return records
 
 
@@ -328,3 +329,29 @@ def run_core_trace(r,path):
         r.run('convert','traced.dxf','traced.svg');ET.fromstring((r.work/'traced.svg').read_bytes())
         return {'id':'trace-reference','technicalRoundtrip':'PASS','geometryChecks':'PASS','confirmedPointScaleAndTwoAxes':'PASS','inputPreserved':'PASS','automaticPointDetection':'NOT_TESTED','rasterUnderlayViaCli':'UNAVAILABLE','drawingReview':'NOT_TESTED','installedHostSync':'NOT_TESTED'}
     finally:r.work=original
+
+
+def run_bolt_circle(r, path):
+    """实际执行独立技能入口，Windows中文路径/ASCII输出及DXF独立回读。"""
+    import os
+    import subprocess
+    import sys
+    entry=Path(path).resolve().parents[2]/'cadcraft-bolt-circle/scripts/draw_bolt_circle.py'
+    records=[]
+    for name,count,start,center in [('six',6,0,[0,0]),('offset-seven',7,30,[100,50])]:
+        target=r.work/'中文 孔位'/f'{name}.dxf'
+        process=subprocess.run([sys.executable,str(entry),'--cli',str(Path(r.exe).resolve()),'--output',str(target.resolve()),'--count',str(count),'--start-angle',str(start),'--center',*map(str,center)],env={**os.environ,'PYTHONIOENCODING':'ascii'},capture_output=True,timeout=120)
+        require(process.returncode==0,process.stderr.decode('utf-8',errors='replace'))
+        receipt=json.loads(process.stdout.decode('ascii'))
+        require(Path(receipt['output']).resolve()==target.resolve(),'Unicode output path corrupted')
+        (r.output/f'bolt-{name}-receipt.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2),encoding='utf-8')
+        expected=[[center[0]+40*math.cos(math.radians(start+360*i/count)),center[1]+40*math.sin(math.radians(start+360*i/count)),3] for i in range(count)]
+        verify_dxf(target.read_text(encoding='utf-8'),{'circles':[[*center,55],[*center,15],[*center,40]]+expected,'dimensions':1,'dimensionValues':[3],'dimscale':0.5})
+        # Re-execution must refuse all output, leaving original bytes untouched.
+        before=target.read_bytes()
+        rejected=subprocess.run([sys.executable,str(entry),'--cli',str(Path(r.exe).resolve()),'--output',str(target.resolve())],capture_output=True,timeout=120)
+        require(rejected.returncode!=0 and target.read_bytes()==before,'Existing output overwritten')
+        require(target.with_suffix('.png').read_bytes().startswith(b'\x89PNG\r\n\x1a\n'),'PNG missing')
+        ET.fromstring(target.with_suffix('.svg').read_bytes())
+        records.append({'id':'bolt-circle-'+name,'standaloneEntry':'PASS','reopenedGeometry':'PASS','nativeProcessesInChild':receipt['nativeProcesses'],'scope':'child CLI calls logged in receipt, excluded from direct Runner process count; host sync NOT_TESTED'})
+    return {'id':'bolt-circle','variants':records,'technicalRoundtrip':'PASS','drawingReview':'NOT_TESTED by CI'}
