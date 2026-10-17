@@ -59,12 +59,34 @@
     "discoveredSkills": 10,
     "McpPluginVersionAgreement": "PASS",
     "installedUiDistHashes": "PASS",
-    "publicationInMainMarketplace": "PENDING",
+    "publicationInMainMarketplace": "PASS",
     "prepublicationFixes": [
       "stale validator expected ui/dist/adapter.mjs; actual bootstrap configured",
       "v6 MCP handshake metadata still reported v5; runtime.lock version corrected without changing artifact bytes"
     ],
-    "publishedZipGuiSync": "NOT_TESTED; previous same-runtime local candidate GUI result remains scoped separately"
+    "publishedZipGuiSync": {
+      "result": "LIMITED_SYNTHETIC_PASS",
+      "host": "native Codex app-server + Codex IAB",
+      "thread": "01a14a88-21d4-7bf2-bf5a-f885c340beaa",
+      "calls": 29,
+      "checks": [
+        "actual published ZIP installed at version v6",
+        "original 12 cells visibly displayed",
+        "MCP cost update 1200 to 1250 visibly synchronized",
+        "MCP save/reopen/inspect preserved update",
+        "actual saved native table cells and widths independently verified"
+      ],
+      "runtime": "pinned bundled upstream0.7.0; latest query HTTP404 fallback",
+      "limits": "synthetic short English table; external PowerPoint, real content and other hosts not accepted"
+    },
+    "publicGitMainInstallAndMcp": "PASS",
+    "subscribedNativeListing": {
+      "version": "0.1.0-dev.20261017.6",
+      "logo": "resolved official-logo.png",
+      "composerIcon": "resolved official-logo.png",
+      "dailyProfileInstalled": false,
+      "isolatedAcceptanceInstalled": true
+    }
   },
   "outputs": {
     "result.json": "f0a1670bf6731fd3938c133bf148ff053b9eccef8884d5a0d45c11ddae0e0b66",
@@ -129,11 +151,51 @@
     "fresh-native-tty/workspace/mcp-comparison.deckcraft": "003d337b12b9e3fc77d9638437c5192fd5ae3fccf3cc0c2c03aa0b2e4f3788a3",
     "fresh-native-tty/workspace/mcp-revised.deckcraft": "4240df90135de0c44ef514b41712bc9c303ef6595a9b1fded74cb6210c6f9519",
     "discovery/native-rpc.json": "9a2fec378f6e197888d6198a64a053402c639cbf7ff62a53dbd154755bd48e02",
-    "discovery/skills.json": "98b52ac590bb94d3d4c1a29efe99ce64d9c89d64c27cb40f92aa8ebb30efcef2"
+    "discovery/skills.json": "98b52ac590bb94d3d4c1a29efe99ce64d9c89d64c27cb40f92aa8ebb30efcef2",
+    "published-native-tty/frozen-calls.json": "7600f146091dfa4b70d5d4fc4220eeec11105e36212b01e9aa8a3f437867ac1e",
+    "published-native-tty/frozen-native-rpc.json": "f0530200cc5a8a81f86cd5377e95ac5aef2e6f138f5ffc40de9c644375399831",
+    "published-native-tty/comparison-before.jpg": "af909ee18a95e6190f9ebeca72547a1b12e53b82c158b4fbd5bf50bf87929a90",
+    "published-native-tty/comparison-revised.jpg": "2ea4960a4807bc66079c660fb25f4c5b4a68da88c57c310abc322feff5396f54",
+    "published-native-tty/workspace/published-comparison.deckcraft": "b729eeb88f72cd24c79051e1c0257eea0814356d4b835dc55bd6b566ad71668b",
+    "published-native-tty/workspace/published-revised.deckcraft": "4aeb9bd57617f25d53fc2d505204c64811fb8bd7d0ce8b110a2e8b179d2fd4ec"
   },
   "packageMcpRegression": {
     "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39045187684",
     "result": "PASS",
     "scope": "existing published package matrix; does not prove new scene publication"
+  },
+  "releaseCI": {
+    "sourceCommit": "f245eeb1526beed521a07852e2eaed0bb29b857b",
+    "test": {
+      "marketInstall": {
+        "run": 39046212689,
+        "result": "PASS",
+        "jobs": 27
+      },
+      "packageMcp": {
+        "run": 39046212686,
+        "result": "PASS",
+        "jobs": 14
+      },
+      "nativeBusiness": {
+        "run": 39046212699,
+        "result": "PASS",
+        "jobs": 13
+      }
+    },
+    "main": {
+      "marketInstall": {
+        "run": 39046505872,
+        "result": "RUNNING"
+      },
+      "packageMcp": {
+        "run": 39046505976,
+        "result": "RUNNING"
+      },
+      "nativeBusiness": {
+        "run": 39046505890,
+        "result": "RUNNING"
+      }
+    }
   }
 }
