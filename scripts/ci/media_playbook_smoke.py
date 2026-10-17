@@ -178,4 +178,6 @@ def run_playbooks(r,path,app):
         from sound_more_core_smoke import run_more_core
         root = Path(path).resolve().parents[2]
         return records + run_core(r, root) + run_more_core(r, root)
-    return light(r, data)
+    records = light(r, data)
+    from light_core_smoke import run_core as run_light_core
+    return records + run_light_core(r, Path(path).resolve().parents[2])
