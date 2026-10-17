@@ -24,7 +24,7 @@
       "date": "2026-10-17T04:00:52Z",
       "message": "Ignore the local outputs/ folder",
       "pluginCommit": "56fd29da6827b8c900e787c0e40667034da6f313",
-      "skillsCommit": "7a2d348b7d0a16b173774681144a67e7efa8b885",
+      "skillsCommit": "2c5fb31892f9ab8697f5a749aefd978e93a88e9f",
       "engine": "designcraft",
       "status": "development-candidate-not-accepted",
       "editorMode": "source-overlay",

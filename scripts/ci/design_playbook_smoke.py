@@ -102,6 +102,8 @@ def run_playbooks(r,path):
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','editableSemantics':'PASS','finalPreflight':'PASS','layoutReview':'NOT_TESTED'})
     require(bool(records),'No Design workflows')
     records.append(existing_story_revision(r,compiler,data))
+    from design_core_smoke import run_newsletter
+    records.append(run_newsletter(r,path.parents[2]))
     return records
 
 
