@@ -5,6 +5,7 @@ from pathlib import Path
 import unittest
 from design_core_smoke import verify_newsletter,verify_catalog_links,verify_toc_entries
 import copy
+from design_preflight_smoke import verify_repaired
 
 ROOT=Path(os.environ.get('CRAFT_DESIGN_SKILLS_ROOT',str(Path(__file__).resolve().parents[3]/'full-aigc-skills-repositories/designcraft-skills/skills')))/'designcraft-newsletter'
 
@@ -84,6 +85,23 @@ class LongDocumentContract(unittest.TestCase):
         verify_toc_entries(entries,chapters,[2,5])
         with self.assertRaisesRegex(AssertionError,'stale'):verify_toc_entries(entries,chapters,[2,4])
         with self.assertRaisesRegex(AssertionError,'entry count'):verify_toc_entries(entries+[{'text':'Body copy','page':'3'}],chapters,[2,5])
+
+
+class PrintPreflightContract(unittest.TestCase):
+    def test_preflight_has_inspect_repair_recheck_before_export(self):
+        steps=json.loads((ROOT.parent/'designcraft-print-preflight/references/craft-steps.json').read_text(encoding='utf-8'))['steps']
+        commands=[s['command'] for s in steps]
+        self.assertEqual(commands.count('preflight.run'),2,'Need actual before/after preflight')
+        self.assertIn('links.relink',commands)
+        self.assertIn('transform.resize',commands)
+        self.assertLess(max(i for i,s in enumerate(steps) if s['command']=='preflight.run'),commands.index('file.exportPdf'))
+        self.assertNotIn('file.new',commands,'Existing print source must not be cleared')
+
+    def test_resolution_warning_stops_export(self):
+        before={'issues':[{'kind':kind,'severity':'error' if kind!='lowResolution' else 'warning'} for kind in ['overset','missingLink','lowResolution']]}
+        verify_repaired(before,{'issues':[]})
+        with self.assertRaisesRegex(AssertionError,'export must stop'):verify_repaired(before,{'issues':[{'kind':'lowResolution','severity':'warning'}]})
+        with self.assertRaisesRegex(AssertionError,'all target defects'):verify_repaired({'issues':[]},{'issues':[]})
 
 
 if __name__=='__main__':unittest.main()

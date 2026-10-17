@@ -50,17 +50,17 @@ def run_newsletter(r,skills):
     return {'id':'newsletter','coreSkill':'designcraft-newsletter','technicalRoundtrip':'PASS','fullStory':'PASS','threadOrder':'PASS','threeColumns':'PASS','editableParagraphStyle':'PASS','finalPreflight':'PASS','layoutReview':'NOT_TESTED','hostSameCanvas':'NOT_TESTED'}
 
 
-def catalog_png(path,color):
+def catalog_png(path,color,scale=1):
     """生成原创600×400测试素材；不使用外部商品图片。"""
     import struct
     import zlib
     def chunk(kind,data):
         return struct.pack('>I',len(data))+kind+data+struct.pack('>I',zlib.crc32(kind+data)&0xffffffff)
     rows=[]
-    for y in range(400):
-        row=b''.join(bytes(color if 80<=x<520 and 60<=y<340 else (245,245,245)) for x in range(600))
+    for y in range(400*scale):
+        row=b''.join(bytes(color if 80*scale<=x<520*scale and 60*scale<=y<340*scale else (245,245,245)) for x in range(600*scale))
         rows.append(b'\0'+row)
-    path.write_bytes(b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',600,400,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(b''.join(rows)))+chunk(b'IEND',b''))
+    path.write_bytes(b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',600*scale,400*scale,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(b''.join(rows)))+chunk(b'IEND',b''))
 
 
 def verify_catalog_links(links,products,bindings):

@@ -106,6 +106,8 @@ def run_playbooks(r,path):
     records.append(run_newsletter(r,path.parents[2]))
     records.append(run_catalog(r,path.parents[2]))
     records.append(run_long_document(r,path.parents[2]))
+    from design_preflight_smoke import run_preflight
+    records.append(run_preflight(r,path.parents[2]))
     return records
 
 
