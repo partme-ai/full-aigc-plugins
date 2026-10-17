@@ -19,7 +19,7 @@ def fixture(path):
     path.write_bytes(b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',256,192,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(b''.join(rows)))+chunk(b'IEND',b''))
 
 
-def rgb_pixels(path):
+def rgb_pixels(path, include_alpha=False):
     """解码原生导出的8位RGB/RGBA PNG，用像素而非编码字节判断是否真的处理。"""
     data=Path(path).read_bytes(); offset=8; compressed=bytearray(); width=height=bpp=None
     while offset<len(data):
@@ -43,7 +43,9 @@ def rgb_pixels(path):
             elif kind==0:predictor=0
             else:raise ValueError('Unknown PNG row filter')
             row[x]=(row[x]+predictor)&255
-        for x in range(0,stride,bpp):result.extend(row[x:x+3])
+        for x in range(0,stride,bpp):
+            result.extend(row[x:x+3])
+            if include_alpha:result.append(row[x+3] if bpp==4 else 255)
         prev=row
     return width,height,bytes(result)
 

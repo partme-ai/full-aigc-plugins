@@ -24,7 +24,7 @@ jobs:
         if: matrix.plugin == 'effectcraft'
         with:
           repository: full-aigc-skills/effectcraft-skills
-          ref: 233183e77da2268700d64f72a49f8851aa508a65
+          ref: 462bb31dd47e13f082791f2e87aafcd706546369
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'photocraft'
@@ -92,7 +92,7 @@ jobs:
         shell: pwsh
         run: |
           $sceneArgs = @()
-          if ("${{ matrix.plugin }}" -eq "effectcraft") { $sceneArgs = @("--playbook", "scene-source/skills/effectcraft-screen-composite/references/craft-steps.json") }
+          if ("${{ matrix.plugin }}" -eq "effectcraft") { $sceneArgs = @("--playbook", "scene-source/skills") }
           if (@("photocraft", "gridcraft", "wordcraft", "deckcraft", "soundcraft", "lightcraft", "cadcraft", "vectorcraft", "figcraft", "designcraft") -contains "${{ matrix.plugin }}") { $sceneArgs = @("--playbook", "scene-source/skills/${{ matrix.plugin }}-scenario-playbooks/references/recipes.json") }
           python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.plugin }} --output cli-result @sceneArgs
           exit $LASTEXITCODE
