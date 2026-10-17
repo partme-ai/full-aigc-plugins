@@ -119,3 +119,7 @@ FilmCraft插件自身实现CI仍失败：当前38998696272与修改前3899589930
 真实发现当前Helvetica测试表单的中文字段存储成功但外观为????。已保留该失败并补进技能边界；ASCII样例单独验证，真实中文姓名不得自动改拼音。该表单条目只算部分验证，不能凑进完整通过计数。
 
 主配方修改还发现商店手册中四处重复步骤滞后，已同步FilmCraft采访/调色和PrintCraft表单/删改的结构化及人类可读副本；新增负例测试拒绝商店副本继续引用旧步骤。辅助测试76项通过，13应用共198条映射静态检查通过；PrintCraft本地候选包检查通过。技能源旧validate_package.py仍报skill_set_mismatch，其清单/运行时资源约束未在本次改写。Windows原生结果待本次固定源码运行后记录，宿主同步与印刷标准认证不推断。
+
+Windows运行[38999455043](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38999455043)13应用业务矩阵通过，PrintCraft经37次真实CLI调用执行六份配方；下载产物确认五项限定技术回归通过、英文表单通过及中文外观FAIL_KNOWN_FONT_LIMITATION，未抹掉失败。英文OCR重开提取PAGE ONE/PUBLIC KEEP/CONFIDENTIAL，扫描图像像素保持。既有安装/MCP矩阵38999455149通过，不等于本轮新技能源已在真实宿主加载。详细范围见[PDF场景回归](craft-pdf-playbook-validation.json)。
+
+累计198条映射：111条有已完成的限定技术回归，1条表单部分通过（中文外观未过，不计入111），86条尚未逐项执行，另有4条组合用例。PrintCraft自身Package verification仍报sourceCurrent=false，架构CI通过；不重写旧验证报告冒充新版本全量通过。整体目标保持实施中。
