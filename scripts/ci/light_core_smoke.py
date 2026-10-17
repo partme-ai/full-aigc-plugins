@@ -150,7 +150,7 @@ def run_core(r, skill_root):
                 expected = {'portrait-develop': .15, 'landscape-develop': .2, 'raw-develop': .25}[name]
                 assert abs(after[sample_id]['light']['exposure'] - expected) < 1e-6, 'Edited wrong photo'
                 if name == 'landscape-develop':
-                    assert abs(after[sample_id]['crop']['angle'] - 1) < 1e-6, 'Straightening not saved'
+                    assert abs(after[sample_id]['crop']['geometry']['angle'] - 1) < 1e-6, 'Straightening not saved'
                 run([render(sample_id, 'after.png', 1600 if name == 'raw-develop' else 0)])
                 a, b = rgb_pixels(r.work / 'before.png'), rgb_pixels(r.work / 'after.png')
                 assert sum(b[2]) / len(b[2]) > sum(a[2]) / len(a[2]) + .1, 'Positive exposure did not brighten rendered image'
