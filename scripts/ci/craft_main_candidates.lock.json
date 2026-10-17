@@ -86,7 +86,7 @@
       "date": "2026-10-16T16:08:51Z",
       "message": "ci: standardize FreeBSD workflow on shared FreeBSD 15.1 action (#2158)",
       "pluginCommit": "37d64d72dad58b4d5de7e444f3e1018526e75241",
-      "skillsCommit": "1a44d259665e52385946080d3b03aa12550149b0",
+      "skillsCommit": "b38d467e766e35dbe5e6192934000441784a71f3",
       "engine": "filmcraft",
       "status": "development-candidate-not-accepted",
       "editorMode": "official-web-api",
