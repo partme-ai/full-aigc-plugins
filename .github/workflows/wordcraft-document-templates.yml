@@ -1,9 +1,9 @@
 name: WordCraft document templates on Windows
 on:
   push:
-    paths: ['scripts/ci/word_document_templates.py', '.github/workflows/wordcraft-document-templates.yml']
+    paths: ['scripts/ci/word_document_templates.py', 'scripts/ci/word_quotation_smoke.py', '.github/workflows/wordcraft-document-templates.yml']
   pull_request:
-    paths: ['scripts/ci/word_document_templates.py', '.github/workflows/wordcraft-document-templates.yml']
+    paths: ['scripts/ci/word_document_templates.py', 'scripts/ci/word_quotation_smoke.py', '.github/workflows/wordcraft-document-templates.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: full-aigc-skills/wordcraft-skills
-          ref: d3cdeaa9c948f1f2de582d4637a4d373025da88f
+          ref: af833c506e88ada46b2de2b65bdac18e22be2f7b
           path: template-source
       - name: Validate template filling and standalone helpers
         run: python -m unittest discover -s template-source/tests -v
@@ -29,11 +29,14 @@ jobs:
         run: python scripts/ci/word_document_templates.py --source template-source --output document-playbooks.json
       - name: Generate DOCX and PDF with the real native CLI
         run: python scripts/ci/craft_cli_windows.py --plugin wordcraft --output template-result --playbook document-playbooks.json
+      - name: Verify quotation amounts and editable tables with the actual CLI
+        run: python scripts/ci/word_quotation_smoke.py --source template-source --runtime-root template-result --output quotation-result
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: wordcraft-document-template-results
           path: |
+            quotation-result/**
             document-playbooks.json
             template-result/result.json
             template-result/calls.json

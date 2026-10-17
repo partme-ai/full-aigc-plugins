@@ -1,0 +1,94 @@
+{
+  "schema": "craft-word-quotation-validation/v1",
+  "status": "DEVELOPMENT_CANDIDATE",
+  "source": {
+    "repository": "dolanmiu/docx",
+    "commit": "3b4f7777cd961ed3c19572f6262d90cd74bd640b",
+    "license": "MIT",
+    "readFiles": [
+      {
+        "path": "docs/usage/templates.md",
+        "sha256": "473cddd45c9e52b669f094a5bd5915ec40c766b7380495eb25a05ad0628430b2",
+        "bytes": 22937
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "b5b2364c0c95a26b2a2399d7e706a61acac680be1d5b180b00592ee85830bffb",
+        "bytes": 1072
+      }
+    ],
+    "reuse": "workflow facts only; original Craft parameters and calculations"
+  },
+  "macosNative": {
+    "result": "PASS",
+    "variants": [
+      {
+        "name": "sample",
+        "itemCount": 2,
+        "total": "2740.80",
+        "pages": 1,
+        "nativeTableAndAmounts": "PASS",
+        "inputPreserved": "PASS",
+        "allPagesRendered": "PASS",
+        "visualReview": "NOT_PERFORMED_BY_CI"
+      },
+      {
+        "name": "small-decimal",
+        "itemCount": 1,
+        "total": "0.30",
+        "pages": 1,
+        "nativeTableAndAmounts": "PASS",
+        "inputPreserved": "PASS",
+        "allPagesRendered": "PASS",
+        "visualReview": "NOT_PERFORMED_BY_CI"
+      },
+      {
+        "name": "many-items",
+        "itemCount": 20,
+        "total": "205.00",
+        "pages": 3,
+        "nativeTableAndAmounts": "PASS",
+        "inputPreserved": "PASS",
+        "allPagesRendered": "PASS",
+        "visualReview": "NOT_PERFORMED_BY_CI"
+      }
+    ],
+    "scope": "specified fixtures and native structure; real quote approval, arbitrary typography and host sync not proven",
+    "nativeProcesses": 16,
+    "platform": "darwin"
+  },
+  "representativeVisualReview": {
+    "samplePage1": "PASS: Chinese, amounts and table readable",
+    "manyItemsPages2And3": "reviewed: repeated headers visible; long project cells can split across pages",
+    "otherPages": "not yet manually reviewed",
+    "scope": "sample pages only; arbitrary typography not accepted"
+  },
+  "unitTests": {
+    "source": 13,
+    "pluginQuotation": 5,
+    "status": "PASS"
+  },
+  "independentSourcePluginCheck": "PASS: one additional mapped candidate; published count still232",
+  "nativeDocx": {
+    "sampleRows": 4,
+    "sampleColumns": 4,
+    "sampleTotal": "2740.80",
+    "repeatedHeader": "PASS"
+  },
+  "artifacts": {
+    "quotation.docx": "b45894bdfd701ef7c585e87321e1ae3619093e6330130b487266cc9884ba48b5",
+    "quotation.pdf": "c718b09d6cf374e5cf3922dc4cd1034cb51788981c0bcdbbedfccaf1b7372b99",
+    "page.png": "5fb5977f6aac6843d3a35bf197fd646f45fda0e1b50270511ef00092d4839418"
+  },
+  "windows": "PENDING",
+  "nativeHostSync": "NOT_RUN",
+  "marketplace": "NOT_RELEASED",
+  "sourceCommit": "af833c5",
+  "pluginCommit": "85ca171",
+  "remaining": [
+    "Windows actual native business",
+    "shared-editor host acceptance",
+    "multi-page typography review and refinements",
+    "release packaging and marketplace"
+  ]
+}
