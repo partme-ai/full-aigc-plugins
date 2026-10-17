@@ -1,0 +1,286 @@
+{
+  "sourceCommit": "f49e0947b3278d81c3f749d7aa37bc3dca0beadf",
+  "ciCodeCommit": "9d29e1de675bb8a8407c90e76b96e64d06d43e6e",
+  "windowsRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39000602316",
+  "existingPackageMcpRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39000602307",
+  "runtime": {
+    "version": "v0.9.0",
+    "url": "https://github.com/storytold/photocraft/releases/download/v0.9.0/photocraft-0.9.0-windows-x64-portable.zip",
+    "sha256": "e87bbe26f84d3c359765b61d128b9cc59f016a995956fe7909b328a97650fc97",
+    "executable": "photocraft-cli.exe"
+  },
+  "exeSha256": "a594cddcb462334576b9561afe37b86afb37b07f9e1c29b9a90b4b0c8f0b4ee2",
+  "processCount": 163,
+  "totalUniqueRecipes": 41,
+  "newRepairCases": [
+    {
+      "id": "scan-dust-specks",
+      "recipeSha256": "00e01b101dd47c9efd281e8475dbb505742454e03df857cc58848a49a5a1fcdc",
+      "checks": {
+        "id": "scan-dust-specks",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 840,
+          "afterError": 0,
+          "minimumGain": 0.25,
+          "measuredGain": 1.0,
+          "protectedOutside": [
+            32,
+            22,
+            52,
+            40
+          ]
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "torn-corner-texture",
+      "recipeSha256": "1ada970d8007a599a7b92eba78c873eac65037ab30a08f43ce2669d01d9feb7c",
+      "checks": {
+        "id": "torn-corner-texture",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 570,
+          "afterError": 228,
+          "minimumGain": 0.25,
+          "measuredGain": 0.6,
+          "protectedOutside": [
+            72,
+            32,
+            92,
+            50
+          ]
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "silver-mirror-local",
+      "recipeSha256": "c3b75eb4b0e630b53245c7acfa6cfd1343c4c5cf32b6d191687010b485ee5e29",
+      "checks": {
+        "id": "silver-mirror-local",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 720,
+          "afterError": 288,
+          "minimumGain": 0.25,
+          "measuredGain": 0.6,
+          "protectedOutside": [
+            72,
+            32,
+            92,
+            50
+          ]
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "small-stain-sampled",
+      "recipeSha256": "2d273ac7950431e4c9cacd5177b5c31daafc2a4add09853c8665c667cf92fc9a",
+      "checks": {
+        "id": "small-stain-sampled",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 510,
+          "afterError": 60,
+          "minimumGain": 0.25,
+          "measuredGain": 0.8823529411764706,
+          "protectedOutside": [
+            72,
+            32,
+            92,
+            50
+          ]
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "portrait-eye-shadow",
+      "recipeSha256": "e2c6e33afe350838a9063223d66052b66147ffc2c2c5b0dcc61d85279facc73f",
+      "checks": {
+        "id": "portrait-eye-shadow",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 450,
+          "afterError": 338,
+          "minimumGain": 0.02,
+          "measuredGain": 0.24888888888888894,
+          "protectedOutside": [
+            94,
+            66,
+            110,
+            78
+          ]
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "product-surface-dust",
+      "recipeSha256": "6b510a9ccd53a811f3a382815558e7e0ba3f92962517523bdb3f175c52d93284",
+      "checks": {
+        "id": "product-surface-dust",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 1560,
+          "afterError": 312,
+          "minimumGain": 0.25,
+          "measuredGain": 0.8,
+          "protectedOutside": [
+            32,
+            22,
+            92,
+            50
+          ]
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "scratch-edge-protection",
+      "recipeSha256": "6d6c69fd124658feda4f81f9a5fdfe59b7f96756c8949a31ba0072842f3c965c",
+      "checks": {
+        "id": "scratch-edge-protection",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 8190,
+          "afterError": 1239,
+          "minimumGain": 0.25,
+          "measuredGain": 0.8487179487179487,
+          "protectedOutside": [
+            27,
+            28,
+            54,
+            72
+          ]
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "large-stain-patch",
+      "recipeSha256": "1378a064b3c2bc03a91cc421f6f350dbe836b919c95bfb6251b52958c8fed75a",
+      "checks": {
+        "id": "large-stain-patch",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 126720,
+          "afterError": 0,
+          "minimumGain": 0.25,
+          "measuredGain": 1.0,
+          "protectedOutside": [
+            88,
+            64,
+            128,
+            100
+          ],
+          "seamMaxChannelError": 0
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "skin-shine-burn",
+      "recipeSha256": "6a369e31153b3040dd18d0f213f9e6110cdb11571ef78833906f281ab8f8b2cf",
+      "checks": {
+        "id": "skin-shine-burn",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 660,
+          "afterError": 621,
+          "minimumGain": 0.01,
+          "measuredGain": 0.05909090909090908,
+          "protectedOutside": [
+            102,
+            50,
+            126,
+            74
+          ]
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "hair-stray-cleanup",
+      "recipeSha256": "1d7f0b91de04c2b2076d017e192a42ec4f4e11e2d1774dab703624255392d618",
+      "checks": {
+        "id": "hair-stray-cleanup",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 1461,
+          "afterError": 412,
+          "minimumGain": 0.25,
+          "measuredGain": 0.7180013689253936,
+          "protectedOutside": [
+            162,
+            34,
+            178,
+            50
+          ]
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "product-reflection-spot",
+      "recipeSha256": "45b7de2d066c8226d04aa0fca42bea97d017c01a96f815a488f08f43ec42578c",
+      "checks": {
+        "id": "product-reflection-spot",
+        "syntheticRepair": "PASS",
+        "metrics": {
+          "beforeError": 330,
+          "afterError": 245,
+          "minimumGain": 0.02,
+          "measuredGain": 0.25757575757575757,
+          "protectedOutside": [
+            148,
+            80,
+            164,
+            96
+          ]
+        },
+        "creativeAcceptance": "NOT_TESTED",
+        "hostEditorSync": "NOT_TESTED"
+      }
+    }
+  ],
+  "patchFix": {
+    "before": "tight24x20selection left dark seam despite93.48percent aggregate improvement",
+    "failedSeamMaxChannelError": 59,
+    "after": "32x28 selection includes4px clean border; actual Windows sample damage error0 and seam error0",
+    "protectedOutside": [
+      88,
+      64,
+      128,
+      100
+    ],
+    "donor": "still independently protected outside allowed edit bounds"
+  },
+  "fixture": "256x192 repeated known RGB texture; one synthetic defect type per original recipe; no real-photo quality score",
+  "crossPlatform": {
+    "pngSamples": 35,
+    "identicalDecodedRGBA": 35
+  },
+  "originalProtection": "all pixels outside per-case edit bounds unchanged; hidden working layer restores exact damaged input; input SHA256 unchanged",
+  "auxiliaryTests": 82,
+  "limitations": [
+    "native CLI only; no host-editor-sync acceptance",
+    "single-pixel/regular-texture synthetic damage does not prove torn-corner content reconstruction, skin identity preservation or real silver-mirror restoration",
+    "low-strength burn and reflection cleanup only partially reduce sample error",
+    "existing packages in MCP matrix are not a rebuilt installation of these new skills"
+  ],
+  "pluginImplementationCI": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39000603067"
+}
