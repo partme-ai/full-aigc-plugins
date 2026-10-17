@@ -175,5 +175,7 @@ def run_playbooks(r,path,app):
     if app == 'soundcraft':
         records = sound(r, data)
         from sound_core_smoke import run_core
-        return records + run_core(r, Path(path).resolve().parents[2])
+        from sound_more_core_smoke import run_more_core
+        root = Path(path).resolve().parents[2]
+        return records + run_core(r, root) + run_more_core(r, root)
     return light(r, data)
