@@ -169,5 +169,21 @@
     "targetedPathFixTests": 22,
     "documentation": "PASS",
     "fixedPluginCommit": "6620496"
+  },
+  "fontDiagnosis": {
+    "officialSourceCommit": "61238bf8fc129077fe2b7982550303be49f55a93",
+    "paths": [
+      "crates/text/src/fonts.rs",
+      "crates/text/build.rs",
+      "apps/filmcraft-web/src/lib.rs"
+    ],
+    "findings": [
+      "Font sources embedded at compile time",
+      "Native system folder scan is empty on Web",
+      "No runtime font import exposed by checked command catalog",
+      "CSS family changes do not load glyphs into WASM renderer"
+    ],
+    "sourceModified": false,
+    "nextAcceptance": "Use an engine build with verified glyph coverage, then repeat visible actual-language caption checks; preserve official resources"
   }
 }
