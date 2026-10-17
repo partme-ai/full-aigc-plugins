@@ -43,7 +43,7 @@
     },
     {
       "application": "vectorcraft",
-      "mappedScenes": 14,
+      "mappedScenes": 17,
       "skills": 7
     },
     {
@@ -67,6 +67,6 @@
       "skills": 7
     }
   ],
-  "mappedScenes": 198,
+  "mappedScenes": 201,
   "errors": []
 }
