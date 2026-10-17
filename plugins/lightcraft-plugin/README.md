@@ -1,6 +1,6 @@
 # LightCraft Use
 
-当前可安装开发候选：`0.1.0-dev.20261017.5`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+本轮开发预发布：`0.1.0-dev.20261018.1`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -75,3 +75,7 @@ Plugin display name: **LightCraft Use**. Official upstream icon provenance and l
 ### 候选启动修正
 
 本候选先完成轻量MCP握手及能力发现，在首次工具或资源调用时校验/获取固定编辑器资源。修复多个编辑器首次下载阻塞宿主握手的问题。Windows通过Git安装时须启用Git长路径支持（`git config --global core.longpaths true`）；完整ZIP不包含历史验收记录，可避免Git检出长路径的问题。运行资源沿用已核验的dev.20261017.2制品，不以入口版本号冒充上游升级。
+
+## 独立副本、版本恢复与曲线迁移开发候选
+
+新增`lightcraft-virtual-copy-review`、`lightcraft-named-version-restore`、`lightcraft-tone-curve-transfer`，固定darktable手册GitHub提交并原创映射实际命令参数。官方0.8.0 macOS三场景27次CLI调用通过：副本独立编辑、命名版本恢复后的设置和像素一致、仅toneCurve组迁移且目标曝光/色彩/裁切保持，源文件与排除照片不变，新进程重开可继续。当前未发布新市场版本；Windows完整17场景116次CLI及输出摘要通过，真实Codex MCP/IAB的副本、恢复、曲线与页面重载验证通过。真实媒体质量、备份恢复UI和其他宿主仍未验收。

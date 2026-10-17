@@ -5,10 +5,13 @@
     "lightcraft-batch-photo-style",
     "lightcraft-editor",
     "lightcraft-landscape-develop",
+    "lightcraft-named-version-restore",
     "lightcraft-photo-culling",
     "lightcraft-photo-export",
     "lightcraft-portrait-develop",
     "lightcraft-raw-develop",
-    "lightcraft-scenario-playbooks"
+    "lightcraft-scenario-playbooks",
+    "lightcraft-tone-curve-transfer",
+    "lightcraft-virtual-copy-review"
   ]
 }

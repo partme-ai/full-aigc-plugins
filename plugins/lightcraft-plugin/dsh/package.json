@@ -1,0 +1,27 @@
+{
+  "name": "@partme-dsh/lightcraft",
+  "version": "0.1.0-dev.20261018.1",
+  "description": "Lightcraft 照片管理与无损显影；CLI 0.2.1/macOS arm64 开发预发行，扩展能力未启用。",
+  "type": "module",
+  "main": "lib/index.js",
+  "icon": "./icon.png",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "lib/index.js",
+    "icon.svg",
+    "icon.png",
+    "README.md"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

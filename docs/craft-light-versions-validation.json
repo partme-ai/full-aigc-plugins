@@ -15,9 +15,79 @@
       "source image digests unchanged"
     ]
   },
-  "windows": "PENDING",
-  "installedHostSync": "PENDING",
-  "marketRelease": "NOT_PUBLISHED",
+  "windows": {
+    "run": 39058770194,
+    "sourceCommit": "029faf553cec63f311d8033f52fc17fb6b7fc867",
+    "sceneRecords": 17,
+    "cliProcesses": 116,
+    "outputHashesVerified": 163,
+    "result": "PASS"
+  },
+  "installedHostSync": {
+    "result": "LIMITED_SYNTHETIC_PASS",
+    "host": "actual native Codex app-server + IAB",
+    "thread": "01a14b26-0b40-75f2-a3e6-a8bd48bc9e7e",
+    "mcpCalls": 47,
+    "checks": [
+      "copy exposure0.7 distinct from original0.1 in canvas",
+      "named version actual index1, not assumed0; rendered restore equals baseline",
+      "curve target full curve copied; non-curve groups and guard unchanged",
+      "same page real reload preserves state and re-export pixels",
+      "two complete backupZIPs contain original sources; final backup independent nativeCLI reads exact three photo settings",
+      "two actual host backupZIPs CRC and three original source bytes checked"
+    ],
+    "negativeProbes": [
+      "save_project, command_list and list_files explicitly unsupported in this Web build; not counted as passed business steps"
+    ],
+    "limits": [
+      "real photography quality not tested",
+      "Web restore-from-backup UI not tested",
+      "other hosts not tested"
+    ],
+    "runtime": {
+      "upstreamWebVersion": "0.8.0",
+      "source": "cache",
+      "sha256": "bfabb7edecfc8723b9d698ad2b6fa32e99fcdf977628a68b2884c4b06c6f017a"
+    }
+  },
+  "marketRelease": {
+    "version": "0.1.0-dev.20261018.1",
+    "url": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/tag/v0.1.0-dev.20261018.1",
+    "pluginCommit": "f42f9b6bf409eaac0e50a762a2dfbd4f5b450673",
+    "zipSha256": "5e035268bb32b9305a1f7acf4e2e43aed178406d65bf116969f456c17b926eb8",
+    "publicZipDownloadInstallMcpAndRuntimeDigests": "PASS",
+    "mainMarketplace": "PENDING_MERGE",
+    "DSH": "NOT_TESTED; concurrent addition preserved"
+  },
   "knownBoundary": "Native develop.copy groups enum is toneCurve, not section name curve. Copy clipboard is process-local. Web capability must be checked separately.",
-  "fixtureCorrection": "First guard duplicated sample bytes and native importer deduplicated content; distinct guard now ensures three actual photo IDs. Failed probe retained locally."
+  "fixtureCorrection": "First guard duplicated sample bytes and native importer deduplicated content; distinct guard now ensures three actual photo IDs. Failed probe retained locally.",
+  "packageMcpRegression": {
+    "run": 39058770319,
+    "result": "PASS",
+    "scope": "published previous package matrix, not new scene release"
+  },
+  "outputs": {
+    "fresh-native-tty/version-trial-120.jpg": "52fe0b33e2a66f9317518600091cce52a12485d1344e9e27f9f56e612ecf4f33",
+    "fresh-native-tty/target-tone-curve.jpg": "db08cc496304b09a376b9d387daec64952ff81f2b8539b8d9eb3379526bd4a35",
+    "fresh-native-tty/virtual-copy-070.jpg": "a7050a2dc5daf2891639c50225b382d8c0f759a398ede404d4d11bd9ba96487f",
+    "fresh-native-tty/curve-after-reload.jpg": "5a415d2d0c5e76230e4189c0dc415b48dec2ce64aefdf17a19f747ccd1d09c14",
+    "fresh-native-tty/calls.json": "897218a005dcf600dfa641859e6aea694f07ac689a11b93babfe5a271f44f693",
+    "fresh-native-tty/workspace/target.png": "c442dd969e697cd6e965000c67e8a6c303c77e4fe45f08aecac8e0312ffd5f4b",
+    "fresh-native-tty/workspace/guard.png": "413a6de56854abc86f8cc77a22203f706e85c77dc5beeb10d465329e6a5b593e",
+    "fresh-native-tty/workspace/sample.png": "2274fe1ae2a57f203912c09c48214a293cd57a3662808b17bd41658d171daa5e",
+    "fresh-native-tty/workspace/craft-exports/de27bf2b-host-copy-reloaded.png": "220883e205098cf66b5cb9fc0d73ed2106069c280aa55a234adb78fa9ddd7b56",
+    "fresh-native-tty/workspace/craft-exports/9efb800c-host-alternate.png": "220883e205098cf66b5cb9fc0d73ed2106069c280aa55a234adb78fa9ddd7b56",
+    "fresh-native-tty/workspace/craft-exports/e72acaf4-host-curve-reloaded.png": "ba8ee81433570eb77b63a316cb6f482d445de5837e58adfbf00c502409d432aa",
+    "fresh-native-tty/workspace/craft-exports/2af87104-host-version-restored.png": "f8907e522d5485bc0a2f0a5649cc5d1382b412e5f6240e72fe33847ead70fb20",
+    "fresh-native-tty/workspace/craft-exports/c7455097-host-original.png": "f8907e522d5485bc0a2f0a5649cc5d1382b412e5f6240e72fe33847ead70fb20",
+    "fresh-native-tty/workspace/craft-exports/9823b012-host-curve-proof.png": "ba8ee81433570eb77b63a316cb6f482d445de5837e58adfbf00c502409d432aa",
+    "fresh-native-tty/workspace/craft-exports/87bd3e21-lightcraft-library-backup-2026-10-17.zip": "cd4e9cfecbae6583d0df7bbebaae1d53b12fdb34b1c505607550185669dd9845",
+    "fresh-native-tty/workspace/craft-exports/5f3f940e-host-version-trial.png": "d3dda01903b2ae0935b58588a3e212f5a0f24d86e335e3ae7fe5adbbe1190a4e",
+    "fresh-native-tty/workspace/craft-exports/40dcf04d-lightcraft-library-backup-2026-10-17.zip": "230804f8ebef2a10bc0023d0cfbcfe418bcf786a291f2ea38326e42395584eb6",
+    "fresh-native-tty/frozen-calls.json": "897218a005dcf600dfa641859e6aea694f07ac689a11b93babfe5a271f44f693",
+    "fresh-native-tty/frozen-native-rpc.json": "961ce6f1b654ec42a9ebb4452d49f5b186a38a54362e71fba3e243b45f345397",
+    "backup-readback/native-readback.jsonl": "0c2f9d1b58c94cd7bb0fc43dfa48c463136613553dfd95f3642b1a5905652989"
+  },
+  "recipeStepsUnchangedSinceWindows": true,
+  "finalSkillSourceCommit": "b72f335cd44f78652603276b4e7c44fe5b5a395b"
 }

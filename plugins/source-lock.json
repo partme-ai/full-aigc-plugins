@@ -97,12 +97,12 @@
   },
   {
     "plugin": "lightcraft",
-    "version": "0.1.0-dev.20261017.5",
+    "version": "0.1.0-dev.20261018.1",
     "repository": "full-aigc-plugins/lightcraft-plugin",
-    "commit": "c24d91fff2d8809b72b9d618f63e8ae0ee5dc578",
-    "tag": "v0.1.0-dev.20261017.5",
-    "fileCount": 1385,
-    "treeSha256": "6e69587dd3fecb7819f5eb28296c321498c80be94e9ede17d011109cda966a72",
+    "commit": "f42f9b6bf409eaac0e50a762a2dfbd4f5b450673",
+    "tag": "v0.1.0-dev.20261018.1",
+    "fileCount": 1405,
+    "treeSha256": "4f6dfc7ed054c2cb03345875e2e9ecbc17142f168234f368b54ac3d6db65d5ea",
     "excluded": [
       "evidence/",
       "docs/evidence/",

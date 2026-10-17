@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "lightcraft",
-  "version": "0.1.0-dev.20261017.5",
+  "version": "0.1.0-dev.20261018.1",
   "description": "Lightcraft 照片管理与无损显影；CLI 0.2.1/macOS arm64 开发预发行，扩展能力未启用。",
   "license": "Apache-2.0",
   "extensions": {

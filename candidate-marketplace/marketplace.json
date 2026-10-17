@@ -167,13 +167,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/download/v0.1.0-dev.20261017.5/lightcraft-plugin-0.1.0-dev.20261017.5.zip",
-        "sha256": "427455f06663294120fb8ba40a5b10a77e8701d88564b1ae4d589691d52aa2ad",
+        "url": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/download/v0.1.0-dev.20261018.1/lightcraft-plugin-0.1.0-dev.20261018.1.zip",
+        "sha256": "5e035268bb32b9305a1f7acf4e2e43aed178406d65bf116969f456c17b926eb8",
         "path": "lightcraft-plugin"
       },
       "displayName": "LightCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.5",
+      "version": "0.1.0-dev.20261018.1",
       "category": "Creativity",
       "tags": [
         "lightcraft",
@@ -182,7 +182,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
       "strict": true
     },
     {

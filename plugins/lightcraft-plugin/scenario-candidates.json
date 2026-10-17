@@ -29,6 +29,18 @@
     {
       "name": "lightcraft-photo-export",
       "sha256": "e59bf24d95558aef14b6ff47ea74357ff4d2d456788c79f09c0577bb3136faa5"
+    },
+    {
+      "name": "lightcraft-virtual-copy-review",
+      "sha256": "6c38a4618bf0d7bb735f95db9c5acf3148533dc2bb09ca757ad38091e101484d"
+    },
+    {
+      "name": "lightcraft-named-version-restore",
+      "sha256": "47bea4719ae239a60c243c2c7a93450595c136661061cca134399561fc57612e"
+    },
+    {
+      "name": "lightcraft-tone-curve-transfer",
+      "sha256": "28bd34cf28de4c88212b9870da38b72772c14a2b16fe29e80f5483a4a245a08c"
     }
   ]
 }
