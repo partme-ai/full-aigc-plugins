@@ -253,9 +253,16 @@
     "Release this batch into the subscribed marketplace"
   ],
   "publication": {
-    "sourceFeature": "PUSHED",
-    "pluginFeature": "PUSHED",
-    "subscribedMarketplaceV5": "DOES_NOT_INCLUDE_THIS_BATCH"
+    "previousStatus": {
+      "sourceFeature": "PUSHED",
+      "pluginFeature": "PUSHED",
+      "subscribedMarketplaceV5": "DOES_NOT_INCLUDE_THIS_BATCH"
+    },
+    "candidateVersion": "0.1.0-dev.20261017.6",
+    "immutableRelease": "PUBLISHED",
+    "publicZipNativeInstallAndMcp": "PASS",
+    "validation": "craft-v6-installation-validation.json",
+    "subscribedMarketplace": "PENDING_MAIN_MERGE"
   },
   "visualReview": {
     "scope": "Synthetic A3 sample only; not commercial event materials or print certification",

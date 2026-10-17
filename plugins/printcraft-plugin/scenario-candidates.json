@@ -29,6 +29,30 @@
     {
       "name": "printcraft-pdf-preflight",
       "sha256": "ad9abed5002cd16d6b2efc1d37565959611f9d0201e3bdfb8aaabba4c36046ef"
+    },
+    {
+      "name": "printcraft-report-bookmarks",
+      "sha256": "c8ea5e92729aa59a7f04d7a435f4139390b56684b5f5dc5a88f125d6c82d068b"
+    },
+    {
+      "name": "printcraft-review-watermark",
+      "sha256": "9c6c8b1b7226bb85af066e3279079b0110575de300401cb881119e1035d4d246"
+    },
+    {
+      "name": "printcraft-invoice-split",
+      "sha256": "c13459dba6883f38667207b1c19d199510c2febd32f8a6d5e5281f9c3cc640d9"
+    },
+    {
+      "name": "printcraft-section-pagination",
+      "sha256": "267ff0b2ddbb3c2b958a78be968ee96564dae582956bf760b196dcd708355794"
+    },
+    {
+      "name": "printcraft-linked-agenda",
+      "sha256": "f7dac3cb913986ca29e362b538665b2156a6139a8b8024f6c282b382f2462cd6"
+    },
+    {
+      "name": "printcraft-revision-compare",
+      "sha256": "4e36a55da244dd25ca25a239c9df929049b546a53e6e24efdcd5afecff3f70ec"
     }
   ]
 }

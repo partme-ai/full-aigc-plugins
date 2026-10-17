@@ -139,13 +139,13 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
-      "version": "0.1.0-dev.20261017.5",
+      "version": "0.1.0-dev.20261017.6",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
       "interface": {
         "displayName": "DesignCraft Use (RC)",
         "shortDescription": "Scene skills and a shared-session editor · Development",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png"
       }
     },
     {
@@ -364,13 +364,13 @@
         "authentication": "ON_USE"
       },
       "category": "Productivity",
-      "version": "0.1.0-dev.20261017.5",
+      "version": "0.1.0-dev.20261017.6",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
       "interface": {
         "displayName": "PdfCraft Use (RC)",
         "shortDescription": "Scene skills and a shared-session editor · Development",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261017.5/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png"
       }
     },
     {

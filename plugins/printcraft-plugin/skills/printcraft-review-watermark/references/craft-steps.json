@@ -1,0 +1,49 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "printcraft",
+  "id": "review-watermark",
+  "title": "定向审阅水印",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "templateOnly": true,
+  "sourceFiles": [
+    "input.pdf"
+  ],
+  "steps": [
+    {
+      "command": "doc_info",
+      "params": {
+        "doc": 1
+      },
+      "purpose": "确认审阅页集合与纸张尺寸"
+    },
+    {
+      "command": "doc_watermark",
+      "params": {
+        "doc": 1,
+        "pages": [
+          1,
+          3
+        ],
+        "text": "REVIEW ONLY",
+        "opacity": 0.18,
+        "rotation": 30,
+        "font_size": 24,
+        "behind": true,
+        "replace": false
+      },
+      "purpose": "只给确认的1/3页加低透明度底层水印"
+    },
+    {
+      "command": "doc_save",
+      "params": {
+        "doc": 1,
+        "path": "output/review-copy.pdf",
+        "full": true
+      },
+      "purpose": "完整另存交付副本，不覆盖源PDF"
+    }
+  ],
+  "check": "输出第1/3页可见REVIEW ONLY，第2页无水印且渲染像素不变；各页原文字保持，原PDF摘要不变，检查水印不影响阅读。",
+  "boundary": "水印不是脱敏、访问控制或签名；不能把水印作为删除原内容。replace=false保留已有水印，重复执行前先查看当前副本，不能无条件叠印。",
+  "argumentPolicy": "doc/other是sourceFiles中1起始逻辑槽，仅用于随技能编译器生成的全新CLI脚本；MCP必须替换成当前doc_open实际返回ID。页号1起始，路径和坐标按真实输入替换，保持同一会话。"
+}

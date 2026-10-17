@@ -1,6 +1,6 @@
 # PdfCraft Use
 
-当前可安装开发候选：`0.1.0-dev.20261017.5`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+当前开发候选：`0.1.0-dev.20261017.6`。新增六类PDF交付场景；Codex市场使用完整薄包快照以在安装前读取官方图标。运行资源沿用已核验的dev.20261017.2，不代表引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -57,3 +57,18 @@ Plugin display name: **PdfCraft Use**. Official upstream icon provenance and lic
 ### 候选启动修正
 
 本候选先完成轻量MCP握手及能力发现，在首次工具或资源调用时校验/获取固定编辑器资源。修复多个编辑器首次下载阻塞宿主握手的问题。Windows通过Git安装时须启用Git长路径支持（`git config --global core.longpaths true`）；完整ZIP不包含历史验收记录，可避免Git检出长路径的问题。运行资源沿用已核验的dev.20261017.2制品，不以入口版本号冒充上游升级。
+
+## PDF交付场景技能
+
+以下独立技能自带完整步骤、当前原生工具schema、来源固定提交及CLI脚本编译器；不会改动冻结的六个基础技能。命令目录和技术回归不代表所有真实PDF或宿主同步已验收。
+
+| 技能 | 任务与交付 |
+| --- | --- |
+| `printcraft-report-bookmarks` | 按确认章节页建立层级书签，保留原页内容 |
+| `printcraft-review-watermark` | 只给选定审阅页加水印，检查非目标页不变 |
+| `printcraft-invoice-split` | 按确认的单据起始页拆包，逐页核对无丢失与跨单据 |
+| `printcraft-section-pagination` | 前言与正文分别添加可见页脚编号，区分PDF物理页和阅读编号 |
+| `printcraft-linked-agenda` | 议程与附录双向内部跳转，核对热点和目标页 |
+| `printcraft-revision-compare` | 对照新旧PDF生成文字差异报告，保留两个原件 |
+
+本批作为开发候选集成，实际安装版本以市场条目和对应发布标签为准。当前后端工具缺失时如实报告，不将示例ID、页号和坐标直接套用真实文件。

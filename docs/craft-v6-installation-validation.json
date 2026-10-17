@@ -1,0 +1,33 @@
+{
+  "scope": "Public immutable complete ZIP, isolated real Codex install, native skill discovery and MCP; no visual sync claim",
+  "results": [
+    {
+      "plugin": "designcraft",
+      "version": "0.1.0-dev.20261017.6",
+      "source": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/download/v0.1.0-dev.20261017.6/designcraft-plugin-0.1.0-dev.20261017.6.zip",
+      "archiveSha256": "ea8ae24b0d4f6a0d07048e87ce30b8967c2fc6f2bc656243d50e0b2b16f0cb11",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED",
+      "discoveredSkills": 15
+    },
+    {
+      "plugin": "printcraft",
+      "version": "0.1.0-dev.20261017.6",
+      "source": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261017.6/printcraft-plugin-0.1.0-dev.20261017.6.zip",
+      "archiveSha256": "f50dac5a75293fde28463b4b5ab91232c041fdadfca0513834bb535aa46b391d",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED",
+      "discoveredSkills": 20
+    }
+  ],
+  "sourceSnapshots": "plugins/source-lock.json",
+  "remoteTagsAndAssetDigests": "docs/craft-marketplace-candidate-releases.json"
+}

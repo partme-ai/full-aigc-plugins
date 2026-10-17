@@ -346,7 +346,14 @@
     "All six native schemas match fields/required names in current plugin direct MCP tool descriptors; this is static MCP mapping, not proof of same-canvas editing.",
     "No stable release or actual-document quality claim."
   ],
-  "publication": "PENDING_NEXT_CANDIDATE",
+  "publication": {
+    "previousStatus": "PENDING_NEXT_CANDIDATE",
+    "candidateVersion": "0.1.0-dev.20261017.6",
+    "immutableRelease": "PUBLISHED",
+    "publicZipNativeInstallAndMcp": "PASS",
+    "validation": "craft-v6-installation-validation.json",
+    "subscribedMarketplace": "PENDING_MAIN_MERGE"
+  },
   "pluginValidation": {
     "sourceLockHistoricalPluginVersion": "0.1.0-dev.6",
     "currentCandidateVersion": "0.1.0-dev.20261017.5",

@@ -1,0 +1,28 @@
+{
+  "policy": "只借鉴工作流事实，命令映射、场景文字与测试素材原创；不移植pypdf或复制其文档正文。",
+  "sources": [
+    {
+      "repository": "py-pdf/pypdf",
+      "commit": "1a6de8d43c3a931b1ab3643c8dee2c9b51a32d42",
+      "license": {
+        "spdx_id": "BSD-3-Clause",
+        "verification": "LICENSE at pinned commit read; GitHub API reports NOASSERTION"
+      },
+      "readFiles": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/py-pdf/pypdf/blob/1a6de8d43c3a931b1ab3643c8dee2c9b51a32d42/LICENSE",
+          "bytes": 1605,
+          "sha256": "a97ac230e5f33ef10a5367a850eb01f91f1a0b064e34742c7794d2294557f524"
+        },
+        {
+          "path": "docs/user/add-watermark.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1a6de8d43c3a931b1ab3643c8dee2c9b51a32d42/docs/user/add-watermark.md",
+          "bytes": 3529,
+          "sha256": "cbaced3e8f326e52eda80018f39ea8e7e3816df7f1ee442010439aa0c79931be"
+        }
+      ],
+      "reuse": "Workflow facts and original adaptation only; no external script, prose or media copied."
+    }
+  ]
+}
