@@ -601,6 +601,24 @@
           "path": "content/guides-tutorials/monochrome.md",
           "url": "https://github.com/darktable-org/dtdocs/blob/2a1742f76f256b96a2e0ff9827240afd0b9a804a/content/guides-tutorials/monochrome.md",
           "bytes": 6630
+        },
+        {
+          "path": "content/lighttable/digital-asset-management/metadata-tagging.md",
+          "url": "https://github.com/darktable-org/dtdocs/blob/2a1742f76f256b96a2e0ff9827240afd0b9a804a/content/lighttable/digital-asset-management/metadata-tagging.md",
+          "bytes": 839,
+          "sha256": "7192a43bd03fb030b60dceb5b805b3e4fdce63c3ac8228b7cff31fc51f4e6e47"
+        },
+        {
+          "path": "content/module-reference/utility-modules/shared/styles.md",
+          "url": "https://github.com/darktable-org/dtdocs/blob/2a1742f76f256b96a2e0ff9827240afd0b9a804a/content/module-reference/utility-modules/shared/styles.md",
+          "bytes": 4696,
+          "sha256": "3176291f6284ee43e6598cb785677801c8859a224fd17176643b21f75f52cc39"
+        },
+        {
+          "path": "content/module-reference/utility-modules/shared/export.md",
+          "url": "https://github.com/darktable-org/dtdocs/blob/2a1742f76f256b96a2e0ff9827240afd0b9a804a/content/module-reference/utility-modules/shared/export.md",
+          "bytes": 13696,
+          "sha256": "f31930c6047a2dedfd746c225251bcbd6c4459632ba828ae13aed3cdf126c150"
         }
       ],
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"

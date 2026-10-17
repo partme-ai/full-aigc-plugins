@@ -234,3 +234,16 @@ Windows main [39011827930](https://github.com/partme-ai/full-aigc-plugins/action
 Windows main [39012439447](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39012439447)完成14条唯一配方、534次CLI调用，下载核对二进制及89份输出摘要，三项核心均为实际4秒48kHz24位立体声PCM。检查头尾淡变与中段保护、同源连续采样保持、两stem相加匹配审核混音，以及工程保存重开和输入保护。稳定版13应用业务矩阵[39012427784](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39012427784)也通过。真实播客/音乐素材试听和宿主同步未验收。详情见[剩余核心回归](craft-sound-more-core-validation.json)。
 
 累计201条映射：170条限定技术回归通过、1条PDF表单部分通过、30条待执行，另4组合用例。剩余30条为CAD、Design、Fig、Light、Deck各6条核心；不据Sound技术回归宣称全目标完成。原OpenSpec继续实施中。
+
+
+## LightCraft六项核心显影场景
+
+补读darktable固定提交的styles/export/metadata-tagging，结合Light main的实际ID、active、预设和照片摘要接口重建六项核心。首轮Windows39013249707复现旧选片依赖临时选择而改变未选照片；评级、pick和联系表已统一用明确ID数组。批量预设保持样张为唯一active，groups:[light]表示复制整个light组而非仅曝光；确认目标color/crop及第三张未选照片保持，并实际导出两张JPEG与联系表。
+
+人像/风景/RAW均明确目标，风景crop.straighten先绑定唯一选择；实际返回裁切角在crop.geometry.angle，不能按控制IDcrop.angle直接索引返回JSON。导出采用含合成EXIF GPS的JPEG、保留GPS阳性对照及实际去坐标输出，先用原生命名规则产生真实冲突后验证unique保护同名文件，不由无GPS输入推断移除有效。
+
+RAW复用原有CC0 Nikon D2H固定NEF清单和SHA256，实际报告previewOnly为空、相机身份正确并执行显影/重开；该运行时完整RAW报告不是独立解码器证明。已查看当前导出与嵌入相机预览，不构成色彩校准，也不替代旧CLI0.2.1的偏色与发布门禁。
+
+Windows main [39013647220](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39013647220)通过14条唯一配方、90次CLI调用；下载核对主线二进制和139份输出摘要。稳定CLI的13应用业务矩阵[39013640352](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39013640352)通过。完整记录见[Light核心回归](craft-light-core-validation.json)。实际创作效果、其他RAW型号和宿主画面同步仍未验收。
+
+累计201条映射：176条限定技术回归通过、1条PDF表单部分通过、24条待执行，另4组合用例。剩余24条为CAD、Design、Fig、Deck各6条核心，原OpenSpec与完整目标继续实施。
