@@ -51,13 +51,19 @@
       "commit": "5f65579ecb44047c2a619036c18ff273202e1389",
       "date": "2026-10-17T02:20:22Z",
       "message": "perf(panorama): Photomerge 4\u00d7 faster, bit for bit the same (#6489)",
-      "pluginCommit": "ad3c77a65ec7bc3bc4ce8265b7f2d5f67a39d543",
+      "pluginCommit": "e9eb61e1097c9b346cc0492da9209067b552b134",
       "skillsCommit": "35bde3ae96dd500f1a45e31b09cd23d91869dfb8",
       "engine": "photocraft",
       "status": "development-candidate-not-accepted",
       "editorMode": "source-overlay",
       "fontsCommit": "abb83316d96aa59c1cf64784289e378fe9fa5695",
-      "baselineCommit": "3cb3580a46ba080d7ce4a037efc0a921724bd939"
+      "baselineCommit": "3cb3580a46ba080d7ce4a037efc0a921724bd939",
+      "candidatePatches": [
+        {
+          "file": "main-export-presets.patch",
+          "sha256": "96b25f7c1fde0020aa53efd01f84afcf2ceb2ac42cc3030caabbcf5c68b06cc4"
+        }
+      ]
     },
     {
       "app": "figcraft",

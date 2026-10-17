@@ -159,6 +159,7 @@ def main():
             from craft_main import candidate
             expected=candidate(a.plugin)
             require(all(lock[key]==expected[key] for key in ['commit','repository','skillsCommit']), 'Candidate differs from pinned main/skills')
+            require(lock.get('candidatePatches',[])==expected.get('candidatePatches',[]), 'Candidate build patches differ from pin')
             exe=a.executable.resolve()
             require(hashlib.sha256(exe.read_bytes()).hexdigest()==lock['exeSha256'], 'Candidate executable checksum mismatch')
             report['runtime']=lock

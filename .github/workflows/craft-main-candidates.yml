@@ -54,6 +54,12 @@ jobs:
           ref: ${{ matrix.skillsCommit }}
           path: scene-source
       - uses: actions/checkout@v4
+        if: matrix.app == 'photocraft'
+        with:
+          repository: full-aigc-plugins/photocraft-plugin
+          ref: ${{ matrix.pluginCommit }}
+          path: candidate-plugin
+      - uses: actions/checkout@v4
         with:
           repository: storytold/craft-fonts
           ref: ${{ matrix.fontsCommit }}

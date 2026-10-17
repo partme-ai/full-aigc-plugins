@@ -32,10 +32,25 @@ def verify_checkout(source, expected):
         raise ValueError(f'Wrong checkout {source}: {actual} != {expected}')
 
 
+def apply_candidate_patches(row, source, plugin):
+    patches = row.get('candidatePatches', [])
+    if patches:
+        verify_checkout(plugin, row['pluginCommit'])
+    for patch in patches:
+        if Path(patch['file']).name != patch['file']:
+            raise ValueError('Unsafe candidate patch filename')
+        path = plugin / 'ui/runtime/patches' / patch['file']
+        if hashlib.sha256(path.read_bytes()).hexdigest() != patch['sha256']:
+            raise ValueError('Candidate patch checksum mismatch')
+        run('git', 'apply', '--check', path, cwd=source)
+        run('git', 'apply', path, cwd=source)
+
+
 def prepare_web(row, source, plugin):
     """适配仅作用于CI副本，绝不更新仓库中的source/editor锁。"""
     verify_checkout(source, row['commit'])
     verify_checkout(plugin, row['pluginCommit'])
+    apply_candidate_patches(row, source, plugin)
     if row['editorMode'] != 'source-overlay':
         return
     ui = plugin / 'ui'
@@ -125,14 +140,23 @@ def main():
         build_web(row, source, a.plugin.resolve())
         return
     verify_checkout(source, row['commit'])
+    apply_candidate_patches(row, source, a.plugin.resolve())
     env = {**os.environ, 'CARGO_INCREMENTAL': '0'}
     run('cargo', 'build', '--locked', '--release', '-p', row['engine'] + '-cli', cwd=source, env=env)
     exe = source / 'target/release' / (row['engine'] + '-cli' + ('.exe' if os.name == 'nt' else ''))
     dest = Path('candidate-native').resolve()
     dest.mkdir(exist_ok=False)
     shutil.copy2(exe, dest / exe.name)
+    tests = 'NOT_RUN'
+    if row['app'] == 'photocraft' and row.get('candidatePatches'):
+        with (dest / 'upstream-export-presets-tests.log').open('wb') as log:
+            subprocess.run(['cargo', 'test', '--release', '--locked', '-p', 'photocraft-engine',
+                            'export_preset_cmds::tests', '--', '--nocapture'], cwd=source,
+                           env=env, stdout=log, stderr=subprocess.STDOUT, check=True)
+        tests = 'PASS'
     (dest / 'provenance.json').write_text(json.dumps({**row, 'executable': exe.name,
         'exeSha256': hashlib.sha256(exe.read_bytes()).hexdigest(),
+        'upstreamExportPresetTests': tests,
         'rustc': subprocess.check_output(['rustc', '--version'], text=True).strip()}, indent=2) + '\n')
 
 
