@@ -63,7 +63,36 @@
     "pluginCommit": "650c7fcdb062c6c266f4b4f27e5eb32cc3003989",
     "skillSourceCommit": "5d9c71ccfeb75043391395b4d949ad0e23b61998",
     "publicZipAcceptance": "downloaded ZIP, clean extraction, native Codex install/MCP and installed runtime digests PASS; separate logs retained locally",
-    "subscribedMainMarketplace": "PENDING_MERGE"
+    "subscribedMainMarketplace": "PASS remote main Git real native Codex install/MCP, daily source refreshed and three skill files accessible; daily plugin installation not asserted",
+    "mainSourceCommit": "e5b49f7b5711353a81fe0c58a4346632ec8c0779",
+    "mainCI": [
+      {
+        "run": 39058387338,
+        "result": "PASS"
+      },
+      {
+        "run": 39058387343,
+        "result": "PASS"
+      },
+      {
+        "run": 39058387302,
+        "result": "PASS"
+      }
+    ],
+    "testCI": [
+      {
+        "run": 39058090505,
+        "result": "PASS"
+      },
+      {
+        "run": 39058090515,
+        "result": "PASS"
+      },
+      {
+        "run": 39058090500,
+        "result": "PASS"
+      }
+    ]
   },
   "externalExcelRendering": "NOT_TESTED",
   "limits": [

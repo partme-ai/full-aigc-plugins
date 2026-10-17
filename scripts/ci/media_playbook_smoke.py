@@ -181,4 +181,6 @@ def run_playbooks(r,path,app):
         return records + run_core(r, root) + run_more_core(r, root) + run_production(r, root)
     records = light(r, data)
     from light_core_smoke import run_core as run_light_core
-    return records + run_light_core(r, Path(path).resolve().parents[2])
+    from light_versions_smoke import run_versions
+    root = Path(path).resolve().parents[2]
+    return records + run_light_core(r, root) + run_versions(r, root)

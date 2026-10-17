@@ -414,4 +414,8 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 
 ## GridCraft可重算办公模板
 
-新增shift-timesheet、fixed-payment和month-calendar三个独立技能，借鉴Apache POI固定提交中的Excel示例，原创映射真实命令、参数与输入防护。官方0.7.0 macOS完整21记录147次CLI通过；新模板20个输出保留公式、规则及数值/日期格式，核对跨午夜与午夜0、零利率和非法期数、闰年/平年/跨年/周日起始及非法月份的重算。原表除活动页标志外XML一致，输入文件摘要不变。旧核心测试通配全部配方后强制六条导致新增失败，现显式选择原六条，新增模板独立执行；200项辅助测试通过。累计224条映射，Windows完整21记录及输出摘要通过；真实Codex原生MCP与IAB已观察午夜0、零利率、闰年/平年重算同步。七个实际保存XLSX独立CLI回读，公式、规则、格式、数值与原表保护通过；同路径alreadyOpen未算重载，另开新路径副本解析成功。真实业务、外部Excel、其他宿主与市场新版仍待完成。详见craft-grid-templates-validation.json。
+新增shift-timesheet、fixed-payment和month-calendar三个独立技能，借鉴Apache POI固定提交中的Excel示例，原创映射真实命令、参数与输入防护。官方0.7.0 macOS完整21记录147次CLI通过；新模板20个输出保留公式、规则及数值/日期格式，核对跨午夜与午夜0、零利率和非法期数、闰年/平年/跨年/周日起始及非法月份的重算。原表除活动页标志外XML一致，输入文件摘要不变。旧核心测试通配全部配方后强制六条导致新增失败，现显式选择原六条，新增模板独立执行；200项辅助测试通过。累计224条映射，Windows完整21记录及输出摘要通过；真实Codex原生MCP与IAB已观察午夜0、零利率、闰年/平年重算同步。七个实际保存XLSX独立CLI回读，公式、规则、格式、数值与原表保护通过；同路径alreadyOpen未算重载，另开新路径副本解析成功。v0.1.0-dev.20261018.1完整公开ZIP和主市场已交付；远端main实际Codex安装/MCP、公开ZIP资源摘要、日常市场刷新及三个技能文件可访问均通过。test及main相同源码SHA三组CI全部通过。真实业务、外部Excel和其他宿主仍未完成。详见craft-grid-templates-validation.json。
+
+## LightCraft独立编辑分支
+
+新增virtual-copy-review、named-version-restore、tone-curve-transfer三个独立技能，固定darktable手册GitHub提交并原创映射照片ID、虚拟副本ID、versions实际索引及toneCurve复制组。官方0.8.0 macOS完整17记录112次CLI通过，原片/排除照片保护、导出像素变化、准确恢复及独立重开均通过。合成素材质量不代表真实调色；Windows与宿主同步、市场新版仍待完成。累计227条映射。详见craft-light-versions-validation.json。

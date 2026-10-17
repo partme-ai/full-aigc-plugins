@@ -1,0 +1,23 @@
+{
+  "scope": "three original darktable workflow adaptations; synthetic native checks do not qualify Web/hosts or real photography",
+  "sourceCommit": "772faccccd4592894f5b455705f79ad256223130",
+  "macOS": {
+    "runtime": "official lightcraft-cli 0.8.0",
+    "archiveSha256": "e6734be20cb0cfc714d872b37a33c9c945c5a09f22f4c441c09facef8fcbbce0",
+    "sceneRecords": 17,
+    "cliProcesses": 112,
+    "result": "PASS",
+    "checks": [
+      "independent virtual copy leaves existing settings unchanged",
+      "named baseline resolves index from actual versions and restores settings/pixels",
+      "toneCurve group copies full curve only; target light/color/crop and guard preserved",
+      "fresh CLI process reopens library and reproduces pixels",
+      "source image digests unchanged"
+    ]
+  },
+  "windows": "PENDING",
+  "installedHostSync": "PENDING",
+  "marketRelease": "NOT_PUBLISHED",
+  "knownBoundary": "Native develop.copy groups enum is toneCurve, not section name curve. Copy clipboard is process-local. Web capability must be checked separately.",
+  "fixtureCorrection": "First guard duplicated sample bytes and native importer deduplicated content; distinct guard now ensures three actual photo IDs. Failed probe retained locally."
+}
