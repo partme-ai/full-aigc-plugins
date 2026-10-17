@@ -79,6 +79,15 @@ def run_playbooks(r,path):
         frame_results=[bindings[n] for n,i in names.items() if compiled[i]['command']=='frame.create' and 'story' in bindings[n]]
         queries=[{'command':'story.get','params':{'frame':x['id']}} for x in frame_results]
         stories=run_script(r,queries,source=target);a=recipe['assertions'];verify(info,stories,bindings,a)
+        # Query the native model's complete story, not only a preview or a known phrase.
+        by_frame={value['id']:story for value,story in zip(frame_results,stories)}
+        for name,index in names.items():
+            step=compiled[index]
+            if step['command']!='frame.create' or not step['params'].get('text'):continue
+            if a.get('table') and name=='grid':continue  # cell contents checked through table.get
+            expected=step['params']['text']
+            if 'replacementCount' in a:expected=expected.replace('ACME','Craft Studio')
+            require(by_frame[bindings[name]['id']]['text']==expected,'Full story text changed or was truncated: '+name)
         preflight=run_script(r,[{'command':'preflight.run','params':{}}],source=target)[0]
         require(not any(i['severity']=='error' for i in preflight['issues']),'Preflight reports errors: '+str(preflight['issues']))
         if a.get('oversetRepair'):require(any(s['overset'] for s in bindings['before_repair']['stories']),'Test input was never overset')
