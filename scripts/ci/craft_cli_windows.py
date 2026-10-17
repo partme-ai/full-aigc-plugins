@@ -217,6 +217,9 @@ def main():
         if a.executable and a.plugin == 'deckcraft':
             from deck_main_smoke import run_checks
             report['mainCapabilities'] = run_checks(r)
+        if a.executable and a.plugin == 'filmcraft':
+            from film_main_smoke import run_checks
+            report['mainCapabilities'] = run_checks(r)
         if a.plugin == 'vectorcraft':
             from vector_upstream_smoke import run_checks
             report['upstreamCapabilities'] = run_checks(r)
