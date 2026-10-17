@@ -357,11 +357,10 @@
   "visualReview": "Viewed actual macOS clipping, grid and border PNG previews",
   "limitations": [
     "Real design quality and print/cutter delivery not verified",
-    "ZCode/Kimi same-session scene editing not verified",
-    "Grid expansion was verified by CLI, not in this live browser sample"
+    "ZCode/Kimi same-session scene editing not verified"
   ],
   "publication": {
-    "status": "RELEASE_TEST_MARKET_AND_LIMITED_NATIVE_CODEX_SYNC_VERIFIED",
+    "status": "PUBLISHED_MAIN_SUBSCRIBED_MARKET_AND_LIMITED_NATIVE_CODEX_SYNC_VERIFIED",
     "publishedZip": {
       "plugin": "vectorcraft",
       "version": "0.1.0-dev.20261017.6",
@@ -391,6 +390,33 @@
       },
       "windowsBusiness": {
         "runId": 39043377975,
+        "jobs": 13,
+        "conclusion": "success"
+      }
+    },
+    "marketMainSourceCommit": "6c807bf3ade583ecff7af02b68694b7c68ab74c9",
+    "subscribedNativeList": {
+      "version": "0.1.0-dev.20261017.6",
+      "skills": 25,
+      "newSkillsPresent": true,
+      "logoAndComposerIcon": "PASS",
+      "installed": false,
+      "scope": "daily native plugin/list; actual editing used isolated installed public ZIP"
+    },
+    "mainCi": {
+      "headSha": "6c807bf3ade583ecff7af02b68694b7c68ab74c9",
+      "marketplace": {
+        "runId": 39043915635,
+        "jobs": 27,
+        "conclusion": "success"
+      },
+      "windowsPackageMcp": {
+        "runId": 39043915699,
+        "jobs": 14,
+        "conclusion": "success"
+      },
+      "windowsBusiness": {
+        "runId": 39043915628,
         "jobs": 13,
         "conclusion": "success"
       }
@@ -582,7 +608,7 @@
     "browser": "Codex in-app browser, one page and one owning MCP session",
     "scope": "Synthetic scene samples only; native host tool calls, no MCP SDK replacement",
     "actions": {
-      "sticker-grid": "Observed 12 blue circles, MCP source recolor and rows/cols edit to 6 orange circles with bounds 130x80, saved both files; same-session open_file restored original 12 blue circles",
+      "sticker-grid": "Observed 12 blue circles, MCP source recolor and rows/cols edit to 6 orange circles with bounds 130x80, saved both files; same-session open_file restored original 12 blue circles; then MCP expanded saved master to ordinary group; browser showed complete grid and independent CLI verified twelve separate ellipse geometries with identical rendering",
       "clipped-illustration": "Observed real Clip Group circle; MCP release restored rectangular artwork in the same canvas, saved both files",
       "sticker-offset-border": "Observed white offset path behind unchanged 100x60 original; saved actual project"
     },
@@ -622,6 +648,10 @@
       "scope": "reused pinned editor resources; no latest download success claim"
     },
     "screenshotsLocal": {
+      "expanded-grid.jpg": {
+        "bytes": 76163,
+        "sha256": "caa0fe2f99367913888ebbdde66794dea46f04455ba793f5ee6683cad13cee46"
+      },
       "reopened-grid.jpg": {
         "bytes": 66568,
         "sha256": "f51e34f7340c88d6a049d9d4623218d6fe20e72285e017356b477230032c09d5"
@@ -647,8 +677,14 @@
         "sha256": "9f73ab947f70bf87f327c1a4d803e01a220db58b6122216682595fa1bc8e5aa1"
       }
     },
-    "rpcSha256": "f2e03379d058ecbd7b76a79a2e3d307f214bad9a6b9acb1d70b0d952573b01ea",
+    "rpcSha256": "c712549533a5a57bd8958c3cb8a39ce65ec8d3bcda31db9dde241b2c19db28bb",
     "editingSync": "PASS_FOR_LISTED_ACTIONS",
-    "initialAttempt": "First driver exited on closed stdin; live owner rerun in persistent PTY after confirmed exit; no product change required"
+    "initialAttempt": "First driver exited on closed stdin; live owner rerun in persistent PTY after confirmed exit; no product change required",
+    "expandedNativeRead": {
+      "nativeReadTwelveIndependentEllipses": "PASS",
+      "expandedRenderingMatchesSavedGrid": "PASS",
+      "bytes": 84836,
+      "sha256": "5730345325fe5d730576ee15cbc32dcba464f8da22056df60c4b8a1a55cab039"
+    }
   }
 }

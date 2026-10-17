@@ -402,4 +402,4 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 
 ## VectorCraft可继续编辑的制作场景
 
-新增非破坏蒙版插画、共享源贴纸阵列、独立偏移白边三个技能，借鉴creold/illustrator-scripts与iconifyit/ai-step-n-repeat固定提交。macOS/Windows官方0.12.0实际完成20个场景加1个已有文档保护用例；Windows118个输出摘要通过，逐批方法参数及真实ID绑定与原配方一致。文本CRLF摘要独立记录，二进制仍逐字节校验。插件481项Python测试、9项新辅助及52项既有辅助回归通过；修复身份元数据与历史正向夹具，未改写冻结基础锁或历史资格。完整候选v6经test三组CI通过；隔离原生Codex MCP与内置浏览器已观察三个限定场景同步操作，五个实际保存工程独立CLI重开通过。真实设计/印刷质量与其他宿主仍未验收。详见craft-vector-production-validation.json。
+新增非破坏蒙版插画、共享源贴纸阵列、独立偏移白边三个技能，借鉴creold/illustrator-scripts与iconifyit/ai-step-n-repeat固定提交。macOS/Windows官方0.12.0实际完成20个场景加1个已有文档保护用例；Windows118个输出摘要通过，逐批方法参数及真实ID绑定与原配方一致。文本CRLF摘要独立记录，二进制仍逐字节校验。插件481项Python测试、9项新辅助及52项既有辅助回归通过；修复身份元数据与历史正向夹具，未改写冻结基础锁或历史资格。完整候选v6已发布主市场，test及main三组CI均通过；隔离原生Codex MCP与内置浏览器已观察三个限定场景同步操作，六个实际保存工程独立CLI重开通过，包含MCP展开为12个独立图形且渲染不变。真实设计/印刷质量与其他宿主仍未验收。详见craft-vector-production-validation.json。
