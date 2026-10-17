@@ -29,9 +29,12 @@ def verify_toc(doc):
     links = toc.findall('.//' + W + 'hyperlink')
     require(len(links) == 4, 'TOC must contain exactly four actual headings')
     bookmarks = {x.get(W + 'name') for x in doc.iter(W + 'bookmarkStart')}
+    targets = {mark.get(W + 'name'): ''.join(p.itertext()) for p in doc.iter(W + 'p')
+               for mark in p.iter(W + 'bookmarkStart')}
     for title, link in zip(HEADINGS, links):
         require(title in ''.join(link.itertext()), 'TOC heading mismatch')
         require(link.get(W + 'anchor') in bookmarks, 'TOC points to a missing bookmark')
+        require(title == targets.get(link.get(W + 'anchor')), 'TOC jumps to a different heading')
     levels = [x.get(W + 'val') for x in toc.iter(W + 'pStyle')]
     require(levels.count('TOC1') == 2 and levels.count('TOC2') == 2, 'TOC hierarchy lost')
 

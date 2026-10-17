@@ -247,11 +247,11 @@
     "recipeDigestsMatch": true
   },
   "tests": {
-    "publishingHelpers": 6,
+    "publishingHelpers": 7,
     "existingPlaybookHelpers": 52,
     "pluginNode": 2
   },
-  "visualReview": "Viewed macOS actual rendered TOC, illustrated guide and appendix second page; no real screenshot or long-document acceptance",
+  "visualReview": "Viewed macOS TOC, illustrated guide, appendix second page and actual Windows appendix second page; synthetic inputs only",
   "limitations": [
     "Real document content and long pagination not verified",
     "Other office viewers not verified",
@@ -273,6 +273,8 @@
     },
     "candidateBusinessRun": 39040691350,
     "candidatePackageMcpRun": 39040691353,
-    "candidateCiConclusion": "success"
-  }
+    "candidateCiConclusion": "success",
+    "testMarketNativeCodexInstallAndMcp": "PASS"
+  },
+  "tocTargetValidation": "Native macOS and downloaded Windows DOCX links resolve to corresponding heading text, not merely an existing bookmark"
 }

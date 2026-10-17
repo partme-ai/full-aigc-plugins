@@ -30,7 +30,9 @@ class PublishingSkills(unittest.TestCase):
             ET.SubElement(p, W + 'pStyle', {W + 'val': 'TOC' + str(i % 2 + 1)})
             link = ET.SubElement(p, W + 'hyperlink', {W + 'anchor': str(i)})
             ET.SubElement(link, W + 't').text = title
-            ET.SubElement(body, W + 'bookmarkStart', {W + 'name': str(i)})
+            heading = ET.SubElement(body, W + 'p')
+            ET.SubElement(heading, W + 'bookmarkStart', {W + 'name': str(i)})
+            ET.SubElement(heading, W + 't').text = title
         return doc
 
     def test_real_toc(self):
@@ -46,6 +48,12 @@ class PublishingSkills(unittest.TestCase):
         doc = self.toc()
         doc.find('.//' + W + 'hyperlink').set(W + 'anchor', 'missing')
         with self.assertRaisesRegex(AssertionError, 'missing bookmark'):
+            verify_toc(doc)
+
+    def test_reject_link_to_wrong_existing_heading(self):
+        doc = self.toc()
+        doc.find('.//' + W + 'hyperlink').set(W + 'anchor', '2')
+        with self.assertRaisesRegex(AssertionError, 'different heading'):
             verify_toc(doc)
 
     def test_reject_whole_document_landscape(self):
