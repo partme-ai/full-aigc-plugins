@@ -1,0 +1,171 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "effectcraft",
+  "id": "chapter-card",
+  "title": "章节标题分隔卡",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "templateOnly": true,
+  "steps": [
+    {
+      "command": "comp.new",
+      "params": {
+        "name": "ChapterCard",
+        "width": 1920,
+        "height": 1080,
+        "frameRate": 25,
+        "duration": 4
+      },
+      "purpose": "新建专用1920×1080、25fps合成"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Chapter",
+        "text": "CHAPTER 01",
+        "position": [
+          960,
+          420
+        ],
+        "size": 90,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Chapter"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Chapter",
+        "path": "transform/opacity",
+        "time": 0,
+        "timeBase": "comp",
+        "value": 0
+      },
+      "purpose": "按合成秒设置Chapter的transform/opacity"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Chapter",
+        "path": "transform/opacity",
+        "time": 0.4,
+        "timeBase": "comp",
+        "value": 100
+      },
+      "purpose": "按合成秒设置Chapter的transform/opacity"
+    },
+    {
+      "command": "layer.newText",
+      "params": {
+        "name": "Title",
+        "text": "Confirmed topic",
+        "position": [
+          960,
+          620
+        ],
+        "size": 64,
+        "justify": "center",
+        "fill": "#ffffff"
+      },
+      "purpose": "建立独立可编辑文字层Title"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Title",
+        "path": "transform/opacity",
+        "time": 0,
+        "timeBase": "comp",
+        "value": 0
+      },
+      "purpose": "按合成秒设置Title的transform/opacity"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Title",
+        "path": "transform/opacity",
+        "time": 0.4,
+        "timeBase": "comp",
+        "value": 0
+      },
+      "purpose": "按合成秒设置Title的transform/opacity"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Title",
+        "path": "transform/opacity",
+        "time": 1,
+        "timeBase": "comp",
+        "value": 100
+      },
+      "purpose": "按合成秒设置Title的transform/opacity"
+    },
+    {
+      "command": "layer.newShape",
+      "params": {
+        "kind": "rect",
+        "name": "Rule",
+        "size": [
+          600,
+          6
+        ],
+        "fill": "#44caff",
+        "position": [
+          960,
+          720
+        ]
+      },
+      "purpose": "建立可编辑章节分隔线"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Rule",
+        "path": "transform/scale",
+        "time": 0,
+        "timeBase": "comp",
+        "value": [
+          0,
+          100,
+          100
+        ]
+      },
+      "purpose": "按合成秒设置Rule的transform/scale"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Rule",
+        "path": "transform/scale",
+        "time": 0.2,
+        "timeBase": "comp",
+        "value": [
+          0,
+          100,
+          100
+        ]
+      },
+      "purpose": "按合成秒设置Rule的transform/scale"
+    },
+    {
+      "command": "prop.addKey",
+      "params": {
+        "layer": "Rule",
+        "path": "transform/scale",
+        "time": 0.8,
+        "timeBase": "comp",
+        "value": [
+          100,
+          100,
+          100
+        ]
+      },
+      "purpose": "按合成秒设置Rule的transform/scale"
+    }
+  ],
+  "check": "CHAPTER 01与Confirmed topic必须替换为用户确认章节；先显章节号，0.4–1秒显示主题，线条0.2–0.8秒展开，1–4秒完整停留。",
+  "boundary": "标题过长先换行/缩小并实看，不能靠裁切隐藏；本配方是二维淡入和线条增长，不宣称弹簧、粒子或模板源码等价。",
+  "argumentPolicy": "新工程专用。所有图层名称必须唯一，prop.addKey显式layer按当前实际名称/返回ID绑定，timeBase=comp为合成秒；已有工程先选择正确合成并清理名称歧义，不无条件comp.new。"
+}

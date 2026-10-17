@@ -1,0 +1,25 @@
+{
+  "policy": "仅借鉴时间编排与业务流程事实，正文与命令原创；未复制源代码、示例姓名或素材。",
+  "sources": [
+    {
+      "repository": "reactvideoeditor/remotion-templates",
+      "commit": "6209b724798e48ff395f8df1a6fa2d26082372b5",
+      "license": null,
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/reactvideoeditor/remotion-templates/blob/6209b724798e48ff395f8df1a6fa2d26082372b5/README.md",
+          "bytes": 8276,
+          "sha256": "af37143400f61a71c232581320dcdf6137d2415350a78f70aaf4dfc5bfedd294"
+        },
+        {
+          "path": "templates/credits-roll.tsx",
+          "url": "https://github.com/reactvideoeditor/remotion-templates/blob/6209b724798e48ff395f8df1a6fa2d26082372b5/templates/credits-roll.tsx",
+          "bytes": 2558,
+          "sha256": "6944e005bd96b90d0c50742b09b026bd89ecb0fcd3e3c54972339a522f43436d"
+        }
+      ],
+      "reuse": "workflow facts only; original Craft recipe, no upstream source code, text or media copied"
+    }
+  ]
+}

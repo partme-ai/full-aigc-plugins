@@ -24,7 +24,7 @@ jobs:
         if: matrix.plugin == 'effectcraft'
         with:
           repository: full-aigc-skills/effectcraft-skills
-          ref: 462bb31dd47e13f082791f2e87aafcd706546369
+          ref: 5ac35af6859c73690830646514f942db9ce46725
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'filmcraft'

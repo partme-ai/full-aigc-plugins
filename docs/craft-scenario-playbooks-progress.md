@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前207条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，EffectCraft、FilmCraft各6条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前210条命令映射：PhotoCraft50条，GridCraft18条，WordCraft/DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，EffectCraft9条、FilmCraft6条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
 
 | 内容 | 当前事实 |
 | --- | --- |
 | GitHub来源 | 16个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 88个技能中落地207条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 91个技能中落地210条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -381,3 +381,7 @@ Windows main[39031956861](https://github.com/partme-ai/full-aigc-plugins/actions
 此前稳定Windows失败来自旧Design技能源缺少宣传册脚本，不是由main通过自动抵消；本轮将Design/Print检出固定到所需版本并加入防脱节测试。最终稳定13应用业务矩阵[39032001626](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39032001626)通过，固定发行包安装/MCP及辅助测试[39032001638](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39032001638)通过。Print源码登记独立场景候选后包检查通过；插件旧校验误把冻结技能源记录中的历史插件版本与当前v5等同，现只核对历史版本格式及完整来源身份，基础技能摘要仍逐字节核验，旧锁未改写。编辑器入口断言同步为实际bootstrap，19项插件测试与源候选测试通过。详见[PDF交付验证](craft-pdf-delivery-validation.json)。
 
 总映射207条，88个入口承载；205条入口有过限定技术检查、2条部分（中文表单外观、完整位图描图），仍包含方法复用，不能作为205个独立高质量场景的证明。六个新增技能已同步到插件feature；本批以及Design宣传册/海报尚未进入订阅市场v5，继续推进可安装候选发行、真实素材质量、去重扩展与三宿主同步，完整目标保持实施中。
+
+## 片头片尾场景扩展
+
+新增EffectCraft章节标题卡、3–2–1倒数、滚动署名三个独立技能，固定reactvideoeditor/remotion-templates提交阅读流程事实，未声明标准许可，正文与Craft配方原创。明确图层选择、合成秒、独占出入点、可编辑文本及署名占位内容确认。原生0.10.0执行完整九个动效配方108次CLI调用，新增三项导出并重新解码500张PNG。实际查看章节完整帧、START帧和署名中段；不是全片播放或宿主同步验收。Windows九场景114次CLI调用通过运行39034553688，下载616个产物摘要和新增三项argv已复核。EffectCraft v6公开完整包安装/MCP已验证，主市场清单同步实施中。累计210条映射、91个场景入口，数量不等于全部效果已验收。详见[回归记录](craft-effect-delivery-validation.json)。

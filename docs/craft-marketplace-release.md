@@ -1,10 +1,14 @@
 # Craft 插件库开发候选
 
-当前 DesignCraft、PdfCraft 候选为 `0.1.0-dev.20261017.6`，其余 11 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
+当前 DesignCraft、PdfCraft、EffectCraft 候选为 `0.1.0-dev.20261017.6`，其余 10 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
 
 本次修正的动因：Git插件条目的回退列表不解析包内图片，官方源码及本机原生plugin/list均可复现。仅补composerIcon无法改变未安装列表。快照包含技能、MCP清单、官方图标及bootstrap，不增加Agent运行时，亦不将全部创作和宿主同步视为通过。
 
-## dev.20261017.6 场景技能交付
+## EffectCraft dev.20261017.6 场景技能交付
+
+新增章节标题卡、3–2–1倒数和滚动署名三个独立技能，冻结基础技能源与v2编辑器资源保持不变。macOS和Windows完整九场景原生回归通过，新增各500张PNG已解码；Windows下载616个产物逐项核验摘要并比对真实执行argv与技能步骤。完整公开ZIP已通过真实Codex安装、26个技能发现、MCP基础调用和ui/dist摘要检查。详见[回归记录](craft-effect-delivery-validation.json)。合成样本不代表真实成片、MCP场景编辑或宿主同步通过。
+
+## DesignCraft / PdfCraft dev.20261017.6 场景技能交付
 
 DesignCraft 增补实际四页宣传册、A3 活动海报的逐步配方、参数及脚本编译器；PdfCraft 增加报告书签、审阅水印、发票拆分、分节页码、可点击议程和修订对比六个独立技能。两包合计35个技能入口。每项保留固定GitHub来源、许可、真实命令参数与输出检查，生产创作及同画面同步仍未全部验收。
 
