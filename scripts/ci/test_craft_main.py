@@ -32,7 +32,7 @@ class MainCandidatesTest(unittest.TestCase):
             (root / 'ui').mkdir()
             (root / 'ui/source.lock.json').write_text('{"patches": []}')
             with patch('craft_main.verify_checkout'), patch('craft_main.apply_candidate_patches'), patch('craft_main.run') as run:
-                prepare_web(candidate('photocraft'), root / 'source', root)
+                prepare_web(candidate('soundcraft'), root / 'source', root)
                 self.assertEqual(run.call_count, 1)
                 self.assertIn('prepare-automation.py', str(run.call_args.args[1]))
 

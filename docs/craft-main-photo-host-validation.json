@@ -1,0 +1,37 @@
+{
+  "app": "photocraft",
+  "upstreamCommit": "5f65579ecb44047c2a619036c18ff273202e1389",
+  "webBuildRun": 39007493774,
+  "codexVersion": "0.162.1",
+  "nativePluginInstall": "PASS",
+  "nativeHostMcp": "PASS",
+  "codexInAppBrowser": "PASS",
+  "sameSessionPixelMutation": "PASS",
+  "nativeSaveReopenLayers": "PASS",
+  "exportedPngPixels": "PASS",
+  "newExportPresetCrud": "PASS",
+  "chineseUiGlyphs": "FAIL_FIX_IN_PROGRESS",
+  "files": [
+    {
+      "name": "main-同步绘图.pcraft",
+      "bytes": 39552,
+      "sha256": "9aee10a54b4fe31b96d57e0dec53a5358d655fca28e9a3227372abce4b5287e2"
+    },
+    {
+      "name": "main-同步绘图.png",
+      "bytes": 10202,
+      "sha256": "69c9ede2735a84fbdd6d54d2cc5f2e4587d0863fde043c0b740ae49ab06a7e6d"
+    },
+    {
+      "name": "main-preset.jpg",
+      "bytes": 4694,
+      "sha256": "fa6acfe97045574ac7cadc7be50845c04d4bfa2f699d941b83dc31ea09408f38"
+    }
+  ],
+  "scope": "isolated Codex CLI native app-server plus Codex desktop in-app browser; not active desktop chat plugin registration or Kimi/ZCode acceptance",
+  "presetMappedJpegActualDimensions": [
+    320,
+    240
+  ],
+  "masterFileUnchanged": "PASS"
+}
