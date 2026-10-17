@@ -86,15 +86,15 @@
     "mainCI": [
       {
         "run": 39059887032,
-        "result": "RUNNING_NOT_INFERRED"
+        "result": "PASS"
       },
       {
         "run": 39059887091,
-        "result": "RUNNING_NOT_INFERRED"
+        "result": "PASS"
       },
       {
         "run": 39059887061,
-        "result": "RUNNING_NOT_INFERRED"
+        "result": "PASS"
       }
     ]
   },
