@@ -32,13 +32,14 @@ def run_checks(r):
         name = 'MAIN CI Contact 3x3 150ppi'
         settings = {'layout': {'style': 'contactSheet', 'grid': {'columns': 3, 'rows': 3, 'spacingX': .12, 'spacingY': .12}},
                     'image': {'zoomToFill': False, 'rotateToFit': True}, 'job': {'ppi': 150}}
-        rows = run([('print.set', settings), ('print.template.save', {'name': name}),
+        # 这是仅含本测试两张图片的新建专用库；共享库必须传明确ID。
+        rows = run([('library.selectAll', {}), ('print.set', settings), ('print.template.save', {'name': name}),
                     ('print.set', {'layout': {'grid': {'columns': 1, 'rows': 1}}, 'job': {'ppi': 300}}),
                     ('print.template.apply', {'name': name}), ('print.get', {}),
                     ('print.exportPdf', {'path': 'contact-proof.pdf'})], ['first.png', 'second.png'])
-        verify_print_settings(rows[4])
-        assert any(x['name'] == name for x in rows[1]['templates']), 'Saved print template absent'
-        exported = rows[5]
+        verify_print_settings(rows[5])
+        assert any(x['name'] == name for x in rows[2]['templates']), 'Saved print template absent'
+        exported = rows[6]
         assert exported['photos'] == 2 and exported['pages'] == 1, 'Wrong selected photo or page count'
         pdf = (folder / 'contact-proof.pdf').read_bytes()
         assert pdf.startswith(b'%PDF') and len(re.findall(rb'/Type\s*/Page\b', pdf)) == 1, 'Not an actual one-page PDF'
