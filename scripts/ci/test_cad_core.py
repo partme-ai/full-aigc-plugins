@@ -73,11 +73,13 @@ class CoreFloorPlanTests(unittest.TestCase):
 
     def test_pdf_control_is_measured_in_physical_units(self):
         from cad_playbook_smoke import pdf_control_lengths
-        header = b'%PDF-1.4\n/MediaBox [0 0 595.27559 841.88976]\nstream\n'
+        header = b'%PDF-1.4\n/MediaBox [0 0 595.27559 841.88976]\nstream\n0 0 595.27559 841.88976 re W n\n'
         content = b'10 10 m\n293.46457 10 l\n10 10 m\n10 236.77165 l\nendstream\n'
         lengths = pdf_control_lengths(header+content)
         self.assertAlmostEqual(lengths[0],80,places=3)
         self.assertAlmostEqual(lengths[1],100,places=3)
+        with self.assertRaisesRegex(AssertionError,'clipped'):
+            pdf_control_lengths((header+content).replace(b'0 0 595.27559 841.88976 re W n',b'0 0 20 20 re W n'))
         with self.assertRaisesRegex(AssertionError,'A4'):
             pdf_control_lengths((header+content).replace(b'595.27559',b'600'))
 

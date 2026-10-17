@@ -1,10 +1,10 @@
 {
-  "scope": "Four existing CAD core entries: native geometry, layer properties and bidirectional comparison; not full creative or host UI acceptance",
-  "nativeRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023881675",
-  "previousFailure": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023786673",
-  "stableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023868516",
-  "executedSceneSourceCommit": "1e9bf37a16ce167de3c1d26c4f6d4ebe5b33d8f9",
-  "currentSourceCommit": "ff18ccc6807c1ab6e9f3d66040e599373cc21b59",
+  "scope": "Six CAD core entries executed on controlled inputs; reference trace covers confirmed-point mapping only, not automatic raster detection or attachment",
+  "nativeRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024410378",
+  "stableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024392176",
+  "previousComparisonFailure": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39023786673",
+  "executedSceneSourceCommit": "f0b1cb57b28a31a18de3e07712b5ea03ae408e33",
+  "pluginCandidateCommit": "2d542260554108b4fc5933524276570e588e2601",
   "runtime": {
     "app": "cadcraft",
     "repository": "storytold/cadcraft",
@@ -24,7 +24,7 @@
   },
   "exeSha256": "3ca27d2a973d6940100c5d4063eaec7611ef6d7ff8a4727eccde41b6ff089763",
   "downloadedExecutableAndOutputs": "PASS",
-  "processCount": 56,
+  "processCount": 63,
   "recipes": [
     {
       "skill": "cadcraft-floor-plan",
@@ -44,6 +44,16 @@
     {
       "skill": "cadcraft-compare-revisions",
       "recipeSha256": "4c6f0245426021202eb1a8bd4d844174027eed0411c99573b4fe27e1eea0791c",
+      "matchesExecutedSource": true
+    },
+    {
+      "skill": "cadcraft-sheet-export",
+      "recipeSha256": "3b66eaeeb0d8f549e95d52e84d8d07f48fa697ff88c42417a74feed56fd0d6e8",
+      "matchesExecutedSource": true
+    },
+    {
+      "skill": "cadcraft-trace-reference",
+      "recipeSha256": "9835017c4c28390bbb8fd8abed156729ea5e426ef76486a414b56cc2409a37ea",
       "matchesExecutedSource": true
     }
   ],
@@ -126,6 +136,27 @@
       "geometryChecks": "PASS",
       "realAddedEntityAndIdenticalVersions": "PASS",
       "inputPreserved": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "sheet-export",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "actualA4And100By80mmControl": "PASS",
+      "fitPositiveControl": "PASS",
+      "drawingReview": "NOT_TESTED",
+      "physicalPrinting": "NOT_TESTED",
+      "installedHostSync": "NOT_TESTED"
+    },
+    {
+      "id": "trace-reference",
+      "technicalRoundtrip": "PASS",
+      "geometryChecks": "PASS",
+      "confirmedPointScaleAndTwoAxes": "PASS",
+      "inputPreserved": "PASS",
+      "automaticPointDetection": "NOT_TESTED",
+      "rasterUnderlayViaCli": "UNAVAILABLE",
       "drawingReview": "NOT_TESTED",
       "installedHostSync": "NOT_TESTED"
     }
@@ -262,12 +293,63 @@
       "sha256": "047cd3991c9dc790f80b2a08cb224ec5b4874876ffbd3056818cf63a42efcdc3"
     },
     {
+      "path": "core-reference-trace\\reference.png",
+      "bytes": 517,
+      "sha256": "003fa5dc45c83817223ddc1523aa13ab9ccee717ae4ccab4c09ab869d2fb7c75"
+    },
+    {
+      "path": "core-reference-trace\\traced.dxf",
+      "bytes": 15041,
+      "sha256": "a27e4c40827d850e19e02765272a2441677e838786e229bb5ec3997d42f493a5"
+    },
+    {
+      "path": "core-reference-trace\\traced.svg",
+      "bytes": 372,
+      "sha256": "7abe026f44c3f8235f8bd34a0dbe1ea11f73a40810cbaa5058f80eaa03702bb1"
+    },
+    {
+      "path": "core-sheet-export\\control.dxf",
+      "bytes": 14974,
+      "sha256": "387a4cb5970520aa68194600b1fc6188d7d800b33e1af066d891315378da3849"
+    },
+    {
+      "path": "core-sheet-export\\output\\fit-control.pdf",
+      "bytes": 934,
+      "sha256": "b462580ffb924778f6a80a340c498fe27a3fa2692d4142bea9e209374a5366ad"
+    },
+    {
+      "path": "core-sheet-export\\output\\sheet.pdf",
+      "bytes": 948,
+      "sha256": "bd2cd4434adc443e2e95bc3420dabf625a29d02cfec0435202c908d83da5509b"
+    },
+    {
       "path": "core-compare\\input\\revision-b.dxf",
       "bytes": 14984,
       "sha256": "20aa63ab513b451f01c691a16b2c38c6d8e6ae1663bf4be0948dd79f1ad2a711"
     }
   ],
+  "supplementalPdfInspection": {
+    "scope": "Offline inspection of the same hash-verified native PDF artifacts; adds clip-boundary checks, no changed CLI input or operation",
+    "verifierSha256": "516dbfe8cf188ca2a11a41d7710de83ea8eefb19a9472b72390049b08564e8a7",
+    "fixedPaperLengthsMm": [
+      80.00012222222222,
+      99.9998
+    ],
+    "fitPaperLengthsMm": [
+      157.83983333333333,
+      197.3001444444444
+    ],
+    "insidePrintableClip": "PASS"
+  },
+  "traceScope": {
+    "confirmedPointSimilarityTransform": "PASS",
+    "sourceReferencePreserved": "PASS",
+    "automaticImagePointDetection": "NOT_TESTED",
+    "rasterAttachmentViaCli": "UNAVAILABLE",
+    "completeRasterTracing": "PARTIAL"
+  },
   "installedHostSync": "NOT_TESTED",
-  "visualReview": "NOT_TESTED for new layer/comparison workflows",
+  "physicalPrinting": "NOT_TESTED",
+  "completeVisualReview": "NOT_TESTED",
   "marketplacePublication": "NOT_PUBLISHED; public dev.20261017.4 unchanged"
 }

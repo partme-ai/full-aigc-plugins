@@ -254,16 +254,20 @@ def pdf_control_lengths(data):
     assert abs(box[2]*25.4/72-210)<0.02 and abs(box[3]*25.4/72-297)<0.02,'Wrong A4 portrait MediaBox'
     streams=re.findall(r'stream\r?\n(.*?)\r?\nendstream',text,re.S)
     assert streams,'No PDF content stream'
-    segments=[];start=None
+    segments=[];start=None;all_points=[];clips=[]
     for stream in streams:
+        clips.extend(re.findall(r'([-+0-9.eE]+)\s+([-+0-9.eE]+)\s+([-+0-9.eE]+)\s+([-+0-9.eE]+)\s+re W n',stream))
         assert not re.search(r'(?m)\s+cm\s*$',stream),'Unexpected PDF transform needs a full PDF interpreter'
         for line in stream.splitlines():
             m=re.fullmatch(r'\s*([-+0-9.eE]+)\s+([-+0-9.eE]+)\s+([ml])\s*',line)
             if not m:continue
-            point=[float(m[1]),float(m[2])]
+            point=[float(m[1]),float(m[2])];all_points.append(point)
             if m[3]=='m':start=point
             elif start is not None:segments.append(math.dist(start,point)*25.4/72);start=point
     assert len(segments)==2,'Control PDF must contain exactly two line segments'
+    assert len(clips)==1,'Expected one printable clip rectangle'
+    x,y,w,h=map(float,clips[0]);assert w>0 and h>0
+    assert all(x-0.02<=px<=x+w+0.02 and y-0.02<=py<=y+h+0.02 for px,py in all_points),'Control geometry is clipped'
     return sorted(segments)
 
 
