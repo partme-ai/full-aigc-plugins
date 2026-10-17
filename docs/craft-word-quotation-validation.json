@@ -75,7 +75,7 @@
     "hubAuxiliary": 218,
     "status": "PASS"
   },
-  "independentSourcePluginCheck": "PASS: one additional mapped candidate; published count still232",
+  "independentSourcePluginCheck": "PASS:233 mapped candidates; mappings are not full business acceptance",
   "nativeDocx": {
     "sampleRows": 4,
     "sampleColumns": 4,
@@ -170,11 +170,10 @@
       "quotation-revised-host.pdf": "124e8b1669c583f9003a3cff03a987aedbea4c64f3a668748e142de45b21b794"
     }
   },
-  "marketplace": "NOT_RELEASED",
+  "marketplace": "PASS: public main installation of18.4;16 native-discovered skills",
   "sourceCommit": "3bc1a90aabe41310578de1e576b3ba0dffe70a7c",
   "pluginCommit": "9decb4eac2aabb572ab719b4d910f5794a98ad41",
   "remaining": [
-    "marketplace main delivery",
     "other hosts, arbitrary user inputs and20-item host pagination"
   ],
   "layoutFix": {
@@ -202,8 +201,38 @@
     "archiveSha256": "8556b134196c0d7f80babc3262cafdc4aea0f25d4591a15bade98631e9a45085",
     "publicZipDownloadInstallMcpRuntimeDigests": "PASS",
     "sourceTestCI": "https://github.com/full-aigc-skills/wordcraft-skills/actions/runs/39078553054",
-    "marketplace": "PENDING",
+    "marketplace": "PASS",
     "previous18_3": "preserved;18.4 corrects current README identity without rewriting published tags",
     "hostEvidenceApplicability": "native host tested18.3 execution files;18.4 changes metadata/documentation only; identical skill scripts/bootstrap and locked runtime, and18.4 fresh MCP version agreement verified"
+  },
+  "marketDelivery": {
+    "hubCommit": "8c9f1f915a5f3f131603eda877ae9fd59055b9de",
+    "publicMainInstallation": "PASS",
+    "nativeMcp": "PASS",
+    "skillsDiscovered": 16,
+    "dailyMarketplaceSourceCacheVersion": "0.1.0-dev.20261018.4",
+    "scope": "clean installation and MCP; shared editor acceptance separately documented under nativeHostSync",
+    "mainCI": [
+      {
+        "name": "WordCraft Windows templates",
+        "status": "PASS",
+        "url": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39079438847"
+      },
+      {
+        "name": "Marketplace Git installation",
+        "status": "PASS",
+        "url": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39079438848"
+      },
+      {
+        "name": "Windows package and native MCP",
+        "status": "PASS",
+        "url": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39079438794"
+      },
+      {
+        "name": "Windows CLI business roundtrip",
+        "status": "PASS",
+        "url": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39079438991"
+      }
+    ]
   }
 }
