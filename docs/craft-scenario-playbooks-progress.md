@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前219条命令映射：PhotoCraft50条，GridCraft18条，WordCraft17条，DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft20条，DesignCraft14条，EffectCraft9条、FilmCraft9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前230条命令映射：PhotoCraft50条，GridCraft21条，WordCraft/LightCraft/FigCraft各17条，SoundCraft16条，CADCraft/DesignCraft/DeckCraft各14条，VectorCraft20条，EffectCraft/FilmCraft各9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
 
 | 内容 | 当前事实 |
 | --- | --- |
 | GitHub来源 | 23个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 100个技能中落地219条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 当前静态校验覆盖230条映射；独立引用、方法ID、参数和源/插件副本检查通过，不能据此认定230条均已完成业务验收 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -422,4 +422,4 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 
 ## FigCraft主题变量、图标插槽与数据图
 
-新增light-dark-token-card、swappable-icon-button、signed-bar-chart三个独立技能，固定Figma官方GitHub示例/参考并原创适配语义变量模式、实例交换/布尔/文字属性、有符号柱图零基线。官方0.6.0 macOS完整18记录287次CLI完成，三个新场景通过；既有原型仅连线持久化，浏览器点击仍未验收。新建/已有文件、返回ID、原文件保护、修改后重开及实际PNG/SVG检查通过，209项辅助测试通过。源与插件在隔离feature检出一致，全量主检出与插件副本已核对230条映射；Windows18记录292次已记录直接CLI及128输出摘要通过，真实Codex MCP/IAB逐条执行60个配方步骤并观察更改，七个实际保存文件独立CLI回读通过。独立Python入口在ASCII输出环境复现文件已生成却打印JSON失败，三个新执行器及既有手册入口改为ASCII转义JSON；四入口在真实Windows的ASCII输出/中文路径专项回归通过，完整18记录296次已记录直接CLI及140输出摘要通过。公开完整ZIP v0.1.0-dev.20261018.1已发布，重新下载安装/MCP及运行资源摘要通过，主市场更新进行中；其他宿主与真实设计质量仍未验收。详见craft-fig-design-workflows-validation.json。
+新增light-dark-token-card、swappable-icon-button、signed-bar-chart三个独立技能，固定Figma官方GitHub示例/参考并原创适配语义变量模式、实例交换/布尔/文字属性、有符号柱图零基线。官方0.6.0 macOS完整18记录287次CLI完成，三个新场景通过；既有原型仅连线持久化，浏览器点击仍未验收。新建/已有文件、返回ID、原文件保护、修改后重开及实际PNG/SVG检查通过，209项辅助测试通过。源与插件在隔离feature检出一致，全量主检出与插件副本已核对230条映射；Windows18记录292次已记录直接CLI及128输出摘要通过，真实Codex MCP/IAB逐条执行60个配方步骤并观察更改，七个实际保存文件独立CLI回读通过。独立Python入口在ASCII输出环境复现文件已生成却打印JSON失败，三个新执行器及既有手册入口改为ASCII转义JSON；四入口在真实Windows的ASCII输出/中文路径专项回归通过，完整18记录296次已记录直接CLI及140输出摘要通过。公开完整ZIP v0.1.0-dev.20261018.1已发布，重新下载安装/MCP及运行资源摘要通过，主市场已更新，test同源码三组CI通过，远端main真实Codex安装发现全部11技能并完成MCP/编辑器入口调用；main同源码三组CI亦全部通过，日常市场源已刷新且三个新技能文件可访问；其他宿主与真实设计质量仍未验收。详见craft-fig-design-workflows-validation.json。

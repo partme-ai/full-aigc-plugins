@@ -67,7 +67,35 @@
     "publicZipDownloadInstallMcpAndInstalledRuntimeDigests": "PASS",
     "scope": "public ZIP install/skills/MCP separate from prior local-candidate GUI acceptance; pinned runtime bytes unchanged",
     "DSH": "not tested; concurrent addition retained",
-    "mainMarketplace": "PENDING_MERGE"
+    "mainMarketplace": "PASS: remote main actual native Codex install, all11 skills discovered, MCP and editor HTML",
+    "marketSourceCommit": "6136833694ccfa67be51008a406f1c8953c059ff",
+    "testCi": {
+      "business": 39062809133,
+      "packageMcp": 39062809226,
+      "marketInstall": 39062809231,
+      "result": "PASS"
+    },
+    "mainCi": {
+      "business": 39063067214,
+      "packageMcp": 39063067270,
+      "marketInstall": 39063067161,
+      "result": "PASS"
+    },
+    "actualMainInstall": {
+      "version": "0.1.0-dev.20261018.1",
+      "skillsDiscovered": 11,
+      "installation": "PASS",
+      "nativeMcp": "PASS",
+      "editorHtml": "PASS",
+      "embeddedUI": "NOT_TESTED by installation verifier; prior local candidate GUI evidence remains separate"
+    },
+    "firstTestInvocation": "Relative output path passed by caller was rejected as workspace; repeated with absolute output path passed. No plugin fix.",
+    "dailyMarketplaceSourceRefresh": {
+      "result": "PASS",
+      "version": "0.1.0-dev.20261018.1",
+      "threeNewSkillFiles": "PASS",
+      "scope": "marketplace source refresh only; does not imply daily plugin installed"
+    }
   },
   "knownCorrections": [
     "fill:null rejected by native; transparent icon components use fills:[]",
