@@ -406,4 +406,4 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 
 ## DeckCraft方案评审对比表深化
 
-将已有option-comparison-table配方深化为deckcraft-option-comparison独立技能，固定PptxGenJS表格工作流事实并原创映射逐格参数、动态ID、完整列宽、备注和可编辑性检查。映射仍219条，不把独立入口重复计作新场景；校验器确认extendsScene指向实际配方。官方0.7.0 macOS完整16条记录69次CLI通过，新增场景PPTX重开可修改单元格，原输入摘要保持，已查看合成表格整页渲染。Windows回归已接入，当前待运行；宿主同步和市场新版尚未交付。详见craft-deck-comparison-validation.json。
+将已有option-comparison-table配方深化为deckcraft-option-comparison独立技能，固定PptxGenJS表格工作流事实并原创映射逐格参数、动态ID、完整列宽、备注和可编辑性检查。映射仍219条，不把独立入口重复计作新场景；校验器确认extendsScene指向实际配方。官方0.7.0 macOS完整16条记录69次CLI通过，新增场景PPTX重开可修改单元格，原输入摘要保持，已查看合成表格整页渲染。Windows完整16记录74次CLI通过（39045187681），下载55输出摘要一致；同SHA安装/MCP矩阵39045187684通过。新隔离本地候选经真实Codex安装发现10技能，原生MCP与内置浏览器观察表格内容、费用修改同步，保存重开保持。旧隔离缓存为空的注册超时已明确记录；不当作通过。市场新版尚未交付，真实商业数据和其他宿主仍未验收。详见craft-deck-comparison-validation.json。

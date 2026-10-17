@@ -12,8 +12,42 @@
     "sourcePreserved": "PASS",
     "renderInspection": "Viewed single synthetic comparison page; no text clipping observed"
   },
-  "Windows": "PENDING",
-  "hostSync": "NOT_TESTED",
+  "Windows": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39045187681",
+    "sourceCommit": "f41ed1c58d79095856640844900f14d0ac7e7097",
+    "business": "PASS",
+    "records": 16,
+    "cliProcesses": 74,
+    "downloadedOutputHashesVerified": 55
+  },
+  "hostSync": {
+    "result": "LIMITED_SYNTHETIC_PASS",
+    "host": "real native Codex app-server + Codex IAB",
+    "localCandidatePluginCommit": "cb74e89",
+    "pluginVersion": "0.1.0-dev.20261017.5",
+    "distribution": "fresh isolated local candidate install; not an updated public release",
+    "skillDiscovery": "deckcraft:deckcraft-option-comparison",
+    "thread": "01a14a7d-b308-7d60-98c3-0bdae661dcce",
+    "checks": [
+      "12 cell values and styles visibly displayed after actual MCP calls",
+      "MCP updated cost to Revised 1250 USD/year; same page visibly changed",
+      "MCP save, reopen and inspect preserved revised value",
+      "independent native ZIP parsing checked original and revised actual files"
+    ],
+    "runtime": {
+      "source": "bundled",
+      "reason": "Download HTTP 404",
+      "upstreamVersion": "0.7.0",
+      "commit": "d78e657e4cb1e490ceb5445785c052d9cf5ad963"
+    },
+    "initialAttempt": "old isolated profile retained enabled plugin record but cache folder was empty; MCP registration timed out; process terminal before fresh installation",
+    "limits": [
+      "synthetic English short table only",
+      "other hosts not tested",
+      "real decision semantics and external PowerPoint not tested"
+    ],
+    "discoveryCheckCorrection": "Codex skill name is plugin-prefixed; initial bare-name assertion failed, then namespaced name verified against same actual skills/list result"
+  },
   "marketRelease": "NOT_PUBLISHED",
   "outputs": {
     "result.json": "f0a1670bf6731fd3938c133bf148ff053b9eccef8884d5a0d45c11ddae0e0b66",
@@ -70,6 +104,19 @@
     "中文 业务 workspace/core-pitch-deck/result.pptx": "68354dfbd9c9a6c719f7c3093f153dca18c85801a2dcdca679dc6ef99f82fdd4",
     "中文 业务 workspace/core-pitch-deck/input.deckcraft": "9ee0a0ecc48f30d110709d2c28207b52cb802fe545e5ef56657f6401221554e0",
     "中文 业务 workspace/core-pitch-deck/result.deckcraft": "7036e003d80ca3e8fef8868f75d586037bd637a1dd081284971eb64bccb031cb",
-    "中文 业务 workspace/core-pitch-deck/reopened.deckcraft": "20cf14ce63018665cec6e0b888a02478ee3ddc16b077b17d5fe6ff1b21b868ac"
+    "中文 业务 workspace/core-pitch-deck/reopened.deckcraft": "20cf14ce63018665cec6e0b888a02478ee3ddc16b077b17d5fe6ff1b21b868ac",
+    "fresh-native-tty/native-rpc.json": "8c211dce5ca26a3090c7a5fd3ca6d9e2c073f973326f31f50ace504087b86461",
+    "fresh-native-tty/comparison-before.jpg": "ca597906604e5efb4eb03235b73f0729aafc57c86b75bb1ff857b69fa053d7e6",
+    "fresh-native-tty/comparison-revised.jpg": "c7fd90c3a69ab5773ce25dbd1ba1164aa45cdcb94378b9ee213ed5d0f34624ec",
+    "fresh-native-tty/calls.json": "24d68b5f99201d7ed05bd649fcfff20a343476fc89a24324d03dad71a0f32ff0",
+    "fresh-native-tty/workspace/mcp-comparison.deckcraft": "003d337b12b9e3fc77d9638437c5192fd5ae3fccf3cc0c2c03aa0b2e4f3788a3",
+    "fresh-native-tty/workspace/mcp-revised.deckcraft": "4240df90135de0c44ef514b41712bc9c303ef6595a9b1fded74cb6210c6f9519",
+    "discovery/native-rpc.json": "9a2fec378f6e197888d6198a64a053402c639cbf7ff62a53dbd154755bd48e02",
+    "discovery/skills.json": "98b52ac590bb94d3d4c1a29efe99ce64d9c89d64c27cb40f92aa8ebb30efcef2"
+  },
+  "packageMcpRegression": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39045187684",
+    "result": "PASS",
+    "scope": "existing published package matrix; does not prove new scene publication"
   }
 }
