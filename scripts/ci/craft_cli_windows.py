@@ -181,6 +181,9 @@ def main():
             elif a.plugin in {'gridcraft','wordcraft','deckcraft'}:
                 from office_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve(), a.plugin)
+            elif a.plugin == 'figcraft':
+                from fig_playbook_smoke import run_playbooks
+                report['playbooks'] = run_playbooks(r, a.playbook.resolve())
             elif a.plugin == 'vectorcraft':
                 from vector_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve())
