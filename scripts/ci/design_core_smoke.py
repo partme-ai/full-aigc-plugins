@@ -111,6 +111,21 @@ def run_catalog(r,skills):
         require([s['text'] for s in packaged_stories]==[p['text'] for p in recipe['products']],'Packaged SKU text changed')
         r.run('run','--in',str(native[0]),'--export','core-catalog-detached.pdf')
         require((r.work/'core-catalog-detached.pdf').read_bytes().startswith(b'%PDF'),'Detached catalog PDF invalid')
+        import shutil
+        transfer=r.work/'catalog-transfer'/'received'
+        shutil.copytree(package,transfer)
+        package_offline=r.work/'catalog-package-offline';package.rename(package_offline)
+        previous_work=r.work
+        try:
+            r.work=transfer
+            transferred_native=next(transfer.glob('*.designcraft'))
+            relocated_links=run_script(r,[{'command':'links.list','params':{}}],source=str(transferred_native))[0]
+            verify_catalog_links(relocated_links,recipe['products'],bindings)
+            r.run('run','--in',str(transferred_native),'--export','relocated-proof.pdf')
+            require((transfer/'relocated-proof.pdf').read_bytes().startswith(b'%PDF'),'Relocated package PDF invalid')
+        finally:
+            r.work=previous_work
+            package_offline.rename(package)
     finally:
         offline.rename(inputs)
     require(all(hashlib.sha256((inputs/name).read_bytes()).hexdigest()==digest for name,digest in hashes.items()),'Original product assets changed')
@@ -126,5 +141,5 @@ def run_catalog(r,skills):
             paragraphs=[e for e in roots[0].iter() if e.tag.endswith('ParagraphStyleRange')]
             require(len(paragraphs)==len(product['text'].split('\n')),'Product paragraphs changed')
             require(all(unquote(e.attrib.get('AppliedParagraphStyle','')).endswith('/Catalog Product') for e in paragraphs),'Product paragraph style missing')
-    (r.work/'core-catalog-inspection.json').write_text(json.dumps({'info':info,'stories':stories,'links':links,'packagedLinks':packaged_links,'packageResult':bindings['package'],'preflight':preflight,'inputHashes':hashes},ensure_ascii=False,indent=2),encoding='utf-8')
-    return {'id':'catalog','coreSkill':'designcraft-catalog','technicalRoundtrip':'PASS','skuTextAndImageBindings':'PASS','editableParagraphStyles':'PASS','detachedPackageReopen':'PASS','sourceImagesUnchanged':'PASS','layoutReview':'NOT_TESTED','hostSameCanvas':'NOT_TESTED'}
+    (r.work/'core-catalog-inspection.json').write_text(json.dumps({'info':info,'stories':stories,'links':links,'packagedLinks':packaged_links,'relocatedLinks':relocated_links,'packageResult':bindings['package'],'preflight':preflight,'inputHashes':hashes},ensure_ascii=False,indent=2),encoding='utf-8')
+    return {'id':'catalog','coreSkill':'designcraft-catalog','technicalRoundtrip':'PASS','skuTextAndImageBindings':'PASS','editableParagraphStyles':'PASS','detachedPackageReopen':'PASS','relocatedPackageReopen':'PASS','sourceImagesUnchanged':'PASS','layoutReview':'NOT_TESTED','hostSameCanvas':'NOT_TESTED'}
