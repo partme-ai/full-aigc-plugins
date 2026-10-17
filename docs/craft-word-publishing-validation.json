@@ -258,7 +258,7 @@
     "Same-session MCP scenario execution and embedded editor sync not verified"
   ],
   "publication": {
-    "status": "PUBLIC_PRERELEASE_MARKET_UPDATE_IN_PROGRESS",
+    "status": "RELEASE_AND_TEST_MARKET_VERIFIED",
     "publishedZip": {
       "plugin": "wordcraft",
       "version": "0.1.0-dev.20261017.6",
@@ -274,7 +274,28 @@
     "candidateBusinessRun": 39040691350,
     "candidatePackageMcpRun": 39040691353,
     "candidateCiConclusion": "success",
-    "testMarketNativeCodexInstallAndMcp": "PASS"
+    "testMarketNativeCodexInstallAndMcp": "PASS",
+    "newSkillFilesSourceSnapshotZipBytes": "15 files byte-identical",
+    "testCi": {
+      "marketplace": {
+        "runId": 39041041036,
+        "headSha": "29e7f556654675f4c5d64b71fab439866f2e3d86",
+        "jobs": 27,
+        "conclusion": "success"
+      },
+      "windowsPackageMcp": {
+        "runId": 39041154003,
+        "headSha": "3b684cb29a7ff7575b9449b89d69a9b1dc35d2fc",
+        "jobs": 14,
+        "conclusion": "success"
+      },
+      "windowsBusiness": {
+        "runId": 39041153991,
+        "headSha": "3b684cb29a7ff7575b9449b89d69a9b1dc35d2fc",
+        "jobs": 13,
+        "conclusion": "success"
+      }
+    }
   },
   "tocTargetValidation": "Native macOS and downloaded Windows DOCX links resolve to corresponding heading text, not merely an existing bookmark"
 }
