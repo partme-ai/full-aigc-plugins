@@ -147,20 +147,29 @@ def business(name, r):
 
 
 def main():
-    parser=argparse.ArgumentParser(); parser.add_argument('--plugin',required=True); parser.add_argument('--output',type=Path,required=True); parser.add_argument('--playbook',type=Path)
+    parser=argparse.ArgumentParser(); parser.add_argument('--plugin',required=True); parser.add_argument('--output',type=Path,required=True); parser.add_argument('--playbook',type=Path); parser.add_argument('--executable',type=Path); parser.add_argument('--provenance',type=Path)
     a=parser.parse_args(); out=a.output.resolve(); out.mkdir(parents=True,exist_ok=False)
     report={'plugin':a.plugin,'platform':sys.platform,'business':'FAIL'}
     try:
         require(sys.platform=='win32','Requires a real Windows runner')
-        lock=json.loads(Path(__file__).with_name('craft_cli_windows.lock.json').read_text())[a.plugin]
-        report['runtime']=lock
-        archive=out/'runtime.zip'; download(lock['url'],archive,lock['sha256'])
-        dest=out/'中文 CLI Runtime';dest.mkdir()
-        with zipfile.ZipFile(archive) as z:
-            for member in z.infolist(): safe_name(member.filename)
-            z.extractall(dest)
-        matches=list(dest.rglob(lock['executable'])); require(len(matches)==1,'Expected one '+lock['executable'])
-        exe=matches[0]; report['exeSha256']=hashlib.sha256(exe.read_bytes()).hexdigest()
+        if a.executable:
+            require(a.provenance is not None, 'Source-built executable requires provenance')
+            lock=json.loads(a.provenance.read_text(encoding='utf-8'))
+            require(lock['app']==a.plugin and lock['status']=='development-candidate-not-accepted', 'Wrong candidate provenance')
+            exe=a.executable.resolve()
+            require(hashlib.sha256(exe.read_bytes()).hexdigest()==lock['exeSha256'], 'Candidate executable checksum mismatch')
+            report['runtime']=lock
+        else:
+            lock=json.loads(Path(__file__).with_name('craft_cli_windows.lock.json').read_text())[a.plugin]
+            report['runtime']=lock
+            archive=out/'runtime.zip'; download(lock['url'],archive,lock['sha256'])
+            dest=out/'中文 CLI Runtime';dest.mkdir()
+            with zipfile.ZipFile(archive) as z:
+                for member in z.infolist(): safe_name(member.filename)
+                z.extractall(dest)
+            matches=list(dest.rglob(lock['executable'])); require(len(matches)==1,'Expected one '+lock['executable'])
+            exe=matches[0]; report['exeSha256']=hashlib.sha256(exe.read_bytes()).hexdigest()
+        report['exeSha256']=hashlib.sha256(exe.read_bytes()).hexdigest()
         work=out/'中文 业务 workspace';work.mkdir(); r=Runner(exe,work,out)
         r.run('--version')
         catalog_args = ['tools'] if a.plugin == 'printcraft' else ['commands']
