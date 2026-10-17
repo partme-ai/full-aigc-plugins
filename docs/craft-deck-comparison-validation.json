@@ -48,7 +48,24 @@
     ],
     "discoveryCheckCorrection": "Codex skill name is plugin-prefixed; initial bare-name assertion failed, then namespaced name verified against same actual skills/list result"
   },
-  "marketRelease": "NOT_PUBLISHED",
+  "marketRelease": {
+    "version": "0.1.0-dev.20261017.6",
+    "releaseUrl": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261017.6",
+    "archiveSha256": "20d1547ba438372bbcc1cc129e32147635ff8e378355ea51ae3b344a6504e85e",
+    "pluginCommit": "b01d8d717747c3da0c54e28b50bd5dac7b82544d",
+    "skillsCommit": "790eb8999e15b7903d530b1de8db50900891ce92",
+    "publicArchiveDownload": "PASS",
+    "actualCodexInstallation": "PASS",
+    "discoveredSkills": 10,
+    "McpPluginVersionAgreement": "PASS",
+    "installedUiDistHashes": "PASS",
+    "publicationInMainMarketplace": "PENDING",
+    "prepublicationFixes": [
+      "stale validator expected ui/dist/adapter.mjs; actual bootstrap configured",
+      "v6 MCP handshake metadata still reported v5; runtime.lock version corrected without changing artifact bytes"
+    ],
+    "publishedZipGuiSync": "NOT_TESTED; previous same-runtime local candidate GUI result remains scoped separately"
+  },
   "outputs": {
     "result.json": "f0a1670bf6731fd3938c133bf148ff053b9eccef8884d5a0d45c11ddae0e0b66",
     "calls.json": "1bc77a6a30123f0d67ac2e5771d313bbfb4ab049a945aa4509d7516c4c4cc228",

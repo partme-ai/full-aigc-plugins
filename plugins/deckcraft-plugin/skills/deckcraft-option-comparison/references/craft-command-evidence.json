@@ -1,0 +1,96 @@
+{
+  "runtime": "official deckcraft-cli 0.7.0 macos-universal",
+  "archiveSha256": "9039972bc9f583115ef79994f30179540beee1ee32d7d9bcce1054a79c9a8aa3",
+  "observedCommands": {
+    "file.new": {
+      "enabled": true,
+      "id": "file.new",
+      "label": "New Presentation",
+      "menu": [
+        "File"
+      ],
+      "params": "{theme?: name, size?: [w,h] pt, blank?: bool}",
+      "shortcut": "Cmd+N"
+    },
+    "slide.new": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "slide.new",
+      "label": "New Slide",
+      "menu": [
+        "Home",
+        "Slides"
+      ],
+      "params": "{layout?: layout name or kind (title, titleAndContent, sectionHeader, twoContent, comparison, titleOnly, blank, contentWithCaption, pictureWithCaption), at?: index, title?: text, body?: text}",
+      "shortcut": "Cmd+Shift+N"
+    },
+    "slide.notes": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "slide.notes",
+      "label": "Notes",
+      "menu": [
+        "View"
+      ],
+      "params": "{text, index?}",
+      "shortcut": null
+    },
+    "insert.table": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "insert.table",
+      "label": "Table…",
+      "menu": [
+        "Insert",
+        "Tables"
+      ],
+      "params": "{rows, cols, rect?}",
+      "shortcut": null
+    },
+    "text.set": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "text.set",
+      "label": "Set Text",
+      "menu": [],
+      "params": "{id?, text, cell?: [r, c]} — replaces the whole text, keeping the first run's formatting",
+      "shortcut": null
+    },
+    "table.style": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "table.style",
+      "label": "Table Styles",
+      "menu": [
+        "Table Design",
+        "Table Styles"
+      ],
+      "params": "{style: medium2-accent1|light1-accent2|dark1-tx1|grid|none…, id?}",
+      "shortcut": null
+    },
+    "table.options": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "table.options",
+      "label": "Table Style Options",
+      "menu": [
+        "Table Design",
+        "Table Style Options"
+      ],
+      "params": "{headerRow?, totalRow?, bandedRows?, firstColumn?, lastColumn?, bandedColumns?: bool, id?}",
+      "shortcut": null
+    },
+    "table.columnWidth": {
+      "disabled_reason": "no presentation open",
+      "enabled": false,
+      "id": "table.columnWidth",
+      "label": "Width",
+      "menu": [
+        "Table Layout",
+        "Cell Size"
+      ],
+      "params": "{col, width: pt, id?}",
+      "shortcut": null
+    }
+  }
+}

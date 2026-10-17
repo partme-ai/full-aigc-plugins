@@ -1,0 +1,25 @@
+{
+  "policy": "只参考工作流事实；正文与Craft参数原创，不复制上游代码、正文或素材。",
+  "sources": [
+    {
+      "repository": "gitbrent/PptxGenJS",
+      "commit": "3c9ec1b687c174952166f6a34b5e87ebf69fa469",
+      "license": "MIT",
+      "readFiles": [
+        {
+          "path": "demos/browser/html/tab-tables.html",
+          "url": "https://github.com/gitbrent/PptxGenJS/blob/3c9ec1b687c174952166f6a34b5e87ebf69fa469/demos/browser/html/tab-tables.html",
+          "bytes": 4156,
+          "sha256": "2f82cd26e49cd21e6551364304afd50e92a883de63c3a47e9b378401866a52e0"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/gitbrent/PptxGenJS/blob/3c9ec1b687c174952166f6a34b5e87ebf69fa469/LICENSE",
+          "bytes": 1081,
+          "sha256": "7a2bfe96150786ed1908b8e63f98ebab88875c1e79e28faff6649e0f11f77e52"
+        }
+      ],
+      "adaptation": "表格逐格内容、行高列宽、表头和单元样式流程；上游自动分页不能假定DeckCraft支持，本技能限定短表单页。"
+    }
+  ]
+}

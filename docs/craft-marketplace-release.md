@@ -90,3 +90,7 @@ WordCraft v6已按feature→test→main进入主市场，源码提交`a5249f6a5b
 新增可释放蒙版、共享源阵列、独立偏移白边三个技能。20场景加1个已有文档保护用例通过macOS/Windows原生回归；公开完整ZIP安装、25技能发现、MCP基础调用和已安装资源摘要检查通过。复用固定v2编辑资源；真实设计与印刷质量及其他宿主同步未验收。隔离的真实Codex原生MCP和内置浏览器已观察到阵列改色/改行列、蒙版释放及白边生成；六个实际保存工程由独立CLI重开检查通过，含原生MCP展开阵列为12个独立图形且渲染不变。此限定样例不代表所有编辑动作或其他宿主已通过。详见[回归记录](craft-vector-production-validation.json)。
 
 VectorCraft v6已按feature→test→main进入主市场，实际订阅刷新errors为空，桌面原生列表确认v6、25技能及官方logo/composerIcon。main源码`6c807bf3ade583ecff7af02b68694b7c68ab74c9`三组CI全部通过：市场27项（39043915635）、Windows安装/MCP14项（39043915699）、13应用业务（39043915628）。限定Codex/IAB场景验收不代表其他宿主或真实印刷质量通过。
+
+## DeckCraft 对比表技能v6
+
+DeckCraft已提供0.1.0-dev.20261017.6完整开发预发布包，包含10个技能与固定v2资源。公开ZIP实际下载、摘要校验、干净解包、Codex安装发现及MCP版本一致性检查通过。对比表已有场景深化不增加独立场景数；真实素材及其他宿主尚未验收。主市场合入正在进行，最终结果见craft-deck-comparison-validation.json。
