@@ -1,0 +1,41 @@
+name: WordCraft document templates on Windows
+on:
+  push:
+    paths: ['scripts/ci/word_document_templates.py', '.github/workflows/wordcraft-document-templates.yml']
+  pull_request:
+    paths: ['scripts/ci/word_document_templates.py', '.github/workflows/wordcraft-document-templates.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  documents:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/wordcraft-skills
+          ref: 94e7f1bf8822793f053e468c38eeb2d9974d2cd6
+          path: template-source
+      - name: Validate template filling and standalone helpers
+        run: python -m unittest discover -s template-source/tests -v
+      - name: Compile the six actual skill templates
+        run: python scripts/ci/word_document_templates.py --source template-source --output document-playbooks.json
+      - name: Generate DOCX and PDF with the real native CLI
+        run: python scripts/ci/craft_cli_windows.py --plugin wordcraft --output template-result --playbook document-playbooks.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wordcraft-document-template-results
+          path: |
+            document-playbooks.json
+            template-result/result.json
+            template-result/calls.json
+            template-result/commands.json
+            template-result/中文 业务 workspace/**

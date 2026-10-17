@@ -28,6 +28,18 @@ def verify_word(z, assertion):
                      s.find('{'+W+'}name').attrib.get('{'+W+'}val','').lower().replace(' ','')=='heading1'}
         applied={x.attrib.get('{'+W+'}val') for x in doc.findall('.//{'+W+'}pStyle')}
         require(bool(heading_ids&applied),'No applied first-level heading style')
+    if 'heading2Minimum' in assertion:
+        styles=ET.fromstring(z.read('word/styles.xml'))
+        ids={s.attrib.get('{'+W+'}styleId') for s in styles.findall('{'+W+'}style')
+             if s.find('{'+W+'}name') is not None and s.find('{'+W+'}name').attrib.get('{'+W+'}val','').lower().replace(' ','')=='heading2'}
+        count=sum(x.attrib.get('{'+W+'}val') in ids for x in doc.findall('.//{'+W+'}pStyle'))
+        require(count>=assertion['heading2Minimum'],'Document section heading styles missing')
+    if 'tableCells' in assertion:
+        tables=doc.findall('.//{'+W+'}tbl')
+        require(len(tables)==1,'Expected one editable document table')
+        rows=[[ ''.join(t.text or '' for t in cell.iter('{'+W+'}t')) for cell in row.findall('{'+W+'}tc')]
+              for row in tables[0].findall('{'+W+'}tr')]
+        require(rows==assertion['tableCells'],'Document table cell content/columns mismatch')
     if assertion.get('numberingRequired'):
         ids=[x.attrib.get('{'+W+'}val') for x in doc.findall('.//{'+W+'}numPr/{'+W+'}numId')]
         require(any(x not in (None,'0') for x in ids),'Numbered/bulleted paragraphs lost')
