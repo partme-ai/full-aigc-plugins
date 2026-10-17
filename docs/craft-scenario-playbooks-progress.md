@@ -304,3 +304,14 @@ Windows main[39024410378](https://github.com/partme-ai/full-aigc-plugins/actions
 总映射仍201条，不新增场景计数。当前193条入口有过限定技术检查、2条部分（PDF表单、完整位图描图）、6条待执行（Design核心）；该统计不是193个独立高质量场景的证明。真实复杂素材、视觉/实际打印、三宿主同步、场景去重扩展与本批市场发行仍未完成。源码与插件feature分支含本批修正，公开dev.20261017.4仍未更新。OpenSpec与完整目标保持实施中，后续继续Design六项核心。
 
 追加的裁切检查已在当前稳定版Windows矩阵[39024555495](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39024555495)实际执行，13应用全部通过；该运行对应baefa8a，覆盖本轮最终检查器。
+
+
+## DesignCraft两页三栏刊物
+
+核心newsletter原来没有调用text.thread，文字框设置与故事查询依赖隐式选择。现改为显式返回ID、正文全文UTF-8字节选择、段落样式创建后实际应用、首框三栏与第二页空续框三栏，只有一次正文输入。新增固定提交611ad2f的Id-Extras框链脚本来源及SHA256，只借鉴故事框顺序和注释保护的事实，不复制脚本，也不承诺脚注迁移。
+
+Windows main运行[39025167041](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025167041)实际通过原8条手册、既有工程保护组合和刊物核心入口，共50次CLI调用。下载独立校验原生二进制和47份输出摘要；两页正文2489字符完整保持、两框均三栏、续文顺序正确，IDML的八个正文段落全部应用Newsletter Body样式。首框溢出返回偏移1229，串接后为null；这不是布尔值，偏移0也必须按溢出处理。技能已据此修正，检查器收紧并加入零偏移拒绝测试。7项Design辅助测试和201条静态映射检查通过。稳定13应用业务矩阵[39025166329](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025166329)通过。
+
+总数仍为201条映射：194条入口经过限定技术检查、2条部分、5条待执行（Design其余核心）。该统计包含方法复用，不等同194个独立高质量场景。当前刊物只证明原生参数与可编辑结构；真实复杂稿件的版式、三宿主同画面同步、去重扩展为数百个场景和市场发行仍未完成。源码和插件修改已推送feature，公开dev.20261017.4不包含本轮变化；OpenSpec与完整目标保持实施中。详见[Design核心验证](craft-design-core-validation.json)。
+
+最终收紧检查器的Windows原生运行[39025295511](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025295511)通过，执行技能源0891aa1，下载后再次核对47份制品摘要与二进制；新增检查实际覆盖八个正文段落样式和null溢出语义。对应稳定13应用业务矩阵[39025294665](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025294665)全部通过。

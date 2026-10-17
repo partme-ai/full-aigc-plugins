@@ -1,0 +1,279 @@
+{
+  "scope": "DesignCraft两页三栏刊物：原生技术回归，不代替真实版式和宿主同步",
+  "nativeRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025295511",
+  "stableMatrixRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025294665",
+  "executedSceneSourceCommit": "0891aa152fa72ae8d11a6ccfe860561a50503ebd",
+  "runtime": {
+    "repository": "storytold/designcraft",
+    "commit": "fc36957fe05f38a6976df4734d52b9250cd54a2c",
+    "exeSha256": "fd7aef6536032c9219d12c0461bcef39bbc318959be2a8e7989d52add7f35d54"
+  },
+  "verifiedOutputCount": 47,
+  "processCount": 50,
+  "newsletter": {
+    "id": "newsletter",
+    "coreSkill": "designcraft-newsletter",
+    "technicalRoundtrip": "PASS",
+    "fullStory": "PASS",
+    "threadOrder": "PASS",
+    "threeColumns": "PASS",
+    "editableParagraphStyle": "PASS",
+    "finalPreflight": "PASS",
+    "layoutReview": "NOT_TESTED",
+    "hostSameCanvas": "NOT_TESTED"
+  },
+  "supplementalIdmlCheck": {
+    "paragraphCount": 8,
+    "allBodyParagraphsStyled": true
+  },
+  "finalCheckRevision": {
+    "hubCommit": "8af0c98816d2f8b252d9672821d7c1aba95fc423",
+    "skillsCommit": "0891aa152fa72ae8d11a6ccfe860561a50503ebd",
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39025295511",
+    "status": "PASS"
+  },
+  "remaining": [
+    "其余五个Design核心场景",
+    "复杂实际稿件的视觉审阅",
+    "宿主内Agent操作与编辑器同步",
+    "场景去重和扩展为数百个独立工作流",
+    "本批候选发行进入订阅市场"
+  ],
+  "outputs": [
+    {
+      "path": "bleed-review-pdf-inspection.json",
+      "bytes": 4942,
+      "sha256": "ab1e8e76c5a821c032462e4276ec62946b34011ddb600de3a3bb6ff6e5c4488e"
+    },
+    {
+      "path": "bleed-review-pdf.designcraft",
+      "bytes": 13524,
+      "sha256": "aa38cc23d389d05076ef324acb74038655403dcc966390d759fc2745cb5019d5"
+    },
+    {
+      "path": "bleed-review-pdf.idml",
+      "bytes": 11736,
+      "sha256": "45176eaddc6ecc8df6bc780e57306d77dc6abe3fb184c7dabd0638ce295aa3a2"
+    },
+    {
+      "path": "bleed-review-pdf.pdf",
+      "bytes": 13559,
+      "sha256": "26b240f081af337fff514afa1513939c6d5856e6fd00dae181b0d1fb8e5a7ee2"
+    },
+    {
+      "path": "bleed-review.pdf",
+      "bytes": 13865,
+      "sha256": "19c8635027c41a76dea9a049ffaadc7f1c92e00cb34f97580db5a9cf767ac35b"
+    },
+    {
+      "path": "brand-copy-revision-inspection.json",
+      "bytes": 3275,
+      "sha256": "5c4b13fb54c8e928dc7535fbde6cec3bd0d748b44db83ed1e367e8e07322b11a"
+    },
+    {
+      "path": "brand-copy-revision.designcraft",
+      "bytes": 10238,
+      "sha256": "807f4b9577e7532f2bf716307ef206aacf05eab0762705f35b7b9d7ada164d13"
+    },
+    {
+      "path": "brand-copy-revision.idml",
+      "bytes": 10998,
+      "sha256": "08653a1f335fe82744d40f9b7fc6b673416cfe8c999b92f666dc486d265ae452"
+    },
+    {
+      "path": "brand-copy-revision.pdf",
+      "bytes": 13278,
+      "sha256": "a436cbe1a0742027ba32ec24d19639fe932ec761d131b67f2ebc3b43a3b66e75"
+    },
+    {
+      "path": "core-newsletter-inspection.json",
+      "bytes": 18682,
+      "sha256": "ee696996e016ea160a0c9d49a53da5e82628aacdab1e3e0fb6b4f472987c38d8"
+    },
+    {
+      "path": "core-newsletter.designcraft",
+      "bytes": 36248,
+      "sha256": "cfe5e8fde056dec3ebbc87d731105e5aeab06cde4ed711d14c2183231a5d068a"
+    },
+    {
+      "path": "core-newsletter.idml",
+      "bytes": 14005,
+      "sha256": "91dc6bd119c5837176c7fdf44a9c3071628e3c8bde21b30f3d051ed58f7c2e60"
+    },
+    {
+      "path": "core-newsletter.pdf",
+      "bytes": 15938,
+      "sha256": "a108453edcf5fe8e9913814434acb57b1ec809368089785b7a699e923b35c129"
+    },
+    {
+      "path": "event-poster-inspection.json",
+      "bytes": 6332,
+      "sha256": "c51b56bf1d24dbf0e826e71fc3e13822957d1866e7c644c31649c166f41d7b4c"
+    },
+    {
+      "path": "event-poster.designcraft",
+      "bytes": 15693,
+      "sha256": "6b4ff1155bcfbc9b3d37b1494e6a3d060f4e08e1c72179917992def562d3a468"
+    },
+    {
+      "path": "event-poster.idml",
+      "bytes": 12812,
+      "sha256": "12b1275e7d9a01fa8903ce22a443f425c44dd143dc35672b6ffecbce6184988f"
+    },
+    {
+      "path": "event-poster.pdf",
+      "bytes": 14787,
+      "sha256": "b2b6dcc613d273cd3e78e1bd8880a695baef489bf294b0a6228682a92d11c286"
+    },
+    {
+      "path": "existing-revised.designcraft",
+      "bytes": 11364,
+      "sha256": "ce8020fbb70d4b7770db0dc77e678eb266999d7660b304683aa02fc4777e237d"
+    },
+    {
+      "path": "existing-revised.pdf",
+      "bytes": 14420,
+      "sha256": "a38a5e44cb6441e43f6f223f51a4e9c81d0305a2d67cc41d07b7d5e4f4f636c8"
+    },
+    {
+      "path": "existing-user.designcraft",
+      "bytes": 6703,
+      "sha256": "80b8a86f64d706ab5bbd94e6c1919af0f094da6421f4690d268e1114c5504be5"
+    },
+    {
+      "path": "interactive-guide-link-inspection.json",
+      "bytes": 4158,
+      "sha256": "6a847496a958f42a75bdebeb65e022cb92d6a1503db68eeb01af1bbc5679eebf"
+    },
+    {
+      "path": "interactive-guide-link.designcraft",
+      "bytes": 8687,
+      "sha256": "5db266008831386495f64b413ea9cdb650b9b492f5ec43f06d69f02a257ae3b9"
+    },
+    {
+      "path": "interactive-guide-link.idml",
+      "bytes": 11497,
+      "sha256": "52d2b973ed199cdc26a09fe0a1324a0d53cbc44fa48611dcc2da1fbe4a57c435"
+    },
+    {
+      "path": "interactive-guide-link.pdf",
+      "bytes": 11888,
+      "sha256": "2280e7ecfa8722bca89f3ffee18d9c02499b6490a2ae9191e2d9ee1cd6cc24b2"
+    },
+    {
+      "path": "overset-repair-inspection.json",
+      "bytes": 3828,
+      "sha256": "557b4d3a22ab93979b16f414c638a76766af1e79eacf40f2bf6ab17edf2ebd56"
+    },
+    {
+      "path": "overset-repair.designcraft",
+      "bytes": 28067,
+      "sha256": "90514c1e12af7c59e0f18ae58efc9c65aa3a3ee9b5e11e2cab4bc246a9cc76cf"
+    },
+    {
+      "path": "overset-repair.idml",
+      "bytes": 10885,
+      "sha256": "59c8a871635c4b6a17eb325405555a806024a8ed42565a8fc1199b142b47b25f"
+    },
+    {
+      "path": "overset-repair.pdf",
+      "bytes": 6742,
+      "sha256": "eaa4b74a2050d30450bcaf7f0fee5c5cf5f161702f99e674218d01d66f624b50"
+    },
+    {
+      "path": "plan-comparison-table-inspection.json",
+      "bytes": 4128,
+      "sha256": "4d8b96e3e725be62fb42cdafd31949803657634117026e72c752b57f325bf6f2"
+    },
+    {
+      "path": "plan-comparison-table.designcraft",
+      "bytes": 9835,
+      "sha256": "9c08bcd7a564f0fead06903c2ac33bc6feb8e5e88b7a5eb73301fc2f7f8d1f2a"
+    },
+    {
+      "path": "plan-comparison-table.idml",
+      "bytes": 12135,
+      "sha256": "11e360ddac89caec7f42eb439429a799aa0e7bfe83765c1fbc7ebb15f830b69b"
+    },
+    {
+      "path": "plan-comparison-table.pdf",
+      "bytes": 12928,
+      "sha256": "39e3787e997b5af6b184d0e33e28ff6c7714115572dc7927f38bd3c1e3729b11"
+    },
+    {
+      "path": "steps.json",
+      "bytes": 57,
+      "sha256": "04e1a0eed30205975db2476cfe042b42d216eb30f5bf82bacbd53100e76648ed"
+    },
+    {
+      "path": "threaded-newsletter-inspection.json",
+      "bytes": 8538,
+      "sha256": "72e3f066a099d35b2bae188d3d1f547c1481bfcd668d8655771223826ae6f067"
+    },
+    {
+      "path": "threaded-newsletter.designcraft",
+      "bytes": 44802,
+      "sha256": "6ca4e356be1a841d810da8b6369e9a7587a26bd088928b386a4187d9eb99fb81"
+    },
+    {
+      "path": "threaded-newsletter.idml",
+      "bytes": 11673,
+      "sha256": "eb5132698763080d041375bb95ad434aabf238fd0aa41611066fe20e538ec713"
+    },
+    {
+      "path": "threaded-newsletter.pdf",
+      "bytes": 13826,
+      "sha256": "0f6abfc8a926e6f9513caa3ef3447e344e2ddf94d913e73e733d85a249f56fd4"
+    },
+    {
+      "path": "two-page-product-sheet-inspection.json",
+      "bytes": 7121,
+      "sha256": "e092672656bb33fef9999952c06cbd822cfc7a21a001b68548a63683d7386341"
+    },
+    {
+      "path": "two-page-product-sheet.designcraft",
+      "bytes": 12695,
+      "sha256": "616841c8f792c3a486a2d700db91b17176d64935644a09c439810e7abd6cb0dc"
+    },
+    {
+      "path": "two-page-product-sheet.idml",
+      "bytes": 14186,
+      "sha256": "c2e5f99bd7978929440c6288291bd94348563048a4ff88572e5e98326a004299"
+    },
+    {
+      "path": "two-page-product-sheet.pdf",
+      "bytes": 16011,
+      "sha256": "6e6d4df2fc542507e068380baf2527318bae75719570c27fe47ac96c0e75a7be"
+    },
+    {
+      "path": "排版.designcraft",
+      "bytes": 6621,
+      "sha256": "6058bf23cca1652df6c48105f5643986def475cbf46ef7f5e8c4d39990f133ca"
+    },
+    {
+      "path": "排版.idml",
+      "bytes": 10769,
+      "sha256": "a0576d745af68018b943746d717e9ae7eeee8d7259dc0f5be41648d2e5568da8"
+    },
+    {
+      "path": "main-svg-pptx\\editable.pptx",
+      "bytes": 7078,
+      "sha256": "ea961c28cc6dcd6c188a1bb1be94fa0ca1a76d254863340fdf04bbaec86e156f"
+    },
+    {
+      "path": "main-svg-pptx\\layout.designcraft",
+      "bytes": 8979,
+      "sha256": "30a42f5ce289b589ab8ead63690ca5e85e92cf7171e551b0a73c6a00910f4df6"
+    },
+    {
+      "path": "main-svg-pptx\\layout.pdf",
+      "bytes": 5298,
+      "sha256": "c2180af7ad7ba7742cb211ad89c0cbb14a07f37968eb1b2496df8f79737370a6"
+    },
+    {
+      "path": "main-svg-pptx\\steps.json",
+      "bytes": 50,
+      "sha256": "64cc96225a5bb259980ae23f9d1caf29b64ff6afddf5d7e2cf3b2ff79f023a07"
+    }
+  ]
+}
