@@ -414,4 +414,4 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 
 ## GridCraft可重算办公模板
 
-新增shift-timesheet、fixed-payment和month-calendar三个独立技能，借鉴Apache POI固定提交中的Excel示例，原创映射真实命令、参数与输入防护。官方0.7.0 macOS完整21记录147次CLI通过；新模板20个输出保留公式、规则及数值/日期格式，核对跨午夜与午夜0、零利率和非法期数、闰年/平年/跨年/周日起始及非法月份的重算。原表除活动页标志外XML一致，输入文件摘要不变。旧核心测试通配全部配方后强制六条导致新增失败，现显式选择原六条，新增模板独立执行；200项辅助测试通过。累计224条映射，Windows、宿主同步和市场新版仍待交付。详见craft-grid-templates-validation.json。
+新增shift-timesheet、fixed-payment和month-calendar三个独立技能，借鉴Apache POI固定提交中的Excel示例，原创映射真实命令、参数与输入防护。官方0.7.0 macOS完整21记录147次CLI通过；新模板20个输出保留公式、规则及数值/日期格式，核对跨午夜与午夜0、零利率和非法期数、闰年/平年/跨年/周日起始及非法月份的重算。原表除活动页标志外XML一致，输入文件摘要不变。旧核心测试通配全部配方后强制六条导致新增失败，现显式选择原六条，新增模板独立执行；200项辅助测试通过。累计224条映射，Windows完整21记录及输出摘要通过；真实Codex原生MCP与IAB已观察午夜0、零利率、闰年/平年重算同步。七个实际保存XLSX独立CLI回读，公式、规则、格式、数值与原表保护通过；同路径alreadyOpen未算重载，另开新路径副本解析成功。真实业务、外部Excel、其他宿主与市场新版仍待完成。详见craft-grid-templates-validation.json。

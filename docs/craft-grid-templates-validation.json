@@ -25,8 +25,38 @@
     "tests": 200,
     "result": "PASS"
   },
-  "Windows": "PENDING",
-  "installedHostSync": "NOT_TESTED",
+  "Windows": {
+    "run": 39057072041,
+    "sourceCommit": "99a3dd6c628af6d0b1e1ee4b6ab179640cab9583",
+    "result": "PASS",
+    "sceneRecords": 21,
+    "cliProcesses": 153,
+    "downloadedOutputHashesVerified": 58
+  },
+  "installedHostSync": {
+    "result": "LIMITED_SYNTHETIC_PASS",
+    "host": "native Codex app-server + Codex IAB",
+    "thread": "01a14b11-5d75-7532-be93-8604c6ca448f",
+    "mcpCalls": 85,
+    "distribution": "fresh isolated local candidate, version0.1.0-dev.20261017.5; not public new release",
+    "checks": [
+      "time display21:30..06:00 gives8h; midnight0 change gives6h and total14 visibly",
+      "annual rate6% gives1032.80 visible payment; rate0 changes to1000 and0 interest visibly",
+      "42-cell leap February calendar visibly changes to common-year February",
+      "saved common-year workbook copied to a fresh path and actually parsed at new index3",
+      "seven host-written XLSX independently checked: live formulas, input rules, number/date formats, original sheet XML and values"
+    ],
+    "notes": [
+      "MCP open same path returned alreadyOpen:true; not counted as disk reload; new path copy opened with parsed sheets/title",
+      "harness PTY rejected long calendar JSON line before MCP delivery; pending line cleared and exact rows sent separately, same process/editor retained",
+      "runtime latest lookupHTTP404; verified bundled upstream0.7.0 commitd9d09f0baa912e88c5111107903fc8c640214b57 used"
+    ],
+    "limits": [
+      "synthetic inputs only",
+      "not external Excel rendering or business-content acceptance",
+      "other hosts not verified"
+    ]
+  },
   "marketRelease": "NOT_PUBLISHED",
   "externalExcelRendering": "NOT_TESTED",
   "limits": [
@@ -94,6 +124,27 @@
     "中文 业务 workspace/grid-core-scenes/reconcile-data/input.xlsx": "23a2ec8b6c2158c85e76f8b013f88671b9ec293363d694f9dff68b6c39ca9709",
     "中文 业务 workspace/grid-core-scenes/reconcile-data/result.xlsx": "882bea950a1e823ed53b142f7bc2ef42f7a5ab431ee62c387c932ddfaa213d04",
     "中文 业务 workspace/grid-core-scenes/clean-table/input.xlsx": "bb65e00b5857f921ce5a26149bf8ec5d51db5c38e2120619db2033031f46ed98",
-    "中文 业务 workspace/grid-core-scenes/clean-table/result.xlsx": "aaf51ecad72653786ed210cb21e3209892e5599bffec9578d24388938693c30d"
+    "中文 业务 workspace/grid-core-scenes/clean-table/result.xlsx": "aaf51ecad72653786ed210cb21e3209892e5599bffec9578d24388938693c30d",
+    "fresh-native-tty/shift-midnight.jpg": "550fc0f4d38e1a30507defc95ccf4fe53fa2c545bf1507d5910c7ec3ddd0f5e7",
+    "fresh-native-tty/calendar-common-reopened.jpg": "28470ffb3635c010a88ab8646c9ddcbdc43ebee48c325055fe83ae7bb4bd0140",
+    "fresh-native-tty/frozen-native-rpc.json": "300ef06dd121d2659eb2608d9554dac298d0496ba081a8e44a19f7339cb4e184",
+    "fresh-native-tty/frozen-calls.json": "d2599786f740326e221898e4656e64190d870923c8627db2cfab55204d1a7b99",
+    "fresh-native-tty/payment-initial.jpg": "5b27b5366e970e8b698ef35168bdcbbd65c307b32af151cefc883f05f178da47",
+    "fresh-native-tty/payment-zero.jpg": "7a70e4be274dfe1ede4d58a176691149bee2e06d64e32b9d0ddaa9f6e793a82a",
+    "fresh-native-tty/shift-initial.jpg": "5a93d1c0c20a8f81ad9003618f04858beeef55577855d190a8655dc4eba42956",
+    "fresh-native-tty/calendar-leap.jpg": "111372f649f4676746ccf3dcc139c74db255e8513185cc4e11f2fc7310456465",
+    "fresh-native-tty/workspace/mcp-payment.xlsx": "7a4610f0e12112fe33559a40aa27a531fb0283e59f4dc50bcbeb2b8957195890",
+    "fresh-native-tty/workspace/mcp-shift.xlsx": "009f2198b9f756e1b9bce461702dace1d9404b9d556960859dc1c6476335769b",
+    "fresh-native-tty/workspace/mcp-calendar.xlsx": "b7611309ce2fd96e27b509def7ce572821063d961e407b4df4c906fb3d098fb4",
+    "fresh-native-tty/workspace/mcp-payment-zero.xlsx": "1b407f93439bea36902f6883a99ba0225e71989d233fe2e5dd946bc74a615ab9",
+    "fresh-native-tty/workspace/mcp-calendar-reopened.xlsx": "6b490e805ba70692aecd77169b8561e593655e64f1400ce3c2a1b0cd030cfe6f",
+    "fresh-native-tty/workspace/input.xlsx": "1dd99138f8030b473e69cf0a79742dc1bcadaf3c36b055481de280d00e1a9ae8",
+    "fresh-native-tty/workspace/mcp-shift-midnight.xlsx": "bd8836427acbb761c8120709263e000d886fb96fc5a14c216af7d6d619a07d7e",
+    "fresh-native-tty/workspace/mcp-calendar-common.xlsx": "6b490e805ba70692aecd77169b8561e593655e64f1400ce3c2a1b0cd030cfe6f"
+  },
+  "packageMcpRegression": {
+    "run": 39057072067,
+    "result": "PASS",
+    "scope": "existing published package matrix; not new template release"
   }
 }
