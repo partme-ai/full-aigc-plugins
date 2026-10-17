@@ -170,13 +170,17 @@ def run_playbooks(r, path):
             download(model['url'], model_dir / model['file'], model['sha256'])
         os.environ['PDFCRAFT_MODELS'] = str(model_dir)
         require(json.loads(r.run('run', 'ocr_status'))['available'], 'Official OCR models not available')
-        files = sorted(Path(path).glob('printcraft-*/references/craft-steps.json'))
-        require(len(files) == 6, 'Expected six PDF scenario recipes')
-        for file in files:
-            recipe = json.loads(file.read_text(encoding='utf-8'))
+        files = {json.loads(file.read_text(encoding='utf-8'))['id']:file for file in Path(path).glob('printcraft-*/references/craft-steps.json')}
+        core = {'organize-pdf','compress-pdf','fill-pdf-forms','ocr-scans','pdf-preflight','redact-pdf'}
+        from pdf_delivery_smoke import SCENES,run_delivery
+        require(set(files) == core | set(SCENES), 'PDF scenario missing a known native driver')
+        for name in sorted(core):
+            recipe = json.loads(files[name].read_text(encoding='utf-8'))
             r.work = original / recipe['id']
             r.work.mkdir()
             records.append(run_recipe(r, recipe))
+        r.work = original
+        records.extend(run_delivery(r,Path(path)))
     finally:
         r.work = original
         if previous is None:
