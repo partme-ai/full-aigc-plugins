@@ -145,7 +145,8 @@
     "downloadedOutputDigests": 616,
     "allDownloadedDigests": "PASS",
     "newRecipeActualArgvMatchesSource": "PASS",
-    "exeSha256AsReportedByRunner": "b9dd260f9f97c6e25bc03f8abc5430d3232adae11aa23eb1d3ae2fe93cf44d80"
+    "exeSha256AsReportedByRunner": "b9dd260f9f97c6e25bc03f8abc5430d3232adae11aa23eb1d3ae2fe93cf44d80",
+    "visualReview": "Downloaded chapter hold, first countdown digit and middle credits PNGs viewed; not continuous playback"
   },
   "tests": {
     "effectDelivery": 7,
@@ -168,6 +169,33 @@
       "embeddedUI": "NOT_TESTED",
       "editingSync": "NOT_TESTED"
     },
-    "marketMain": "PENDING"
+    "marketMain": "PUBLISHED_AND_SUBSCRIBED_NATIVE_LIST_VERIFIED",
+    "marketMainCommit": "1b3c4c16e217b0e8d08d8f01153f4d25073a437c",
+    "nativeListing": {
+      "version": "0.1.0-dev.20261017.6",
+      "availability": "AVAILABLE",
+      "skillEntries": 26,
+      "newSkills": [
+        "effectcraft-chapter-card",
+        "effectcraft-countdown-intro",
+        "effectcraft-credits-roll"
+      ],
+      "logoAndComposerIcon": "PASS",
+      "installedInDailyProfile": false,
+      "marketRefreshErrors": []
+    }
+  },
+  "testCI": {
+    "market27Jobs": 39034941349,
+    "installMcp14Jobs": 39034941356,
+    "windowsBusiness13Apps": 39034941372,
+    "conclusion": "success"
+  },
+  "mainCI": {
+    "commit": "1b3c4c16e217b0e8d08d8f01153f4d25073a437c",
+    "market27Jobs": 39035230105,
+    "installMcp14Jobs": 39035230058,
+    "windowsBusiness13Apps": 39035230081,
+    "conclusion": "success"
   }
 }
