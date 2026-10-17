@@ -135,14 +135,20 @@ def run_recipe(r, recipe):
             'scope': 'synthetic business rows and XLSX/engine checks; no real financial reconciliation acceptance'}
 
 
+def core_recipe_paths(skills):
+    names = ['budget-tracker', 'clean-table', 'dashboard', 'formula-audit', 'reconcile-data', 'sales-summary']
+    files = [Path(skills) / ('gridcraft-' + name) / 'references/craft-steps.json' for name in names]
+    require(all(file.is_file() for file in files), 'Missing GridCraft core skill recipe')
+    return files
+
+
 def run_playbooks(r, skills):
     original = r.work
     root = original / 'grid-core-scenes'
     root.mkdir()
     records = []
     try:
-        files = sorted(Path(skills).glob('gridcraft-*/references/craft-steps.json'))
-        require(len(files) == 6, 'Expected six GridCraft core skill recipes')
+        files = core_recipe_paths(skills)
         for file in files:
             recipe = json.loads(file.read_text(encoding='utf-8'))
             r.work = root / recipe['id']

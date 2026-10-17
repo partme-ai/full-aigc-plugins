@@ -123,6 +123,8 @@ def run_playbooks(r,path,app):
     if app=='gridcraft':
         from grid_core_smoke import run_playbooks as run_core
         records.extend(run_core(r, Path(path).resolve().parents[2]))
+        from grid_templates_smoke import run_templates
+        records.extend(run_templates(r, Path(path).resolve().parents[2]))
     if app=='wordcraft':
         from word_core_smoke import run_playbooks as run_core
         records.extend(run_core(r, Path(path).resolve().parents[2]))
