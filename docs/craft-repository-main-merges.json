@@ -115,5 +115,122 @@
     "worktreeClean": true,
     "public": true,
     "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/cadcraft-plugin.git",
+    "featureCommit": "9464d2a20a9689cbec3c65cd039ee24b89a88580",
+    "mainCommit": "674678921559b9aad03265c933689571013f1208",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/designcraft-plugin.git",
+    "featureCommit": "0769ecbc9b7eca0fa74bda29b0b6f8d7e2c3cb1c",
+    "mainCommit": "46b889f63810bd5be1efa950932c5bc8588c9dfb",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/effectcraft-plugin.git",
+    "featureCommit": "cf3a3087ba38536d00532976dcab1877db93c612",
+    "mainCommit": "6acffbd6d87b49a860ebe973e751c531127964f7",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/photocraft-plugin.git",
+    "featureCommit": "12f77d7a2ccaa5f0655a92e386161ff6ca262bb7",
+    "mainCommit": "c584b34e3b23306a9e865cab87d3a30601076d22",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/figcraft-plugin.git",
+    "featureCommit": "9c232ebeeb74c24b2065f843c91b6709a36fbb2d",
+    "mainCommit": "9c232ebeeb74c24b2065f843c91b6709a36fbb2d",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/filmcraft-plugin.git",
+    "featureCommit": "f8dbd93b90b3787bf57476080dea93e44786680f",
+    "mainCommit": "9d325614ce7c946ca8f1accbe5b980b96423c6e0",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/lightcraft-plugin.git",
+    "featureCommit": "a983c47d44379895581f0adc34e3b41df3cf1e9a",
+    "mainCommit": "48837709f06fb4f43d0fc77ee17ef1221f0b036a",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/printcraft-plugin.git",
+    "featureCommit": "8894b18a3ca9ecd6cb2bb714080e95d888ad5d88",
+    "mainCommit": "d1ceb3f2caaf529bd9f8687619b2f3bf33ec9d84",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/vectorcraft-plugin.git",
+    "featureCommit": "741b5953e41d594fcfe484e4053a2c2417679879",
+    "mainCommit": "9f2f941d533cc84a645fd02ca214e2a6d4ad98d9",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/deckcraft-plugin.git",
+    "featureCommit": "98389e7f3710efacac0f9b6824d1449303aae72c",
+    "mainCommit": "67dda2b9da06fc2962e5db4a0d59832d6383d224",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/soundcraft-plugin.git",
+    "featureCommit": "b746f88b2f87010652fc15169fdd38fb4e19a766",
+    "mainCommit": "b746f88b2f87010652fc15169fdd38fb4e19a766",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/gridcraft-plugin.git",
+    "featureCommit": "af30e9274dd679cb99fb1dc06e70423d47e3f634",
+    "mainCommit": "af30e9274dd679cb99fb1dc06e70423d47e3f634",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
+  },
+  {
+    "repository": "https://github.com/full-aigc-plugins/wordcraft-plugin.git",
+    "featureCommit": "4d89931a6ca78e7d1a4bdba6c1b2136da838cd9b",
+    "mainCommit": "4d89931a6ca78e7d1a4bdba6c1b2136da838cd9b",
+    "remoteMainVerified": true,
+    "worktreeClean": true,
+    "public": true,
+    "defaultBranch": "main"
   }
 ]

@@ -30,3 +30,7 @@ dev.20261017.2的公开冷启动实测暴露Codex实际30秒握手限制（忽�
 Windows Git检出DesignCraft历史长路径曾失败。Windows CI显式启用Git长路径支持，Git安装用户同样需要Git支持长路径；完整ZIP排除历史验收记录，原记录保留源码仓。此环境前提不能写成未经配置的Windows已验收。
 
 独立候选库仍保留在candidate-marketplace/，供隔离测试；主库的13条目固定到相同开发标签。完整场景/创作质量和三宿主全部内嵌同步尚未全部验收，生产发布保持BLOCKED。
+
+## 完整发行压缩包验收
+
+Git标签安装与完整ZIP安装分别验收。`verify-craft-release-zip.py`从GitHub Release下载每个固定完整ZIP，验证整包SHA-256，在干净目录解包，再通过真实Codex安装器、skills/list、原生MCP调用与编辑器HTML进行验证；最后复核已安装ui/dist逐文件摘要，防止从外部缓存兜底掩盖包缺资源。Windows ZIP验收明确关闭Git长路径配置，避免把Git检出的环境配置冒充完整包能力。
