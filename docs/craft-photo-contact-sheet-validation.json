@@ -1,0 +1,27 @@
+{
+  "scope": "development contact sheet extension of batch delivery; no scene count increment",
+  "sourceCommit": "754cc6ae272b2ec1b7385a1a004cccb9518d56a2",
+  "pluginCommit": "6549472f49839aca74500a9edec8a36c3aafb74d",
+  "githubWorkflowSource": {
+    "repository": "TouchTone/make_contact",
+    "commit": "825604311889c9d1f5900dc565a228b581822702",
+    "path": "README.md",
+    "license": "unspecified; no source code/prose/assets copied"
+  },
+  "nativeCli": "official stable PhotoCraft 0.9.0 macOS universal",
+  "nativeChecks": {
+    "inputCount": 7,
+    "uniqueSyntheticImages": 3,
+    "pages": 2,
+    "cliCalls": 15,
+    "sourceScript": "scripts/contact_sheet.py",
+    "inputHashesUnchanged": true,
+    "pixelChecks": "all seven centres match explicit input order",
+    "scope": "synthetic inputs; real photographs, fonts and editor sync not inferred"
+  },
+  "sourceHelperUnitTests": 3,
+  "nativeVisualReview": "initial three-image probe examined, 600x440; final two-page export needs review",
+  "windows": "PENDING",
+  "embeddedEditorSync": "NOT_TESTED",
+  "publicMarketplaceRelease": "NOT_PUBLISHED; current market version unchanged"
+}

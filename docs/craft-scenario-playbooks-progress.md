@@ -434,4 +434,8 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 
 ## 2026-10-18 发行来源修复
 
-DesignCraft、FigCraft、LightCraft、GridCraft 的18.1标签与ZIP源码不一致，已保留原标签并标注替代，发布18.2。四个公开ZIP均通过实际下载、隔离Codex安装、MCP调用与内置资源摘要校验；新验证器额外核对远端标签提交。LightCraft基础技能源升级脚本修复了对扩展场景的误判，65项测试与test分支CI通过。市场main切换仍待本次test分支验证，以上不代表新增场景全部完成媒体效果或宿主同步验收。
+DesignCraft、FigCraft、LightCraft、GridCraft 的18.1标签与ZIP源码不一致，已保留原标签并标注替代，发布18.2。四个公开ZIP均通过实际下载、隔离Codex安装、MCP调用与内置资源摘要校验；新验证器额外核对远端标签提交。LightCraft基础技能源升级脚本修复了对扩展场景的误判，65项测试与test分支CI通过。市场main已切换到7011c98，test/main三条CI均通过，四项主市场真实安装/MCP及日常市场来源刷新通过，以上不代表新增场景全部完成媒体效果或宿主同步验收。
+
+## PhotoCraft可编辑照片联系表候选
+
+GitHub联系表工作流固定提交后原创适配，扩展既有批量交付技能：按明确输入顺序分页，file.placeEmbedded保留智能对象并按比例缩小，type.create标注可编辑完整文件名，超长标签拒绝交付，保留原图摘要和清单。3项辅助回归及原生0.9.0的15次真实CLI调用通过，7个显式输入来自3种合成横竖/方图，2页像素位置和13/3层保存重开通过；不等同于7种真实照片。源与插件feature已推送，Windows回归已接入，待运行；未发布主市场，未完成真实宿主同步，累计仍232条静态映射。详见craft-photo-contact-sheet-validation.json。

@@ -105,5 +105,27 @@
     "lightcraft",
     "gridcraft"
   ],
-  "marketplaceMain": "PENDING"
+  "marketplaceMain": {
+    "commit": "7011c9841e7d5e5b68a75d0f369b76d2c2650a35",
+    "actualCodexInstallAndMcp": [
+      "designcraft",
+      "figcraft",
+      "lightcraft",
+      "gridcraft"
+    ],
+    "result": "PASS",
+    "dailyMarketplaceSourceRefreshed": true,
+    "dailyInstalledPluginsUpgraded": false
+  },
+  "testCi": [
+    39069260465,
+    39069260502,
+    39069260583
+  ],
+  "mainCi": [
+    39069630728,
+    39069630726,
+    39069630767
+  ],
+  "ciResult": "PASS"
 }
