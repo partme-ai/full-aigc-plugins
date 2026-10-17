@@ -1,0 +1,19 @@
+{
+  "application": "cadcraft",
+  "upstreamCommit": "9b2308b138e90a01d28d46c84021a74b1ae7ef4a",
+  "candidateCi": 39006638202,
+  "codexVersion": "0.162.1",
+  "nativePluginInstall": "PASS",
+  "nativeHostMcp": "PASS",
+  "codexInAppBrowser": "PASS",
+  "sameSessionVisibleMutation": "PASS",
+  "saveReopenGeometry": "PASS",
+  "case": "empty metric drawing -> circle center(50,50) radius30 -> save DXF -> new drawing -> reopen",
+  "fileBytes": 14815,
+  "fileSha256": "4495b30da31322eeb93ab046e885f94b2024017680a902c78abf4821e00e77b4",
+  "screenshots": {
+    "beforeSha256": "8c862d51c18f3f41c54db0def461242a5492914dd4781124f505e7b62b6f6f1c",
+    "afterSha256": "8e5830fc5a387c897d3a303c4b1880c193302d6e5b5ed2d08c807cb2014db1aa"
+  },
+  "scope": "isolated Codex CLI native app-server plus Codex desktop in-app browser; not active desktop chat plugin registration, not Kimi/ZCode acceptance"
+}

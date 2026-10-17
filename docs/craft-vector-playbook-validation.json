@@ -1,0 +1,173 @@
+{
+  "scope": "Native Windows CLI eight new workflows and one existing-document preservation case; host GUI not certified",
+  "runtime": {
+    "version": "v0.12.0",
+    "url": "https://github.com/storytold/vectorcraft/releases/download/v0.12.0/vectorcraft-0.12.0-windows-x64-portable.zip",
+    "sha256": "fde42c30d14aadbb565cf0551f72f251321f8c9f875a24811b98e522aea6fe88",
+    "executable": "vectorcraft-cli.exe"
+  },
+  "resultSha256": "32b4a7d30ca3c6d7f2c6318d327c99096f1da9627dea5197a41e92ee7f0ff1ff",
+  "technicalRoundtrip": {
+    "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38934923269",
+    "ciSourceCommit": "24510c3a9aa0e66936be9319d2093e5d5930ca39",
+    "sourceCommit": "37b008497f809a93cda0b1ef6949470404615ef0",
+    "recipes": [
+      "approval-check-badge",
+      "editable-three-bar-chart",
+      "hollow-ring-minus-front",
+      "contact-card-layout",
+      "editable-brand-palette",
+      "wordmark-live-and-outlined",
+      "half-disc-real-crop",
+      "wayfinding-arrow"
+    ],
+    "stepHashes": {
+      "approval-check-badge": "756822a27263b71f91a59317a83c39ab4eca2bb3ebf7d4e757ea35d6245bfc87",
+      "editable-three-bar-chart": "b179ecfad5d87be55a771ea4ba48e4aec86151fcea72439d5e1d5226c729f777",
+      "hollow-ring-minus-front": "70c29e96efd8ff08c93078cbca5c92c1f468dcea7e9d730de59b1a1304f66c73",
+      "contact-card-layout": "4b5a2e99bb50249141b48de566511bee6e13ce817db14121945f08a6daa1ea88",
+      "editable-brand-palette": "6e27335075b0f756dcff34ab9ada066949fd8c907e392fa765cb4cc7ca5cef84",
+      "wordmark-live-and-outlined": "1fbf19f63c782a0c388282c19ecd2708663fe433be202d04c3eff510a6ceb3c1",
+      "half-disc-real-crop": "afed3cfc646fbb32edf3e2f6fb9982579007dc2b8d027827c9bafaa6f8165007",
+      "wayfinding-arrow": "5d15751c49f730b3ab6fa06c0bc0b6fc9e6091a4f7b67622f3cec4b7bf11f905"
+    },
+    "checks": [
+      "editable object kinds and text after native save-reopen",
+      "chart rectangle geometry and numeric labels",
+      "compound ring plus center/band/outside pixels",
+      "real crop bounds/closure and removed-side pixels",
+      "stroke width, cap, arrow type and endpoint alignment",
+      "separately saved live wordmark and outlined wordmark",
+      "SVG structure and outlined delivery without live SVG text",
+      "actual returned ID binding in existing document",
+      "two existing user objects unchanged after adding ring and outlining only target text",
+      "original input file SHA256 unchanged"
+    ],
+    "manualImageReview": [
+      {
+        "id": "approval-check-badge",
+        "pngSha256": "1f1da6d946c5901d97df21174f2f55fd940c4cfb2bb1793688045b2f662df1b6",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "editable-three-bar-chart",
+        "pngSha256": "e007b4a27efdbef6c443455c4081172a071f0f11cf0e5211ae7903aa5a6fa96a",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "hollow-ring-minus-front",
+        "pngSha256": "9fca592fe029c41485e9f091aee03f1ac720465fc1549f85e3b54d867a01530f",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "contact-card-layout",
+        "pngSha256": "ba0185bac96af21ad59aea1179723108e4e3a3853a219c9a67797c8b9d81612a",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "editable-brand-palette",
+        "pngSha256": "885cd03aad52d58066042e0879f497c897d4d2db353fb675b97f1f8e16d72ee4",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "wordmark-live-and-outlined",
+        "pngSha256": "3eeec72d4471fecf0319202fd2fc05a3d192d501c6405ac5a31111b2cb8054a3",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "half-disc-real-crop",
+        "pngSha256": "459a63083a7759505610bcb1dc5a26f1c4cc04a83fab2979484bc34e2df2f634",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      },
+      {
+        "id": "wayfinding-arrow",
+        "pngSha256": "dffb9d69881dcec88e2a983ff76691ed19a0a96ef8e464daef1f072b2ff3578e",
+        "status": "REVIEWED_EXAMPLE",
+        "scope": "Eight original illustrative PNGs viewed; matching final rerun pixels, not real brand quality acceptance"
+      }
+    ],
+    "extraWorkflow": {
+      "id": "existing-user-content-preservation",
+      "technicalRoundtrip": "PASS",
+      "actualIdBinding": "PASS",
+      "preservedOriginalObjects": 2,
+      "sourceUnchanged": "PASS",
+      "designReview": "NOT_TESTED"
+    },
+    "hostSynchronization": "NOT_TESTED",
+    "realBrandOrPrintAcceptance": "NOT_TESTED"
+  },
+  "cases": [
+    {
+      "id": "approval-check-badge",
+      "technicalRoundtrip": "PASS",
+      "editableGeometry": "PASS",
+      "pixelChecks": "NOT_SELECTED",
+      "designReview": "NOT_TESTED"
+    },
+    {
+      "id": "editable-three-bar-chart",
+      "technicalRoundtrip": "PASS",
+      "editableGeometry": "PASS",
+      "pixelChecks": "NOT_SELECTED",
+      "designReview": "NOT_TESTED"
+    },
+    {
+      "id": "hollow-ring-minus-front",
+      "technicalRoundtrip": "PASS",
+      "editableGeometry": "PASS",
+      "pixelChecks": "PASS",
+      "designReview": "NOT_TESTED"
+    },
+    {
+      "id": "contact-card-layout",
+      "technicalRoundtrip": "PASS",
+      "editableGeometry": "PASS",
+      "pixelChecks": "NOT_SELECTED",
+      "designReview": "NOT_TESTED"
+    },
+    {
+      "id": "editable-brand-palette",
+      "technicalRoundtrip": "PASS",
+      "editableGeometry": "PASS",
+      "pixelChecks": "NOT_SELECTED",
+      "designReview": "NOT_TESTED"
+    },
+    {
+      "id": "wordmark-live-and-outlined",
+      "technicalRoundtrip": "PASS",
+      "editableGeometry": "PASS",
+      "pixelChecks": "NOT_SELECTED",
+      "designReview": "NOT_TESTED"
+    },
+    {
+      "id": "half-disc-real-crop",
+      "technicalRoundtrip": "PASS",
+      "editableGeometry": "PASS",
+      "pixelChecks": "PASS",
+      "designReview": "NOT_TESTED"
+    },
+    {
+      "id": "wayfinding-arrow",
+      "technicalRoundtrip": "PASS",
+      "editableGeometry": "PASS",
+      "pixelChecks": "NOT_SELECTED",
+      "designReview": "NOT_TESTED"
+    },
+    {
+      "id": "existing-user-content-preservation",
+      "technicalRoundtrip": "PASS",
+      "actualIdBinding": "PASS",
+      "preservedOriginalObjects": 2,
+      "sourceUnchanged": "PASS",
+      "designReview": "NOT_TESTED"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "scope": "Native Windows CLI synthetic audio and PNG fixture checks; listening, real RAW camera quality and host UI synchronization not certified",
+  "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38931238554",
+  "ciSourceCommit": "6b05b9ac800749233184dee9a2ecde8380597eb3",
+  "applications": [
+    {
+      "application": "soundcraft",
+      "runtime": {
+        "version": "v0.7.0",
+        "url": "https://github.com/storytold/soundcraft/releases/download/v0.7.0/soundcraft-0.7.0-windows-x64-portable.zip",
+        "sha256": "8ef3c5fd89c5a3e797b01afdcf3398a81743f518d8978cac766cbd3665e6861d",
+        "executable": "soundcraft-cli.exe"
+      },
+      "resultSha256": "abc01e37b166ceb10bf0a4f77f391542012dad314bc616d799ef883c9c3d8c4d",
+      "technicalRoundtrip": {
+        "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38931238554",
+        "sourceCommit": "b3fd6f2197533b68098c6ea939d1ee22c98f3650",
+        "input": "deterministic synthetic 4-second 48kHz audio",
+        "recipes": [
+          "voice-headroom",
+          "peak-normalized-preview",
+          "voice-edge-fades",
+          "interview-excerpt",
+          "two-track-stems",
+          "reverse-transition",
+          "dc-offset-cleanup",
+          "polarity-diagnostic-copy"
+        ],
+        "stepHashes": {
+          "voice-headroom": "3f9faddf12b7ddbd423c8d644dedd13a048591d27aeb38482bb69a8a920f7f46",
+          "peak-normalized-preview": "f6550874aeca03efa60a2af4e4e040934d3c93fff82d338a9ba7635485a00091",
+          "voice-edge-fades": "684b3a25751c1c5ec1800c09745c00f12bca479ee48ad0d1cdc9f6916721c7c3",
+          "interview-excerpt": "56c705fcd172b42b2782d610b3c553b0bdb58f9991ea20e967efc53c5d9b63d6",
+          "two-track-stems": "6f62477c55948f9896bf935a7e676b70222554dec8b82849f9671d6fa1987e49",
+          "reverse-transition": "06214fa54d60993ad8df97d328a7d9bb59602d2f8d86c865d8073547507b6df7",
+          "dc-offset-cleanup": "56f89c6669cfb5dfc0c751c41a592188d1ef6da30b55f521499f661e3670531e",
+          "polarity-diagnostic-copy": "e150384097b66a36e6aa3a02bbbd905f842d488712eb6df3f88e24ce601b105f"
+        },
+        "checks": [
+          "clip gain ratio",
+          "peak normalize ratio",
+          "head and tail fade with protected middle",
+          "exact excerpt time range",
+          "stereo stem track set and channel difference",
+          "reversed samples",
+          "DC mean reduction",
+          "inverted polarity",
+          "save-reopen-rerender including stems within dither tolerance",
+          "input files unchanged"
+        ],
+        "creativeAcceptance": "NOT_TESTED"
+      },
+      "cases": [
+        {
+          "id": "voice-headroom",
+          "technicalRoundtrip": "PASS",
+          "signalChecks": "PASS",
+          "auditoryAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "peak-normalized-preview",
+          "technicalRoundtrip": "PASS",
+          "signalChecks": "PASS",
+          "auditoryAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "voice-edge-fades",
+          "technicalRoundtrip": "PASS",
+          "signalChecks": "PASS",
+          "auditoryAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "interview-excerpt",
+          "technicalRoundtrip": "PASS",
+          "signalChecks": "PASS",
+          "auditoryAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "two-track-stems",
+          "technicalRoundtrip": "PASS",
+          "signalChecks": "PASS",
+          "auditoryAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "reverse-transition",
+          "technicalRoundtrip": "PASS",
+          "signalChecks": "PASS",
+          "auditoryAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "dc-offset-cleanup",
+          "technicalRoundtrip": "PASS",
+          "signalChecks": "PASS",
+          "auditoryAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "polarity-diagnostic-copy",
+          "technicalRoundtrip": "PASS",
+          "signalChecks": "PASS",
+          "auditoryAcceptance": "NOT_TESTED"
+        }
+      ]
+    },
+    {
+      "application": "lightcraft",
+      "runtime": {
+        "version": "v0.8.0",
+        "url": "https://github.com/storytold/lightcraft/releases/download/v0.8.0/lightcraft-0.8.0-windows-x64-portable.zip",
+        "sha256": "57f3e65fccd33abf2f37d67532662ca55235287f5b41e5bb9bc057da4485caa9",
+        "executable": "lightcraft-cli.exe"
+      },
+      "resultSha256": "bd6fd696516e05ab9ac42d550ece48cac9275746054c8aec93e56b1cb76f4d8b",
+      "technicalRoundtrip": {
+        "ciRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38931238554",
+        "sourceCommit": "00ef2d690c3a9cf652679e3e910d250b1d476932",
+        "input": "deterministic 64x48 RGB PNG with warm neutral-reference patch",
+        "recipes": [
+          "highlight-tone-proof",
+          "monochrome-editable-proof",
+          "square-product-crop",
+          "neutral-reference-balance",
+          "watermarked-review",
+          "screen-print-dual-export",
+          "review-contact-sheet",
+          "reset-light-preserve-color"
+        ],
+        "stepHashes": {
+          "highlight-tone-proof": "742826558dadf2daccf01469aa7807dd43bcaf521fc5810cdaff189ab8d11b92",
+          "monochrome-editable-proof": "39ccdf89f5166527c23c0654348bdfb6873b2a828e7aa337c2efd0c34086f0b1",
+          "square-product-crop": "a77a6e6976dbd65afd1a357750e0eebd9034089b0fd45ce88d7dc31fc2a99dd5",
+          "neutral-reference-balance": "dbb97fc4ac75f02dfe1323e01c4ea928377bdc9ce611aac7101d0f6d1009c72d",
+          "watermarked-review": "88bfd7c156262b7de352cbe89fc3e43ef6278e5c408a8ee5f916573a1359825c",
+          "screen-print-dual-export": "9a280e4281e2b4341ef9870e3752f7bc440126d22545d5b97aa416498934fb00",
+          "review-contact-sheet": "29527a75395c4d072ada231c5b026999024f69a611d8229eea6b395d1a8cf204",
+          "reset-light-preserve-color": "3241375e1346f7d047dbc75f0b5531877b8cd3b71a2972b9099358d52828dc74"
+        },
+        "checks": [
+          "saved develop settings",
+          "grayscale output",
+          "48x48 crop",
+          "gray-card channel imbalance reduction",
+          "watermark pixel change",
+          "16-bit TIFF output",
+          "two-photo contact sheet",
+          "save-reopen-rerender pixel equality",
+          "input PNG unchanged"
+        ],
+        "creativeAcceptance": "NOT_TESTED",
+        "manualOutputInspection": {
+          "tiffEmbeddedIccBytes": 584,
+          "tiffSha256": "ec23bf9a34b995f72aa779a08a0d649d8cac7c9f795854ea467c36c8fa239014",
+          "scope": "ICC tag presence verified on downloaded final output; not a print-device soft proof"
+        }
+      },
+      "cases": [
+        {
+          "id": "highlight-tone-proof",
+          "technicalRoundtrip": "PASS",
+          "renderOrStructureChecks": "PASS",
+          "creativeAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "monochrome-editable-proof",
+          "technicalRoundtrip": "PASS",
+          "renderOrStructureChecks": "PASS",
+          "creativeAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "square-product-crop",
+          "technicalRoundtrip": "PASS",
+          "renderOrStructureChecks": "PASS",
+          "creativeAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "neutral-reference-balance",
+          "technicalRoundtrip": "PASS",
+          "renderOrStructureChecks": "PASS",
+          "creativeAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "watermarked-review",
+          "technicalRoundtrip": "PASS",
+          "renderOrStructureChecks": "PASS",
+          "creativeAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "screen-print-dual-export",
+          "technicalRoundtrip": "PASS",
+          "renderOrStructureChecks": "PASS",
+          "creativeAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "review-contact-sheet",
+          "technicalRoundtrip": "PASS",
+          "renderOrStructureChecks": "PASS",
+          "creativeAcceptance": "NOT_TESTED"
+        },
+        {
+          "id": "reset-light-preserve-color",
+          "technicalRoundtrip": "PASS",
+          "renderOrStructureChecks": "PASS",
+          "creativeAcceptance": "NOT_TESTED"
+        }
+      ]
+    }
+  ]
+}

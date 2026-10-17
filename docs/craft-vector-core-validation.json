@@ -1,0 +1,146 @@
+{
+  "sourceCommit": "15cdd6d8190de74d9f5b4f68a9575a74a7160ba2",
+  "pluginCommit": "63f786e83c9785350c777fdab5137d2d42ceec43",
+  "ciCodeCommit": "b75fbd8807e341ede173bb1d2ea35bbeb88c3dc0",
+  "windowsRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39005885352",
+  "existingPackageMcpRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39005885501",
+  "runtime": {
+    "version": "v0.12.0",
+    "url": "https://github.com/storytold/vectorcraft/releases/download/v0.12.0/vectorcraft-0.12.0-windows-x64-portable.zip",
+    "sha256": "fde42c30d14aadbb565cf0551f72f251321f8c9f875a24811b98e522aea6fe88",
+    "executable": "vectorcraft-cli.exe"
+  },
+  "exeSha256": "f77c2b0f03d1e62849756ddb652be9347c7cefe62f9a6a814cbb0c46d45271b7",
+  "processCount": 125,
+  "vectorMappedRecipesWithTechnicalChecks": 17,
+  "additionalCombinationInRun": 1,
+  "coreSix": [
+    {
+      "id": "editable-chart",
+      "path": "skills/vectorcraft-editable-chart/references/craft-steps.json",
+      "recipeSha256": "1f5753a6d6662d576461242c91105c7a6c39e87e2d2662b8974b654027e554ae",
+      "checks": {
+        "id": "editable-chart",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      }
+    },
+    {
+      "id": "icon-set",
+      "path": "skills/vectorcraft-icon-set/references/craft-steps.json",
+      "recipeSha256": "7e6ac9c12e6bb072bc6128b912f9f40dd2360291c6322e0f48e3ad863aa5f266",
+      "checks": {
+        "id": "icon-set",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      }
+    },
+    {
+      "id": "infographic",
+      "path": "skills/vectorcraft-infographic/references/craft-steps.json",
+      "recipeSha256": "0cf847828511c0fd4ba53a34df3d0748d0030f9c15ae55f39893f62a97953cf5",
+      "checks": {
+        "id": "infographic",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      }
+    },
+    {
+      "id": "logo-system",
+      "path": "skills/vectorcraft-logo-system/references/craft-steps.json",
+      "recipeSha256": "a9e24a1036f6f6ffa8cffe49e5fd56fd5ddeb1934ace442dc7274efa4643e83a",
+      "checks": {
+        "id": "logo-system",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      }
+    },
+    {
+      "id": "svg-cleanup",
+      "path": "skills/vectorcraft-svg-cleanup/references/craft-steps.json",
+      "recipeSha256": "b4d133481e4da96ce4c0562ecd4a5eb00b6a4e895b93f4c5da98c77604c5563e",
+      "checks": {
+        "id": "svg-cleanup",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      }
+    },
+    {
+      "id": "trace-artwork",
+      "path": "skills/vectorcraft-trace-artwork/references/craft-steps.json",
+      "recipeSha256": "11df336dfee36b906ed1992b88ea974a59a6a27f6265843a3e85d41e833f911c",
+      "checks": {
+        "id": "trace-artwork",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      }
+    }
+  ],
+  "downloadedOutputsVerified": 85,
+  "auxiliaryTests": 95,
+  "independentArtifactChecks": {
+    "traceTransparentCenterAndOutside": "PASS",
+    "traceOpaqueBlackBand": "PASS",
+    "svgBeforeAfterAndReopenedRgbaExact": "PASS",
+    "logoLiveWordmarkAndGroupedGeometry": "PASS",
+    "simplifyObservations": [
+      {
+        "after": 4,
+        "before": 16,
+        "ids": [
+          3
+        ]
+      },
+      {
+        "after": 8,
+        "before": 8,
+        "ids": [
+          5,
+          6
+        ]
+      }
+    ]
+  },
+  "fixes": [
+    "实心图标清除继承描边；最后16×16并居中48×48画板。",
+    "旧标志只编组镜像副本的缺陷独立复现；独立新图用不对称两半、显式镜像轴并共同编组，文字单独保留。",
+    "信息图未核实的数字标示示例。",
+    "图表保存重开后先选择实际图表ID，再查询/修改；验证数据与渲染随变化刷新。",
+    "SVG使用真实透明SVG输入检查，保留未授权文字；白色画板不等同于SVG背景对象。",
+    "描摹预设实际查询ignoreWhite=true；透明孔洞与外部区域以alpha核查，展开后当前对象不含Image。"
+  ],
+  "sourceProtection": "全部六份原生输入摘要保持；SVG与PNG源字节保持；除独立新标志文档外的五项保留无关KEEP CORE对象。",
+  "limits": {
+    "hostEditorSync": "NOT_TESTED_FOR_CORE_SIX",
+    "realBrandDesign": "NOT_TESTED",
+    "complexCurveAndPhotoTracing": "NOT_TESTED",
+    "svgOpaquePageBackground": "NOT_COVERED_BY_TRANSPARENT_FIXTURE",
+    "packageMcpScope": "既有候选包，不能证明本次技能源已在真实宿主加载",
+    "fullPluginCI": "implementation39005811428失败；documentation39005811464和architecture39005811695通过"
+  },
+  "coverage": {
+    "mappedRecipes": 201,
+    "limitedTechnicalPass": 164,
+    "partialPdfForm": 1,
+    "notExecuted": 36,
+    "additionalCombinationCases": 4
+  }
+}

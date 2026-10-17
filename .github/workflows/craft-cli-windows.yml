@@ -1,0 +1,123 @@
+name: Craft Windows CLI business roundtrip
+on:
+  push:
+    paths: ['scripts/ci/**', '.github/workflows/craft-cli-windows.yml']
+  pull_request:
+    paths: ['scripts/ci/**', '.github/workflows/craft-cli-windows.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  business:
+    runs-on: windows-2022
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        plugin: [cadcraft, designcraft, effectcraft, photocraft, figcraft, filmcraft, lightcraft, printcraft, vectorcraft, deckcraft, soundcraft, gridcraft, wordcraft]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'effectcraft'
+        with:
+          repository: full-aigc-skills/effectcraft-skills
+          ref: 462bb31dd47e13f082791f2e87aafcd706546369
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'filmcraft'
+        with:
+          repository: full-aigc-skills/filmcraft-skills
+          ref: 06c72a4035c165659fd7625b7441442fb2c9386d
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'printcraft'
+        with:
+          repository: full-aigc-skills/printcraft-skills
+          ref: 6e972545d691bfbb8e9bc69b67aafe7b20dae3d9
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'photocraft'
+        with:
+          repository: full-aigc-skills/photocraft-skills
+          ref: 35bde3ae96dd500f1a45e31b09cd23d91869dfb8
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'gridcraft'
+        with:
+          repository: full-aigc-skills/gridcraft-skills
+          ref: 6c5095305d1e6b52f149d60b0bc6d26983602e5d
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'wordcraft'
+        with:
+          repository: full-aigc-skills/wordcraft-skills
+          ref: 58af9510210099ddb2a14899e3ebd4274d676330
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'deckcraft'
+        with:
+          repository: full-aigc-skills/deckcraft-skills
+          ref: 49d40a6b73930f267aff0b6e93909635dc1092d4
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'soundcraft'
+        with:
+          repository: full-aigc-skills/soundcraft-skills
+          ref: d6e0cf408d071e7709a32686e0d993a43769cd96
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'lightcraft'
+        with:
+          repository: full-aigc-skills/lightcraft-skills
+          ref: 187c665a2b2d5eef5fae2eb4737c08e28ee7bc1f
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'cadcraft'
+        with:
+          repository: full-aigc-skills/cadcraft-skills
+          ref: 9cd1e3ccd2d6c2d14552cd3b8c1f7fc859fb9e96
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'vectorcraft'
+        with:
+          repository: full-aigc-skills/vectorcraft-skills
+          ref: 15cdd6d8190de74d9f5b4f68a9575a74a7160ba2
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'figcraft'
+        with:
+          repository: full-aigc-skills/figcraft-skills
+          ref: d004b17a2736bc7e24004b5a62675182ec2273d1
+          path: scene-source
+      - uses: actions/checkout@v4
+        if: matrix.plugin == 'designcraft'
+        with:
+          repository: full-aigc-skills/designcraft-skills
+          ref: 1d620a5c6c2abf01e69e33c4010d370b15585e84
+          path: scene-source
+      - name: Run native CLI business operations
+        env:
+          PYTHONUTF8: '1'
+        shell: pwsh
+        run: |
+          $sceneArgs = @()
+          if ("${{ matrix.plugin }}" -eq "effectcraft") { $sceneArgs = @("--playbook", "scene-source/skills") }
+          if ("${{ matrix.plugin }}" -eq "filmcraft") { $sceneArgs = @("--playbook", "scene-source/skills") }
+          if ("${{ matrix.plugin }}" -eq "printcraft") { $sceneArgs = @("--playbook", "scene-source/skills") }
+          if (@("photocraft", "gridcraft", "wordcraft", "deckcraft", "soundcraft", "lightcraft", "cadcraft", "vectorcraft", "figcraft", "designcraft") -contains "${{ matrix.plugin }}") { $sceneArgs = @("--playbook", "scene-source/skills/${{ matrix.plugin }}-scenario-playbooks/references/recipes.json") }
+          python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.plugin }} --output cli-result @sceneArgs
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-cli-${{ matrix.plugin }}
+          if-no-files-found: error
+          path: |
+            cli-result/result.json
+            cli-result/calls.json
+            cli-result/commands.json
+            cli-result/develop-controls.json
+            cli-result/中文 业务 workspace/**

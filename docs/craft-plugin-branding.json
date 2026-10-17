@@ -1,0 +1,93 @@
+[
+  {
+    "plugin": "cadcraft",
+    "displayName": "CADCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://cdn-zcode.z.ai/zcode/official-plugin/assets/cadcraft/icon.png",
+    "sha256": "522552718e50e2dd2f0abe2df922498aef713d2e73805d8c8dc9777333df8be0"
+  },
+  {
+    "plugin": "designcraft",
+    "displayName": "DesignCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://cdn-zcode.z.ai/zcode/official-plugin/assets/designcraft/icon.png",
+    "sha256": "e65ae6801cab8f218d116b661e4012f7ebea15474824c0d3cb4cbd9ef0805b47"
+  },
+  {
+    "plugin": "effectcraft",
+    "displayName": "EffectCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://raw.githubusercontent.com/storytold/effectcraft/5d1b818fa1150ebc09607cdae060cd406253563c/assets/app-icon/effectcraft-1024.png",
+    "sha256": "2f1eec28b8b2ae8397a5c3517a74d1771fdd521fdc9d673918be35834fd935ae"
+  },
+  {
+    "plugin": "photocraft",
+    "displayName": "PhotoCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://cdn-zcode.z.ai/zcode/official-plugin/assets/photocraft/icon.png",
+    "sha256": "94f110c86d6d64243310a6b0bcf1c35be0ec540e39560ffd41cacdd10a31acdc"
+  },
+  {
+    "plugin": "filmcraft",
+    "displayName": "FilmCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://raw.githubusercontent.com/storytold/filmcraft/61238bf8fc129077fe2b7982550303be49f55a93/assets/app-icon/filmcraft-1024.png",
+    "sha256": "c3c301e00618c2ae391815cfaf330488d45bcfc79584b9680c434e4cfb99e13f"
+  },
+  {
+    "plugin": "lightcraft",
+    "displayName": "LightCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://raw.githubusercontent.com/storytold/lightcraft/629e39380e296f588c64cd9c0053a8edc3528f36/assets/app-icon/lightcraft-1024.png",
+    "sha256": "75c6c4019851f04be8328da9f24557954fc03a302e7da203c229a4c39dbff0ce"
+  },
+  {
+    "plugin": "printcraft",
+    "displayName": "PdfCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://cdn-zcode.z.ai/zcode/official-plugin/assets/pdfcraft/icon.png",
+    "sha256": "19ea09fc4afa6f5011d15e6ff4102814fbcd50a8fa6681384b280e1f873b72d9"
+  },
+  {
+    "plugin": "vectorcraft",
+    "displayName": "VectorCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://cdn-zcode.z.ai/zcode/official-plugin/assets/vectorcraft/icon.png",
+    "sha256": "fcc18fe26422fce4d645ba7e40badb760468638920d38940c3f65e100fdbc9b8"
+  },
+  {
+    "plugin": "deckcraft",
+    "displayName": "DeckCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://cdn-zcode.z.ai/zcode/official-plugin/assets/deckcraft/icon.png",
+    "sha256": "2c1fe6f69085de7a989d50d5425c07a6fb7abab65a72ed979c1c500d93051e6a"
+  },
+  {
+    "plugin": "soundcraft",
+    "displayName": "SoundCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://cdn-zcode.z.ai/zcode/official-plugin/assets/soundcraft/icon.png",
+    "sha256": "f5780e9b7af3f1d624481e72cfe6e5cdd0367458f58c661538c1f67041800673"
+  },
+  {
+    "plugin": "gridcraft",
+    "displayName": "GridCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://cdn-zcode.z.ai/zcode/official-plugin/assets/gridcraft/icon.png",
+    "sha256": "ed2b93a238a06bf7e399776578fc27ede37d47d44f8b9e1058ab75aa547feda2"
+  },
+  {
+    "plugin": "wordcraft",
+    "displayName": "WordCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://cdn-zcode.z.ai/zcode/official-plugin/assets/wordcraft/icon.png",
+    "sha256": "f445b821783eb9f52685845f586afc8decc30a5590a9dfc42d36a5c39a2c4405"
+  },
+  {
+    "plugin": "figcraft",
+    "displayName": "FigCraft Use",
+    "logo": "./assets/official-logo.png",
+    "iconURL": "https://raw.githubusercontent.com/storytold/figcraft/v0.6.0/assets/app-icon/figcraft-256.png",
+    "sha256": "a4fef51224acba3f8069f119d4d9651be3c484c47c168600033b64d744f632bb"
+  }
+]

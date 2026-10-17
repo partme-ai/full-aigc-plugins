@@ -1,0 +1,180 @@
+{
+  "scope": "six specific fictional examples; new-document creation, not existing-file rewrite or host UI synchronization",
+  "runtime": "wordcraft-cli 0.7.0 Windows x64",
+  "sourceCommit": "d3cdeaa9c948f1f2de582d4637a4d373025da88f",
+  "ciRun": 38997182436,
+  "sourceUnitTests": 8,
+  "ciHelperTests": 54,
+  "standaloneSkillCopies": "6 source/plugin trees identical",
+  "schemaAndLinks": "PASS",
+  "previousFailures": [
+    {
+      "run": 38996777629,
+      "cause": "Windows Git CRLF changed skill content hashes",
+      "fix": "source/plugin .gitattributes enforces LF for relevant text files"
+    },
+    {
+      "run": 38996867555,
+      "cause": "text.insert newline is soft break, table cells collapsed into a row",
+      "fix": "create real paragraph per table row"
+    },
+    {
+      "run": 38996967006,
+      "cause": "select.text cannot find a match across multiple paragraphs",
+      "fix": "expand selection through only newly appended table paragraphs"
+    }
+  ],
+  "templates": [
+    {
+      "skill": "wordcraft-meeting-minutes",
+      "template": "meeting-minutes",
+      "nativeRoundtrip": "PASS",
+      "visualReview": "PASS",
+      "pdf": {
+        "id": "template-meeting-minutes",
+        "pages": 1,
+        "pageSize": [
+          0.0,
+          0.0,
+          595.2999877929688,
+          841.9000244140625
+        ],
+        "textChars": [
+          258
+        ],
+        "headerRows": [
+          true,
+          false,
+          false
+        ],
+        "containsReplacementGlyph": false
+      }
+    },
+    {
+      "skill": "wordcraft-weekly-report",
+      "template": "weekly-report",
+      "nativeRoundtrip": "PASS",
+      "visualReview": "PASS",
+      "pdf": {
+        "id": "template-weekly-report",
+        "pages": 1,
+        "pageSize": [
+          0.0,
+          0.0,
+          595.2999877929688,
+          841.9000244140625
+        ],
+        "textChars": [
+          258
+        ],
+        "headerRows": [
+          true,
+          false,
+          false
+        ],
+        "containsReplacementGlyph": false
+      }
+    },
+    {
+      "skill": "wordcraft-business-proposal",
+      "template": "business-proposal",
+      "nativeRoundtrip": "PASS",
+      "visualReview": "PASS",
+      "pdf": {
+        "id": "template-business-proposal",
+        "pages": 1,
+        "pageSize": [
+          0.0,
+          0.0,
+          595.2999877929688,
+          841.9000244140625
+        ],
+        "textChars": [
+          311
+        ],
+        "headerRows": [
+          true,
+          false,
+          false
+        ],
+        "containsReplacementGlyph": false
+      }
+    },
+    {
+      "skill": "wordcraft-requirements-document",
+      "template": "requirements-document",
+      "nativeRoundtrip": "PASS",
+      "visualReview": "PASS",
+      "pdf": {
+        "id": "template-requirements-document",
+        "pages": 1,
+        "pageSize": [
+          0.0,
+          0.0,
+          595.2999877929688,
+          841.9000244140625
+        ],
+        "textChars": [
+          302
+        ],
+        "headerRows": [
+          true,
+          false,
+          false
+        ],
+        "containsReplacementGlyph": false
+      }
+    },
+    {
+      "skill": "wordcraft-acceptance-report",
+      "template": "acceptance-report",
+      "nativeRoundtrip": "PASS",
+      "visualReview": "PASS",
+      "pdf": {
+        "id": "template-acceptance-report",
+        "pages": 1,
+        "pageSize": [
+          0.0,
+          0.0,
+          595.2999877929688,
+          841.9000244140625
+        ],
+        "textChars": [
+          313
+        ],
+        "headerRows": [
+          true,
+          false,
+          false
+        ],
+        "containsReplacementGlyph": false
+      }
+    },
+    {
+      "skill": "wordcraft-business-letter",
+      "template": "business-letter",
+      "nativeRoundtrip": "PASS",
+      "visualReview": "PASS",
+      "pdf": {
+        "id": "template-business-letter",
+        "pages": 1,
+        "pageSize": [
+          0.0,
+          0.0,
+          595.2999877929688,
+          841.9000244140625
+        ],
+        "textChars": [
+          283
+        ],
+        "headerRows": [
+          true,
+          false,
+          false
+        ],
+        "containsReplacementGlyph": false
+      }
+    }
+  ],
+  "hostAcceptance": "NOT_RUN"
+}

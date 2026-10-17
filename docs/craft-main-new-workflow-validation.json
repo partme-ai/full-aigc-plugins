@@ -1,0 +1,98 @@
+{
+  "status": "selective-business-regression-not-full-host-acceptance",
+  "reports": [
+    {
+      "app": "designcraft",
+      "run": 39008681404,
+      "sourceCommit": "fc36957fe05f38a6976df4734d52b9250cd54a2c",
+      "exeSha256": "fd7aef6536032c9219d12c0461bcef39bbc318959be2a8e7989d52add7f35d54",
+      "sceneSourceCommit": "b847fc8fea5942cfd56239505d156303791853fd",
+      "mainCapabilities": {
+        "svgNativeImport": "PASS",
+        "editablePptxGeometryAndText": "PASS",
+        "nativeReopen": "PASS",
+        "externalPowerPointRendering": "NOT_TESTED",
+        "installedHostSync": "NOT_TESTED"
+      }
+    },
+    {
+      "app": "printcraft",
+      "run": 39008588714,
+      "sourceCommit": "924c4da4ac2879ac9107c6c82e20ac6be5570f0a",
+      "exeSha256": "d3ec34a83ccc901cc1db22a36a39a7fbb8b795f2a46bc933e40441bd909fff4c",
+      "sceneSourceCommit": "4999ae4d873f9085dac1a9ee052fa318bfc191e2",
+      "mainCapabilities": {
+        "unicodeWordCountAndPageDedup": "PASS",
+        "untaggedContentFound": "PASS",
+        "sourceUnchanged": "PASS",
+        "fullAccessibilityCertification": "NOT_TESTED",
+        "installedHostSync": "NOT_TESTED"
+      },
+      "fixtureScope": "Three English words only; not Chinese segmentation certification"
+    },
+    {
+      "app": "lightcraft",
+      "run": 39010884426,
+      "sourceCommit": "f34c7a8a89e0d1bade0a6889185f40acecc84a9f",
+      "exeSha256": "5b2e2b2423029a0ef024007fcbdb71adb513de4f97af2398deb6bcd38f8ce316",
+      "sceneSourceCommit": "afdb7733f8f099be8564b0a2fd8dc5126b0b5cf0",
+      "mainCapabilities": {
+        "templateSaveApply": "PASS",
+        "restoredGridAndResolution": "PASS",
+        "twoPhotosOnePagePdf": "PASS",
+        "originalPhotosUnchanged": "PASS",
+        "thumbnailVisualReview": "NOT_TESTED",
+        "installedHostSync": "NOT_TESTED"
+      }
+    },
+    {
+      "app": "wordcraft",
+      "run": 39007814128,
+      "sourceCommit": "eae242176108d328c5dd81fbc10370c51ab90706",
+      "exeSha256": "db7e61a0f599e2750bbd1ed991421e56cf5f565f1ccc95cf66f2647bd60b63df",
+      "sceneSourceCommit": "5867872489054a82d0375ba349e41b50156acddd",
+      "mainCapabilities": {
+        "nativeHeaderFooter": "PASS",
+        "filteredSortedMerge": "PASS",
+        "savedNativePartsAndFreshProcessReadback": "PASS",
+        "installedHostSync": "NOT_TESTED"
+      }
+    },
+    {
+      "app": "deckcraft",
+      "run": 39010982169,
+      "sourceCommit": "1dc69720db64323370dda061226becb09ad79fd4",
+      "exeSha256": "aec949e6253ca3df96473042e7f736233fae32c3ff9ef6e67e870650b0e81cb9",
+      "sceneSourceCommit": "a7f5def83aab8de5a84a8e89f38922054b203f94",
+      "mainCapabilities": {
+        "actualStarterTemplate": "PASS",
+        "selectedBrandPagesInOrder": "PASS",
+        "destinationAndSourcePreserved": "PASS",
+        "editablePptxText": "PASS",
+        "externalPowerPointRendering": "NOT_TESTED",
+        "installedHostSync": "NOT_TESTED"
+      },
+      "complexFormattingPreservation": "NOT_TESTED"
+    },
+    {
+      "app": "filmcraft",
+      "run": 39011329666,
+      "sourceCommit": "09aaf9bf15d510eda1c413c0ccabb1d7e08b41c5",
+      "driverCommit": "dafacfaad1b9f4a906868af1204c1398015dcdd4",
+      "sceneSourceCommit": "254dd949baaf65ebfc49f100efd5bd7050fe0728",
+      "exeSha256": "1f5d733fe36307bee2df600010075333f75e0455f3a852e754b86143f92a31cf",
+      "mainCapabilities": {
+        "videoOnlyDeletion": "PASS",
+        "audioOnlyDeletion": "PASS",
+        "explicitTargetExpandsPartnerReproduced": "PASS",
+        "localSelectionKeepsGlobalLinking": "PASS",
+        "partnerAndOtherClipsUnchanged": "PASS",
+        "undoAndNativeReopen": "PASS",
+        "scope": "Built-in demo project model; no real media playback or J/L-cut quality certification",
+        "installedHostSync": "NOT_TESTED"
+      },
+      "scope": "Built-in demo AV project model, separate from 201 mapped workflows; no real-media auditory or installed-host proof"
+    }
+  ],
+  "photoHostReport": "craft-main-photo-host-validation.json"
+}

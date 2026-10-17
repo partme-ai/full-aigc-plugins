@@ -1,0 +1,1422 @@
+{
+  "checkedAtUtc": "2026-10-17T04:42:43.581074+00:00",
+  "scope": "13 official latest stable releases, pinned ancestry and complete non-truncated file-tree deltas checked; main-branch behavior not fully accepted",
+  "applications": [
+    {
+      "app": "cadcraft",
+      "officialRepository": "https://github.com/storytold/cadcraft",
+      "latestRelease": "v0.7.0",
+      "releaseUrl": "https://github.com/storytold/cadcraft/releases/tag/v0.7.0",
+      "releaseCommit": "fc4e98315a8d771b5ab832f0ade0b5e7b106df7f",
+      "releasePublishedAt": "2026-10-14T15:29:49Z",
+      "pluginBaselineCommit": "eaa97f0fd2a10d9aebd84cab7593d4fae268cd8f",
+      "skillBaselineCommit": "7a80c83f5e11dc86382585702ebab40065628e53",
+      "embeddedSourceCommit": "fc4e98315a8d771b5ab832f0ade0b5e7b106df7f",
+      "embeddedMode": "source-overlay",
+      "relativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "identical",
+        "releaseCommitsAhead": 0,
+        "embeddedCommitsAhead": 0
+      },
+      "defaultHead": "9b2308b138e90a01d28d46c84021a74b1ae7ef4a",
+      "mainCommitsAhead": 3,
+      "mainDiffTruncated": false,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "9b2308b138e90a01d28d46c84021a74b1ae7ef4a",
+          "subject": "Merge pull request #1382 from dylanmtaylor/ci/add-platform-checks",
+          "url": "https://github.com/storytold/cadcraft/commit/9b2308b138e90a01d28d46c84021a74b1ae7ef4a"
+        },
+        {
+          "sha": "69fc442ea63af419e11647d4d3df13c27c8d08fe",
+          "subject": "ci: add shared FreeBSD, Windows ARM64, and nix checks",
+          "url": "https://github.com/storytold/cadcraft/commit/69fc442ea63af419e11647d4d3df13c27c8d08fe"
+        },
+        {
+          "sha": "be3ce73895dadab5da06928ae6e86c835bd657ac",
+          "subject": "fix(engine): preserve rectangle area with ortho enabled (#1117)",
+          "url": "https://github.com/storytold/cadcraft/commit/be3ce73895dadab5da06928ae6e86c835bd657ac"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "cadcraft",
+        "treeTruncated": false,
+        "changedFiles": 7,
+        "changedRustImplementationFiles": 3,
+        "changedApiRelatedFiles": [
+          "crates/engine/src/cmd/array.rs",
+          "crates/engine/src/cmd/draw2.rs"
+        ],
+        "newImplementationFiles": []
+      }
+    },
+    {
+      "app": "designcraft",
+      "officialRepository": "https://github.com/storytold/designcraft",
+      "latestRelease": "v0.8.0",
+      "releaseUrl": "https://github.com/storytold/designcraft/releases/tag/v0.8.0",
+      "releaseCommit": "11a51d5b665aec8d6e675bd107a8a01514f10d00",
+      "releasePublishedAt": "2026-10-14T14:15:00Z",
+      "pluginBaselineCommit": "b5b1e674af6f286ba1877be61ab4d251b48960ba",
+      "skillBaselineCommit": "26fedd3cedec3714930624b55841852f552a0cf1",
+      "embeddedSourceCommit": "a184db6f8f2d11bc20832c70ac438576d3d2dd1e",
+      "embeddedMode": "source-overlay",
+      "relativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "behind",
+        "releaseCommitsAhead": 0,
+        "embeddedCommitsAhead": 418
+      },
+      "defaultHead": "fc36957fe05f38a6976df4734d52b9250cd54a2c",
+      "mainCommitsAhead": 1560,
+      "mainDiffTruncated": true,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "fc36957fe05f38a6976df4734d52b9250cd54a2c",
+          "subject": "Ignore the local outputs/ folder",
+          "url": "https://github.com/storytold/designcraft/commit/fc36957fe05f38a6976df4734d52b9250cd54a2c"
+        },
+        {
+          "sha": "61b1a3b08dc7e32666ca43268f5fc5cfa28e8522",
+          "subject": "Merge pull request #150 from skylartaylor/codex/fix-relink-eps",
+          "url": "https://github.com/storytold/designcraft/commit/61b1a3b08dc7e32666ca43268f5fc5cfa28e8522"
+        },
+        {
+          "sha": "b17efb2ddfcd3be55716e4dad66453960f45d394",
+          "subject": "Merge pull request #1164 from Hamza0101/fix/gpu-failed-fallback",
+          "url": "https://github.com/storytold/designcraft/commit/b17efb2ddfcd3be55716e4dad66453960f45d394"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "designcraft",
+        "treeTruncated": false,
+        "changedFiles": 338,
+        "changedRustImplementationFiles": 223,
+        "changedApiRelatedFiles": [
+          "apps/designcraft-cli/src/main.rs",
+          "apps/designcraft-cli/src/perf.rs",
+          "crates/engine/src/cmd/anchored.rs",
+          "crates/engine/src/cmd/anchors.rs",
+          "crates/engine/src/cmd/book.rs",
+          "crates/engine/src/cmd/color_theme.rs",
+          "crates/engine/src/cmd/datamerge/fill.rs",
+          "crates/engine/src/cmd/datamerge/mod.rs",
+          "crates/engine/src/cmd/edit.rs",
+          "crates/engine/src/cmd/editorial.rs",
+          "crates/engine/src/cmd/endnotes.rs",
+          "crates/engine/src/cmd/export.rs",
+          "crates/engine/src/cmd/file.rs",
+          "crates/engine/src/cmd/find.rs",
+          "crates/engine/src/cmd/flex.rs",
+          "crates/engine/src/cmd/fonts.rs",
+          "crates/engine/src/cmd/guides.rs",
+          "crates/engine/src/cmd/inspect.rs",
+          "crates/engine/src/cmd/interactive.rs",
+          "crates/engine/src/cmd/interchange.rs",
+          "crates/engine/src/cmd/layout.rs",
+          "crates/engine/src/cmd/linked.rs",
+          "crates/engine/src/cmd/links.rs",
+          "crates/engine/src/cmd/lists.rs",
+          "crates/engine/src/cmd/load_styles.rs",
+          "crates/engine/src/cmd/mathexpr.rs",
+          "crates/engine/src/cmd/media.rs",
+          "crates/engine/src/cmd/mod.rs",
+          "crates/engine/src/cmd/notes.rs",
+          "crates/engine/src/cmd/object.rs",
+          "crates/engine/src/cmd/overrides.rs",
+          "crates/engine/src/cmd/package.rs",
+          "crates/engine/src/cmd/params.rs",
+          "crates/engine/src/cmd/paste_svg.rs",
+          "crates/engine/src/cmd/path_type.rs",
+          "crates/engine/src/cmd/paths.rs",
+          "crates/engine/src/cmd/place_text.rs",
+          "crates/engine/src/cmd/preflight.rs",
+          "crates/engine/src/cmd/prefs.rs",
+          "crates/engine/src/cmd/print.rs",
+          "crates/engine/src/cmd/rulers.rs",
+          "crates/engine/src/cmd/scripts.rs",
+          "crates/engine/src/cmd/select.rs",
+          "crates/engine/src/cmd/strokes.rs",
+          "crates/engine/src/cmd/style.rs",
+          "crates/engine/src/cmd/table.rs",
+          "crates/engine/src/cmd/tabs.rs",
+          "crates/engine/src/cmd/text.rs",
+          "crates/engine/src/cmd/thread.rs",
+          "crates/engine/src/cmd/toc.rs",
+          "crates/engine/src/cmd/variables.rs",
+          "crates/engine/src/cmd/xml.rs",
+          "crates/engine/src/cmd/xref.rs",
+          "crates/mcp/src/backend.rs",
+          "crates/mcp/src/headless.rs",
+          "crates/mcp/src/server.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "apps/designcraft/src/apple_events.rs",
+          "apps/designcraft/src/gpu/backend.rs",
+          "apps/designcraft/src/gpu_limits.rs",
+          "apps/designcraft/src/mac_window.rs",
+          "crates/compose/src/grep.rs",
+          "crates/compose/src/grid.rs",
+          "crates/compose/src/kenten.rs",
+          "crates/compose/src/mojikumi.rs",
+          "crates/compose/src/optical.rs",
+          "crates/compose/src/outline.rs",
+          "crates/compose/src/parabox.rs",
+          "crates/compose/src/shatai.rs",
+          "crates/compose/src/wrap.rs",
+          "crates/doc/src/cjk_settings.rs",
+          "crates/doc/src/mojikumi.rs",
+          "crates/doc/src/ruby.rs",
+          "crates/doc/src/swatch_refs.rs",
+          "crates/engine/src/autosize.rs",
+          "crates/engine/src/cmd/color_theme.rs",
+          "crates/engine/src/cmd/load_styles.rs",
+          "crates/engine/src/cmd/params.rs",
+          "crates/engine/src/cmd/paste_svg.rs",
+          "crates/engine/src/cmd/rulers.rs",
+          "crates/engine/src/cmd/tabs.rs",
+          "crates/fonts/src/mac_fonts.rs",
+          "crates/idml/src/ruby.rs",
+          "crates/images/src/colour.rs",
+          "crates/images/src/jpeg.rs",
+          "crates/images/src/tone.rs",
+          "crates/render/src/colorize.rs",
+          "crates/render/src/grid.rs",
+          "crates/render/src/pdf_bounds.rs",
+          "crates/tools/src/corners.rs",
+          "crates/ui-egui/src/dialogs/options.rs",
+          "crates/ui-egui/src/dialogs/style_cjk.rs",
+          "crates/ui-egui/src/effects_dialog.rs",
+          "crates/ui-egui/src/i18n/cs.rs",
+          "crates/ui-egui/src/i18n/fr.rs",
+          "crates/ui-egui/src/i18n/pl.rs",
+          "crates/ui-egui/src/i18n/ru.rs",
+          "crates/ui-egui/src/new_document.rs",
+          "crates/ui-egui/src/object_control.rs",
+          "crates/ui-egui/src/panels/cell_stroke.rs",
+          "crates/ui-egui/src/panels/font_menu.rs",
+          "crates/ui-egui/src/panels/tabs.rs",
+          "crates/ui-egui/src/section_options.rs",
+          "crates/ui-egui/src/title_bar.rs"
+        ]
+      }
+    },
+    {
+      "app": "effectcraft",
+      "officialRepository": "https://github.com/storytold/effectcraft",
+      "latestRelease": "v0.10.0",
+      "releaseUrl": "https://github.com/storytold/effectcraft/releases/tag/v0.10.0",
+      "releaseCommit": "05955c08b4fd025f1a09882df72e6dbff1a8148a",
+      "releasePublishedAt": "2026-10-14T16:16:19Z",
+      "pluginBaselineCommit": "71917659e858b3bda302274cb5674e3f1cf2bdb0",
+      "skillBaselineCommit": "462bb31dd47e13f082791f2e87aafcd706546369",
+      "embeddedSourceCommit": null,
+      "embeddedMode": "official-web-api",
+      "relativeToRelease": {
+        "status": "OFFICIAL_WEB_RELEASE"
+      },
+      "defaultHead": "8f02f52a44a4b1ea807d8824b92301b96f896a06",
+      "mainCommitsAhead": 177,
+      "mainDiffTruncated": false,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "8f02f52a44a4b1ea807d8824b92301b96f896a06",
+          "subject": "Merge pull request #1478 from midasmatterhorn/fix/cff-endchar-width-polarity",
+          "url": "https://github.com/storytold/effectcraft/commit/8f02f52a44a4b1ea807d8824b92301b96f896a06"
+        },
+        {
+          "sha": "d676de9ba455a0bb23dd870e086a5c8083f2d7e5",
+          "subject": "Merge pull request #1565 from midasmatterhorn/fix/r4-smask-bpc-shift",
+          "url": "https://github.com/storytold/effectcraft/commit/d676de9ba455a0bb23dd870e086a5c8083f2d7e5"
+        },
+        {
+          "sha": "b9fddd3204c273322a81f87430e0c758791e75db",
+          "subject": "Merge pull request #1640 from krinry/fix/1611-layer-styles-context-menu",
+          "url": "https://github.com/storytold/effectcraft/commit/b9fddd3204c273322a81f87430e0c758791e75db"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "effectcraft",
+        "treeTruncated": false,
+        "changedFiles": 147,
+        "changedRustImplementationFiles": 77,
+        "changedApiRelatedFiles": [
+          "apps/effectcraft-cli/src/main.rs",
+          "apps/effectcraft-cli/src/template.rs",
+          "crates/automation/src/bridge.rs",
+          "crates/engine/src/commands/app_more.rs",
+          "crates/engine/src/commands/edit.rs",
+          "crates/engine/src/commands/file.rs",
+          "crates/engine/src/commands/file_more.rs",
+          "crates/engine/src/commands/layer.rs",
+          "crates/engine/src/commands/layer_menu.rs",
+          "crates/engine/src/commands/mask.rs",
+          "crates/engine/src/commands/relink_moved.rs",
+          "crates/engine/src/commands/text_anim.rs"
+        ],
+        "newImplementationFiles": [
+          "crates/pdf/src/read.rs",
+          "crates/svg/src/bounds.rs",
+          "xtask/src/pdf_deps.rs"
+        ]
+      }
+    },
+    {
+      "app": "photocraft",
+      "officialRepository": "https://github.com/storytold/photocraft",
+      "latestRelease": "v0.9.0",
+      "releaseUrl": "https://github.com/storytold/photocraft/releases/tag/v0.9.0",
+      "releaseCommit": "c699e3cda69f4852b43c0b191ab0091aaeff9d6a",
+      "releasePublishedAt": "2026-10-14T16:36:26Z",
+      "pluginBaselineCommit": "ad3c77a65ec7bc3bc4ce8265b7f2d5f67a39d543",
+      "skillBaselineCommit": "35bde3ae96dd500f1a45e31b09cd23d91869dfb8",
+      "embeddedSourceCommit": "3cb3580a46ba080d7ce4a037efc0a921724bd939",
+      "embeddedMode": "source-overlay",
+      "relativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "behind",
+        "releaseCommitsAhead": 0,
+        "embeddedCommitsAhead": 205
+      },
+      "defaultHead": "5f65579ecb44047c2a619036c18ff273202e1389",
+      "mainCommitsAhead": 70,
+      "mainDiffTruncated": false,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "5f65579ecb44047c2a619036c18ff273202e1389",
+          "subject": "perf(panorama): Photomerge 4× faster, bit for bit the same (#6489)",
+          "url": "https://github.com/storytold/photocraft/commit/5f65579ecb44047c2a619036c18ff273202e1389"
+        },
+        {
+          "sha": "bd3b5d9192e6a0a5fa70d3f780a8abe19679328d",
+          "subject": "fix(automation): refuse a group/world-readable control-token file (#4966) (#5459)",
+          "url": "https://github.com/storytold/photocraft/commit/bd3b5d9192e6a0a5fa70d3f780a8abe19679328d"
+        },
+        {
+          "sha": "fbcb70b317337d17614c94db08250de280793a34",
+          "subject": "Save: ask before overwriting a file another app changed (#6596) (#6652)",
+          "url": "https://github.com/storytold/photocraft/commit/fbcb70b317337d17614c94db08250de280793a34"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "photocraft",
+        "treeTruncated": false,
+        "changedFiles": 166,
+        "changedRustImplementationFiles": 82,
+        "changedApiRelatedFiles": [
+          "apps/photocraft-cli/src/lib.rs",
+          "crates/automation/src/security.rs",
+          "crates/engine/src/commands.rs"
+        ],
+        "newImplementationFiles": [
+          "apps/photocraft/src/portal_save.rs",
+          "apps/photocraft/src/single_instance.rs",
+          "crates/algo/src/faces.rs",
+          "crates/algo/src/faces/cnn.rs",
+          "crates/codecs/src/codecs/tga.rs",
+          "crates/engine/src/face_cmds.rs",
+          "crates/ui-egui/src/bidi_text.rs",
+          "crates/ui-egui/src/disk_change_prompt.rs"
+        ]
+      }
+    },
+    {
+      "app": "figcraft",
+      "officialRepository": "https://github.com/storytold/figcraft",
+      "latestRelease": "v0.6.0",
+      "releaseUrl": "https://github.com/storytold/figcraft/releases/tag/v0.6.0",
+      "releaseCommit": "833f0d2c27f0acbae5394848930ae531fc89c724",
+      "releasePublishedAt": "2026-10-14T14:26:24Z",
+      "pluginBaselineCommit": "7f03d161bfc6d715136c137d097a2da28c4b45cc",
+      "skillBaselineCommit": "f515ef8b284f98e33ba45f330fb44574986b464a",
+      "embeddedSourceCommit": "833f0d2c27f0acbae5394848930ae531fc89c724",
+      "embeddedMode": "source-overlay",
+      "relativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "identical",
+        "releaseCommitsAhead": 0,
+        "embeddedCommitsAhead": 0
+      },
+      "defaultHead": "d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08",
+      "mainCommitsAhead": 435,
+      "mainDiffTruncated": true,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08",
+          "subject": "ci: standardize FreeBSD workflow on shared FreeBSD 15.1 action (#640)",
+          "url": "https://github.com/storytold/figcraft/commit/d1d8c3f652cea20bee02bdbc3ded9a2f5362ba08"
+        },
+        {
+          "sha": "23bdebd97336714ded6e826dfa8d468c9ee20e34",
+          "subject": "Merge pull request #176 from dylanmtaylor/use-craft-common-actions",
+          "url": "https://github.com/storytold/figcraft/commit/23bdebd97336714ded6e826dfa8d468c9ee20e34"
+        },
+        {
+          "sha": "d9584410af9f93cb0325ed84fbfdf173ac4f037d",
+          "subject": "ci: retain FigCraft package and metadata checks",
+          "url": "https://github.com/storytold/figcraft/commit/d9584410af9f93cb0325ed84fbfdf173ac4f037d"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "figcraft",
+        "treeTruncated": false,
+        "changedFiles": 264,
+        "changedRustImplementationFiles": 103,
+        "changedApiRelatedFiles": [
+          "apps/figcraft-cli/src/files.rs",
+          "apps/figcraft-cli/src/perf.rs",
+          "crates/engine/src/cmd/arrange.rs",
+          "crates/engine/src/cmd/create.rs",
+          "crates/engine/src/cmd/edit.rs",
+          "crates/engine/src/cmd/file.rs",
+          "crates/engine/src/cmd/page.rs",
+          "crates/engine/src/cmd/props.rs",
+          "crates/engine/src/cmd/structure.rs",
+          "crates/engine/src/cmd/styles.rs",
+          "crates/engine/src/cmd/variables.rs",
+          "crates/engine/src/cmd/view.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "apps/figcraft/src/apple_events.rs",
+          "apps/figcraft/src/startup.rs",
+          "crates/color/src/named.rs",
+          "crates/text/src/color.rs",
+          "crates/ui-egui/src/pending_open.rs"
+        ]
+      }
+    },
+    {
+      "app": "filmcraft",
+      "officialRepository": "https://github.com/storytold/filmcraft",
+      "latestRelease": "v0.8.0",
+      "releaseUrl": "https://github.com/storytold/filmcraft/releases/tag/v0.8.0",
+      "releaseCommit": "f03e21556d8e3a7155b91892d958debd5255d7af",
+      "releasePublishedAt": "2026-10-14T16:28:45Z",
+      "pluginBaselineCommit": "5ec25a2f2baa332fe22a4207d1c3a636d414e61d",
+      "skillBaselineCommit": "53db6c13f7753d13a7ced8eaa2d45bce2c49328d",
+      "embeddedSourceCommit": null,
+      "embeddedMode": "official-web-api",
+      "relativeToRelease": {
+        "status": "OFFICIAL_WEB_RELEASE"
+      },
+      "defaultHead": "09aaf9bf15d510eda1c413c0ccabb1d7e08b41c5",
+      "mainCommitsAhead": 7,
+      "mainDiffTruncated": false,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "09aaf9bf15d510eda1c413c0ccabb1d7e08b41c5",
+          "subject": "ci: standardize FreeBSD workflow on shared FreeBSD 15.1 action (#2158)",
+          "url": "https://github.com/storytold/filmcraft/commit/09aaf9bf15d510eda1c413c0ccabb1d7e08b41c5"
+        },
+        {
+          "sha": "c2f65871e998cca4700a74dbcf9348cab51fb06b",
+          "subject": "Merge pull request #2124 from dylanmtaylor/ci/shared-freebsd-workflow",
+          "url": "https://github.com/storytold/filmcraft/commit/c2f65871e998cca4700a74dbcf9348cab51fb06b"
+        },
+        {
+          "sha": "df97b85f5921f332ccc49a573455e82137f143ee",
+          "subject": "ci: delegate FreeBSD workflow to craft-common-actions and add nix check",
+          "url": "https://github.com/storytold/filmcraft/commit/df97b85f5921f332ccc49a573455e82137f143ee"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "filmcraft",
+        "treeTruncated": false,
+        "changedFiles": 20,
+        "changedRustImplementationFiles": 8,
+        "changedApiRelatedFiles": [
+          "crates/engine/src/commands.rs"
+        ],
+        "newImplementationFiles": []
+      }
+    },
+    {
+      "app": "lightcraft",
+      "officialRepository": "https://github.com/storytold/lightcraft",
+      "latestRelease": "v0.8.0",
+      "releaseUrl": "https://github.com/storytold/lightcraft/releases/tag/v0.8.0",
+      "releaseCommit": "16dbb90499d3c63a6582fcbba1b2550a6e2da032",
+      "releasePublishedAt": "2026-10-14T15:30:00Z",
+      "pluginBaselineCommit": "28b30a30c897c4ca43c1803e212eb7fe511f156d",
+      "skillBaselineCommit": "0d2814ea67f7d3909cef34c29bd119920147c7ec",
+      "embeddedSourceCommit": null,
+      "embeddedMode": "official-web-api",
+      "relativeToRelease": {
+        "status": "OFFICIAL_WEB_RELEASE"
+      },
+      "defaultHead": "f34c7a8a89e0d1bade0a6889185f40acecc84a9f",
+      "mainCommitsAhead": 561,
+      "mainDiffTruncated": true,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "f34c7a8a89e0d1bade0a6889185f40acecc84a9f",
+          "subject": "Merge pull request #967 from dylanmtaylor/refactor/dry-github-actions",
+          "url": "https://github.com/storytold/lightcraft/commit/f34c7a8a89e0d1bade0a6889185f40acecc84a9f"
+        },
+        {
+          "sha": "3885b61e6b35c1dbcc8d08f411d9e1273ead4ed1",
+          "subject": "ci: retain LightCraft installer and package checks",
+          "url": "https://github.com/storytold/lightcraft/commit/3885b61e6b35c1dbcc8d08f411d9e1273ead4ed1"
+        },
+        {
+          "sha": "0802892132ce7106037d71c65b0b6885b6ac6aa9",
+          "subject": "ci: refactor workflows to use storytold/craft-common-actions",
+          "url": "https://github.com/storytold/lightcraft/commit/0802892132ce7106037d71c65b0b6885b6ac6aa9"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "lightcraft",
+        "treeTruncated": false,
+        "changedFiles": 493,
+        "changedRustImplementationFiles": 248,
+        "changedApiRelatedFiles": [
+          "apps/lightcraft-cli/src/main.rs",
+          "crates/engine/src/cmd/browse.rs",
+          "crates/engine/src/cmd/color.rs",
+          "crates/engine/src/cmd/convert.rs",
+          "crates/engine/src/cmd/cull.rs",
+          "crates/engine/src/cmd/curves.rs",
+          "crates/engine/src/cmd/develop.rs",
+          "crates/engine/src/cmd/face_detect.rs",
+          "crates/engine/src/cmd/face_models.rs",
+          "crates/engine/src/cmd/face_recognize.rs",
+          "crates/engine/src/cmd/focus.rs",
+          "crates/engine/src/cmd/geocode.rs",
+          "crates/engine/src/cmd/keywords.rs",
+          "crates/engine/src/cmd/library.rs",
+          "crates/engine/src/cmd/lut_profiles.rs",
+          "crates/engine/src/cmd/manage.rs",
+          "crates/engine/src/cmd/mask_effect_files.rs",
+          "crates/engine/src/cmd/mask_effects.rs",
+          "crates/engine/src/cmd/masks.rs",
+          "crates/engine/src/cmd/merge.rs",
+          "crates/engine/src/cmd/mod.rs",
+          "crates/engine/src/cmd/organize.rs",
+          "crates/engine/src/cmd/prefs.rs",
+          "crates/engine/src/cmd/preset_files.rs",
+          "crates/engine/src/cmd/previews.rs",
+          "crates/engine/src/cmd/print.rs",
+          "crates/engine/src/cmd/recheck.rs",
+          "crates/engine/src/cmd/slideshow.rs",
+          "crates/engine/src/cmd/xmp.rs",
+          "crates/mcp/src/backend.rs",
+          "crates/mcp/src/headless.rs",
+          "crates/mcp/src/lib.rs",
+          "crates/mcp/src/progress.rs",
+          "crates/mcp/src/server.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "crates/catalog/src/index.rs",
+          "crates/catalog/src/tally.rs",
+          "crates/codecs/src/print.rs",
+          "crates/codecs/src/video.rs",
+          "crates/engine/examples/raw_frame.rs",
+          "crates/engine/src/cmd/focus.rs",
+          "crates/engine/src/cmd/mask_effect_files.rs",
+          "crates/engine/src/cmd/mask_effects.rs",
+          "crates/engine/src/cmd/print.rs",
+          "crates/engine/src/cmd/recheck.rs",
+          "crates/engine/src/cmd/slideshow.rs",
+          "crates/engine/src/focus_scan.rs",
+          "crates/engine/src/pdf.rs",
+          "crates/engine/src/print/compose.rs",
+          "crates/engine/src/print/layout.rs",
+          "crates/engine/src/print/mod.rs",
+          "crates/engine/src/print/output.rs",
+          "crates/engine/src/print/template.rs",
+          "crates/engine/src/print_color.rs",
+          "crates/engine/src/print_pdf.rs",
+          "crates/engine/src/profile_refs.rs",
+          "crates/engine/src/slide.rs",
+          "crates/engine/src/slide_overlay.rs",
+          "crates/engine/src/slide_template.rs",
+          "crates/engine/src/slide_title.rs",
+          "crates/engine/src/slideshow.rs",
+          "crates/engine/src/slideshow_export.rs",
+          "crates/engine/src/text.rs",
+          "crates/faces/src/net/program.rs",
+          "crates/gpu/src/faces.rs",
+          "crates/meta/src/focus.rs",
+          "crates/meta/src/focus_read.rs",
+          "crates/raster/src/morph.rs",
+          "crates/raw/src/lens_metadata.rs",
+          "crates/raw/src/vendor/arw_lens_rm6.rs",
+          "crates/raw/src/vendor/erf.rs",
+          "crates/raw/src/vendor/mef.rs",
+          "crates/raw/src/wb_estimate.rs",
+          "crates/slideshow/src/compose.rs",
+          "crates/slideshow/src/lib.rs",
+          "crates/slideshow/src/settings.rs",
+          "crates/ui-egui/src/button.rs",
+          "crates/ui-egui/src/canvas_keys.rs",
+          "crates/ui-egui/src/focus_scan.rs",
+          "crates/ui-egui/src/panels/empty_library.rs",
+          "crates/ui-egui/src/panels/layout_overlay.rs",
+          "crates/ui-egui/src/panels/mask_effects.rs",
+          "crates/ui-egui/src/panels/slide_layout.rs",
+          "crates/ui-egui/src/panels/slide_overlays.rs",
+          "crates/ui-egui/src/panels/slide_templates.rs",
+          "crates/ui-egui/src/panels/slide_titles.rs",
+          "crates/ui-egui/src/panels/slideshow.rs",
+          "crates/ui-egui/src/print_view.rs",
+          "crates/ui-egui/src/recheck.rs",
+          "crates/ui-egui/src/slideshow_export.rs",
+          "crates/ui-egui/src/window_place.rs",
+          "xtask/src/ci_report.rs"
+        ]
+      }
+    },
+    {
+      "app": "printcraft",
+      "officialRepository": "https://github.com/storytold/pdfcraft",
+      "latestRelease": "v0.8.0",
+      "releaseUrl": "https://github.com/storytold/pdfcraft/releases/tag/v0.8.0",
+      "releaseCommit": "9931329b9fae0b05373b4dc3ac7c58541f0891a4",
+      "releasePublishedAt": "2026-10-14T15:21:59Z",
+      "pluginBaselineCommit": "fb063381cdb867f8ea962d7b0b08992f6cc38119",
+      "skillBaselineCommit": "6e972545d691bfbb8e9bc69b67aafe7b20dae3d9",
+      "embeddedSourceCommit": "5fdd820bdb1ab9705bd2c5d956d32d195140c7d8",
+      "embeddedMode": "source-overlay",
+      "relativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "behind",
+        "releaseCommitsAhead": 0,
+        "embeddedCommitsAhead": 212
+      },
+      "defaultHead": "924c4da4ac2879ac9107c6c82e20ac6be5570f0a",
+      "mainCommitsAhead": 8,
+      "mainDiffTruncated": false,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "924c4da4ac2879ac9107c6c82e20ac6be5570f0a",
+          "subject": "Merge pull request #2698 from mtlcl410/fix/audit-one-word-2662",
+          "url": "https://github.com/storytold/pdfcraft/commit/924c4da4ac2879ac9107c6c82e20ac6be5570f0a"
+        },
+        {
+          "sha": "9e5b70d1c231d7db558e278a2622b519ca063494",
+          "subject": "Merge pull request #2067 from storytold/test/pdf-open-and-fixture-regressions",
+          "url": "https://github.com/storytold/pdfcraft/commit/9e5b70d1c231d7db558e278a2622b519ca063494"
+        },
+        {
+          "sha": "361d0e6ef825a81f0573c360efa228df354a82bf",
+          "subject": "test: refresh regression coverage after CI workflow update",
+          "url": "https://github.com/storytold/pdfcraft/commit/361d0e6ef825a81f0573c360efa228df354a82bf"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "printcraft",
+        "treeTruncated": false,
+        "changedFiles": 8,
+        "changedRustImplementationFiles": 1,
+        "changedApiRelatedFiles": [],
+        "newImplementationFiles": []
+      }
+    },
+    {
+      "app": "vectorcraft",
+      "officialRepository": "https://github.com/storytold/vectorcraft",
+      "latestRelease": "v0.12.0",
+      "releaseUrl": "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0",
+      "releaseCommit": "8bc65329286dc1b84aa392997bb205613c3e96cb",
+      "releasePublishedAt": "2026-10-16T12:26:40Z",
+      "pluginBaselineCommit": "a9df057dedec090059861aa54510f401dec7b4a5",
+      "skillBaselineCommit": "d54a119cbb45e703900a97629ee1a3f47f4c7048",
+      "embeddedSourceCommit": "8bc65329286dc1b84aa392997bb205613c3e96cb",
+      "embeddedMode": "source-overlay",
+      "relativeToRelease": {
+        "status": "identical",
+        "releaseCommitsAhead": 0,
+        "embeddedCommitsAhead": 0
+      },
+      "defaultHead": "8bc65329286dc1b84aa392997bb205613c3e96cb",
+      "mainCommitsAhead": 0,
+      "mainDiffTruncated": false,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "8bc65329286dc1b84aa392997bb205613c3e96cb",
+          "subject": "Merge pull request #2399 from storytold/pr/release-0.12.0",
+          "url": "https://github.com/storytold/vectorcraft/commit/8bc65329286dc1b84aa392997bb205613c3e96cb"
+        },
+        {
+          "sha": "4791c88809cc3957171d5d3ef8440ae79e1506f4",
+          "subject": "Release: VectorCraft v0.12.0",
+          "url": "https://github.com/storytold/vectorcraft/commit/4791c88809cc3957171d5d3ef8440ae79e1506f4"
+        },
+        {
+          "sha": "06b33b0d2d49e1d36b8f864e56fd89790a6a804a",
+          "subject": "Merge pull request #2385 from dotCooCoo/fix/hidden-widgets-ignore-clicks",
+          "url": "https://github.com/storytold/vectorcraft/commit/06b33b0d2d49e1d36b8f864e56fd89790a6a804a"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "vectorcraft",
+        "treeTruncated": false,
+        "changedFiles": 198,
+        "changedRustImplementationFiles": 96,
+        "changedApiRelatedFiles": [
+          "crates/engine/src/cmd/assets.rs",
+          "crates/engine/src/cmd/brushsym.rs",
+          "crates/engine/src/cmd/docmenu.rs",
+          "crates/engine/src/cmd/draw2.rs",
+          "crates/engine/src/cmd/edit.rs",
+          "crates/engine/src/cmd/fileio/export.rs",
+          "crates/engine/src/cmd/fileio/mod.rs",
+          "crates/engine/src/cmd/fileio/naming.rs",
+          "crates/engine/src/cmd/fileio/screens.rs",
+          "crates/engine/src/cmd/fonts.rs",
+          "crates/engine/src/cmd/layer.rs",
+          "crates/engine/src/cmd/object.rs",
+          "crates/engine/src/cmd/panelcmds.rs",
+          "crates/engine/src/cmd/prefscmds.rs",
+          "crates/engine/src/cmd/print.rs",
+          "crates/engine/src/cmd/shaper.rs",
+          "crates/engine/src/cmd/stroke.rs",
+          "crates/engine/src/cmd/textedit.rs",
+          "crates/engine/src/cmd/typecmd.rs",
+          "crates/engine/src/cmd/typemenu.rs",
+          "crates/engine/src/cmd/variablecmds.rs",
+          "crates/mcp/src/headless.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "crates/doc/src/symbol_export_type.rs",
+          "crates/effects/src/pixel/sketch.rs",
+          "crates/engine/src/cmd/fileio/naming.rs",
+          "crates/tools/src/pie.rs",
+          "crates/tools/src/shaperwidget.rs",
+          "crates/ui-egui/src/dialogs/hyphenation.rs"
+        ],
+        "scope": "original embedded baseline to latest head; not current upgraded0.12 to itself"
+      },
+      "baselineEmbeddedSourceCommit": "deff5b8f4295b18e6ae3d3c3021bc5a9eb48db02",
+      "baselineRelativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "ahead",
+        "releaseCommitsAhead": 122,
+        "embeddedCommitsAhead": 0
+      },
+      "baselineMainCommitsAhead": 122
+    },
+    {
+      "app": "deckcraft",
+      "officialRepository": "https://github.com/storytold/deckcraft",
+      "latestRelease": "v0.7.0",
+      "releaseUrl": "https://github.com/storytold/deckcraft/releases/tag/v0.7.0",
+      "releaseCommit": "d78e657e4cb1e490ceb5445785c052d9cf5ad963",
+      "releasePublishedAt": "2026-10-14T15:04:51Z",
+      "pluginBaselineCommit": "1f057ae5757242aa6841b75d26331ef7033fe895",
+      "skillBaselineCommit": "97470e22d49298e34423c5ea2a62d1c56726b6ed",
+      "embeddedSourceCommit": "d78e657e4cb1e490ceb5445785c052d9cf5ad963",
+      "embeddedMode": "source-overlay",
+      "relativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "identical",
+        "releaseCommitsAhead": 0,
+        "embeddedCommitsAhead": 0
+      },
+      "defaultHead": "1dc69720db64323370dda061226becb09ad79fd4",
+      "mainCommitsAhead": 721,
+      "mainDiffTruncated": true,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "1dc69720db64323370dda061226becb09ad79fd4",
+          "subject": "Merge pull request #866 from Silvertree2010/fix/h1968-table-insertrowbelow-insertcolum",
+          "url": "https://github.com/storytold/deckcraft/commit/1dc69720db64323370dda061226becb09ad79fd4"
+        },
+        {
+          "sha": "1b64de3499a849d6504bfc230cfe6de79159acd1",
+          "subject": "Merge pull request #816 from albayazid/fix/outline-tables-814",
+          "url": "https://github.com/storytold/deckcraft/commit/1b64de3499a849d6504bfc230cfe6de79159acd1"
+        },
+        {
+          "sha": "ad6be08603bd32ef04f2b5e402512886a7f1be2b",
+          "subject": "Merge pull request #798 from Silvertree2010/fix/h1435-paste-from-html-text-inside-b-st",
+          "url": "https://github.com/storytold/deckcraft/commit/ad6be08603bd32ef04f2b5e402512886a7f1be2b"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "deckcraft",
+        "treeTruncated": false,
+        "changedFiles": 316,
+        "changedRustImplementationFiles": 200,
+        "changedApiRelatedFiles": [
+          "apps/deckcraft-cli/src/automation_args.rs",
+          "apps/deckcraft-cli/src/help.rs",
+          "apps/deckcraft-cli/src/main.rs",
+          "crates/engine/src/cmd/animation.rs",
+          "crates/engine/src/cmd/arrange.rs",
+          "crates/engine/src/cmd/artistic.rs",
+          "crates/engine/src/cmd/background.rs",
+          "crates/engine/src/cmd/compress.rs",
+          "crates/engine/src/cmd/design.rs",
+          "crates/engine/src/cmd/edit.rs",
+          "crates/engine/src/cmd/file.rs",
+          "crates/engine/src/cmd/find.rs",
+          "crates/engine/src/cmd/format.rs",
+          "crates/engine/src/cmd/ideas.rs",
+          "crates/engine/src/cmd/insert.rs",
+          "crates/engine/src/cmd/inspect.rs",
+          "crates/engine/src/cmd/media.rs",
+          "crates/engine/src/cmd/merge.rs",
+          "crates/engine/src/cmd/mod.rs",
+          "crates/engine/src/cmd/picture_style.rs",
+          "crates/engine/src/cmd/points.rs",
+          "crates/engine/src/cmd/recolor.rs",
+          "crates/engine/src/cmd/reuse.rs",
+          "crates/engine/src/cmd/review.rs",
+          "crates/engine/src/cmd/richclip.rs",
+          "crates/engine/src/cmd/selection.rs",
+          "crates/engine/src/cmd/shape.rs",
+          "crates/engine/src/cmd/slide.rs",
+          "crates/engine/src/cmd/smartart.rs",
+          "crates/engine/src/cmd/table.rs",
+          "crates/engine/src/cmd/text.rs",
+          "crates/engine/src/cmd/three_d.rs",
+          "crates/engine/src/cmd/transition.rs",
+          "crates/engine/src/cmd/zoom.rs",
+          "crates/mcp/src/backend.rs",
+          "crates/mcp/src/headless.rs",
+          "crates/mcp/src/server.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "apps/deckcraft-cli/src/automation_args.rs",
+          "apps/deckcraft-cli/src/help.rs",
+          "apps/deckcraft/src/display.rs",
+          "apps/deckcraft/src/pasteboard.rs",
+          "crates/anim/src/interact.rs",
+          "crates/bitstream/src/budget.rs",
+          "crates/engine/src/cmd/artistic.rs",
+          "crates/engine/src/cmd/background.rs",
+          "crates/engine/src/cmd/compress.rs",
+          "crates/engine/src/cmd/find.rs",
+          "crates/engine/src/cmd/ideas.rs",
+          "crates/engine/src/cmd/picture_style.rs",
+          "crates/engine/src/cmd/points.rs",
+          "crates/engine/src/cmd/recolor.rs",
+          "crates/engine/src/cmd/reuse.rs",
+          "crates/engine/src/cmd/richclip.rs",
+          "crates/engine/src/cmd/smartart.rs",
+          "crates/engine/src/cmd/three_d.rs",
+          "crates/engine/src/cmd/zoom.rs",
+          "crates/engine/src/compare.rs",
+          "crates/engine/src/drawtable.rs",
+          "crates/engine/src/file_access.rs",
+          "crates/engine/src/gif_export.rs",
+          "crates/engine/src/icon_data.rs",
+          "crates/engine/src/icons.rs",
+          "crates/engine/src/inkshape.rs",
+          "crates/engine/src/io.rs",
+          "crates/engine/src/media_refs.rs",
+          "crates/engine/src/sounds.rs",
+          "crates/engine/src/spell.rs",
+          "crates/engine/src/templates.rs",
+          "crates/engine/src/thesaurus.rs",
+          "crates/format/src/finite.rs",
+          "crates/geom/src/squircle.rs",
+          "crates/media/src/mp4guard.rs",
+          "crates/metafile/src/clip.rs",
+          "crates/metafile/src/cliprect.rs",
+          "crates/metafile/src/emfplus.rs",
+          "crates/model/src/bidi.rs",
+          "crates/model/src/trendline.rs",
+          "crates/pptx/src/cfb.rs",
+          "crates/pptx/src/dgm.rs",
+          "crates/pptx/src/read/chartex.rs",
+          "crates/render/src/chartex.rs",
+          "crates/render/src/extrude.rs",
+          "crates/render/src/light.rs",
+          "crates/render/src/radar.rs",
+          "crates/ui-egui/src/animtimeline.rs",
+          "crates/ui-egui/src/doc_window.rs",
+          "crates/ui-egui/src/eyedropper.rs",
+          "crates/ui-egui/src/notes.rs",
+          "crates/ui-egui/src/opening.rs",
+          "crates/ui-egui/src/preview.rs",
+          "crates/ui-egui/src/qat.rs",
+          "crates/ui-egui/src/settings.rs",
+          "crates/ui-egui/src/squiggles.rs",
+          "xtask/src/pdf_deps.rs"
+        ]
+      }
+    },
+    {
+      "app": "soundcraft",
+      "officialRepository": "https://github.com/storytold/soundcraft",
+      "latestRelease": "v0.7.0",
+      "releaseUrl": "https://github.com/storytold/soundcraft/releases/tag/v0.7.0",
+      "releaseCommit": "3a28a657692c1b98b28c276d8f61df9471074f0f",
+      "releasePublishedAt": "2026-10-14T16:16:07Z",
+      "pluginBaselineCommit": "6aea1ecdbe4b91e723049bd885bd1e7738049f7e",
+      "skillBaselineCommit": "ddfe2375fbc33b8b6beaf9ac61b93699d3f69e9a",
+      "embeddedSourceCommit": "3a28a657692c1b98b28c276d8f61df9471074f0f",
+      "embeddedMode": "source-overlay",
+      "relativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "identical",
+        "releaseCommitsAhead": 0,
+        "embeddedCommitsAhead": 0
+      },
+      "defaultHead": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+      "mainCommitsAhead": 3,
+      "mainDiffTruncated": false,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "f3a19480d8cc2d7a98cda492f5464d8c54558c9f",
+          "subject": "Merge pull request #649 from dylanmtaylor/ci/nix-workflow",
+          "url": "https://github.com/storytold/soundcraft/commit/f3a19480d8cc2d7a98cda492f5464d8c54558c9f"
+        },
+        {
+          "sha": "69caa17ff732e7c6ea9932ae622081231c6e5b57",
+          "subject": "ci: add nix check workflow",
+          "url": "https://github.com/storytold/soundcraft/commit/69caa17ff732e7c6ea9932ae622081231c6e5b57"
+        },
+        {
+          "sha": "ba467b2b726c5eb49d02a78ef2679a45a62cd8e0",
+          "subject": "fix(engine): compile Windows tests (#571)",
+          "url": "https://github.com/storytold/soundcraft/commit/ba467b2b726c5eb49d02a78ef2679a45a62cd8e0"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "soundcraft",
+        "treeTruncated": false,
+        "changedFiles": 3,
+        "changedRustImplementationFiles": 2,
+        "changedApiRelatedFiles": [],
+        "newImplementationFiles": []
+      }
+    },
+    {
+      "app": "gridcraft",
+      "officialRepository": "https://github.com/storytold/gridcraft",
+      "latestRelease": "v0.7.0",
+      "releaseUrl": "https://github.com/storytold/gridcraft/releases/tag/v0.7.0",
+      "releaseCommit": "d9d09f0baa912e88c5111107903fc8c640214b57",
+      "releasePublishedAt": "2026-10-14T15:36:59Z",
+      "pluginBaselineCommit": "300face8a1a371b7f61ab8102838d2a9f5696b45",
+      "skillBaselineCommit": "6c5095305d1e6b52f149d60b0bc6d26983602e5d",
+      "embeddedSourceCommit": "d9d09f0baa912e88c5111107903fc8c640214b57",
+      "embeddedMode": "source-overlay",
+      "relativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "identical",
+        "releaseCommitsAhead": 0,
+        "embeddedCommitsAhead": 0
+      },
+      "defaultHead": "f1894c6da64d4326022ae644c767581816a23c2c",
+      "mainCommitsAhead": 7,
+      "mainDiffTruncated": false,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "f1894c6da64d4326022ae644c767581816a23c2c",
+          "subject": "Merge pull request #1590 from dylanmtaylor/ci/shared-freebsd-workflow",
+          "url": "https://github.com/storytold/gridcraft/commit/f1894c6da64d4326022ae644c767581816a23c2c"
+        },
+        {
+          "sha": "e91e7f7a68c46e61e222291f37e4eefb2781ec30",
+          "subject": "ci: delegate FreeBSD workflow, add nix check, and remove flatpak-pages",
+          "url": "https://github.com/storytold/gridcraft/commit/e91e7f7a68c46e61e222291f37e4eefb2781ec30"
+        },
+        {
+          "sha": "bb685e3275a64761da5e8960753d78533f6559da",
+          "subject": "Merge pull request #1588 from marcoarnulfo/fix/filter-menu-enter-applies",
+          "url": "https://github.com/storytold/gridcraft/commit/bb685e3275a64761da5e8960753d78533f6559da"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "gridcraft",
+        "treeTruncated": false,
+        "changedFiles": 13,
+        "changedRustImplementationFiles": 4,
+        "changedApiRelatedFiles": [
+          "crates/engine/src/cmd/edit.rs"
+        ],
+        "newImplementationFiles": []
+      }
+    },
+    {
+      "app": "wordcraft",
+      "officialRepository": "https://github.com/storytold/wordcraft",
+      "latestRelease": "v0.7.0",
+      "releaseUrl": "https://github.com/storytold/wordcraft/releases/tag/v0.7.0",
+      "releaseCommit": "fc41918814f62645b6746ed68e71e8c2c2e85d6f",
+      "releasePublishedAt": "2026-10-14T13:56:11Z",
+      "pluginBaselineCommit": "0508dd01ddeb70dc5de615e66907ebfa3278b2ea",
+      "skillBaselineCommit": "58af9510210099ddb2a14899e3ebd4274d676330",
+      "embeddedSourceCommit": "fc41918814f62645b6746ed68e71e8c2c2e85d6f",
+      "embeddedMode": "source-overlay",
+      "relativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "identical",
+        "releaseCommitsAhead": 0,
+        "embeddedCommitsAhead": 0
+      },
+      "defaultHead": "eae242176108d328c5dd81fbc10370c51ab90706",
+      "mainCommitsAhead": 274,
+      "mainDiffTruncated": true,
+      "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
+      "recentChanges": [
+        {
+          "sha": "eae242176108d328c5dd81fbc10370c51ab90706",
+          "subject": "Merge pull request #2307 from dylanmtaylor/ci/nix-workflow",
+          "url": "https://github.com/storytold/wordcraft/commit/eae242176108d328c5dd81fbc10370c51ab90706"
+        },
+        {
+          "sha": "40c4ebc4322b5865cbd600b0891992e8cefe1b78",
+          "subject": "ci: add nix check workflow",
+          "url": "https://github.com/storytold/wordcraft/commit/40c4ebc4322b5865cbd600b0891992e8cefe1b78"
+        },
+        {
+          "sha": "86adfd34eb2d3916a571e84b6605ec642e274440",
+          "subject": "refactor(pdf): adopt the shared PDF writer (PDFW)",
+          "url": "https://github.com/storytold/wordcraft/commit/86adfd34eb2d3916a571e84b6605ec642e274440"
+        }
+      ],
+      "fullTreeDelta": {
+        "app": "wordcraft",
+        "treeTruncated": false,
+        "changedFiles": 329,
+        "changedRustImplementationFiles": 221,
+        "changedApiRelatedFiles": [
+          "apps/wordcraft-cli/src/main.rs",
+          "crates/engine/src/cmd/caret.rs",
+          "crates/engine/src/cmd/citations.rs",
+          "crates/engine/src/cmd/column.rs",
+          "crates/engine/src/cmd/controls.rs",
+          "crates/engine/src/cmd/design.rs",
+          "crates/engine/src/cmd/draw.rs",
+          "crates/engine/src/cmd/edit.rs",
+          "crates/engine/src/cmd/equation.rs",
+          "crates/engine/src/cmd/fields.rs",
+          "crates/engine/src/cmd/file.rs",
+          "crates/engine/src/cmd/find_pattern.rs",
+          "crates/engine/src/cmd/font.rs",
+          "crates/engine/src/cmd/format.rs",
+          "crates/engine/src/cmd/index.rs",
+          "crates/engine/src/cmd/ink_shape.rs",
+          "crates/engine/src/cmd/insert.rs",
+          "crates/engine/src/cmd/inspector.rs",
+          "crates/engine/src/cmd/lists.rs",
+          "crates/engine/src/cmd/mailings.rs",
+          "crates/engine/src/cmd/mod.rs",
+          "crates/engine/src/cmd/objects.rs",
+          "crates/engine/src/cmd/options.rs",
+          "crates/engine/src/cmd/outline.rs",
+          "crates/engine/src/cmd/page.rs",
+          "crates/engine/src/cmd/para.rs",
+          "crates/engine/src/cmd/paste.rs",
+          "crates/engine/src/cmd/protect.rs",
+          "crates/engine/src/cmd/references.rs",
+          "crates/engine/src/cmd/review.rs",
+          "crates/engine/src/cmd/speech.rs",
+          "crates/engine/src/cmd/table.rs",
+          "crates/engine/src/cmd/table_draw.rs",
+          "crates/engine/src/cmd/table_formula.rs",
+          "crates/engine/src/cmd/table_mouse.rs",
+          "crates/engine/src/cmd/table_resize.rs",
+          "crates/engine/src/cmd/table_style.rs",
+          "crates/engine/src/cmd/templates.rs",
+          "crates/engine/src/cmd/text.rs",
+          "crates/engine/src/cmd/tools.rs",
+          "crates/engine/src/cmd/view.rs",
+          "crates/engine/src/cmd/wordart.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "apps/wordcraft/src/traffic_lights.rs",
+          "crates/docbin/src/crypt.rs",
+          "crates/docbin/src/metadata.rs",
+          "crates/docx/src/fonts.rs",
+          "crates/docx/src/write/settings_merge.rs",
+          "crates/docx/src/write/watermark.rs",
+          "crates/engine/src/cmd/table_formula.rs",
+          "crates/engine/src/recovery.rs",
+          "crates/engine/src/recovery/desktop.rs",
+          "crates/fonts/src/color.rs",
+          "crates/formats/src/sheet/xls.rs",
+          "crates/layout/src/styleref.rs",
+          "crates/proof/src/cs/grammar.rs",
+          "crates/proof/src/cs/mod.rs",
+          "crates/proof/src/cs/suggest.rs",
+          "crates/proof/src/ru/extra.rs",
+          "crates/proof/src/ru/grammar.rs",
+          "crates/proof/src/ru/hyphen.rs",
+          "crates/proof/src/ru/mod.rs",
+          "crates/proof/src/ru/suggest.rs",
+          "crates/proof/src/tr/dict.rs",
+          "crates/proof/src/tr/grammar.rs",
+          "crates/proof/src/tr/hyphen.rs",
+          "crates/proof/src/tr/mod.rs",
+          "crates/proof/src/tr/suggest.rs",
+          "crates/proof/src/vi.rs",
+          "crates/render/src/color_glyph.rs",
+          "crates/ui-egui/src/async_saves.rs",
+          "crates/ui-egui/src/crop.rs",
+          "crates/ui-egui/src/dialogs_table_style.rs",
+          "crates/ui-egui/src/guides.rs",
+          "crates/ui-egui/src/ruler_tabs.rs"
+        ]
+      }
+    }
+  ],
+  "vector012": {
+    "oldVersion": "0.11.0",
+    "newVersion": "0.12.0",
+    "editingCommandCounts": {
+      "old": 749,
+      "new": 770,
+      "addedIds": 21,
+      "removedIds": 0,
+      "changedParamDescriptions": 72,
+      "baseline": "official0.11.0 macOS binary, archive SHA256 verified; replaces wrongly reused0.12 cache"
+    },
+    "nativeMcpSchemaChanges": [
+      "command_list.query",
+      "command_list.menu",
+      "command_list.brief",
+      "list_commands.query",
+      "list_commands.menu",
+      "list_commands.brief"
+    ],
+    "adapterCompatibility": "query/menu/brief applied to same editor catalog; does not upgrade editing engine",
+    "embeddedEngineVersion": "0.12.0",
+    "nativeLocalChecks": {
+      "version": "0.12.0",
+      "nativeStdioDiscovery": "PASS",
+      "queryCount": 5,
+      "menuCount": 11,
+      "legacyAiEditableRoundtrip": "PASS",
+      "nativeMcpLegacyExport": "PASS",
+      "nativeMasterPreserved": "PASS",
+      "hostAcceptance": "NOT_TESTED",
+      "embeddedEngineUpgrade": "NOT_INFERRED"
+    },
+    "hostAcceptance": "NOT_TESTED",
+    "embeddedBrowserCatalogCheck": {
+      "runtimeEngine": "0.11.0",
+      "adapter": "new query/menu/brief compatibility",
+      "surface": "Codex in-app browser; plugin HTTP tool bridge; not an installed-host MCP acceptance",
+      "queryGraphCount": 5,
+      "menuPathCount": 11,
+      "detailedCommandCount": 1,
+      "briefOmitsParams": true
+    },
+    "addedCommands": [
+      {
+        "enabled": true,
+        "id": "action.batch",
+        "label": "Batch…",
+        "menu": [],
+        "params": "{commands: [{command, params}] (the action's steps), source?: folder (default) | datasets, folder? (required for folder: the source folder), includeSubdirs?: false, destination?: none (default: leave each file open) | saveAndClose (save over the source and close) | folder (save or export into destinationFolder and close), destinationFolder? (required when destination is folder; also the folder Override Save/Export write into), overrideOpen?: true (skip document.open / file.open steps: the batch opens each source file), overrideSave?: true (point document.save / file.save / file.saveAs at destinationFolder/{stem}.{ext}), overrideExport?: true (point document.export / document.exportForScreens / document.exportSelection the same way), stopOnError?: true, label?} play the commands on every readable file in folder (and its subfolders when includeSubdirs), or on every data set of the open document (source: datasets; File + Data Set Name for Override Save/Export). Caps: 500 files or data sets, 8 folder levels, 256 steps. Batches cannot nest. → {processed: [{path|dataset, result|error}…], count, failed, stopped}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "dataset.export",
+        "label": "Export Data Sets…",
+        "menu": [
+          "Window",
+          "Variables"
+        ],
+        "params": "{path?} write every dataset as CSV (header: name, then variables); without path → {csv, datasets}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "dataset.import",
+        "label": "Import Data Sets…",
+        "menu": [
+          "Window",
+          "Variables"
+        ],
+        "params": "{path? | data? | dataBase64? | csv?} load datasets from CSV (header: name, then variable names; one row per dataset). Rows whose name already exists are replaced → {imported, updated, names}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "dimension.applyToAll",
+        "label": "Apply to All",
+        "menu": [],
+        "params": "{id?: dimension id (default the first selected dimension)} gives every dimension in the document that dimension's style (its scale too), as one undo step → {ids}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "dimension.create",
+        "label": "Create Dimension",
+        "menu": [],
+        "params": "{mode?: linear|angular|radius|diameter, a?: [x,y], b?: [x,y], vertex?: [x,y], source?: {kind: segment, edge: {node,subpath,segment}}|{kind: angle, first: edge, second: edge}|{kind: circle, node}|{kind: arc, edge}|{kind: points, a?, b?, vertex?: {node,subpath,anchor}}, offset?: pt, options?: {units: in|mm|pt|pc|px|cm|m|ft|yd, precision: 0-6, scale: drawing:real, hideUnits, lineWeight, lineType: solid|dashed|dotted, lineColor: [r,g,b], arrowStyle: filled|open|tick|none, arrowScale: %, extensionWeight, extensionType, extensionColor, extensionOffset, extensionLength, hideExtensions, fontFamily, fontStyle, fontSize, textColor, textPosition: away|between, textAlignment: left|center|right, textOffset}} → {id,label}; linked measurements follow source edits",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "dimension.update",
+        "label": "Update Dimensions",
+        "menu": [],
+        "params": "{ids?: [dimension ids] (default selection), options?: dimension options, offset?: pt} restyle or move existing dimensions → {ids}",
+        "shortcut": null
+      },
+      {
+        "enabled": true,
+        "id": "document.exportPresets.delete",
+        "label": "Delete Export Preset",
+        "menu": [],
+        "params": "{name} delete a saved batch export preset (built-in ones stay) → {deleted}",
+        "shortcut": null
+      },
+      {
+        "enabled": true,
+        "id": "document.exportPresets.list",
+        "label": "Export Presets",
+        "menu": [],
+        "params": "{} → {presets: [{name, builtIn, settings}]} the built-in batch export presets (Logo Package, Print-Ready PDF), then the saved ones; any name works as document.exportForScreens' exportPreset",
+        "shortcut": null
+      },
+      {
+        "enabled": true,
+        "id": "document.exportPresets.save",
+        "label": "Save Export Preset",
+        "menu": [],
+        "params": "{name, settings: {formats, settings, preset, name, prefix, counterStart, counterPer, folders, subfolders, includeBleed, antiAlias, folder, fullDocument} (as document.exportForScreens; other keys are left out)} save (or replace) a batch export preset, kept with the preferences; built-in names are refused → {name, created, settings}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "object.intertwine.arrange",
+        "label": "Arrange Intertwine Area",
+        "menu": [],
+        "params": "{id?: Intertwine group (default: the selected one), at?: [x,y] (the overlap area under this point, as a click picks it) | area?: [[x,y]…] (a closed polygon drawn around overlap areas: every area whose inside it encloses), order?: toggle|front|back (toggle: the object drawn right below the top comes to the front, so two objects swap), member?: id (front and back: the object to move; default: front brings the object right below the top, back sends the top one)} → {count: areas changed, top: [id of the object now on top in each area]}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "object.intertwine.edit",
+        "label": "Edit",
+        "menu": [
+          "Object",
+          "Intertwine"
+        ],
+        "params": "{} choose the Intertwine tool for the selected Intertwine group (Esc or Enter goes back to the tool before)",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "object.intertwine.make",
+        "label": "Make",
+        "menu": [
+          "Object",
+          "Intertwine"
+        ],
+        "params": "{ids?: two or more objects (default: the selection)} put the objects in an Intertwine group and choose the Intertwine tool, which arranges its overlap areas (object.intertwine.arrange) → {id}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "object.intertwine.release",
+        "label": "Release",
+        "menu": [
+          "Object",
+          "Intertwine"
+        ],
+        "params": "{} give the objects of the selected Intertwine groups back as they were made, dropping the arranged areas → {ids}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "select.update",
+        "label": "Update Selection",
+        "menu": [
+          "Select"
+        ],
+        "params": "{} make the saved selection last recalled (`select.recall`) hold the selected objects instead of its own, in one undo step → {name}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "symbol.options",
+        "label": "Symbol Options…",
+        "menu": [],
+        "params": "{name?, newName?, registration?: 0..8, exportType?: movieClip|graphic} rename a symbol and/or set Symbol Options › Registration and Export Type (default name: current) → {name, registration, exportType}",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "type.resetHorizontalScale",
+        "label": "Reset Horizontal Scale",
+        "menu": [],
+        "params": "{ids?: [id…]} set the horizontal scale to 100% (as the Character panel shows it, the object's own transform included) in all the text of the type objects in `ids`, else in the text the Type tool has selected (nothing at a caret), else in every selected type object, as one undo step → {ids}",
+        "shortcut": "Cmd+Shift+X"
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "type.resetTracking",
+        "label": "Reset Tracking and Kerning",
+        "menu": [],
+        "params": "{ids?: [id…]} set tracking to 0 and kerning to Auto (the font's own kerning, which the Character panel shows as 0) in all the text of the type objects in `ids`, else in the text the Type tool has selected (at a caret: only the kerning of the character before it), else in every selected type object, as one undo step → {ids}",
+        "shortcut": "Cmd+Alt+Q"
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "type.size.decreaseByFive",
+        "label": "Decrease Font Size by Five Steps",
+        "menu": [],
+        "params": "{} type.step {attribute: size, by: -5}: five times the Size/Leading increment (typeSizeIncrement)",
+        "shortcut": "Cmd+Alt+Shift+,"
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "type.size.increaseByFive",
+        "label": "Increase Font Size by Five Steps",
+        "menu": [],
+        "params": "{} type.step {attribute: size, by: 5}: five times the Size/Leading increment (typeSizeIncrement)",
+        "shortcut": "Cmd+Alt+Shift+."
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "variable.makeGraphDynamic",
+        "label": "Make Graph Dynamic",
+        "menu": [
+          "Window",
+          "Variables"
+        ],
+        "params": "{} define a graph variable over the selected graph root(s), named after it and bound to it; each dataset row supplies CSV as graph.setData",
+        "shortcut": null
+      },
+      {
+        "disabled_reason": "no document open",
+        "enabled": false,
+        "id": "variable.makeImageDynamic",
+        "label": "Make Image Dynamic",
+        "menu": [
+          "Window",
+          "Variables"
+        ],
+        "params": "{} define an image variable over the selection, named after it and bound to it",
+        "shortcut": null
+      }
+    ],
+    "nativeCiBaselineAlreadyVersion": "0.12.0",
+    "newScenarioIds": [
+      "dimension-unit-delivery",
+      "intertwine-overlap-order",
+      "csv-text-variants"
+    ],
+    "newScenariosLocalNative": "PASS",
+    "mappedScenarioCountAfterAddition": 201,
+    "pluginVersion": "0.1.0-dev.65",
+    "embeddedSourceCommit": "8bc65329286dc1b84aa392997bb205613c3e96cb",
+    "embeddedBuild": {
+      "sourceBuild": true,
+      "chineseFontPreserved": true,
+      "lockFiles": 44,
+      "oldRuntimeRetained": true
+    },
+    "embeddedBrowserChecks": {
+      "surface": "Codex in-app browser plus local plugin HTTP tool bridge; not installed-host MCP acceptance",
+      "catalogCommands": 1058,
+      "all21AddedCommandsPresent": true,
+      "dimensionScene": "PASS",
+      "intertwineScene": "PASS",
+      "csvTextVariantsScene": "PASS",
+      "chineseTextRendered": "PASS",
+      "nativeFilesReopenedBySeparateCLI": "PASS",
+      "legacyAiHostExport": "PASS",
+      "legacyIntertwineNativeEditability": "NOT_PRESERVED_EXPECTED_FORMAT_LOSS",
+      "outputTraversalRefused": true,
+      "overwriteRefused": true
+    },
+    "adapterTests": 9,
+    "nativeWindows": {
+      "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39004180010",
+      "codeCommit": "4eb1ecc245cff782417ae563d937280afcaa5797",
+      "skillSourceCommit": "9ce5ea0f64278daba7459f8379a9b01fd891e32e",
+      "recipeRecordsIncludingOneCombination": 12,
+      "processCount": 73,
+      "verifiedOutputs": 50,
+      "all13ApplicationJobs": "PASS"
+    },
+    "existingPackageMcpRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39004179976",
+    "skillCommit": "11575de8dcb39950fc399e8238bbdae7244b0c80",
+    "pluginCommit": "eba30089faec1b28ef02d1dcd76e28a741aa6c54",
+    "recipeSha256": "fa0927dd75565a14aca96eb724b640498c9041dbff823114187f942405675b75",
+    "ciRecipesUnchangedInCurrentSource": true,
+    "adapterWindowsLinuxRun": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39004888523",
+    "documentationRun": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39004989180",
+    "candidatePackage": {
+      "plugin": "vectorcraft",
+      "file": "vectorcraft-editor-scenes-local.zip",
+      "sha256": "a3c71a20df786f19f78212e436a24b0970c076772daae987a5b80edbc921489a",
+      "bytes": 58241353,
+      "files": 982,
+      "runtimeOverride": false,
+      "status": "local-unreleased",
+      "scope": "local full editor bundle; Windows archive semantics and all declared hashes verified; installed-host acceptance not inferred"
+    }
+  },
+  "openWork": [
+    "Unreleased main source differences are not runtime acceptance; complete file trees have been compared, semantic review and builds remain optional development-candidate work.",
+    "Codex/ZCode/Kimi installed-host MCP acceptance of dev.65 not performed by this browser/API check.",
+    "Remaining newly discovered methods beyond the three scenarios still need per-business workflow acceptance.",
+    "Historical CLI setup instructions in some packages still refer to earlier maintenance runtimes; do not treat them as latest runtime acceptance.",
+    "VectorCraft complete implementation CI39004888507 failed release-gate contract tests; latest documentation/architecture and dedicated Windows/Linux adapter checks pass. Do not rebind old qualification evidence to dev.65."
+  ],
+  "coverage": {
+    "mappedRecipes": 201,
+    "limitedTechnicalPass": 158,
+    "partialPdfForm": 1,
+    "notExecuted": 42,
+    "additionalCombinationCases": 4
+  },
+  "policy": "Latest stable releases first; unreleased main is an advisory candidate pending user choice",
+  "releaseRecheck": {
+    "checkedAtUtc": "2026-10-17T05:06:14.707337+00:00",
+    "all13SameAsBaseline": true,
+    "releases": {
+      "cadcraft": "v0.7.0",
+      "designcraft": "v0.8.0",
+      "effectcraft": "v0.10.0",
+      "photocraft": "v0.9.0",
+      "figcraft": "v0.6.0",
+      "filmcraft": "v0.8.0",
+      "lightcraft": "v0.8.0",
+      "printcraft": "v0.8.0",
+      "vectorcraft": "v0.12.0",
+      "deckcraft": "v0.7.0",
+      "soundcraft": "v0.7.0",
+      "gridcraft": "v0.7.0",
+      "wordcraft": "v0.7.0"
+    }
+  }
+}

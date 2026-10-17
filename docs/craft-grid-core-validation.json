@@ -1,0 +1,125 @@
+{
+  "sourceCommit": "6c5095305d1e6b52f149d60b0bc6d26983602e5d",
+  "pluginCommit": "300face8a1a371b7f61ab8102838d2a9f5696b45",
+  "ciCodeCommit": "ead56de2c842b593ae84070e29ad2db842799159",
+  "windowsRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39002326394",
+  "existingPackageMcpRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39002326391",
+  "runtime": {
+    "version": "v0.7.0",
+    "url": "https://github.com/storytold/gridcraft/releases/download/v0.7.0/gridcraft-0.7.0-windows-x64-portable.zip",
+    "sha256": "24bf4ee129769268e27510a260de6c7fd7eded84ea541499132576e3d7ea6a86",
+    "executable": "gridcraft-cli.exe"
+  },
+  "exeSha256": "8ca1844f5b892db9dfa2256b33bf5ad350823ed71898bfe20832c55e965b2b13",
+  "processCount": 110,
+  "uniqueGridRecipes": 18,
+  "coreSix": [
+    {
+      "id": "budget-tracker",
+      "path": "skills/gridcraft-budget-tracker/references/craft-steps.json",
+      "sha256": "be9ac5916e3c0a3647168d69cd40ed7246a5d6583e872257fc727ff4248dc0aa",
+      "checks": {
+        "id": "budget-tracker",
+        "nativeWorkbookAndBusinessChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic business rows and XLSX/engine checks; no real financial reconciliation acceptance"
+      }
+    },
+    {
+      "id": "clean-table",
+      "path": "skills/gridcraft-clean-table/references/craft-steps.json",
+      "sha256": "f7bedf081f68b1ea567e813ae108247b598425dccaa8f76c0f085da081cd392c",
+      "checks": {
+        "id": "clean-table",
+        "nativeWorkbookAndBusinessChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic business rows and XLSX/engine checks; no real financial reconciliation acceptance"
+      }
+    },
+    {
+      "id": "dashboard",
+      "path": "skills/gridcraft-dashboard/references/craft-steps.json",
+      "sha256": "05e2dd350ee36969bb7f0ccd7a9e306549fca79764dadbef5a149a4bd697c411",
+      "checks": {
+        "id": "dashboard",
+        "nativeWorkbookAndBusinessChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic business rows and XLSX/engine checks; no real financial reconciliation acceptance"
+      }
+    },
+    {
+      "id": "formula-audit",
+      "path": "skills/gridcraft-formula-audit/references/craft-steps.json",
+      "sha256": "a3d8607d2e5e73c5dd52eb23382bc51e77a992c66df8c25f550cb62b90a5163d",
+      "checks": {
+        "id": "formula-audit",
+        "nativeWorkbookAndBusinessChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic business rows and XLSX/engine checks; no real financial reconciliation acceptance"
+      }
+    },
+    {
+      "id": "reconcile-data",
+      "path": "skills/gridcraft-reconcile-data/references/craft-steps.json",
+      "sha256": "4bd9f7d706876d909758f16f8d30a0868993c06e31d9a0974d9a35c273246ff3",
+      "checks": {
+        "id": "reconcile-data",
+        "nativeWorkbookAndBusinessChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic business rows and XLSX/engine checks; no real financial reconciliation acceptance"
+      }
+    },
+    {
+      "id": "sales-summary",
+      "path": "skills/gridcraft-sales-summary/references/craft-steps.json",
+      "sha256": "07572dc1fd0e060f9adfd98eb3f212c146ac23bfbd3d328365250409b3242000",
+      "checks": {
+        "id": "sales-summary",
+        "nativeWorkbookAndBusinessChecks": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "scope": "synthetic business rows and XLSX/engine checks; no real financial reconciliation acceptance"
+      }
+    }
+  ],
+  "downloadedOutputsVerified": 35,
+  "downloadedChartChecks": {
+    "original": [
+      21,
+      42
+    ],
+    "afterInputChange": [
+      21,
+      84
+    ],
+    "editableSourceRange": "G2:G3"
+  },
+  "fixes": [
+    "CSV拆分前将目标主键列设为文本；仅删除整行完全相同记录，保留同键冲突记录。",
+    "预算区分缺值与数值0。",
+    "对账读取双方原始表；空白辅助列用KEY:前缀索引，防止COUNTIF合并001与1；重复键不取首条。"
+  ],
+  "checks": [
+    "预算缺预算/缺实际与零值四种变体",
+    "清洗保留001、1及相同主键的冲突金额，保留原始CSV",
+    "跨表重复/未匹配/缺主键分流；变为唯一键后重新计算；数字文本键不混同",
+    "公式审计检出除零、追踪引用并在保存后随输入重算",
+    "销售汇总包含负数退货，保存后随金额变更重算",
+    "看板图表保留可编辑来源并刷新缓存",
+    "全部六份输入XLSX摘要不变，输出保留无关Z1哨兵"
+  ],
+  "limits": {
+    "hostEditorSync": "NOT_TESTED",
+    "realFinancialReconciliation": "NOT_TESTED",
+    "visualLayoutAcceptance": "NOT_TESTED",
+    "independentPluginCI": "NO_RUNS_OBSERVED",
+    "packageMcpScope": "既有候选包；不能证明本次新技能已在真实宿主安装加载",
+    "fixtureScope": "合成业务数据与原生XLSX/计算引擎；示例范围和表名需按真实输入替换；输出/辅助列须先确认空白"
+  },
+  "coverage": {
+    "mappedRecipes": 198,
+    "limitedTechnicalPass": 149,
+    "partialPdfForm": 1,
+    "notExecuted": 48,
+    "additionalCombinationCases": 4
+  }
+}

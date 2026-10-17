@@ -1,0 +1,72 @@
+{
+  "scope": "static source, command reference and plugin copy checks only",
+  "applications": [
+    {
+      "application": "cadcraft",
+      "mappedScenes": 14,
+      "skills": 7
+    },
+    {
+      "application": "designcraft",
+      "mappedScenes": 14,
+      "skills": 7
+    },
+    {
+      "application": "effectcraft",
+      "mappedScenes": 6,
+      "skills": 6
+    },
+    {
+      "application": "photocraft",
+      "mappedScenes": 50,
+      "skills": 1
+    },
+    {
+      "application": "figcraft",
+      "mappedScenes": 14,
+      "skills": 7
+    },
+    {
+      "application": "filmcraft",
+      "mappedScenes": 6,
+      "skills": 6
+    },
+    {
+      "application": "lightcraft",
+      "mappedScenes": 14,
+      "skills": 7
+    },
+    {
+      "application": "printcraft",
+      "mappedScenes": 6,
+      "skills": 6
+    },
+    {
+      "application": "vectorcraft",
+      "mappedScenes": 17,
+      "skills": 7
+    },
+    {
+      "application": "deckcraft",
+      "mappedScenes": 14,
+      "skills": 7
+    },
+    {
+      "application": "soundcraft",
+      "mappedScenes": 14,
+      "skills": 7
+    },
+    {
+      "application": "gridcraft",
+      "mappedScenes": 18,
+      "skills": 7
+    },
+    {
+      "application": "wordcraft",
+      "mappedScenes": 14,
+      "skills": 7
+    }
+  ],
+  "mappedScenes": 201,
+  "errors": []
+}

@@ -1,0 +1,25 @@
+{
+  "scenario": "screen-composite",
+  "sourceCommit": "233183e77da2268700d64f72a49f8851aa508a65",
+  "stepsSha256": "b61a0f23bdeb9c787be423cdf0a27b2450db7c20869e667a1725796ab97a89d7",
+  "ciCodeCommit": "baf0ac10a61ebcace4d93b1a7a373205005fcb44",
+  "windowsRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/38997778808",
+  "windowsRuntime": {
+    "version": "v0.10.0",
+    "url": "https://github.com/storytold/effectcraft/releases/download/v0.10.0/effectcraft-0.10.0-windows-x64-portable.zip",
+    "sha256": "aa6102df3a514c84c49a08829b2e0da67a5c44cd4a27c743e3681a2c68cade91",
+    "executable": "effectcraft-cli.exe"
+  },
+  "windowsExecutableSha256": "b9dd260f9f97c6e25bc03f8abc5430d3232adae11aa23eb1d3ae2fe93cf44d80",
+  "checks": [
+    {
+      "id": "screen-composite",
+      "savedMaskAndOpacity": "PASS",
+      "renderedMaskLocality": "PASS",
+      "perspectiveTracking": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    }
+  ],
+  "macOS": "official 0.10.0 CLI: old steps reproduced failure; corrected steps passed save/reopen/mask/opacity/pixel checks; rendered PNG viewed",
+  "scope": "synthetic stationary solid layer; no perspective, motion tracking, real footage or host-editor-sync acceptance"
+}
