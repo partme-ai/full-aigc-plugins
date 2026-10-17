@@ -40,12 +40,20 @@ def run_quotes(r, source):
         else:expected += [[item['description'],'1','10.25','10.25'] for item in data['items']]
         expected += [['合计（CNY）','','',total]]
         require(rows==expected,'Reopened native cells, line amounts or total differ')
+        native_rows=tables[0].findall('w:tr',W)
+        require(all(row.find('w:trPr/w:cantSplit',W) is not None for row in native_rows),'A quotation row can split across pages')
+        widths=[int(column.attrib['{'+W['w']+'}w']) for column in tables[0].findall('w:tblGrid/w:gridCol',W)]
+        require(widths==[5000,900,1500,1620],'Quotation column widths lost')
+        for row in native_rows:
+            for cell in row.findall('w:tc',W)[1:]:
+                align=cell.find('w:p/w:pPr/w:jc',W)
+                require(align is not None and align.attrib.get('{'+W['w']+'}val')=='right','Numeric cell alignment lost')
         require(tables[0].find('.//w:tblHeader',W) is not None,'Repeated header lost')
         require(pdf.read_bytes().startswith(b'%PDF'),'Invalid PDF export')
         for page in range(1,info['pages']+1):
             png=root/f'page-{page}.png';r.run('render',str(doc),str(png),'--page',str(page),'--scale','1');require(png.read_bytes().startswith(b'\x89PNG'),'Page render missing')
         require(before==hashlib.sha256(input_path.read_bytes()).hexdigest(),'Source quote changed')
-        results.append({'name':name,'itemCount':len(data['items']),'total':total,'pages':info['pages'],'nativeTableAndAmounts':'PASS','inputPreserved':'PASS','allPagesRendered':'PASS','visualReview':'NOT_PERFORMED_BY_CI'})
+        results.append({'name':name,'itemCount':len(data['items']),'total':total,'pages':info['pages'],'nativeTableAndAmounts':'PASS','allRowsUnsplit':'PASS','columnWidthsAndNumericAlignment':'PASS','inputPreserved':'PASS','allPagesRendered':'PASS','visualReview':'NOT_PERFORMED_BY_CI'})
     return {'result':'PASS','variants':results,'scope':'specified fixtures and native structure; real quote approval, arbitrary typography and host sync not proven'}
 
 def main():

@@ -28,6 +28,8 @@
         "total": "2740.80",
         "pages": 1,
         "nativeTableAndAmounts": "PASS",
+        "allRowsUnsplit": "PASS",
+        "columnWidthsAndNumericAlignment": "PASS",
         "inputPreserved": "PASS",
         "allPagesRendered": "PASS",
         "visualReview": "NOT_PERFORMED_BY_CI"
@@ -38,6 +40,8 @@
         "total": "0.30",
         "pages": 1,
         "nativeTableAndAmounts": "PASS",
+        "allRowsUnsplit": "PASS",
+        "columnWidthsAndNumericAlignment": "PASS",
         "inputPreserved": "PASS",
         "allPagesRendered": "PASS",
         "visualReview": "NOT_PERFORMED_BY_CI"
@@ -46,26 +50,29 @@
         "name": "many-items",
         "itemCount": 20,
         "total": "205.00",
-        "pages": 3,
+        "pages": 2,
         "nativeTableAndAmounts": "PASS",
+        "allRowsUnsplit": "PASS",
+        "columnWidthsAndNumericAlignment": "PASS",
         "inputPreserved": "PASS",
         "allPagesRendered": "PASS",
         "visualReview": "NOT_PERFORMED_BY_CI"
       }
     ],
     "scope": "specified fixtures and native structure; real quote approval, arbitrary typography and host sync not proven",
-    "nativeProcesses": 16,
+    "nativeProcesses": 15,
     "platform": "darwin"
   },
   "representativeVisualReview": {
-    "samplePage1": "PASS: Chinese, amounts and table readable",
-    "manyItemsPages2And3": "reviewed: repeated headers visible; long project cells can split across pages",
-    "otherPages": "not yet manually reviewed",
-    "scope": "sample pages only; arbitrary typography not accepted"
+    "samplePage1": "PASS",
+    "smallDecimalPage1": "PASS",
+    "manyItemsPages1And2": "PASS: all20 items intact, repeated header and no row split",
+    "scope": "all four pages of these specified synthetic quotes; arbitrary user documents not accepted"
   },
   "unitTests": {
-    "source": 13,
-    "pluginQuotation": 5,
+    "source": 14,
+    "pluginQuotation": 6,
+    "hubAuxiliary": 218,
     "status": "PASS"
   },
   "independentSourcePluginCheck": "PASS: one additional mapped candidate; published count still232",
@@ -81,18 +88,34 @@
     "page.png": "5fb5977f6aac6843d3a35bf197fd646f45fda0e1b50270511ef00092d4839418"
   },
   "windows": {
-    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39077218440",
-    "status": "IN_PROGRESS",
-    "scope": "actual native CLI business and reopened tables; no SDK substitution"
+    "status": "PENDING_NEW_FIXED_COMMIT",
+    "scope": "actual native CLI; new row layout assertions included"
   },
   "nativeHostSync": "NOT_RUN",
   "marketplace": "NOT_RELEASED",
-  "sourceCommit": "af833c5",
-  "pluginCommit": "85ca171",
+  "sourceCommit": "3bc1a90aabe41310578de1e576b3ba0dffe70a7c",
+  "pluginCommit": "9decb4eac2aabb572ab719b4d910f5794a98ad41",
   "remaining": [
     "Windows actual native business",
     "shared-editor host acceptance",
-    "multi-page typography review and refinements",
     "release packaging and marketplace"
-  ]
+  ],
+  "layoutFix": {
+    "allNativeRowsCantSplit": "PASS",
+    "widthsPoints": [
+      250,
+      45,
+      75,
+      81
+    ],
+    "numericColumnsRightAligned": "PASS",
+    "sourceCommands": "official0.7.0; actual Pos schema and per-caret row properties; official source read-only"
+  },
+  "previousWindowsFailure": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39077218440",
+    "stage": "generated six-template recipe core extension lookup",
+    "cause": "inferred skills directory from generated JSON location",
+    "fixedBy": "cd96ebe; explicit relative sourceSkills field;218 auxiliary tests passed",
+    "quotationStage": "NOT_REACHED"
+  }
 }
