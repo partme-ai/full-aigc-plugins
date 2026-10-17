@@ -36,22 +36,264 @@
       ]
     },
     {
-      "id": "printcraft",
-      "displayName": "PrintCraft",
-      "repository": "full-aigc-plugins/printcraft-plugin",
-      "localDirectory": "printcraft-plugin",
-      "version": "0.1.0-dev.6",
+      "id": "cadcraft",
+      "displayName": "CADCraft Use",
+      "repository": "full-aigc-plugins/cadcraft-plugin",
+      "localDirectory": "cadcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Inspect/edit PDFs and explicitly use optional Tesseract Chinese OCR on macOS arm64; native OCR remains English-only. PDF reading-order/full-phrase-search limitations apply. ZCode/Kimi runtime acceptance not run.",
-      "shortDescription": "Preview verified PDF workflows on macOS arm64",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Creativity",
+      "tags": [
+        "cadcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "designcraft",
+      "displayName": "DesignCraft Use",
+      "repository": "full-aigc-plugins/designcraft-plugin",
+      "localDirectory": "designcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Creativity",
+      "tags": [
+        "designcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "effectcraft",
+      "displayName": "EffectCraft Use",
+      "repository": "full-aigc-plugins/effectcraft-plugin",
+      "localDirectory": "effectcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Creativity",
+      "tags": [
+        "effectcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "photocraft",
+      "displayName": "PhotoCraft Use",
+      "repository": "full-aigc-plugins/photocraft-plugin",
+      "localDirectory": "photocraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Creativity",
+      "tags": [
+        "photocraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "figcraft",
+      "displayName": "FigCraft Use",
+      "repository": "full-aigc-plugins/figcraft-plugin",
+      "localDirectory": "figcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Creativity",
+      "tags": [
+        "figcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "filmcraft",
+      "displayName": "FilmCraft Use",
+      "repository": "full-aigc-plugins/filmcraft-plugin",
+      "localDirectory": "filmcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Creativity",
+      "tags": [
+        "filmcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "lightcraft",
+      "displayName": "LightCraft Use",
+      "repository": "full-aigc-plugins/lightcraft-plugin",
+      "localDirectory": "lightcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Creativity",
+      "tags": [
+        "lightcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "printcraft",
+      "displayName": "PdfCraft Use",
+      "repository": "full-aigc-plugins/printcraft-plugin",
+      "localDirectory": "printcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
       "category": "Productivity",
       "tags": [
-        "pdf",
         "printcraft",
-        "verification",
-        "prerelease"
-      ]
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "vectorcraft",
+      "displayName": "VectorCraft Use",
+      "repository": "full-aigc-plugins/vectorcraft-plugin",
+      "localDirectory": "vectorcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Creativity",
+      "tags": [
+        "vectorcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "deckcraft",
+      "displayName": "DeckCraft Use",
+      "repository": "full-aigc-plugins/deckcraft-plugin",
+      "localDirectory": "deckcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Productivity",
+      "tags": [
+        "deckcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "soundcraft",
+      "displayName": "SoundCraft Use",
+      "repository": "full-aigc-plugins/soundcraft-plugin",
+      "localDirectory": "soundcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Creativity",
+      "tags": [
+        "soundcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "gridcraft",
+      "displayName": "GridCraft Use",
+      "repository": "full-aigc-plugins/gridcraft-plugin",
+      "localDirectory": "gridcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Productivity",
+      "tags": [
+        "gridcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
+    },
+    {
+      "id": "wordcraft",
+      "displayName": "WordCraft Use",
+      "repository": "full-aigc-plugins/wordcraft-plugin",
+      "localDirectory": "wordcraft-plugin",
+      "version": "0.1.0-dev.20261017.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "category": "Productivity",
+      "tags": [
+        "wordcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "logo": "assets/official-logo.png"
     }
   ],
   "plugins": [

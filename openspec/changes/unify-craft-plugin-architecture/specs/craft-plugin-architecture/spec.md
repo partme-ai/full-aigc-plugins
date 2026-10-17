@@ -23,3 +23,16 @@
 #### Scenario: Static package passes while runtime is unavailable
 - **WHEN** manifest 和技能通过本地检查但目标 CLI 或宿主未就绪
 - **THEN** 仅报告静态包通过，宿主及真实调用保持 NOT_RUN
+
+## ADDED Requirements
+
+### Requirement: Installable development marketplace candidates
+The catalog SHALL expose thirteen development candidates with immutable tags, official icons and production-blocked status. Git installs SHALL fetch checksummed editor resources through Node; complete archives SHALL support offline startup. Publication SHALL distinguish installability from full creative and all-host UI acceptance.
+
+#### Scenario: Clean Git install
+- **WHEN** a user installs a Craft candidate through the Codex Git marketplace without ui/dist
+- **THEN** the plugin starts its pinned editor through the bootstrap and exposes real stdio MCP tools
+
+#### Scenario: Complete archive install
+- **WHEN** the full release archive contains verified ui/dist resources
+- **THEN** startup uses those resources without downloading them again

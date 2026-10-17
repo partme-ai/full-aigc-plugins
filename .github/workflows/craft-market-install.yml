@@ -1,0 +1,50 @@
+name: Craft marketplace Git installation
+on:
+  workflow_dispatch:
+    inputs:
+      marketplace_ref:
+        description: Marketplace Git ref containing the pinned candidates
+        default: feature/REQ-20261016-wandl-craft-ui-skills
+        type: string
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [cadcraft, designcraft, effectcraft, photocraft, figcraft, filmcraft, lightcraft, printcraft, vectorcraft, deckcraft, soundcraft, gridcraft, wordcraft]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - name: Install pinned Codex host
+        shell: pwsh
+        run: |
+          npm install --global @openai/codex@0.162.1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $root = npm root --global
+          "CODEX_CI_JS=$root/@openai/codex/bin/codex.js" >> $env:GITHUB_ENV
+      - name: Bootstrap archive and portable MCP regressions
+        run: node --test scripts/craft-runtime-bootstrap.test.mjs scripts/portable-mcp-config.test.mjs
+      - name: Actual Git install, first download and native MCP calls
+        shell: pwsh
+        env:
+          PYTHONUTF8: '1'
+          MARKET_REF: ${{ inputs.marketplace_ref }}
+        run: |
+          python scripts/verify-craft-market-install.py partme-ai/full-aigc-plugins "中文 市场验收" --public --ref $env:MARKET_REF --app ${{ matrix.app }} --codex-js $env:CODEX_CI_JS
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-market-${{ matrix.app }}
+          path: |
+            中文 市场验收/*.json
+            中文 市场验收/*.log

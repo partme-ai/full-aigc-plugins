@@ -15,6 +15,12 @@
       "source": "https://github.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.15.0"
     },
     {
+      "id": "cadcraft",
+      "displayName": "CADCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
+    },
+    {
       "id": "comfy-design",
       "displayName": "Comfy Design",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.5.0/assets/official-logo.png",
@@ -24,6 +30,18 @@
       "id": "content-factory",
       "displayName": "Content Factory (RC)",
       "source": "https://github.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.2"
+    },
+    {
+      "id": "deckcraft",
+      "displayName": "DeckCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
+    },
+    {
+      "id": "designcraft",
+      "displayName": "DesignCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
     },
     {
       "id": "dreamina-canvas",
@@ -38,6 +56,30 @@
       "source": "https://github.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.7.0"
     },
     {
+      "id": "effectcraft",
+      "displayName": "EffectCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/effectcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
+    },
+    {
+      "id": "figcraft",
+      "displayName": "FigCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
+    },
+    {
+      "id": "filmcraft",
+      "displayName": "FilmCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
+    },
+    {
+      "id": "gridcraft",
+      "displayName": "GridCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
+    },
+    {
       "id": "image-factory",
       "displayName": "Image Factory",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.8.0/assets/logo-approved.png",
@@ -50,6 +92,12 @@
       "source": "https://github.com/full-aigc-plugins/jianying-edit-plugin/releases/tag/v0.27.9"
     },
     {
+      "id": "lightcraft",
+      "displayName": "LightCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
+    },
+    {
       "id": "minimax-design",
       "displayName": "MiniMax Design",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.4.3/assets/official-logo.png",
@@ -57,8 +105,27 @@
     },
     {
       "id": "printcraft",
-      "displayName": "PrintCraft (RC)",
-      "source": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.6"
+      "displayName": "PdfCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
+    },
+    {
+      "id": "photocraft",
+      "displayName": "PhotoCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
+    },
+    {
+      "id": "soundcraft",
+      "displayName": "SoundCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
+    },
+    {
+      "id": "vectorcraft",
+      "displayName": "VectorCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
     },
     {
       "id": "video-factory",
@@ -71,6 +138,12 @@
       "displayName": "Volcengine Design",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.1.2/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.1.2"
+    },
+    {
+      "id": "wordcraft",
+      "displayName": "WordCraft Use (RC)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261017.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261017.1"
     },
     {
       "id": "xuanji",
