@@ -36,8 +36,37 @@
     "downloadedPublicZip": "PASS",
     "actualCodexInstallAndMcp": "PASS",
     "installedUiDistDigests": "PASS",
-    "mainMarketplace": "PENDING",
-    "publishedZipGuiSync": "NOT_TESTED; earlier same-runtime candidate result remains separately scoped"
+    "mainMarketplace": "PASS",
+    "publishedZipGuiSync": {
+      "result": "LIMITED_SYNTHETIC_PASS",
+      "scope": "finite loop lifecycle; voice silence gap remains separately verified on same-runtime local candidate",
+      "host": "native Codex app-server + Codex IAB",
+      "thread": "01a14afd-818c-7192-9a74-970683da9b4a",
+      "mcpCalls": 17,
+      "checks": [
+        "actual published ZIP installed at0.1.0-dev.20261018.1",
+        "MCP creates total three copies; same canvas shows three clips",
+        "MCP remove leaves one original clip; same canvas shrinks to one",
+        "reopen saved three-copy pack, flatten and save/reopen actual scraftz",
+        "three real native archives read independently; flattened loop metadata cleared",
+        "independent CLI decoded PCM matches both original loop and flattened host WAV"
+      ],
+      "runtime": "fixed bundled upstream0.7.0; update query HTTP404 fallback",
+      "limits": [
+        "synthetic one-second source",
+        "no real auditory acceptance",
+        "other hosts not verified"
+      ]
+    },
+    "publicMainGitInstallAndMcp": "PASS",
+    "subscribedNativeListing": {
+      "version": "0.1.0-dev.20261018.1",
+      "logo": "resolved official-logo.png",
+      "composerIcon": "resolved official-logo.png",
+      "newSkillSourceFiles": "both accessible",
+      "dailyProfileInstalled": false,
+      "isolatedAcceptanceInstalled": true
+    }
   },
   "installedHostSync": {
     "result": "LIMITED_SYNTHETIC_PASS",
@@ -188,7 +217,17 @@
     "fresh-native-tty/workspace/bursts.wav": "b5e8d94c116849288d346c8b6c521d0cff73b4a503081d7ed4a243bd36523f94",
     "fresh-native-tty/workspace/mcp-flattened.wav": "9a323504076f6b9b6d924251ed8c480c454bbb7edc6fb5382daa7c8400901c95",
     "fresh-native-tty/workspace/mcp-loop.wav": "9a323504076f6b9b6d924251ed8c480c454bbb7edc6fb5382daa7c8400901c95",
-    "fresh-native-tty/workspace/mcp-gaps.wav": "69b09922fdd42179158d028563b377edc7b7b1b766982ad052178dd613d944fb"
+    "fresh-native-tty/workspace/mcp-gaps.wav": "69b09922fdd42179158d028563b377edc7b7b1b766982ad052178dd613d944fb",
+    "published-native-tty/frozen-calls.json": "2f52727541288c0dbd9aa277932bbd22935aafcb9a53a4f7bc14e0579b79cca3",
+    "published-native-tty/frozen-native-rpc.json": "4ca6a062a6d50bf3e9d889a16a690ee2e9a3f274f4700594b3a4a8abab010b44",
+    "published-native-tty/loop-three.jpg": "48337410312dd2ad222717674e0a252346c5e295c5099e88d8fbc6fe28496bbc",
+    "published-native-tty/loop-removed.jpg": "b3b2f4ec9252c1b3c2fe39e3aa7a2cba9ebf324492cc9bbc9bee713fe2440009",
+    "published-native-tty/loop-flat-reopened.jpg": "b2c44802c9bc2a9474c7a0e1cff45f1a25ae5267e355450c893256de17fa9482",
+    "published-native-tty/workspace/published-loop.scraftz": "90772cdc56e459ccc3473031940e8ab000e71bc3357a65cac101f42934d8176b",
+    "published-native-tty/workspace/published-flat.scraftz": "c432b17197ac4054e596162f6827677f5f6decaf580d61997a2be3cab778cf48",
+    "published-native-tty/workspace/published-single.scraftz": "00a6de3cdc9c1a56e64ceef54388e7b171a4b7e306da61763b7ac4b1bcbd95e1",
+    "published-native-tty/workspace/published-loop.wav": "9a323504076f6b9b6d924251ed8c480c454bbb7edc6fb5382daa7c8400901c95",
+    "published-native-tty/workspace/published-flat.wav": "9a323504076f6b9b6d924251ed8c480c454bbb7edc6fb5382daa7c8400901c95"
   },
   "stereoSplitDiagnostic": {
     "result": "FAIL_NOT_SHIPPED_AS_SKILL",
@@ -289,5 +328,48 @@
     "run": 39055069666,
     "result": "PASS",
     "scope": "existing published-package matrix; not new skill publication"
+  },
+  "releaseCI": {
+    "sourceCommit": "8346503c1c31e28bcf9226bf1bdc98769d771c55",
+    "test": {
+      "marketInstall": {
+        "run": 39055604919,
+        "result": "PASS",
+        "jobs": 27
+      },
+      "packageMcp": {
+        "run": 39055604847,
+        "result": "PASS",
+        "jobs": 14
+      },
+      "nativeBusiness": {
+        "run": 39055604877,
+        "result": "PASS",
+        "jobs": 13
+      }
+    },
+    "main": {
+      "marketInstall": {
+        "run": 39055928171,
+        "result": "PASS",
+        "jobs": 27
+      },
+      "packageMcp": {
+        "run": 39055928175,
+        "result": "PASS",
+        "jobs": 14
+      },
+      "nativeBusiness": {
+        "run": 39055928183,
+        "result": "PASS",
+        "jobs": 13
+      }
+    }
+  },
+  "releaseWindowsArtifact": {
+    "run": 39055604877,
+    "soundcraftScenes": 16,
+    "cliProcessesIncludingCatalogDiscovery": 545,
+    "downloadedOutputHashesVerified": 106
   }
 }

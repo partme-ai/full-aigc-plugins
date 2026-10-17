@@ -97,4 +97,4 @@ DeckCraft已提供0.1.0-dev.20261017.6完整开发预发布包，包含10个技�
 
 ## SoundCraft 静音与循环开发预发布
 
-SoundCraft 0.1.0-dev.20261018.1完整公开ZIP已提供，实际下载、解包、Codex安装发现/MCP及安装资源摘要通过。两项新增场景与已观察但不交付的0.7.0拆轨缺口分别记录；主市场合入进行中。固定资源仍为dev.20261017.2，不构成上游引擎升级或全部创作验收。详见craft-sound-production-validation.json。
+SoundCraft 0.1.0-dev.20261018.1完整公开ZIP已提供，实际下载、解包、Codex安装发现/MCP及安装资源摘要通过。两项新增场景与已观察但不交付的0.7.0拆轨缺口分别记录；已按feature→test→main发布，主市场实际Git安装/MCP、订阅刷新与原生列表核查通过。公开包另有有限循环的真实Codex/IAB创建/移除/展开/重开及音频回读；test和main相同源码SHA三组CI全部通过。固定资源仍为dev.20261017.2，不构成上游引擎升级或全部创作验收。详见craft-sound-production-validation.json。
