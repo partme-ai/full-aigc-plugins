@@ -1,11 +1,8 @@
 name: Craft marketplace Git installation
 on:
-  workflow_dispatch:
-    inputs:
-      marketplace_ref:
-        description: Marketplace Git ref containing the pinned candidates
-        default: feature/REQ-20261016-wandl-craft-ui-skills
-        type: string
+  push:
+    paths: ['.github/workflows/craft-market-install.yml']
+  workflow_dispatch: {}
 permissions:
   contents: read
 jobs:
@@ -37,9 +34,8 @@ jobs:
         shell: pwsh
         env:
           PYTHONUTF8: '1'
-          MARKET_REF: ${{ inputs.marketplace_ref }}
         run: |
-          python scripts/verify-craft-market-install.py partme-ai/full-aigc-plugins "中文 市场验收" --public --ref $env:MARKET_REF --app ${{ matrix.app }} --codex-js $env:CODEX_CI_JS
+          python scripts/verify-craft-market-install.py candidate-marketplace "中文 市场验收" --marketplace-name full-aigc-craft-candidates --app ${{ matrix.app }} --codex-js $env:CODEX_CI_JS
           exit $LASTEXITCODE
       - uses: actions/upload-artifact@v4
         if: always()
