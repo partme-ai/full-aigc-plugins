@@ -1,6 +1,6 @@
 # VectorCraft Use
 
-当前可安装开发候选：`0.1.0-dev.20261017.5`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+当前可安装开发候选：`0.1.0-dev.20261017.6`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -24,7 +24,7 @@
 
 Logo、图标与品牌图形需求进入，交付 `.vectorcraft` 及适用的 SVG、PDF、PNG。
 
-当前插件：`0.1.0-dev.65`；技能源：`0.1.0-dev.47`；14 个独立技能（13 领域技能 + 1 内置执行 harness）。公开标签64的资格证据仍绑定历史 13 技能载荷，重新鉴定需另行授权发布；完整V1仍开放。
+当前插件：`0.1.0-dev.20261017.6`；技能源：`0.1.0-dev.47`；25个可发现技能，包含冻结基础技能和开发场景。历史资格仍绑定原始载荷；完整V1验收仍开放。
 
 插件55／源41增加SVG实际图像范围及摘要绑定的技术披露门禁；最小任务4.13／4.14通过，4.15当前无界面场景验收通过。[架构](docs/VectorCraft-Exchange-Scope.zh_CN.md)。
 
@@ -151,7 +151,7 @@ Intent + assets
 | Property | Value |
 | :--- | :--- |
 | Plugin ID | vectorcraft |
-| Metadata version | 0.1.0-dev.65 |
+| Metadata version | 0.1.0-dev.20261017.6 |
 | Stage | implementation-in-progress |
 | Skills source | vectorcraft-skills / v0.1.0-dev.47 |
 | Execution | 上游 CLI；ArtCraft 使用子适配器 |
@@ -554,3 +554,7 @@ Eight workflows include explicit commands, parameters, object selection and edit
 ### 候选启动修正
 
 本候选先完成轻量MCP握手及能力发现，在首次工具或资源调用时校验/获取固定编辑器资源。修复多个编辑器首次下载阻塞宿主握手的问题。Windows通过Git安装时须启用Git长路径支持（`git config --global core.longpaths true`）；完整ZIP不包含历史验收记录，可避免Git检出长路径的问题。运行资源沿用已核验的dev.20261017.2制品，不以入口版本号冒充上游升级。
+
+## 矢量制作场景开发候选
+
+新增vectorcraft-clipped-illustration、vectorcraft-sticker-grid、vectorcraft-sticker-offset-border三个独立技能，包含原生方法、参数、实际ID绑定与保存后的编辑检查。当前新增内容未发布；完整真实设计质量及宿主同步仍待验收。

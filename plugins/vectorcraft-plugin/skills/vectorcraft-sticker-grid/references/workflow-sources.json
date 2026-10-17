@@ -1,0 +1,19 @@
+{
+  "policy": "只借鉴工作流事实，场景正文、方法、参数和夹具原创编写。",
+  "sources": [
+    {
+      "repository": "iconifyit/ai-step-n-repeat",
+      "commit": "395ddc45caae6be729394cede5128487b2e4346b",
+      "license": "MIT",
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/iconifyit/ai-step-n-repeat/blob/395ddc45caae6be729394cede5128487b2e4346b/README.md",
+          "bytes": 1137,
+          "sha256": "1ec8400bf82748cad1879dfb30b3f889dd3ad7202c30903d853a0892b09d7110"
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no JSX, upstream prose or media copied"
+    }
+  ]
+}

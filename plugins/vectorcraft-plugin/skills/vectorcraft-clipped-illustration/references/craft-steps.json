@@ -1,0 +1,110 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "vectorcraft",
+  "id": "clipped-illustration",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "command": "file.new",
+      "params": {
+        "width": 320,
+        "height": 240,
+        "units": "Pixels",
+        "backgroundContents": "white"
+      },
+      "batch": "new",
+      "purpose": "仅在新作品任务建立独立画板"
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 20,
+        "y": 40,
+        "width": 240,
+        "height": 160
+      },
+      "batch": "art",
+      "capture": "art",
+      "purpose": "创建本次矩形并记录真实返回id"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "color": "#2563eb"
+      },
+      "batch": "art",
+      "purpose": "设置目标填色；无ids时仅作用于当前批次新对象"
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "none": true
+      },
+      "batch": "art",
+      "purpose": "显式去掉描边以避免继承默认黑边"
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 100,
+        "y": 40,
+        "width": 40,
+        "height": 160
+      },
+      "batch": "stripe",
+      "capture": "stripe",
+      "purpose": "创建本次矩形并记录真实返回id"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "color": "#f97316"
+      },
+      "batch": "stripe",
+      "purpose": "设置目标填色；无ids时仅作用于当前批次新对象"
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "none": true
+      },
+      "batch": "stripe",
+      "purpose": "显式去掉描边以避免继承默认黑边"
+    },
+    {
+      "command": "shape.ellipse",
+      "params": {
+        "x": 80,
+        "y": 60,
+        "width": 120,
+        "height": 120
+      },
+      "batch": "mask",
+      "capture": "mask",
+      "purpose": "创建本次圆形并记录真实返回id"
+    },
+    {
+      "command": "object.clippingMask.make",
+      "params": {
+        "ids": [
+          {
+            "$ref": "art.id"
+          },
+          {
+            "$ref": "stripe.id"
+          },
+          {
+            "$ref": "mask.id"
+          }
+        ]
+      },
+      "batch": "clip",
+      "capture": "clip",
+      "purpose": "以真实对象ID建立非破坏蒙版，顶层路径为遮罩"
+    }
+  ],
+  "check": "用圆形蒙版显示两块色面，原始矩形不被裁掉；保存重开后仍有Clip Group和完整子对象，另存副本释放蒙版后恢复外围内容。",
+  "boundary": "新建独立矢量插画样例；真实任务先明确保留范围、哪些对象参与蒙版和最上层遮罩路径。已有作品只选择获授权的对象，不select.all。",
+  "templateOnly": true,
+  "argumentPolicy": "batch/capture/$ref是手册记号，不能直接传给原生CLI。每批读取实际返回值后解析下一批参数；已有文档不能套用示例对象ID。"
+}

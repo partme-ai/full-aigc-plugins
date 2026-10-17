@@ -33,6 +33,18 @@
     {
       "name": "vectorcraft-scenario-playbooks",
       "sha256": "5a375563988d97115b497cd4f39aca74fb35388b87a6a739a0b597eda09d7232"
+    },
+    {
+      "name": "vectorcraft-clipped-illustration",
+      "sha256": "1a25eb638e0199c7fbd783e5ffccaaf87165cf827a13bed732665a3eb7467bef"
+    },
+    {
+      "name": "vectorcraft-sticker-grid",
+      "sha256": "da288a394074b9a6a60c7fdd3538ace001fd993eda03e77267145fc734312f17"
+    },
+    {
+      "name": "vectorcraft-sticker-offset-border",
+      "sha256": "17bf1653c3aada8ce05644114a9ceed14fb9e03de0bf3253d0425f0d050e5050"
     }
   ]
 }

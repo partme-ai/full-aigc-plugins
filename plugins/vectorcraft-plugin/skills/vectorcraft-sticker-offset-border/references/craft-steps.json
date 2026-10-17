@@ -1,0 +1,136 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "vectorcraft",
+  "id": "sticker-offset-border",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "steps": [
+    {
+      "command": "file.new",
+      "params": {
+        "width": 320,
+        "height": 240,
+        "units": "Pixels",
+        "backgroundContents": "white"
+      },
+      "batch": "new",
+      "purpose": "仅在新作品任务建立独立画板"
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 240
+      },
+      "batch": "background",
+      "capture": "background",
+      "purpose": "创建本次矩形并记录真实返回id"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "color": "#64748b"
+      },
+      "batch": "background",
+      "purpose": "设置目标填色；无ids时仅作用于当前批次新对象"
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "none": true
+      },
+      "batch": "background",
+      "purpose": "显式去掉描边以避免继承默认黑边"
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 100,
+        "y": 80,
+        "width": 100,
+        "height": 60
+      },
+      "batch": "art",
+      "capture": "art",
+      "purpose": "创建本次矩形并记录真实返回id"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "color": "#2563eb"
+      },
+      "batch": "art",
+      "purpose": "设置目标填色；无ids时仅作用于当前批次新对象"
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "none": true
+      },
+      "batch": "art",
+      "purpose": "显式去掉描边以避免继承默认黑边"
+    },
+    {
+      "command": "select.set",
+      "params": {
+        "ids": [
+          {
+            "$ref": "art.id"
+          }
+        ]
+      },
+      "batch": "offset",
+      "purpose": "只选择本任务授权的实际对象"
+    },
+    {
+      "command": "object.path.offsetPath",
+      "params": {
+        "offset": 8,
+        "joins": "round",
+        "miterLimit": 4
+      },
+      "batch": "offset",
+      "capture": "border",
+      "purpose": "按pt向外生成新偏移路径并记录返回ids"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": {
+          "$ref": "border.ids"
+        },
+        "color": "#ffffff"
+      },
+      "batch": "paint-border",
+      "purpose": "设置目标填色；无ids时仅作用于当前批次新对象"
+    },
+    {
+      "command": "paint.setStroke",
+      "params": {
+        "ids": {
+          "$ref": "border.ids"
+        },
+        "none": true
+      },
+      "batch": "paint-border",
+      "purpose": "显式去掉描边以避免继承默认黑边"
+    },
+    {
+      "command": "object.arrange.bringToFront",
+      "params": {
+        "ids": [
+          {
+            "$ref": "art.id"
+          }
+        ]
+      },
+      "batch": "front",
+      "purpose": "将原稿置于白边之上，避免白边盖住图形"
+    }
+  ],
+  "check": "为100×60pt原稿生成向外8pt白边，保留原稿几何和颜色，轮廓位于原稿之后、底色之前，保存重开后可分别编辑。",
+  "boundary": "输入为已确认的闭合矢量图形，先明确向外偏移距离与连接样式。图像、文字、复杂自交轮廓不能直接套用此单矩形样例。",
+  "templateOnly": true,
+  "argumentPolicy": "batch/capture/$ref是手册记号，不能直接传给原生CLI。每批读取实际返回值后解析下一批参数；已有文档不能套用示例对象ID。"
+}

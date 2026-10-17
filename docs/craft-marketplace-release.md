@@ -1,6 +1,6 @@
 # Craft 插件库开发候选
 
-当前 DesignCraft、PdfCraft、EffectCraft、PhotoCraft、WordCraft 候选为 `0.1.0-dev.20261017.6`，FilmCraft 为 `0.1.0-dev.20261017.7`，其余 7 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
+当前 DesignCraft、PdfCraft、EffectCraft、PhotoCraft、WordCraft、VectorCraft 候选为 `0.1.0-dev.20261017.6`，FilmCraft 为 `0.1.0-dev.20261017.7`，其余 6 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
 
 本次修正的动因：Git插件条目的回退列表不解析包内图片，官方源码及本机原生plugin/list均可复现。仅补composerIcon无法改变未安装列表。快照包含技能、MCP清单、官方图标及bootstrap，不增加Agent运行时，亦不将全部创作和宿主同步视为通过。
 
@@ -84,3 +84,7 @@ FilmCraft v7已按feature→test→main进入主市场，当前源码提交`a030
 新增可更新目录、图片题注、横向附录三个独立技能。macOS/Windows官方0.7.0原生17场景均通过；Windows54个输出和原始配方摘要一致。真实Codex完整包安装与MCP基础调用通过，发现15个技能。此候选复用v2运行资源；真实文档质量、长文档分页和宿主内编辑同步未验收。详见[回归记录](craft-word-publishing-validation.json)。
 
 WordCraft v6已按feature→test→main进入主市场，源码提交`a5249f6a5b9fb58b84538c3f6efadb906ed0b209`。test市场27项（39041041036）、安装/MCP14项（39041154003）、13应用业务（39041153991）通过。实际订阅刷新errors为空，桌面原生列表确认v6、15技能及三个新入口，logo/composerIcon存在；日常配置未安装，隔离真实宿主安装与基础MCP调用已通过。main同源码三组CI全部通过：市场27项（39041454980）、Windows安装/MCP14项（39041454996）、13应用业务（39041454975）。
+
+## VectorCraft dev.20261017.6 制作场景
+
+新增可释放蒙版、共享源阵列、独立偏移白边三个技能。20场景加1个已有文档保护用例通过macOS/Windows原生回归；公开完整ZIP安装、25技能发现、MCP基础调用和已安装资源摘要检查通过。复用固定v2编辑资源；真实设计与印刷质量、宿主同画面操作尚未验收。详见[回归记录](craft-vector-production-validation.json)。

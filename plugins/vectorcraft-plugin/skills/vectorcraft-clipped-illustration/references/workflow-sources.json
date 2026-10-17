@@ -1,0 +1,19 @@
+{
+  "policy": "只借鉴工作流事实，场景正文、方法、参数和夹具原创编写。",
+  "sources": [
+    {
+      "repository": "creold/illustrator-scripts",
+      "commit": "9b3e3eeade9ba748f41612ec4697bb6a5c2489c2",
+      "license": "MIT",
+      "readFiles": [
+        {
+          "path": "md/Group.md",
+          "url": "https://github.com/creold/illustrator-scripts/blob/9b3e3eeade9ba748f41612ec4697bb6a5c2489c2/md/Group.md",
+          "sha256": "03df20357405771eca3798c6a8f8ec9d44bc7793a446283c3f0eaed14b0d1e9d",
+          "bytes": 8063
+        }
+      ],
+      "reuse": "workflow facts and original adaptation only; no JSX, upstream prose or media copied"
+    }
+  ]
+}

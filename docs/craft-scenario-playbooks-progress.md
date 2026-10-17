@@ -2,13 +2,13 @@
 
 ## 目标与当前交付
 
-目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前216条命令映射：PhotoCraft50条，GridCraft18条，WordCraft17条，DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft17条，DesignCraft14条，EffectCraft9条、FilmCraft9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
+目标仍是从对标软件的实际经验构建覆盖13应用、规模为数百条的可用场景技能，方法与参数对应真实CLI/MCP。当前219条命令映射：PhotoCraft50条，GridCraft18条，WordCraft17条，DeckCraft/SoundCraft/LightCraft/CADCraft/FigCraft各14条、VectorCraft20条，DesignCraft14条，EffectCraft9条、FilmCraft9条，PrintCraft12条。这些映射未全部通过完整效果验收，且存在方法复用。
 
 | 内容 | 当前事实 |
 | --- | --- |
-| GitHub来源 | 22个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
+| GitHub来源 | 23个仓，固定commit、实际阅读文件和许可状态见 craft-scenario-sources.json |
 | 原生命令参数 | 13个官方Windows x64 CLI实际采集；全部目录采集与业务矩阵通过运行38921194883 |
-| 场景分发 | 97个技能中落地216条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
+| 场景分发 | 100个技能中落地219条，独立引用、方法ID、PDF参数和源/插件副本检查通过 |
 | PhotoCraft实际操作 | 18条场景由技能原始步骤在Windows CLI执行，保存重开导出通过运行38926679341；其中6条检查RGB变化，4条检查局部效果及保护区域不变，1条检查非删除裁切保存后的原像素恢复 |
 | Office实际操作 | Grid12条、Word8条、Deck8条及1条组合用例通过运行38928803118 |
 | 视听实际操作 | Sound8条、Light8条通过运行38931238554；包含重开后再导出检查 |
@@ -202,7 +202,7 @@ SVG整理以真实透明SVG输入测试：共线节点减少、原始SVG及原�
 
 最终Windows[39005885352](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39005885352)绑定目录仓b75fbd8与技能源15cdd6d，13应用业务矩阵全部通过；VectorCraft17个映射配方+1组合经125次真实CLI调用通过。下载85份输出核对SHA256，并独立核对描摹alpha与SVG简化前后/重开RGBA一致，日志中核对活文字CRAFT保留。既有安装/MCP矩阵39005885501通过；不替代本次六场景真实宿主加载/同步验收。完整范围见[核心场景回归记录](craft-vector-core-validation.json)。
 
-累计201条映射：164条完成限定技术回归、1条PDF表单部分通过、36条待逐项执行，另有4条组合用例。VectorCraft17条具备技术样例执行记录；六核心的真实设计与宿主同步未验收。插件文档/架构CI通过，完整实现CI39005811428仍失败；整体目标与OpenSpec继续实施中。
+累计201条映射：164条完成限定技术回归、1条PDF表单部分通过、36条待逐项执行，另有4条组合用例。VectorCraft20条具备技术样例执行记录；六核心的真实设计与宿主同步未验收。插件文档/架构CI通过，完整实现CI39005811428仍失败；整体目标与OpenSpec继续实施中。
 
 
 ## FilmCraft关联素材单侧删除修正
@@ -399,3 +399,7 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 ## WordCraft具体排版场景
 
 新增独立可更新目录手册、图解连续题注、纵向正文与横向附录三个技能，借鉴LibreOffice/help固定提交的工作流事实。修正layout.section不建立分节及表格末尾空段落产生额外行的问题。macOS17场景67次、Windows17场景72次实际CLI回归通过；下载54个输出摘要及三个原始配方摘要一致。检查真实TOC域和有效书签、图片及关系、连续SEQ题注、两节方向及两页PDF方向；查看了macOS实际渲染。来源与插件一致，完整候选v6已进入主市场并完成实际订阅和桌面原生列表核查。真实文档质量、长文档分页和宿主同步尚未验收。详见craft-word-publishing-validation.json。
+
+## VectorCraft可继续编辑的制作场景
+
+新增非破坏蒙版插画、共享源贴纸阵列、独立偏移白边三个技能，借鉴creold/illustrator-scripts与iconifyit/ai-step-n-repeat固定提交。macOS/Windows官方0.12.0实际完成20个场景加1个已有文档保护用例；Windows118个输出摘要通过，逐批方法参数及真实ID绑定与原配方一致。文本CRLF摘要独立记录，二进制仍逐字节校验。插件481项Python测试、9项新辅助及52项既有辅助回归通过；修复身份元数据与历史正向夹具，未改写冻结基础锁或历史资格。完整候选v6准备进入主市场，真实设计/印刷质量和宿主同步未验收。详见craft-vector-production-validation.json。

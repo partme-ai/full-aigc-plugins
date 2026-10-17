@@ -1,0 +1,67 @@
+{
+  "runtime": {
+    "version": "0.12.0",
+    "platform": "macOS universal",
+    "observation": "Actual native commands --json"
+  },
+  "observedCommands": {
+    "file.new": {
+      "enabled": true,
+      "id": "file.new",
+      "label": "New…",
+      "menu": [
+        "File"
+      ],
+      "params": "{preset?: a name from file.newPresets (start from it; the other params change it), name?|title?: document name (default Untitled-N), width?: pt=612|\"210 mm\", height?: pt=792, units?: \"Pixels\"|\"Points\"|\"Picas\"|\"Inches\"|\"Millimeters\"|\"Centimeters\"|\"Feet\"|\"Yards\"|\"Meters\"|\"Feet & Inches\" (default: prefs unitsGeneral, as print presets; screen presets: Pixels), orientation?: \"portrait\"|\"landscape\" (swaps width and height to match), artboards?: n (1–1000), artboardLayout?: {layout?: \"gridByRow\"|\"gridByColumn\"|\"row\"|\"column\", columns?: n (default: all in one row), spacing?: pt=20, rightToLeft?: bool}, bleed?: pt|[top, bottom, left, right]|{top?, …} (0–72 pt), backgroundContents?: \"transparent\"|\"white\" (a white artboard background, not an object), colorMode?: \"rgb\"|\"cmyk\" (a CMYK document starts with CMYK swatches and stores the colours applied to it as CMYK), rasterEffectsPpi?: 72|150|300 (1–2400), previewMode?: \"default\"|\"pixel\"|\"overprint\" (overprint turns Overprint Preview on, pixel Pixel Preview in the app; default leaves both), created?: Unix seconds|null (File Info's created date; default now, recorded in the journal so a replay matches), size?: a preset's size label (a preset file.newPresets lists can be passed back; ignored)} → {index, previewMode}; the size is remembered in file.newPresets' Recent",
+      "shortcut": null
+    },
+    "shape.rectangle": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "shape.rectangle",
+      "label": "Rectangle",
+      "menu": [],
+      "params": "{x, y, width, height, radius?: pt, rotation?: deg (about centre)} → {id}",
+      "shortcut": null
+    },
+    "paint.setFill": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "paint.setFill",
+      "label": "Fill",
+      "menu": [],
+      "params": "{color?: \"#rrggbb\"|[r,g,b]|{c,m,y,k}|{gray}|{l,a,b} (CIE Lab), none?: true, swatch?: name (a global or spot colour stays linked, so swatch edits recolour it; a tint swatch links to its base at its tint; a gradient swatch is recorded as the gradient's swatch and fits each object, keeping its aspect; the built-in \"[Registration]\" prints on every plate), tint?: 0..100 (% of a global or spot `swatch`; default 100, or a tint swatch's own), gradient?: {kind?: linear|radial|freeform, stops?: [{offset 0..1, color, opacity? 0..1 (or 0..100), midpoint? 0.13..0.87, swatch?: global or spot colour (or tint) swatch the stop links to (its colour comes from the swatch), tint?: 0..100}] (at least 2; default white→black), angle?: deg, start?: [x,y], end?: [x,y] (the vector in document coordinates, both or neither; type objects keep it in text space), aspect?: % (radial; without start/end the gradient is placed on each object's bounds), focal?: [x,y] (radial, with start/end: the focal point, where the first stop sits), swatch?: linked gradient swatch name}, item?: appearance item index|null (omitted: the Appearance panel's active item if it is a fill, else the top fill), ids?|id?, focus?: true (false keeps the active proxy), keepModel?: false (in a CMYK document, RGB colours and gradient stops are stored as CMYK unless true; Gray stays Gray), target?: \"object\"|\"contents\", span?: \"object\" (default: each target fits a gradient to its own bounds)|\"selection\" (a linear or radial `gradient` without start/end is placed once on the union of the targets' bounds, so it runs across them)} sets the selection's fill and the default (new art fits a gradient to itself); a solid colour recolours only the gradient mesh point last clicked with the Mesh tool or Direct Selection; while the Type tool has characters selected (and no ids or item are given), the paint goes to those characters only",
+      "shortcut": null
+    },
+    "paint.setStroke": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "paint.setStroke",
+      "label": "Stroke",
+      "menu": [],
+      "params": "{…as paint.setFill, item?: the stroke item to set} same as paint.setFill, for the stroke",
+      "shortcut": null
+    },
+    "shape.ellipse": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "shape.ellipse",
+      "label": "Ellipse",
+      "menu": [],
+      "params": "{x, y, width, height, rotation?: deg (about centre)} → {id}",
+      "shortcut": null
+    },
+    "object.clippingMask.make": {
+      "disabled_reason": "no document open",
+      "enabled": false,
+      "id": "object.clippingMask.make",
+      "label": "Make",
+      "menu": [
+        "Object",
+        "Clipping Mask"
+      ],
+      "params": "{ids?: [id…] (selected first; default: the selection)} the topmost selected object (a path, compound path or text, which loses its paint) clips the others: compound holes, even-odd fills and glyph outlines clip as drawn. Paint given to the clipping path later (paint commands with its id) shows: its fill behind the clipped art, its stroke over it → {id} of the clip group",
+      "shortcut": "Cmd+7"
+    }
+  }
+}

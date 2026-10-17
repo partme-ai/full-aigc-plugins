@@ -18,6 +18,10 @@ class ReleaseGateTests(unittest.TestCase):
     # 正向 fixture 恢复原固定验收字节；真实工作树门禁仍拒绝未经验收的新代码。
     choices=[ROOT/dep for entry in json.loads((ROOT/'docs/evidence-index.json').read_text())['entries'] for dep,digest in entry['dependencies'].items() if digest==expected and dep.endswith('/'+name)]
     source=next((candidate for candidate in choices if candidate.is_file() and hashlib.sha256(candidate.read_bytes()).hexdigest()==expected),source)
+   # 正向历史夹具读取原始Git字节；当前工作树的真实发布门禁仍校验当前manifest。
+   if name in ('plugin.json','docs/current-identity.json') and expected:
+    fixture=ROOT/'tests/fixtures/release64'/name
+    if fixture.is_file() and hashlib.sha256(fixture.read_bytes()).hexdigest()==expected:source=fixture
    shutil.copyfile(source,p)
   spec=importlib.util.spec_from_file_location('release_gate',ROOT/'scripts/release_gate.py');self.m=importlib.util.module_from_spec(spec);spec.loader.exec_module(self.m)
   # 正向单元夹具使用被验收发布的完整技能源字节，不将新44载荷写入旧43身份。

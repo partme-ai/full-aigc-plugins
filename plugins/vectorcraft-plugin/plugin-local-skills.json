@@ -9,6 +9,9 @@
     "vectorcraft-logo-system",
     "vectorcraft-scenario-playbooks",
     "vectorcraft-svg-cleanup",
-    "vectorcraft-trace-artwork"
+    "vectorcraft-trace-artwork",
+    "vectorcraft-clipped-illustration",
+    "vectorcraft-sticker-grid",
+    "vectorcraft-sticker-offset-border"
   ]
 }

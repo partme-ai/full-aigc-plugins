@@ -1,6 +1,6 @@
 {
   "schema": "vectorcraft-current-identity/v1",
-  "pluginVersion": "0.1.0-dev.64",
+  "pluginVersion": "0.1.0-dev.20261017.6",
   "skillSource": {
     "repo": "https://github.com/full-aigc-skills/vectorcraft-skills.git",
     "ref": "v0.1.0-dev.47",

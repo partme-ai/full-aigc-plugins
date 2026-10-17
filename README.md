@@ -122,7 +122,7 @@ codex plugin add volcengine-design@full-aigc-plugins
 | [**PhotoCraft Use (RC)**](https://github.com/full-aigc-plugins/photocraft-plugin) | `photocraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [photocraft-plugin](https://github.com/full-aigc-plugins/photocraft-plugin) |
 | [**PdfCraft Use (RC)**](https://github.com/full-aigc-plugins/printcraft-plugin) | `printcraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [printcraft-plugin](https://github.com/full-aigc-plugins/printcraft-plugin) |
 | [**SoundCraft Use (RC)**](https://github.com/full-aigc-plugins/soundcraft-plugin) | `soundcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [soundcraft-plugin](https://github.com/full-aigc-plugins/soundcraft-plugin) |
-| [**VectorCraft Use (RC)**](https://github.com/full-aigc-plugins/vectorcraft-plugin) | `vectorcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [vectorcraft-plugin](https://github.com/full-aigc-plugins/vectorcraft-plugin) |
+| [**VectorCraft Use (RC)**](https://github.com/full-aigc-plugins/vectorcraft-plugin) | `vectorcraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [vectorcraft-plugin](https://github.com/full-aigc-plugins/vectorcraft-plugin) |
 | [**WordCraft Use (RC)**](https://github.com/full-aigc-plugins/wordcraft-plugin) | `wordcraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [wordcraft-plugin](https://github.com/full-aigc-plugins/wordcraft-plugin) |
 | [🧱 **Blender 制作**](https://github.com/full-aigc-plugins/blender-design-plugin) | `blender-design` | 0.14.1 | Blender 场景的受控设计、审阅与导出（四 Tab 工作台、供应商能力、视觉里程碑与恢复检查点）；新增 `blender-ai-replication`（LLM + VLM-critic 复刻参考图） | [blender-design-plugin](https://github.com/full-aigc-plugins/blender-design-plugin) |
 | [🎞️ **Comfy 生成**](https://github.com/full-aigc-plugins/comfy-design-plugin) | `comfy-design` | 0.5.0 | Comfy Cloud 生成工作流（图像 / 视频 / 音频 / 3D） | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
@@ -225,7 +225,7 @@ Made with ❤️ by PartMe.AI Team
 - **FilmCraft Use**：`filmcraft-plugin`，10 个候选技能（含编辑器入口）。
 - **LightCraft Use**：`lightcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **PdfCraft Use**：`printcraft-plugin`，20 个候选技能（含编辑器入口）。
-- **VectorCraft Use**：`vectorcraft-plugin`，7 个候选技能（含编辑器入口）。
+- **VectorCraft Use**：`vectorcraft-plugin`，11 个候选技能（含编辑器入口）。
 - **DeckCraft Use**：`deckcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **SoundCraft Use**：`soundcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **GridCraft Use**：`gridcraft-plugin`，7 个候选技能（含编辑器入口）。

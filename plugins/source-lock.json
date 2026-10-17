@@ -129,12 +129,12 @@
   },
   {
     "plugin": "vectorcraft",
-    "version": "0.1.0-dev.20261017.5",
+    "version": "0.1.0-dev.20261017.6",
     "repository": "full-aigc-plugins/vectorcraft-plugin",
-    "commit": "834a45923ca8183cdc218013f63e3cadc3912866",
-    "tag": "v0.1.0-dev.20261017.5",
-    "fileCount": 1104,
-    "treeSha256": "f5a416b00e97f8fb91218191e8864746b99aeff889a1f647c26ab782429f4585",
+    "commit": "74b5f60f391ec0ab7107db8c1c360a50fdc70b0b",
+    "tag": "v0.1.0-dev.20261017.6",
+    "fileCount": 1122,
+    "treeSha256": "324adb16866973d12d5afba28b93d652b0201f6da76c7082347cf78ed0a405bb",
     "excluded": [
       "evidence/",
       "docs/evidence/",

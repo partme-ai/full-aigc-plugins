@@ -1,6 +1,6 @@
 # VectorCraft Use
 
-当前可安装开发候选：`0.1.0-dev.20261017.5`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+当前可安装开发候选：`0.1.0-dev.20261017.6`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -24,7 +24,7 @@ Four-domain RT-001 runtime source/integrity acceptance now covers every current 
 
 Create Logo, icon and brand assets as `.vectorcraft` with applicable SVG, PDF and PNG exports.
 
-Current plugin: `0.1.0-dev.65`; skill source: `0.1.0-dev.47`; 14 independent skills (13 domain skills + 1 built-in execution harness). Published public tag64 qualification remains bound to the historical 13-skill payload; re-qualification requires a separately authorized release. Full V1 remains open.
+Current plugin: `0.1.0-dev.20261017.6`; skill source: `0.1.0-dev.47`; 25 discoverable skills including the frozen base and development scenarios. Historical qualification remains bound to its original payload; full V1 acceptance remains open.
 
 Plugin55/source41 adds actual SVG image scope and a digest-bound technical disclosure guard. Minimum tasks4.13/4.14 pass; 4.15 qualifies for its current headless scenarios. [Architecture](docs/VectorCraft-Exchange-Scope.en.md).
 
@@ -151,7 +151,7 @@ Intent + assets
 | Property | Value |
 | :--- | :--- |
 | Plugin ID | vectorcraft |
-| Metadata version | 0.1.0-dev.65 |
+| Metadata version | 0.1.0-dev.20261017.6 |
 | Stage | implementation-in-progress |
 | Skills source | vectorcraft-skills / v0.1.0-dev.47 |
 | Execution | Upstream CLI; ArtCraft uses child adapters |
@@ -556,3 +556,7 @@ Eight workflows include explicit commands, parameters, object selection and edit
 ### 候选启动修正
 
 本候选先完成轻量MCP握手及能力发现，在首次工具或资源调用时校验/获取固定编辑器资源。修复多个编辑器首次下载阻塞宿主握手的问题。Windows通过Git安装时须启用Git长路径支持（`git config --global core.longpaths true`）；完整ZIP不包含历史验收记录，可避免Git检出长路径的问题。运行资源沿用已核验的dev.20261017.2制品，不以入口版本号冒充上游升级。
+
+## Vector production scenario candidates
+
+Adds three independent skills: vectorcraft-clipped-illustration, vectorcraft-sticker-grid and vectorcraft-sticker-offset-border. Each includes native methods, concrete parameters, actual returned ID binding and editability checks after reopening. These additions are not released yet; real design quality and host editor synchronization remain unverified.
