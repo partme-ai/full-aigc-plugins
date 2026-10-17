@@ -245,7 +245,7 @@
     "pluginPython": 124
   },
   "publication": {
-    "status": "PUBLIC_PRERELEASE_MARKET_UPDATE_IN_PROGRESS",
+    "status": "RELEASE_AND_TEST_MARKET_VERIFIED",
     "version": "0.1.0-dev.20261017.7",
     "pluginMainCommit": "d033b30b7303c92156176e5b7df79a087b8ad543",
     "skillsMainCommit": "12e1e75a2aba053978843c115f744324ef2e7095",
@@ -262,6 +262,26 @@
       "installedBundledRuntimeDigests": "PASS",
       "embeddedUI": "NOT_TESTED",
       "editingSync": "NOT_TESTED"
-    }
+    },
+    "testCi": {
+      "headSha": "d1651d519ca6f37658ed83f705e38553fd1efe5a",
+      "marketplace": {
+        "runId": 39039562524,
+        "jobs": 27,
+        "conclusion": "success"
+      },
+      "windowsPackageMcp": {
+        "runId": 39039562552,
+        "jobs": 14,
+        "conclusion": "success"
+      },
+      "windowsBusiness": {
+        "runId": 39039562521,
+        "jobs": 13,
+        "conclusion": "success"
+      }
+    },
+    "testMarketNativeCodexInstallAndMcp": "PASS",
+    "recipeSourceSnapshotZipBytes": "All three recipe bytes identical"
   }
 }
