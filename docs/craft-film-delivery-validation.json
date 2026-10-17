@@ -296,7 +296,12 @@
       "marketplace": 39039823429,
       "windowsPackageMcp": 39039823442,
       "windowsBusiness": 39039823453,
-      "status": "RUNNING"
+      "status": "SUCCESS",
+      "jobs": {
+        "marketplace": 27,
+        "windowsPackageMcp": 14,
+        "windowsBusiness": 13
+      }
     }
   }
 }

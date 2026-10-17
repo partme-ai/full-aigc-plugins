@@ -77,4 +77,4 @@ ZCode的12个市场入口采用完整ZIP地址、整包SHA-256和包内目录，
 
 新增定格说明、讲解画中画、采访 J-cut 三个独立技能。macOS 九场景117次、Windows九场景123次原生CLI操作通过；Windows下载73个输出摘要一致。完整候选ZIP通过真实Codex安装、24个技能发现、MCP基础调用和编辑器HTML检查。运行资源沿用dev.20261017.2；真实素材语义、主观音质和宿主同步尚未验收。详见[回归记录](craft-film-delivery-validation.json)。
 
-FilmCraft v7已按feature→test→main进入主市场，当前源码提交`a030e9291b4987e3f67b74a3aba9ee53e1866fd6`。test三组CI全部通过，实际订阅刷新errors为空；桌面原生plugin/list确认v7、官方logo/composerIcon及三个新技能文件，市场包共24技能。日常配置中仍显示未安装；隔离真实Codex安装与MCP通过，不将列表可见写成日常已安装。main三组CI运行中。
+FilmCraft v7已按feature→test→main进入主市场，当前源码提交`a030e9291b4987e3f67b74a3aba9ee53e1866fd6`。test三组CI全部通过，实际订阅刷新errors为空；桌面原生plugin/list确认v7、官方logo/composerIcon及三个新技能文件，市场包共24技能。日常配置中仍显示未安装；隔离真实Codex安装与MCP通过，不将列表可见写成日常已安装。main同源码三组CI也全部通过：市场27项（39039823429）、Windows安装/MCP14项（39039823442）、13应用原生业务（39039823453）。
