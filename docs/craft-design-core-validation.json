@@ -33,7 +33,7 @@
     "status": "PASS"
   },
   "remaining": [
-    "Design其余三个核心场景：brochure、poster-layout、print-preflight",
+    "Design其余两个核心场景：brochure、poster-layout",
     "复杂实际稿件的视觉审阅",
     "宿主内Agent操作与编辑器同步",
     "场景去重和扩展为数百个独立工作流",
@@ -813,5 +813,317 @@
       "jobs": 14,
       "scope": "固定索引包安装/MCP与当前固定技能源辅助契约测试，不代表本轮技能已重新发行"
     }
+  },
+  "printPreflightValidation": {
+    "scope": "真实原生缺链/低PPI/溢出注入，分阶段修复和导出；不是PDF/X或印刷认证",
+    "initialStableFailure": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027192850",
+    "compatibility": "v0.8.0 preflight misses cached missing files; native links.list reports missing. Final check combines both reports without permitting unresolved defects.",
+    "runs": [
+      {
+        "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027384152",
+        "runtime": {
+          "app": "designcraft",
+          "repository": "storytold/designcraft",
+          "commit": "fc36957fe05f38a6976df4734d52b9250cd54a2c",
+          "date": "2026-10-17T04:00:52Z",
+          "message": "Ignore the local outputs/ folder",
+          "pluginCommit": "b5b1e674af6f286ba1877be61ab4d251b48960ba",
+          "skillsCommit": "26fedd3cedec3714930624b55841852f552a0cf1",
+          "engine": "designcraft",
+          "status": "development-candidate-not-accepted",
+          "editorMode": "source-overlay",
+          "fontsCommit": "abb83316d96aa59c1cf64784289e378fe9fa5695",
+          "baselineCommit": "a184db6f8f2d11bc20832c70ac438576d3d2dd1e",
+          "executable": "designcraft-cli.exe",
+          "exeSha256": "fd7aef6536032c9219d12c0461bcef39bbc318959be2a8e7989d52add7f35d54",
+          "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+        },
+        "exeSha256": "fd7aef6536032c9219d12c0461bcef39bbc318959be2a8e7989d52add7f35d54",
+        "sceneSourceCommit": "3686f7906cd56eefb2186ae0a4d0a59b5471cabd",
+        "processCount": 77,
+        "verifiedOutputCount": 90,
+        "result": {
+          "id": "print-preflight",
+          "coreSkill": "designcraft-print-preflight",
+          "technicalRoundtrip": "PASS",
+          "threeRealDefectsDetectedAndRepaired": "PASS",
+          "missingLinkReportedByPreflight": true,
+          "missingLinkReportedByLinksList": true,
+          "samePpiThreshold": "PASS",
+          "sourceUnchanged": "PASS",
+          "unrelatedFooterAndTextSizePreserved": "PASS",
+          "phaseGateBeforeExport": "PASS",
+          "pdfXOrPrintCertification": "NOT_TESTED",
+          "layoutReview": "NOT_TESTED",
+          "hostSameCanvas": "NOT_TESTED"
+        },
+        "beforeIssues": {
+          "errors": 2,
+          "issues": [
+            {
+              "item": 11,
+              "kind": "overset",
+              "message": "Overset text: 364 characters",
+              "page": 0,
+              "severity": "error"
+            },
+            {
+              "item": 7,
+              "kind": "lowResolution",
+              "message": "blue-low.png: effective 169 ppi (< 300)",
+              "page": 0,
+              "severity": "warning"
+            },
+            {
+              "item": 9,
+              "kind": "missingLink",
+              "message": "Missing link: preflight-input/missing-low.png",
+              "page": 0,
+              "severity": "error"
+            }
+          ],
+          "warnings": 1
+        },
+        "afterIssues": {
+          "errors": 0,
+          "issues": [],
+          "warnings": 0
+        },
+        "finalEffectivePpi": [
+          339.0,
+          339.0
+        ],
+        "pdfInspection": {
+          "tool": "PyMuPDF 1.27.1",
+          "pages": 1,
+          "trimBox": [
+            9.0,
+            9.0,
+            604.0,
+            851.0
+          ],
+          "mediaBox": [
+            0.0,
+            0.0,
+            613.0,
+            860.0
+          ],
+          "bleedBox": [
+            0.0,
+            0.0,
+            613.0,
+            860.0
+          ],
+          "bleedPoints": [
+            9.0,
+            9.0,
+            9.0,
+            9.0
+          ],
+          "imageCount": 2,
+          "approvedFooterPresent": true,
+          "pdfXOrPrintCertification": "NOT_TESTED"
+        },
+        "outputsReportSha256": "59009813bcad5f6cb20e6fbb39408efdce2336ec8985a610eafbcce6e4c9ca8f",
+        "selectedOutputs": [
+          {
+            "path": "core-preflight-inspection.json",
+            "bytes": 14299,
+            "sha256": "fd16ba02c252e33d233ab0c87f3c8dec08df41780388fd2ccedadec42507d437"
+          },
+          {
+            "path": "preflight-fixed.designcraft",
+            "bytes": 36687,
+            "sha256": "31da4d1a18c7732a3252f07aa6e42d618322b5bed2266f745facaba6e0f3de74"
+          },
+          {
+            "path": "preflight-fixed.idml",
+            "bytes": 13326,
+            "sha256": "3374f09626a313d73ead5be7b48441ec482c9fcb1374e7ee9c5356494867ea2a"
+          },
+          {
+            "path": "preflight-original.designcraft",
+            "bytes": 15689,
+            "sha256": "70c7428d24203f1cd2733658a87a7372db336d68f2d53a406b1f869e94b2d69c"
+          },
+          {
+            "path": "preflight-proof.pdf",
+            "bytes": 33030,
+            "sha256": "f2d3df16b8d0ed8db87535a6c5ccee4ac690d2fc3d0ea288b0c97f4f850e5b68"
+          },
+          {
+            "path": "preflight-input\\blue-high.png",
+            "bytes": 9375,
+            "sha256": "39833d2c7dbbc1a4c246124bc8b4caf2b52f73b48fc0634b24e71b59d8d963a8"
+          },
+          {
+            "path": "preflight-input\\blue-low.png",
+            "bytes": 2678,
+            "sha256": "cb591a9cd4ff5ef3b854eb9b3e6a42d2fb6fc91b19043f8a73eb23c9e8a1bb61"
+          },
+          {
+            "path": "preflight-input\\missing-low.png",
+            "bytes": 2678,
+            "sha256": "d92ea7f28515757d7e3ab6533b486a71c6258d08ba46a7bcff913f2ba992ec80"
+          },
+          {
+            "path": "preflight-input\\orange-high.png",
+            "bytes": 9375,
+            "sha256": "7ae5bcc0ec43e519dae6d6f598ebe16a09f23391564ccc4b8e37ce67ccf81223"
+          }
+        ]
+      },
+      {
+        "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027383437",
+        "runtime": {
+          "version": "v0.8.0",
+          "url": "https://github.com/storytold/designcraft/releases/download/v0.8.0/designcraft-0.8.0-windows-x64-portable.zip",
+          "sha256": "522dea416d68e5de5ec03ceede46854022587e801c76ad7a3c48b1e5e57b953a",
+          "executable": "designcraft-cli.exe"
+        },
+        "exeSha256": "851f858432720a8b9c748ffdd943cefc10ce188ed5b23ab7bc19100be4806691",
+        "sceneSourceCommit": "3686f7906cd56eefb2186ae0a4d0a59b5471cabd",
+        "processCount": 74,
+        "verifiedOutputCount": 86,
+        "result": {
+          "id": "print-preflight",
+          "coreSkill": "designcraft-print-preflight",
+          "technicalRoundtrip": "PASS",
+          "threeRealDefectsDetectedAndRepaired": "PASS",
+          "missingLinkReportedByPreflight": false,
+          "missingLinkReportedByLinksList": true,
+          "samePpiThreshold": "PASS",
+          "sourceUnchanged": "PASS",
+          "unrelatedFooterAndTextSizePreserved": "PASS",
+          "phaseGateBeforeExport": "PASS",
+          "pdfXOrPrintCertification": "NOT_TESTED",
+          "layoutReview": "NOT_TESTED",
+          "hostSameCanvas": "NOT_TESTED"
+        },
+        "beforeIssues": {
+          "errors": 1,
+          "issues": [
+            {
+              "item": 11,
+              "kind": "overset",
+              "message": "Overset text: 364 characters",
+              "page": 0,
+              "severity": "error"
+            },
+            {
+              "item": 7,
+              "kind": "lowResolution",
+              "message": "blue-low.png: effective 169 ppi (< 300)",
+              "page": 0,
+              "severity": "warning"
+            },
+            {
+              "item": 9,
+              "kind": "lowResolution",
+              "message": "missing-low.png: effective 169 ppi (< 300)",
+              "page": 0,
+              "severity": "warning"
+            }
+          ],
+          "warnings": 2
+        },
+        "afterIssues": {
+          "errors": 0,
+          "issues": [],
+          "warnings": 0
+        },
+        "finalEffectivePpi": [
+          339.0,
+          339.0
+        ],
+        "pdfInspection": {
+          "tool": "PyMuPDF 1.27.1",
+          "pages": 1,
+          "trimBox": [
+            9.0,
+            9.0,
+            604.0,
+            851.0
+          ],
+          "mediaBox": [
+            0.0,
+            0.0,
+            613.0,
+            860.0
+          ],
+          "bleedBox": [
+            0.0,
+            0.0,
+            613.0,
+            860.0
+          ],
+          "bleedPoints": [
+            9.0,
+            9.0,
+            9.0,
+            9.0
+          ],
+          "imageCount": 2,
+          "approvedFooterPresent": true,
+          "pdfXOrPrintCertification": "NOT_TESTED"
+        },
+        "outputsReportSha256": "db55b28c00512ff219b54092091d23e5f40307e83d99828dde811b2295e5ddb1",
+        "selectedOutputs": [
+          {
+            "path": "core-preflight-inspection.json",
+            "bytes": 13941,
+            "sha256": "a05c363c1f2ed82f0377fa2e4f35474a7edbacd928f84995d508746cdb23857f"
+          },
+          {
+            "path": "preflight-fixed.designcraft",
+            "bytes": 22782,
+            "sha256": "0c11b112fdebafe7b98e18f82d18d078833f30b8e49cea66b83b5d4129fdb37a"
+          },
+          {
+            "path": "preflight-fixed.idml",
+            "bytes": 11652,
+            "sha256": "2fdc015f3f35ead79940f066a8d1def49bc66c2cd4fe875c99f67b501521e975"
+          },
+          {
+            "path": "preflight-original.designcraft",
+            "bytes": 9374,
+            "sha256": "739915258f2a6122be5747b285f15a2fa829233215d06f7066fc941521a4e72e"
+          },
+          {
+            "path": "preflight-proof.pdf",
+            "bytes": 33030,
+            "sha256": "da35c37a5e7d26b7bb445ece3ef6eb0a64994a49387ff545d517a893a71b3528"
+          },
+          {
+            "path": "preflight-input\\blue-high.png",
+            "bytes": 9375,
+            "sha256": "39833d2c7dbbc1a4c246124bc8b4caf2b52f73b48fc0634b24e71b59d8d963a8"
+          },
+          {
+            "path": "preflight-input\\blue-low.png",
+            "bytes": 2678,
+            "sha256": "cb591a9cd4ff5ef3b854eb9b3e6a42d2fb6fc91b19043f8a73eb23c9e8a1bb61"
+          },
+          {
+            "path": "preflight-input\\missing-low.png",
+            "bytes": 2678,
+            "sha256": "d92ea7f28515757d7e3ab6533b486a71c6258d08ba46a7bcff913f2ba992ec80"
+          },
+          {
+            "path": "preflight-input\\orange-high.png",
+            "bytes": 9375,
+            "sha256": "7ae5bcc0ec43e519dae6d6f598ebe16a09f23391564ccc4b8e37ce67ccf81223"
+          }
+        ]
+      }
+    ],
+    "packagingCi": {
+      "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027383439",
+      "status": "PASS",
+      "scope": "固定索引包安装/MCP及固定技能源契约回归，不代表本轮技能已发行"
+    },
+    "visualReview": "PARTIAL: synthetic one-page fixture inspected; real production media not reviewed",
+    "installedHostSync": "NOT_TESTED",
+    "marketplacePublication": "PENDING"
   }
 }

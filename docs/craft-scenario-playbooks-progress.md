@@ -339,3 +339,14 @@ Windows main运行[39025167041](https://github.com/partme-ai/full-aigc-plugins/a
 当前仍201条映射：196条入口经过限定技术检查、2条部分、3条待执行（Design brochure、poster-layout、print-preflight）。统计包含方法复用，不代表196个独立高质量场景；真实复杂稿件、所有页的完整视觉/印刷检查、三宿主同步、去重扩展和本批市场发行仍未完成。技能和插件feature已同步，公开dev.20261017.4不包含本批新步骤。完整目标和OpenSpec继续实施，详见[Design核心验证](craft-design-core-validation.json)。
 
 对应的稳定13应用Windows业务矩阵[39026565186](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026565186)全部通过；固定索引包安装/MCP及辅助契约回归[39026565163](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39026565163)14个job通过，不作为本轮新技能已发行的证明。
+
+
+## DesignCraft印前问题修复与独立导出
+
+旧print-preflight只有一次预检后直接导出。已改为inspect、repair、export三个明确阶段，编译器拒绝缺省阶段或缺少获准绑定的修复。按实际asset ID替换低分辨率和缺失素材，content=false只扩确认的文字框，保留正文、字号、非目标页脚和原工程；设置确认的出血后按相同300PPI阈值复检，错误及低分辨率警告均阻止导出。仅输出普通含出血PDF和可返工包，不把预检当成PDF/X认证。补读le-tex固定提交b0fd4bb的transpect-preflight脚本，记录哈希，只借鉴文档盘点和规则核对事实，不移植脚本或外部行为。
+
+实际Windows稳定0.8.0运行[39027192850](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027192850)发现预检遗漏缓存仍在的磁盘缺链，但links.list准确返回missing。技能及验证改为联合两份原生命令报告，不降低最终缺链要求；main预检已直接报告missingLink。最终main[39027384152](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027384152)77次CLI调用、90份输出，以及稳定13应用业务矩阵[39027383437](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027383437)通过；下载后分别核对90/86份Design输出摘要，main二进制亦核验。图片有效PPI从169升到339，复检零issue，原工程与输入素材摘要保持、字号仍11点、非目标页脚未变。
+
+独立解析两套最终PDF：裁切595×842点、MediaBox613×860点、四边出血9点，两图及页脚存在；已查看原创色块修复样例整页，不代替真实生产物料质量。13项Design辅助测试、201条静态映射与OpenSpec检查通过；固定索引包安装/MCP及辅助回归[39027383439](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39027383439)通过，不代表本轮新技能已重新发行。
+
+仍201条映射：197条入口限定技术检查、2条部分、2条待执行（Design brochure、poster-layout）。该计数包含方法复用，不能等同197个独立高质量场景。复杂真实素材、色彩/专色/印刷确认、三宿主同步、去重扩展与本批市场发行仍未完成，完整目标保持实施中。技能和插件feature已同步，公开dev.20261017.4不包含本轮变更。详见[Design核心验证](craft-design-core-validation.json)。
