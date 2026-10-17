@@ -82,3 +82,5 @@ FilmCraft v7已按feature→test→main进入主市场，当前源码提交`a030
 ## WordCraft dev.20261017.6 文档排版场景
 
 新增可更新目录、图片题注、横向附录三个独立技能。macOS/Windows官方0.7.0原生17场景均通过；Windows54个输出和原始配方摘要一致。真实Codex完整包安装与MCP基础调用通过，发现15个技能。此候选复用v2运行资源；真实文档质量、长文档分页和宿主内编辑同步未验收。详见[回归记录](craft-word-publishing-validation.json)。
+
+WordCraft v6已按feature→test→main进入主市场，源码提交`a5249f6a5b9fb58b84538c3f6efadb906ed0b209`。test市场27项（39041041036）、安装/MCP14项（39041154003）、13应用业务（39041153991）通过。实际订阅刷新errors为空，桌面原生列表确认v6、15技能及三个新入口，logo/composerIcon存在；日常配置未安装，隔离真实宿主安装与基础MCP调用已通过。main同源码三组CI全部通过：市场27项（39041454980）、Windows安装/MCP14项（39041454996）、13应用业务（39041454975）。

@@ -258,7 +258,7 @@
     "Same-session MCP scenario execution and embedded editor sync not verified"
   ],
   "publication": {
-    "status": "RELEASE_AND_TEST_MARKET_VERIFIED",
+    "status": "PUBLISHED_MAIN_SUBSCRIBED_MARKET_VERIFIED",
     "publishedZip": {
       "plugin": "wordcraft",
       "version": "0.1.0-dev.20261017.6",
@@ -295,7 +295,28 @@
         "jobs": 13,
         "conclusion": "success"
       }
+    },
+    "marketMainSourceCommit": "a5249f6a5b9fb58b84538c3f6efadb906ed0b209",
+    "subscribedNativeList": {
+      "localVersion": "0.1.0-dev.20261017.6",
+      "skills": 15,
+      "newSkillsPresent": true,
+      "logoAndComposerIcon": "PASS",
+      "installed": false,
+      "scope": "actual desktop bundled app-server plugin/list; daily profile not installed"
+    },
+    "mainCi": {
+      "marketplace": 39041454980,
+      "windowsPackageMcp": 39041454996,
+      "windowsBusiness": 39041454975,
+      "status": "SUCCESS",
+      "jobs": {
+        "marketplace": 27,
+        "windowsPackageMcp": 14,
+        "windowsBusiness": 13
+      }
     }
   },
-  "tocTargetValidation": "Native macOS and downloaded Windows DOCX links resolve to corresponding heading text, not merely an existing bookmark"
+  "tocTargetValidation": "Native macOS and downloaded Windows DOCX links resolve to corresponding heading text, not merely an existing bookmark",
+  "initialRegression": "Initial actual one-section landscape DOCX rejected by final verifier; corrected source recipe uses real nextPage section"
 }
