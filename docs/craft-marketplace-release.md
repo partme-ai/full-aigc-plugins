@@ -10,6 +10,8 @@ DesignCraft 增补实际四页宣传册、A3 活动海报的逐步配方、参�
 
 两份不可变完整ZIP已发布，远端标签提交和GitHub制品摘要已核验；市场快照直接来自对应发行提交，仍复用已验证的dev.20261017.2编辑器资源。公开完整ZIP已重新下载、校验并干净解包：真实Codex安装、35个技能发现、MCP调用、编辑器HTML及安装后ui/dist逐文件摘要通过，见 [v6安装结果](craft-v6-installation-validation.json)。完整ZIP与薄包Git安装分别验证，不将编辑器HTML可访问作为视觉或同步验收。源技能的macOS和Windows业务检查见 [PDF场景](craft-pdf-delivery-validation.json)、[宣传册](craft-brochure-validation.json)、[海报](craft-poster-validation.json)。
 
+已按feature → test/20261017 → main发布，主库提交`46078cf39601f800030028cae727aaac827d4f5d`。test分支市场Git/ZIP的27项、Windows安装/MCP及13应用CLI业务CI全部通过。实际订阅市场定向刷新返回errors为空，桌面附带Codex原生plugin/list返回两个v6可安装条目，市场包包含15/20个技能和有效logo/composerIcon。没有安装进日常用户配置，公开ZIP安装验收使用隔离配置。main同提交的[市场Git/ZIP 27项](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39033717411)、[Windows安装/MCP 14项](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39033717426)及[Windows CLI业务13应用](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39033717250)全部通过。
+
 Blender 市场安装引用已独立修复为真实存在的v0.14.1，主市场提交a68a407；本次两项候选同步保留该修复。
 
 ## dev.20261017.5 图标发布验收
