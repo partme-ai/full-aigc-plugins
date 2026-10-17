@@ -1,6 +1,6 @@
 {
   "checkedAtUtc": "2026-10-17T04:42:43.581074+00:00",
-  "scope": "13 upstream release versions and source ancestry checked; main-branch behavior not fully accepted; API diff truncation explicitly recorded",
+  "scope": "13 official latest stable releases, pinned ancestry and complete non-truncated file-tree deltas checked; main-branch behavior not fully accepted",
   "applications": [
     {
       "app": "cadcraft",
@@ -39,7 +39,18 @@
           "subject": "fix(engine): preserve rectangle area with ortho enabled (#1117)",
           "url": "https://github.com/storytold/cadcraft/commit/be3ce73895dadab5da06928ae6e86c835bd657ac"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "cadcraft",
+        "treeTruncated": false,
+        "changedFiles": 7,
+        "changedRustImplementationFiles": 3,
+        "changedApiRelatedFiles": [
+          "crates/engine/src/cmd/array.rs",
+          "crates/engine/src/cmd/draw2.rs"
+        ],
+        "newImplementationFiles": []
+      }
     },
     {
       "app": "designcraft",
@@ -78,7 +89,121 @@
           "subject": "Merge pull request #1164 from Hamza0101/fix/gpu-failed-fallback",
           "url": "https://github.com/storytold/designcraft/commit/b17efb2ddfcd3be55716e4dad66453960f45d394"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "designcraft",
+        "treeTruncated": false,
+        "changedFiles": 338,
+        "changedRustImplementationFiles": 223,
+        "changedApiRelatedFiles": [
+          "apps/designcraft-cli/src/main.rs",
+          "apps/designcraft-cli/src/perf.rs",
+          "crates/engine/src/cmd/anchored.rs",
+          "crates/engine/src/cmd/anchors.rs",
+          "crates/engine/src/cmd/book.rs",
+          "crates/engine/src/cmd/color_theme.rs",
+          "crates/engine/src/cmd/datamerge/fill.rs",
+          "crates/engine/src/cmd/datamerge/mod.rs",
+          "crates/engine/src/cmd/edit.rs",
+          "crates/engine/src/cmd/editorial.rs",
+          "crates/engine/src/cmd/endnotes.rs",
+          "crates/engine/src/cmd/export.rs",
+          "crates/engine/src/cmd/file.rs",
+          "crates/engine/src/cmd/find.rs",
+          "crates/engine/src/cmd/flex.rs",
+          "crates/engine/src/cmd/fonts.rs",
+          "crates/engine/src/cmd/guides.rs",
+          "crates/engine/src/cmd/inspect.rs",
+          "crates/engine/src/cmd/interactive.rs",
+          "crates/engine/src/cmd/interchange.rs",
+          "crates/engine/src/cmd/layout.rs",
+          "crates/engine/src/cmd/linked.rs",
+          "crates/engine/src/cmd/links.rs",
+          "crates/engine/src/cmd/lists.rs",
+          "crates/engine/src/cmd/load_styles.rs",
+          "crates/engine/src/cmd/mathexpr.rs",
+          "crates/engine/src/cmd/media.rs",
+          "crates/engine/src/cmd/mod.rs",
+          "crates/engine/src/cmd/notes.rs",
+          "crates/engine/src/cmd/object.rs",
+          "crates/engine/src/cmd/overrides.rs",
+          "crates/engine/src/cmd/package.rs",
+          "crates/engine/src/cmd/params.rs",
+          "crates/engine/src/cmd/paste_svg.rs",
+          "crates/engine/src/cmd/path_type.rs",
+          "crates/engine/src/cmd/paths.rs",
+          "crates/engine/src/cmd/place_text.rs",
+          "crates/engine/src/cmd/preflight.rs",
+          "crates/engine/src/cmd/prefs.rs",
+          "crates/engine/src/cmd/print.rs",
+          "crates/engine/src/cmd/rulers.rs",
+          "crates/engine/src/cmd/scripts.rs",
+          "crates/engine/src/cmd/select.rs",
+          "crates/engine/src/cmd/strokes.rs",
+          "crates/engine/src/cmd/style.rs",
+          "crates/engine/src/cmd/table.rs",
+          "crates/engine/src/cmd/tabs.rs",
+          "crates/engine/src/cmd/text.rs",
+          "crates/engine/src/cmd/thread.rs",
+          "crates/engine/src/cmd/toc.rs",
+          "crates/engine/src/cmd/variables.rs",
+          "crates/engine/src/cmd/xml.rs",
+          "crates/engine/src/cmd/xref.rs",
+          "crates/mcp/src/backend.rs",
+          "crates/mcp/src/headless.rs",
+          "crates/mcp/src/server.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "apps/designcraft/src/apple_events.rs",
+          "apps/designcraft/src/gpu/backend.rs",
+          "apps/designcraft/src/gpu_limits.rs",
+          "apps/designcraft/src/mac_window.rs",
+          "crates/compose/src/grep.rs",
+          "crates/compose/src/grid.rs",
+          "crates/compose/src/kenten.rs",
+          "crates/compose/src/mojikumi.rs",
+          "crates/compose/src/optical.rs",
+          "crates/compose/src/outline.rs",
+          "crates/compose/src/parabox.rs",
+          "crates/compose/src/shatai.rs",
+          "crates/compose/src/wrap.rs",
+          "crates/doc/src/cjk_settings.rs",
+          "crates/doc/src/mojikumi.rs",
+          "crates/doc/src/ruby.rs",
+          "crates/doc/src/swatch_refs.rs",
+          "crates/engine/src/autosize.rs",
+          "crates/engine/src/cmd/color_theme.rs",
+          "crates/engine/src/cmd/load_styles.rs",
+          "crates/engine/src/cmd/params.rs",
+          "crates/engine/src/cmd/paste_svg.rs",
+          "crates/engine/src/cmd/rulers.rs",
+          "crates/engine/src/cmd/tabs.rs",
+          "crates/fonts/src/mac_fonts.rs",
+          "crates/idml/src/ruby.rs",
+          "crates/images/src/colour.rs",
+          "crates/images/src/jpeg.rs",
+          "crates/images/src/tone.rs",
+          "crates/render/src/colorize.rs",
+          "crates/render/src/grid.rs",
+          "crates/render/src/pdf_bounds.rs",
+          "crates/tools/src/corners.rs",
+          "crates/ui-egui/src/dialogs/options.rs",
+          "crates/ui-egui/src/dialogs/style_cjk.rs",
+          "crates/ui-egui/src/effects_dialog.rs",
+          "crates/ui-egui/src/i18n/cs.rs",
+          "crates/ui-egui/src/i18n/fr.rs",
+          "crates/ui-egui/src/i18n/pl.rs",
+          "crates/ui-egui/src/i18n/ru.rs",
+          "crates/ui-egui/src/new_document.rs",
+          "crates/ui-egui/src/object_control.rs",
+          "crates/ui-egui/src/panels/cell_stroke.rs",
+          "crates/ui-egui/src/panels/font_menu.rs",
+          "crates/ui-egui/src/panels/tabs.rs",
+          "crates/ui-egui/src/section_options.rs",
+          "crates/ui-egui/src/title_bar.rs"
+        ]
+      }
     },
     {
       "app": "effectcraft",
@@ -114,7 +239,32 @@
           "subject": "Merge pull request #1640 from krinry/fix/1611-layer-styles-context-menu",
           "url": "https://github.com/storytold/effectcraft/commit/b9fddd3204c273322a81f87430e0c758791e75db"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "effectcraft",
+        "treeTruncated": false,
+        "changedFiles": 147,
+        "changedRustImplementationFiles": 77,
+        "changedApiRelatedFiles": [
+          "apps/effectcraft-cli/src/main.rs",
+          "apps/effectcraft-cli/src/template.rs",
+          "crates/automation/src/bridge.rs",
+          "crates/engine/src/commands/app_more.rs",
+          "crates/engine/src/commands/edit.rs",
+          "crates/engine/src/commands/file.rs",
+          "crates/engine/src/commands/file_more.rs",
+          "crates/engine/src/commands/layer.rs",
+          "crates/engine/src/commands/layer_menu.rs",
+          "crates/engine/src/commands/mask.rs",
+          "crates/engine/src/commands/relink_moved.rs",
+          "crates/engine/src/commands/text_anim.rs"
+        ],
+        "newImplementationFiles": [
+          "crates/pdf/src/read.rs",
+          "crates/svg/src/bounds.rs",
+          "xtask/src/pdf_deps.rs"
+        ]
+      }
     },
     {
       "app": "photocraft",
@@ -153,7 +303,28 @@
           "subject": "Save: ask before overwriting a file another app changed (#6596) (#6652)",
           "url": "https://github.com/storytold/photocraft/commit/fbcb70b317337d17614c94db08250de280793a34"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "photocraft",
+        "treeTruncated": false,
+        "changedFiles": 166,
+        "changedRustImplementationFiles": 82,
+        "changedApiRelatedFiles": [
+          "apps/photocraft-cli/src/lib.rs",
+          "crates/automation/src/security.rs",
+          "crates/engine/src/commands.rs"
+        ],
+        "newImplementationFiles": [
+          "apps/photocraft/src/portal_save.rs",
+          "apps/photocraft/src/single_instance.rs",
+          "crates/algo/src/faces.rs",
+          "crates/algo/src/faces/cnn.rs",
+          "crates/codecs/src/codecs/tga.rs",
+          "crates/engine/src/face_cmds.rs",
+          "crates/ui-egui/src/bidi_text.rs",
+          "crates/ui-egui/src/disk_change_prompt.rs"
+        ]
+      }
     },
     {
       "app": "figcraft",
@@ -192,7 +363,35 @@
           "subject": "ci: retain FigCraft package and metadata checks",
           "url": "https://github.com/storytold/figcraft/commit/d9584410af9f93cb0325ed84fbfdf173ac4f037d"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "figcraft",
+        "treeTruncated": false,
+        "changedFiles": 264,
+        "changedRustImplementationFiles": 103,
+        "changedApiRelatedFiles": [
+          "apps/figcraft-cli/src/files.rs",
+          "apps/figcraft-cli/src/perf.rs",
+          "crates/engine/src/cmd/arrange.rs",
+          "crates/engine/src/cmd/create.rs",
+          "crates/engine/src/cmd/edit.rs",
+          "crates/engine/src/cmd/file.rs",
+          "crates/engine/src/cmd/page.rs",
+          "crates/engine/src/cmd/props.rs",
+          "crates/engine/src/cmd/structure.rs",
+          "crates/engine/src/cmd/styles.rs",
+          "crates/engine/src/cmd/variables.rs",
+          "crates/engine/src/cmd/view.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "apps/figcraft/src/apple_events.rs",
+          "apps/figcraft/src/startup.rs",
+          "crates/color/src/named.rs",
+          "crates/text/src/color.rs",
+          "crates/ui-egui/src/pending_open.rs"
+        ]
+      }
     },
     {
       "app": "filmcraft",
@@ -228,7 +427,17 @@
           "subject": "ci: delegate FreeBSD workflow to craft-common-actions and add nix check",
           "url": "https://github.com/storytold/filmcraft/commit/df97b85f5921f332ccc49a573455e82137f143ee"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "filmcraft",
+        "treeTruncated": false,
+        "changedFiles": 20,
+        "changedRustImplementationFiles": 8,
+        "changedApiRelatedFiles": [
+          "crates/engine/src/commands.rs"
+        ],
+        "newImplementationFiles": []
+      }
     },
     {
       "app": "lightcraft",
@@ -264,7 +473,109 @@
           "subject": "ci: refactor workflows to use storytold/craft-common-actions",
           "url": "https://github.com/storytold/lightcraft/commit/0802892132ce7106037d71c65b0b6885b6ac6aa9"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "lightcraft",
+        "treeTruncated": false,
+        "changedFiles": 493,
+        "changedRustImplementationFiles": 248,
+        "changedApiRelatedFiles": [
+          "apps/lightcraft-cli/src/main.rs",
+          "crates/engine/src/cmd/browse.rs",
+          "crates/engine/src/cmd/color.rs",
+          "crates/engine/src/cmd/convert.rs",
+          "crates/engine/src/cmd/cull.rs",
+          "crates/engine/src/cmd/curves.rs",
+          "crates/engine/src/cmd/develop.rs",
+          "crates/engine/src/cmd/face_detect.rs",
+          "crates/engine/src/cmd/face_models.rs",
+          "crates/engine/src/cmd/face_recognize.rs",
+          "crates/engine/src/cmd/focus.rs",
+          "crates/engine/src/cmd/geocode.rs",
+          "crates/engine/src/cmd/keywords.rs",
+          "crates/engine/src/cmd/library.rs",
+          "crates/engine/src/cmd/lut_profiles.rs",
+          "crates/engine/src/cmd/manage.rs",
+          "crates/engine/src/cmd/mask_effect_files.rs",
+          "crates/engine/src/cmd/mask_effects.rs",
+          "crates/engine/src/cmd/masks.rs",
+          "crates/engine/src/cmd/merge.rs",
+          "crates/engine/src/cmd/mod.rs",
+          "crates/engine/src/cmd/organize.rs",
+          "crates/engine/src/cmd/prefs.rs",
+          "crates/engine/src/cmd/preset_files.rs",
+          "crates/engine/src/cmd/previews.rs",
+          "crates/engine/src/cmd/print.rs",
+          "crates/engine/src/cmd/recheck.rs",
+          "crates/engine/src/cmd/slideshow.rs",
+          "crates/engine/src/cmd/xmp.rs",
+          "crates/mcp/src/backend.rs",
+          "crates/mcp/src/headless.rs",
+          "crates/mcp/src/lib.rs",
+          "crates/mcp/src/progress.rs",
+          "crates/mcp/src/server.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "crates/catalog/src/index.rs",
+          "crates/catalog/src/tally.rs",
+          "crates/codecs/src/print.rs",
+          "crates/codecs/src/video.rs",
+          "crates/engine/examples/raw_frame.rs",
+          "crates/engine/src/cmd/focus.rs",
+          "crates/engine/src/cmd/mask_effect_files.rs",
+          "crates/engine/src/cmd/mask_effects.rs",
+          "crates/engine/src/cmd/print.rs",
+          "crates/engine/src/cmd/recheck.rs",
+          "crates/engine/src/cmd/slideshow.rs",
+          "crates/engine/src/focus_scan.rs",
+          "crates/engine/src/pdf.rs",
+          "crates/engine/src/print/compose.rs",
+          "crates/engine/src/print/layout.rs",
+          "crates/engine/src/print/mod.rs",
+          "crates/engine/src/print/output.rs",
+          "crates/engine/src/print/template.rs",
+          "crates/engine/src/print_color.rs",
+          "crates/engine/src/print_pdf.rs",
+          "crates/engine/src/profile_refs.rs",
+          "crates/engine/src/slide.rs",
+          "crates/engine/src/slide_overlay.rs",
+          "crates/engine/src/slide_template.rs",
+          "crates/engine/src/slide_title.rs",
+          "crates/engine/src/slideshow.rs",
+          "crates/engine/src/slideshow_export.rs",
+          "crates/engine/src/text.rs",
+          "crates/faces/src/net/program.rs",
+          "crates/gpu/src/faces.rs",
+          "crates/meta/src/focus.rs",
+          "crates/meta/src/focus_read.rs",
+          "crates/raster/src/morph.rs",
+          "crates/raw/src/lens_metadata.rs",
+          "crates/raw/src/vendor/arw_lens_rm6.rs",
+          "crates/raw/src/vendor/erf.rs",
+          "crates/raw/src/vendor/mef.rs",
+          "crates/raw/src/wb_estimate.rs",
+          "crates/slideshow/src/compose.rs",
+          "crates/slideshow/src/lib.rs",
+          "crates/slideshow/src/settings.rs",
+          "crates/ui-egui/src/button.rs",
+          "crates/ui-egui/src/canvas_keys.rs",
+          "crates/ui-egui/src/focus_scan.rs",
+          "crates/ui-egui/src/panels/empty_library.rs",
+          "crates/ui-egui/src/panels/layout_overlay.rs",
+          "crates/ui-egui/src/panels/mask_effects.rs",
+          "crates/ui-egui/src/panels/slide_layout.rs",
+          "crates/ui-egui/src/panels/slide_overlays.rs",
+          "crates/ui-egui/src/panels/slide_templates.rs",
+          "crates/ui-egui/src/panels/slide_titles.rs",
+          "crates/ui-egui/src/panels/slideshow.rs",
+          "crates/ui-egui/src/print_view.rs",
+          "crates/ui-egui/src/recheck.rs",
+          "crates/ui-egui/src/slideshow_export.rs",
+          "crates/ui-egui/src/window_place.rs",
+          "xtask/src/ci_report.rs"
+        ]
+      }
     },
     {
       "app": "printcraft",
@@ -303,7 +614,15 @@
           "subject": "test: refresh regression coverage after CI workflow update",
           "url": "https://github.com/storytold/pdfcraft/commit/361d0e6ef825a81f0573c360efa228df354a82bf"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "printcraft",
+        "treeTruncated": false,
+        "changedFiles": 8,
+        "changedRustImplementationFiles": 1,
+        "changedApiRelatedFiles": [],
+        "newImplementationFiles": []
+      }
     },
     {
       "app": "vectorcraft",
@@ -314,16 +633,15 @@
       "releasePublishedAt": "2026-10-16T12:26:40Z",
       "pluginBaselineCommit": "a9df057dedec090059861aa54510f401dec7b4a5",
       "skillBaselineCommit": "d54a119cbb45e703900a97629ee1a3f47f4c7048",
-      "embeddedSourceCommit": "deff5b8f4295b18e6ae3d3c3021bc5a9eb48db02",
+      "embeddedSourceCommit": "8bc65329286dc1b84aa392997bb205613c3e96cb",
       "embeddedMode": "source-overlay",
       "relativeToRelease": {
-        "comparisonDirection": "embeddedSource...officialRelease",
-        "status": "ahead",
-        "releaseCommitsAhead": 122,
+        "status": "identical",
+        "releaseCommitsAhead": 0,
         "embeddedCommitsAhead": 0
       },
       "defaultHead": "8bc65329286dc1b84aa392997bb205613c3e96cb",
-      "mainCommitsAhead": 122,
+      "mainCommitsAhead": 0,
       "mainDiffTruncated": false,
       "mainRuntimeStatus": "NOT_BUILT_NOT_ACCEPTED",
       "recentChanges": [
@@ -342,7 +660,55 @@
           "subject": "Merge pull request #2385 from dotCooCoo/fix/hidden-widgets-ignore-clicks",
           "url": "https://github.com/storytold/vectorcraft/commit/06b33b0d2d49e1d36b8f864e56fd89790a6a804a"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "vectorcraft",
+        "treeTruncated": false,
+        "changedFiles": 198,
+        "changedRustImplementationFiles": 96,
+        "changedApiRelatedFiles": [
+          "crates/engine/src/cmd/assets.rs",
+          "crates/engine/src/cmd/brushsym.rs",
+          "crates/engine/src/cmd/docmenu.rs",
+          "crates/engine/src/cmd/draw2.rs",
+          "crates/engine/src/cmd/edit.rs",
+          "crates/engine/src/cmd/fileio/export.rs",
+          "crates/engine/src/cmd/fileio/mod.rs",
+          "crates/engine/src/cmd/fileio/naming.rs",
+          "crates/engine/src/cmd/fileio/screens.rs",
+          "crates/engine/src/cmd/fonts.rs",
+          "crates/engine/src/cmd/layer.rs",
+          "crates/engine/src/cmd/object.rs",
+          "crates/engine/src/cmd/panelcmds.rs",
+          "crates/engine/src/cmd/prefscmds.rs",
+          "crates/engine/src/cmd/print.rs",
+          "crates/engine/src/cmd/shaper.rs",
+          "crates/engine/src/cmd/stroke.rs",
+          "crates/engine/src/cmd/textedit.rs",
+          "crates/engine/src/cmd/typecmd.rs",
+          "crates/engine/src/cmd/typemenu.rs",
+          "crates/engine/src/cmd/variablecmds.rs",
+          "crates/mcp/src/headless.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "crates/doc/src/symbol_export_type.rs",
+          "crates/effects/src/pixel/sketch.rs",
+          "crates/engine/src/cmd/fileio/naming.rs",
+          "crates/tools/src/pie.rs",
+          "crates/tools/src/shaperwidget.rs",
+          "crates/ui-egui/src/dialogs/hyphenation.rs"
+        ],
+        "scope": "original embedded baseline to latest head; not current upgraded0.12 to itself"
+      },
+      "baselineEmbeddedSourceCommit": "deff5b8f4295b18e6ae3d3c3021bc5a9eb48db02",
+      "baselineRelativeToRelease": {
+        "comparisonDirection": "embeddedSource...officialRelease",
+        "status": "ahead",
+        "releaseCommitsAhead": 122,
+        "embeddedCommitsAhead": 0
+      },
+      "baselineMainCommitsAhead": 122
     },
     {
       "app": "deckcraft",
@@ -381,7 +747,112 @@
           "subject": "Merge pull request #798 from Silvertree2010/fix/h1435-paste-from-html-text-inside-b-st",
           "url": "https://github.com/storytold/deckcraft/commit/ad6be08603bd32ef04f2b5e402512886a7f1be2b"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "deckcraft",
+        "treeTruncated": false,
+        "changedFiles": 316,
+        "changedRustImplementationFiles": 200,
+        "changedApiRelatedFiles": [
+          "apps/deckcraft-cli/src/automation_args.rs",
+          "apps/deckcraft-cli/src/help.rs",
+          "apps/deckcraft-cli/src/main.rs",
+          "crates/engine/src/cmd/animation.rs",
+          "crates/engine/src/cmd/arrange.rs",
+          "crates/engine/src/cmd/artistic.rs",
+          "crates/engine/src/cmd/background.rs",
+          "crates/engine/src/cmd/compress.rs",
+          "crates/engine/src/cmd/design.rs",
+          "crates/engine/src/cmd/edit.rs",
+          "crates/engine/src/cmd/file.rs",
+          "crates/engine/src/cmd/find.rs",
+          "crates/engine/src/cmd/format.rs",
+          "crates/engine/src/cmd/ideas.rs",
+          "crates/engine/src/cmd/insert.rs",
+          "crates/engine/src/cmd/inspect.rs",
+          "crates/engine/src/cmd/media.rs",
+          "crates/engine/src/cmd/merge.rs",
+          "crates/engine/src/cmd/mod.rs",
+          "crates/engine/src/cmd/picture_style.rs",
+          "crates/engine/src/cmd/points.rs",
+          "crates/engine/src/cmd/recolor.rs",
+          "crates/engine/src/cmd/reuse.rs",
+          "crates/engine/src/cmd/review.rs",
+          "crates/engine/src/cmd/richclip.rs",
+          "crates/engine/src/cmd/selection.rs",
+          "crates/engine/src/cmd/shape.rs",
+          "crates/engine/src/cmd/slide.rs",
+          "crates/engine/src/cmd/smartart.rs",
+          "crates/engine/src/cmd/table.rs",
+          "crates/engine/src/cmd/text.rs",
+          "crates/engine/src/cmd/three_d.rs",
+          "crates/engine/src/cmd/transition.rs",
+          "crates/engine/src/cmd/zoom.rs",
+          "crates/mcp/src/backend.rs",
+          "crates/mcp/src/headless.rs",
+          "crates/mcp/src/server.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "apps/deckcraft-cli/src/automation_args.rs",
+          "apps/deckcraft-cli/src/help.rs",
+          "apps/deckcraft/src/display.rs",
+          "apps/deckcraft/src/pasteboard.rs",
+          "crates/anim/src/interact.rs",
+          "crates/bitstream/src/budget.rs",
+          "crates/engine/src/cmd/artistic.rs",
+          "crates/engine/src/cmd/background.rs",
+          "crates/engine/src/cmd/compress.rs",
+          "crates/engine/src/cmd/find.rs",
+          "crates/engine/src/cmd/ideas.rs",
+          "crates/engine/src/cmd/picture_style.rs",
+          "crates/engine/src/cmd/points.rs",
+          "crates/engine/src/cmd/recolor.rs",
+          "crates/engine/src/cmd/reuse.rs",
+          "crates/engine/src/cmd/richclip.rs",
+          "crates/engine/src/cmd/smartart.rs",
+          "crates/engine/src/cmd/three_d.rs",
+          "crates/engine/src/cmd/zoom.rs",
+          "crates/engine/src/compare.rs",
+          "crates/engine/src/drawtable.rs",
+          "crates/engine/src/file_access.rs",
+          "crates/engine/src/gif_export.rs",
+          "crates/engine/src/icon_data.rs",
+          "crates/engine/src/icons.rs",
+          "crates/engine/src/inkshape.rs",
+          "crates/engine/src/io.rs",
+          "crates/engine/src/media_refs.rs",
+          "crates/engine/src/sounds.rs",
+          "crates/engine/src/spell.rs",
+          "crates/engine/src/templates.rs",
+          "crates/engine/src/thesaurus.rs",
+          "crates/format/src/finite.rs",
+          "crates/geom/src/squircle.rs",
+          "crates/media/src/mp4guard.rs",
+          "crates/metafile/src/clip.rs",
+          "crates/metafile/src/cliprect.rs",
+          "crates/metafile/src/emfplus.rs",
+          "crates/model/src/bidi.rs",
+          "crates/model/src/trendline.rs",
+          "crates/pptx/src/cfb.rs",
+          "crates/pptx/src/dgm.rs",
+          "crates/pptx/src/read/chartex.rs",
+          "crates/render/src/chartex.rs",
+          "crates/render/src/extrude.rs",
+          "crates/render/src/light.rs",
+          "crates/render/src/radar.rs",
+          "crates/ui-egui/src/animtimeline.rs",
+          "crates/ui-egui/src/doc_window.rs",
+          "crates/ui-egui/src/eyedropper.rs",
+          "crates/ui-egui/src/notes.rs",
+          "crates/ui-egui/src/opening.rs",
+          "crates/ui-egui/src/preview.rs",
+          "crates/ui-egui/src/qat.rs",
+          "crates/ui-egui/src/settings.rs",
+          "crates/ui-egui/src/squiggles.rs",
+          "xtask/src/pdf_deps.rs"
+        ]
+      }
     },
     {
       "app": "soundcraft",
@@ -420,7 +891,15 @@
           "subject": "fix(engine): compile Windows tests (#571)",
           "url": "https://github.com/storytold/soundcraft/commit/ba467b2b726c5eb49d02a78ef2679a45a62cd8e0"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "soundcraft",
+        "treeTruncated": false,
+        "changedFiles": 3,
+        "changedRustImplementationFiles": 2,
+        "changedApiRelatedFiles": [],
+        "newImplementationFiles": []
+      }
     },
     {
       "app": "gridcraft",
@@ -459,7 +938,17 @@
           "subject": "Merge pull request #1588 from marcoarnulfo/fix/filter-menu-enter-applies",
           "url": "https://github.com/storytold/gridcraft/commit/bb685e3275a64761da5e8960753d78533f6559da"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "gridcraft",
+        "treeTruncated": false,
+        "changedFiles": 13,
+        "changedRustImplementationFiles": 4,
+        "changedApiRelatedFiles": [
+          "crates/engine/src/cmd/edit.rs"
+        ],
+        "newImplementationFiles": []
+      }
     },
     {
       "app": "wordcraft",
@@ -498,7 +987,92 @@
           "subject": "refactor(pdf): adopt the shared PDF writer (PDFW)",
           "url": "https://github.com/storytold/wordcraft/commit/86adfd34eb2d3916a571e84b6605ec642e274440"
         }
-      ]
+      ],
+      "fullTreeDelta": {
+        "app": "wordcraft",
+        "treeTruncated": false,
+        "changedFiles": 329,
+        "changedRustImplementationFiles": 221,
+        "changedApiRelatedFiles": [
+          "apps/wordcraft-cli/src/main.rs",
+          "crates/engine/src/cmd/caret.rs",
+          "crates/engine/src/cmd/citations.rs",
+          "crates/engine/src/cmd/column.rs",
+          "crates/engine/src/cmd/controls.rs",
+          "crates/engine/src/cmd/design.rs",
+          "crates/engine/src/cmd/draw.rs",
+          "crates/engine/src/cmd/edit.rs",
+          "crates/engine/src/cmd/equation.rs",
+          "crates/engine/src/cmd/fields.rs",
+          "crates/engine/src/cmd/file.rs",
+          "crates/engine/src/cmd/find_pattern.rs",
+          "crates/engine/src/cmd/font.rs",
+          "crates/engine/src/cmd/format.rs",
+          "crates/engine/src/cmd/index.rs",
+          "crates/engine/src/cmd/ink_shape.rs",
+          "crates/engine/src/cmd/insert.rs",
+          "crates/engine/src/cmd/inspector.rs",
+          "crates/engine/src/cmd/lists.rs",
+          "crates/engine/src/cmd/mailings.rs",
+          "crates/engine/src/cmd/mod.rs",
+          "crates/engine/src/cmd/objects.rs",
+          "crates/engine/src/cmd/options.rs",
+          "crates/engine/src/cmd/outline.rs",
+          "crates/engine/src/cmd/page.rs",
+          "crates/engine/src/cmd/para.rs",
+          "crates/engine/src/cmd/paste.rs",
+          "crates/engine/src/cmd/protect.rs",
+          "crates/engine/src/cmd/references.rs",
+          "crates/engine/src/cmd/review.rs",
+          "crates/engine/src/cmd/speech.rs",
+          "crates/engine/src/cmd/table.rs",
+          "crates/engine/src/cmd/table_draw.rs",
+          "crates/engine/src/cmd/table_formula.rs",
+          "crates/engine/src/cmd/table_mouse.rs",
+          "crates/engine/src/cmd/table_resize.rs",
+          "crates/engine/src/cmd/table_style.rs",
+          "crates/engine/src/cmd/templates.rs",
+          "crates/engine/src/cmd/text.rs",
+          "crates/engine/src/cmd/tools.rs",
+          "crates/engine/src/cmd/view.rs",
+          "crates/engine/src/cmd/wordart.rs",
+          "crates/mcp/src/tools.rs"
+        ],
+        "newImplementationFiles": [
+          "apps/wordcraft/src/traffic_lights.rs",
+          "crates/docbin/src/crypt.rs",
+          "crates/docbin/src/metadata.rs",
+          "crates/docx/src/fonts.rs",
+          "crates/docx/src/write/settings_merge.rs",
+          "crates/docx/src/write/watermark.rs",
+          "crates/engine/src/cmd/table_formula.rs",
+          "crates/engine/src/recovery.rs",
+          "crates/engine/src/recovery/desktop.rs",
+          "crates/fonts/src/color.rs",
+          "crates/formats/src/sheet/xls.rs",
+          "crates/layout/src/styleref.rs",
+          "crates/proof/src/cs/grammar.rs",
+          "crates/proof/src/cs/mod.rs",
+          "crates/proof/src/cs/suggest.rs",
+          "crates/proof/src/ru/extra.rs",
+          "crates/proof/src/ru/grammar.rs",
+          "crates/proof/src/ru/hyphen.rs",
+          "crates/proof/src/ru/mod.rs",
+          "crates/proof/src/ru/suggest.rs",
+          "crates/proof/src/tr/dict.rs",
+          "crates/proof/src/tr/grammar.rs",
+          "crates/proof/src/tr/hyphen.rs",
+          "crates/proof/src/tr/mod.rs",
+          "crates/proof/src/tr/suggest.rs",
+          "crates/proof/src/vi.rs",
+          "crates/render/src/color_glyph.rs",
+          "crates/ui-egui/src/async_saves.rs",
+          "crates/ui-egui/src/crop.rs",
+          "crates/ui-egui/src/dialogs_table_style.rs",
+          "crates/ui-egui/src/guides.rs",
+          "crates/ui-egui/src/ruler_tabs.rs"
+        ]
+      }
     }
   ],
   "vector012": {
@@ -521,7 +1095,7 @@
       "list_commands.brief"
     ],
     "adapterCompatibility": "query/menu/brief applied to same editor catalog; does not upgrade editing engine",
-    "embeddedEngineVersion": "0.11.0",
+    "embeddedEngineVersion": "0.12.0",
     "nativeLocalChecks": {
       "version": "0.12.0",
       "nativeStdioDiscovery": "PASS",
@@ -753,11 +1327,96 @@
         "shortcut": null
       }
     ],
-    "nativeCiBaselineAlreadyVersion": "0.12.0"
+    "nativeCiBaselineAlreadyVersion": "0.12.0",
+    "newScenarioIds": [
+      "dimension-unit-delivery",
+      "intertwine-overlap-order",
+      "csv-text-variants"
+    ],
+    "newScenariosLocalNative": "PASS",
+    "mappedScenarioCountAfterAddition": 201,
+    "pluginVersion": "0.1.0-dev.65",
+    "embeddedSourceCommit": "8bc65329286dc1b84aa392997bb205613c3e96cb",
+    "embeddedBuild": {
+      "sourceBuild": true,
+      "chineseFontPreserved": true,
+      "lockFiles": 44,
+      "oldRuntimeRetained": true
+    },
+    "embeddedBrowserChecks": {
+      "surface": "Codex in-app browser plus local plugin HTTP tool bridge; not installed-host MCP acceptance",
+      "catalogCommands": 1058,
+      "all21AddedCommandsPresent": true,
+      "dimensionScene": "PASS",
+      "intertwineScene": "PASS",
+      "csvTextVariantsScene": "PASS",
+      "chineseTextRendered": "PASS",
+      "nativeFilesReopenedBySeparateCLI": "PASS",
+      "legacyAiHostExport": "PASS",
+      "legacyIntertwineNativeEditability": "NOT_PRESERVED_EXPECTED_FORMAT_LOSS",
+      "outputTraversalRefused": true,
+      "overwriteRefused": true
+    },
+    "adapterTests": 9,
+    "nativeWindows": {
+      "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39004180010",
+      "codeCommit": "4eb1ecc245cff782417ae563d937280afcaa5797",
+      "skillSourceCommit": "9ce5ea0f64278daba7459f8379a9b01fd891e32e",
+      "recipeRecordsIncludingOneCombination": 12,
+      "processCount": 73,
+      "verifiedOutputs": 50,
+      "all13ApplicationJobs": "PASS"
+    },
+    "existingPackageMcpRun": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39004179976",
+    "skillCommit": "11575de8dcb39950fc399e8238bbdae7244b0c80",
+    "pluginCommit": "eba30089faec1b28ef02d1dcd76e28a741aa6c54",
+    "recipeSha256": "fa0927dd75565a14aca96eb724b640498c9041dbff823114187f942405675b75",
+    "ciRecipesUnchangedInCurrentSource": true,
+    "adapterWindowsLinuxRun": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39004888523",
+    "documentationRun": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39004989180",
+    "candidatePackage": {
+      "plugin": "vectorcraft",
+      "file": "vectorcraft-editor-scenes-local.zip",
+      "sha256": "a3c71a20df786f19f78212e436a24b0970c076772daae987a5b80edbc921489a",
+      "bytes": 58241353,
+      "files": 982,
+      "runtimeOverride": false,
+      "status": "local-unreleased",
+      "scope": "local full editor bundle; Windows archive semantics and all declared hashes verified; installed-host acceptance not inferred"
+    }
   },
   "openWork": [
-    "Review unreleased main API/behavior changes, including truncated comparisons; do not silently advertise them as released capabilities.",
-    "VectorCraft embedded engine remains0.11; build and validate0.12 before changing its source/editor pins.",
-    "Legacy CLI skills in some packages still describe historical maintenance runtimes; align active instructions separately from frozen historical evidence."
-  ]
+    "Unreleased main source differences are not runtime acceptance; complete file trees have been compared, semantic review and builds remain optional development-candidate work.",
+    "Codex/ZCode/Kimi installed-host MCP acceptance of dev.65 not performed by this browser/API check.",
+    "Remaining newly discovered methods beyond the three scenarios still need per-business workflow acceptance.",
+    "Historical CLI setup instructions in some packages still refer to earlier maintenance runtimes; do not treat them as latest runtime acceptance.",
+    "VectorCraft complete implementation CI39004888507 failed release-gate contract tests; latest documentation/architecture and dedicated Windows/Linux adapter checks pass. Do not rebind old qualification evidence to dev.65."
+  ],
+  "coverage": {
+    "mappedRecipes": 201,
+    "limitedTechnicalPass": 158,
+    "partialPdfForm": 1,
+    "notExecuted": 42,
+    "additionalCombinationCases": 4
+  },
+  "policy": "Latest stable releases first; unreleased main is an advisory candidate pending user choice",
+  "releaseRecheck": {
+    "checkedAtUtc": "2026-10-17T05:06:14.707337+00:00",
+    "all13SameAsBaseline": true,
+    "releases": {
+      "cadcraft": "v0.7.0",
+      "designcraft": "v0.8.0",
+      "effectcraft": "v0.10.0",
+      "photocraft": "v0.9.0",
+      "figcraft": "v0.6.0",
+      "filmcraft": "v0.8.0",
+      "lightcraft": "v0.8.0",
+      "printcraft": "v0.8.0",
+      "vectorcraft": "v0.12.0",
+      "deckcraft": "v0.7.0",
+      "soundcraft": "v0.7.0",
+      "gridcraft": "v0.7.0",
+      "wordcraft": "v0.7.0"
+    }
+  }
 }
