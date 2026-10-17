@@ -65,6 +65,8 @@ def run_playbooks(r,path):
         r.run('export',target,'--node',root_id,'-o',svg,'--format','svg');ET.fromstring((r.work/svg).read_bytes())
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','returnedIdBinding':'PASS','layoutStructure':'PASS','designReview':'NOT_TESTED'})
     require(bool(records),'No Fig scenes')
+    from fig_core_smoke import run_core
+    records.extend(run_core(r,m,path.resolve().parents[2]))
     records.append(existing_component(r,m,data))
     return records
 

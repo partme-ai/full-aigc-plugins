@@ -1,0 +1,10 @@
+{
+  "repository": "sketch-hq/fig2sketch",
+  "commit": "4eddfd4f4e6185264ab59a3a65922a33843fc34d",
+  "path": "tests/data/corners.fig",
+  "url": "https://raw.githubusercontent.com/sketch-hq/fig2sketch/4eddfd4f4e6185264ab59a3a65922a33843fc34d/tests/data/corners.fig",
+  "sha256": "2d1aa94b4fffa882bb229dfebd7c5e30ed6fc9ae3390071cb40c953ff2d942b6",
+  "bytes": 31478,
+  "license": "MIT",
+  "purpose": "Real Figma binary import fixture; not broad import fidelity proof"
+}
