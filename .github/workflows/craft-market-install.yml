@@ -21,6 +21,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.18.0'
+      - name: Enable Git long paths on this Windows runner
+        run: git config --global core.longpaths true
       - name: Install pinned Codex host
         shell: pwsh
         run: |
@@ -44,3 +46,25 @@ jobs:
           path: |
             中文 市场验收/*.json
             中文 市场验收/*.log
+  linux-all-cold:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - name: Install pinned Codex host
+        run: npm install --global @openai/codex@0.162.1
+      - name: Install all 13 Git candidates and call real native MCP from cold cache
+        run: python3 scripts/verify-craft-market-install.py candidate-marketplace cold-acceptance --marketplace-name full-aigc-craft-candidates
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: linux-all-cold
+          path: |
+            cold-acceptance/*.json
+            cold-acceptance/*.log

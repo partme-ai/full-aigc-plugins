@@ -2,7 +2,7 @@
 
 ## Craft 可安装开发候选
 
-13 个 Craft 编辑器候选已登记为 `0.1.0-dev.20261017.2`，名称为 `PhotoCraft Use (RC)` 等，使用官方图标。它们是开发预发布；生产与全部场景验收尚未完成。安装要求 Node.js 24。Git 安装首次启动会下载固定摘要的编辑器资源；完整发行 ZIP 自带资源。详见 [安装与验证状态](docs/craft-marketplace-release.md)。
+13 个 Craft 编辑器候选已登记为 `0.1.0-dev.20261017.3`，名称为 `PhotoCraft Use (RC)` 等，使用官方图标。它们是开发预发布；生产与全部场景验收尚未完成。安装要求 Node.js 24。Git 安装首次启动会下载固定摘要的编辑器资源；完整发行 ZIP 自带资源。详见 [安装与验证状态](docs/craft-marketplace-release.md)。
 
 
 # Full AIGC Plugins

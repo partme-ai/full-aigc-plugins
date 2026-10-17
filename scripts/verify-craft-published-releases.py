@@ -9,8 +9,10 @@ def verify(row):
  assert ref['object']['type']=='commit' and ref['object']['sha']==row['commit'],(repo,'remote commit mismatch')
  release=api('repos/'+repo+'/releases/tags/'+tag);assert release['prerelease'] and not release['draft']
  assets={a['name']:a for a in release['assets']}
- for file,digest in [(row['runtime'],row['sha256']),(row['archive'],row['archiveSha256'])]:
-  assert assets[file]['digest']=='sha256:'+digest,(repo,file,'remote digest mismatch')
+ assert assets[row['archive']]['digest']=='sha256:'+row['archiveSha256'],(repo,'package digest mismatch')
+ runtimeRelease=api('repos/'+repo+'/releases/tags/'+row['runtimeRef']) if row.get('reuseRuntime') else release
+ runtimeAssets={asset['name']:asset for asset in runtimeRelease['assets']}
+ assert runtimeAssets[row['runtime']]['digest']=='sha256:'+row['sha256'],(repo,'runtime digest mismatch')
  return {**row,'remoteTagCommit':'PASS','publishedPrerelease':'PASS','remoteAssetDigests':'PASS'}
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('release_directory',type=Path);p.add_argument('--output',type=Path,required=True);a=p.parse_args();rows=json.loads((a.release_directory/'published.json').read_text());assert len(rows)==13

@@ -10,8 +10,9 @@ def stage(out):
  market=out/'staging-market';entries=[]
  for row in json.loads((out/'index.json').read_text()):
   n=row['plugin'];repo=ROOT.parent/'full-aigc-plugins-repositories'/(n+'-plugin');dest=market/'plugins'/(n+'-plugin');dest.mkdir(parents=True)
-  files=set(subprocess.check_output(['git','ls-files'],cwd=repo,text=True).splitlines())|{'ui/bootstrap.mjs','ui/runtime.lock.json','docs/verification/release-candidate.json'}
+  files=set(subprocess.check_output(['git','ls-files'],cwd=repo,text=True).splitlines())|{'ui/bootstrap.mjs','ui/runtime.lock.json','ui/catalog.lock.json','docs/verification/release-candidate.json'}
   for rel in sorted(files):
+   if rel.startswith(('evidence/','docs/evidence/')):continue
    src=repo/rel
    if src.is_file():target=dest/rel;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,target)
   runtime=Path(row['runtimeDirectory']);lock=json.loads((repo/'ui/runtime.lock.json').read_text())

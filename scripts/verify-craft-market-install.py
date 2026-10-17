@@ -28,9 +28,12 @@ def run(market,output,public=False,cli=None,names=None,ref=None,marketplace_name
    assert not missing, 'Installed skills were not discovered: '+str(missing)
   (output/'skills-discovery.json').write_text(json.dumps({'scope':'real Codex skills/list; installed plugin paths only','plugins':names,'count':sum(len(list((Path(json.loads((output/(name+'-install.json')).read_text())['installedPath'])/'skills').glob('*/SKILL.md'))) for name in names),'status':'PASS'},indent=2))
   thread=host.call('thread/start',{'cwd':str(work),'approvalPolicy':'never','sandbox':'workspace-write'})['thread']['id']
+  for name in names:wait_connected(host,thread,name,timeout=150)
   for name in names:
    try:
     server=wait_connected(host,thread,name,timeout=150)
+    expected_version=json.loads((output/(name+'-install.json')).read_text())['version']
+    assert server['serverInfo']['version']==expected_version, 'MCP/plugin version mismatch'
     values={}
     for tool,args in [('editor_status',{}),('open_browser_editor',{'workspace':str(work)})]:
      value=host.call('mcpServer/tool/call',{'threadId':thread,'server':name+'-editor','tool':tool,'arguments':args});assert not value.get('isError'),value;values[tool]=value
@@ -39,7 +42,7 @@ def run(market,output,public=False,cli=None,names=None,ref=None,marketplace_name
     with urlopen(url,timeout=30) as response:
      assert response.status==200 and 'html' in response.headers.get('Content-Type',''), 'Editor HTML unavailable'
     row={'editorHtml':'PASS','plugin':name,'installation':'PASS','nativeMcp':'PASS','editorUrl':values['open_browser_editor']['structuredContent']['editorUrl'],'embeddedUI':'NOT_TESTED','editingSync':'NOT_TESTED'}
-   except Exception as error:row={'plugin':name,'status':'FAIL','error':str(error)}
+   except Exception as error:row={'plugin':name,'status':'FAIL','error':str(error)[:600]}
    rows.append(row);(output/'results.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2));print(json.dumps(row,ensure_ascii=False),flush=True)
  finally:host.close()
  assert len(rows)==len(names) and all(r.get('nativeMcp')=='PASS' for r in rows)

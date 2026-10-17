@@ -36,3 +36,7 @@ The catalog SHALL expose thirteen development candidates with immutable tags, of
 #### Scenario: Complete archive install
 - **WHEN** the full release archive contains verified ui/dist resources
 - **THEN** startup uses those resources without downloading them again
+
+#### Scenario: First use does not block MCP handshake
+- **WHEN** editor resources have not been downloaded
+- **THEN** initialize, tool discovery and resource discovery finish from pinned package descriptors without network access; the first editor operation prepares the verified runtime
