@@ -1,0 +1,35 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "printcraft",
+  "id": "invoice-split",
+  "title": "按确认边界拆分发票包",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "templateOnly": true,
+  "sourceFiles": [
+    "input.pdf"
+  ],
+  "steps": [
+    {
+      "command": "doc_info",
+      "params": {
+        "doc": 1
+      },
+      "purpose": "核对总页数与确认的单据边界表"
+    },
+    {
+      "command": "doc_split",
+      "params": {
+        "doc": 1,
+        "before": [
+          3,
+          4
+        ],
+        "out_dir": "output/invoices"
+      },
+      "purpose": "六页样例按3/4页开始新单据，得到1-2、3、4-6三份"
+    }
+  ],
+  "check": "重开三份输出，分别2/1/3页；逐页标识顺序与原1-6页完全相同，不丢页、不跨单据；源PDF字节不变。",
+  "boundary": "边界表是已确认输入，不按空白页或数字金额猜单据边界。拆分不核实税务真实性、不判断报销合规；加密/签名文档先确认输出要求，输出使用新目录。",
+  "argumentPolicy": "doc/other是sourceFiles中1起始逻辑槽，仅用于随技能编译器生成的全新CLI脚本；MCP必须替换成当前doc_open实际返回ID。页号1起始，路径和坐标按真实输入替换，保持同一会话。"
+}

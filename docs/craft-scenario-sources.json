@@ -432,40 +432,6 @@
       "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
     },
     {
-      "repository": "py-pdf/pypdf",
-      "commit": "1145329e8c80e1f72fbbb4001460fb8553236aeb",
-      "license": {
-        "key": "other",
-        "name": "Other",
-        "spdx_id": "NOASSERTION",
-        "url": null,
-        "node_id": "MDc6TGljZW5zZTA="
-      },
-      "readFiles": [
-        {
-          "path": "docs/user/merging-pdfs.md",
-          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/docs/user/merging-pdfs.md",
-          "bytes": 5734
-        },
-        {
-          "path": "docs/user/cropping-and-transforming.md",
-          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/docs/user/cropping-and-transforming.md",
-          "bytes": 7316
-        },
-        {
-          "path": "docs/user/metadata.md",
-          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/docs/user/metadata.md",
-          "bytes": 7736
-        },
-        {
-          "path": "LICENSE",
-          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/LICENSE",
-          "bytes": 1605
-        }
-      ],
-      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
-    },
-    {
       "repository": "jmcnamara/XlsxWriter",
       "commit": "5d4606d89a955226d2d0825a0f44309043ae7251",
       "license": {
@@ -675,6 +641,85 @@
           "bytes": 5074
         }
       ]
+    },
+    {
+      "repository": "MrBoyard7/indesign-brochure-automator",
+      "commit": "92b4e68adedcdc20f7629184e2e250e4a8d5169e",
+      "license": {
+        "spdx_id": "MIT"
+      },
+      "readFiles": [
+        {
+          "path": "docs/template_reference.md",
+          "url": "https://github.com/MrBoyard7/indesign-brochure-automator/blob/92b4e68adedcdc20f7629184e2e250e4a8d5169e/docs/template_reference.md",
+          "bytes": 3973,
+          "sha256": "b563548d89e38ec5cd2af39026a0f536a01a7d7d656e38a95f2d7f7bbabdcd3f"
+        }
+      ],
+      "reuse": "workflow facts only: explicit field/frame matching, proportional image fitting and final export; no upstream text, code or media copied; no claim to implement CSV merge or ExtendScript"
+    },
+    {
+      "repository": "pchiorean/Indentz",
+      "commit": "7ce1e0c3df4da1eddcb3ceabc2c97326359d718d",
+      "license": {
+        "spdx_id": "MIT"
+      },
+      "readFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/pchiorean/Indentz/blob/7ce1e0c3df4da1eddcb3ceabc2c97326359d718d/README.md",
+          "bytes": 40894,
+          "sha256": "127e1c611b996903bca8c83aa1f3799484e3dadc1639a5c2d4a282e5e79307c4"
+        }
+      ],
+      "reuse": "Only workflow facts from page size/safety area, proportional image fit and QR sections; original Craft steps and test event. No upstream script, prose or media copied."
+    },
+    {
+      "repository": "py-pdf/pypdf",
+      "commit": "1a6de8d43c3a931b1ab3643c8dee2c9b51a32d42",
+      "license": {
+        "spdx_id": "BSD-3-Clause",
+        "verification": "LICENSE read at fixed commit"
+      },
+      "readFiles": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/py-pdf/pypdf/blob/1a6de8d43c3a931b1ab3643c8dee2c9b51a32d42/LICENSE",
+          "bytes": 1605,
+          "sha256": "a97ac230e5f33ef10a5367a850eb01f91f1a0b064e34742c7794d2294557f524"
+        },
+        {
+          "path": "docs/user/add-watermark.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1a6de8d43c3a931b1ab3643c8dee2c9b51a32d42/docs/user/add-watermark.md",
+          "bytes": 3529,
+          "sha256": "cbaced3e8f326e52eda80018f39ea8e7e3816df7f1ee442010439aa0c79931be"
+        },
+        {
+          "path": "docs/user/merging-pdfs.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1a6de8d43c3a931b1ab3643c8dee2c9b51a32d42/docs/user/merging-pdfs.md",
+          "bytes": 5734,
+          "sha256": "0b3cb6bb33dda288e1330936f76ebd5d6cca2572753b8c628f7667a74e3f6173"
+        },
+        {
+          "path": "docs/user/adding-pdf-annotations.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1a6de8d43c3a931b1ab3643c8dee2c9b51a32d42/docs/user/adding-pdf-annotations.md",
+          "bytes": 7978,
+          "sha256": "136f73e24fd4dba87768d8bd6a00da631b36a760d39d9efd592cf5f8a2a906ab"
+        },
+        {
+          "path": "docs/user/cropping-and-transforming.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1a6de8d43c3a931b1ab3643c8dee2c9b51a32d42/docs/user/cropping-and-transforming.md",
+          "bytes": 7316,
+          "sha256": "d1c9d7ffb217fe2ace867ebc2795b8d74a7d810d38fbdf61622de45b2f29a05b"
+        },
+        {
+          "path": "docs/user/extract-text.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1a6de8d43c3a931b1ab3643c8dee2c9b51a32d42/docs/user/extract-text.md",
+          "bytes": 16067,
+          "sha256": "b7c8826b07e23356bb594b2d0e9b64658011fde9748c788c6ae54bab781ae078"
+        }
+      ],
+      "reuse": "Workflow facts only; new PrintCraft skills, command mappings and fixtures originally authored."
     }
   ]
 }

@@ -1,0 +1,93 @@
+{
+  "schema": "craft-scenario-playbooks/v1",
+  "application": "printcraft",
+  "id": "linked-agenda",
+  "title": "会议议程双向跳转",
+  "execution": "COMMAND_MAPPED_NOT_SCENE_ACCEPTED",
+  "templateOnly": true,
+  "sourceFiles": [
+    "input.pdf"
+  ],
+  "steps": [
+    {
+      "command": "doc_info",
+      "params": {
+        "doc": 1
+      },
+      "purpose": "核对议程和附录的物理页码"
+    },
+    {
+      "command": "text_find",
+      "params": {
+        "doc": 1,
+        "query": "Open appendix",
+        "limit": 10
+      },
+      "purpose": "定位可点击文字，检查唯一命中并确认当前显示坐标"
+    },
+    {
+      "command": "link_add",
+      "params": {
+        "doc": 1,
+        "page": 1,
+        "rect": [
+          18,
+          45,
+          180,
+          70
+        ],
+        "to_page": 3,
+        "visible": true,
+        "width": 1,
+        "color": "#2457cc"
+      },
+      "purpose": "样本已确认框包住Open appendix文字，添加内跳至附录"
+    },
+    {
+      "command": "text_find",
+      "params": {
+        "doc": 1,
+        "query": "Back to agenda",
+        "limit": 10
+      },
+      "purpose": "定位附录的返回文字"
+    },
+    {
+      "command": "link_add",
+      "params": {
+        "doc": 1,
+        "page": 3,
+        "rect": [
+          18,
+          75,
+          180,
+          100
+        ],
+        "to_page": 1,
+        "visible": true,
+        "width": 1,
+        "color": "#2457cc"
+      },
+      "purpose": "按已确认文字框建立返回议程入口"
+    },
+    {
+      "command": "link_list",
+      "params": {
+        "doc": 1
+      },
+      "purpose": "核对当前文档两条内部链接及其目标页"
+    },
+    {
+      "command": "doc_save",
+      "params": {
+        "doc": 1,
+        "path": "output/linked-agenda.pdf",
+        "full": true
+      },
+      "purpose": "完整另存交付副本，不覆盖源PDF"
+    }
+  ],
+  "check": "另开输出检查第1页到第3页和第3页到第1页的内部链接；独立解释器读目标并确认热点覆盖指定文字；原文本与源摘要保持。",
+  "boundary": "rect为显示页面左上角起点的pt，不是比较报告的左下角坐标；必须用当前text_find结果或渲染图重算。示例坐标不能原样套真实议程，目标是PDF物理页不是印刷页码。",
+  "argumentPolicy": "doc/other是sourceFiles中1起始逻辑槽，仅用于随技能编译器生成的全新CLI脚本；MCP必须替换成当前doc_open实际返回ID。页号1起始，路径和坐标按真实输入替换，保持同一会话。"
+}

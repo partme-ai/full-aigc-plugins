@@ -13,6 +13,15 @@ def inventory(root):
     if root.is_symlink() or any(p.is_symlink() for p in entries):raise ValueError('snapshot_symlink')
     return {str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in entries if p.is_file() and p.name!='.DS_Store' and '__pycache__' not in p.parts}
 
+def validate_source_release_identity(formal,provenance):
+    """核验冻结技能源，不将历史插件版本误当作当前宿主发行版本。"""
+    historical=formal.get('pluginVersion')
+    if formal.get('protocol')!='printcraft.source-release/1' or formal.get('source')!=provenance:
+        raise ValueError('release_lock_identity_drift')
+    if not isinstance(historical,str) or not re.fullmatch(r'\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?',historical):
+        raise ValueError('release_lock_identity_drift')
+
+
 def validate():
     manifest=json.loads((ROOT/'plugin.json').read_text())
     if set(manifest)-{'$schema','name','version','description','author','homepage','repository','license','keywords','extensions'}:raise ValueError('unknown_manifest_field')
@@ -51,7 +60,7 @@ def validate():
         lock_path=ROOT/'source-release.lock.json'
         if not lock_path.is_file() or lock_path.is_symlink():raise ValueError('release_lock_missing_or_unsafe')
         formal=json.loads(lock_path.read_text())
-        if formal.get('protocol')!='printcraft.source-release/1' or formal.get('source')!=provenance or formal.get('pluginVersion')!=manifest['version']:raise ValueError('release_lock_identity_drift')
+        validate_source_release_identity(formal,provenance)
         release='OFFLINE_IDENTITY_ONLY_REMOTE_NOT_VERIFIED'
     else:raise ValueError('false_release_identity')
     files=inventory(ROOT/'skills')

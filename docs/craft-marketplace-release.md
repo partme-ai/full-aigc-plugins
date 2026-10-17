@@ -1,8 +1,16 @@
 # Craft 插件库开发候选
 
-当前候选统一为 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
+当前 DesignCraft、PdfCraft 候选为 `0.1.0-dev.20261017.6`，其余 11 个 Craft 保持 `0.1.0-dev.20261017.5`。Codex 的 Git 市场仓现在包含固定发行提交的完整薄包快照，入口为 `./plugins/<app>-plugin`；原生列表可在安装前读取包内官方logo和composerIcon。独立插件仓、不可变标签和其他宿主ZIP交付保留；运行资源仍固定到已核验的dev.20261017.2，未升级引擎。
 
 本次修正的动因：Git插件条目的回退列表不解析包内图片，官方源码及本机原生plugin/list均可复现。仅补composerIcon无法改变未安装列表。快照包含技能、MCP清单、官方图标及bootstrap，不增加Agent运行时，亦不将全部创作和宿主同步视为通过。
+
+## dev.20261017.6 场景技能交付
+
+DesignCraft 增补实际四页宣传册、A3 活动海报的逐步配方、参数及脚本编译器；PdfCraft 增加报告书签、审阅水印、发票拆分、分节页码、可点击议程和修订对比六个独立技能。两包合计35个技能入口。每项保留固定GitHub来源、许可、真实命令参数与输出检查，生产创作及同画面同步仍未全部验收。
+
+两份不可变完整ZIP已发布，远端标签提交和GitHub制品摘要已核验；市场快照直接来自对应发行提交，仍复用已验证的dev.20261017.2编辑器资源。公开完整ZIP已重新下载、校验并干净解包：真实Codex安装、35个技能发现、MCP调用、编辑器HTML及安装后ui/dist逐文件摘要通过，见 [v6安装结果](craft-v6-installation-validation.json)。完整ZIP与薄包Git安装分别验证，不将编辑器HTML可访问作为视觉或同步验收。源技能的macOS和Windows业务检查见 [PDF场景](craft-pdf-delivery-validation.json)、[宣传册](craft-brochure-validation.json)、[海报](craft-poster-validation.json)。
+
+Blender 市场安装引用已独立修复为真实存在的v0.14.1，主市场提交a68a407；本次两项候选同步保留该修复。
 
 ## dev.20261017.5 图标发布验收
 

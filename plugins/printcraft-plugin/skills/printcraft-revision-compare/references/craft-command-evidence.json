@@ -1,0 +1,266 @@
+{
+  "runtime": {
+    "version": "v0.8.0",
+    "platform": "macos-universal",
+    "archiveSha256": "8151d648892589a33ec474ec1eae5fcc57a8932d92b1c9566bc7dd0a5725024b"
+  },
+  "catalogSource": "Actual pdfcraft-cli tools JSON",
+  "sceneAcceptance": "NOT_TESTED",
+  "observedCommands": {
+    "doc_compare": {
+      "command": "doc.compare",
+      "description": "Compare the text of two open documents: other is the older version, doc the newer. Returns counts and each change (replaced, inserted, deleted) with the old and new text, pages (1-based) and rectangles (points, origin bottom-left).",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "limit": {
+            "description": "List at most this many changes (default 500).",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "other": {
+            "description": "The older document (from doc_open).",
+            "type": "integer"
+          },
+          "visual": {
+            "description": "Also compare how pages look (page n with page n): regions that differ visually.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "doc",
+          "other"
+        ],
+        "type": "object"
+      },
+      "name": "doc_compare",
+      "read_only": true
+    },
+    "doc_compare_report": {
+      "command": "doc.compare",
+      "description": "Write the compare summary report (a PDF listing every change) to path.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "other": {
+            "type": "integer"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "doc",
+          "other",
+          "path"
+        ],
+        "type": "object"
+      },
+      "name": "doc_compare_report",
+      "read_only": false
+    },
+    "doc_info": {
+      "command": "file.properties",
+      "description": "Metadata, page sizes and labels, bookmarks, annotations, form fields, links, layers, attachments, fonts, security and repair notes.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "doc": {
+            "description": "Document id from doc_open or doc_list.",
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "doc"
+        ],
+        "type": "object"
+      },
+      "name": "doc_info",
+      "read_only": true
+    },
+    "doc_open": {
+      "command": "file.open",
+      "description": "Open a PDF file and return its document id, page count and whether it can be edited.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "password": {
+            "description": "User or owner password for encrypted files.",
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "name": "doc_open",
+      "read_only": false
+    }
+  },
+  "mcpCatalog": {
+    "source": "PrintCraft plugin ui/catalog.lock.json at current v5 source",
+    "sha256": "57313b7c7705e110f968d030736bdc5dac895b76cd42b7a21239fe9a3af4a4d1",
+    "callStyle": "direct named MCP tool on printcraft-editor",
+    "observedTools": {
+      "doc_info": {
+        "name": "doc_info",
+        "title": "Inspect a document",
+        "description": "Metadata, page sizes and labels, bookmarks, annotations, form fields, links, layers, page transitions and display times, attachments, fonts, security and repair notes.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "doc": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991,
+              "description": "Document id from doc_open or doc_list."
+            }
+          },
+          "required": [
+            "doc"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      "doc_compare": {
+        "name": "doc_compare",
+        "title": "Compare files",
+        "description": "Compare the text of two open documents: other is the older version, doc the newer. Returns counts and each change (replaced, inserted, deleted) with the old and new text, pages (1-based) and rectangles (points, origin bottom-left).",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "doc": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991,
+              "description": "Document id from doc_open or doc_list."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991,
+              "description": "List at most this many changes (default 500)."
+            },
+            "other": {
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991,
+              "description": "The older document (from doc_open)."
+            },
+            "visual": {
+              "type": "boolean",
+              "description": "Also compare how pages look (page n with page n): regions that differ visually."
+            }
+          },
+          "required": [
+            "doc",
+            "other"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      "doc_open": {
+        "name": "doc_open",
+        "title": "Open a PDF",
+        "description": "Open a PDF file and return its document id, page count and whether it can be edited.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "password": {
+              "type": "string",
+              "description": "User or owner password for encrypted files."
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      "doc_compare_report": {
+        "name": "doc_compare_report",
+        "title": "Compare report",
+        "description": "Write the compare summary report (a PDF listing every change) to path.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "doc": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991,
+              "description": "Document id from doc_open or doc_list."
+            },
+            "other": {
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "doc",
+            "other",
+            "path"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      }
+    }
+  }
+}

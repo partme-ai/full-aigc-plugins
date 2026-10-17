@@ -1,0 +1,273 @@
+{
+  "scope": "A3 native poster with image and encoded registration URL; synthetic input, not production print or host sync acceptance",
+  "sceneSourceCommit": "ea34074148669624c71dc86b5b169487132a25ba",
+  "pluginCommit": "ad46f78789436a6cd9cb313a9e4bbca13fa478eb",
+  "recipeSha256": "9ed105ef429a9f0af8d35c8b17917701bc16a18e640cb3ce991ccfdec24b516a",
+  "layoutSteps": 35,
+  "separateDeliverySteps": 1,
+  "macOS": {
+    "version": "0.8.0",
+    "archiveSha256": "e663f967d9e1c439e0eb7759147be29121da198cdd71cedd4afb3ae0e0336243",
+    "result": {
+      "id": "poster-layout",
+      "coreSkill": "designcraft-poster-layout",
+      "technicalRoundtrip": "PASS",
+      "a3Dimensions": "PASS",
+      "fiveStoriesAndStyles": "PASS",
+      "nativeQrAndHyperlinkDestination": "PASS",
+      "imageBindingAndPpi": "PASS",
+      "sourceImageUnchanged": "PASS",
+      "packagedReopen": "PASS",
+      "exportedQrDecode": "NOT_TESTED",
+      "layoutReview": "NOT_TESTED",
+      "hostSameCanvas": "NOT_TESTED"
+    },
+    "independentPdfInspection": {
+      "parser": "PyMuPDF 1.27.1",
+      "pageSizePt": [
+        0.0,
+        0.0,
+        841.8897705078125,
+        1190.5511474609375
+      ],
+      "pageSizeMm": [
+        297.0000023735894,
+        419.999988132053
+      ],
+      "hyperlinkUri": "https://example.org/workshop",
+      "imageAspectRatio": 1.5
+    },
+    "independentQrDecode": {
+      "decoder": "Apple Vision VNDetectBarcodesRequest / QR",
+      "nativePng": [
+        {
+          "payload": "https://example.org/workshop",
+          "confidence": "1.0"
+        }
+      ],
+      "pdfRaster": [
+        {
+          "payload": "https://example.org/workshop",
+          "confidence": "1.0"
+        }
+      ],
+      "scope": "Exact payload verified for actual exported PNG and independently rasterized PDF; example URL is not a real booking system.",
+      "opencv": "4.13.0 failed to detect this symbol at tested resolutions; decoder control succeeded. Not treated as a QR failure after independent Vision decode, nor hidden as a passing OpenCV check."
+    },
+    "outputs": [
+      {
+        "path": "core-poster-inspection.json",
+        "bytes": 19059,
+        "sha256": "19b9c0d701465953b51e1925e9b654b60a1ea1884bdcba8655ce6952aa7eccdc"
+      },
+      {
+        "path": "core-poster.designcraft",
+        "bytes": 25139,
+        "sha256": "6092b598769d76320e4c3f9613ad5a11d3a4883a4d6bf9fc7553af416cf04bec"
+      },
+      {
+        "path": "core-poster.idml",
+        "bytes": 21907,
+        "sha256": "4f73507aa19bd7752922d893a1269fcaea1bfb3954fdcde2256879c21ac3a4cc"
+      },
+      {
+        "path": "core-poster.pdf",
+        "bytes": 37635,
+        "sha256": "0eb2092d6fdadcb8fa1235ff7460d58595359f35a959d2abc919f6cf9bfd2adf"
+      },
+      {
+        "path": "core-poster.png",
+        "bytes": 85115,
+        "sha256": "953135705373fc0d9f2ac068de1d39e7f552ac73cff3f8d3e6d9d19cdf47c5ae"
+      },
+      {
+        "path": "poster-input/hero.png",
+        "bytes": 16478,
+        "sha256": "04f35186c7d1786ad547330b07216564c621deac0855a69bd936a23a71a529b9"
+      },
+      {
+        "path": "poster-package/Instructions.txt",
+        "bytes": 150,
+        "sha256": "c2fc9f5b2c9f0780746803bd3d677a5705640cbd3f23ed35e7eb148107bdd9bb"
+      },
+      {
+        "path": "poster-package/Links/hero.png",
+        "bytes": 16478,
+        "sha256": "04f35186c7d1786ad547330b07216564c621deac0855a69bd936a23a71a529b9"
+      },
+      {
+        "path": "poster-package/review poster.designcraft",
+        "bytes": 25145,
+        "sha256": "c84c3324ecf37391c4ba54b5ba3859059bda9c1ac5ee64809781484c8f354582"
+      },
+      {
+        "path": "poster-package/review poster.idml",
+        "bytes": 21909,
+        "sha256": "c8adc3733da619a8bf5d83b47d5de1c670eda9b9d33d79f94e2f1ea26e4502d3"
+      },
+      {
+        "path": "poster-package/review poster.pdf",
+        "bytes": 37635,
+        "sha256": "0eb2092d6fdadcb8fa1235ff7460d58595359f35a959d2abc919f6cf9bfd2adf"
+      },
+      {
+        "path": "steps.json",
+        "bytes": 253,
+        "sha256": "d1d0aeb666f6f8c8f3c3aa89e418dce215ab14092c5d277c935beb244fb6a088"
+      }
+    ]
+  },
+  "windows": {
+    "status": "PASS",
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39030420015",
+    "sceneSourceCommit": "ea34074148669624c71dc86b5b169487132a25ba",
+    "exeSha256": "fd7aef6536032c9219d12c0461bcef39bbc318959be2a8e7989d52add7f35d54",
+    "verifiedOutputCount": 113,
+    "processCount": 92,
+    "result": {
+      "id": "poster-layout",
+      "coreSkill": "designcraft-poster-layout",
+      "technicalRoundtrip": "PASS",
+      "a3Dimensions": "PASS",
+      "fiveStoriesAndStyles": "PASS",
+      "nativeQrAndHyperlinkDestination": "PASS",
+      "imageBindingAndPpi": "PASS",
+      "sourceImageUnchanged": "PASS",
+      "packagedReopen": "PASS",
+      "exportedQrDecode": "NOT_TESTED",
+      "layoutReview": "NOT_TESTED",
+      "hostSameCanvas": "NOT_TESTED"
+    },
+    "independentPdfInspection": {
+      "parser": "PyMuPDF 1.27.1",
+      "sizeMm": [
+        297.0000023735894,
+        419.999988132053
+      ],
+      "hyperlinkUri": "https://example.org/workshop",
+      "imageAspectRatio": 1.5,
+      "samePixelsAsMac": false
+    },
+    "independentExportDecodeAfterArtifactDownload": {
+      "decoder": "Apple Vision on macOS; decodes actual Windows-exported files",
+      "nativePng": [
+        {
+          "payload": "https://example.org/workshop",
+          "confidence": "1.0"
+        }
+      ],
+      "pdfRaster": [
+        {
+          "payload": "https://example.org/workshop",
+          "confidence": "1.0"
+        }
+      ]
+    },
+    "selectedOutputs": [
+      {
+        "path": "core-poster-inspection.json",
+        "bytes": 20009,
+        "sha256": "12208109307257771e84638e7646646387f352cc98875174866573650ac29570"
+      },
+      {
+        "path": "core-poster.designcraft",
+        "bytes": 40644,
+        "sha256": "c7d829ff3064a3aa7aaaa674ae53495de7f57ec2d454dde2433e75681c3cf0c9"
+      },
+      {
+        "path": "core-poster.idml",
+        "bytes": 23655,
+        "sha256": "cdff0efabda58cf3a65679fbfe706caa871cd2dc9f2afbc92356225fd0543ed8"
+      },
+      {
+        "path": "core-poster.pdf",
+        "bytes": 37635,
+        "sha256": "04035b24eb0a34ba676c01e343b388380d1bcd5a28b7b1e8cf2470048ea1faf4"
+      },
+      {
+        "path": "core-poster.png",
+        "bytes": 85497,
+        "sha256": "e3ed6f7dacb685e8f015953c32857951a57246f7cbdb53cdf9dce6ce9c792dc6"
+      },
+      {
+        "path": "event-poster-inspection.json",
+        "bytes": 6332,
+        "sha256": "c51b56bf1d24dbf0e826e71fc3e13822957d1866e7c644c31649c166f41d7b4c"
+      },
+      {
+        "path": "event-poster.designcraft",
+        "bytes": 15693,
+        "sha256": "a93242c425675bcef154a6d188a7fcfd498a58b5289b9de8f6376c0ce857506a"
+      },
+      {
+        "path": "event-poster.idml",
+        "bytes": 12813,
+        "sha256": "c65e2137a2ba983d2af69e74d77534cf62a5a7011d07ca8fb838c0c75d4d5b65"
+      },
+      {
+        "path": "event-poster.pdf",
+        "bytes": 14787,
+        "sha256": "58b86f97bfded34ee742cb6d7f02871db90460fd0b74515e3652dd3c4f18864f"
+      },
+      {
+        "path": "poster-input\\hero.png",
+        "bytes": 16478,
+        "sha256": "04f35186c7d1786ad547330b07216564c621deac0855a69bd936a23a71a529b9"
+      },
+      {
+        "path": "poster-package\\Instructions.txt",
+        "bytes": 150,
+        "sha256": "c2fc9f5b2c9f0780746803bd3d677a5705640cbd3f23ed35e7eb148107bdd9bb"
+      },
+      {
+        "path": "poster-package\\review poster.designcraft",
+        "bytes": 25270,
+        "sha256": "07b03e91ba7430d0ffc867fea20b5934fbf2f6a732acf85cd777886d66b30012"
+      },
+      {
+        "path": "poster-package\\review poster.idml",
+        "bytes": 21326,
+        "sha256": "b1fc20e68921291bd0a90960a41474efa508be4fd5ddae686395ba8d2151fa4b"
+      },
+      {
+        "path": "poster-package\\review poster.pdf",
+        "bytes": 37635,
+        "sha256": "04035b24eb0a34ba676c01e343b388380d1bcd5a28b7b1e8cf2470048ea1faf4"
+      },
+      {
+        "path": "poster-package\\Links\\hero.png",
+        "bytes": 16478,
+        "sha256": "04f35186c7d1786ad547330b07216564c621deac0855a69bd936a23a71a529b9"
+      }
+    ]
+  },
+  "tests": {
+    "designHelpers": 18,
+    "staticMappedScenes": 201
+  },
+  "remaining": [
+    "Actual event facts, approved destination and real hero media",
+    "Long URL density and actual print/distance scan testing",
+    "All 13 app workflow deduplication and expansion",
+    "Same-canvas agent editing and host visual acceptance",
+    "Release this batch into the subscribed marketplace"
+  ],
+  "publication": {
+    "previousStatus": {
+      "sourceFeature": "PUSHED",
+      "pluginFeature": "PUSHED",
+      "subscribedMarketplaceV5": "DOES_NOT_INCLUDE_THIS_BATCH"
+    },
+    "candidateVersion": "0.1.0-dev.20261017.6",
+    "immutableRelease": "PUBLISHED",
+    "publicZipNativeInstallAndMcp": "PASS",
+    "validation": "craft-v6-installation-validation.json",
+    "subscribedMarketplace": "PENDING_MAIN_MERGE"
+  },
+  "visualReview": {
+    "scope": "Synthetic A3 sample only; not commercial event materials or print certification",
+    "macOS": "PDF full page viewed; final same layout as reviewed first export",
+    "windows": "Actual downloaded Windows PDF full page viewed independently; not pixel-identical to macOS",
+    "qrDecode": "Both actual native PNG and PDF raster decoded using Apple Vision; macOS and Windows outputs tested separately"
+  }
+}
