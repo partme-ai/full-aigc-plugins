@@ -30,7 +30,7 @@ jobs:
         if: matrix.plugin == 'filmcraft'
         with:
           repository: full-aigc-skills/filmcraft-skills
-          ref: b38d467e766e35dbe5e6192934000441784a71f3
+          ref: 28a6275302cfa220ce8a02fed479139f9545c64b
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'printcraft'

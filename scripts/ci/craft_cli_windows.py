@@ -257,6 +257,8 @@ def main():
             elif a.plugin == 'filmcraft':
                 from film_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve())
+                from film_subtitle_sync_smoke import run_subtitle_sync
+                report['subtitlePrecision'] = run_subtitle_sync(r, a.playbook.resolve())
             elif a.plugin == 'printcraft':
                 from pdf_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve())
