@@ -439,3 +439,5 @@ DesignCraft、FigCraft、LightCraft、GridCraft 的18.1标签与ZIP源码不一�
 ## PhotoCraft可编辑照片联系表候选
 
 GitHub联系表工作流固定提交后原创适配，扩展既有批量交付技能：按明确输入顺序分页，file.placeEmbedded保留智能对象并按比例缩小，type.create标注可编辑完整文件名，超长标签拒绝交付，保留原图摘要和清单。3项辅助回归及原生0.9.0的15次真实CLI调用通过，7个显式输入来自3种合成横竖/方图，2页像素位置和13/3层保存重开通过；不等同于7种真实照片。源与插件feature已推送，Windows作业39069888321的PhotoCraft已通过，下载结果核对15次联系表调用和两页图片，插件73项Python回归通过；未发布联系表新市场版本，未完成真实宿主同步，累计仍232条静态映射。详见craft-photo-contact-sheet-validation.json。
+
+联系表后续真实Codex验收：使用已安装候选的原生app-server完成23次MCP调用，内嵌页面逐步显示六个嵌入图片和六个文字层，保存关闭后重开保留13层；宿主导出PNG与独立原生CLI对该工程解码逐像素一致，仅限本合成夹具。修复可选Harness默认入口仍指向薄技能的问题，补失败回归，Node103通过/16条件跳过、Python73通过，插件test/main三条CI通过。完整18.3 ZIP已公开下载、标签/摘要、安装与MCP/资源校验通过；主市场18.3切换待本次test验证。技能源与插件main均已合入。

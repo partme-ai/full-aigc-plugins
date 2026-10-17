@@ -24,9 +24,9 @@
     },
     {
       "plugin": "photocraft",
-      "version": "0.1.0-dev.20261017.6",
-      "expectedCommit": "698228ddc36fbd5d61e131545fdd7d58d5bb3a2c",
-      "remoteTagCommit": "698228ddc36fbd5d61e131545fdd7d58d5bb3a2c",
+      "version": "0.1.0-dev.20261018.3",
+      "expectedCommit": "c5e93d6b091b01e359bb4be8826320f6a59098f0",
+      "remoteTagCommit": "c5e93d6b091b01e359bb4be8826320f6a59098f0",
       "result": "PASS"
     },
     {

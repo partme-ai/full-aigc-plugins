@@ -1,7 +1,7 @@
 {
   "scope": "development contact sheet extension of batch delivery; no scene count increment",
   "sourceCommit": "754cc6ae272b2ec1b7385a1a004cccb9518d56a2",
-  "pluginCommit": "bc072c867cb2ac0ba5b6820a77d5d0f8bdce3715",
+  "pluginCommit": "c5e93d6b091b01e359bb4be8826320f6a59098f0",
   "githubWorkflowSource": {
     "repository": "TouchTone/make_contact",
     "commit": "825604311889c9d1f5900dc565a228b581822702",
@@ -37,12 +37,88 @@
       "scope": "synthetic inputs; real photographs, fonts and editor sync not inferred"
     },
     "wholePhotoProcessCount": 248,
-    "scope": "whole workflow still in progress; PhotoCraft job and artifact verified"
+    "scope": "whole workflow completed; contact sheet operation and downloaded artifact verified",
+    "wholeWorkflowResult": "PASS"
   },
-  "embeddedEditorSync": "NOT_TESTED",
-  "publicMarketplaceRelease": "NOT_PUBLISHED; current market version unchanged",
+  "embeddedEditorSync": {
+    "host": "native Codex app-server; actual plugin install and mcpServer/tool/call",
+    "calls": 23,
+    "candidatePluginSource": "c3818c1ffb3df0509147edbb772883d9bb952a98",
+    "browser": "Codex in-app browser",
+    "workflow": [
+      "new720x400",
+      "place six embedded smart objects",
+      "create six captions",
+      "save native project",
+      "export PNG",
+      "close owned document",
+      "reopen saved project"
+    ],
+    "runtimeSource": "bundled; latest lookup HTTP404 fallback",
+    "result": "PASS",
+    "scope": "six-image synthetic first page, not all formats/fonts/hosts"
+  },
+  "publicMarketplaceRelease": {
+    "version": "0.1.0-dev.20261018.3",
+    "url": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
+    "publicZip": {
+      "plugin": "photocraft",
+      "version": "0.1.0-dev.20261018.3",
+      "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/download/v0.1.0-dev.20261018.3/photocraft-plugin-0.1.0-dev.20261018.3.zip",
+      "archiveSha256": "3aa9b3efe1e5eb892cc1bfea474ead8e0410ddee0f7b6ce492b6b13dc2be482b",
+      "remoteTagCommit": "c5e93d6b091b01e359bb4be8826320f6a59098f0",
+      "downloadedArchive": "PASS",
+      "cleanExtraction": "PASS",
+      "nativeCodexInstallAndMcp": "PASS",
+      "installedBundledRuntimeDigests": "PASS",
+      "embeddedUI": "NOT_TESTED",
+      "editingSync": "NOT_TESTED"
+    },
+    "mainMarketplace": "PENDING"
+  },
   "pluginPythonTests": {
     "count": 73,
     "result": "PASS"
-  }
+  },
+  "finalSkillSourceCommit": "59836cf68ac9836d8dc5cb398e485adc083dcadf",
+  "candidateVersion": "0.1.0-dev.20261018.3",
+  "independentNativeReadback": {
+    "projectSha256": "2143e6355fc7b1fec5595dc2ff6b4ed02fe035373d39fa84d71ed06d796a010a",
+    "layers": 13,
+    "smartObjects": 6,
+    "editableTextLayers": 6,
+    "webVsNativeDecodedPng": {
+      "maximumChannelDifference": 0,
+      "meanChannelDifference": 0.0
+    },
+    "projectUnchanged": true
+  },
+  "nodeTests": {
+    "total": 119,
+    "passed": 103,
+    "skipped": 16,
+    "failed": 0
+  },
+  "defaultHarnessFix": {
+    "problem": "default executable path still referenced thin photocraft-use skill",
+    "fixedRoot": "skills/photocraft-harness",
+    "redRegression": "default bundled harness validates before task state without a skill-root override",
+    "targetedTests": 23
+  },
+  "pluginTestCi": [
+    39070584767,
+    39070584799,
+    39070585098
+  ],
+  "pluginTestCiResult": "PASS",
+  "screenshots": {
+    "live-six.png": "6d0704f30be68e5c0445725f073a828e9917fa8fd5c818256a1f4626f6073994",
+    "live-reopened.png": "685f63a9712e976096c27ba7a11f6e9d68e434c13dd57404a4420844d9acb441"
+  },
+  "pluginMainCi": [
+    39070670370,
+    39070670403,
+    39070670724
+  ],
+  "pluginMainCiResult": "PASS"
 }

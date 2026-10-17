@@ -1,6 +1,6 @@
 # PhotoCraft Use
 
-当前可安装开发候选：`0.1.0-dev.20261017.6`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+当前本地开发候选：`0.1.0-dev.20261018.3`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -101,7 +101,7 @@ Four-domain RT-001 runtime source/integrity acceptance now covers every current 
 
 Turn images, text and layer-design requirements into `.pcraft`, applicable PSD and flat exports.
 
-Current plugin: `0.1.0-dev.20261017.6`; skill source: `0.1.0-dev.60`; 14 independent skills (13 domain + 1 bundled execution harness).
+Current plugin: `0.1.0-dev.20261018.3`; skill source: `0.1.0-dev.60`; 14 independent skills (13 domain + 1 bundled execution harness).
 
 Verified first-use platform: macOS arm64 and Python 3.11+. Pinned runtimes install into the user data directory; skill files stay in their host-loaded directory. These are development releases; complete V1 acceptance and generic Skills CLI installation remain open.
 
@@ -196,7 +196,7 @@ Intent + assets
 | Property | Value |
 | :--- | :--- |
 | Plugin ID | photocraft |
-| Metadata version | 0.1.0-dev.20261017.6 |
+| Metadata version | 0.1.0-dev.20261018.3 |
 | Stage | implementation-in-progress |
 | Skills source | photocraft-skills / 0.1.0-dev.60 |
 | Execution | SQLite task control and pinned maintained CLI; ArtCraft uses child adapters |
@@ -424,3 +424,7 @@ The main-candidate guide maps named JPEG settings to the actual export command. 
 ## 老照片修复分阶段操作候选 / Staged restoration candidate
 
 完善[老照片修复技能](skills/photocraft-restore-old-photo/SKILL.md)：独立包含具体CLI/MCP方法与参数、局部修补检查点、可选全局调色和原层核验；复用既有old-photo-conservative流程，不增加场景计数。合成损伤检查与真实照片质量、MCP业务及同画面同步分别记录，冻结基础技能版本不变。
+
+Development candidate: the batch delivery skill includes a native CLI contact sheet workflow with embedded pictures, editable filename captions and pagination. Source: full-aigc-skills/photocraft-skills commit 754cc6ae272b2ec1b7385a1a004cccb9518d56a2. macOS/Windows native CLI and Codex shared-editor synthetic checks passed; real-photo quality and other hosts remain pending.
+
+当前可选Harness默认执行入口已对齐photocraft-harness/scripts；Node回归103项通过、16项条件跳过，默认入口拒绝无效计划的用例已补齐。

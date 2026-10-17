@@ -112,8 +112,8 @@
     {
       "id": "photocraft",
       "displayName": "PhotoCraft Use (RC)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261017.6"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261018.3"
     },
     {
       "id": "soundcraft",
