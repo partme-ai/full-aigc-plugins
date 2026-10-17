@@ -185,5 +185,14 @@
     ],
     "sourceModified": false,
     "nextAcceptance": "Use an engine build with verified glyph coverage, then repeat visible actual-language caption checks; preserve official resources"
+  },
+  "releaseCheckRepair": {
+    "failedRun": "https://github.com/full-aigc-plugins/filmcraft-plugin/actions/runs/39075255804",
+    "observed": "all five source gates passed; obsolete optimization-index parser raised IndexError after gates",
+    "reason": "9.x optimization table was intentionally removed from current task scope; old test swallowed its exception",
+    "fixCommit": "1296636",
+    "tests": "5 release-gate tests PASS after actual IndexError regression; no swallowed exception",
+    "currentFullCI": "PENDING",
+    "sourceGateSetUnchanged": true
   }
 }
