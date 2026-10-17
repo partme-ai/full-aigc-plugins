@@ -41,5 +41,30 @@
     "Set explicit period title and numeric labels",
     "Move legend right after observed multi-series bottom overlap"
   ],
-  "windowsCurrent": "PENDING final legend revision"
+  "windowsCurrent": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39080116094",
+    "hubCommit": "4e14ca5e8a3633592a76f51ef58bd37b74c5ec60",
+    "sourceCommit": "49e07ca",
+    "result": {
+      "status": "PASS",
+      "platform": "win32",
+      "nativeProcesses": 8,
+      "variants": [
+        {
+          "name": "sample",
+          "chartDataCategoryOrderAndNotes": "PASS",
+          "editablePptxRoundtrip": "PASS",
+          "inputPreserved": "PASS"
+        },
+        {
+          "name": "multi-negative-zero",
+          "chartDataCategoryOrderAndNotes": "PASS",
+          "editablePptxRoundtrip": "PASS",
+          "inputPreserved": "PASS"
+        }
+      ],
+      "visualReview": "NOT_TESTED",
+      "hostSync": "NOT_TESTED"
+    }
+  }
 }
