@@ -4,7 +4,7 @@ Craft 插件的 `plugins/` 为固定独立仓发行提交生成的 Codex 分发�
 
 ## Craft 可安装开发候选
 
-13 个 Craft 编辑器候选已登记为 `0.1.0-dev.20261017.4`，名称为 `PhotoCraft Use (RC)` 等，使用官方图标。它们是开发预发布；生产与全部场景验收尚未完成。安装要求 Node.js 24。Git 安装首次启动会下载固定摘要的编辑器资源；完整发行 ZIP 自带资源。详见 [安装与验证状态](docs/craft-marketplace-release.md)。 交付参考 ZCode 的已构建 ZIP 分发方式：支持该协议的宿主绑定完整包、摘要和包内目录。当前 EffectCraft 超出 ZCode 单文件解包上限，显式使用 Git 入口兼容；Codex 原生 Git 入口单独验收。
+13 个 Craft 编辑器候选按应用固定到 `0.1.0-dev.20261017.5` 或 `0.1.0-dev.20261017.6` 或 `0.1.0-dev.20261017.7`，名称为 `PhotoCraft Use (RC)` 等，使用官方图标。它们是开发预发布；生产与全部场景验收尚未完成。安装要求 Node.js 24。Git 安装首次启动会下载固定摘要的编辑器资源；完整发行 ZIP 自带资源。详见 [安装与验证状态](docs/craft-marketplace-release.md)。 交付参考 ZCode 的已构建 ZIP 分发方式：支持该协议的宿主绑定完整包、摘要和包内目录。当前 EffectCraft 超出 ZCode 单文件解包上限，显式使用 Git 入口兼容；Codex 原生 Git 入口单独验收。
 
 
 # Full AIGC Plugins
@@ -116,7 +116,7 @@ codex plugin add volcengine-design@full-aigc-plugins
 | [**DesignCraft Use (RC)**](https://github.com/full-aigc-plugins/designcraft-plugin) | `designcraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [designcraft-plugin](https://github.com/full-aigc-plugins/designcraft-plugin) |
 | [**EffectCraft Use (RC)**](https://github.com/full-aigc-plugins/effectcraft-plugin) | `effectcraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [effectcraft-plugin](https://github.com/full-aigc-plugins/effectcraft-plugin) |
 | [**FigCraft Use (RC)**](https://github.com/full-aigc-plugins/figcraft-plugin) | `figcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [figcraft-plugin](https://github.com/full-aigc-plugins/figcraft-plugin) |
-| [**FilmCraft Use (RC)**](https://github.com/full-aigc-plugins/filmcraft-plugin) | `filmcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [filmcraft-plugin](https://github.com/full-aigc-plugins/filmcraft-plugin) |
+| [**FilmCraft Use (RC)**](https://github.com/full-aigc-plugins/filmcraft-plugin) | `filmcraft` | 0.1.0-dev.20261017.7 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [filmcraft-plugin](https://github.com/full-aigc-plugins/filmcraft-plugin) |
 | [**GridCraft Use (RC)**](https://github.com/full-aigc-plugins/gridcraft-plugin) | `gridcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [gridcraft-plugin](https://github.com/full-aigc-plugins/gridcraft-plugin) |
 | [**LightCraft Use (RC)**](https://github.com/full-aigc-plugins/lightcraft-plugin) | `lightcraft` | 0.1.0-dev.20261017.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [lightcraft-plugin](https://github.com/full-aigc-plugins/lightcraft-plugin) |
 | [**PhotoCraft Use (RC)**](https://github.com/full-aigc-plugins/photocraft-plugin) | `photocraft` | 0.1.0-dev.20261017.6 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [photocraft-plugin](https://github.com/full-aigc-plugins/photocraft-plugin) |
@@ -222,7 +222,7 @@ Made with ❤️ by PartMe.AI Team
 - **EffectCraft Use**：`effectcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **PhotoCraft Use**：`photocraft-plugin`，7 个候选技能（含编辑器入口）。
 - **FigCraft Use**：`figcraft-plugin`，7 个候选技能（含编辑器入口）。
-- **FilmCraft Use**：`filmcraft-plugin`，7 个候选技能（含编辑器入口）。
+- **FilmCraft Use**：`filmcraft-plugin`，10 个候选技能（含编辑器入口）。
 - **LightCraft Use**：`lightcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **PdfCraft Use**：`printcraft-plugin`，20 个候选技能（含编辑器入口）。
 - **VectorCraft Use**：`vectorcraft-plugin`，7 个候选技能（含编辑器入口）。
