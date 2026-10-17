@@ -34,10 +34,107 @@
     "newSceneVariants": 2,
     "childNativeProcesses": 10,
     "result": "PASS",
-    "newSceneReview": "default six-hole actual PNG viewed; offset seven geometry checked, picture not yet reviewed"
+    "newSceneReview": "default six-hole actual PNG viewed; offset seven geometry checked, picture not yet reviewed",
+    "fourParameterAndCheckerTests": "PASS",
+    "cadRegressionHelpers": 15
   },
-  "windows": "PENDING",
-  "realHostSync": "NOT_TESTED",
+  "windows": {
+    "run": 39063632030,
+    "hubCommit": "7c801e85ca605d10fc3551d98e2eb3e310765bcd",
+    "result": "PASS",
+    "variants": 2,
+    "nativeProcessesInStandaloneChildren": 10,
+    "artifact": "windows-cli-cadcraft result.json contains two PASS variants; standalone receipts were written outside uploaded tree",
+    "variantResults": [
+      {
+        "id": "bolt-circle-six",
+        "standaloneEntry": "PASS",
+        "reopenedGeometry": "PASS",
+        "nativeProcessesInChild": 5,
+        "scope": "child CLI calls logged in receipt, excluded from direct Runner process count; host sync NOT_TESTED"
+      },
+      {
+        "id": "bolt-circle-offset-seven",
+        "standaloneEntry": "PASS",
+        "reopenedGeometry": "PASS",
+        "nativeProcessesInChild": 5,
+        "scope": "child CLI calls logged in receipt, excluded from direct Runner process count; host sync NOT_TESTED"
+      }
+    ],
+    "outputHashesVerified": 39
+  },
+  "realHostSync": {
+    "result": "LIMITED_SYNTHETIC_PASS",
+    "host": "native Codex app-server + IAB",
+    "thread": "01a14b63-849a-7ee0-bc1a-831d635d73db",
+    "distribution": "isolated local candidate",
+    "checks": [
+      "original recipe executed via execute, actual seed102 returned",
+      "array created five copies, six total",
+      "properties.set changed all six R3 to R6 visibly on same page",
+      "two host-written DXFs independently parsed, circles and native associated radius3/6 retained"
+    ],
+    "limits": [
+      "GUI dimension lettering not qualified",
+      "other hosts not tested",
+      "synthetic drafting only"
+    ],
+    "runtime": {
+      "source": "bundled",
+      "latestLookup": "HTTP404 fallback",
+      "upstream": "0.7.0",
+      "commit": "9b2308b138e90a01d28d46c84021a74b1ae7ef4a"
+    },
+    "screenshots": [
+      "initial.jpg",
+      "larger.jpg"
+    ]
+  },
   "publicRelease": "NOT_RELEASED",
-  "staticMappedSceneIncrement": 1
+  "staticMappedSceneIncrement": 1,
+  "packageMcpCi": {
+    "run": 39063632552,
+    "result": "PASS"
+  },
+  "sourceCi": {
+    "run": 39063558625,
+    "result": "PASS"
+  },
+  "pluginCi": {
+    "run": 39063629006,
+    "result": "PASS",
+    "localTests": {
+      "run": 8,
+      "passed": 5,
+      "skipped": 3,
+      "scope": "no SDK substituted for host acceptance"
+    }
+  },
+  "hostFiles": [
+    {
+      "file": "host-six.dxf",
+      "sha256": "31d26274a6371f4e325a990f7846e72e75fa470b6efe4dc29a1d704f4331dcdf",
+      "radius": 3,
+      "result": "PASS"
+    },
+    {
+      "file": "host-six-larger.dxf",
+      "sha256": "425314e13deb0b38bd16e3e6db1c5351b9bc2eb18c18762763bfa06b436fbcea",
+      "radius": 6,
+      "result": "PASS"
+    }
+  ],
+  "finalSkillSourceCommit": "c58adeaad349f56dba93ca31712413c74e6652d3",
+  "finalPluginCommit": "d0a440022a052f58071b5e68c7823f8e76ead19f",
+  "testBranchCi": {
+    "source": 39063911543,
+    "plugin": 39063915260,
+    "result": "PASS"
+  },
+  "knownCiCorrections": [
+    "dated dev version accepted without changing version requirement",
+    "bootstrap entry checked instead of removed dist adapter",
+    "Claude marketplace version aligned with root manifest",
+    "scenario digests refreshed only after every source/plugin skill file compared equal; frozen base lock untouched"
+  ]
 }

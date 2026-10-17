@@ -423,3 +423,7 @@ FilmCraft 三个新场景的Windows原生九场景回归已通过（39038858675�
 ## FigCraft主题变量、图标插槽与数据图
 
 新增light-dark-token-card、swappable-icon-button、signed-bar-chart三个独立技能，固定Figma官方GitHub示例/参考并原创适配语义变量模式、实例交换/布尔/文字属性、有符号柱图零基线。官方0.6.0 macOS完整18记录287次CLI完成，三个新场景通过；既有原型仅连线持久化，浏览器点击仍未验收。新建/已有文件、返回ID、原文件保护、修改后重开及实际PNG/SVG检查通过，209项辅助测试通过。源与插件在隔离feature检出一致，全量主检出与插件副本已核对230条映射；Windows18记录292次已记录直接CLI及128输出摘要通过，真实Codex MCP/IAB逐条执行60个配方步骤并观察更改，七个实际保存文件独立CLI回读通过。独立Python入口在ASCII输出环境复现文件已生成却打印JSON失败，三个新执行器及既有手册入口改为ASCII转义JSON；四入口在真实Windows的ASCII输出/中文路径专项回归通过，完整18记录296次已记录直接CLI及140输出摘要通过。公开完整ZIP v0.1.0-dev.20261018.1已发布，重新下载安装/MCP及运行资源摘要通过，主市场已更新，test同源码三组CI通过，远端main真实Codex安装发现全部11技能并完成MCP/编辑器入口调用；main同源码三组CI亦全部通过，日常市场源已刷新且三个新技能文件可访问；其他宿主与真实设计质量仍未验收。详见craft-fig-design-workflows-validation.json。
+
+## CADCraft等角孔分布图
+
+新增cadcraft-bolt-circle独立技能，固定ezdxf GitHub提交参考实体/分层/半径尺寸，孔阵列编排原创。真实circle返回句柄后执行arraypolar，count包含种子孔，拒绝重复终点、孔相交、非有限参数和覆盖输出。原生完整15记录58次直接CLI及新入口10次子进程CLI通过；Windows完整15记录63次直接CLI，新六孔/偏移七孔入口通过，39个上传输出摘要逐一核对。真实Codex MCP/IAB看到六孔创建、R3改R6后的同步，两个保存DXF独立解析验证圆及关联尺寸3/6。GUI尺寸文字尚未验收；新市场包尚未发布，源/插件已按feature→test→main同步，测试分支CI通过。累计增加1条映射，主检出静态统计将在同步后更新；不能当作全部场景通过。详见craft-cad-bolt-circle-validation.json。
