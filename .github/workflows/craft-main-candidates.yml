@@ -1,8 +1,16 @@
 name: Craft main development candidates
 on:
   workflow_dispatch:
-  push:
-    paths: ['.github/workflows/craft-main-candidates.yml', 'scripts/ci/craft_main.py', 'scripts/ci/craft_main_candidates.lock.json']
+    inputs:
+      scope:
+        description: Candidate build scope
+        type: choice
+        options: [all, native, web]
+        default: all
+      apps:
+        description: Comma-separated applications, or all
+        type: string
+        default: all
 permissions:
   contents: read
 jobs:
@@ -13,8 +21,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: matrix
-        run: echo "candidates=$(python3 scripts/ci/craft_main.py matrix)" >> "$GITHUB_OUTPUT"
+        env:
+          CRAFT_APPS: ${{ inputs.apps || 'all' }}
+        run: echo "candidates=$(python3 scripts/ci/craft_main.py matrix --apps "$CRAFT_APPS")" >> "$GITHUB_OUTPUT"
   native:
+    name: Native ${{ matrix.app }}
+    if: inputs.scope != 'web'
     needs: matrix
     runs-on: windows-2022
     timeout-minutes: 90
@@ -69,6 +81,8 @@ jobs:
             candidate-results
           if-no-files-found: warn
   web:
+    name: Web ${{ matrix.app }}
+    if: inputs.scope != 'native'
     needs: matrix
     runs-on: ubuntu-latest
     timeout-minutes: 90

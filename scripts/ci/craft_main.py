@@ -6,9 +6,7 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
-import tomllib
 import re
-import zipfile
 
 LOCK = Path(__file__).with_name('craft_main_candidates.lock.json')
 
@@ -47,7 +45,8 @@ def prepare_web(row, source, plugin):
             raise ValueError('Unsafe overlay filename')
         run('git', 'apply', ui / 'runtime/patches' / patch, cwd=source)
     run('python3', ui / 'runtime/prepare-automation.py', source, row['engine'])
-    run('python3', ui / 'runtime/prepare-fonts.py', source, row['engine'])
+    if (ui / 'runtime/prepare-fonts.py').is_file():
+        run('python3', ui / 'runtime/prepare-fonts.py', source, row['engine'])
 
 
 def build_web(row, source, plugin):
@@ -63,10 +62,11 @@ def build_web(row, source, plugin):
         lock.update(repository='https://github.com/' + row['repository'], commit=row['commit'],
                     candidateStatus=row['status'])
         (ui / 'source.lock.json').write_text(json.dumps(lock, indent=2) + '\n')
-        fonts = plugin.parent / 'candidate-fonts'
-        run('python3', ui / 'fetch-fonts.py', '--output', fonts)
-        env.update(CRAFT_FONTS_DIR=str(fonts), CRAFT_FONTS_REQUIRED='1',
-                   CRAFT_CJK_FONT=str(fonts / 'fonts/LXGWWenKai-Regular.ttf'), FIGCRAFT_EMBED_CJK='1')
+        if (ui / 'fetch-fonts.py').is_file():
+            fonts = plugin.parent / 'candidate-fonts'
+            run('python3', ui / 'fetch-fonts.py', '--output', fonts)
+            env.update(CRAFT_FONTS_DIR=str(fonts), CRAFT_FONTS_REQUIRED='1',
+                       CRAFT_CJK_FONT=str(fonts / 'fonts/LXGWWenKai-Regular.ttf'), FIGCRAFT_EMBED_CJK='1')
         html = (source / 'apps' / (row['engine'] + '-web') / 'index.html').read_text()
         match = re.search('data-cargo-profile="([^"]+)"', html)
         profile = match[1] if match else 'release'
@@ -103,11 +103,18 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('action', choices=['matrix', 'prepare-web', 'build-native', 'build-web'])
     p.add_argument('--app')
+    p.add_argument('--apps', default='all')
     p.add_argument('--source', type=Path, default=Path('upstream'))
     p.add_argument('--plugin', type=Path, default=Path('candidate-plugin'))
     a = p.parse_args()
     if a.action == 'matrix':
-        print(json.dumps(build_matrix(), separators=(',', ':')))
+        rows = build_matrix()
+        if a.apps != 'all':
+            names = a.apps.split(',')
+            if len(set(names)) != len(names):
+                p.error('Duplicate application')
+            rows = {'include': [candidate(name) for name in names]}
+        print(json.dumps(rows, separators=(',', ':')))
         return
     row = candidate(a.app)
     source = a.source.resolve()
