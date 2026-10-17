@@ -186,15 +186,18 @@
     "main": {
       "marketInstall": {
         "run": 39046505872,
-        "result": "RUNNING"
+        "result": "PASS",
+        "jobs": 27
       },
       "packageMcp": {
         "run": 39046505976,
-        "result": "RUNNING"
+        "result": "PASS",
+        "jobs": 14
       },
       "nativeBusiness": {
         "run": 39046505890,
-        "result": "RUNNING"
+        "result": "PASS",
+        "jobs": 13
       }
     }
   }

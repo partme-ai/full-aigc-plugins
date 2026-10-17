@@ -93,4 +93,4 @@ VectorCraft v6已按feature→test→main进入主市场，实际订阅刷新err
 
 ## DeckCraft 对比表技能v6
 
-DeckCraft已提供0.1.0-dev.20261017.6完整开发预发布包，包含10个技能与固定v2资源。公开ZIP实际下载、摘要校验、干净解包、Codex安装发现及MCP版本一致性检查通过。对比表已有场景深化不增加独立场景数；真实素材及其他宿主尚未验收。已按feature→test→main合入，实际main Git安装/MCP、订阅刷新和原生列表版本/图标核查通过；公开v6制品短表同步、改单元格及保存重开另有真实Codex/IAB记录。test三组CI通过，main相同源码回归运行中；最终结果见craft-deck-comparison-validation.json。
+DeckCraft已提供0.1.0-dev.20261017.6完整开发预发布包，包含10个技能与固定v2资源。公开ZIP实际下载、摘要校验、干净解包、Codex安装发现及MCP版本一致性检查通过。对比表已有场景深化不增加独立场景数；真实素材及其他宿主尚未验收。已按feature→test→main合入，实际main Git安装/MCP、订阅刷新和原生列表版本/图标核查通过；公开v6制品短表同步、改单元格及保存重开另有真实Codex/IAB记录。test和main相同源码SHA三组CI全部通过；最终结果见craft-deck-comparison-validation.json。
