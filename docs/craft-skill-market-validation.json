@@ -173,5 +173,19 @@
     }
   ],
   "newRuntimeAcceptance": "NOT_RUN",
-  "newHostSynchronizationAcceptance": "NOT_RUN"
+  "newHostSynchronizationAcceptance": "NOT_RUN",
+  "postPushRegression": {
+    "hubCodeCommit": "a3630cd9d1e7832956844ac52218667f498c11e3",
+    "windowsBusinessRun": 38995872602,
+    "windowsBusinessResult": "PASS",
+    "windowsPackageMcpRun": 38995872606,
+    "windowsPackageMcpResult": "PASS",
+    "scope": "pinned CLI/candidate packages; not new guidance creative acceptance"
+  },
+  "photoCraftHostCommands": {
+    "added": 8,
+    "localFullTests": 70,
+    "localResult": "PASS",
+    "reason": "existing discovered scene skills lacked direct host command files"
+  }
 }

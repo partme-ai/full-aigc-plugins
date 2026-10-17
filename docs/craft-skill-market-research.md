@@ -45,3 +45,9 @@ SkillHub按[官方安装说明](https://skillhub.cn/install/skillhub.md)检查�
 - LightCraft/PrintCraft技能源校验器仍报skill_set_mismatch；插件校验器分别在lightcraft-raw-develop、printcraft-organize-pdf处报scene_digest_mismatch。4项在修改前HEAD的独立归档中同样复现，本批不宣称包级全绿，也未改写冻结快照。
 
 候选、采用来源、版本、摘要与技能入口见 [结构化清单](craft-skill-market-research.json)。原始搜索响应和下载正文保存在本地忽略目录，插件不分发上游正文、代码、素材或凭据。
+
+## 推送后的回归
+
+目录仓提交a3630cd的[Windows原生业务矩阵](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38995872602)和[Windows安装/MCP回归](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38995872606)通过。这些运行沿用固定CLI与候选包，验证执行链和参数回归，不代表新指导已逐项通过真实媒体效果验收。DesignCraft技能源与插件CI通过。
+
+PhotoCraft CI发现8个已打包场景技能缺少宿主命令入口，已按现有扩展格式补齐；本地完整70项测试通过。此修复不改可移植技能或执行引擎。LightCraft和PrintCraft包级CI仍复现上文既有失败。
