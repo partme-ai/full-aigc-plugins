@@ -159,5 +159,15 @@
     "full plugin regression and immutable release packaging",
     "marketplace publication of this candidate",
     "other hosts and remaining scenarios"
-  ]
+  ],
+  "regression": {
+    "nodeTests": 188,
+    "passed": 185,
+    "failed": 0,
+    "skipped": 3,
+    "skipScope": "native integration opt-in; not counted as acceptance",
+    "targetedPathFixTests": 22,
+    "documentation": "PASS",
+    "fixedPluginCommit": "6620496"
+  }
 }
