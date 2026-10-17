@@ -125,4 +125,6 @@ def run_playbooks(r, path):
     records.extend(run_more(r, path))
     from photo_repair_smoke import run_playbooks as run_repairs
     records.extend(run_repairs(r, path))
+    from photo_final_smoke import run_playbooks as run_final
+    records.extend(run_final(r, path))
     return records
