@@ -69,6 +69,8 @@ class LongDocumentContract(unittest.TestCase):
         steps=json.loads((ROOT.parent/'designcraft-long-document/references/craft-steps.json').read_text(encoding='utf-8'))['steps']
         commands=[s['command'] for s in steps]
         self.assertIn('toc.generate',commands,'Long document has no native table of contents')
+        entry=next(s for s in steps if s['command']=='style.paragraph.create' and s['params']['name']=='Contents Entry')
+        self.assertEqual(entry['params'].get('para',{}).get('tabs'),[{'position':480,'align':'right','leader':'.'}],'TOC page numbers require explicit right-aligned tabs')
         self.assertIn('toc.update',commands,'Changed pagination must update contents')
         self.assertIn('text.thread',commands,'Chapter continuation is missing')
         self.assertGreaterEqual(commands.count('style.paragraph.apply'),4)
