@@ -35,5 +35,13 @@ class CoreFloorPlanTests(unittest.TestCase):
         self.assertEqual(recipe['steps'][0]['command'], 'layer', 'Entity-only inspection does not enumerate layer properties')
         self.assertEqual(recipe['steps'][1]['command'], 'getvar')
 
+    def test_identical_revisions_do_not_request_a_change_region(self):
+        path = ROOT / 'full-aigc-skills-repositories/cadcraft-skills/skills/cadcraft-compare-revisions/references/craft-steps.json'
+        if not path.exists():
+            self.skipTest('Source checkout unavailable')
+        recipe = json.loads(path.read_text())
+        step = next(row for row in recipe['steps'] if row['command'] == 'compare.next')
+        self.assertEqual(step.get('when'), 'comparison_has_regions')
+
 if __name__ == '__main__':
     unittest.main()

@@ -122,6 +122,7 @@ def run_playbooks(r,path):
     records.append(run_core_floor_plan(r, path))
     records.append(run_core_part(r, path))
     records.append(run_core_layers(r, path))
+    records.append(run_core_compare(r, path))
     return records
 
 
@@ -209,4 +210,26 @@ def run_core_layers(r,path):
         info=json.loads(r.run('info','cleaned.dxf'));assert info['entityCount']==3
         assert next(x for x in info['layers'] if x['name']=='REFERENCE')['locked'] is True
         return {'id':'layer-cleanup','technicalRoundtrip':'PASS','geometryChecks':'PASS','layerPropertiesAndInputPreserved':'PASS','drawingReview':'NOT_TESTED','installedHostSync':'NOT_TESTED'}
+    finally:r.work=original
+
+
+def run_core_compare(r,path):
+    """比较两个真实DXF版本并检查无差异分支，不把叠加当修改。"""
+    recipe=json.loads((Path(path).parents[2]/'cadcraft-compare-revisions/references/craft-steps.json').read_text(encoding='utf-8'))
+    original=r.work;r.work=original/'core-compare';r.work.mkdir();(r.work/'input').mkdir()
+    try:
+        r.run('run','--metric','--cmd','circle {"center":[20,20],"radius":5}','--save','revision-a.dxf')
+        r.run('run','revision-a.dxf','--cmd','circle {"center":[50,20],"radius":3}','--save','input/revision-b.dxf')
+        before=(r.work/'revision-a.dxf').read_bytes();other=(r.work/'input/revision-b.dxf').read_bytes()
+        args=['run','revision-a.dxf']
+        for step in recipe['steps']:args+=['--cmd',step['command']+' '+json.dumps(step['params'])]
+        rows=[json.loads(line) for line in r.run(*args,'--save','review.dxf').splitlines() if line.strip()]
+        compared=rows[0];assert compared['counts']=={'added':1,'removed':0,'changed':0,'common':1},compared
+        assert compared['regions'],'Expected one actual change region'
+        assert entities((r.work/'review.dxf').read_text(encoding='utf-8'))==entities(before.decode('utf-8')),'Comparison changed entities'
+        same=json.loads(r.run('run','revision-a.dxf','--cmd','compare {"path":"revision-a.dxf"}').splitlines()[0])
+        assert same['counts']['added']==same['counts']['removed']==same['counts']['changed']==0
+        assert not same['regions'],'Identical versions contain change regions'
+        assert (r.work/'revision-a.dxf').read_bytes()==before and (r.work/'input/revision-b.dxf').read_bytes()==other,'Comparison overwrote source'
+        return {'id':'compare-revisions','technicalRoundtrip':'PASS','geometryChecks':'PASS','realAddedEntityAndIdenticalVersions':'PASS','inputPreserved':'PASS','drawingReview':'NOT_TESTED','installedHostSync':'NOT_TESTED'}
     finally:r.work=original
