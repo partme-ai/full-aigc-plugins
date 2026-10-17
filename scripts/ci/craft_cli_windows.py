@@ -202,6 +202,9 @@ def main():
             elif a.plugin == 'filmcraft':
                 from film_playbook_smoke import run_playbooks
                 report['playbooks'] = run_playbooks(r, a.playbook.resolve())
+            elif a.plugin == 'printcraft':
+                from pdf_playbook_smoke import run_playbooks
+                report['playbooks'] = run_playbooks(r, a.playbook.resolve())
             else:
                 raise ValueError('No playbook driver for '+a.plugin)
         report['business']='PASS';report['processCount']=len(r.calls)

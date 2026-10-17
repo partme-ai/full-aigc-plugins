@@ -111,3 +111,11 @@ Windows运行[38998089137](https://github.com/partme-ai/full-aigc-plugins/action
 Windows运行[38998694183](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38998694183)13应用业务全部通过，FilmCraft六项经59次真实CLI调用通过；下载Windows产物确认实际编码文件、字幕与渲染，调色误差与macOS一致。安装/MCP运行[38998694237](https://github.com/partme-ai/full-aigc-plugins/actions/runs/38998694237)通过。详细步骤摘要、范围与限制见[FilmCraft回归记录](craft-film-playbook-validation.json)。累计198条映射中106条已有技术回归，另有4条组合用例；92条待执行。
 
 FilmCraft插件自身实现CI仍失败：当前38998696272与修改前38995899304下载的Node报告失败用例名称完全相同，仍引用已移除的filmcraft-use/scripts/runtime.lock.json等旧资源；没有恢复旧Harness运行时来凑绿，也不宣称整仓CI通过。插件文档和架构CI通过，宿主同步、真实采访/音频效果未验收。
+
+## PrintCraft PDF场景原生回归
+
+核对六份PDF技能：整理/抽取页、表单、预检、优化、英文OCR和实际删改。优化流程原先只渲染原件，现明确doc_open新输出再渲染。删改增加隐藏信息盘点，明确假遮盖审计不保证元数据/附件/像素内秘密全部移除。OCR从官方v0.8.0 ATTRIBUTION固定模型地址/SHA256，隔离目录配置PDFCRAFT_MODELS，无全局安装或官方源码修改。测试扫描PDF只有图像，识别后重开搜索文字并比较图像像素，不能把跳过已有文字页当作OCR成功。
+
+真实发现当前Helvetica测试表单的中文字段存储成功但外观为????。已保留该失败并补进技能边界；ASCII样例单独验证，真实中文姓名不得自动改拼音。该表单条目只算部分验证，不能凑进完整通过计数。
+
+主配方修改还发现商店手册中四处重复步骤滞后，已同步FilmCraft采访/调色和PrintCraft表单/删改的结构化及人类可读副本；新增负例测试拒绝商店副本继续引用旧步骤。辅助测试76项通过，13应用共198条映射静态检查通过；PrintCraft本地候选包检查通过。技能源旧validate_package.py仍报skill_set_mismatch，其清单/运行时资源约束未在本次改写。Windows原生结果待本次固定源码运行后记录，宿主同步与印刷标准认证不推断。

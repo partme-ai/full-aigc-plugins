@@ -40,5 +40,11 @@ class MarketAdaptationTests(unittest.TestCase):
     def test_foreign_parameters_are_rejected(self):
         self.data['adaptations'][0]['recipe']['steps'][0]['params']={'adobePreset':True}
         self.assertTrue(self.validate())
+    def test_stale_embedded_recipe_is_rejected(self):
+        self.validate()
+        (self.root / 'references/craft-steps.json').write_text(json.dumps({
+            'id':'existing', 'steps':[{'command':'inspect','params':{'view':'output'}}]}))
+        errors = checker.validate_market_record(self.root / 'references/market-adaptations.json')
+        self.assertTrue(any('stale market recipe' in error for error in errors))
 
 if __name__ == '__main__': unittest.main()

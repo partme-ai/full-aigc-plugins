@@ -26,6 +26,12 @@ def validate_market_record(path):
                 errors.append(str(path)+': incomplete pinned repository source')
         else:errors.append(str(path)+': unknown market')
     commands=data.get('observedCommands',{})
+    canonical={}
+    for filename in ['craft-steps.json','recipes.json']:
+        current=path.with_name(filename)
+        if current.exists():
+            record=json.loads(current.read_text(encoding='utf-8'))
+            canonical.update({recipe['id']:recipe for recipe in record.get('recipes',[record])})
     if not data.get('adaptations'):errors.append(str(path)+': empty adaptations')
     for item in data.get('adaptations',[]):
         if not item.get('sourceIds') or set(item['sourceIds'])-sources.keys():
@@ -35,6 +41,9 @@ def validate_market_record(path):
         if item.get('execution')!='REFERENCE_ADAPTATION_NOT_NEW_RUNTIME_ACCEPTANCE':
             errors.append(str(path)+': unsupported runtime claim')
         recipe=item.get('recipe',{})
+        current=canonical.get(item.get('id'))
+        if current and recipe.get('steps')!=current['steps']:
+            errors.append(str(path)+': stale market recipe '+str(item.get('id')))
         if recipe.get('id')!=item.get('id') or not recipe.get('steps'):
             errors.append(str(path)+': missing existing recipe')
         for step in recipe.get('steps',[]):

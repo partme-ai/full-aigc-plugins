@@ -33,6 +33,12 @@ jobs:
           ref: 06c72a4035c165659fd7625b7441442fb2c9386d
           path: scene-source
       - uses: actions/checkout@v4
+        if: matrix.plugin == 'printcraft'
+        with:
+          repository: full-aigc-skills/printcraft-skills
+          ref: 6e972545d691bfbb8e9bc69b67aafe7b20dae3d9
+          path: scene-source
+      - uses: actions/checkout@v4
         if: matrix.plugin == 'photocraft'
         with:
           repository: full-aigc-skills/photocraft-skills
@@ -100,6 +106,7 @@ jobs:
           $sceneArgs = @()
           if ("${{ matrix.plugin }}" -eq "effectcraft") { $sceneArgs = @("--playbook", "scene-source/skills") }
           if ("${{ matrix.plugin }}" -eq "filmcraft") { $sceneArgs = @("--playbook", "scene-source/skills") }
+          if ("${{ matrix.plugin }}" -eq "printcraft") { $sceneArgs = @("--playbook", "scene-source/skills") }
           if (@("photocraft", "gridcraft", "wordcraft", "deckcraft", "soundcraft", "lightcraft", "cadcraft", "vectorcraft", "figcraft", "designcraft") -contains "${{ matrix.plugin }}") { $sceneArgs = @("--playbook", "scene-source/skills/${{ matrix.plugin }}-scenario-playbooks/references/recipes.json") }
           python scripts/ci/craft_cli_windows.py --plugin ${{ matrix.plugin }} --output cli-result @sceneArgs
           exit $LASTEXITCODE
