@@ -43,6 +43,19 @@ def verify_prototype(nodes, bindings):
         assert actions==[{'type':'navigate','dest':bindings[target]['id']}], 'Prototype destination wrong'
 
 
+
+def verify_imported_corners(doc):
+    nodes={n['name']:n for n in doc['nodes'].values()}
+    # 真实样例的rect是矢量节点；其顶点半径才是几何，不能用通用corners覆盖判断。
+    for name, expected in [('rect radius=4:8:12:16',[4,8,12,16]), ('shape radius=4:8:12:16',[8,12,16,4])]:
+        node=nodes[name]
+        assert node['type']=='vector', 'Expected editable vector import'
+        assert [v.get('radius',0) for v in node['network']['vertices']]==expected, 'Imported vector corner geometry lost'
+    for name, expected in [('frame radius=4:8:12:16',[4,8,16,12]), ('frame radius=0:12:0:0',[0,12,0,0])]:
+        node=nodes[name]
+        assert node['type']=='frame' and node['corners']['radii']==expected, 'Imported frame corner geometry lost'
+
+
 def bind_strings(value):
     if isinstance(value, str) and value.startswith('$'):
         return {'$ref': value[1:]}
@@ -142,8 +155,10 @@ def run_core(r, helper, skill_root):
                 assert len(imported)==10, 'Real Figma fixture did not preserve ten layers'
                 for key in ['rect radius=4:8:12:16','frame radius=4:8:12:16','shape radius=4:8:12:16']:
                     assert key in imported, 'Imported Figma layer missing: '+key
-                # Mixed corner ordering differs by Figma shape kind; verify the concrete rect in native orientation.
-                assert imported['rect radius=4:8:12:16'].get('cornerRadius')==[4.0,8.0,12.0,16.0], 'Mixed rectangle corner radii lost'
+                import zipfile
+                with zipfile.ZipFile(target) as archive:
+                    doc=json.loads(archive.read('document.json'))
+                verify_imported_corners(doc)
                 root_id=imported['frame radius=4:8:12:16']['id']
                 (r.work/'imported-page.json').write_text(json.dumps(page_node,ensure_ascii=False,indent=2),encoding='utf-8')
                 record['actualBinaryFigFixture']='PASS'
