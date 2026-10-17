@@ -78,7 +78,7 @@ jobs:
         if: matrix.plugin == 'cadcraft'
         with:
           repository: full-aigc-skills/cadcraft-skills
-          ref: c0f9decc3061d03919d5e5ffb4f8d20b45e31ca2
+          ref: 71a0a453ebc2015f48c2c1d6d22a18778806d33e
           path: scene-source
       - uses: actions/checkout@v4
         if: matrix.plugin == 'vectorcraft'

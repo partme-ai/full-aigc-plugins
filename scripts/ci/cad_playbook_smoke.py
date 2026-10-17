@@ -71,7 +71,7 @@ def verify_dxf(text,a):
             if kind==0:
                 angle=math.radians(number(e,50,0))
                 values.append(abs((number(e,14)-number(e,13))*math.cos(angle)+(number(e,24)-number(e,23))*math.sin(angle)))
-            elif kind==3:
+            elif kind in (3,4):
                 values.append(math.dist([number(e,10),number(e,20)],[number(e,15),number(e,25)]))
             else:raise AssertionError('Unexpected dimension type')
         require(near(sorted(values),sorted(a['dimensionValues'])),'Dimension measured values changed')
@@ -120,6 +120,7 @@ def run_playbooks(r,path):
         records.append({'id':recipe['id'],'technicalRoundtrip':'PASS','geometryChecks':'PASS','drawingReview':'NOT_TESTED'})
     require(bool(records),'No CAD scenarios selected')
     records.append(run_core_floor_plan(r, path))
+    records.append(run_core_part(r, path))
     return records
 
 
@@ -145,5 +146,25 @@ def run_core_floor_plan(r, path):
         ET.fromstring((folder / 'room.svg').read_bytes())
         return {'id': 'floor-plan', 'technicalRoundtrip': 'PASS', 'geometryChecks': 'PASS',
                 'doorOpeningAndNativeDimensions': 'PASS', 'drawingReview': 'NOT_TESTED', 'installedHostSync': 'NOT_TESTED'}
+    finally:
+        r.work = original
+
+
+def run_core_part(r, path):
+    """从独立技能执行真实零件与尺寸，保存后重新量测而非比对标签。"""
+    recipe = json.loads((Path(path).parents[2] / 'cadcraft-dimension-part/references/craft-steps.json').read_text(encoding='utf-8'))
+    original = r.work
+    r.work = original / 'core-dimension-part'
+    r.work.mkdir()
+    try:
+        args = ['run', '--metric']
+        for step in recipe['steps']:
+            args += ['--cmd', step['command'] + ' ' + json.dumps(step['params'], ensure_ascii=False, separators=(',', ':'))]
+        r.run(*args, '--save', 'part.dxf')
+        verify_dxf((r.work / 'part.dxf').read_text(encoding='utf-8'), recipe['assertions'])
+        assert json.loads(r.run('info', 'part.dxf'))['entityCount'] == 7
+        r.run('convert', 'part.dxf', 'part.svg')
+        ET.fromstring((r.work / 'part.svg').read_bytes())
+        return {'id': 'dimension-part', 'technicalRoundtrip': 'PASS', 'geometryChecks': 'PASS', 'nativeDimensionsAndRealHoles': 'PASS', 'drawingReview': 'NOT_TESTED', 'installedHostSync': 'NOT_TESTED'}
     finally:
         r.work = original

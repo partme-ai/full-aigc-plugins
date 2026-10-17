@@ -18,5 +18,14 @@ class CoreFloorPlanTests(unittest.TestCase):
         self.assertTrue(all(step.get('newDocumentOnly') for step in steps if step['command'] in ['new', 'setvar']))
         self.assertEqual(recipe['assertions']['doorGap'], [2000, 3000])
 
+    def test_part_dimensions_have_real_part_geometry(self):
+        path = ROOT / 'full-aigc-skills-repositories/cadcraft-skills/skills/cadcraft-dimension-part/references/craft-steps.json'
+        if not path.exists():
+            self.skipTest('Source checkout is unavailable')
+        recipe = json.loads(path.read_text())
+        self.assertEqual(sum(step['command'] == 'circle' for step in recipe['steps']), 2, 'Hole dimensions require actual circles')
+        self.assertEqual(sum(step['command'].startswith('dim') for step in recipe['steps']), 4)
+        self.assertEqual(recipe['assertions']['dimensionValues'], [80, 40, 40, 5])
+
 if __name__ == '__main__':
     unittest.main()
