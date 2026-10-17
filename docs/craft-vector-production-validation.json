@@ -1,0 +1,360 @@
+{
+  "scope": "Three original vector production skills; small synthetic vector shapes; no real design/print quality or host editor sync claim",
+  "sourceRecipeCommit": "787565bb98f9704ab4f21d551efb62fc93e5dc92",
+  "version": "0.1.0-dev.20261017.6",
+  "macOS": {
+    "results": [
+      {
+        "id": "approval-check-badge",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "editable-three-bar-chart",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "hollow-ring-minus-front",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "PASS",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "contact-card-layout",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "editable-brand-palette",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "wordmark-live-and-outlined",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "half-disc-real-crop",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "PASS",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "wayfinding-arrow",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "dimension-unit-delivery",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "intertwine-overlap-order",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "csv-text-variants",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "existing-user-content-preservation",
+        "technicalRoundtrip": "PASS",
+        "actualIdBinding": "PASS",
+        "preservedOriginalObjects": 2,
+        "sourceUnchanged": "PASS",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "editable-chart",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "icon-set",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "infographic",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "logo-system",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "svg-cleanup",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "trace-artwork",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "clipped-illustration",
+        "recipeSha256": "a92b15f4229fbc25e36e6281c8e98ee60bce761afeb9bc081387dd515a64ada2",
+        "nativeSaveReopenEditing": "PASS",
+        "renderedPixels": "PASS",
+        "originalProjectUnchanged": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realDesignQuality": "NOT_TESTED",
+        "scope": "original small synthetic vector shapes"
+      },
+      {
+        "id": "sticker-grid",
+        "recipeSha256": "47135eb9ae0dceb48a133b8df80565193af605840a99cf760f8e5eb1bcfdd9c2",
+        "nativeSaveReopenEditing": "PASS",
+        "renderedPixels": "PASS",
+        "originalProjectUnchanged": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realDesignQuality": "NOT_TESTED",
+        "scope": "original small synthetic vector shapes"
+      },
+      {
+        "id": "sticker-offset-border",
+        "recipeSha256": "02bcc282a72720d6779b97825b8478542c9261d0aa60ac8f77e459b38fc70b08",
+        "nativeSaveReopenEditing": "PASS",
+        "renderedPixels": "PASS",
+        "originalProjectUnchanged": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realDesignQuality": "NOT_TESTED",
+        "scope": "original small synthetic vector shapes"
+      }
+    ],
+    "processCount": 149
+  },
+  "windows": {
+    "runId": 39042552634,
+    "headSha": "5268ea48af0ad6975fc441bbb732f419a74cc9ba",
+    "processCount": 161,
+    "results": [
+      {
+        "id": "approval-check-badge",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "editable-three-bar-chart",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "hollow-ring-minus-front",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "PASS",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "contact-card-layout",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "editable-brand-palette",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "wordmark-live-and-outlined",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "half-disc-real-crop",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "PASS",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "wayfinding-arrow",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "dimension-unit-delivery",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "intertwine-overlap-order",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "csv-text-variants",
+        "technicalRoundtrip": "PASS",
+        "editableGeometry": "PASS",
+        "pixelChecks": "NOT_SELECTED",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "existing-user-content-preservation",
+        "technicalRoundtrip": "PASS",
+        "actualIdBinding": "PASS",
+        "preservedOriginalObjects": 2,
+        "sourceUnchanged": "PASS",
+        "designReview": "NOT_TESTED"
+      },
+      {
+        "id": "editable-chart",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "icon-set",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "infographic",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "logo-system",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "svg-cleanup",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "trace-artwork",
+        "nativeBusinessChecks": "PASS",
+        "originalMasterPreserved": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "designAcceptance": "NOT_TESTED",
+        "scope": "synthetic geometry/data and raster-ring technical fixtures"
+      },
+      {
+        "id": "clipped-illustration",
+        "recipeSha256": "135c7babf3a9585a6065085d21aeea79cc3fc75acd5fef44a4b1622c643e0bb7",
+        "nativeSaveReopenEditing": "PASS",
+        "renderedPixels": "PASS",
+        "originalProjectUnchanged": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realDesignQuality": "NOT_TESTED",
+        "scope": "original small synthetic vector shapes"
+      },
+      {
+        "id": "sticker-grid",
+        "recipeSha256": "4df19db20ed0ff14c3b4a4bd86e22795b9d4044775714a8c29756152c685ec47",
+        "nativeSaveReopenEditing": "PASS",
+        "renderedPixels": "PASS",
+        "originalProjectUnchanged": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realDesignQuality": "NOT_TESTED",
+        "scope": "original small synthetic vector shapes"
+      },
+      {
+        "id": "sticker-offset-border",
+        "recipeSha256": "6ba0fa27dee0d3d2ea11d132d3f322dffb08a460f2f8ed5042fa23d5fc688467",
+        "nativeSaveReopenEditing": "PASS",
+        "renderedPixels": "PASS",
+        "originalProjectUnchanged": "PASS",
+        "hostEditorSync": "NOT_TESTED",
+        "realDesignQuality": "NOT_TESTED",
+        "scope": "original small synthetic vector shapes"
+      }
+    ],
+    "downloadedOutputDigestsVerified": 118,
+    "recipeFileLineEndings": "Original run raw recipe hashes equal exact CRLF checkout of source LF bytes",
+    "actualExecutedMethodParameterBatches": "Three scene batch sequences match source after resolving actual capture IDs"
+  },
+  "mcpSchema": "Actual Codex bundled native app-server discovered command_run, command_list and save_file schemas; no scene edit/sync acceptance",
+  "tests": {
+    "productionHelpers": 9,
+    "existingPlaybookHelpers": 52,
+    "pluginPythonFinal": "RUNNING",
+    "affectedHistoricalIdentityAndGateTests": 25
+  },
+  "historicalTests": "Original manifest and current-identity bytes recovered into hash-checked positive test fixture only; no frozen lock, historical report or real-worktree gate rewritten",
+  "visualReview": "Viewed actual macOS clipping, grid and border PNG previews",
+  "limitations": [
+    "Real design quality and print/cutter delivery not verified",
+    "Same-session MCP scene execution and host editor sync not verified"
+  ],
+  "publication": "FEATURE_CANDIDATE_NOT_IN_MARKET"
+}

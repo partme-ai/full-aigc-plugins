@@ -13,6 +13,13 @@ from vector_playbook_smoke import inspect, nodes, near
 SCENES = ['clipped-illustration', 'sticker-grid', 'sticker-offset-border']
 
 
+def recipe_hashes(path):
+    """文本步骤统一LF用于跨平台比对，同时保留原始文件摘要。"""
+    return {'recipeSha256': hashlib.sha256(path.read_text(encoding='utf-8').encode('utf-8')).hexdigest(),
+            'recipeFileSha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+            'recipeHashEncoding': 'UTF-8 with LF text newlines'}
+
+
 def resolve(value, captures):
     """只解析手册引用，缺失真实返回值时失败，不能猜测对象编号。"""
     if isinstance(value, dict) and '$ref' in value:
@@ -129,7 +136,7 @@ def run_playbooks(r, skills):
             require(hashlib.sha256((r.work / 'master.vectorcraft').read_bytes()).hexdigest() == source_hash,
                     'Editing derivative output changed the saved original')
             (r.work / 'captures.json').write_text(json.dumps(captures, indent=2), encoding='utf-8')
-            records.append({'id': name, 'recipeSha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+            records.append({'id': name, **recipe_hashes(path),
                             'nativeSaveReopenEditing': 'PASS', 'renderedPixels': 'PASS', 'originalProjectUnchanged': 'PASS',
                             'hostEditorSync': 'NOT_TESTED', 'realDesignQuality': 'NOT_TESTED', 'scope': 'original small synthetic vector shapes'})
     finally:

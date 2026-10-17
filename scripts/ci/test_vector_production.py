@@ -3,8 +3,9 @@ import json
 import os
 from pathlib import Path
 import unittest
+import tempfile
 
-from vector_production_smoke import resolve, verify_expanded_grid, verify_border
+from vector_production_smoke import resolve, verify_expanded_grid, verify_border, recipe_hashes
 
 SKILLS = Path(os.environ.get('CRAFT_VECTOR_SKILLS_ROOT', Path(__file__).resolve().parents[3] / 'full-aigc-skills-repositories/vectorcraft-skills/skills'))
 
@@ -26,6 +27,15 @@ class ProductionSkills(unittest.TestCase):
     def test_missing_capture_cannot_guess_id(self):
         with self.assertRaises(KeyError):
             resolve({'$ref': 'art.id'}, {})
+
+    def test_windows_text_newlines_keep_separate_raw_digest(self):
+        with tempfile.TemporaryDirectory() as directory:
+            lf, crlf = Path(directory) / 'lf.json', Path(directory) / 'crlf.json'
+            lf.write_bytes(b'{"id":"sticker-grid"}\n')
+            crlf.write_bytes(b'{"id":"sticker-grid"}\r\n')
+            a, b = recipe_hashes(lf), recipe_hashes(crlf)
+            self.assertEqual(a['recipeSha256'], b['recipeSha256'])
+            self.assertNotEqual(a['recipeFileSha256'], b['recipeFileSha256'])
 
     def test_reject_twelve_overlapping_copies(self):
         info = {'layers': [{'kind': 'Ellipse', 'bounds': {'x': 20, 'y': 20, 'width': 30, 'height': 30}} for _ in range(12)]}
