@@ -204,5 +204,21 @@
     "nativeRpc": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/design-brochure-input-release-18-3/zip-host/native-host-live/native-rpc.json",
     "newVersionBrowserSyncScope": "Actual Codex app-server MCP story.setText; same browser tab without reload; saved archive contains revised Chinese title",
     "screenshot": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/design-brochure-input-release-18-3/zip-host/revised.jpg"
+  },
+  "publication183": {
+    "version": "0.1.0-dev.20261018.3",
+    "pluginMain": "239273d96cf418ea47d26ee415a4030d39e6a711",
+    "sourceMain": "cfb4053fa2a427f3c8642a54e067bafe80e9b64f",
+    "mainChecks": {
+      "pluginCI": 39088690360,
+      "architecture": 39088690457,
+      "sourceCI": 39088691882,
+      "result": "PASS"
+    },
+    "releaseUrl": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
+    "remoteTagCommit": "PASS",
+    "remoteAssetSha256": "d4756dccef3f62e87a6d14bc7d3994fd38f48da583e0be8c94bb9cedfc4b0c9d",
+    "publicDownloadInstall": "PENDING",
+    "marketUpdate": "PENDING"
   }
 }
