@@ -1,11 +1,11 @@
 {
   "name": "deckcraft",
-  "version": "0.1.0-dev.20261018.3",
-  "url": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/download/v0.1.0-dev.20261017.2/deckcraft-runtime.tgz",
-  "sha256": "24299545007e29e38f44cdbdc4ee2dcb3828d8312683d523e49e640a3652cc6b",
+  "version": "0.1.0-dev.20261019.1",
+  "url": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/download/v0.1.0-dev.20261019.1/deckcraft-runtime.tgz",
+  "sha256": "60b1cf27cb1da14bb07391584cf50a2660f333a0250d54f533d998d5d5ab102e",
   "files": {
     "adapter.mjs": "9a53ce99e5f8a91d3da7b55ac753df944da5f689959b17501797f4e3aea7b7f6",
-    "editor/BUILD.json": "4f5bd75646628daf6b732e1af0bb6a023db1df1ae025c52155241ac4d00b00bb",
+    "editor/BUILD.json": "df6fb1c82f16023cf6d39d9bff2b6eea9ae906a49e27872f67d1cc6a82dee305",
     "editor/assets/0bcd07f248918ece080f8bea69da3ecca74138099c5688fc9e0cacd69094434b.gz": "fb993393ef3f212544256c37991c4954d20dcd0ba3a2ef1f1de2a75a4c9e2b81",
     "editor/assets/0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594.gz": "5f25851ed04830cdd8268f5c219bb5e1c80f2cb19692508b2e65b597e59f178a",
     "editor/assets/1484c37b549525ae71c6dc9811c8550b0b784868b4035b89b9a41e218b699959.gz": "4da4acb2646299c49d8a9924c6964b0a783bc8502518ec4a17202a7a28af8881",
@@ -23,7 +23,7 @@
     "editor/assets/cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30.gz": "4fcf7b50060af62cc9573c100762bb8ddd65114ea612c6395c091f6a4776ec60",
     "editor/assets/e698cd8478b6b5d8b8dd78bc633948e50700435b57a6634a9f03bb1c6c6f285b.gz": "fd78f3774c2816ad78afe26649e1ed7bd4a56f97a2df94348a41e2a0e7bdc4e6",
     "editor/assets/e753d7155d53c747d037a445e584c8ecfca6dd79846db610417e282a736b28bc.gz": "1ff571e9c640d66497cea03a69424e7337e7889748376fc57483cd0aacd4763e",
-    "editor/assets.json": "e9c9214248bddcdf9743aae26035b4080f5aff86da460df5b727055f39819856",
+    "editor/assets.json": "9b2cbda3cc6b057fe7cb4220f1f102c58638c0c1a04f9d64b1cef5a7aba1abeb",
     "editor/licenses/ATTRIBUTION.md": "e698cd8478b6b5d8b8dd78bc633948e50700435b57a6634a9f03bb1c6c6f285b",
     "editor/licenses/FONT-PROVENANCE.json": "19765c0a070567dbac9bef6cf0d6505c6b2f00b3f24e68049f1f5a5dbf0e690e",
     "editor/licenses/JAVASCRIPT-NOTICES.txt": "768f574458916a5b95dec21c680ef1b07034e808d076bc2b5521f398b201dbf4",
@@ -37,12 +37,12 @@
     "editor/licenses/OFL-LXGWWenKai.txt": "1a25e35da1031c6c3436fde545bb9cb5aca954e9873afe510c834b8b79bd21a0",
     "editor/licenses/THIRD-PARTY-NOTICES.txt": "0bcd07f248918ece080f8bea69da3ecca74138099c5688fc9e0cacd69094434b",
     "editor/licenses/docs/brand/LICENSE-brand.txt": "c5ad8e77d0dd8939161b4c4eca7aaba2437d6340c29e7809fa4679f0f2a82f62",
-    "editor/panel.html": "e4d0aae315c33f4d29d456061ba411c30117d52b04061a27d09fb1cf0c79809d",
-    "editor/server.mjs": "ba98206218d21434dec7294ac4ea3d47e09219082301c96093a8ec65e03fe09c",
+    "editor/panel.html": "975aff2c4cb2422fe2de73fdf7369a78788d002848b1b7ee9fc246b425559dfd",
+    "editor/server.mjs": "d8fd47391adde648b18dc2ff8f42a39cafe6d429b569980cde073d14d39be94c",
     "editor/tools.json": "62cebd6b4c74f598d31f6e8ae302c4a94025d69bf51e4d603b670cbb19b5344e",
     "host.js": "552b2c63586161a34ab12b5674c7d384b20a79050a46893df0be20a4eb7f3ec9",
     "host.js.LEGAL.txt": "eda25878a01ef5903efe932a6e7c99e175023a47ce70b7d7f901ab2c07c06562"
   },
-  "scope": "Pinned editor artifact; bundled upstream/build provenance remains in editor/BUILD.json or config.json. This does not certify all upstream main capabilities.",
-  "catalogSha256": "cec338c2e9a89a659ba9bd87dc1cdfff37676e55aa91d7173a3dfb6dae79d00b"
+  "catalogSha256": "8c209671dae912aff13f4c229826a279b2edcd1a60f3999b5f6d29cdeda2531a",
+  "scope": "Source-built development runtime; public release and production acceptance are separate."
 }

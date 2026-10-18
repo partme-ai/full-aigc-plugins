@@ -1,11 +1,11 @@
 {
   "name": "gridcraft",
-  "version": "0.1.0-dev.20261018.2",
-  "url": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/download/v0.1.0-dev.20261017.2/gridcraft-runtime.tgz",
-  "sha256": "ad46277e56ca1aef597a248987f8e1dbd66f6ee5a1ae9fd219ba61f713c9d134",
+  "version": "0.1.0-dev.20261019.1",
+  "url": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/download/v0.1.0-dev.20261019.1/gridcraft-runtime.tgz",
+  "sha256": "9af1edfa7f02baef2c24159f4010ab63d6655bd848175a61ec03be817ae26edd",
   "files": {
     "adapter.mjs": "9a53ce99e5f8a91d3da7b55ac753df944da5f689959b17501797f4e3aea7b7f6",
-    "editor/BUILD.json": "75b631f025b932f8aed4929638d50f5791b43ac688a9ae7e3035abbdc6b19e4a",
+    "editor/BUILD.json": "f2a21d3c30fecca4f6c67a08eb876ddb69308df79baa5664f5fed1ebb27e4bb9",
     "editor/assets/032f7fc8e66b21f3b2e4d0a210d0f01a67b057786618015272a31af58343a987.gz": "d7827ef3408bb3d8f3dda01cff02b516a445989bce2bbaf4d7285bd2167224b3",
     "editor/assets/0c188909db98c6ce39e1131ca93988621b6d54984b4f0a02b60c8f9e03e7be63.gz": "1e17075f1e7ae3c72271699c7bd6fc8a0fcdb08d12f815674c40a4bbef03fa4b",
     "editor/assets/0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594.gz": "5f25851ed04830cdd8268f5c219bb5e1c80f2cb19692508b2e65b597e59f178a",
@@ -20,7 +20,7 @@
     "editor/assets/cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30.gz": "4fcf7b50060af62cc9573c100762bb8ddd65114ea612c6395c091f6a4776ec60",
     "editor/assets/d60f1608b31dde193c34e4afb5d922d2c700ead06c4bb3735959334a09b1ff2c.gz": "46bdfafd8f46759b24aee183694034c8a942b701daec3cc99b7f3dd062b5ec70",
     "editor/assets/da8612c7a0aca025a9a1d643df0e954cf4e5b4e32d9d0d189da2bdc9a448f18e.gz": "43582131eb4aaff571d0930fc668f266239d78dfce5cd5deee6952f907eac929",
-    "editor/assets.json": "f658f80f9e5dba0d14739acbc6967d4a6cbb2a26ca2a2d77b0a88fd8150c5202",
+    "editor/assets.json": "5bc1b2a639cc6adf3134f485c8b4b80c38ec289d5b66bb38e7b1e57d2c4c28c7",
     "editor/licenses/ATTRIBUTION.md": "56b465eebb50e1b424c33291119529e45c8636b806d4432199ba7d57bc555c50",
     "editor/licenses/JAVASCRIPT-NOTICES.txt": "768f574458916a5b95dec21c680ef1b07034e808d076bc2b5521f398b201dbf4",
     "editor/licenses/LICENSE-APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
@@ -31,12 +31,12 @@
     "editor/licenses/THIRD-PARTY-NOTICES.txt": "9ad3de498573ae673a068d33518f6781f3532513cd651acae266c2c1ad91e621",
     "editor/licenses/assets/app-icon/LICENSE.txt": "9596de48b5e42fbf727c924bb3863f0e28fcd9e38c47cca284e1174bd06481ce",
     "editor/licenses/docs/brand/LICENSE-brand.txt": "d60f1608b31dde193c34e4afb5d922d2c700ead06c4bb3735959334a09b1ff2c",
-    "editor/panel.html": "c76fd27b921a0739c1e451c44ac2eca32bf8d944f689319ee7d51365a53ab26e",
-    "editor/server.mjs": "ba98206218d21434dec7294ac4ea3d47e09219082301c96093a8ec65e03fe09c",
+    "editor/panel.html": "fd14203fda6a543bca54e244521aaa711f319d45f676829cd6eca8880162a0a4",
+    "editor/server.mjs": "d8fd47391adde648b18dc2ff8f42a39cafe6d429b569980cde073d14d39be94c",
     "editor/tools.json": "032f7fc8e66b21f3b2e4d0a210d0f01a67b057786618015272a31af58343a987",
     "host.js": "552b2c63586161a34ab12b5674c7d384b20a79050a46893df0be20a4eb7f3ec9",
     "host.js.LEGAL.txt": "eda25878a01ef5903efe932a6e7c99e175023a47ce70b7d7f901ab2c07c06562"
   },
-  "scope": "Pinned editor artifact; bundled upstream/build provenance remains in editor/BUILD.json or config.json. This does not certify all upstream main capabilities.",
-  "catalogSha256": "bd3ce223b920e5730cd38d0c2cc667c70ffca5265d51f146c4a2e234d560c21c"
+  "catalogSha256": "769dc9d8bb920b44bf6d130bc41515210ab05c256364dc12ae112cd1b2f12b59",
+  "scope": "Source-built development runtime; public release and production acceptance are separate."
 }

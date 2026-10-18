@@ -1,6 +1,6 @@
 {
   "name": "pdfcraft",
-  "version": "0.1.0-dev.6",
+  "version": "0.1.0-dev.20261019.1",
   "buildKind": "full-aigc-enhanced",
   "upstream": {
     "repository": "https://github.com/full-aigc-plugins/printcraft",
@@ -8,7 +8,7 @@
     "version": "0.8.0"
   },
   "files": {
-    "BUILD.json": "8d3cdc7d576b3cd94e73c83f72714c93a792bcc7df11bfc221da785a684b39a9",
+    "BUILD.json": "7b53ccd5a22de58c5f2e95aefe7c37cea34ae600e5ae137049b9c9c16e48c8b3",
     "assets/07618ef53a8117f090654d4369b7b51c4c23627cdab82cb7b53628a3fa914d65.gz": "a2cf0f63a0a5d138ee78351fdd33a73922b113b255cdb7e0a6a6463ecedac412",
     "assets/0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594.gz": "5f25851ed04830cdd8268f5c219bb5e1c80f2cb19692508b2e65b597e59f178a",
     "assets/0f33f48e7a96cd359d4e4e5b11424b13cebeb59cc70c77928186695e4173585c.gz": "da737527c1552c14eafdf8bd309d3ca2f12de4f8ed2c0c7ead13b14c61f828e1",
@@ -32,7 +32,7 @@
     "assets/e753d7155d53c747d037a445e584c8ecfca6dd79846db610417e282a736b28bc.gz": "1ff571e9c640d66497cea03a69424e7337e7889748376fc57483cd0aacd4763e",
     "assets/eeb6417c0cdb3f705bfe0a156adc4c6706ef5e612612db6dc4b8e2bd77d80a53.gz": "79492ec5c03fb712370e1159fb619efd71fda38e6e866f9c733e10c131d1fe5a",
     "assets/f479159b45a4e33be710b90d1d0824daa54b39c6efd482688336a54bee5f77cb.gz": "6a502c82483e17bc67bd38425014da78ce7bcadb32cba17cdea4f203f71f94e7",
-    "assets.json": "499bdec19ede89829cdf933843f433ad8dc6aaabd7a1750425511d4aaabf12a8",
+    "assets.json": "4c1896d81e623b1ad5137b67dd51a2ed5a4eab9735f75fe2302910c968d02c55",
     "licenses/ATTRIBUTION.md": "a63e1627deda938b9c201dcce0e18cecaa2393d093abe755258e875931151aa8",
     "licenses/ATTRIBUTION.toml": "433e1b43b34007325393f42f4047000d629feb393a981cee9ca5fdb8e1dca753",
     "licenses/FONT-PROVENANCE.json": "19765c0a070567dbac9bef6cf0d6505c6b2f00b3f24e68049f1f5a5dbf0e690e",
@@ -53,8 +53,8 @@
     "licenses/assets/fonts/OFL-JetBrainsMono.txt": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697",
     "licenses/assets/icons/LICENSE-lucide.txt": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
     "licenses/docs/brand/LICENSE-brand.txt": "0f33f48e7a96cd359d4e4e5b11424b13cebeb59cc70c77928186695e4173585c",
-    "panel.html": "1d902d095790cdfd016371e4141f4e011863b54ca0f458d416937c109ceb4b9c",
-    "server.mjs": "ba98206218d21434dec7294ac4ea3d47e09219082301c96093a8ec65e03fe09c",
+    "panel.html": "335abc1923e099e48f55bc9776fc63e7c54c8de998c3a6ba92cb93c82fe5bfa5",
+    "server.mjs": "d8fd47391adde648b18dc2ff8f42a39cafe6d429b569980cde073d14d39be94c",
     "tools.json": "c0a76ec944e98c458ff02ad2b56593497ab67b80e97a68fb76a1da9d8197a212"
   }
 }

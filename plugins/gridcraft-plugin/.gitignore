@@ -1,0 +1,10 @@
+
+node_modules/
+
+ui/dist/
+
+.local/
+
+__pycache__/
+
+/ui/node_modules

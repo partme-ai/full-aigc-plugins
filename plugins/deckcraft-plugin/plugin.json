@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "deckcraft",
-  "version": "0.1.0-dev.20261018.3",
+  "version": "0.1.0-dev.20261019.1",
   "description": "通过 DeckCraft 原生 MCP 和技能创建、检查与导出演示文稿。",
   "license": "Apache-2.0",
   "extensions": {

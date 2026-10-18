@@ -1,6 +1,6 @@
 {
   "name": "soundcraft",
-  "version": "0.1.0-dev.20261018.4",
+  "version": "0.1.0-dev.20261019.1",
   "buildKind": "full-aigc-enhanced",
   "upstream": {
     "repository": "https://github.com/full-aigc-plugins/soundcraft",
@@ -8,7 +8,7 @@
     "version": "0.7.0"
   },
   "files": {
-    "BUILD.json": "84c7b465177857ddeafe93ada727043549215baedf8b1e4b0d6ff7e9ce205db9",
+    "BUILD.json": "752a1e1a450d237b5003091cfa1fdf2a7b4d6b17d1d8f39cde1e0b95e9e35137",
     "assets/0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594.gz": "3a7d79968322274c7c78bc511fadca9444b92f9958e4639e0ffe3b579cfa9715",
     "assets/14084bba78b48d885501911de960e15164b5469a84ef8fbc4fb7b22ed5ed12d3.gz": "d0f1310582645b5267c8e6a49778e4b4157edbf0c2b21bb1493fb09d39131f82",
     "assets/1484c37b549525ae71c6dc9811c8550b0b784868b4035b89b9a41e218b699959.gz": "f2e741ce95b71eb8ce70d4763247464b1ebb6be164512730a8bc9aca662f3115",
@@ -23,7 +23,7 @@
     "assets/bc91086a6a906fd773a1df2a92bda666fa93d20a8e4386d3f083294fb72af891.gz": "6b3162f7b3503869a449507402c84af9fa2d83d7b038aaef435ec37e8b4fdc70",
     "assets/cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30.gz": "3b8f573300be4f4a0a0aefcc3cac864471d4146e9a4fe7e44c8775e792a8e4bf",
     "assets/dbd6e8555a7f6d393f89a47cd44773e1f1f415c22551a78449bd4b43bec49903.gz": "8f10fd73c2f2afa51641771ec7b1d581cd8e956855284baa7483364a389e4c82",
-    "assets.json": "984b5bb4ccc4ddd35ce42e0f858afdc685b2e5c2a143113f281343f0259be449",
+    "assets.json": "d5feb75f220b073bb206eb3c0c5be24b2f62d1748a1801f7b633a1e860c3c5ee",
     "licenses/ATTRIBUTION.md": "aaf3fa13f18d7bd84d6827b40a5a2added7548ffcef3ecde9aa322ccfaa5698b",
     "licenses/JAVASCRIPT-NOTICES.txt": "768f574458916a5b95dec21c680ef1b07034e808d076bc2b5521f398b201dbf4",
     "licenses/LICENSE-APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
@@ -34,8 +34,8 @@
     "licenses/THIRD-PARTY-NOTICES.txt": "97ca414daf8923b968718eb902754b3d1a40dcdc37f9ce7b4b5e6ed5c30d131f",
     "licenses/assets/craft-fonts/OFL-LXGWWenKai.txt": "1a25e35da1031c6c3436fde545bb9cb5aca954e9873afe510c834b8b79bd21a0",
     "licenses/docs/brand/LICENSE-brand.txt": "dbd6e8555a7f6d393f89a47cd44773e1f1f415c22551a78449bd4b43bec49903",
-    "panel.html": "5b13b994db6caf8a0d5e4aecdf50922b1f7375ec9acc9d8f312468a0043f459b",
-    "server.mjs": "5193467a52c8a47175cbb4b14dfb1fd42334afa89dcb0a5ba08e4aa8f0b2836d",
+    "panel.html": "7442810cb083071692d841a46dbc25b79e1c71275ff6d4d3cb905f3ca460a80e",
+    "server.mjs": "d8fd47391adde648b18dc2ff8f42a39cafe6d429b569980cde073d14d39be94c",
     "tools.json": "52a9ed9758c433f367653b21245d93ed203cffed1e2ac407d2501a6da3c3b422"
   }
 }

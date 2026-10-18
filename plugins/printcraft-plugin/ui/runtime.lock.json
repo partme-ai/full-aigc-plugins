@@ -1,11 +1,11 @@
 {
   "name": "printcraft",
-  "version": "0.1.0-dev.20261018.2",
-  "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261018.2/printcraft-runtime.tgz",
-  "sha256": "9854f1aab26a0ab7af303b68da225fe50b2ee57a85487c09ce23ba58c99d3d32",
+  "version": "0.1.0-dev.20261019.1",
+  "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261019.1/printcraft-runtime.tgz",
+  "sha256": "ef636d600ff04ac43c506107e0245c89ed0f6a2a6843c4fdbe7000bd8623c347",
   "files": {
-    "adapter.mjs": "9358e1a2d627669fce6657ccb88c2fb8229c2ae64001f209c08c81dacd859437",
-    "editor/BUILD.json": "8d3cdc7d576b3cd94e73c83f72714c93a792bcc7df11bfc221da785a684b39a9",
+    "adapter.mjs": "c2b4f728396914f4fab0fa7d59c6a6cd9d807c73337a4747373d546d00d84e47",
+    "editor/BUILD.json": "7b53ccd5a22de58c5f2e95aefe7c37cea34ae600e5ae137049b9c9c16e48c8b3",
     "editor/assets/07618ef53a8117f090654d4369b7b51c4c23627cdab82cb7b53628a3fa914d65.gz": "a2cf0f63a0a5d138ee78351fdd33a73922b113b255cdb7e0a6a6463ecedac412",
     "editor/assets/0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594.gz": "5f25851ed04830cdd8268f5c219bb5e1c80f2cb19692508b2e65b597e59f178a",
     "editor/assets/0f33f48e7a96cd359d4e4e5b11424b13cebeb59cc70c77928186695e4173585c.gz": "da737527c1552c14eafdf8bd309d3ca2f12de4f8ed2c0c7ead13b14c61f828e1",
@@ -29,7 +29,7 @@
     "editor/assets/e753d7155d53c747d037a445e584c8ecfca6dd79846db610417e282a736b28bc.gz": "1ff571e9c640d66497cea03a69424e7337e7889748376fc57483cd0aacd4763e",
     "editor/assets/eeb6417c0cdb3f705bfe0a156adc4c6706ef5e612612db6dc4b8e2bd77d80a53.gz": "79492ec5c03fb712370e1159fb619efd71fda38e6e866f9c733e10c131d1fe5a",
     "editor/assets/f479159b45a4e33be710b90d1d0824daa54b39c6efd482688336a54bee5f77cb.gz": "6a502c82483e17bc67bd38425014da78ce7bcadb32cba17cdea4f203f71f94e7",
-    "editor/assets.json": "499bdec19ede89829cdf933843f433ad8dc6aaabd7a1750425511d4aaabf12a8",
+    "editor/assets.json": "4c1896d81e623b1ad5137b67dd51a2ed5a4eab9735f75fe2302910c968d02c55",
     "editor/licenses/ATTRIBUTION.md": "a63e1627deda938b9c201dcce0e18cecaa2393d093abe755258e875931151aa8",
     "editor/licenses/ATTRIBUTION.toml": "433e1b43b34007325393f42f4047000d629feb393a981cee9ca5fdb8e1dca753",
     "editor/licenses/FONT-PROVENANCE.json": "19765c0a070567dbac9bef6cf0d6505c6b2f00b3f24e68049f1f5a5dbf0e690e",
@@ -50,12 +50,12 @@
     "editor/licenses/assets/fonts/OFL-JetBrainsMono.txt": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697",
     "editor/licenses/assets/icons/LICENSE-lucide.txt": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
     "editor/licenses/docs/brand/LICENSE-brand.txt": "0f33f48e7a96cd359d4e4e5b11424b13cebeb59cc70c77928186695e4173585c",
-    "editor/panel.html": "1d902d095790cdfd016371e4141f4e011863b54ca0f458d416937c109ceb4b9c",
-    "editor/server.mjs": "ba98206218d21434dec7294ac4ea3d47e09219082301c96093a8ec65e03fe09c",
+    "editor/panel.html": "335abc1923e099e48f55bc9776fc63e7c54c8de998c3a6ba92cb93c82fe5bfa5",
+    "editor/server.mjs": "d8fd47391adde648b18dc2ff8f42a39cafe6d429b569980cde073d14d39be94c",
     "editor/tools.json": "c0a76ec944e98c458ff02ad2b56593497ab67b80e97a68fb76a1da9d8197a212",
-    "host.js": "9136132ea7b829f6802fec9d5b16880e67f24d1f66ad581c6aac8f7a83dc49bf",
+    "host.js": "33442ac8e3e30a807a2b80c3a90bd81cd8e00b31e43df37dc5f370193be5b622",
     "host.js.LEGAL.txt": "eda25878a01ef5903efe932a6e7c99e175023a47ce70b7d7f901ab2c07c06562"
   },
-  "scope": "Pinned editor artifact; bundled upstream/build provenance remains in editor/BUILD.json or config.json. This does not certify all upstream main capabilities.",
-  "catalogSha256": "57313b7c7705e110f968d030736bdc5dac895b76cd42b7a21239fe9a3af4a4d1"
+  "catalogSha256": "f66c56ab90ea99366e7dc531f9e8fae8767049384cee3d6154f1abc5d1f0b5b7",
+  "scope": "Source-built development runtime; public release and production acceptance are separate."
 }
