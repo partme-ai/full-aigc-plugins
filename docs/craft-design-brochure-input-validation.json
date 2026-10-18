@@ -1,0 +1,55 @@
+{
+  "scope": "existing four-page/two-product brochure; original input adapter; not a new scene",
+  "newSceneCount": 0,
+  "unitTests": {
+    "passed": 9,
+    "initialBehaviorFailures": 6
+  },
+  "nativeCliVersion": "0.8.0",
+  "nativeVariants": [
+    {
+      "variant": "english",
+      "status": "PASS",
+      "pages": 4,
+      "stories": 12,
+      "footer": "custom label verified from generated plan; fixed legacy checker assumes Review copy",
+      "visualAcceptance": "NOT_TESTED"
+    },
+    {
+      "variant": "chinese",
+      "status": "PASS",
+      "pages": 4,
+      "stories": 12,
+      "footer": "custom label verified from generated plan; fixed legacy checker assumes Review copy",
+      "visualAcceptance": "NOT_TESTED"
+    }
+  ],
+  "chineseInitialPdf": "FAIL missing glyphs with Source Sans 3; content values alone not accepted",
+  "fontFix": {
+    "method": "fontFamily LXGW WenKai; save draft then explicit native reopen with adjacent Document Fonts",
+    "engineModified": false,
+    "globalFontInstall": false,
+    "fontSha256": "39ad71264b588165b469e35e6afb162a378dacd1f95348160240ba9038ac3009",
+    "license": "OFL-LXGWWenKai.txt retained alongside tested font",
+    "fontList": [
+      {
+        "characters": 214,
+        "family": "LXGW WenKai",
+        "missing": false,
+        "source": "document",
+        "style": "Regular",
+        "styleMissing": false
+      }
+    ],
+    "finalPdfFourChineseHeadings": "PASS text extraction",
+    "finalStories": "PASS12 no overset",
+    "coverVisual": "PASS observed Chinese glyphs",
+    "pdfSha256": "8099199088b116aa3eb62a630e91d44b7cdcb233b321777c4b22c4e99947b3c5",
+    "screenshot": ".local/design-brochure-input-native/chinese/configured-font-page-1.png"
+  },
+  "inputImages": "existing synthetic product fixtures; no real product claims",
+  "windows": "NOT_TESTED",
+  "newHelperInstalledHost": "NOT_TESTED",
+  "commercialDesignQuality": "NOT_TESTED",
+  "releaseStatus": "UNRELEASED feature candidate"
+}
