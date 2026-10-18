@@ -143,8 +143,14 @@
       "files": 174,
       "largestMemberBytes": 37347623,
       "nativeCodexInstall": "PASS from extracted ZIP in isolated home",
-      "nativeMcpFromThisZip": "PENDING",
-      "metadataVersion": "0.1.0-dev.20261018.2 local modified candidate; not published or promoted"
+      "nativeMcpFromThisZip": "PASS: actual Codex app-server tools; 14 plan steps, text query, textedit and save",
+      "metadataVersion": "0.1.0-dev.20261018.2 local modified candidate; not published or promoted",
+      "samePageSync": true,
+      "textAfter": "会议室 ZIP验收",
+      "savedDxfIndependentCli": "PASS: walls, door, swing, two native dimensions and exact updated label",
+      "screenshot": ".local/cad-room-font-full-package/zip-updated.jpg",
+      "screenshotSha256": "985bb7b07dafad4a706fa5eafb11221984eb782a4b4adfd6da7733254ad46bbf",
+      "rpc": ".local/cad-room-font-full-package/native-host/native-rpc.json"
     }
   }
 }
