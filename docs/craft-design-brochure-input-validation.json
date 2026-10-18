@@ -219,9 +219,24 @@
     "remoteTagCommit": "PASS",
     "remoteAssetSha256": "d4756dccef3f62e87a6d14bc7d3994fd38f48da583e0be8c94bb9cedfc4b0c9d",
     "publicDownloadInstall": "PASS",
-    "marketUpdate": "PENDING",
+    "marketUpdate": "PASS main published",
     "publicDownloadInstallScope": "Downloaded public ZIP checksum matched; isolated actual Codex installer, native MCP status and open_browser_editor; browser synchronization separately verified on identical ZIP",
     "publicDownloadEvidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/design-brochure-input-release-18-3/public-install-contained",
-    "testMarketCommit": "7c9545e6f2840aae7e54070bff8510428abdc92c"
+    "testMarketCommit": "7c9545e6f2840aae7e54070bff8510428abdc92c",
+    "marketMainCommit": "fb4e57f2acfee62b449656fa3dde5c0adc1ac118",
+    "testChecks": {
+      "brochure": 39088889803,
+      "marketInstall": 39088889818,
+      "windowsPackageMcp": 39088889817,
+      "windowsCliBusiness": 39088889839,
+      "result": "PASS"
+    },
+    "mainMarketNativeInstall": {
+      "result": "PASS",
+      "version": "0.1.0-dev.20261018.3",
+      "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/design-brochure-main-183-install",
+      "scope": "real remote-main Codex install, preinstall icons, skills/list and native MCP; same-page editing tested separately against exact complete ZIP"
+    },
+    "mainCi": "RUNNING"
   }
 }
