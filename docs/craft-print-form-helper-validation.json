@@ -173,6 +173,22 @@
       39082566011,
       39082566028
     ],
-    "testCIStatus": "PENDING"
+    "testCIStatus": "PENDING",
+    "publishedNativeHost": {
+      "status": "PASS_FOR_SPECIFIED_ASCII_FIXTURE",
+      "installSource": "public test marketplace18.2",
+      "runtimeSha256": "9854f1aab26a0ab7af303b68da225fe50b2ee57a85487c09ce23ba58c99d3d32",
+      "samePageContinuousEdits": [
+        "Public Package,true",
+        "Public Revised,false"
+      ],
+      "manualResizeOrReopen": false,
+      "inputPreserved": true,
+      "savedFileSha256": "2bc9655a42e69e901484b8e3db577bd9a778675cad157e892c8f366293ab6042",
+      "screenshots": {
+        "public-filled.jpg": "2f35c733d44f119e13065a15da3b3efaa75e8edf8eb47c1f5f477dc24f24217d",
+        "public-revised.jpg": "51664b7d3b0395e2c8398245813d0e3eac09bff6ca50eda59347b7dbab1f8bcf"
+      }
+    }
   }
 }
