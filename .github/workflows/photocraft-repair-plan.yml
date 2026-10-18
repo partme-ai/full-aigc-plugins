@@ -1,0 +1,38 @@
+name: PhotoCraft local repair plan on Windows
+on:
+  push:
+    paths: ['scripts/ci/photo_repair_plan_smoke.py', '.github/workflows/photocraft-repair-plan.yml']
+  pull_request:
+    paths: ['scripts/ci/photo_repair_plan_smoke.py', '.github/workflows/photocraft-repair-plan.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  local-repair:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/photocraft-skills
+          ref: b1725e5ca9ff67edaf6a39074f88001367be9455
+          path: story-source
+      - name: Validate actual skill input handling
+        run: python -m unittest discover -s story-source/skills/photocraft-restore-old-photo/tests -v
+      - name: Download verified official CLI and run baseline business
+        run: python scripts/ci/craft_cli_windows.py --plugin photocraft --output baseline-result
+      - name: Check actual healing pixels, source layer and plan output protection
+        run: python scripts/ci/photo_repair_plan_smoke.py --source story-source --runtime-root baseline-result --output story-result
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: photocraft-repair-plan-results
+          path: |
+            baseline-result/result.json
+            story-result/**
