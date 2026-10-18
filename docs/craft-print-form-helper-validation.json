@@ -49,10 +49,78 @@
     ]
   },
   "remaining": [
-    "checkbox native fixture",
-    "Windows new helper",
-    "visual form appearance",
+    "Chinese appearance unsupported by current field font",
     "installed host sync",
     "market release"
-  ]
+  ],
+  "nativeTextCheckbox": {
+    "scope": "native CLI stdio business; no installed-host acceptance",
+    "platform": "darwin",
+    "status": "PASS",
+    "cases": [
+      {
+        "name": "checked",
+        "savedFieldValues": "PASS",
+        "appearance": "NOT_VIEWED",
+        "warnings": []
+      },
+      {
+        "name": "unchecked",
+        "savedFieldValues": "PASS",
+        "appearance": "NOT_VIEWED",
+        "warnings": []
+      },
+      {
+        "name": "chinese",
+        "savedFieldValues": "PASS",
+        "appearance": "NOT_ACCEPTED",
+        "warnings": [
+          "form field \"customer.name\" (page 1) holds \"真\" (U+771F), which its font can't draw: the value is saved, PdfCraft shows ? in its place, and other PDF viewers redraw the field from the value"
+        ]
+      }
+    ],
+    "inputPreserved": true
+  },
+  "visualReview": {
+    "checked": "PASS:ASCII text and marked box",
+    "unchecked": "PASS:ASCII text and empty box",
+    "chinese": "FAIL:four question marks; stored Unicode correct",
+    "screenshots": {
+      "checked": "e9d9e708923b2688b9d1096d5bc2f03802445599f7124366b08adc2bb53009e5",
+      "unchecked": "7bc41aaae0b6cc35e88bb3463a5381401aee3b9aa8798268fa501e6a5c4c8f8e",
+      "chinese": "1396160754b943d1ad648a2e0b94129a545333f03b6f936d3b215043cd7b3943"
+    }
+  },
+  "windows": {
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39081725640",
+    "status": "PASS",
+    "result": {
+      "scope": "native CLI stdio business; no installed-host acceptance",
+      "platform": "win32",
+      "status": "PASS",
+      "cases": [
+        {
+          "name": "checked",
+          "savedFieldValues": "PASS",
+          "appearance": "NOT_VIEWED",
+          "warnings": []
+        },
+        {
+          "name": "unchecked",
+          "savedFieldValues": "PASS",
+          "appearance": "NOT_VIEWED",
+          "warnings": []
+        },
+        {
+          "name": "chinese",
+          "savedFieldValues": "PASS",
+          "appearance": "NOT_ACCEPTED",
+          "warnings": [
+            "form field \"customer.name\" (page 1) holds \"真\" (U+771F), which its font can't draw: the value is saved, PdfCraft shows ? in its place, and other PDF viewers redraw the field from the value"
+          ]
+        }
+      ],
+      "inputPreserved": true
+    }
+  }
 }
