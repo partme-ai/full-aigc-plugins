@@ -140,11 +140,18 @@
       "testMarketRun": 39091175290,
       "testMarketResult": "PASS entire matrix",
       "mainMarketRun": 39091326105,
-      "mainMarketStatus": "QUEUED",
+      "mainMarketStatus": "PASS",
       "mainBrochureAudioRun": 39091326102,
       "mainPackageRun": 39091326135,
       "mainCliRun": 39091326137,
-      "mainCjkBuildRun": 39091326108
+      "mainCjkBuildRun": 39091326108,
+      "mainChecks": "PASS all five workflows"
+    },
+    "localMarketRefresh": {
+      "result": "FAIL disk full during Codex marketplace upgrade full-aigc-plugins",
+      "installedPluginsUpgraded": false,
+      "oldMarketplaceRetained": true,
+      "failedStaging": "CLI automatically removed its failed staging directory; verified absent"
     }
   }
 }
