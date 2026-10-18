@@ -1,11 +1,11 @@
 {
   "name": "wordcraft",
-  "version": "0.1.0-dev.20261018.4",
-  "url": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/download/v0.1.0-dev.20261017.2/wordcraft-runtime.tgz",
-  "sha256": "c529a0897b344a3f1147bdb02df2c4d5bf90887fe6617a134ceb10eddc7c9ea5",
+  "version": "0.1.0-dev.20261019.1",
+  "url": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/download/v0.1.0-dev.20261019.1/wordcraft-runtime.tgz",
+  "sha256": "dfc3bf965a51f49af65f68e9aa15dc1981a29b35ede29ebd138d63057c9eafaa",
   "files": {
     "adapter.mjs": "6468260ac7a1e09916f895037d62af72ca7f8c7f250434d10711e260cb9a8501",
-    "editor/BUILD.json": "cb9815094eaeb92c8412bb712fd401c1d3b86d2a8f28e4ff25bc55a7ec8de0e1",
+    "editor/BUILD.json": "73f0122c8c2fb5536f342ad6c9985acd42cc2b5ee76433db3b759e6b21341922",
     "editor/assets/0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594.gz": "5f25851ed04830cdd8268f5c219bb5e1c80f2cb19692508b2e65b597e59f178a",
     "editor/assets/1484c37b549525ae71c6dc9811c8550b0b784868b4035b89b9a41e218b699959.gz": "4da4acb2646299c49d8a9924c6964b0a783bc8502518ec4a17202a7a28af8881",
     "editor/assets/19765c0a070567dbac9bef6cf0d6505c6b2f00b3f24e68049f1f5a5dbf0e690e.gz": "5c9e50f78a93be9a3e8b0092e1291bf105b341259877635ef64e9c64e3fef074",
@@ -26,7 +26,7 @@
     "editor/assets/ed4475eacf972c9584aa335001c59dfa646eb222549b928ffd6aefd4c805b41a.gz": "c392fe5acb9000b247ad8d73363cca62914bd26269b5a9e7cd76bbd0b26c063e",
     "editor/assets/fc257de83c44ae49e4aad1cf777b886794be3ac9c8d00c010ef55935d5bbeba5.gz": "064fd11fbb9cb96078e552900a6fa79a11b10d3c06a6034fd6fa6df52d32757f",
     "editor/assets/fd9fcf2b8760dc3411b1d6c0b0371152835c1b0c4e0b8b0b58beec632cb35ee0.gz": "207a8a5f8d0ddb92fdb3af4ce21618dac577bd5c09e08fd276f7d41b61e44621",
-    "editor/assets.json": "23fb7323640a091df0b175cb810d95143cc20ca74f9d8ac17f988bcbb3c07d73",
+    "editor/assets.json": "b34a151877bb8c8ff068c96593311f60b7efc2b7038d9273af364c9e908aeae9",
     "editor/licenses/ATTRIBUTION.md": "2a28a5dae997462cce0b6bcb64d8f4de800f61ad3c6c09a33fdeec3f54ca13c2",
     "editor/licenses/FONT-PROVENANCE.json": "19765c0a070567dbac9bef6cf0d6505c6b2f00b3f24e68049f1f5a5dbf0e690e",
     "editor/licenses/JAVASCRIPT-NOTICES.txt": "768f574458916a5b95dec21c680ef1b07034e808d076bc2b5521f398b201dbf4",
@@ -44,12 +44,12 @@
     "editor/licenses/assets/fonts/OFL-SourceSans3.txt": "56af9b9c6715597e458284a474dc118a50a4150e9d547c70f7b4a33c3e6a9328",
     "editor/licenses/assets/fonts/OFL-SourceSerif4.txt": "c21d7293d87b6d7ab1d0229a2f55b77f33a7613a6a4e66f6693d68d7d8d09464",
     "editor/licenses/docs/brand/LICENSE-brand.txt": "ed4475eacf972c9584aa335001c59dfa646eb222549b928ffd6aefd4c805b41a",
-    "editor/panel.html": "600eae0dcdd7973a14f787afa74788ac62b67e090a2b92c2cb9f472c24172c5d",
-    "editor/server.mjs": "ba98206218d21434dec7294ac4ea3d47e09219082301c96093a8ec65e03fe09c",
+    "editor/panel.html": "6a13b11038f54bc206a6e671db92364f3ba7016d818237d3ec25fe3de7cb19ab",
+    "editor/server.mjs": "d8fd47391adde648b18dc2ff8f42a39cafe6d429b569980cde073d14d39be94c",
     "editor/tools.json": "bc0a0beb75be413446395ccaa8109260a5d5460891b7e38d1f59e8f955783a6d",
     "host.js": "552b2c63586161a34ab12b5674c7d384b20a79050a46893df0be20a4eb7f3ec9",
     "host.js.LEGAL.txt": "eda25878a01ef5903efe932a6e7c99e175023a47ce70b7d7f901ab2c07c06562"
   },
-  "scope": "Pinned editor artifact; bundled upstream/build provenance remains in editor/BUILD.json or config.json. This does not certify all upstream main capabilities.",
-  "catalogSha256": "be794fb23d4ab733af4f27f66529bfe5941ed7dcd4f0dfb1eb3491f934e5aecf"
+  "catalogSha256": "36dd76c12bfe248dd553815e0e885142964e5f399886b40a40f7d5bfb88aeb71",
+  "scope": "Source-built development runtime; public release and production acceptance are separate."
 }

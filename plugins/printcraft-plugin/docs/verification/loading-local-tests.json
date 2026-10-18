@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0-dev.20261019.1",
+  "date": "2026-10-19",
+  "scope": "local tests and bundled MCP; not native or host rendering",
+  "checks": [
+    {
+      "command": "python3 -I -B -m unittest discover -s tests -v",
+      "result": "PASS",
+      "tests": 20
+    },
+    {
+      "command": "npm --prefix ui test",
+      "result": "PASS",
+      "tests": 7
+    },
+    {
+      "command": "bundled package MCP and initial HTML",
+      "result": "PASS",
+      "hostRendering": "NOT_TESTED"
+    }
+  ]
+}

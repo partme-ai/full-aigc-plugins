@@ -1,6 +1,6 @@
 {
   "name": "deckcraft",
-  "version": "0.1.0-dev.0",
+  "version": "0.1.0-dev.20261019.1",
   "buildKind": "full-aigc-enhanced",
   "upstream": {
     "repository": "https://github.com/storytold/deckcraft",
@@ -8,7 +8,7 @@
     "version": "0.7.0"
   },
   "files": {
-    "BUILD.json": "4f5bd75646628daf6b732e1af0bb6a023db1df1ae025c52155241ac4d00b00bb",
+    "BUILD.json": "df6fb1c82f16023cf6d39d9bff2b6eea9ae906a49e27872f67d1cc6a82dee305",
     "assets/0bcd07f248918ece080f8bea69da3ecca74138099c5688fc9e0cacd69094434b.gz": "fb993393ef3f212544256c37991c4954d20dcd0ba3a2ef1f1de2a75a4c9e2b81",
     "assets/0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594.gz": "5f25851ed04830cdd8268f5c219bb5e1c80f2cb19692508b2e65b597e59f178a",
     "assets/1484c37b549525ae71c6dc9811c8550b0b784868b4035b89b9a41e218b699959.gz": "4da4acb2646299c49d8a9924c6964b0a783bc8502518ec4a17202a7a28af8881",
@@ -26,7 +26,7 @@
     "assets/cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30.gz": "4fcf7b50060af62cc9573c100762bb8ddd65114ea612c6395c091f6a4776ec60",
     "assets/e698cd8478b6b5d8b8dd78bc633948e50700435b57a6634a9f03bb1c6c6f285b.gz": "fd78f3774c2816ad78afe26649e1ed7bd4a56f97a2df94348a41e2a0e7bdc4e6",
     "assets/e753d7155d53c747d037a445e584c8ecfca6dd79846db610417e282a736b28bc.gz": "1ff571e9c640d66497cea03a69424e7337e7889748376fc57483cd0aacd4763e",
-    "assets.json": "e9c9214248bddcdf9743aae26035b4080f5aff86da460df5b727055f39819856",
+    "assets.json": "9b2cbda3cc6b057fe7cb4220f1f102c58638c0c1a04f9d64b1cef5a7aba1abeb",
     "licenses/ATTRIBUTION.md": "e698cd8478b6b5d8b8dd78bc633948e50700435b57a6634a9f03bb1c6c6f285b",
     "licenses/FONT-PROVENANCE.json": "19765c0a070567dbac9bef6cf0d6505c6b2f00b3f24e68049f1f5a5dbf0e690e",
     "licenses/JAVASCRIPT-NOTICES.txt": "768f574458916a5b95dec21c680ef1b07034e808d076bc2b5521f398b201dbf4",
@@ -40,8 +40,8 @@
     "licenses/OFL-LXGWWenKai.txt": "1a25e35da1031c6c3436fde545bb9cb5aca954e9873afe510c834b8b79bd21a0",
     "licenses/THIRD-PARTY-NOTICES.txt": "0bcd07f248918ece080f8bea69da3ecca74138099c5688fc9e0cacd69094434b",
     "licenses/docs/brand/LICENSE-brand.txt": "c5ad8e77d0dd8939161b4c4eca7aaba2437d6340c29e7809fa4679f0f2a82f62",
-    "panel.html": "e4d0aae315c33f4d29d456061ba411c30117d52b04061a27d09fb1cf0c79809d",
-    "server.mjs": "ba98206218d21434dec7294ac4ea3d47e09219082301c96093a8ec65e03fe09c",
+    "panel.html": "975aff2c4cb2422fe2de73fdf7369a78788d002848b1b7ee9fc246b425559dfd",
+    "server.mjs": "d8fd47391adde648b18dc2ff8f42a39cafe6d429b569980cde073d14d39be94c",
     "tools.json": "62cebd6b4c74f598d31f6e8ae302c4a94025d69bf51e4d603b670cbb19b5344e"
   }
 }

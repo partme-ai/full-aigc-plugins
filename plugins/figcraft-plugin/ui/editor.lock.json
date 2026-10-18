@@ -1,6 +1,6 @@
 {
   "name": "figcraft",
-  "version": "0.1.0-dev.1",
+  "version": "0.1.0-dev.20261019.1",
   "buildKind": "full-aigc-enhanced",
   "upstream": {
     "repository": "https://github.com/storytold/figcraft",
@@ -8,7 +8,7 @@
     "version": "0.6.0"
   },
   "files": {
-    "BUILD.json": "616b49c1761a8ce6a82635e19050c505ffb117a173689d198c4de3ec655901d1",
+    "BUILD.json": "a090bdaeaea8ee187f7bd668e529241d06a0a9dbe3b3efe88e02222fd1ba517f",
     "assets/0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594.gz": "3a7d79968322274c7c78bc511fadca9444b92f9958e4639e0ffe3b579cfa9715",
     "assets/1484c37b549525ae71c6dc9811c8550b0b784868b4035b89b9a41e218b699959.gz": "f2e741ce95b71eb8ce70d4763247464b1ebb6be164512730a8bc9aca662f3115",
     "assets/19765c0a070567dbac9bef6cf0d6505c6b2f00b3f24e68049f1f5a5dbf0e690e.gz": "18857be446b295988f7809d021cf4c4ec85578e5ad518205f008b625750ddee1",
@@ -27,7 +27,7 @@
     "assets/dee9acc55c8ba8757877c423447e2029cd8a1d2575b0b4632f434cb024061669.gz": "11e2ca3395c0abbb3eb8362343796c9a94718f635fb709493943b189b1bb2ac5",
     "assets/e753d7155d53c747d037a445e584c8ecfca6dd79846db610417e282a736b28bc.gz": "cdb0c66a0b29610883f781288bab51936a0249673f3a08e01c7d390f28f0925d",
     "assets/efe3ddfd1af990acb6c4c13f94efe92b62b9442c298ec94c3454693007541d87.gz": "e7ebf06ce144a2e5e12aeb0c99b1d1a240249074d0437f47a5a418a23bc50ed9",
-    "assets.json": "e16beda7be9c226bb86338d9b302e2f5ed9ceaaf4ea1a79b0f2df718ac9ff038",
+    "assets.json": "25ca3c88579c3236665a1aa97e90857877b539e342c9852313476a9efcf617c4",
     "licenses/ATTRIBUTION.md": "9ec4448e1327edcd1bf1793f6bf04564913c7653cd9398468d8a8c8a3d3b476b",
     "licenses/FONT-PROVENANCE.json": "19765c0a070567dbac9bef6cf0d6505c6b2f00b3f24e68049f1f5a5dbf0e690e",
     "licenses/JAVASCRIPT-NOTICES.txt": "768f574458916a5b95dec21c680ef1b07034e808d076bc2b5521f398b201dbf4",
@@ -42,8 +42,8 @@
     "licenses/THIRD-PARTY-NOTICES.txt": "3efab8f5b862b51b3050e00f2636779b875cecf4f2ee22e837ced2b6e3acd021",
     "licenses/assets/app-icon/LICENSE.txt": "9a58cbf7d438bb0fadc981423002adccd267aab21d0ab1c1e5c43d998b7702d2",
     "licenses/docs/brand/LICENSE-brand.txt": "904f8307a25cbb220f949846d84561aee9bf8f0cdd64380362f07ee674d80323",
-    "panel.html": "9eca4bc8de13a467ed36ffb036c614f6ba6d7b65997b69aa9f86f9e8366447d7",
-    "server.mjs": "5193467a52c8a47175cbb4b14dfb1fd42334afa89dcb0a5ba08e4aa8f0b2836d",
+    "panel.html": "b9e5433f3bf68a47ae0170004c61d0404da0da0ce11a983d2114eeceaeff7418",
+    "server.mjs": "d8fd47391adde648b18dc2ff8f42a39cafe6d429b569980cde073d14d39be94c",
     "tools.json": "3da4bbd96f038b88dd7621c08d3b4476ea959e8b2e28a622f933ce8d95a1ef75"
   }
 }

@@ -27,3 +27,7 @@
 依赖：full-aigc-skills-repositories/printcraft-skills 的 `harden-printcraft-skill-execution`，特别是 execution-lifecycle、pdf-delivery-verification 和 acceptance-evidence。插件不得自行改写其回执、超时或 PDF 验收含义。
 
 本次仅写规格和任务，不运行 apply/sync/archive，不安装宿主插件、不初始化 Git、不创建远端、不发布。能力实现和验证完成前所有任务保持开放。
+
+### 2026-10-19 增量：编辑器加载提示
+
+移除包装层重复加载通知，保留引擎加载画面、错误和导出重试。在现有宿主/运行时规格追加加载呈现场景；不改变引擎、工具接口、发布或宿主支持声明。

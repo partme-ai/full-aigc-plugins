@@ -1,106 +1,173 @@
 # DeckCraft Use
 
-当前可安装开发候选：`0.1.0-dev.20261017.5`。补齐官方输入框图标，Codex市场使用完整薄包快照以在安装前读取列表图标；运行资源沿用已核验的dev.20261017.2，不代表上游引擎升级或全部创作验收通过。
+## 插件市场导航
 
-## Installable editor development candidate
+本插件所属分类：**AIGC 内容创作**。
 
-`0.1.0-dev.20261017.3` is distributed through the Full AIGC plugin marketplace as a development prerelease. Node.js 24 is required. Git installations use `ui/bootstrap.mjs` to download and verify the pinned editor archive on first start; complete release ZIPs also include that archive unpacked for offline startup. No Rust build or npm installation is required. Startup diagnostics use stderr; stdio remains MCP-only. The editor shares its session with Agent commands. Full creative quality and all-host embedded UI acceptance are still incomplete. Existing dated validation below describes its original version.
+| 分类 | 插件市场入口 | 用途 |
+| --- | --- | --- |
+| 全栈开发 | [Full Stack Plugins](https://github.com/partme-ai/full-stack-plugins) | 架构与 UI 设计、代码理解、质量检查、代码审查、流程治理与服务器运维 |
+| AIGC 内容创作 | [Full AIGC Plugins](https://github.com/partme-ai/full-aigc-plugins) | 图像、视频、音频、音乐、3D 与多模态内容创作 |
 
+![DeckCraft Use——由编码智能体产出可编辑演示文稿](assets/official-logo.png)
 
-## Previous development candidate
+> 在智能体宿主里撰写、检查并导出真实演示文稿——逐页推进，交付物始终是可继续编辑的源文稿。
 
-`0.1.0-dev.20261017.1` is distributed through the Full AIGC plugin marketplace as a development prerelease. Node.js 24 is required. Git installations use `ui/bootstrap.mjs` to download and verify the pinned editor archive on first start; complete release ZIPs also include that archive unpacked for offline startup. No Rust build or npm installation is required. Startup diagnostics use stderr; stdio remains MCP-only. The editor shares its session with Agent commands. Full creative quality and all-host embedded UI acceptance are still incomplete. Existing dated validation below describes its original version.
+[![版本](https://img.shields.io/badge/release-0.1.0--dev.20261019.1-1A73E8)](https://github.com/full-aigc-plugins/deckcraft-plugin/releases)
+[![技能](https://img.shields.io/badge/skills-10-00A67E)](#技能)
+[![MCP 工具](https://img.shields.io/badge/MCP%20tools-33-00A67E)](#mcp-工具)
+[![许可证](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
 
-
-> DeckCraft 的 Agent Plugin 最小候选包。包结构已创建；宿主加载和原生调用尚未验证。
-
-[English](README.md) | 简体中文 · [架构](docs/DeckCraft-Plugin-Architecture.zh_CN.md) · [验证](docs/verification.md)
+[English](README.md) | [简体中文](README.zh-CN.md) · [安装](#安装) · [快速开始](#快速开始) · [技能](#技能) · [故障排查](#故障排查)
 
 ## 项目定位
 
-让 Agent 宿主加载 DeckCraft 操作技能，并通过上游已有 MCP 服务端制作、检查和导出演示文稿。本仓目标是可移植插件包，不重写 DeckCraft、MCP 服务器或宿主运行时。
+`deckcraft` 让智能体宿主通过内置 stdio MCP server 和一组演示文稿技能驱动 DeckCraft 引擎，因此任务结果是可编辑的 `.deckcraft` 文稿加上你要求的导出文件。插件负责技能路由、同会话编辑器桥接与包版本锁定；它不替代 DeckCraft、其引擎或宿主运行时。
 
-```text
-用户任务 → 宿主加载插件 Skills → 宿主连接 deckcraft-cli mcp
-       → DeckCraft 编辑 / inspect / render / export → 宿主交付结果
-```
+| 属性 | 取值 |
+| :--- | :--- |
+| 插件 ID | `deckcraft` |
+| 版本 | `0.1.0-dev.20261018.4` |
+| 状态 | 开发预览；生产发布被阻塞，全部宿主验收未完成 |
+| 编辑器运行时 | Node.js 24，由 `ui/bootstrap.mjs` 启动 |
+| 上游参考 | DeckCraft `0.3.0`（`d0e57d7e25f9852179cc66be12dd6188f1c05535`） |
+| 可选 CLI | `deckcraft-cli`，仅当宿主已在 `PATH` 上提供 |
+| 许可证 | Apache-2.0 |
 
-| 属性 | 当前状态（2026-10-09） |
-|---|---|
-| 格式目标 | Agent Plugins 1.0.0 |
-| 插件版本、远端、已验证宿主 | `0.1.0-dev.0`；无远端或已验证宿主 |
-| 根 `plugin.json`、`mcp.json`、`skills/` | 已创建，待宿主验证 |
-| 包内技能 | 1 个 `deckcraft-use`；与本地 deckcraft-skills 源文件一致 |
-| 许可证 | Apache-2.0；DeckCraft 上游 MIT OR Apache-2.0 |
+## 安装
 
-## 插件组成
+### 前置条件
 
-可移植核心是根 `plugin.json`，以及按需存在的 `skills/` 和 `mcp.json`。Skills 承载路由与操作知识；`mcp.json` 连接现有 `deckcraft-cli mcp`。命令和 Hooks 属于具体客户端扩展，只有真实宿主场景需要且已验证其格式时才加入。规范只定义 Skills、MCP servers 两类可移植组件。[正式规范](https://agent-plugins.org/specification)
+- `PATH` 上有 Node.js 24；内置 stdio MCP server 依赖它运行。
+- 首次打开编辑器需要网络：插件会下载并校验锁定编辑器制品；完整发行 ZIP 已内置该制品，因此无需 Rust 工具链，也无需 `npm install`。
+- 只有走原生 CLI 路径时才需要已安装的 `deckcraft-cli`；插件既不安装也不升级它。
+- 宿主需支持插件或 stdio MCP。内嵌面板还要求宿主支持 MCP Apps 或自带浏览器。
 
-## 能力与边界
-
-| 目标 | 所有者 | 验收 |
-|---|---|---|
-| 操作路由、命令参考 | Skills | 触发与单独安装场景 |
-| 权限、工具执行、MCP 生命周期 | 宿主 | 实际加载和调用 |
-| 文稿编辑、撤销、渲染、导出 | DeckCraft | 真实文稿回读与重开 |
-| 包装与来源固定 | 插件 | manifest、路径、技能摘要和安装检查 |
-
-上游 Remote 可能在通信错误后重发修改；本插件初版不承诺异常场景恰好执行一次。Headless 没有整窗截图。PDF 图稿目前是栅格加真实文本层。真实 PPTX 兼容性需独立语料验收。[兼容性](docs/compatibility.md)
-
-## 本地候选与快速开始
-
-本地候选可供支持 Agent Plugins 1.0.0 的宿主从本目录加载。尚无公开发行或宿主验证；MCP 需要宿主能找到已安装的 `deckcraft-cli`。可先运行以下只读检查：
+### 从插件市场安装
 
 ```bash
-deckcraft-cli --version
-deckcraft-cli commands
-deckcraft-cli describe slide.new
+codex plugin marketplace add partme-ai/full-aigc-plugins
+codex plugin add deckcraft@full-aigc-plugins
 ```
 
-根 `mcp.json` 使用单一 `deckcraft-cli` 命令 token 和 `mcp` 参数；本仓不安装 CLI。桌面 Remote、窗口截图、客户端命令和 Hooks 均需分别验证，不是默认能力。[MCP 指南](https://agent-plugins.org/plugin-authors/mcp-servers)
+重启宿主，新建任务，然后让 DeckCraft 开始一份文稿。
 
-## 设计与交付
+### 其他宿主清单
 
-[中文架构](docs/DeckCraft-Plugin-Architecture.zh_CN.md) / [English architecture](docs/DeckCraft-Plugin-Architecture.md) 明确组成和责任；[操作边界](docs/operation-contract.md) 记录命令、Hooks 与失败语义；[Dreamina 借鉴](docs/dreamina-reference-analysis.md) 说明保留与裁剪理由。[路线](ROADMAP.md) 和 [验证矩阵](docs/verification.md) 将结构、宿主和真实文稿证据分开。
+| 宿主 | 清单 | 路径基准 |
+| --- | --- | --- |
+| 标准 Agent Plugins 1.0.0 | `plugin.json`、`mcp.json` | `${PLUGIN_ROOT}` |
+| Codex | `.codex-plugin/plugin.json`、`.codex-plugin/mcp.json` | 相对 `cwd` 的插件根目录 |
+| Claude Code | `.claude-plugin/plugin.json`、`.mcp.json` | `${CLAUDE_PLUGIN_ROOT}` |
 
-静态包检查与实际宿主、MCP 握手、真实 DeckCraft 调用分开记录。参见 [贡献](CONTRIBUTING.md)、[安全](SECURITY.md)、[来源](ATTRIBUTION.md) 和 [Apache-2.0](LICENSE)。
+此外还提供 Kimi（`kimi.plugin.json`）、DeepSeek Harness（`dsh/`）和 WorkBuddy 示例（`hosts/workbuddy/mcp.json`）。`hosts/native-cli/mcp.json` 展示的是可选的 `deckcraft-cli mcp` server，而不是内置编辑器。
 
-## 场景技能开发候选
+## 快速开始
 
-已增加 6 个领域场景技能及 1 个内嵌编辑器入口。详见 [场景目录](docs/scene-skills.md)。本地未发布候选，不代表全部场景的创作质量已验收。
+```mermaid
+flowchart LR
+    A[安装插件] --> B[重启并新建任务]
+    B --> C[open_editor]
+    C --> D{editor_status 就绪}
+    D -->|否| C
+    D -->|是| E[new_presentation]
+    E --> F[add_slide / add_shape / insert_chart]
+    F --> G[inspect_slide]
+    G --> H[save_presentation / export]
+```
 
-## 内嵌编辑器候选
+1. 打开编辑器时显式传入 `workspace` 参数。
+2. 用 `new_presentation` 新建文稿，或用 `open_presentation` 打开已有文稿。
+3. 复杂编辑前先读 `list_commands`；命令 ID 与 `enabled` 状态来自实时注册表。
+4. 每完成一段修改就调用 `inspect_document` 或 `inspect_slide`，需要看图时用 `render_slide`。
+5. 先保存 `.deckcraft` 源文稿再导出；重开源文稿确认页面仍可编辑。
 
-新增 MCP Apps 与宿主浏览器接入，详见 [配置与构建](docs/editor-integration.md)。`ui/dist/` 为本地生成物；首次分发须带齐生成物。
+## 可完成的工作
 
-插件展示使用上游官方图标；名称为 **DeckCraft Use**。图标来源与许可证保存在 `assets/official-icon-source.json` 和相邻 LICENSE 文件中。
+| 工作流 | 内置路径 | 可验证输出 |
+| :--- | :--- | :--- |
+| 含问题、证据与诉求的路演稿 | `deckcraft-pitch-deck` | 每页一个论点的文稿，附讲稿备注 |
+| 周报或进展汇报 | `deckcraft-weekly-report` | 进展、风险与下周计划页 |
+| 培训课件 | `deckcraft-training-slides` | 讲解、示例、练习与回顾页 |
+| 数据叙事 | `deckcraft-data-story` + `insert_chart` | 绑定真实数据的图表，含标题与数据标签 |
+| 品牌模板复用 | `deckcraft-brand-template` | 母版风格统一、版式一致的页面 |
+| 重排已有文稿 | `deckcraft-slide-redesign` | 结构优化后的文稿，原稿保留 |
+| 方案评审对比 | `deckcraft-option-comparison` + `insert_table` | 可编辑对比表，保留口径与来源 |
+| 交付 | `save_presentation`、`export` | 可编辑源文稿，加 PPTX、PDF 或图片输出 |
 
-源码增强候选采用 `ui/source.lock.json` 与 `ui/build-source.py`；兼容更新查询本插件自有 GitHub Releases，失败回退内置，原版 Web 不替换增强自动化运行时。当前会话保留；宿主安装验收另行记录。
+## 技能
 
-## 场景操作手册
+| 技能 | 作用 |
+| :--- | :--- |
+| `deckcraft-use` | 主入口：通过已连接的 MCP 或已安装 CLI 创建、修改、检查与导出文稿 |
+| `deckcraft-editor` | 在宿主内打开真实编辑器，让 Agent 修改显示在同一页面 |
+| `deckcraft-pitch-deck` | 项目路演的问题、方案、证据与诉求 |
+| `deckcraft-weekly-report` | 进展、问题、指标与下周计划 |
+| `deckcraft-training-slides` | 讲解、示例、练习与回顾 |
+| `deckcraft-data-story` | 数据结论与业务解释，含图表计划 |
+| `deckcraft-brand-template` | 品牌母版风格与常用版式 |
+| `deckcraft-slide-redesign` | 旧稿结构重排与视觉优化 |
+| `deckcraft-option-comparison` | 按成本、交付周期与风险制作可编辑对比表 |
+| `deckcraft-scenario-playbooks` | 指标简报、方案比较、流程图、风险矩阵、趋势图、培训问答与交接稿的分步手册 |
 
-新增 `deckcraft-scenario-playbooks`：8 条带具体命令、参数与检查的流程，见 [技能入口](skills/deckcraft-scenario-playbooks/SKILL.md)。示例数据需替换，实际运行与创作效果状态见命令证据；不将目录存在当验收通过。
+技能来自独立的 `deckcraft-skills` 源，并由 `scenario-candidates.json` 以逐技能 SHA-256 摘要固定。它们提供场景知识与执行契约，不是第二套引擎。
 
-## main模板与品牌复用候选
+## MCP 工具
 
-新增[main模板、页面复用及结构化目录指导](skills/deckcraft-scenario-playbooks/references/main-workflows.md)，保留89个新增标识和旧目录重复项的歧义。已有场景及新增模板/复用流程通过Windows原生main回归：真实starter、指定页顺序、可编辑PPTX和源文件保持已核对；外部PowerPoint渲染及真实宿主同步仍未验收。
+只内置一个 server：`deckcraft-editor`，使用 **stdio**。本地 HTTP 只承载编辑器页面与同会话桥接。目录共 33 个工具，其中 28 个可供 Agent 调用，5 个 `_editor_*` 是面板内部使用的桥接工具。
 
+| 类别 | 工具 | 用途 |
+| :--- | :--- | :--- |
+| 会话 | `open_editor`、`open_browser_editor`、`editor_status` | 打开编辑器并确认已接入 |
+| 发现 | `list_commands`、`call_app` | 列出实时命令；`call_app` 触达应用级控制方法（仅桌面应用） |
+| 命令网关 | `run_command`、`batch` | 执行单条命令，或按明确失败语义执行顺序批次 |
+| 文稿管理 | `new_presentation`、`open_presentation`、`save_presentation`、`export` | 新建、打开、保存与导出 |
+| 页面 | `add_slide`、`go_to_slide`、`inspect_slide`、`render_slide` | 增页、跳转、读取与渲染单页 |
+| 内容 | `add_shape`、`add_text_box`、`set_text`、`insert_picture`、`insert_table`、`insert_chart` | 放置并编辑页面对象的组成元素 |
+| 检查 | `inspect_document` | 整份文稿的标题、页数、对象与文字 |
+| 交互 | `select`、`select_tool`、`pointer`、`key`、`type_text`、`screenshot` | 走与鼠标键盘相同的执行路径；`screenshot` 截整窗，需要桌面应用 |
 
-### 六项核心场景技术回归（2026-10-17）
+## 配置
 
-培训、改版、品牌模板、周报、提案和数据故事已重建实际方法与参数，并同步到独立技能。Windows main运行39014846480和稳定版矩阵39014843673通过：逐页备注、复制后新ID、品牌主题、原生图表/表格及PPTX保存回读；图表回读后再次修改数据。只证明示例结构及技术链，不代表真实内容、外部PowerPoint版式或宿主画面同步验收。当前仍为开发候选，未上架公共市场。
+| 配置 | 位置 | 作用 |
+| :--- | :--- | :--- |
+| `workspace` 参数 | `open_editor` / `open_browser_editor` | 绑定任务目录；越界路径会被拒绝 |
+| `CRAFT_EDITOR_UPDATE=off` | stdio MCP 的 `env` | 只用内置编辑器，不再尝试下载 |
+| `CRAFT_EDITOR_CACHE_DIR` | 环境变量 | 已校验编辑器归档的绝对缓存目录 |
+| `CRAFT_WORKSPACE_ROOT` | 宿主 MCP 配置 | 供无法在工具调用中传参的宿主指定工作区根 |
 
-### 候选启动修正
+Claude Code 还会从 `.mcp.json` 读取 `CRAFT_PANEL_METADATA_FILE`。已校验归档缓存在 `~/.cache/full-aigc/editors`；活动会话在关闭前保持自己的版本，缓存损坏时回退内置版本。
 
-本候选先完成轻量MCP握手及能力发现，在首次工具或资源调用时校验/获取固定编辑器资源。修复多个编辑器首次下载阻塞宿主握手的问题。Windows通过Git安装时须启用Git长路径支持（`git config --global core.longpaths true`）；完整ZIP不包含历史验收记录，可避免Git检出长路径的问题。运行资源沿用已核验的dev.20261017.2制品，不以入口版本号冒充上游升级。
+## 架构与安全
 
-### Windows 启动兼容修正
+Agent 与插件之间只走 stdio MCP；浏览器桥接只监听 `127.0.0.1`，使用随机令牌并校验 Host/Origin。下载内容按 SHA-256 校验，内置编辑器始终保留为回退。技能只是指令，不在运行时强制执行策略。插件不保存凭据，也不向作者转发任何流量。
 
-规范化入口真实路径，能力清单校验统一使用 LF 换行，兼容 Windows Git CRLF 检出。
+编辑器不会宣称上游引擎没有的能力。格式限制、headless 行为与未验证模式分别记录在[兼容性](docs/compatibility.md)、[操作契约](docs/operation-contract.md)与[验证说明](docs/verification.md)。来源与许可信息见 [ATTRIBUTION.md](ATTRIBUTION.md)。
 
-### 候选启动修正
+## 故障排查
 
-本候选先完成轻量MCP握手及能力发现，在首次工具或资源调用时校验/获取固定编辑器资源。修复多个编辑器首次下载阻塞宿主握手的问题。Windows通过Git安装时须启用Git长路径支持（`git config --global core.longpaths true`）；完整ZIP不包含历史验收记录，可避免Git检出长路径的问题。运行资源沿用已核验的dev.20261017.2制品，不以入口版本号冒充上游升级。
+| 现象 | 处理 |
+| :--- | :--- |
+| 看不到编辑器工具 | 确认插件已启用，重启宿主，新建任务 |
+| 宿主内不渲染面板 | 改用 `open_browser_editor` 返回的地址；终端本身不提供浏览器面板 |
+| 首次打开卡住 | 首次需要下载锁定归档；联网重试，或设置 `CRAFT_EDITOR_UPDATE=off` |
+| 导入 PPTX 后内容不全 | 导入是宽容模式，会跳过未知或损坏的部分；请核对重开后的文稿 |
+| 写入超时 | 先重开或检查文稿再重试；引擎无法承诺 exactly-once 执行 |
+| 找不到 `deckcraft-cli` | 自行安装，或继续使用内置 MCP server |
 
-数据叙事技能新增可填写输入与原生命令计划，显式图表期间标题、数值标签及右侧图例；macOS/Windows业务往返和真实Codex同会话修改已验证指定样例。重开可能报告Arial缺失，精确字体保真和其他宿主尚未验收。
+## 升级
+
+```bash
+codex plugin marketplace upgrade full-aigc-plugins
+codex plugin add deckcraft@full-aigc-plugins
+```
+
+发行说明见 [CHANGELOG.md](CHANGELOG.md)；当前发布限制记录在 `docs/verification/release-candidate.json`。
+
+## 贡献与支持
+
+问题请提交到 <https://github.com/full-aigc-plugins/deckcraft-plugin/issues>。修改技能或清单前先读 `AGENTS.md`，保持根 `plugin.json` 为身份事实源，不提交用户文稿、凭据或本地会话数据。安全与隐私约定见 [SECURITY.md](SECURITY.md) 与 [PRIVACY.md](PRIVACY.md)。
+
+## 许可证
+
+本仓原创内容采用 [Apache-2.0](LICENSE)。图标为 MIT 许可的上游 DeckCraft 素材，来源记录在 `assets/official-icon-source.json`。上游 DeckCraft 是独立项目 <https://github.com/storytold/deckcraft>，采用 MIT OR Apache-2.0；本插件是集成，不构成背书。
