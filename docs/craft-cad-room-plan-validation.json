@@ -84,8 +84,7 @@
   "savedUnitHeaders": "all six DXF files independently verified INSUNITS=4",
   "macosVisualReview": "sample and both edge-door drawings inspected",
   "remaining": [
-    "new Chinese font runtime actual host validation",
-    "market release",
+    "new runtime public package and market release",
     "other hosts and complex plans"
   ],
   "nativeHost": {
@@ -116,9 +115,24 @@
     "cause": "CAD document font build filters non-web faces; existing font overlay omitted CADCraft; UI font-stack fallback alone does not cover document text",
     "pluginCommit": "87bc428",
     "test": "new document-font inclusion regression failed before change, passed after",
-    "build": "RUNNING separate copy and new target directory; existing references and bundled artifacts retained",
-    "buildDirectory": ".local/cad-room-font-build",
-    "log": ".local/cad-room-font-build.log",
-    "newRuntimeGlyphAcceptance": "PENDING"
+    "build": "PASS: Rust/WASM compiled; finalizer resumed with existing dependency directory; extracted 15 tools and packaged 17 assets",
+    "buildDirectory": ".local/cad-room-font-build/packaged-resumed",
+    "log": ".local/cad-room-font-finalize.log",
+    "newRuntimeGlyphAcceptance": {
+      "status": "PASS",
+      "scope": "actual native Codex app-server; isolated local installed candidate; bundled new runtime",
+      "textBefore": "会议室",
+      "textAfter": "会议室 已复核",
+      "samePageSync": true,
+      "pageReloaded": false,
+      "savedDxf": ".local/cad-room-font-host/workspace/room-font-fixed.dxf",
+      "savedDxfSha256": "1039239594c7d1e1d2aedf3ea75e57c931d21387bdca8d06b01f55a07e566cf6",
+      "screenshot": ".local/cad-room-font-host/updated.jpg",
+      "screenshotSha256": "26987b30914b38349e18cd672c29eb845bfdd8817e18bca7d7a0f4c2663a2af5",
+      "rpc": ".local/cad-room-font-host/native-host/native-rpc.json",
+      "publicRelease": "PENDING"
+    },
+    "packagedFileCount": 35,
+    "verification": ".local/cad-room-font-build/packaged-resumed/verification.json"
   }
 }
