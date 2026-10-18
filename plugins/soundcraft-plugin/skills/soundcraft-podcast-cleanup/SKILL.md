@@ -22,6 +22,16 @@ license: Apache-2.0
 3. 温和均衡和动态处理，先解决低频噪声再调整清晰度。
 4. 按发布目标检查响度和峰值，导出试听版。
 
+## 实际单片段的快速执行
+
+1. 调用 `open_session` 后检查返回的 `missing` 必须为空，再用 `inspect_session` 核对音源 loaded、真实轨道名、采样率和片段边界。`.scraft` 的 `Audio Files` 是工程组成部分，不能只搬一个JSON文件；交付自包含工程时使用宿主支持的 `.scraftz`。
+2. 从 [片段输入示例](assets/clip-input.json) 填写本次参数，范围必须恰好对应一个已确认片段。例子中的中文轨道、时间和增益不作为默认处理目标。
+3. 使用本技能 [输入助手](scripts/podcast_input.py)：`python /mnt/skills/user/soundcraft-podcast-cleanup/scripts/podcast_input.py --input clip-input.json --output recipe.json`。宿主安装在其他位置时，Agent用当前加载技能的实际安装路径替换，不要求用户维护绝对路径。
+4. 读取输出 `steps`。同画面编辑时，逐项通过同一会话的 MCP `execute` 传入 `command` 和 `params`；独立CLI则拼成一个进程的独立 argv `--cmd`、`方法ID=JSON`。不要另开CLI进程并声称Web画面已同步。
+5. 核对片段 gain_db、fade_in/out 与未选中片段，再另存新工程，解码导出检查采样率/位深/时长，最后试听。当前助手只做选中整片段增益、两端淡变和指定区间混音，不执行剪除、EQ、降噪或LUFS归一化。
+
+输出配方拒绝覆盖，但原生混音器仍可能覆盖同名WAV；执行前确认导出目标不存在。效果目录查询仅是查询，不能在报告中列作已处理效果。
+
 ## 工具落地
 
 用 open_session/new_session 管理会话；import_audio 导入、inspect_session 检查，其他编辑查实时工具；save_session 保存工程，bounce_mix 输出音频。

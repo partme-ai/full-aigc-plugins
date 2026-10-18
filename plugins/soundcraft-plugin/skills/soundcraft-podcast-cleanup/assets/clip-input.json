@@ -1,0 +1,9 @@
+{
+  "track": "访谈 主轨",
+  "startSeconds": 1.25,
+  "endSeconds": 5.25,
+  "fadeInSeconds": 0.02,
+  "fadeOutSeconds": 0.05,
+  "gainDb": -2.5,
+  "output": "审核/访谈.wav"
+}

@@ -1,0 +1,127 @@
+{
+  "result": "PASS",
+  "scope": "actual generated recipe; offset 1.25s, 4s synthetic clip; unselected later clip preserved",
+  "nativeProcesses": 4,
+  "pcm48k24bitStereo": "PASS",
+  "middleGainAndEdgeSamples": "PASS",
+  "nativeFadeLengths": "PASS",
+  "saveReopenSamples": "PASS",
+  "inputsUnchanged": "PASS",
+  "auditoryAcceptance": "NOT_TESTED",
+  "installedHostSync": "NOT_TESTED",
+  "sourceCommit": "80fd4ba",
+  "pluginCommit": "1382c41",
+  "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-input-native",
+  "platform": "macOS",
+  "nativeVersion": "0.7.0",
+  "windows": {
+    "initialRun": 39089416671,
+    "initialResult": "FAIL before native audio steps; isolated Python default encoding read Chinese fixture as cp1252",
+    "fix": "Explicit UTF-8 in actual tests and JSON reads; do not rely on PYTHONUTF8 under -I",
+    "retryRun": 39089480255,
+    "retryStatus": "PASS",
+    "recipeOverwriteProtection": "PASS local actual helper rerun refused existing output and preserved bytes",
+    "retryResult": "SUCCESS",
+    "downloadedArtifactVerification": {
+      "result": "PASS",
+      "nativeCalls": 4,
+      "clipStartSamples": 60000,
+      "fadeSamples": [
+        960,
+        2400
+      ],
+      "laterClipUnchanged": true,
+      "decodedFormat": "48kHz 24bit stereo 192000frames",
+      "reopenAndMacSampleComparison": "PASS",
+      "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-input-windows-39089480255/podcast-result"
+    }
+  },
+  "hostCandidate": {
+    "result": "PASS limited",
+    "pluginCommit": "1382c41",
+    "versionMetadata": "0.1.0-dev.20261018.2 locally modified candidate; unpublished",
+    "host": "real Codex app-server",
+    "installedHelper": "PASS actual installed script generated executed recipe",
+    "samePage": "PASS selected range 1.25-5.25s and -2.5dB label updated without reload",
+    "mcpClipReadback": "PASS fade960/2400 samples; second clip gain0/fades0",
+    "exportVsNativeReference": "PASS decoded sample comparison",
+    "visualLimitation": "Chinese track name renders square glyphs in current Web runtime; not fixed or accepted",
+    "auditoryAcceptance": "NOT_TESTED",
+    "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-input-host"
+  },
+  "cjkRepair": {
+    "pluginCommit": "2c047aec7025f15443885d232f91c89626c7c9ed",
+    "fontSha256": "39ad71264b588165b469e35e6afb162a378dacd1f95348160240ba9038ac3009",
+    "buildRun": 39089813142,
+    "buildStatus": "PASS",
+    "browserGlyphVerification": "PASS actual Chinese track list and header glyphs",
+    "samePageMcp": "PASS selected range and gain label; no reload",
+    "audioExportVsNative": "PASS decoded samples",
+    "fontLicenseInArtifact": "PASS gzip decompressed exact OFL sha256",
+    "runtimeSha256": "189abc73ed2a1420b1a5c61c953c83809b70c76bebd89e366fa0c9a0e5bd6ae5",
+    "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-cjk-host"
+  },
+  "completeZip183": {
+    "plugin": "soundcraft",
+    "version": "0.1.0-dev.20261018.3",
+    "commit": "3a1ea3cec96da7416b4c18e190420b6777bd06e2",
+    "archiveSha256": "411b6367aeaa21e701cfded29a4167c670d60e97d74b38eb35951c3d818c8ed9",
+    "bytes": 20302381,
+    "maximumZipEntryBytes": 19185520,
+    "resourceLocks": "PASS",
+    "fullZipNativeInstall": "PASS",
+    "scope": "actual ZIP extraction, native Codex install, preinstall icons, skills/list, MCP status/open",
+    "installedResourceDigests": "PASS",
+    "testPluginCommit": "6067707179791c9cd7d86a1fe7b0458fb4e7e640",
+    "testCi": 39090286911,
+    "testCiStatus": "QUEUED"
+  },
+  "publication183": {
+    "pluginMain": "1c7cebe21105baaf69c0e3202b07990fcd8fb7a7",
+    "sourceMain": "531d95cc8f3bc8b7780a046914a94ba3138b7287",
+    "testCi": 39090286911,
+    "mainCi": 39090354918,
+    "ciResult": "PASS Linux and Windows",
+    "releaseUrl": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
+    "publicDownloadInstall": {
+      "result": "PASS",
+      "scope": "public ZIP download sha, actual native Codex install, preinstall icons, skills/list, MCP status/open, installed resource hashes",
+      "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-release-18-3/public-install"
+    },
+    "marketUpdate": "BLOCKED by actual cold-install PAX failure; do not promote",
+    "coldGitInstall": {
+      "result": "FAIL",
+      "error": "Unsupported tar entry type: x",
+      "testMarketRun": 39090532836,
+      "localEvidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-test-183-cold",
+      "publicReleaseWarningAdded": true
+    }
+  },
+  "candidate184": {
+    "pluginCommit": "203f01e",
+    "archiveFormat": "deterministic USTAR; no PAX extension headers",
+    "runtimeSha256": "3e86e4a5ced5f70d425bc9d60b874fe42922048451dbbc5955e9e3f1e20357d5",
+    "actualFullArchiveBootstrapExtractAndFileHashes": "PASS",
+    "packagingRegressionTests": 3,
+    "nativeColdDownloadInstall": "Windows fresh-runner market acceptance PENDING",
+    "release": "PUBLIC DEVELOPMENT PRERELEASE",
+    "pluginMain": "f9e80c1755945cb821d92f51dba67479114f7d9a",
+    "mainCi": 39090906197,
+    "mainCiStatus": "PASS",
+    "releaseUrl": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261018.4",
+    "package": {
+      "plugin": "soundcraft",
+      "version": "0.1.0-dev.20261018.4",
+      "commit": "203f01e213f84bcc042665b437b109b415cadf9d",
+      "archiveSha256": "be583b11a35aa9039a33196f48ae4bc04955a995e5caac663609c902bca85957",
+      "bytes": 20304896,
+      "maximumZipEntryBytes": 19185520,
+      "resourceLocks": "PASS actual ZIP entries",
+      "runtimeSha256": "3e86e4a5ced5f70d425bc9d60b874fe42922048451dbbc5955e9e3f1e20357d5",
+      "publicColdInstall": "PENDING"
+    },
+    "localThinNativeMcp": "PASS calls; cache-isolation assertion not established in first probe",
+    "localExplicitEmptyCacheProbe": "Codex sqlite state initialization failed before plugin start; not counted",
+    "marketUpdate": "PREPARED feature 18.4; main unchanged"
+  }
+}

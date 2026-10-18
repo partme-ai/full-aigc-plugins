@@ -1,0 +1,55 @@
+name: SoundCraft CJK Web runtime candidate
+on:
+  push:
+    paths: ['.github/workflows/soundcraft-cjk-runtime.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-plugins/soundcraft-plugin
+          ref: 2c047aec7025f15443885d232f91c89626c7c9ed
+          path: candidate-plugin
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: wasm-bindgen-cli@0.2.129
+      - name: Verify font overlay contracts
+        run: python3 -I -B -m unittest discover -s candidate-plugin/tests -v
+      - name: Download only checksum-locked redistributable font and license
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,urllib.request
+          from pathlib import Path
+          for entry in json.loads(Path('candidate-plugin/ui/fonts.lock.json').read_text())['files']:
+              with urllib.request.urlopen(entry['url'],timeout=60) as response: data=response.read()
+              assert len(data)==entry['bytes'] and hashlib.sha256(data).hexdigest()==entry['sha256']
+              p=Path('font-input')/entry['file'];p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+          PY
+      - name: Install isolated adapter build dependencies
+        run: npm ci --prefix candidate-plugin/ui
+      - name: Build pinned upstream in disposable copy with font overlay
+        env:
+          CRAFT_FONTS_DIR: ${{ github.workspace }}/font-input
+        run: python3 candidate-plugin/ui/build-source.py --output font-build --target-dir wasm-target --jobs 2
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: soundcraft-cjk-runtime-candidate
+          path: |
+            font-build/packaged/editor/**
+            font-build/packaged/build-source.json

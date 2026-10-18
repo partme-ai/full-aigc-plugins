@@ -37,3 +37,11 @@ CLI 语法（下面是展示用写法，实际跨平台执行用argv避免shell�
 ## 限定技术回归
 
 Windows main专项 [39012439447](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39012439447)与稳定版13应用矩阵 [39012427784](https://github.com/partme-ai/full-aigc-plugins/actions/runs/39012427784)通过。合成信号核对本场景实际采样、原生片段/混音结构、四秒48kHz24位立体声PCM及保存重开；音频剪辑为同源连续素材的互补线性交叉淡化，音乐样例无共享总线效果。真实素材试听、感知响度标准和内嵌宿主同步未验收，不把方法目录查询当成实际效果处理。
+
+## 用实际片段参数生成配方
+
+读取本技能 `scripts/podcast_input.py`，输入 JSON 必须含 track、startSeconds、endSeconds、fadeInSeconds、fadeOutSeconds、gainDb、output。例如轨道“访谈 主轨”、范围12到42秒、头部0.02秒、尾部0.05秒、增益-2.5dB、output为“审核/访谈.wav”。运行 `python podcast_input.py --input input.json --output recipe.json`；脚本只生成参数，不执行编辑，已有配方输出会拒绝覆盖。
+
+先用 session.inspect 确认此范围恰好对应一个独立片段。clip.gain 修改选中的整片段，不是仅处理时间选区；范围跨越多个片段时先明确选择和拆分方案，不能直接套用。淡变时间采用会话绝对秒；零长度不创建淡变，重叠淡变拒绝。生成后读取 steps，MCP逐项调用execute(command,params)，或把每项编码为独立CLI argv `--cmd`、`方法ID=JSON`，保持同一进程；不能将配方文件直接当作CLI原生脚本。
+
+实际输出目录由任务创建并确认文件尚不存在；助手不会替混音器防止覆盖既有WAV。先保存新工程，回读片段/淡变与输出采样长度，再试听辅音、换气与尾音。混音输出包括会话中未静音的其他轨道，需根据任务明确混音状态。此流程不裁掉范围外内容，也没有降噪、均衡、压缩或LUFS归一化。新参数配方移除四秒旧夹具的验收记录，不能继承其通过结论。
