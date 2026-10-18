@@ -1,0 +1,17 @@
+{
+  "status": "LIMITED_NATIVE_PASS",
+  "fixture": "6000x3500,door start1200,width900",
+  "nativeReopenedDimensionMeasurements": [
+    6000,
+    3500
+  ],
+  "noDimensionTextOverride": true,
+  "wallOpening": [
+    1200,
+    2100
+  ],
+  "swingRadius": 900,
+  "unit": "mm",
+  "hostSync": "NOT_TESTED",
+  "windowsNewHelper": "NOT_TESTED"
+}
