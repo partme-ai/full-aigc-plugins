@@ -44,13 +44,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/download/v0.1.0-dev.20261018.2/cadcraft-plugin-0.1.0-dev.20261018.2.zip",
-        "sha256": "90193c9150409d0900d5092abd393094f8df6043ac24176c7e43e4f1a82d6794",
+        "url": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/download/v0.1.0-dev.20261018.3/cadcraft-plugin-0.1.0-dev.20261018.3.zip",
+        "sha256": "b871b618e0ac0170cf394ff78ad3d8cd0af11098b204bef58b0ff0f9875baa7d",
         "path": "cadcraft-plugin"
       },
       "displayName": "CADCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261018.2",
+      "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
       "tags": [
         "cadcraft",
@@ -59,7 +59,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "strict": true
     },
     {

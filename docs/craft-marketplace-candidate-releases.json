@@ -1,20 +1,20 @@
 [
   {
     "plugin": "cadcraft",
-    "version": "0.1.0-dev.20261018.2",
+    "version": "0.1.0-dev.20261018.3",
     "runtime": "cadcraft-runtime.tgz",
-    "sha256": "887028e07939dfdcec10927fd0058f1fe97d7c4b407c3c4136a1cb8fbda28643",
-    "bytes": 24957062,
-    "runtimeRef": "v0.1.0-dev.20261017.2",
-    "reuseRuntime": true,
-    "commit": "14326d79eafc8b27d2b4e03f9b762cda74e99569",
-    "archive": "cadcraft-plugin-0.1.0-dev.20261018.2.zip",
-    "archiveSha256": "90193c9150409d0900d5092abd393094f8df6043ac24176c7e43e4f1a82d6794",
-    "releaseUrl": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261018.2",
+    "sha256": "19b56060ab2728dd6a2345e789524557a94edb1fc7e9eba8bc679a7a852ce2ee",
+    "bytes": 38101871,
+    "runtimeRef": "v0.1.0-dev.20261018.3",
+    "reuseRuntime": false,
+    "commit": "26ac6a39e781f91ff895918e4ed34269f183d03d",
+    "archive": "cadcraft-plugin-0.1.0-dev.20261018.3.zip",
+    "archiveSha256": "b871b618e0ac0170cf394ff78ad3d8cd0af11098b204bef58b0ff0f9875baa7d",
+    "releaseUrl": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
     "remoteAssetDigests": "PASS",
-    "maximumZipEntryBytes": 24153048
+    "maximumZipEntryBytes": 37347623
   },
   {
     "plugin": "designcraft",

@@ -152,5 +152,24 @@
       "screenshotSha256": "985bb7b07dafad4a706fa5eafb11221984eb782a4b4adfd6da7733254ad46bbf",
       "rpc": ".local/cad-room-font-full-package/native-host/native-rpc.json"
     }
+  },
+  "release18_3": {
+    "version": "0.1.0-dev.20261018.3",
+    "pluginCommit": "26ac6a39e781f91ff895918e4ed34269f183d03d",
+    "skillSourceCommit": "42ec4b9ca5b0beab54c038dc284160ff17c8775b",
+    "releaseUrl": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
+    "publicZipAndRuntimeDigests": "PASS downloaded bytes and remote GitHub asset digests",
+    "localVersionZipNativeInstallAndMcp": "PASS open room, text query, textedit, save and same page Chinese display",
+    "publicDownloadNativeInstall": "PENDING",
+    "marketMain": "PENDING",
+    "ci": {
+      "pluginTest": 39084759470,
+      "skillsTest": 39084758097,
+      "pluginMain": 39084789290,
+      "skillsMain": 39084790561,
+      "status": "all success"
+    },
+    "runtimeBuildLabel": "0.1.0-dev.20261018.2 independent of plugin18.3; same verified compiled runtime",
+    "screenshot": ".local/cad-room-release-18-3/release-updated.jpg"
   }
 }
