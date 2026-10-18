@@ -88,8 +88,8 @@
     {
       "id": "jianying-edit",
       "displayName": "JianYing Edit",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-edit-plugin@v0.28.3/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/jianying-edit-plugin/releases/tag/v0.28.3"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.0/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.28.3"
     },
     {
       "id": "lightcraft",
