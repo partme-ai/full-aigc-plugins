@@ -168,7 +168,7 @@
     "version": "0.1.0-dev.20261018.3",
     "commit": "ec48b2b5c92a6f7dfe93450739289779a1f77549",
     "archiveSha256": "9206475f435dee9fff66e4207b6d9cc9e7e969bd74dc13878505ce91b79b13bd",
-    "marketMain": "PENDING",
+    "marketMain": "PASS: public main native installation and MCP",
     "publicTestMarketInstallation": "PASS",
     "installedScriptSourceBytes": "IDENTICAL",
     "nativeDenseSample": {
@@ -189,16 +189,27 @@
       },
       "marketInstall": {
         "id": 39080897417,
-        "status": "PENDING"
+        "status": "PASS"
       },
       "windowsBusiness": {
         "id": 39080897421,
-        "status": "PENDING"
+        "status": "PASS"
       },
       "packageMcp": {
         "id": 39080897422,
-        "status": "PENDING"
+        "status": "PASS"
       }
+    },
+    "mainDeliveryCommit": "00f6d824157448b8a2a7b4b75d02c30bda28c78b",
+    "skillsDiscovered": 10,
+    "mainAutomaticRuns": {
+      "status": "IN_PROGRESS_AT_RECORDING",
+      "runs": [
+        39081360732,
+        39081360739,
+        39081360701,
+        39081360731
+      ]
     }
   }
 }
