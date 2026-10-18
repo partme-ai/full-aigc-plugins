@@ -53,7 +53,7 @@ const dsh = process.env.DSH_CLI || (process.platform === 'win32' ? 'dsh.cmd' : '
 const win = process.platform === 'win32'
 const specs = []
 for (const plugin of index.plugins) {
-  const slug = plugin.name.replace('@partme-dsh/', '')
+  const slug = plugin.name.split('/').pop()
   if (!all && !only.has(slug)) continue
   const version = plugin.versions[0]
   if (version.source.type === 'npm') {
