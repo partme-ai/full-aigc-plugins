@@ -491,4 +491,4 @@ DeckCraft数据叙事18.3已完成公开发行与目录仓main交付（00f6d82�
 
 ## CADCraft参数化房间图与文档中文字体
 
-在既有floor-plan场景中补充输入校验和原生命令计划，不增加场景计数。毫米房间、边缘门洞、开门弧与真实尺寸的macOS/Windows CLI回归通过；新增文档字体覆盖修复后，实际Codex宿主显示完整中文，并通过同页面textedit、保存DXF及独立CLI重读。插件18.3已公开发布，公开下载ZIP与运行时摘要一致，原生安装和中文同步通过。独立插件仓与技能源仓已按feature→test→main合并且CI通过；目录仓test的Windows房间图、27项市场安装、14项打包/原生MCP及13项CLI业务矩阵全部通过；市场更新已合入main0f3a574，远端main原生安装18.3和MCP入口调用通过。main房间图39085281185通过，其余main矩阵仍在运行。新运行时仅验收macOS Codex中的这一场景，复杂建筑图、其他宿主与真实施工质量未验收。详见craft-cad-room-plan-validation.json。
+在既有floor-plan场景中补充输入校验和原生命令计划，不增加场景计数。毫米房间、边缘门洞、开门弧与真实尺寸的macOS/Windows CLI回归通过；新增文档字体覆盖修复后，实际Codex宿主显示完整中文，并通过同页面textedit、保存DXF及独立CLI重读。插件18.3已公开发布，公开下载ZIP与运行时摘要一致，原生安装和中文同步通过。独立插件仓与技能源仓已按feature→test→main合并且CI通过；目录仓test的Windows房间图、27项市场安装、14项打包/原生MCP及13项CLI业务矩阵全部通过；市场更新已合入main0f3a574，远端main原生安装18.3和MCP入口调用通过。main房间图39085281185、市场安装39085281165、打包/原生MCP39085281173、CLI业务39085281206全部通过。新运行时仅验收macOS Codex中的这一场景，复杂建筑图、其他宿主与真实施工质量未验收。详见craft-cad-room-plan-validation.json。

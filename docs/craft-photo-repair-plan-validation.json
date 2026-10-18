@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "synthetic256x192; actual native CLI0.9.0; helper-generated commands",
+  "metrics": {
+    "targetErrorBefore": 13347,
+    "targetErrorAfter": 2061,
+    "protectedDelta": 0
+  },
+  "layers": 2,
+  "realPhotoQuality": "NOT_TESTED",
+  "hostSync": "NOT_TESTED",
+  "windows": "NOT_TESTED",
+  "sourceCommit": "b1725e5",
+  "pluginFeatureCommit": "4a17b74",
+  "unitTests": 7,
+  "source": "existing fixed GNOME/gimp-help heal workflow; original coordinate compiler",
+  "newSceneCount": 0,
+  "releaseStatus": "UNRELEASED"
+}

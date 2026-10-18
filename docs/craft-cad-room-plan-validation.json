@@ -84,7 +84,6 @@
   "savedUnitHeaders": "all six DXF files independently verified INSUNITS=4",
   "macosVisualReview": "sample and both edge-door drawings inspected",
   "remaining": [
-    "main CI final results",
     "other hosts and complex plans"
   ],
   "nativeHost": {
@@ -184,15 +183,15 @@
       },
       "packageMcp": {
         "run": 39085281173,
-        "status": "pending"
+        "status": "success"
       },
       "market": {
         "run": 39085281165,
-        "status": "pending"
+        "status": "success"
       },
       "cli": {
         "run": 39085281206,
-        "status": "pending"
+        "status": "success"
       }
     }
   }
