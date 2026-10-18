@@ -53,7 +53,12 @@
     "pluginCommit": "2c047aec7025f15443885d232f91c89626c7c9ed",
     "fontSha256": "39ad71264b588165b469e35e6afb162a378dacd1f95348160240ba9038ac3009",
     "buildRun": 39089813142,
-    "buildStatus": "RUNNING",
-    "browserGlyphVerification": "PENDING"
+    "buildStatus": "PASS",
+    "browserGlyphVerification": "PASS actual Chinese track list and header glyphs",
+    "samePageMcp": "PASS selected range and gain label; no reload",
+    "audioExportVsNative": "PASS decoded samples",
+    "fontLicenseInArtifact": "PASS gzip decompressed exact OFL sha256",
+    "runtimeSha256": "189abc73ed2a1420b1a5c61c953c83809b70c76bebd89e366fa0c9a0e5bd6ae5",
+    "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-cjk-host"
   }
 }
