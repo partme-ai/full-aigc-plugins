@@ -15,7 +15,7 @@ def run_input(r,skill_root):
     (r.work/'input.json').write_text(json.dumps(data),encoding='utf-8')
     result=subprocess.run([sys.executable,str(skill/'scripts/podcast_input.py'),'--input',str(r.work/'input.json'),'--output',str(r.work/'recipe.json')],capture_output=True,text=True)
     assert result.returncode==0,result.stderr
-    recipe=json.loads((r.work/'recipe.json').read_text())
+    recipe=json.loads((r.work/'recipe.json').read_text(encoding='utf-8'))
     def run(steps,source=None,save=None):
         args=['run']+(['--in',source] if source else [])
         for command,params in steps:args+=['--cmd',command+'='+json.dumps(params,ensure_ascii=False,separators=(',',':'))]
@@ -24,9 +24,9 @@ def run_input(r,skill_root):
     def bounce(path):return ('file.bounce_mix',{'path':path,'format':'wav','bit_depth':24,'start':{'seconds':1.25},'end':{'seconds':5.25},'normalize':False,'dither':False})
     run([('session.new',{'name':'Input helper fixture','sample_rate':48000,'bit_depth':24,'template':'blank'}),('track.new',{'name':data['track'],'format':'mono','kind':'audio'}),('file.import_audio',{'path':'voice.wav','track':data['track'],'new_tracks':False,'at':{'seconds':1.25}}),('file.import_audio',{'path':'other.wav','track':data['track'],'new_tracks':False,'at':{'seconds':10}})],save='input.scraft')
     hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in [r.work/'voice.wav',r.work/'other.wav',r.work/'input.scraft']}
-    before=json.loads((r.work/'input.scraft').read_text());run([bounce('baseline.wav')],source='input.scraft')
+    before=json.loads((r.work/'input.scraft').read_text(encoding='utf-8'));run([bounce('baseline.wav')],source='input.scraft')
     run([(s['command'],s['params']) for s in recipe['steps']],source='input.scraft',save='result.scraft')
-    after=json.loads((r.work/'result.scraft').read_text());_,oldclips=track_clips(before,data['track']);_,newclips=track_clips(after,data['track'])
+    after=json.loads((r.work/'result.scraft').read_text(encoding='utf-8'));_,oldclips=track_clips(before,data['track']);_,newclips=track_clips(after,data['track'])
     oldclips=sorted(oldclips,key=lambda c:c['start']);newclips=sorted(newclips,key=lambda c:c['start'])
     assert len(newclips)==2 and oldclips[1]==newclips[1],'Unselected later clip changed'
     clip=newclips[0];assert clip['start']==60000 and clip['length']==192000

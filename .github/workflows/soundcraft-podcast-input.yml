@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: full-aigc-skills/soundcraft-skills
-          ref: 51e8f30d3d8a1f95a9d8fb86c8c56d6bb0ec2b84
+          ref: 80fd4baa74bf50a94c3cab6739875b5f42bab428
           path: story-source
       - name: Check actual skill input handling
         run: python -I -B -m unittest discover -s story-source/skills/soundcraft-podcast-cleanup/tests -v
