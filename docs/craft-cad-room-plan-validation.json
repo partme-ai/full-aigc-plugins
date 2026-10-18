@@ -84,8 +84,7 @@
   "savedUnitHeaders": "all six DXF files independently verified INSUNITS=4",
   "macosVisualReview": "sample and both edge-door drawings inspected",
   "remaining": [
-    "Chinese UI glyph coverage",
-    "live measurement metadata discrepancy",
+    "new Chinese font runtime actual host validation",
     "market release",
     "other hosts and complex plans"
   ],
@@ -101,7 +100,17 @@
     "chineseAppearance": "FAIL: middle character议 is a missing glyph in bundled UI; original Unicode preserved in DXF",
     "fontProbe": "explicit family/filename did not fix glyph; restored original CADCraft Stroke style",
     "runtime": "verified bundled enhanced0.7.0 after update404; not newest upstream main",
-    "screenshotSha256": "4a286473ba7122c42ed77bfbe82d8d3704e1d17ff11c8dc23e0c4cae013e44e0"
+    "screenshotSha256": "4a286473ba7122c42ed77bfbe82d8d3704e1d17ff11c8dc23e0c4cae013e44e0",
+    "liveMeasurementAlternative": {
+      "status": "PASS",
+      "method": "actual inspected Dimension p13/p14 -> execute dist in same native Codex session",
+      "distances": [
+        6000,
+        3500
+      ],
+      "cachedField": "measurement initialized0 in official annotate source; not treated as a live recalculation",
+      "scope": "two orthogonal linear dimensions only"
+    }
   },
   "fontBuildFix": {
     "cause": "CAD document font build filters non-web faces; existing font overlay omitted CADCraft; UI font-stack fallback alone does not cover document text",
