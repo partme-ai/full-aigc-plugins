@@ -84,7 +84,7 @@
   "savedUnitHeaders": "all six DXF files independently verified INSUNITS=4",
   "macosVisualReview": "sample and both edge-door drawings inspected",
   "remaining": [
-    "new runtime public package and market release",
+    "main CI final results",
     "other hosts and complex plans"
   ],
   "nativeHost": {
@@ -161,7 +161,7 @@
     "publicZipAndRuntimeDigests": "PASS downloaded bytes and remote GitHub asset digests",
     "localVersionZipNativeInstallAndMcp": "PASS open room, text query, textedit, save and same page Chinese display",
     "publicDownloadNativeInstall": "PASS: downloaded public full ZIP -> actual native Codex installer -> MCP open/textedit/save -> same page display -> independent native CLI reopen",
-    "marketMain": "PENDING",
+    "marketMain": "PASS remote main0f3a574 native Codex isolated install resolves18.3; MCP connected/open_browser_editor succeeds; runtime19b56060 verified by bootstrap",
     "ci": {
       "pluginTest": 39084759470,
       "skillsTest": 39084758097,
@@ -176,6 +176,24 @@
     "windowsRoomRun": 39084992480,
     "windowsRoomStatus": "success",
     "hubTestCommit": "89c9f28fcde54bf4282482ae1221ed54f574a56b",
-    "hubRegression": "in progress:39084992454,39084992561,39084992615"
+    "hubRegression": "PASS test: CLI39084992454, market39084992561, packageMCP39084992615; Windows room39084992480",
+    "mainCi": {
+      "room": {
+        "run": 39085281185,
+        "status": "success"
+      },
+      "packageMcp": {
+        "run": 39085281173,
+        "status": "pending"
+      },
+      "market": {
+        "run": 39085281165,
+        "status": "pending"
+      },
+      "cli": {
+        "run": 39085281206,
+        "status": "pending"
+      }
+    }
   }
 }
