@@ -108,7 +108,28 @@
     "fontSha256Verified": "PASS locked font bytes in actual artifact",
     "coverScreenshot": ".local/design-brochure-input-windows/story-result/windows-chinese-cover.png"
   },
-  "newHelperInstalledHost": "NOT_TESTED",
+  "newHelperInstalledHost": {
+    "status": "PASS synthetic Chinese4-page candidate",
+    "metadataVersion": "0.1.0-dev.20261018.2 locally modified isolated candidate, not a public release",
+    "pluginSourceCommit": "0477e87",
+    "actualInstalledScriptsUsed": true,
+    "nativeCreation": ".local/design-brochure-input-host/native-creation.json",
+    "nativeMcp": "actual Codex app-server",
+    "before": "办公套装 / 校样",
+    "after": "办公套装 / 复核",
+    "samePageSync": "PASS observed",
+    "reopenedStories": "PASS12 full texts/frame bindings/no overset",
+    "embeddedImageBytes": "PASS2",
+    "onlyDocumentChangedPaths": [
+      "/stories/14/text",
+      "/stories/14/rev"
+    ],
+    "pdfChineseFourHeadings": "PASS actual extraction",
+    "fontSourceNative": "document",
+    "fontSourceWeb": "bundled (observed font.list); no Web Document Fonts loading claim",
+    "screenshot": ".local/design-brochure-input-host/revised.jpg",
+    "rpc": ".local/design-brochure-input-host/native-host/native-rpc.json"
+  },
   "commercialDesignQuality": "NOT_TESTED",
   "releaseStatus": "UNRELEASED feature candidate",
   "repeatableMacOS": {
