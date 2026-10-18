@@ -103,7 +103,7 @@
       "displayName": "PhotoCraft Use",
       "repository": "full-aigc-plugins/photocraft-plugin",
       "localDirectory": "photocraft-plugin",
-      "version": "0.1.0-dev.20261018.3",
+      "version": "0.1.0-dev.20261018.4",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",

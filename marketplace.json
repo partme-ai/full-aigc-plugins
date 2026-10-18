@@ -375,13 +375,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/download/v0.1.0-dev.20261018.3/photocraft-plugin-0.1.0-dev.20261018.3.zip",
-        "sha256": "3aa9b3efe1e5eb892cc1bfea474ead8e0410ddee0f7b6ce492b6b13dc2be482b",
+        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/download/v0.1.0-dev.20261018.4/photocraft-plugin-0.1.0-dev.20261018.4.zip",
+        "sha256": "d68d25979363c3a84f82fb8a87b8a0965f77bdc83f615b6c1af1c6e48a2f7c07",
         "path": "photocraft-plugin"
       },
       "displayName": "PhotoCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261018.3",
+      "version": "0.1.0-dev.20261018.4",
       "category": "Creativity",
       "tags": [
         "photocraft",
@@ -390,7 +390,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261018.4/assets/official-logo.png",
       "strict": true
     },
     {

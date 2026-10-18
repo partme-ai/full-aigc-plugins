@@ -49,12 +49,12 @@
   },
   {
     "plugin": "photocraft",
-    "version": "0.1.0-dev.20261018.3",
+    "version": "0.1.0-dev.20261018.4",
     "repository": "full-aigc-plugins/photocraft-plugin",
-    "commit": "c5e93d6b091b01e359bb4be8826320f6a59098f0",
-    "tag": "v0.1.0-dev.20261018.3",
-    "fileCount": 1170,
-    "treeSha256": "49625d94cdae5b29929178315e7ee9bf8a0f69e353dffeff78b299d90d07b43d",
+    "commit": "c2a0fbefc6ca35a3f915641093c56001c7d76079",
+    "tag": "v0.1.0-dev.20261018.4",
+    "fileCount": 1173,
+    "treeSha256": "1d1c9534298685d4cf6461aa412ec4e2346a19365731a331c5c36d780465a0a1",
     "excluded": [
       "evidence/",
       "docs/evidence/",
