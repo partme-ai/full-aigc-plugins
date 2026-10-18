@@ -75,5 +75,15 @@
     "testPluginCommit": "6067707179791c9cd7d86a1fe7b0458fb4e7e640",
     "testCi": 39090286911,
     "testCiStatus": "QUEUED"
+  },
+  "publication183": {
+    "pluginMain": "1c7cebe21105baaf69c0e3202b07990fcd8fb7a7",
+    "sourceMain": "531d95cc8f3bc8b7780a046914a94ba3138b7287",
+    "testCi": 39090286911,
+    "mainCi": 39090354918,
+    "ciResult": "PASS Linux and Windows",
+    "releaseUrl": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
+    "publicDownloadInstall": "PENDING",
+    "marketUpdate": "PENDING"
   }
 }
