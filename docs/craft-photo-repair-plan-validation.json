@@ -8,12 +8,123 @@
   },
   "layers": 2,
   "realPhotoQuality": "NOT_TESTED",
-  "hostSync": "NOT_TESTED",
-  "windows": "NOT_TESTED",
+  "hostSync": "PASS actual native Codex; synthetic mixed input only",
+  "windows": {
+    "run": 39085737237,
+    "status": "PASS",
+    "result": {
+      "status": "PASS",
+      "platform": "win32",
+      "nativeProcesses": 15,
+      "variants": [
+        {
+          "name": "mixed",
+          "metrics": {
+            "targetErrorBefore": 13347,
+            "targetErrorAfter": 2061,
+            "protectedDelta": 0
+          },
+          "originalLayerPixels": "PASS",
+          "inputUnchanged": "PASS",
+          "existingPlanProtection": "PASS",
+          "layers": 2
+        },
+        {
+          "name": "spot",
+          "metrics": {
+            "targetErrorBefore": 13347,
+            "targetErrorAfter": 39,
+            "protectedDelta": 0
+          },
+          "originalLayerPixels": "PASS",
+          "inputUnchanged": "PASS",
+          "existingPlanProtection": "PASS",
+          "layers": 2
+        },
+        {
+          "name": "heal",
+          "metrics": {
+            "targetErrorBefore": 13347,
+            "targetErrorAfter": 4146,
+            "protectedDelta": 0
+          },
+          "originalLayerPixels": "PASS",
+          "inputUnchanged": "PASS",
+          "existingPlanProtection": "PASS",
+          "layers": 2
+        }
+      ],
+      "scope": "synthetic256x192; helper-generated local repair; no real photo-quality claim",
+      "hostSync": "NOT_TESTED"
+    }
+  },
   "sourceCommit": "b1725e5",
   "pluginFeatureCommit": "4a17b74",
   "unitTests": 7,
   "source": "existing fixed GNOME/gimp-help heal workflow; original coordinate compiler",
   "newSceneCount": 0,
-  "releaseStatus": "UNRELEASED"
+  "releaseStatus": "UNRELEASED feature candidate; main market still earlier helper-free version",
+  "macOSThreeVariants": {
+    "status": "PASS",
+    "platform": "darwin",
+    "nativeProcesses": 15,
+    "variants": [
+      {
+        "name": "mixed",
+        "metrics": {
+          "targetErrorBefore": 13347,
+          "targetErrorAfter": 2061,
+          "protectedDelta": 0
+        },
+        "originalLayerPixels": "PASS",
+        "inputUnchanged": "PASS",
+        "existingPlanProtection": "PASS",
+        "layers": 2
+      },
+      {
+        "name": "spot",
+        "metrics": {
+          "targetErrorBefore": 13347,
+          "targetErrorAfter": 39,
+          "protectedDelta": 0
+        },
+        "originalLayerPixels": "PASS",
+        "inputUnchanged": "PASS",
+        "existingPlanProtection": "PASS",
+        "layers": 2
+      },
+      {
+        "name": "heal",
+        "metrics": {
+          "targetErrorBefore": 13347,
+          "targetErrorAfter": 4146,
+          "protectedDelta": 0
+        },
+        "originalLayerPixels": "PASS",
+        "inputUnchanged": "PASS",
+        "existingPlanProtection": "PASS",
+        "layers": 2
+      }
+    ],
+    "scope": "synthetic256x192; helper-generated local repair; no real photo-quality claim",
+    "hostSync": "NOT_TESTED"
+  },
+  "actualCodex": {
+    "status": "PASS synthetic mixed case",
+    "installedHelperUsed": true,
+    "sameCanvasSync": "observed",
+    "originalLayerId": 2,
+    "workingLayerId": 3,
+    "savedProjectIndependentCliReopen": "PASS",
+    "sourceLayerPixels": "PASS",
+    "exportMatchesReopenedPixels": "PASS",
+    "metrics": {
+      "targetErrorBefore": 13347,
+      "targetErrorAfter": 2061,
+      "protectedDelta": 0
+    },
+    "rpc": ".local/photo-repair-plan-host/native-host/native-rpc.json",
+    "screenshot": ".local/photo-repair-plan-host/after.jpg"
+  },
+  "windowsStatus": "PASS 3 synthetic variants"
 }
