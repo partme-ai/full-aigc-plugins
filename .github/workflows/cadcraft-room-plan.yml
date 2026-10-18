@@ -1,0 +1,38 @@
+name: CADCraft room plan on Windows
+on:
+  push:
+    paths: ['scripts/ci/cad_room_plan_smoke.py', '.github/workflows/cadcraft-room-plan.yml']
+  pull_request:
+    paths: ['scripts/ci/cad_room_plan_smoke.py', '.github/workflows/cadcraft-room-plan.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  data-story:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/cadcraft-skills
+          ref: 02d928093338a564117cd5c7ebe16e62f0118a5e
+          path: story-source
+      - name: Validate actual skill input handling
+        run: python -m unittest discover -s story-source/skills/cadcraft-floor-plan/tests -v
+      - name: Download verified official CLI and run baseline business
+        run: python scripts/ci/craft_cli_windows.py --plugin cadcraft --output baseline-result
+      - name: Check real room walls, door opening and native dimensions
+        run: python scripts/ci/cad_room_plan_smoke.py --source story-source --runtime-root baseline-result --output story-result
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cadcraft-room-plan-results
+          path: |
+            baseline-result/result.json
+            story-result/**
