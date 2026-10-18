@@ -1,0 +1,38 @@
+name: PrintCraft form requests on Windows
+on:
+  push:
+    paths: ['scripts/ci/print_form_request_smoke.py', '.github/workflows/printcraft-form-requests.yml']
+  pull_request:
+    paths: ['scripts/ci/print_form_request_smoke.py', '.github/workflows/printcraft-form-requests.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  data-story:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/printcraft-skills
+          ref: 55cb0d162fea3ab50069d21a9f434292a34fc699
+          path: story-source
+      - name: Validate actual skill input handling
+        run: python -m unittest discover -s story-source/skills/printcraft-fill-pdf-forms/tests -v
+      - name: Download verified official CLI and run baseline business
+        run: python scripts/ci/craft_cli_windows.py --plugin printcraft --output baseline-result
+      - name: Check actual text and checkbox field values in one native session
+        run: python scripts/ci/print_form_request_smoke.py --source story-source --runtime-root baseline-result --output story-result
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: printcraft-form-requests-results
+          path: |
+            baseline-result/result.json
+            story-result/**
