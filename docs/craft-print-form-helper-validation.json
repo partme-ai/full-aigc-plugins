@@ -173,7 +173,7 @@
       39082566011,
       39082566028
     ],
-    "testCIStatus": "PENDING",
+    "testCIStatus": "PASS: all four exact d4204a6 runs completed successfully",
     "publishedNativeHost": {
       "status": "PASS_FOR_SPECIFIED_ASCII_FIXTURE",
       "installSource": "public test marketplace18.2",
