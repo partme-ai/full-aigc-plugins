@@ -84,8 +84,23 @@
   "savedUnitHeaders": "all six DXF files independently verified INSUNITS=4",
   "macosVisualReview": "sample and both edge-door drawings inspected",
   "remaining": [
-    "actual installed host sync",
+    "Chinese UI glyph coverage",
+    "live measurement metadata discrepancy",
     "market release",
-    "complex room shapes, walls and construction layouts beyond this single-line plan"
-  ]
+    "other hosts and complex plans"
+  ],
+  "nativeHost": {
+    "status": "PARTIAL",
+    "host": "actual native Codex app-server and isolated local installed plugin",
+    "pluginSourceCommit": "ba826e3",
+    "planFromInstalledHelper": true,
+    "commands": 14,
+    "liveEditor": "room walls,door swing and6000/3500 dimension labels visible",
+    "hostSavedDxfIndependentReopen": "PASS: all geometry and native measurements verified by actual CLI",
+    "liveInspectMeasurement": "returns0 despite rendered dimensions; do not use as sole measurement proof",
+    "chineseAppearance": "FAIL: middle character议 is a missing glyph in bundled UI; original Unicode preserved in DXF",
+    "fontProbe": "explicit family/filename did not fix glyph; restored original CADCraft Stroke style",
+    "runtime": "verified bundled enhanced0.7.0 after update404; not newest upstream main",
+    "screenshotSha256": "4a286473ba7122c42ed77bfbe82d8d3704e1d17ff11c8dc23e0c4cae013e44e0"
+  }
 }
