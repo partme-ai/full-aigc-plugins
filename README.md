@@ -1,12 +1,5 @@
 <div align="center">
 
-Craft 插件的 `plugins/` 为固定独立仓发行提交生成的 Codex 分发快照，保证安装前图标可读；技能及代码仍在各独立插件仓维护，不在目录仓手工修改快照。
-
-## Craft 可安装开发候选
-
-13 个 Craft 编辑器候选按应用固定到 `0.1.0-dev.20261017.5` 或 `0.1.0-dev.20261017.6` 或 `0.1.0-dev.20261017.7`，名称为 `PhotoCraft Use (RC)` 等，使用官方图标。它们是开发预发布；生产与全部场景验收尚未完成。安装要求 Node.js 24。Git 安装首次启动会下载固定摘要的编辑器资源；完整发行 ZIP 自带资源。详见 [安装与验证状态](docs/craft-marketplace-release.md)。 交付参考 ZCode 的已构建 ZIP 分发方式：支持该协议的宿主绑定完整包、摘要和包内目录。当前 EffectCraft 超出 ZCode 单文件解包上限，显式使用 Git 入口兼容；Codex 原生 Git 入口单独验收。
-
-
 # Full AIGC Plugins
 
 **11 个插件。AIGC 全链路。一个统一生态。**
