@@ -17,12 +17,12 @@
   },
   {
     "plugin": "designcraft",
-    "version": "0.1.0-dev.20261018.2",
+    "version": "0.1.0-dev.20261018.3",
     "repository": "full-aigc-plugins/designcraft-plugin",
-    "commit": "90eb0f9db13652004e1606e3ed1b1bbdc416025b",
-    "tag": "v0.1.0-dev.20261018.2",
-    "fileCount": 267,
-    "treeSha256": "f50b7b1622c88f710fb9d24ff0533055beba355c507598032f0dc813fe1200fe",
+    "commit": "239273d96cf418ea47d26ee415a4030d39e6a711",
+    "tag": "v0.1.0-dev.20261018.3",
+    "fileCount": 270,
+    "treeSha256": "ed6adfa79e49130af9d2b3bbb54de25ac8aa1235fd6c6b7f2b14d116b253cb2b",
     "excluded": [
       "evidence/",
       "docs/evidence/",

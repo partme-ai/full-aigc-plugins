@@ -262,5 +262,28 @@
     "Real product imagery and typography quality",
     "Same-canvas editing in installed hosts",
     "Deduplicated expansion across all 13 Craft applications into hundreds of distinct workflows"
-  ]
+  ],
+  "actualCodexHostRevision": {
+    "status": "PASS cover revision only",
+    "installedVersion": "0.1.0-dev.20261018.2",
+    "runtimeSha256": "5e77a6a29dd9542fb49946d2576d3c495bcec15bbbdbd89e72c09a0f7423b234",
+    "host": "actual native Codex app-server and built-in browser",
+    "workflow": "CLI-built existing sample explicitly opened in Web session; no automatic CLI/Web live-sharing claim",
+    "targetStoryFromInspect": 14,
+    "before": "Field kit",
+    "after": "Field kit / revised",
+    "samePageSync": "PASS observed",
+    "savedIndependentCliReopen": "PASS 12 story texts/frame bindings/overset",
+    "embeddedImageBytes": "PASS 2",
+    "onlyDocumentChangedPaths": [
+      "/stories/14/chars/0/len",
+      "/stories/14/rev",
+      "/stories/14/text"
+    ],
+    "pdfCheck": "PASS 4 page heading order and2 images",
+    "rpc": ".local/design-brochure-host-20261018/native-host/native-rpc.json",
+    "screenshot": ".local/design-brochure-host-20261018/revised.jpg",
+    "commercialDesignQuality": "NOT_TESTED",
+    "otherHosts": "NOT_TESTED"
+  }
 }

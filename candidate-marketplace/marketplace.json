@@ -54,13 +54,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/download/v0.1.0-dev.20261018.2/designcraft-plugin-0.1.0-dev.20261018.2.zip",
-        "sha256": "02e932de06105b7cd3ba8295cf5bb16ab84d23a351dce3fcd0e83cf158c42042",
+        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/download/v0.1.0-dev.20261018.3/designcraft-plugin-0.1.0-dev.20261018.3.zip",
+        "sha256": "d4756dccef3f62e87a6d14bc7d3994fd38f48da583e0be8c94bb9cedfc4b0c9d",
         "path": "designcraft-plugin"
       },
       "displayName": "DesignCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261018.2",
+      "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
       "tags": [
         "designcraft",
@@ -69,7 +69,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "strict": true
     },
     {

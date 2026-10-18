@@ -1,0 +1,42 @@
+name: DesignCraft brochure inputs on Windows
+on:
+  push:
+    paths: ['scripts/ci/design_brochure_input_smoke.py', '.github/workflows/designcraft-brochure-input.yml']
+  pull_request:
+    paths: ['scripts/ci/design_brochure_input_smoke.py', '.github/workflows/designcraft-brochure-input.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  brochure:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/designcraft-skills
+          ref: f65d798b8df53da25ee7fbf9013259cf1e315eb8
+          path: story-source
+      - name: Validate actual skill input handling
+        run: python -m unittest discover -s story-source/skills/designcraft-brochure/tests -v
+      - name: Install isolated PDF verifier
+        run: python -m pip install PyMuPDF==1.27.1
+      - name: Download locked fonts without installing system fonts
+        run: python plugins/designcraft-plugin/ui/fetch-fonts.py --output font-input
+      - name: Download verified official CLI and run baseline business
+        run: python scripts/ci/craft_cli_windows.py --plugin designcraft --output baseline-result
+      - name: Check actual filled stories, document fonts and PDF text
+        run: python scripts/ci/design_brochure_input_smoke.py --source story-source --font-root font-input --runtime-root baseline-result --output story-result
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: designcraft-brochure-input-results
+          path: |
+            baseline-result/result.json
+            story-result/**
