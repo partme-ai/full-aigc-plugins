@@ -218,7 +218,10 @@
     "releaseUrl": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
     "remoteTagCommit": "PASS",
     "remoteAssetSha256": "d4756dccef3f62e87a6d14bc7d3994fd38f48da583e0be8c94bb9cedfc4b0c9d",
-    "publicDownloadInstall": "PENDING",
-    "marketUpdate": "PENDING"
+    "publicDownloadInstall": "PASS",
+    "marketUpdate": "PENDING",
+    "publicDownloadInstallScope": "Downloaded public ZIP checksum matched; isolated actual Codex installer, native MCP status and open_browser_editor; browser synchronization separately verified on identical ZIP",
+    "publicDownloadEvidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/design-brochure-input-release-18-3/public-install-contained",
+    "testMarketCommit": "7c9545e6f2840aae7e54070bff8510428abdc92c"
   }
 }
