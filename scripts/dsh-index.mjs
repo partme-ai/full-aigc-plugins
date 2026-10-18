@@ -32,7 +32,7 @@ for (const entry of entries) {
     name: pkg.name,
     title: entry.displayName ?? entry.id,
     description: entry.description ?? '',
-    ...(logo ? { icon: `https://cdn.jsdelivr.net/gh/${entry.repository}@${commit}/${logo}` } : {}),
+    ...(logo ? { icon: `https://cdn.jsdelivr.net/gh/${entry.repository}@v${pkg.version}/${logo}` } : {}),
     repository: { url: `https://github.com/${entry.repository}` },
     versions: [{
       version: pkg.version,
