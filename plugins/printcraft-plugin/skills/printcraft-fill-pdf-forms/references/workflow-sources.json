@@ -31,9 +31,16 @@
           "path": "LICENSE",
           "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/LICENSE",
           "bytes": 1605
+        },
+        {
+          "path": "docs/user/forms.md",
+          "url": "https://github.com/py-pdf/pypdf/blob/1145329e8c80e1f72fbbb4001460fb8553236aeb/docs/user/forms.md",
+          "bytes": 6191,
+          "sha256": "377ccd365acb642c2b1c67873ba3084038424b90df706523abec230989474bd9"
         }
       ],
-      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied"
+      "reuse": "workflow facts and original adaptation only; no upstream text, code or assets copied",
+      "formRequestAdaptation": "Only workflow facts: inspect actual fully qualified field names and types before filling; Craft request compiler original, no upstream code copied. Stored values and visible appearances require separate checks."
     }
   ]
 }

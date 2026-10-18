@@ -148,5 +148,22 @@
       "firstHeightAttempt": "FAILED actual host; replaced with width-based redraw",
       "screenshotSha256": "9bdfef77c9e7a975784bdfe6180cbbd1bb1c9818ea536433639edd8362efdca8"
     }
+  },
+  "sourceRegression": {
+    "tests": 74,
+    "status": "PASS",
+    "commit": "e85a70a",
+    "worktreeIdentity": "formal skill-suite domain instead of checkout directory",
+    "legacySyncScope": "six declared core skills only; scenario adaptation maintained separately"
+  },
+  "candidate18_2": {
+    "pluginCommit": "1f4583ecc366f04e0f9e50082f1ac5a1428ef87a",
+    "runtimeSha256": "9854f1aab26a0ab7af303b68da225fe50b2ee57a85487c09ce23ba58c99d3d32",
+    "archiveSha256": "bdf3dd5640667c63260fd92487ae63290d1e03624e07be312477498d75e419db",
+    "fullZipIncludesDist": true,
+    "isolatedNativeCodexInstallMcp": "PASS",
+    "publicUpload": "PASS:public prerelease/tag/asset digests verified",
+    "publicZipDownloadInstallMcpRuntimeDigests": "PASS",
+    "marketMain": "PENDING"
   }
 }

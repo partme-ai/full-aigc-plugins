@@ -113,12 +113,12 @@
   },
   {
     "plugin": "printcraft",
-    "version": "0.1.0-dev.20261017.6",
+    "version": "0.1.0-dev.20261018.2",
     "repository": "full-aigc-plugins/printcraft-plugin",
-    "commit": "13fca80287e358b8745842b5583bd96de38822f5",
-    "tag": "v0.1.0-dev.20261017.6",
-    "fileCount": 366,
-    "treeSha256": "fc36f53c0e99076dc1897706515736280d0cec1b4cbba6618de49c049a9d0781",
+    "commit": "1f4583ecc366f04e0f9e50082f1ac5a1428ef87a",
+    "tag": "v0.1.0-dev.20261018.2",
+    "fileCount": 375,
+    "treeSha256": "340c364dda716cab4d91e7c75d530173f8645e9b5fdd98c5b9fefbe4793cf695",
     "excluded": [
       "evidence/",
       "docs/evidence/",

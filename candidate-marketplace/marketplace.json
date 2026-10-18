@@ -190,13 +190,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261017.6/printcraft-plugin-0.1.0-dev.20261017.6.zip",
-        "sha256": "f50dac5a75293fde28463b4b5ab91232c041fdadfca0513834bb535aa46b391d",
+        "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261018.2/printcraft-plugin-0.1.0-dev.20261018.2.zip",
+        "sha256": "bdf3dd5640667c63260fd92487ae63290d1e03624e07be312477498d75e419db",
         "path": "printcraft-plugin"
       },
       "displayName": "PdfCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.6",
+      "version": "0.1.0-dev.20261018.2",
       "category": "Productivity",
       "tags": [
         "printcraft",
@@ -205,7 +205,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
       "strict": true
     },
     {

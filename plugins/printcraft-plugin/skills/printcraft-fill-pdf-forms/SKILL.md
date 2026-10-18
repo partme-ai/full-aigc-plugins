@@ -45,3 +45,15 @@ license: Apache-2.0
 ## 技能商店场景经验
 
 遇到先发现字段再填写时，读取[商店工作流适配](references/market-workflows.md)，使用对应的Craft方法和实际结果检查。上游技能不作为运行依赖。
+
+## 从真实字段生成填写请求
+
+本技能自带 `scripts/form_request.py`，无需安装其他技能。保存当前会话 `form_fields` 的原始JSON为fields.json，将用户明确提供的字段值写入values.json，例如 `{"customer.name":"张三","consent":false}`；字段名必须与本次返回完全一致，示例名称不能直接套用。
+
+```bash
+python3 <本技能目录>/scripts/form_request.py --fields fields.json --values values.json --doc 7 --output request.json
+```
+
+`7`须替换为本次 `doc_open` 实际返回的ID。工具仅生成同会话 `form_fill` 请求，不操作PDF、不打开新CLI进程，也不确认快照属于哪个文件；执行前核对文档身份和字段快照仍有效。支持文本与复选框，拒绝不存在、重名、只读或可写性未知的字段；签名、按钮及其他字段类型须按实际原生schema另行处理。文本逐字保留，不擅自清洗或转拼音。只校验本次明确填写的字段，不声称整份表单已经完整填写。
+
+执行返回的 `tool` 和 `arguments` 后，检查 warnings；保存新路径，再重开比较字段值并渲染受影响页。中文存储正确但外观为问号仍属未完成，不能拿本辅助工具的校验通过替代页面验收。计划输出采用独占创建，不覆盖已有文件。

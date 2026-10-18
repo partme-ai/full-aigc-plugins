@@ -11,6 +11,7 @@ import { basename, dirname, join, resolve, relative, isAbsolute, sep } from 'nod
 import { fileURLToPath } from 'node:url';
 import { authorizeRequest, workspacePath } from './security.mjs';
 import {selectEditor} from './editor-update.mjs';
+import {needsFormRefresh} from './form-refresh.mjs';
 import {withPanelMetadata} from './panel-metadata.mjs';
 const panelMetadata = process.env.CRAFT_PANEL_METADATA_FILE
  ? JSON.parse(await readFile(process.env.CRAFT_PANEL_METADATA_FILE, 'utf8')) : {};
@@ -77,6 +78,7 @@ async function tool(params, fromPage=false, pageId=null) {
  if(params.name==='_editor_attach' && !result.isError) {editorAttached=true;lastPoll=Date.now();if(fromPage){browserOwner=pageId;browserToken=result.structuredContent.token;}}
  if(params.name==='_editor_poll' && !result.isError)lastPoll=Date.now();
  if(params.name==='_editor_detach' && !result.isError) editorAttached=false;
+ if(needsFormRefresh(params.name,result))notify({type:'form-refresh'});
  return result;
 }
 async function tools() {

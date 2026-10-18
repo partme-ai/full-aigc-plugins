@@ -1,6 +1,6 @@
 # PdfCraft Use
 
-当前开发候选：`0.1.0-dev.20261017.6`。新增六类PDF交付场景；Codex市场使用完整薄包快照以在安装前读取官方图标。运行资源沿用已核验的dev.20261017.2，不代表引擎升级或全部创作验收通过。
+当前开发候选：`0.1.0-dev.20261018.2`。新增六类PDF交付场景；Codex市场使用完整薄包快照以在安装前读取官方图标。运行资源沿用已核验的dev.20261017.2，不代表引擎升级或全部创作验收通过。
 
 ## Installable editor development candidate
 
@@ -72,3 +72,5 @@ Plugin display name: **PdfCraft Use**. Official upstream icon provenance and lic
 | `printcraft-revision-compare` | 对照新旧PDF生成文字差异报告，保留两个原件 |
 
 本批作为开发候选集成，实际安装版本以市场条目和对应发布标签为准。当前后端工具缺失时如实报告，不将示例ID、页号和坐标直接套用真实文件。
+
+表单场景新增基于实际字段的填写请求辅助工具；插件宿主在填写完成后触发视图重绘，指定英文文本/复选框样例经真实Codex验证。中文字体外观仍未通过，Windows包装层界面与其他宿主尚待验收。编辑器资源保持不变。

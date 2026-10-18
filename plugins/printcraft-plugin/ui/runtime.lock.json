@@ -1,10 +1,10 @@
 {
   "name": "printcraft",
-  "version": "0.1.0-dev.20261017.6",
-  "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261017.2/printcraft-runtime.tgz",
-  "sha256": "80422a359de88252384cea86f6835373413ca275369968dacc86e18427680555",
+  "version": "0.1.0-dev.20261018.2",
+  "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261018.2/printcraft-runtime.tgz",
+  "sha256": "9854f1aab26a0ab7af303b68da225fe50b2ee57a85487c09ce23ba58c99d3d32",
   "files": {
-    "adapter.mjs": "9a53ce99e5f8a91d3da7b55ac753df944da5f689959b17501797f4e3aea7b7f6",
+    "adapter.mjs": "9358e1a2d627669fce6657ccb88c2fb8229c2ae64001f209c08c81dacd859437",
     "editor/BUILD.json": "8d3cdc7d576b3cd94e73c83f72714c93a792bcc7df11bfc221da785a684b39a9",
     "editor/assets/07618ef53a8117f090654d4369b7b51c4c23627cdab82cb7b53628a3fa914d65.gz": "a2cf0f63a0a5d138ee78351fdd33a73922b113b255cdb7e0a6a6463ecedac412",
     "editor/assets/0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594.gz": "5f25851ed04830cdd8268f5c219bb5e1c80f2cb19692508b2e65b597e59f178a",
@@ -53,7 +53,7 @@
     "editor/panel.html": "1d902d095790cdfd016371e4141f4e011863b54ca0f458d416937c109ceb4b9c",
     "editor/server.mjs": "ba98206218d21434dec7294ac4ea3d47e09219082301c96093a8ec65e03fe09c",
     "editor/tools.json": "c0a76ec944e98c458ff02ad2b56593497ab67b80e97a68fb76a1da9d8197a212",
-    "host.js": "552b2c63586161a34ab12b5674c7d384b20a79050a46893df0be20a4eb7f3ec9",
+    "host.js": "9136132ea7b829f6802fec9d5b16880e67f24d1f66ad581c6aac8f7a83dc49bf",
     "host.js.LEGAL.txt": "eda25878a01ef5903efe932a6e7c99e175023a47ce70b7d7f901ab2c07c06562"
   },
   "scope": "Pinned editor artifact; bundled upstream/build provenance remains in editor/BUILD.json or config.json. This does not certify all upstream main capabilities.",

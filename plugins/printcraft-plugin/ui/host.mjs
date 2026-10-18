@@ -1,3 +1,4 @@
+import {refreshFormFrame} from './form-refresh.mjs';
 import {AppBridge,PostMessageTransport} from '@modelcontextprotocol/ext-apps/app-bridge';
 const status=document.querySelector('#status');
 const pageId=crypto.randomUUID();
@@ -20,6 +21,7 @@ bridge.oninitialized=async()=>{
 const stream=new EventSource('events');
 stream.onmessage=async({data})=>{
  const event=JSON.parse(data);
+ if(event.type==='form-refresh')await refreshFormFrame(frame);
  if(event.type==='tool-result')await bridge.sendToolResult(event.result);
  if(event.type==='saved')status.textContent=`已保存：${event.paths.join('，')}`;
 };
