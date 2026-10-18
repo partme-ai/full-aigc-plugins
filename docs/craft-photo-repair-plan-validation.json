@@ -63,7 +63,7 @@
   "unitTests": 7,
   "source": "existing fixed GNOME/gimp-help heal workflow; original coordinate compiler",
   "newSceneCount": 0,
-  "releaseStatus": "public development prerelease; main marketplace update pending",
+  "releaseStatus": "published development prerelease and main marketplace installed; real photography quality remains untested",
   "macOSThreeVariants": {
     "status": "PASS",
     "platform": "darwin",
@@ -173,7 +173,7 @@
       "architecture": 39086298218,
       "status": "all success"
     },
-    "marketMain": "PENDING",
+    "marketMain": "PASS remote main41ebac6 actual Codex install resolves18.4; installed helper bytes match and plan entry succeeds; actual native MCP/editor entry succeeds",
     "hubTest": {
       "source": "0734d8796d164e478c6229dcc4caf01a36f02d11",
       "status": "all success",
@@ -181,6 +181,15 @@
       "packageMcp": 39086460406,
       "marketInstall": 39086460438,
       "repairPlan": 39086460415
+    },
+    "dailyMarketSource": "PASS refreshed source snapshot only;18.4 and helper present; no installed plugin upgrade",
+    "hubMainCi": {
+      "source": "41ebac699c4ea91f06e9dc4065a17922e233bced",
+      "status": "PENDING",
+      "cli": 39086769360,
+      "packageMcp": 39086769342,
+      "marketInstall": 39086769384,
+      "repairPlan": 39086769381
     }
   }
 }
