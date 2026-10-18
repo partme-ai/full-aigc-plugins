@@ -488,3 +488,7 @@ DeckCraft数据叙事18.3已完成公开发行与目录仓main交付（00f6d82�
 深化既有fill-pdf-forms，不增加场景计数。新增独立字段请求辅助工具，按实际字段名校验文本和复选框，保留原始用户值；9项测试通过。macOS/Windows真实原生CLI验证勾选、取消及中文值保存重开；中文Helvetica外观仍为问号，未验收。发现真实Codex填写后页面缓存不失效，已在自有包装层通过临时iframe宽度变化并恢复触发重绘；48个编辑器资源文件未改。公开18.2包在实际Codex中连续填写和取消勾选直接更新，通过指定英文样例。74项既有完整测试修正checkout路径依赖后通过；3项重绘测试及28项市场检查通过。
 
 18.2已公开发行ZIP和新runtime.tgz，下载解包、摘要、内置资源、原生Codex安装/MCP和公共test市场安装通过。d4204a6对应的表单专项、13项Windows业务、包/MCP及27项市场安装test矩阵全部通过，已进入main（72dbfaf），公共main隔离安装和原生MCP通过，安装后的辅助脚本与包装层源副本一致。main自动CI仍在运行，不以test通过替代其结果。Windows包装层实际GUI、其他宿主及中文字体外观仍未验收，不能由这些CI替代。详见craft-print-form-helper-validation.json。
+
+## CADCraft参数化房间图与文档中文字体
+
+在既有floor-plan场景中补充输入校验和原生命令计划，不增加场景计数。毫米房间、边缘门洞、开门弧与真实尺寸的macOS/Windows CLI回归通过；新增文档字体覆盖修复后，实际Codex宿主显示完整中文，并通过同页面textedit、保存DXF及独立CLI重读。插件18.3已公开发布，公开下载ZIP与运行时摘要一致，原生安装和中文同步通过。独立插件仓与技能源仓已按feature→test→main合并且CI通过；目录仓test的Windows房间图39084992480通过，安装与跨插件矩阵仍在排队或运行，主市场main尚未更新。新运行时仅验收macOS Codex中的这一场景，复杂建筑图、其他宿主与真实施工质量未验收。详见craft-cad-room-plan-validation.json。
