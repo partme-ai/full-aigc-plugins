@@ -164,7 +164,7 @@
     "isolatedNativeCodexInstallMcp": "PASS",
     "publicUpload": "PASS:public prerelease/tag/asset digests verified",
     "publicZipDownloadInstallMcpRuntimeDigests": "PASS",
-    "marketMain": "PENDING",
+    "marketMain": "PASS: actual public main install and native MCP",
     "publicTestMarketInstallMcp": "PASS",
     "testHubCommit": "d4204a62eca109e9fc42cda062e3e3c8df690d06",
     "testRuns": [
@@ -189,6 +189,17 @@
         "public-filled.jpg": "2f35c733d44f119e13065a15da3b3efaa75e8edf8eb47c1f5f477dc24f24217d",
         "public-revised.jpg": "51664b7d3b0395e2c8398245813d0e3eac09bff6ca50eda59347b7dbab1f8bcf"
       }
+    },
+    "mainDeliveryCommit": "72dbfaf7283d5b1ffbfc2c2cfd7f4e1752fe0531",
+    "mainInstalledHelperAndWrapper": "IDENTICAL",
+    "mainAutomaticCI": {
+      "status": "PENDING_AT_RECORDING",
+      "runs": [
+        39082863583,
+        39082863559,
+        39082863611,
+        39082863589
+      ]
     }
   }
 }
