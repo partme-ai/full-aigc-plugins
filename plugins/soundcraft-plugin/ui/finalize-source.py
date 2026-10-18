@@ -34,5 +34,5 @@ for i in sorted(visited):
 (licenses/'THIRD-PARTY-NOTICES.txt').write_text('\n\n'.join(notices))
 subprocess.run(['node',str(ui/'runtime/extract-catalog.mjs'),str(site),str(site/'tools.json')],cwd=ui,check=True)
 subprocess.run(['node',str(ui/'package-editor.mjs'),str(site),str(out/'editor')],cwd=ui,check=True)
-provenance={**lock,'sourceBuild':True,'overlaySha256':hashlib.sha256((ui/'runtime/prepare-automation.py').read_bytes()).hexdigest(),'rustc':subprocess.check_output(['rustc','--version'],text=True).strip(),'wasmBindgen':subprocess.check_output(['wasm-bindgen','--version'],text=True).strip(),'profile':profile,'runtimeAcceptance':'PENDING'}
+provenance={**lock,'sourceBuild':True,'overlaySha256':hashlib.sha256((ui/'runtime/prepare-automation.py').read_bytes()).hexdigest(),'fontOverlaySha256':hashlib.sha256((ui/'prepare-cjk-font.py').read_bytes()).hexdigest(),'fontInputs':json.loads((ui/'fonts.lock.json').read_text())['files'],'rustc':subprocess.check_output(['rustc','--version'],text=True).strip(),'wasmBindgen':subprocess.check_output(['wasm-bindgen','--version'],text=True).strip(),'profile':profile,'runtimeAcceptance':'PENDING'}
 (out/'build-source.json').write_text(json.dumps(provenance,indent=2)+'\n');build=out/'editor/BUILD.json';build.write_text(json.dumps({**json.loads(build.read_text()),**provenance},indent=2)+'\n');print(out/'editor')

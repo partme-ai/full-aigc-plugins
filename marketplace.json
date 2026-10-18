@@ -398,13 +398,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/download/v0.1.0-dev.20261018.1/soundcraft-plugin-0.1.0-dev.20261018.1.zip",
-        "sha256": "93f8c704f0655969a8c9b0c2ecc59478f9409b07d2a355fa656b402c905adc0c",
+        "url": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/download/v0.1.0-dev.20261018.3/soundcraft-plugin-0.1.0-dev.20261018.3.zip",
+        "sha256": "411b6367aeaa21e701cfded29a4167c670d60e97d74b38eb35951c3d818c8ed9",
         "path": "soundcraft-plugin"
       },
       "displayName": "SoundCraft Use (RC)",
       "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261018.1",
+      "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
       "tags": [
         "soundcraft",
@@ -413,7 +413,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "strict": true
     },
     {

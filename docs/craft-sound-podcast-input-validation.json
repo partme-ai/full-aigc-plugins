@@ -83,7 +83,11 @@
     "mainCi": 39090354918,
     "ciResult": "PASS Linux and Windows",
     "releaseUrl": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
-    "publicDownloadInstall": "PENDING",
-    "marketUpdate": "PENDING"
+    "publicDownloadInstall": {
+      "result": "PASS",
+      "scope": "public ZIP download sha, actual native Codex install, preinstall icons, skills/list, MCP status/open, installed resource hashes",
+      "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-release-18-3/public-install"
+    },
+    "marketUpdate": "PREPARED feature; main pending"
   }
 }

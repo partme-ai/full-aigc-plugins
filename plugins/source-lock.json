@@ -161,19 +161,19 @@
   },
   {
     "plugin": "soundcraft",
-    "version": "0.1.0-dev.20261018.1",
+    "version": "0.1.0-dev.20261018.3",
     "repository": "full-aigc-plugins/soundcraft-plugin",
-    "commit": "6f3466aea2d4fdec48d6b43dc5fa55b5ac393c5e",
-    "tag": "v0.1.0-dev.20261018.1",
-    "fileCount": 108,
-    "treeSha256": "e77eb09b0637d828dbd5bf564dbbe7080c59a6f15cfc1b344e3fd18bf7434fbc",
+    "commit": "1c7cebe21105baaf69c0e3202b07990fcd8fb7a7",
+    "tag": "v0.1.0-dev.20261018.3",
+    "fileCount": 120,
+    "treeSha256": "2d898598f455a40eb010cfef7f9150e225d0fe4ab2b98381ede582ac0ad75f2c",
     "excluded": [
       "evidence/",
       "docs/evidence/",
       ".github/",
       "**/.gitignore"
     ],
-    "runtime": "unchanged pinned bootstrap; no ui/dist bundled in Git snapshot"
+    "runtime": "pinned CJK fallback runtime; no ui/dist bundled in Git snapshot"
   },
   {
     "plugin": "gridcraft",

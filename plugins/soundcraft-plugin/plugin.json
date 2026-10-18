@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "soundcraft",
-  "version": "0.1.0-dev.20261018.1",
+  "version": "0.1.0-dev.20261018.3",
   "description": "soundcraft 工作区编辑器与场景技能，本地开发候选。",
   "license": "Apache-2.0",
   "extensions": {

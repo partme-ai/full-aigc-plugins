@@ -17,6 +17,9 @@ for filename in lock.get('patches', []):
  if pathlib.Path(filename).name != filename: p.error('invalid patch filename')
  subprocess.run(['git','apply',str(ui/'runtime/patches'/filename)],cwd=src,check=True)
 subprocess.run(['python3',str(ui/'runtime/prepare-automation.py'),str(src),lock['name']],check=True)
+fonts=os.environ.get('CRAFT_FONTS_DIR')
+if not fonts:p.error('CRAFT_FONTS_DIR required for verified Web CJK fallback; no system font installation')
+subprocess.run(['python3',str(ui/'prepare-cjk-font.py'),'--source',str(src),'--fonts',fonts],check=True)
 env={**os.environ,'CARGO_TARGET_DIR':str(a.target_dir.resolve()),'CARGO_INCREMENTAL':'0'}
 html=(src/'apps'/f"{lock['name']}-web"/'index.html').read_text()
 match=re.search('data-cargo-profile="([^"]+)"',html);profile=match.group(1) if match else 'release'
