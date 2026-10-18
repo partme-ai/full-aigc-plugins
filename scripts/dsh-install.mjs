@@ -29,6 +29,7 @@ const value = (name, fallback) => {
 const profile = String(value('--profile', 'desktop'))
 const dryRun = has('--dry-run')
 const all = has('--all')
+const migrate = has('--migrate')
 const onlyArg = value('--only', undefined)
 const only = new Set(
   onlyArg && onlyArg !== true
@@ -51,6 +52,14 @@ if (!all && only.size === 0) {
 
 const dsh = process.env.DSH_CLI || (process.platform === 'win32' ? 'dsh.cmd' : 'dsh')
 const win = process.platform === 'win32'
+const runDsh = (args) => {
+  if (win) {
+    const command = `"${dsh}" ${args.map((arg) => `"${arg}"`).join(' ')}`
+    execFileSync(process.env.ComSpec || 'cmd.exe', ['/d', '/s', '/c', command], { stdio: 'inherit' })
+  } else {
+    execFileSync(dsh, args, { stdio: 'inherit' })
+  }
+}
 const specs = []
 for (const plugin of index.plugins) {
   const slug = plugin.name.split('/').pop()
@@ -65,16 +74,23 @@ for (const plugin of index.plugins) {
   }
 }
 
+if (migrate) {
+  for (const { slug } of specs) {
+    const legacy = slug === 'codereview' ? '@partme-dsh/codereview-plugin' : `@partme-dsh/${slug}`
+    try {
+      console.log(`\n→ removing legacy ${legacy}`)
+      runDsh(['plugin', '--profile', profile, 'remove', legacy])
+    } catch {
+      // Not installed under the legacy scoped name.
+    }
+  }
+}
+
 console.log(`profile: ${profile}`)
 console.log(`plugins: ${specs.length}${all ? ' (all)' : ` (${[...only].join(', ')})`}`)
 for (const { slug, spec } of specs) {
   console.log(`\n→ ${slug}\n  ${spec}`)
   if (dryRun) continue
-  if (win) {
-    const command = `"${dsh}" plugin --profile "${profile}" add "${spec}"`
-    execFileSync(process.env.ComSpec || 'cmd.exe', ['/d', '/s', '/c', command], { stdio: 'inherit' })
-  } else {
-    execFileSync(dsh, ['plugin', '--profile', profile, 'add', spec], { stdio: 'inherit' })
-  }
+  runDsh(['plugin', '--profile', profile, 'add', spec])
 }
 console.log(dryRun ? '\ndry run: nothing installed' : '\ndone')
