@@ -50,8 +50,8 @@
   },
   "remaining": [
     "Chinese appearance unsupported by current field font",
-    "installed host sync",
-    "market release"
+    "new wrapper Windows UI acceptance",
+    "runtime/package publication and market delivery"
   ],
   "nativeTextCheckbox": {
     "scope": "native CLI stdio business; no installed-host acceptance",
@@ -133,6 +133,20 @@
     "sourceFixCommit": "50b26ef",
     "fixUnitTests": "3 PASS",
     "rebuiltAdapterAndHost": "PASS; original editor assets untouched",
-    "fixedRuntimeRealHostAcceptance": "PENDING"
+    "fixedRuntimeRealHostAcceptance": {
+      "status": "PASS_FOR_SPECIFIED_ASCII_FIXTURE",
+      "sourceCommit": "20f9b90",
+      "method": "successful form_fill -> host SSE -> temporary iframe width change and restore",
+      "continuousUpdates": [
+        "Width Refresh,true",
+        "Live Updated,false"
+      ],
+      "noManualResizeOrReopen": "PASS",
+      "savedValues": "Live Updated and false",
+      "originalEditorFilesUnchanged": 48,
+      "localOnly": "fresh isolated installation with rebuilt wrapper; public runtime lock not yet updated",
+      "firstHeightAttempt": "FAILED actual host; replaced with width-based redraw",
+      "screenshotSha256": "9bdfef77c9e7a975784bdfe6180cbbd1bb1c9818ea536433639edd8362efdca8"
+    }
   }
 }
