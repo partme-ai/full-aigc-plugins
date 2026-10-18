@@ -126,5 +126,31 @@
     "rpc": ".local/photo-repair-plan-host/native-host/native-rpc.json",
     "screenshot": ".local/photo-repair-plan-host/after.jpg"
   },
-  "windowsStatus": "PASS 3 synthetic variants"
+  "windowsStatus": "PASS 3 synthetic variants",
+  "release18_4": {
+    "plugin": "photocraft",
+    "version": "0.1.0-dev.20261018.4",
+    "commit": "0ce20e8af990003e0c3d98fe76cf46acb8a261c5",
+    "archive": "photocraft-plugin-0.1.0-dev.20261018.4.zip",
+    "archiveSha256": "9aad615c559fc918dbe83aacaa2359cd1b322f73e565143a1a772ff8e16fc63d",
+    "archiveBytes": 34045905,
+    "maximumZipEntryBytes": 28117151,
+    "runtimeReuse": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/download/v0.1.0-dev.20261017.2/photocraft-runtime.tgz",
+    "runtimeSha256": "2264b017a751f7a8a5ef69664e8333d72daac89c59f2d821151d8caa409c1d95",
+    "zipRuntimeLocks": "PASS",
+    "newVersionZipNativeInstall": "PASS native Codex installer; installed helper generates actual plan",
+    "samePageSync": "PASS observed before/after two real brush calls",
+    "saveAndExport": "PASS; resulting PNG equals prior independently verified case",
+    "screenshot": ".local/photo-repair-plan-release-18-4/release-after.jpg",
+    "publicRelease": "PENDING",
+    "pythonTests": {
+      "pass": 73
+    },
+    "nodeTests": {
+      "pass": 103,
+      "skipped": 16,
+      "failed": 0
+    },
+    "docsAndIdentity": "PASS"
+  }
 }
