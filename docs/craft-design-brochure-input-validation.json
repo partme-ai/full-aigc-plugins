@@ -184,5 +184,25 @@
         "installedHost": "NOT_TESTED"
       }
     ]
+  },
+  "completeZip183Acceptance": {
+    "plugin": "designcraft",
+    "version": "0.1.0-dev.20261018.3",
+    "commit": "210f1c7c6bdcb08664d12e49e3a815949a245ad7",
+    "archive": "designcraft-plugin-0.1.0-dev.20261018.3.zip",
+    "archiveSha256": "d4756dccef3f62e87a6d14bc7d3994fd38f48da583e0be8c94bb9cedfc4b0c9d",
+    "archiveBytes": 46801325,
+    "maximumZipEntryBytes": 45188333,
+    "zipResourceLocks": "PASS",
+    "runtimeReuse": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/download/v0.1.0-dev.20261017.2/designcraft-runtime.tgz",
+    "runtimeSha256": "5e77a6a29dd9542fb49946d2576d3c495bcec15bbbdbd89e72c09a0f7423b234",
+    "newVersionZipNativeInstall": "PASS",
+    "installedVersion": "0.1.0-dev.20261018.3",
+    "nativeMcpOpen": "PASS",
+    "installedBrochureHelperAndCompiler": "PASS",
+    "newVersionBrowserSync": "PASS",
+    "nativeRpc": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/design-brochure-input-release-18-3/zip-host/native-host-live/native-rpc.json",
+    "newVersionBrowserSyncScope": "Actual Codex app-server MCP story.setText; same browser tab without reload; saved archive contains revised Chinese title",
+    "screenshot": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/design-brochure-input-release-18-3/zip-host/revised.jpg"
   }
 }
