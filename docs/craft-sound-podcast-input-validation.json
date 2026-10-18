@@ -21,7 +21,20 @@
     "retryRun": 39089480255,
     "retryStatus": "PASS",
     "recipeOverwriteProtection": "PASS local actual helper rerun refused existing output and preserved bytes",
-    "retryResult": "SUCCESS"
+    "retryResult": "SUCCESS",
+    "downloadedArtifactVerification": {
+      "result": "PASS",
+      "nativeCalls": 4,
+      "clipStartSamples": 60000,
+      "fadeSamples": [
+        960,
+        2400
+      ],
+      "laterClipUnchanged": true,
+      "decodedFormat": "48kHz 24bit stereo 192000frames",
+      "reopenAndMacSampleComparison": "PASS",
+      "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-input-windows-39089480255/podcast-result"
+    }
   },
   "hostCandidate": {
     "result": "PASS limited",
@@ -35,5 +48,12 @@
     "visualLimitation": "Chinese track name renders square glyphs in current Web runtime; not fixed or accepted",
     "auditoryAcceptance": "NOT_TESTED",
     "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-input-host"
+  },
+  "cjkRepair": {
+    "pluginCommit": "2c047aec7025f15443885d232f91c89626c7c9ed",
+    "fontSha256": "39ad71264b588165b469e35e6afb162a378dacd1f95348160240ba9038ac3009",
+    "buildRun": 39089813142,
+    "buildStatus": "RUNNING",
+    "browserGlyphVerification": "PENDING"
   }
 }
