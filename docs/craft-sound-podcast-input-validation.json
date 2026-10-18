@@ -19,7 +19,21 @@
     "initialResult": "FAIL before native audio steps; isolated Python default encoding read Chinese fixture as cp1252",
     "fix": "Explicit UTF-8 in actual tests and JSON reads; do not rely on PYTHONUTF8 under -I",
     "retryRun": 39089480255,
-    "retryStatus": "QUEUED",
-    "recipeOverwriteProtection": "PASS local actual helper rerun refused existing output and preserved bytes"
+    "retryStatus": "PASS",
+    "recipeOverwriteProtection": "PASS local actual helper rerun refused existing output and preserved bytes",
+    "retryResult": "SUCCESS"
+  },
+  "hostCandidate": {
+    "result": "PASS limited",
+    "pluginCommit": "1382c41",
+    "versionMetadata": "0.1.0-dev.20261018.2 locally modified candidate; unpublished",
+    "host": "real Codex app-server",
+    "installedHelper": "PASS actual installed script generated executed recipe",
+    "samePage": "PASS selected range 1.25-5.25s and -2.5dB label updated without reload",
+    "mcpClipReadback": "PASS fade960/2400 samples; second clip gain0/fades0",
+    "exportVsNativeReference": "PASS decoded sample comparison",
+    "visualLimitation": "Chinese track name renders square glyphs in current Web runtime; not fixed or accepted",
+    "auditoryAcceptance": "NOT_TESTED",
+    "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-input-host"
   }
 }
