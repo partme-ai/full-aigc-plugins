@@ -15,11 +15,11 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishTimestamp": 1792318212,
+          "publishTimestamp": 1792329619,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/maya-design-plugin",
-            "commit": "32ae66a2a3396150ac54ab43c7e637985d11a5c7",
+            "commit": "f71317f40e21c17dbc17de030512cb968b594cb9",
             "path": "dsh"
           }
         }
@@ -36,11 +36,11 @@
       "versions": [
         {
           "version": "0.16.0",
-          "publishTimestamp": 1792318172,
+          "publishTimestamp": 1792329543,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/blender-design-plugin",
-            "commit": "030e5f5b8d23d5730fdbbb38a82bedf65c4866cf",
+            "commit": "a696e5a14f1ae3d328a3b57466898f7f05c9d642",
             "path": "dsh"
           }
         }
@@ -57,11 +57,11 @@
       "versions": [
         {
           "version": "0.6.0",
-          "publishTimestamp": 1792318177,
+          "publishTimestamp": 1792329554,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/comfy-design-plugin",
-            "commit": "c7122d63246eb8ef1dd6bb76882fa0bb4e96cde1",
+            "commit": "28fb6c2699c57afe49d58ea576912815050f44d8",
             "path": "dsh"
           }
         }
@@ -78,11 +78,11 @@
       "versions": [
         {
           "version": "0.5.0",
-          "publishTimestamp": 1792318188,
+          "publishTimestamp": 1792329576,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin",
-            "commit": "c251ea78e79643b54d231937d90edb507e225978",
+            "commit": "1700d0a9987a383d4047ea935c74e7f54c28c8c8",
             "path": "dsh"
           }
         }
@@ -99,11 +99,11 @@
       "versions": [
         {
           "version": "0.8.0",
-          "publishTimestamp": 1792318191,
+          "publishTimestamp": 1792329582,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/dreamina-design-plugin",
-            "commit": "45764a688e8c0611aa681067374c95a675e37e5b",
+            "commit": "1a3b0b5cd27b11e13b94b23f5c7657fa66aa0ba9",
             "path": "dsh"
           }
         }
@@ -120,11 +120,11 @@
       "versions": [
         {
           "version": "0.9.0",
-          "publishTimestamp": 1792318204,
+          "publishTimestamp": 1792329604,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/image-factory-plugin",
-            "commit": "e379cb2fb3693e5606185084a43cffaccd5f07e2",
+            "commit": "5bd0944391aa6a48ba406220cee6cc29f5be4526",
             "path": "dsh"
           }
         }
@@ -141,11 +141,11 @@
       "versions": [
         {
           "version": "0.28.0",
-          "publishTimestamp": 1792318207,
+          "publishTimestamp": 1792329611,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/jianying-edit-plugin",
-            "commit": "e26735e825371759ce54a40edc9fa42fcf036081",
+            "commit": "3462f94e2abee4823ad45ff72b9323ac402024ad",
             "path": "dsh"
           }
         }
@@ -162,11 +162,11 @@
       "versions": [
         {
           "version": "0.5.0",
-          "publishTimestamp": 1792318214,
+          "publishTimestamp": 1792329624,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/minimax-design-plugin",
-            "commit": "8f4e8813acbbdc448a3ecbcebd2315de82a323e4",
+            "commit": "542afcb1e1e0c1a9d4cc170cb1f540251094f139",
             "path": "dsh"
           }
         }
@@ -183,11 +183,11 @@
       "versions": [
         {
           "version": "0.5.0",
-          "publishTimestamp": 1792318225,
+          "publishTimestamp": 1792329679,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/video-factory-plugin",
-            "commit": "86524cb1209515911f87221aa55276a67d2559fc",
+            "commit": "9568fe47570f1a247bf6dc20507c25d7a9a29a34",
             "path": "dsh"
           }
         }
@@ -204,11 +204,11 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishTimestamp": 1792318227,
+          "publishTimestamp": 1792329657,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/volcengine-design-plugin",
-            "commit": "ea6954a892cb15513d0398b06e4acd64fad86aa5",
+            "commit": "96fdb840a4bd92c1db073f6f8e51a61cc189ccf7",
             "path": "dsh"
           }
         }
@@ -225,11 +225,11 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishTimestamp": 1792318232,
+          "publishTimestamp": 1792329668,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/xuanji-plugin",
-            "commit": "91fe9dc86f904822669cf657426036a7df29697c",
+            "commit": "3ef8652204268622cc3a64771e3e27238f4c8147",
             "path": "dsh"
           }
         }
@@ -245,11 +245,11 @@
       "versions": [
         {
           "version": "1.0.0-rc.3",
-          "publishTimestamp": 1792318180,
+          "publishTimestamp": 1792329559,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/content-factory-plugin",
-            "commit": "8119ab817a9e2a78237b26b6ad10b625a219403e",
+            "commit": "bf582096f093f1d01139373445b39e38e45dbe63",
             "path": "dsh"
           }
         }
@@ -266,11 +266,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792318175,
+          "publishTimestamp": 1792329548,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/cadcraft-plugin",
-            "commit": "450d0f407d950527e89f197e44781b0101e505f1",
+            "commit": "cd7dc304c857a7e26b62ee5f15390eadcf16cf88",
             "path": "dsh"
           }
         }
@@ -287,11 +287,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792318185,
+          "publishTimestamp": 1792329570,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/designcraft-plugin",
-            "commit": "0f5503ac217fcef564a8d0933161cc883ad30d1c",
+            "commit": "b93727f50aa2da068cf04b86392336f179dfa6c9",
             "path": "dsh"
           }
         }
@@ -308,11 +308,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792329152,
+          "publishTimestamp": 1792329584,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/effectcraft-plugin",
-            "commit": "bd167090ba8dbe4c76140c3196c9d6bdb45c38a9",
+            "commit": "be9cb14251195b120942b9dec53306705a6f4aa2",
             "path": "dsh"
           }
         }
@@ -329,11 +329,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792318217,
+          "publishTimestamp": 1792329630,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/photocraft-plugin",
-            "commit": "44e11f433dad1894e6f892c75e5625f608ee5930",
+            "commit": "80ad9138b57c113450c4df2966ed01297dacc91b",
             "path": "dsh"
           }
         }
@@ -350,11 +350,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792318196,
+          "publishTimestamp": 1792329590,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/figcraft-plugin",
-            "commit": "159982e539e4068c347afb44b1ac4c1276ce9ed3",
+            "commit": "c94b2ab2cc229800d0e96000061c40de86bf32d2",
             "path": "dsh"
           }
         }
@@ -371,11 +371,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.3",
-          "publishTimestamp": 1792329147,
+          "publishTimestamp": 1792329593,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/filmcraft-plugin",
-            "commit": "ec64163879bd0716f3cee72c3a33098ac8af468d",
+            "commit": "7532ed9d79b06226d67b6deeb9ab6df12d51f395",
             "path": "dsh"
           }
         }
@@ -392,11 +392,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792329157,
+          "publishTimestamp": 1792329613,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/lightcraft-plugin",
-            "commit": "6e632231d6e3b7808fe7197f4befd22278c6c092",
+            "commit": "6af62e198af1749320cda3e5cf7af07698c2df6a",
             "path": "dsh"
           }
         }
@@ -413,11 +413,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.2",
-          "publishTimestamp": 1792318219,
+          "publishTimestamp": 1792329636,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/printcraft-plugin",
-            "commit": "7b2c9debe696a776b5b1cf5ef205289b7a83273f",
+            "commit": "7d997486e2065221744ca9eb704dcbd1dc728b04",
             "path": "dsh"
           }
         }
@@ -434,11 +434,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792318162,
+          "publishTimestamp": 1792329648,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin",
-            "commit": "f374c5a0e88ee242dfb13befbac2ee251c538b31",
+            "commit": "70d11031f92861765378ca9c0711c7bd259e6df4",
             "path": "dsh"
           }
         }
@@ -455,11 +455,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.3",
-          "publishTimestamp": 1792318183,
+          "publishTimestamp": 1792329565,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/deckcraft-plugin",
-            "commit": "4f67281d1fa19627fb9d3c7daaafbd631f908a6e",
+            "commit": "1fa8add20758d58067bcd22590005db7c45a33c8",
             "path": "dsh"
           }
         }
@@ -476,11 +476,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.2",
-          "publishTimestamp": 1792318222,
+          "publishTimestamp": 1792329642,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/soundcraft-plugin",
-            "commit": "d3e8a40a23af4897069c51b85c8246ee0d8bd4d5",
+            "commit": "d5e3ac33aa373b0cd11c7596ae56501bafee3beb",
             "path": "dsh"
           }
         }
@@ -497,11 +497,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792318201,
+          "publishTimestamp": 1792329598,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/gridcraft-plugin",
-            "commit": "ccfd2a61b54bb531cc05dde505167e2a6eaff9d2",
+            "commit": "0a8c6c58bbefe7c6ae114c71750b8dd7f6e140c0",
             "path": "dsh"
           }
         }
@@ -518,11 +518,11 @@
       "versions": [
         {
           "version": "0.1.0-dev.20261018.4",
-          "publishTimestamp": 1792318230,
+          "publishTimestamp": 1792329662,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/wordcraft-plugin",
-            "commit": "98a823c94fbc51231a89bb5bd4e6e692ea496424",
+            "commit": "2ad1124caff54385f1b962c7652c597614d14e88",
             "path": "dsh"
           }
         }
