@@ -1,0 +1,58 @@
+{
+  "unitTests": {
+    "count": 9,
+    "status": "PASS"
+  },
+  "native": {
+    "scope": "actual native CLI stdio business only; not host acceptance",
+    "inputPreserved": true,
+    "cases": [
+      {
+        "name": "ascii",
+        "storedValue": "PASS",
+        "fillResult": {
+          "dirty": true,
+          "doc": 1,
+          "editable": true,
+          "encrypted": false,
+          "filled": 1,
+          "name": "input.pdf",
+          "pages": 3,
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/print-form-helper-native/input.pdf",
+          "read_only_reason": null,
+          "redo": null,
+          "undo": "Fill in CustomerName"
+        },
+        "appearance": "NOT_VIEWED"
+      },
+      {
+        "name": "chinese",
+        "storedValue": "PASS",
+        "fillResult": {
+          "dirty": true,
+          "doc": 3,
+          "editable": true,
+          "encrypted": false,
+          "filled": 1,
+          "name": "input.pdf",
+          "pages": 3,
+          "path": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/print-form-helper-native/input.pdf",
+          "read_only_reason": null,
+          "redo": null,
+          "undo": "Fill in CustomerName",
+          "warnings": [
+            "form field \"CustomerName\" (page 1) holds \"真\" (U+771F), which its font can't draw: the value is saved, PdfCraft shows ? in its place, and other PDF viewers redraw the field from the value"
+          ]
+        },
+        "appearance": "NOT_ACCEPTED"
+      }
+    ]
+  },
+  "remaining": [
+    "checkbox native fixture",
+    "Windows new helper",
+    "visual form appearance",
+    "installed host sync",
+    "market release"
+  ]
+}
