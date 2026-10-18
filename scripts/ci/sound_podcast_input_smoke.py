@@ -40,3 +40,18 @@ def run_input(r,skill_root):
     run([bounce('reopened.wav')],source='result.scraft');close(pcm(r.work/'reopened.wav')[2],actual)
     assert all(hashlib.sha256((r.work/name).read_bytes()).hexdigest()==sha for name,sha in hashes.items())
     return {'result':'PASS','scope':'actual generated recipe; offset 1.25s, 4s synthetic clip; unselected later clip preserved','nativeProcesses':len(r.calls),'pcm48k24bitStereo':'PASS','middleGainAndEdgeSamples':'PASS','nativeFadeLengths':'PASS','saveReopenSamples':'PASS','inputsUnchanged':'PASS','auditoryAcceptance':'NOT_TESTED','installedHostSync':'NOT_TESTED'}
+
+if __name__=='__main__':
+    import argparse
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--source',type=Path,required=True);p.add_argument('--runtime-root',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+    from craft_cli_windows import Runner
+    out=a.output.resolve();out.mkdir(parents=True,exist_ok=False)
+    prior=json.loads((a.runtime_root/'result.json').read_text(encoding='utf-8'))
+    matches=list(a.runtime_root.resolve().rglob('soundcraft-cli.exe'));assert len(matches)==1,'Expected one verified SoundCraft CLI'
+    exe=matches[0];assert hashlib.sha256(exe.read_bytes()).hexdigest()==prior['exeSha256'],'Downloaded CLI changed'
+    result={'result':'FAIL','platform':sys.platform}
+    try:
+        result.update(run_input(Runner(exe,out,out),a.source.resolve()/'skills'))
+    finally:
+        (out/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+        print(json.dumps(result,ensure_ascii=True))

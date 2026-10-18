@@ -1,0 +1,38 @@
+name: SoundCraft podcast inputs on Windows
+on:
+  push:
+    paths: ['scripts/ci/sound_podcast_input_smoke.py', '.github/workflows/soundcraft-podcast-input.yml']
+  pull_request:
+    paths: ['scripts/ci/sound_podcast_input_smoke.py', '.github/workflows/soundcraft-podcast-input.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  podcast:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/soundcraft-skills
+          ref: 51e8f30d3d8a1f95a9d8fb86c8c56d6bb0ec2b84
+          path: story-source
+      - name: Check actual skill input handling
+        run: python -I -B -m unittest discover -s story-source/skills/soundcraft-podcast-cleanup/tests -v
+      - name: Download verified native CLI and run baseline business
+        run: python scripts/ci/craft_cli_windows.py --plugin soundcraft --output baseline-result
+      - name: Run generated recipe and check native clips and PCM samples
+        run: python scripts/ci/sound_podcast_input_smoke.py --source story-source --runtime-root baseline-result --output podcast-result
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: soundcraft-podcast-input-results
+          path: |
+            baseline-result/result.json
+            podcast-result/**
