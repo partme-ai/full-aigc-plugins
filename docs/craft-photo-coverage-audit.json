@@ -1,0 +1,555 @@
+{
+  "scope": "actual downloaded Windows artifact; synthetic CLI technical results only",
+  "run": 39085281206,
+  "platform": "win32",
+  "runtime": {
+    "version": "v0.9.0",
+    "url": "https://github.com/storytold/photocraft/releases/download/v0.9.0/photocraft-0.9.0-windows-x64-portable.zip",
+    "sha256": "e87bbe26f84d3c359765b61d128b9cc59f016a995956fe7909b328a97650fc97",
+    "executable": "photocraft-cli.exe"
+  },
+  "nativeProcesses": 248,
+  "exactRecipeIdSet": "PASS 50 unique IDs match current source",
+  "outputHashesVerified": 205,
+  "creativeAcceptance": "NOT_TESTED",
+  "records": [
+    {
+      "id": "old-photo-conservative",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "PASS",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "hairline-scratch",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "fold-line-background",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "faded-gray-tones",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "PASS",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "red-cast-aging",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "PASS",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "scan-deskew-border",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "jpeg-block-reduction",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "print-resolution-tag",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "portrait-small-blemish",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "portrait-white-balance",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "PASS",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "product-neutral-packshot",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "PASS",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "web-image-downsample",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "duotone-editorial",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "PASS",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "window-highlight-local",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "PASS",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "portrait-subject-lift",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "PASS",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "background-desaturate-focus",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "PASS",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "scan-four-side-crop",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "NOT_APPLICABLE",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "selective-accent-color",
+      "technicalRoundtrip": "PASS",
+      "pixelEffect": "NOT_APPLICABLE",
+      "locality": "PASS",
+      "creativeAcceptance": "NOT_TESTED"
+    },
+    {
+      "id": "social-canvas-padding",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "all original pixels centered unchanged",
+        "white RGBA"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "photo-mirror-layout",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "exact horizontal pixel reversal",
+        "hidden copy reveals unchanged original"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "background-soft-blur",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "target changed",
+        "protected region exactly unchanged"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "garment-color-local",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "target changed",
+        "protected region exactly unchanged"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "white-product-local-neutral",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "target changed",
+        "protected region exactly unchanged"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "sky-gradient-balance",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "target changed",
+        "protected region exactly unchanged"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "corner-vignette-mask",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "target changed",
+        "protected region exactly unchanged"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "portrait-teeth-local",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "target changed",
+        "protected region exactly unchanged"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "product-label-edge-sharpen",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "target changed",
+        "protected region exactly unchanged"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "product-color-proof-area",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "target changed",
+        "protected region exactly unchanged"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "transparent-canvas-padding",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "all original pixels centered unchanged",
+        "transparent alpha throughout extension"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "black-white-selective-channel",
+      "technicalRoundtripAndPixels": "PASS",
+      "checks": [
+        "RGB channels neutral",
+        "adjustment off restores original color"
+      ],
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "scan-dust-specks",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 840,
+        "afterError": 0,
+        "minimumGain": 0.25,
+        "measuredGain": 1.0,
+        "protectedOutside": [
+          32,
+          22,
+          52,
+          40
+        ]
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "torn-corner-texture",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 570,
+        "afterError": 228,
+        "minimumGain": 0.25,
+        "measuredGain": 0.6,
+        "protectedOutside": [
+          72,
+          32,
+          92,
+          50
+        ]
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "silver-mirror-local",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 720,
+        "afterError": 288,
+        "minimumGain": 0.25,
+        "measuredGain": 0.6,
+        "protectedOutside": [
+          72,
+          32,
+          92,
+          50
+        ]
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "small-stain-sampled",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 510,
+        "afterError": 60,
+        "minimumGain": 0.25,
+        "measuredGain": 0.8823529411764706,
+        "protectedOutside": [
+          72,
+          32,
+          92,
+          50
+        ]
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "portrait-eye-shadow",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 450,
+        "afterError": 338,
+        "minimumGain": 0.02,
+        "measuredGain": 0.24888888888888894,
+        "protectedOutside": [
+          94,
+          66,
+          110,
+          78
+        ]
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "product-surface-dust",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 1560,
+        "afterError": 312,
+        "minimumGain": 0.25,
+        "measuredGain": 0.8,
+        "protectedOutside": [
+          32,
+          22,
+          92,
+          50
+        ]
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "scratch-edge-protection",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 8190,
+        "afterError": 1239,
+        "minimumGain": 0.25,
+        "measuredGain": 0.8487179487179487,
+        "protectedOutside": [
+          27,
+          28,
+          54,
+          72
+        ]
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "large-stain-patch",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 126720,
+        "afterError": 0,
+        "minimumGain": 0.25,
+        "measuredGain": 1.0,
+        "protectedOutside": [
+          88,
+          64,
+          128,
+          100
+        ],
+        "seamMaxChannelError": 0
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "skin-shine-burn",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 660,
+        "afterError": 621,
+        "minimumGain": 0.01,
+        "measuredGain": 0.05909090909090908,
+        "protectedOutside": [
+          102,
+          50,
+          126,
+          74
+        ]
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "hair-stray-cleanup",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 1461,
+        "afterError": 412,
+        "minimumGain": 0.25,
+        "measuredGain": 0.7180013689253936,
+        "protectedOutside": [
+          162,
+          34,
+          178,
+          50
+        ]
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "product-reflection-spot",
+      "syntheticRepair": "PASS",
+      "metrics": {
+        "beforeError": 330,
+        "afterError": 245,
+        "minimumGain": 0.02,
+        "measuredGain": 0.25757575757575757,
+        "protectedOutside": [
+          148,
+          80,
+          164,
+          96
+        ]
+      },
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "yellow-paper-neutralize",
+      "technicalSample": "PASS",
+      "metrics": {
+        "yellowBiasBefore": 2580480.0,
+        "yellowBiasAfter": 2482176.0
+      },
+      "originalLayerRestored": "PASS",
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "moire-small-radius",
+      "technicalSample": "PASS",
+      "metrics": {
+        "dotPatternErrorBefore": 921600,
+        "dotPatternErrorAfter": 120
+      },
+      "originalLayerRestored": "PASS",
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "bw-conversion-preserve",
+      "technicalSample": "PASS",
+      "metrics": {},
+      "originalLayerRestored": "PASS",
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "gentle-color-noise",
+      "technicalSample": "PASS",
+      "metrics": {
+        "chromaBefore": 1474560,
+        "chromaAfter": 1081364
+      },
+      "originalLayerRestored": "PASS",
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "restore-final-sharpen",
+      "technicalSample": "PASS",
+      "metrics": {
+        "edgeBefore": 1598400,
+        "edgeAfter": 1918080
+      },
+      "originalLayerRestored": "PASS",
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "portrait-backlit",
+      "technicalSample": "PASS",
+      "metrics": {
+        "shadowRange": [
+          55,
+          55
+        ],
+        "highlightRange": [
+          210,
+          210
+        ]
+      },
+      "originalLayerRestored": "PASS",
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "product-edge-halo",
+      "technicalSample": "PASS",
+      "metrics": {},
+      "originalLayerRestored": "PASS",
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "product-dark-matte",
+      "technicalSample": "PASS",
+      "metrics": {},
+      "originalLayerRestored": "PASS",
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    },
+    {
+      "id": "product-background-mask",
+      "technicalSample": "PASS",
+      "metrics": {},
+      "originalLayerRestored": "PASS",
+      "creativeAcceptance": "NOT_TESTED",
+      "hostEditorSync": "NOT_TESTED"
+    }
+  ]
+}

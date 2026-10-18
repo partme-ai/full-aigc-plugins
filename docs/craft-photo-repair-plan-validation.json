@@ -173,6 +173,14 @@
       "architecture": 39086298218,
       "status": "all success"
     },
-    "marketMain": "PENDING"
+    "marketMain": "PENDING",
+    "hubTest": {
+      "source": "0734d8796d164e478c6229dcc4caf01a36f02d11",
+      "status": "all success",
+      "cli": 39086460383,
+      "packageMcp": 39086460406,
+      "marketInstall": 39086460438,
+      "repairPlan": 39086460415
+    }
   }
 }
