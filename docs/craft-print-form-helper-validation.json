@@ -122,5 +122,17 @@
       ],
       "inputPreserved": true
     }
+  },
+  "nativeHost": {
+    "status": "PARTIAL",
+    "host": "actual native Codex app-server with isolated local installed candidate",
+    "fieldSnapshotAndHelperRequest": "PASS",
+    "storedValuesAndSaveReopen": "PASS",
+    "sameViewportImmediateAppearance": "FAIL: cached old appearance until view resized or saved file reopened",
+    "diagnosis": "closing sidebar resized page and displayed the current Live Revision text without reapplying form_fill",
+    "sourceFixCommit": "50b26ef",
+    "fixUnitTests": "3 PASS",
+    "rebuiltAdapterAndHost": "PASS; original editor assets untouched",
+    "fixedRuntimeRealHostAcceptance": "PENDING"
   }
 }
