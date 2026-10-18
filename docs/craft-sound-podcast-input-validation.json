@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "scope": "actual generated recipe; offset 1.25s, 4s synthetic clip; unselected later clip preserved",
+  "nativeProcesses": 4,
+  "pcm48k24bitStereo": "PASS",
+  "middleGainAndEdgeSamples": "PASS",
+  "nativeFadeLengths": "PASS",
+  "saveReopenSamples": "PASS",
+  "inputsUnchanged": "PASS",
+  "auditoryAcceptance": "NOT_TESTED",
+  "installedHostSync": "NOT_TESTED",
+  "sourceCommit": "51e8f30",
+  "pluginCommit": "8f5ee0c",
+  "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-input-native",
+  "platform": "macOS",
+  "nativeVersion": "0.7.0",
+  "windows": "PENDING"
+}

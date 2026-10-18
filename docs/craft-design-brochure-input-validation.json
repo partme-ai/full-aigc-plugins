@@ -237,6 +237,12 @@
       "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/design-brochure-main-183-install",
       "scope": "real remote-main Codex install, preinstall icons, skills/list and native MCP; same-page editing tested separately against exact complete ZIP"
     },
-    "mainCi": "RUNNING"
+    "mainCi": {
+      "result": "PASS",
+      "brochure": 39089122482,
+      "marketInstall": 39089122484,
+      "windowsPackageMcp": 39089122508,
+      "windowsCliBusiness": 39089122486
+    }
   }
 }
