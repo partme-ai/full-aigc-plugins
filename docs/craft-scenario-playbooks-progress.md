@@ -503,4 +503,4 @@ DeckCraft数据叙事18.3已完成公开发行与目录仓main交付（00f6d82�
 
 ## DesignCraft宣传册产品输入
 
-既有四页场景新增brochure_input.py，绑定两产品的标题、SKU、尺寸、十进制金额、图片及页脚，自动重算UTF-8选择长度；9项单元测试通过。中英文两输入实际执行原生CLI，十二故事内容和页序保持且无溢出。中文初始Source Sans 3 PDF缺字未计通过；增加显式fontFamily并以工程旁Document Fonts加载锁定OFL字体后，最终四页中文标题可提取，封面字形实看通过，十二故事仍无溢出。未修改引擎或全局安装字体。新入口Windows、安装宿主及发布仍未完成；商业设计质量不由合成产品样例代替。不增加场景计数。详见craft-design-brochure-input-validation.json。
+既有四页场景新增brochure_input.py，绑定两产品的标题、SKU、尺寸、十进制金额、图片及页脚，自动重算UTF-8选择长度；9项单元测试通过。中英文两输入实际执行原生CLI，十二故事内容和页序保持且无溢出。中文初始Source Sans 3 PDF缺字未计通过；增加显式fontFamily并以工程旁Document Fonts加载锁定OFL字体后，最终四页中文标题可提取，封面字形实看通过，十二故事仍无溢出。未修改引擎或全局安装字体。新入口macOS与Windows各两方案8次原生CLI回归通过，实际PDF四页标题与两图核对，中文文档字体加载及原始图片逐SKU绑定字节均通过；Windows39087766149产物已下载复核。新入口安装宿主及发布仍未完成；商业设计质量不由合成产品样例代替。不增加场景计数。详见craft-design-brochure-input-validation.json。

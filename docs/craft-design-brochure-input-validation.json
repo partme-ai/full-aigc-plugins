@@ -48,8 +48,120 @@
     "screenshot": ".local/design-brochure-input-native/chinese/configured-font-page-1.png"
   },
   "inputImages": "existing synthetic product fixtures; no real product claims",
-  "windows": "NOT_TESTED",
+  "windows": {
+    "run": 39087766149,
+    "status": "PASS",
+    "result": {
+      "status": "PASS",
+      "platform": "win32",
+      "scope": "synthetic two-product brochure; actual skill helper/CLI/PDF",
+      "variants": [
+        {
+          "variant": "english",
+          "status": "PASS",
+          "stories": 12,
+          "pages": 4,
+          "nativeProcesses": 4,
+          "pdfHeadings": "PASS actual extraction",
+          "font": [
+            {
+              "characters": 536,
+              "family": "Source Sans 3",
+              "missing": false,
+              "source": "bundled",
+              "style": "Regular",
+              "styleMissing": false
+            }
+          ],
+          "existingOutputProtection": "PASS",
+          "inputImagesUnchanged": "PASS",
+          "skuImageBindings": "PASS distinct embedded image bytes on correct page",
+          "commercialDesignQuality": "NOT_TESTED",
+          "installedHost": "NOT_TESTED"
+        },
+        {
+          "variant": "chinese",
+          "status": "PASS",
+          "stories": 12,
+          "pages": 4,
+          "nativeProcesses": 4,
+          "pdfHeadings": "PASS actual extraction",
+          "font": [
+            {
+              "characters": 210,
+              "family": "LXGW WenKai",
+              "missing": false,
+              "source": "document",
+              "style": "Regular",
+              "styleMissing": false
+            }
+          ],
+          "existingOutputProtection": "PASS",
+          "inputImagesUnchanged": "PASS",
+          "skuImageBindings": "PASS distinct embedded image bytes on correct page",
+          "commercialDesignQuality": "NOT_TESTED",
+          "installedHost": "NOT_TESTED"
+        }
+      ]
+    },
+    "downloadedPdfVerification": "PASS both four-page heading sets and two images;8 actual native process records exit0",
+    "fontSha256Verified": "PASS locked font bytes in actual artifact",
+    "coverScreenshot": ".local/design-brochure-input-windows/story-result/windows-chinese-cover.png"
+  },
   "newHelperInstalledHost": "NOT_TESTED",
   "commercialDesignQuality": "NOT_TESTED",
-  "releaseStatus": "UNRELEASED feature candidate"
+  "releaseStatus": "UNRELEASED feature candidate",
+  "repeatableMacOS": {
+    "status": "PASS",
+    "platform": "darwin",
+    "scope": "synthetic two-product brochure; actual skill helper/CLI/PDF",
+    "variants": [
+      {
+        "variant": "english",
+        "status": "PASS",
+        "stories": 12,
+        "pages": 4,
+        "nativeProcesses": 4,
+        "pdfHeadings": "PASS actual extraction",
+        "font": [
+          {
+            "characters": 536,
+            "family": "Source Sans 3",
+            "missing": false,
+            "source": "bundled",
+            "style": "Regular",
+            "styleMissing": false
+          }
+        ],
+        "existingOutputProtection": "PASS",
+        "inputImagesUnchanged": "PASS",
+        "skuImageBindings": "PASS distinct embedded image bytes on correct page",
+        "commercialDesignQuality": "NOT_TESTED",
+        "installedHost": "NOT_TESTED"
+      },
+      {
+        "variant": "chinese",
+        "status": "PASS",
+        "stories": 12,
+        "pages": 4,
+        "nativeProcesses": 4,
+        "pdfHeadings": "PASS actual extraction",
+        "font": [
+          {
+            "characters": 210,
+            "family": "LXGW WenKai",
+            "missing": false,
+            "source": "document",
+            "style": "Regular",
+            "styleMissing": false
+          }
+        ],
+        "existingOutputProtection": "PASS",
+        "inputImagesUnchanged": "PASS",
+        "skuImageBindings": "PASS distinct embedded image bytes on correct page",
+        "commercialDesignQuality": "NOT_TESTED",
+        "installedHost": "NOT_TESTED"
+      }
+    ]
+  }
 }
