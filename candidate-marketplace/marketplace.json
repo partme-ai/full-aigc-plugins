@@ -27,6 +27,24 @@
       "strict": true
     },
     {
+      "name": "content-factory",
+      "source": {
+        "source": "github",
+        "repo": "full-aigc-plugins/content-factory-plugin",
+        "ref": "v1.0.0-rc.2"
+      },
+      "description": "Release candidate for controlled testing; not production-ready. Create, review, format, and export governed content for 16 channels.",
+      "version": "1.0.0-rc.2",
+      "category": "Creativity",
+      "tags": [
+        "content",
+        "editorial",
+        "workflow",
+        "rc"
+      ],
+      "strict": true
+    },
+    {
       "name": "deckcraft",
       "source": {
         "source": "url",
