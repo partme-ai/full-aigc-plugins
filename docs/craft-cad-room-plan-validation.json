@@ -133,6 +133,18 @@
       "publicRelease": "PENDING"
     },
     "packagedFileCount": 35,
-    "verification": ".local/cad-room-font-build/packaged-resumed/verification.json"
+    "verification": ".local/cad-room-font-build/packaged-resumed/verification.json",
+    "localFullZip": {
+      "status": "PASS",
+      "scope": "both runtime/editor locks checked against full ZIP bytes; local candidate only",
+      "file": ".local/cad-room-font-full-package/cadcraft-room-font-verified-local.zip",
+      "zipSha256": "530c133f3c1dc54737b7623c0e82a866c9a56f0c4ab6e8cc48a53021f58cf463",
+      "bytes": 38363134,
+      "files": 174,
+      "largestMemberBytes": 37347623,
+      "nativeCodexInstall": "PASS from extracted ZIP in isolated home",
+      "nativeMcpFromThisZip": "PENDING",
+      "metadataVersion": "0.1.0-dev.20261018.2 local modified candidate; not published or promoted"
+    }
   }
 }
