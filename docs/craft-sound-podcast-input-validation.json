@@ -88,6 +88,22 @@
       "scope": "public ZIP download sha, actual native Codex install, preinstall icons, skills/list, MCP status/open, installed resource hashes",
       "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-release-18-3/public-install"
     },
-    "marketUpdate": "PREPARED feature; main pending"
+    "marketUpdate": "BLOCKED by actual cold-install PAX failure; do not promote",
+    "coldGitInstall": {
+      "result": "FAIL",
+      "error": "Unsupported tar entry type: x",
+      "testMarketRun": 39090532836,
+      "localEvidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-test-183-cold",
+      "publicReleaseWarningAdded": true
+    }
+  },
+  "candidate184": {
+    "pluginCommit": "203f01e",
+    "archiveFormat": "deterministic USTAR; no PAX extension headers",
+    "runtimeSha256": "3e86e4a5ced5f70d425bc9d60b874fe42922048451dbbc5955e9e3f1e20357d5",
+    "actualFullArchiveBootstrapExtractAndFileHashes": "PASS",
+    "packagingRegressionTests": 3,
+    "nativeColdDownloadInstall": "PENDING public candidate",
+    "release": "UNPUBLISHED"
   }
 }
