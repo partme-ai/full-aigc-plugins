@@ -164,6 +164,15 @@
     "isolatedNativeCodexInstallMcp": "PASS",
     "publicUpload": "PASS:public prerelease/tag/asset digests verified",
     "publicZipDownloadInstallMcpRuntimeDigests": "PASS",
-    "marketMain": "PENDING"
+    "marketMain": "PENDING",
+    "publicTestMarketInstallMcp": "PASS",
+    "testHubCommit": "d4204a62eca109e9fc42cda062e3e3c8df690d06",
+    "testRuns": [
+      39082566302,
+      39082565999,
+      39082566011,
+      39082566028
+    ],
+    "testCIStatus": "PENDING"
   }
 }
