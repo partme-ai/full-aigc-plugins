@@ -1,0 +1,224 @@
+{
+  "scope": "existing four-page/two-product brochure; original input adapter; not a new scene",
+  "newSceneCount": 0,
+  "unitTests": {
+    "passed": 9,
+    "initialBehaviorFailures": 6
+  },
+  "nativeCliVersion": "0.8.0",
+  "nativeVariants": [
+    {
+      "variant": "english",
+      "status": "PASS",
+      "pages": 4,
+      "stories": 12,
+      "footer": "custom label verified from generated plan; fixed legacy checker assumes Review copy",
+      "visualAcceptance": "NOT_TESTED"
+    },
+    {
+      "variant": "chinese",
+      "status": "PASS",
+      "pages": 4,
+      "stories": 12,
+      "footer": "custom label verified from generated plan; fixed legacy checker assumes Review copy",
+      "visualAcceptance": "NOT_TESTED"
+    }
+  ],
+  "chineseInitialPdf": "FAIL missing glyphs with Source Sans 3; content values alone not accepted",
+  "fontFix": {
+    "method": "fontFamily LXGW WenKai; save draft then explicit native reopen with adjacent Document Fonts",
+    "engineModified": false,
+    "globalFontInstall": false,
+    "fontSha256": "39ad71264b588165b469e35e6afb162a378dacd1f95348160240ba9038ac3009",
+    "license": "OFL-LXGWWenKai.txt retained alongside tested font",
+    "fontList": [
+      {
+        "characters": 214,
+        "family": "LXGW WenKai",
+        "missing": false,
+        "source": "document",
+        "style": "Regular",
+        "styleMissing": false
+      }
+    ],
+    "finalPdfFourChineseHeadings": "PASS text extraction",
+    "finalStories": "PASS12 no overset",
+    "coverVisual": "PASS observed Chinese glyphs",
+    "pdfSha256": "8099199088b116aa3eb62a630e91d44b7cdcb233b321777c4b22c4e99947b3c5",
+    "screenshot": ".local/design-brochure-input-native/chinese/configured-font-page-1.png"
+  },
+  "inputImages": "existing synthetic product fixtures; no real product claims",
+  "windows": {
+    "run": 39087766149,
+    "status": "PASS",
+    "result": {
+      "status": "PASS",
+      "platform": "win32",
+      "scope": "synthetic two-product brochure; actual skill helper/CLI/PDF",
+      "variants": [
+        {
+          "variant": "english",
+          "status": "PASS",
+          "stories": 12,
+          "pages": 4,
+          "nativeProcesses": 4,
+          "pdfHeadings": "PASS actual extraction",
+          "font": [
+            {
+              "characters": 536,
+              "family": "Source Sans 3",
+              "missing": false,
+              "source": "bundled",
+              "style": "Regular",
+              "styleMissing": false
+            }
+          ],
+          "existingOutputProtection": "PASS",
+          "inputImagesUnchanged": "PASS",
+          "skuImageBindings": "PASS distinct embedded image bytes on correct page",
+          "commercialDesignQuality": "NOT_TESTED",
+          "installedHost": "NOT_TESTED"
+        },
+        {
+          "variant": "chinese",
+          "status": "PASS",
+          "stories": 12,
+          "pages": 4,
+          "nativeProcesses": 4,
+          "pdfHeadings": "PASS actual extraction",
+          "font": [
+            {
+              "characters": 210,
+              "family": "LXGW WenKai",
+              "missing": false,
+              "source": "document",
+              "style": "Regular",
+              "styleMissing": false
+            }
+          ],
+          "existingOutputProtection": "PASS",
+          "inputImagesUnchanged": "PASS",
+          "skuImageBindings": "PASS distinct embedded image bytes on correct page",
+          "commercialDesignQuality": "NOT_TESTED",
+          "installedHost": "NOT_TESTED"
+        }
+      ]
+    },
+    "downloadedPdfVerification": "PASS both four-page heading sets and two images;8 actual native process records exit0",
+    "fontSha256Verified": "PASS locked font bytes in actual artifact",
+    "coverScreenshot": ".local/design-brochure-input-windows/story-result/windows-chinese-cover.png"
+  },
+  "newHelperInstalledHost": {
+    "status": "PASS synthetic Chinese4-page candidate",
+    "metadataVersion": "0.1.0-dev.20261018.2 locally modified isolated candidate, not a public release",
+    "pluginSourceCommit": "0477e87",
+    "actualInstalledScriptsUsed": true,
+    "nativeCreation": ".local/design-brochure-input-host/native-creation.json",
+    "nativeMcp": "actual Codex app-server",
+    "before": "办公套装 / 校样",
+    "after": "办公套装 / 复核",
+    "samePageSync": "PASS observed",
+    "reopenedStories": "PASS12 full texts/frame bindings/no overset",
+    "embeddedImageBytes": "PASS2",
+    "onlyDocumentChangedPaths": [
+      "/stories/14/text",
+      "/stories/14/rev"
+    ],
+    "pdfChineseFourHeadings": "PASS actual extraction",
+    "fontSourceNative": "document",
+    "fontSourceWeb": "bundled (observed font.list); no Web Document Fonts loading claim",
+    "screenshot": ".local/design-brochure-input-host/revised.jpg",
+    "rpc": ".local/design-brochure-input-host/native-host/native-rpc.json"
+  },
+  "commercialDesignQuality": "NOT_TESTED",
+  "releaseStatus": "UNRELEASED feature candidate",
+  "repeatableMacOS": {
+    "status": "PASS",
+    "platform": "darwin",
+    "scope": "synthetic two-product brochure; actual skill helper/CLI/PDF",
+    "variants": [
+      {
+        "variant": "english",
+        "status": "PASS",
+        "stories": 12,
+        "pages": 4,
+        "nativeProcesses": 4,
+        "pdfHeadings": "PASS actual extraction",
+        "font": [
+          {
+            "characters": 536,
+            "family": "Source Sans 3",
+            "missing": false,
+            "source": "bundled",
+            "style": "Regular",
+            "styleMissing": false
+          }
+        ],
+        "existingOutputProtection": "PASS",
+        "inputImagesUnchanged": "PASS",
+        "skuImageBindings": "PASS distinct embedded image bytes on correct page",
+        "commercialDesignQuality": "NOT_TESTED",
+        "installedHost": "NOT_TESTED"
+      },
+      {
+        "variant": "chinese",
+        "status": "PASS",
+        "stories": 12,
+        "pages": 4,
+        "nativeProcesses": 4,
+        "pdfHeadings": "PASS actual extraction",
+        "font": [
+          {
+            "characters": 210,
+            "family": "LXGW WenKai",
+            "missing": false,
+            "source": "document",
+            "style": "Regular",
+            "styleMissing": false
+          }
+        ],
+        "existingOutputProtection": "PASS",
+        "inputImagesUnchanged": "PASS",
+        "skuImageBindings": "PASS distinct embedded image bytes on correct page",
+        "commercialDesignQuality": "NOT_TESTED",
+        "installedHost": "NOT_TESTED"
+      }
+    ]
+  },
+  "completeZip183Acceptance": {
+    "plugin": "designcraft",
+    "version": "0.1.0-dev.20261018.3",
+    "commit": "210f1c7c6bdcb08664d12e49e3a815949a245ad7",
+    "archive": "designcraft-plugin-0.1.0-dev.20261018.3.zip",
+    "archiveSha256": "d4756dccef3f62e87a6d14bc7d3994fd38f48da583e0be8c94bb9cedfc4b0c9d",
+    "archiveBytes": 46801325,
+    "maximumZipEntryBytes": 45188333,
+    "zipResourceLocks": "PASS",
+    "runtimeReuse": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/download/v0.1.0-dev.20261017.2/designcraft-runtime.tgz",
+    "runtimeSha256": "5e77a6a29dd9542fb49946d2576d3c495bcec15bbbdbd89e72c09a0f7423b234",
+    "newVersionZipNativeInstall": "PASS",
+    "installedVersion": "0.1.0-dev.20261018.3",
+    "nativeMcpOpen": "PASS",
+    "installedBrochureHelperAndCompiler": "PASS",
+    "newVersionBrowserSync": "PASS",
+    "nativeRpc": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/design-brochure-input-release-18-3/zip-host/native-host-live/native-rpc.json",
+    "newVersionBrowserSyncScope": "Actual Codex app-server MCP story.setText; same browser tab without reload; saved archive contains revised Chinese title",
+    "screenshot": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/design-brochure-input-release-18-3/zip-host/revised.jpg"
+  },
+  "publication183": {
+    "version": "0.1.0-dev.20261018.3",
+    "pluginMain": "239273d96cf418ea47d26ee415a4030d39e6a711",
+    "sourceMain": "cfb4053fa2a427f3c8642a54e067bafe80e9b64f",
+    "mainChecks": {
+      "pluginCI": 39088690360,
+      "architecture": 39088690457,
+      "sourceCI": 39088691882,
+      "result": "PASS"
+    },
+    "releaseUrl": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
+    "remoteTagCommit": "PASS",
+    "remoteAssetSha256": "d4756dccef3f62e87a6d14bc7d3994fd38f48da583e0be8c94bb9cedfc4b0c9d",
+    "publicDownloadInstall": "PENDING",
+    "marketUpdate": "PENDING"
+  }
+}

@@ -185,7 +185,7 @@
     "dailyMarketSource": "PASS refreshed source snapshot only;18.4 and helper present; no installed plugin upgrade",
     "hubMainCi": {
       "source": "41ebac699c4ea91f06e9dc4065a17922e233bced",
-      "status": "PENDING",
+      "status": "all success",
       "cli": 39086769360,
       "packageMcp": 39086769342,
       "marketInstall": 39086769384,
