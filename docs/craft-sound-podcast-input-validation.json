@@ -88,6 +88,40 @@
       "scope": "public ZIP download sha, actual native Codex install, preinstall icons, skills/list, MCP status/open, installed resource hashes",
       "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-release-18-3/public-install"
     },
-    "marketUpdate": "PREPARED feature; main pending"
+    "marketUpdate": "BLOCKED by actual cold-install PAX failure; do not promote",
+    "coldGitInstall": {
+      "result": "FAIL",
+      "error": "Unsupported tar entry type: x",
+      "testMarketRun": 39090532836,
+      "localEvidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-test-183-cold",
+      "publicReleaseWarningAdded": true
+    }
+  },
+  "candidate184": {
+    "pluginCommit": "203f01e",
+    "archiveFormat": "deterministic USTAR; no PAX extension headers",
+    "runtimeSha256": "3e86e4a5ced5f70d425bc9d60b874fe42922048451dbbc5955e9e3f1e20357d5",
+    "actualFullArchiveBootstrapExtractAndFileHashes": "PASS",
+    "packagingRegressionTests": 3,
+    "nativeColdDownloadInstall": "Windows fresh-runner market acceptance PENDING",
+    "release": "PUBLIC DEVELOPMENT PRERELEASE",
+    "pluginMain": "f9e80c1755945cb821d92f51dba67479114f7d9a",
+    "mainCi": 39090906197,
+    "mainCiStatus": "PASS",
+    "releaseUrl": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261018.4",
+    "package": {
+      "plugin": "soundcraft",
+      "version": "0.1.0-dev.20261018.4",
+      "commit": "203f01e213f84bcc042665b437b109b415cadf9d",
+      "archiveSha256": "be583b11a35aa9039a33196f48ae4bc04955a995e5caac663609c902bca85957",
+      "bytes": 20304896,
+      "maximumZipEntryBytes": 19185520,
+      "resourceLocks": "PASS actual ZIP entries",
+      "runtimeSha256": "3e86e4a5ced5f70d425bc9d60b874fe42922048451dbbc5955e9e3f1e20357d5",
+      "publicColdInstall": "PENDING"
+    },
+    "localThinNativeMcp": "PASS calls; cache-isolation assertion not established in first probe",
+    "localExplicitEmptyCacheProbe": "Codex sqlite state initialization failed before plugin start; not counted",
+    "marketUpdate": "PREPARED feature 18.4; main unchanged"
   }
 }
