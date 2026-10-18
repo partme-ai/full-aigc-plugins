@@ -9,10 +9,17 @@
   "inputsUnchanged": "PASS",
   "auditoryAcceptance": "NOT_TESTED",
   "installedHostSync": "NOT_TESTED",
-  "sourceCommit": "51e8f30",
-  "pluginCommit": "8f5ee0c",
+  "sourceCommit": "80fd4ba",
+  "pluginCommit": "1382c41",
   "evidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound-podcast-input-native",
   "platform": "macOS",
   "nativeVersion": "0.7.0",
-  "windows": "PENDING"
+  "windows": {
+    "initialRun": 39089416671,
+    "initialResult": "FAIL before native audio steps; isolated Python default encoding read Chinese fixture as cp1252",
+    "fix": "Explicit UTF-8 in actual tests and JSON reads; do not rely on PYTHONUTF8 under -I",
+    "retryRun": 39089480255,
+    "retryStatus": "QUEUED",
+    "recipeOverwriteProtection": "PASS local actual helper rerun refused existing output and preserved bytes"
+  }
 }
