@@ -4,20 +4,20 @@
 # for the other hosts.
 - insert:
     - id: printcraft-plugin
-      name: '@partme-dsh/printcraft'
+      name: 'printcraft'
 
     - id: mcp-printcraft-printcraft-editor
       name: '@deepseek-ai/dsh-mcp-client'
-      disabled: !!js "!process.env.DSH_MCP_PRINTCRAFT"
+      disabled: !!js "process.env.DSH_MCP_PRINTCRAFT === '0'"
       config:
         serverName: "printcraft-editor"
         toolCallTimeoutMs: 60000
         transport: 'stdio'
         command: "node"
-        cwd: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('@partme-dsh/printcraft/package.json'))) })()"
+        cwd: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('printcraft/package.json'))) })()"
         args:
-          - !!js "process.getBuiltinModule('node:path').join((() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('@partme-dsh/printcraft/package.json'))) })(), \"ui/bootstrap.mjs\")"
+          - !!js "process.getBuiltinModule('node:path').join((() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('printcraft/package.json'))) })(), \"ui/bootstrap.mjs\")"
         env:
-          CLAUDE_PLUGIN_ROOT: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('@partme-dsh/printcraft/package.json'))) })()"
-          PLUGIN_ROOT: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('@partme-dsh/printcraft/package.json'))) })()"
+          CLAUDE_PLUGIN_ROOT: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('printcraft/package.json'))) })()"
+          PLUGIN_ROOT: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('printcraft/package.json'))) })()"
           PLUGIN_DATA: !!js "process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:os').homedir(), '.dsh', 'plugin-data', \"printcraft\")"

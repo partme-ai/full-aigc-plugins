@@ -103,7 +103,19 @@
     "runtimeSha256": "3e86e4a5ced5f70d425bc9d60b874fe42922048451dbbc5955e9e3f1e20357d5",
     "actualFullArchiveBootstrapExtractAndFileHashes": "PASS",
     "packagingRegressionTests": 3,
-    "nativeColdDownloadInstall": "Windows fresh-runner market acceptance PENDING",
+    "nativeColdDownloadInstall": {
+      "result": "PASS actual fresh Windows runner native Codex",
+      "run": 39091161297,
+      "version": "0.1.0-dev.20261018.4",
+      "runtimeCacheSha256": "3e86e4a5ced5f70d425bc9d60b874fe42922048451dbbc5955e9e3f1e20357d5",
+      "runtimePath": "AppData/Local/full-aigc-plugins/soundcraft/<sha>/editor",
+      "gitEvidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound184-feature-windows-market",
+      "zipEvidence": "/Users/wandl/workspaces/workspace-agent-skills/full-aigc-plugins/.local/sound184-feature-windows-zip",
+      "linuxAllCold": "PASS same run",
+      "testBranchTreeEquality": "PASS git diff c7a2369 test/20261017 empty",
+      "testMarketRun": 39091175290,
+      "testMarketStatus": "PASS entire matrix"
+    },
     "release": "PUBLIC DEVELOPMENT PRERELEASE",
     "pluginMain": "f9e80c1755945cb821d92f51dba67479114f7d9a",
     "mainCi": 39090906197,
@@ -122,6 +134,24 @@
     },
     "localThinNativeMcp": "PASS calls; cache-isolation assertion not established in first probe",
     "localExplicitEmptyCacheProbe": "Codex sqlite state initialization failed before plugin start; not counted",
-    "marketUpdate": "PREPARED feature 18.4; main unchanged"
+    "marketUpdate": {
+      "result": "PUBLISHED main",
+      "commit": "7df35ebffb5b2889d44b151b0722eecb1091bfab",
+      "testMarketRun": 39091175290,
+      "testMarketResult": "PASS entire matrix",
+      "mainMarketRun": 39091326105,
+      "mainMarketStatus": "PASS",
+      "mainBrochureAudioRun": 39091326102,
+      "mainPackageRun": 39091326135,
+      "mainCliRun": 39091326137,
+      "mainCjkBuildRun": 39091326108,
+      "mainChecks": "PASS all five workflows"
+    },
+    "localMarketRefresh": {
+      "result": "FAIL disk full during Codex marketplace upgrade full-aigc-plugins",
+      "installedPluginsUpgraded": false,
+      "oldMarketplaceRetained": true,
+      "failedStaging": "CLI automatically removed its failed staging directory; verified absent"
+    }
   }
 }

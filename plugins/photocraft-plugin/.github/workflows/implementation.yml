@@ -1,0 +1,61 @@
+name: Skill snapshots and implementation units
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  implementation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python3 -m unittest discover -s tests -v
+      - run: python3 -m unittest discover -s skills/photocraft-restore-old-photo/tests -v
+      - run: python3 scripts/vendor/skill_vendor.py check
+      - name: Check command evidence against locked execution resources
+        run: python3 -I -B scripts/command_acceptance.py check --skill-root skills/photocraft-use --index docs/evidence/optimization/command-acceptance/current-index.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.21.0'
+      - name: Runtime unit tests when present
+        run: |
+          if test -f package.json; then
+            npm test
+          fi
+      - name: Read fixed skill-source identity
+        id: skill-source
+        run: python3 -c "import json,os;v=json.load(open('skills.lock.json'))['sources'][0];f=open(os.environ['GITHUB_OUTPUT'],'a');print('sha='+v['sha'],file=f)"
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-skills/photocraft-skills
+          ref: ${{ steps.skill-source.outputs.sha }}
+          path: .skills-authority
+      - name: Check complete independent release combination
+        run: python3 -I -B scripts/release_combination.py --skills-source .skills-authority
+      - name: Read pinned registry source identity
+        id: registry-source
+        run: python3 -c "import json,os;v=json.load(open('.skills-authority/runtime/supervised-droplet-patch.json'));f=open(os.environ['GITHUB_OUTPUT'],'a');print('sha='+v['upstreamCommit'],file=f)"
+      - uses: actions/checkout@v4
+        with:
+          repository: storytold/photocraft
+          ref: ${{ steps.registry-source.outputs.sha }}
+          path: .registry-authority
+      - name: Verify maintained registry patch identity
+        run: |
+          python3 - <<'PYTHON'
+          import hashlib,json
+          from pathlib import Path
+          manifest=json.loads(Path('.skills-authority/runtime/supervised-droplet-patch.json').read_text())
+          profile=json.loads(Path('docs/evidence/optimization/command-acceptance/source-contexts.json').read_text())
+          patch=Path('.skills-authority/runtime/patches/supervised-droplet.patch').read_bytes()
+          assert hashlib.sha256(patch).hexdigest()==manifest['patchSha256']==profile['patchSha256']
+          assert manifest['upstreamCommit']==profile['upstreamCommit']
+          assert manifest['upstreamRepository']==profile['upstreamRepository']
+          PYTHON
+          git -C .registry-authority apply --check --include='crates/engine/**' ../.skills-authority/runtime/patches/supervised-droplet.patch
+          git -C .registry-authority apply --include='crates/engine/**' ../.skills-authority/runtime/patches/supervised-droplet.patch
+      - name: Check all command source spans against pinned maintained registry
+        run: python3 -I -B scripts/command_source_contexts.py check --skill-root skills/photocraft-use --index docs/evidence/optimization/command-acceptance/current-index.json --profile docs/evidence/optimization/command-acceptance/source-contexts.json --source-root .registry-authority

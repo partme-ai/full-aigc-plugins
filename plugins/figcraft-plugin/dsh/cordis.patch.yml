@@ -4,20 +4,20 @@
 # for the other hosts.
 - insert:
     - id: figcraft-plugin
-      name: '@partme-dsh/figcraft'
+      name: 'figcraft'
 
     - id: mcp-figcraft-figcraft-editor
       name: '@deepseek-ai/dsh-mcp-client'
-      disabled: !!js "!process.env.DSH_MCP_FIGCRAFT"
+      disabled: !!js "process.env.DSH_MCP_FIGCRAFT === '0'"
       config:
         serverName: "figcraft-editor"
         toolCallTimeoutMs: 60000
         transport: 'stdio'
         command: "node"
-        cwd: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('@partme-dsh/figcraft/package.json'))) })()"
+        cwd: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('figcraft/package.json'))) })()"
         args:
-          - !!js "process.getBuiltinModule('node:path').join((() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('@partme-dsh/figcraft/package.json'))) })(), \"ui/bootstrap.mjs\")"
+          - !!js "process.getBuiltinModule('node:path').join((() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('figcraft/package.json'))) })(), \"ui/bootstrap.mjs\")"
         env:
-          CLAUDE_PLUGIN_ROOT: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('@partme-dsh/figcraft/package.json'))) })()"
-          PLUGIN_ROOT: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('@partme-dsh/figcraft/package.json'))) })()"
+          CLAUDE_PLUGIN_ROOT: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('figcraft/package.json'))) })()"
+          PLUGIN_ROOT: !!js "(() => { const p = process.getBuiltinModule('node:path'); const req = process.getBuiltinModule('node:module').createRequire(baseUrl); return p.dirname(p.dirname(req.resolve('figcraft/package.json'))) })()"
           PLUGIN_DATA: !!js "process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:os').homedir(), '.dsh', 'plugin-data', \"figcraft\")"

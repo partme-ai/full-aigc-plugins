@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.pytest_cache/
+.venv/
+dist/
+.runtime/
+.printcraft-runs/
+
+node_modules/
+
+ui/dist/
+
+.local/
+
+/ui/node_modules

@@ -1,6 +1,6 @@
 {
-  "name": "@partme-dsh/soundcraft",
-  "version": "0.1.0-dev.20261018.2",
+  "name": "soundcraft",
+  "version": "0.1.0-dev.20261019.1",
   "description": "soundcraft 工作区编辑器与场景技能，本地开发候选。",
   "type": "module",
   "main": "lib/index.js",
@@ -8,14 +8,16 @@
   "exports": {
     ".": "./lib/index.js",
     "./package.json": "./package.json",
-    "./cordis.patch.yml": "./cordis.patch.yml"
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*": "./locale/*"
   },
   "files": [
     "cordis.patch.yml",
     "lib/index.js",
     "icon.svg",
     "icon.png",
-    "README.md"
+    "README.md",
+    "locale"
   ],
   "license": "Apache-2.0",
   "keywords": [],
@@ -23,5 +25,6 @@
     "bundle": {
       "patch": "./cordis.patch.yml"
     }
-  }
+  },
+  "private": true
 }

@@ -1,37 +1,125 @@
 [
   {
     "plugin": "cadcraft",
-    "version": "0.1.0-dev.20261018.3",
+    "version": "0.1.0-dev.20261019.1",
     "runtime": "cadcraft-runtime.tgz",
-    "sha256": "19b56060ab2728dd6a2345e789524557a94edb1fc7e9eba8bc679a7a852ce2ee",
-    "bytes": 38101871,
-    "runtimeRef": "v0.1.0-dev.20261018.3",
+    "sha256": "69d6a09f72c040c0cb8b1a90fc1cc4bd2caf87887f22271691986d437f732330",
+    "commit": "2589c4f91a62b29b6fe9e7141a3b38e7b3a93033",
+    "featureCommit": "13cac902c02b93b6656493d4cb78d11c4ec7937b",
+    "testCommit": "aa239d57499d3bf076db555c8302ceab0dc9825a",
+    "archive": "cadcraft-plugin-0.1.0-dev.20261019.1.zip",
+    "archiveSha256": "f38efe9593605845347efd5650d69704cd8d3b3d1e20c5ef98106f01fb355df2",
+    "maximumZipEntryBytes": 37347623,
+    "bytes": 38102823,
+    "releaseUrl": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "runtimeRef": "v0.1.0-dev.20261019.1",
     "reuseRuntime": false,
-    "commit": "26ac6a39e781f91ff895918e4ed34269f183d03d",
-    "archive": "cadcraft-plugin-0.1.0-dev.20261018.3.zip",
-    "archiveSha256": "b871b618e0ac0170cf394ff78ad3d8cd0af11098b204bef58b0ff0f9875baa7d",
-    "releaseUrl": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
     "remoteAssetDigests": "PASS",
-    "maximumZipEntryBytes": 37347623
+    "ci": [
+      {
+        "conclusion": "success",
+        "name": "CI",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/cadcraft-plugin/actions/runs/39149726071"
+      },
+      {
+        "conclusion": "success",
+        "name": "CI",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/cadcraft-plugin/actions/runs/39149497374"
+      }
+    ],
+    "packageSmoke": {
+      "plugin": "cadcraft",
+      "version": "0.1.0-dev.20261019.1",
+      "cold": false,
+      "bundled": true,
+      "files": 38,
+      "handshake": "PASS",
+      "catalog": "PASS",
+      "initialNoticeHidden": "PASS",
+      "openRequest": "PASS",
+      "runtimeDigests": "PASS",
+      "hostRendering": "NOT_TESTED",
+      "sourceCommit": "2589c4f91a62b29b6fe9e7141a3b38e7b3a93033",
+      "runtimeSha256": "69d6a09f72c040c0cb8b1a90fc1cc4bd2caf87887f22271691986d437f732330",
+      "scope": "installed bundle MCP and initial HTML; host rendering separate"
+    }
   },
   {
     "plugin": "designcraft",
-    "version": "0.1.0-dev.20261018.3",
+    "version": "0.1.0-dev.20261019.1",
     "runtime": "designcraft-runtime.tgz",
-    "sha256": "5e77a6a29dd9542fb49946d2576d3c495bcec15bbbdbd89e72c09a0f7423b234",
-    "bytes": 45991609,
-    "runtimeRef": "v0.1.0-dev.20261017.2",
-    "reuseRuntime": true,
-    "commit": "239273d96cf418ea47d26ee415a4030d39e6a711",
-    "archive": "designcraft-plugin-0.1.0-dev.20261018.3.zip",
-    "archiveSha256": "d4756dccef3f62e87a6d14bc7d3994fd38f48da583e0be8c94bb9cedfc4b0c9d",
-    "releaseUrl": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
+    "sha256": "f034644493d04f79ef9a253f245aa6d3ea0294153cc00055e3989f12d9100a39",
+    "commit": "3fa4b9888befc349570473daa69ad84bde4db4e0",
+    "featureCommit": "e448eb0762a1827db19c253951c3794dab642cb8",
+    "testCommit": "9936ee7239bc917633764ab95661459ca2fdf1a4",
+    "archive": "designcraft-plugin-0.1.0-dev.20261019.1.zip",
+    "archiveSha256": "ca51e79a0bbc1a93507e5e5b72c35524229e218c17af6a92bd14e70123560b26",
+    "maximumZipEntryBytes": 45188333,
+    "bytes": 45991531,
+    "releaseUrl": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "runtimeRef": "v0.1.0-dev.20261019.1",
+    "reuseRuntime": false,
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
     "remoteAssetDigests": "PASS",
-    "maximumZipEntryBytes": 45188333
+    "ci": [
+      {
+        "conclusion": "success",
+        "name": "Partme Agent Plugin Architecture v1",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/actions/runs/39150000208"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/actions/runs/39150000022"
+      },
+      {
+        "conclusion": "success",
+        "name": "DesignCraft plugin CI",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/actions/runs/39150000018"
+      },
+      {
+        "conclusion": "success",
+        "name": "Partme Agent Plugin Architecture v1",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/actions/runs/39149545535"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/actions/runs/39149545364"
+      },
+      {
+        "conclusion": "success",
+        "name": "DesignCraft plugin CI",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/actions/runs/39149545345"
+      }
+    ],
+    "packageSmoke": {
+      "plugin": "designcraft",
+      "version": "0.1.0-dev.20261019.1",
+      "cold": false,
+      "bundled": true,
+      "files": 45,
+      "handshake": "PASS",
+      "catalog": "PASS",
+      "initialNoticeHidden": "PASS",
+      "openRequest": "PASS",
+      "runtimeDigests": "PASS",
+      "hostRendering": "NOT_TESTED",
+      "sourceCommit": "3fa4b9888befc349570473daa69ad84bde4db4e0",
+      "runtimeSha256": "f034644493d04f79ef9a253f245aa6d3ea0294153cc00055e3989f12d9100a39",
+      "scope": "installed bundle MCP and initial HTML; host rendering separate"
+    }
   },
   {
     "plugin": "effectcraft",
@@ -52,37 +140,137 @@
   },
   {
     "plugin": "photocraft",
-    "version": "0.1.0-dev.20261018.4",
+    "version": "0.1.0-dev.20261019.1",
     "runtime": "photocraft-runtime.tgz",
-    "sha256": "2264b017a751f7a8a5ef69664e8333d72daac89c59f2d821151d8caa409c1d95",
-    "bytes": 29041234,
-    "runtimeRef": "v0.1.0-dev.20261017.2",
-    "reuseRuntime": true,
-    "commit": "c2a0fbefc6ca35a3f915641093c56001c7d76079",
-    "archive": "photocraft-plugin-0.1.0-dev.20261018.4.zip",
-    "archiveSha256": "d68d25979363c3a84f82fb8a87b8a0965f77bdc83f615b6c1af1c6e48a2f7c07",
-    "releaseUrl": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261018.4",
+    "sha256": "6028078fe6bbd31620aa60f6b123396fdf9b3dd0656626cd8ddfc841227293e3",
+    "commit": "7695a00275e9ed0753e14b149ec7937bb415aca6",
+    "featureCommit": "303f988d24bd0c658b5baf174ec606e87547c8ec",
+    "testCommit": "49e08df40e538a3932bed013f5f8b926f99e0b55",
+    "archive": "photocraft-plugin-0.1.0-dev.20261019.1.zip",
+    "archiveSha256": "58b2f7b9923d770acb31eb91b2d6e519adb92c04ef92ff8dacb3263f7662616a",
+    "maximumZipEntryBytes": 28117151,
+    "bytes": 29040980,
+    "releaseUrl": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "runtimeRef": "v0.1.0-dev.20261019.1",
+    "reuseRuntime": false,
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
     "remoteAssetDigests": "PASS",
-    "maximumZipEntryBytes": 28117151
+    "ci": [
+      {
+        "conclusion": "success",
+        "name": "Documentation and specification integrity",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39149966638"
+      },
+      {
+        "conclusion": "success",
+        "name": "Partme Agent Plugin Architecture v1",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39149967014"
+      },
+      {
+        "conclusion": "success",
+        "name": "Skill snapshots and implementation units",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39149966669"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39149966471"
+      },
+      {
+        "conclusion": "success",
+        "name": "Documentation and specification integrity",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39149537547"
+      },
+      {
+        "conclusion": "success",
+        "name": "Partme Agent Plugin Architecture v1",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39149537852"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39149537478"
+      },
+      {
+        "conclusion": "success",
+        "name": "Skill snapshots and implementation units",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/actions/runs/39149537652"
+      }
+    ],
+    "packageSmoke": {
+      "plugin": "photocraft",
+      "version": "0.1.0-dev.20261019.1",
+      "cold": false,
+      "bundled": true,
+      "files": 51,
+      "handshake": "PASS",
+      "catalog": "PASS",
+      "initialNoticeHidden": "PASS",
+      "openRequest": "PASS",
+      "runtimeDigests": "PASS",
+      "hostRendering": "NOT_TESTED",
+      "sourceCommit": "7695a00275e9ed0753e14b149ec7937bb415aca6",
+      "runtimeSha256": "6028078fe6bbd31620aa60f6b123396fdf9b3dd0656626cd8ddfc841227293e3",
+      "scope": "installed bundle MCP and initial HTML; host rendering separate"
+    }
   },
   {
     "plugin": "figcraft",
-    "version": "0.1.0-dev.20261018.2",
+    "version": "0.1.0-dev.20261019.1",
     "runtime": "figcraft-runtime.tgz",
-    "sha256": "cfd16108b3ff478e8de045b8e93fec2357fe9e27ed3de1092444c342224b81f2",
-    "bytes": 22459805,
-    "runtimeRef": "v0.1.0-dev.20261017.2",
-    "reuseRuntime": true,
-    "commit": "c5bce79c6c7b9cc0aae35fc9db9fe7fcadefc606",
-    "archive": "figcraft-plugin-0.1.0-dev.20261018.2.zip",
-    "archiveSha256": "26ec38720f982979c8ca78653e460873a75f0f05a4fa4a7c76e89113cde47057",
-    "releaseUrl": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261018.2",
+    "sha256": "e1753abbed6893b047de703a442120ba26500fe94dbdce091f6e04b8f0312191",
+    "commit": "4fecb79a9f4065904073e539631a57cf2f475ec9",
+    "featureCommit": "277179caabdf27ac2bfbf32fe4c911fa96d359cc",
+    "testCommit": "8f39b3b4ea9bf0b7be06ecf34824bf81b4d9bc3a",
+    "archive": "figcraft-plugin-0.1.0-dev.20261019.1.zip",
+    "archiveSha256": "db5d4ef368e6aafb653d50863319380ccb4ecaf14d4f8008acae320e64bf2c2b",
+    "maximumZipEntryBytes": 21625395,
+    "bytes": 22459911,
+    "releaseUrl": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "runtimeRef": "v0.1.0-dev.20261019.1",
+    "reuseRuntime": false,
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
     "remoteAssetDigests": "PASS",
-    "maximumZipEntryBytes": 21625395
+    "ci": [
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/figcraft-plugin/actions/runs/39149906029"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/figcraft-plugin/actions/runs/39149513560"
+      }
+    ],
+    "packageSmoke": {
+      "plugin": "figcraft",
+      "version": "0.1.0-dev.20261019.1",
+      "cold": false,
+      "bundled": true,
+      "files": 40,
+      "handshake": "PASS",
+      "catalog": "PASS",
+      "initialNoticeHidden": "PASS",
+      "openRequest": "PASS",
+      "runtimeDigests": "PASS",
+      "hostRendering": "NOT_TESTED",
+      "sourceCommit": "4fecb79a9f4065904073e539631a57cf2f475ec9",
+      "runtimeSha256": "e1753abbed6893b047de703a442120ba26500fe94dbdce091f6e04b8f0312191",
+      "scope": "installed bundle MCP and initial HTML; host rendering separate"
+    }
   },
   {
     "plugin": "filmcraft",
@@ -120,20 +308,58 @@
   },
   {
     "plugin": "printcraft",
-    "version": "0.1.0-dev.20261018.2",
+    "version": "0.1.0-dev.20261019.1",
     "runtime": "printcraft-runtime.tgz",
-    "sha256": "9854f1aab26a0ab7af303b68da225fe50b2ee57a85487c09ce23ba58c99d3d32",
-    "bytes": 45179127,
-    "runtimeRef": "v0.1.0-dev.20261018.2",
-    "reuseRuntime": false,
-    "commit": "1f4583ecc366f04e0f9e50082f1ac5a1428ef87a",
-    "archive": "printcraft-plugin-0.1.0-dev.20261018.2.zip",
-    "archiveSha256": "bdf3dd5640667c63260fd92487ae63290d1e03624e07be312477498d75e419db",
+    "sha256": "ef636d600ff04ac43c506107e0245c89ed0f6a2a6843c4fdbe7000bd8623c347",
+    "commit": "17d5c0f1bbd9732a2ddfa1e67042105f7e9681db",
+    "featureCommit": "87e8f4e3de73741efd81d016a68aa5db7747fea1",
+    "testCommit": "e1dace090f74a003b148a218e8cc3217a4af0cce",
+    "archive": "printcraft-plugin-0.1.0-dev.20261019.1.zip",
+    "archiveSha256": "1da6a205d96b7cbd4f6d57a04ecb80f1b31ab4ab6f628e37bfc3f86bec801b60",
     "maximumZipEntryBytes": 44209275,
-    "releaseUrl": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.20261018.2",
+    "bytes": 45178487,
+    "releaseUrl": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "runtimeRef": "v0.1.0-dev.20261019.1",
+    "reuseRuntime": false,
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "ci": [
+      {
+        "conclusion": "success",
+        "name": "Partme Agent Plugin Architecture v1",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/printcraft-plugin/actions/runs/39149932022"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/printcraft-plugin/actions/runs/39149931649"
+      },
+      {
+        "conclusion": "success",
+        "name": "Package verification",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/printcraft-plugin/actions/runs/39149931755"
+      }
+    ],
+    "packageSmoke": {
+      "plugin": "printcraft",
+      "version": "0.1.0-dev.20261019.1",
+      "cold": false,
+      "bundled": true,
+      "files": 51,
+      "handshake": "PASS",
+      "catalog": "PASS",
+      "initialNoticeHidden": "PASS",
+      "openRequest": "PASS",
+      "runtimeDigests": "PASS",
+      "hostRendering": "NOT_TESTED",
+      "sourceCommit": "17d5c0f1bbd9732a2ddfa1e67042105f7e9681db",
+      "runtimeSha256": "ef636d600ff04ac43c506107e0245c89ed0f6a2a6843c4fdbe7000bd8623c347",
+      "scope": "installed bundle MCP and initial HTML; host rendering separate"
+    }
   },
   {
     "plugin": "vectorcraft",
@@ -154,70 +380,210 @@
   },
   {
     "plugin": "deckcraft",
-    "version": "0.1.0-dev.20261018.3",
+    "version": "0.1.0-dev.20261019.1",
     "runtime": "deckcraft-runtime.tgz",
-    "sha256": "24299545007e29e38f44cdbdc4ee2dcb3828d8312683d523e49e640a3652cc6b",
-    "bytes": 39340189,
-    "runtimeRef": "v0.1.0-dev.20261017.2",
-    "reuseRuntime": true,
-    "commit": "ec48b2b5c92a6f7dfe93450739289779a1f77549",
-    "archive": "deckcraft-plugin-0.1.0-dev.20261018.3.zip",
-    "archiveSha256": "9206475f435dee9fff66e4207b6d9cc9e7e969bd74dc13878505ce91b79b13bd",
-    "releaseUrl": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261018.3",
+    "sha256": "60b1cf27cb1da14bb07391584cf50a2660f333a0250d54f533d998d5d5ab102e",
+    "commit": "cfb719179a9b875d08aac0fba5be9fb4c2a89f4d",
+    "featureCommit": "28e55f16d2e1076d0b41cfb98fa29c74d674c21b",
+    "testCommit": "bc6223717e3a3b95454cb8f2174403009e771559",
+    "archive": "deckcraft-plugin-0.1.0-dev.20261019.1.zip",
+    "archiveSha256": "d185ed83ea1327a1459000211ceff3709a1f1257ac96a9ab0fc806e22d75c2b7",
     "maximumZipEntryBytes": 38540148,
+    "bytes": 39339977,
+    "releaseUrl": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "runtimeRef": "v0.1.0-dev.20261019.1",
+    "reuseRuntime": false,
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
-    "remoteAssetDigests": "PASS"
+    "remoteAssetDigests": "PASS",
+    "ci": [
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/deckcraft-plugin/actions/runs/39149866369"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/deckcraft-plugin/actions/runs/39149505659"
+      }
+    ],
+    "packageSmoke": {
+      "plugin": "deckcraft",
+      "version": "0.1.0-dev.20261019.1",
+      "cold": false,
+      "bundled": true,
+      "files": 38,
+      "handshake": "PASS",
+      "catalog": "PASS",
+      "initialNoticeHidden": "PASS",
+      "openRequest": "PASS",
+      "runtimeDigests": "PASS",
+      "hostRendering": "NOT_TESTED",
+      "sourceCommit": "cfb719179a9b875d08aac0fba5be9fb4c2a89f4d",
+      "runtimeSha256": "60b1cf27cb1da14bb07391584cf50a2660f333a0250d54f533d998d5d5ab102e",
+      "scope": "installed bundle MCP and initial HTML; host rendering separate"
+    }
   },
   {
     "plugin": "soundcraft",
-    "version": "0.1.0-dev.20261018.4",
+    "version": "0.1.0-dev.20261019.1",
     "runtime": "soundcraft-runtime.tgz",
-    "sha256": "3e86e4a5ced5f70d425bc9d60b874fe42922048451dbbc5955e9e3f1e20357d5",
-    "bytes": 19975661,
-    "runtimeRef": "v0.1.0-dev.20261018.4",
+    "sha256": "15069b7311a2c80f2e64573a1adebb2aed5c4dd99b6a285f94cb516ac319a0a3",
+    "commit": "324dbfc4214736933664c0b96b33d6d870217136",
+    "featureCommit": "a111cf9e0b343fe495ab7920f06e58a9f2f9d5af",
+    "testCommit": "b015bce040813b6d6a6766c67975f1e6f26ee52d",
+    "archive": "soundcraft-plugin-0.1.0-dev.20261019.1.zip",
+    "archiveSha256": "7c46db6dbd487c1e516a27b9fa5d0ee307a56bc0cfa6c20f6c12466778235454",
+    "maximumZipEntryBytes": 19185520,
+    "bytes": 19975725,
+    "releaseUrl": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "runtimeRef": "v0.1.0-dev.20261019.1",
     "reuseRuntime": false,
-    "commit": "f9e80c1755945cb821d92f51dba67479114f7d9a",
-    "archive": "soundcraft-plugin-0.1.0-dev.20261018.4.zip",
-    "archiveSha256": "be583b11a35aa9039a33196f48ae4bc04955a995e5caac663609c902bca85957",
-    "releaseUrl": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261018.4",
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
     "remoteAssetDigests": "PASS",
-    "maximumZipEntryBytes": 19185520
+    "ci": [
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/soundcraft-plugin/actions/runs/39149936084"
+      },
+      {
+        "conclusion": "success",
+        "name": "SoundCraft candidate checks",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/soundcraft-plugin/actions/runs/39149936357"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/soundcraft-plugin/actions/runs/39149529340"
+      },
+      {
+        "conclusion": "success",
+        "name": "SoundCraft candidate checks",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/soundcraft-plugin/actions/runs/39149529403"
+      }
+    ],
+    "packageSmoke": {
+      "plugin": "soundcraft",
+      "version": "0.1.0-dev.20261019.1",
+      "cold": false,
+      "bundled": true,
+      "files": 32,
+      "handshake": "PASS",
+      "catalog": "PASS",
+      "initialNoticeHidden": "PASS",
+      "openRequest": "PASS",
+      "runtimeDigests": "PASS",
+      "hostRendering": "NOT_TESTED",
+      "sourceCommit": "324dbfc4214736933664c0b96b33d6d870217136",
+      "runtimeSha256": "15069b7311a2c80f2e64573a1adebb2aed5c4dd99b6a285f94cb516ac319a0a3",
+      "scope": "installed bundle MCP and initial HTML; host rendering separate"
+    }
   },
   {
     "plugin": "gridcraft",
-    "version": "0.1.0-dev.20261018.2",
+    "version": "0.1.0-dev.20261019.1",
     "runtime": "gridcraft-runtime.tgz",
-    "sha256": "ad46277e56ca1aef597a248987f8e1dbd66f6ee5a1ae9fd219ba61f713c9d134",
-    "bytes": 8499791,
-    "runtimeRef": "v0.1.0-dev.20261017.2",
-    "reuseRuntime": true,
-    "commit": "848f5f7dc99c6b920979ad77057978d1f24a0c71",
-    "archive": "gridcraft-plugin-0.1.0-dev.20261018.2.zip",
-    "archiveSha256": "d30d6be20474e3a40c47fe05e5af52215e3006d63207048a22e7abfab0c4274c",
-    "releaseUrl": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261018.2",
+    "sha256": "9af1edfa7f02baef2c24159f4010ab63d6655bd848175a61ec03be817ae26edd",
+    "commit": "909643b96082c5e09ec8550b7ef36d8db2061523",
+    "featureCommit": "61d4246c8ad6acb9b20453b83de76e49a452aefa",
+    "testCommit": "6a9057ca8fa26937f6a8e5e99824f72c839db3ad",
+    "archive": "gridcraft-plugin-0.1.0-dev.20261019.1.zip",
+    "archiveSha256": "c1b4d8318cec676b33d209f329f285b9980050a15801c5dc856a57331f717354",
+    "maximumZipEntryBytes": 7672414,
+    "bytes": 8499622,
+    "releaseUrl": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "runtimeRef": "v0.1.0-dev.20261019.1",
+    "reuseRuntime": false,
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
     "remoteAssetDigests": "PASS",
-    "maximumZipEntryBytes": 7672414
+    "ci": [
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/gridcraft-plugin/actions/runs/39150041052"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/gridcraft-plugin/actions/runs/39149562249"
+      }
+    ],
+    "packageSmoke": {
+      "plugin": "gridcraft",
+      "version": "0.1.0-dev.20261019.1",
+      "cold": false,
+      "bundled": true,
+      "files": 32,
+      "handshake": "PASS",
+      "catalog": "PASS",
+      "initialNoticeHidden": "PASS",
+      "openRequest": "PASS",
+      "runtimeDigests": "PASS",
+      "hostRendering": "NOT_TESTED",
+      "sourceCommit": "909643b96082c5e09ec8550b7ef36d8db2061523",
+      "runtimeSha256": "9af1edfa7f02baef2c24159f4010ab63d6655bd848175a61ec03be817ae26edd",
+      "scope": "installed bundle MCP and initial HTML; host rendering separate"
+    }
   },
   {
     "plugin": "wordcraft",
-    "version": "0.1.0-dev.20261018.4",
+    "version": "0.1.0-dev.20261019.1",
     "runtime": "wordcraft-runtime.tgz",
-    "sha256": "c529a0897b344a3f1147bdb02df2c4d5bf90887fe6617a134ceb10eddc7c9ea5",
-    "bytes": 44779489,
-    "runtimeRef": "v0.1.0-dev.20261017.2",
-    "reuseRuntime": true,
-    "commit": "6e267438b7057625f27fd83b1a2b216fd93a3ffd",
-    "archive": "wordcraft-plugin-0.1.0-dev.20261018.4.zip",
-    "archiveSha256": "8556b134196c0d7f80babc3262cafdc4aea0f25d4591a15bade98631e9a45085",
-    "releaseUrl": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261018.4",
+    "sha256": "dfc3bf965a51f49af65f68e9aa15dc1981a29b35ede29ebd138d63057c9eafaa",
+    "commit": "70b5f71a20678c351dfc1d4321f40349d705f665",
+    "featureCommit": "e33ce2fdd272dc9f785e04f68219a85af5af7329",
+    "testCommit": "c6061c06f0efd1334f2b1150cf9335a500f86da0",
+    "archive": "wordcraft-plugin-0.1.0-dev.20261019.1.zip",
+    "archiveSha256": "1824ccce55da51b1568f8bab13c9ec6447563e39104ab57cf76462e6f74e08c9",
+    "maximumZipEntryBytes": 43981745,
+    "bytes": 44779328,
+    "releaseUrl": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "runtimeRef": "v0.1.0-dev.20261019.1",
+    "reuseRuntime": false,
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
     "remoteAssetDigests": "PASS",
-    "maximumZipEntryBytes": 43981745
+    "ci": [
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/wordcraft-plugin/actions/runs/39150065013"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/wordcraft-plugin/actions/runs/39149570645"
+      }
+    ],
+    "packageSmoke": {
+      "plugin": "wordcraft",
+      "version": "0.1.0-dev.20261019.1",
+      "cold": false,
+      "bundled": true,
+      "files": 45,
+      "handshake": "PASS",
+      "catalog": "PASS",
+      "initialNoticeHidden": "PASS",
+      "openRequest": "PASS",
+      "runtimeDigests": "PASS",
+      "hostRendering": "NOT_TESTED",
+      "sourceCommit": "70b5f71a20678c351dfc1d4321f40349d705f665",
+      "runtimeSha256": "dfc3bf965a51f49af65f68e9aa15dc1981a29b35ede29ebd138d63057c9eafaa",
+      "scope": "installed bundle MCP and initial HTML; host rendering separate"
+    }
   }
 ]

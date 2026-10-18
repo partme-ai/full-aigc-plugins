@@ -1,0 +1,25 @@
+name: SoundCraft candidate checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  offline:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Font overlay protection tests
+        run: python -I -B -m unittest discover -s tests -v
+      - name: Actual podcast input contract
+        run: python -I -B -m unittest discover -s skills/soundcraft-podcast-cleanup/tests -v
+      - name: Scene digest and host entry checks
+        run: python -X utf8 -I -B scripts/validate_editor_scenes.py
+      - name: Whitespace check
+        run: git diff --check
