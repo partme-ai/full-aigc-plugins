@@ -102,5 +102,14 @@
     "fontProbe": "explicit family/filename did not fix glyph; restored original CADCraft Stroke style",
     "runtime": "verified bundled enhanced0.7.0 after update404; not newest upstream main",
     "screenshotSha256": "4a286473ba7122c42ed77bfbe82d8d3704e1d17ff11c8dc23e0c4cae013e44e0"
+  },
+  "fontBuildFix": {
+    "cause": "CAD document font build filters non-web faces; existing font overlay omitted CADCraft; UI font-stack fallback alone does not cover document text",
+    "pluginCommit": "87bc428",
+    "test": "new document-font inclusion regression failed before change, passed after",
+    "build": "RUNNING separate copy and new target directory; existing references and bundled artifacts retained",
+    "buildDirectory": ".local/cad-room-font-build",
+    "log": ".local/cad-room-font-build.log",
+    "newRuntimeGlyphAcceptance": "PENDING"
   }
 }
