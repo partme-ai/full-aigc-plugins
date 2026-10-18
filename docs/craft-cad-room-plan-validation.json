@@ -13,5 +13,79 @@
   "swingRadius": 900,
   "unit": "mm",
   "hostSync": "NOT_TESTED",
-  "windowsNewHelper": "NOT_TESTED"
+  "windowsNewHelper": "NOT_TESTED",
+  "unitTests": {
+    "source": 6,
+    "plugin": 6,
+    "status": "PASS"
+  },
+  "macosThreeCases": {
+    "status": "PASS",
+    "platform": "darwin",
+    "nativeProcesses": 12,
+    "variants": [
+      {
+        "name": "sample",
+        "wallsDoorAndNativeDimensions": "PASS",
+        "labelPreserved": "PASS",
+        "inputPreserved": "PASS",
+        "visualAcceptance": "NOT_TESTED"
+      },
+      {
+        "name": "left-edge",
+        "wallsDoorAndNativeDimensions": "PASS",
+        "labelPreserved": "PASS",
+        "inputPreserved": "PASS",
+        "visualAcceptance": "NOT_TESTED"
+      },
+      {
+        "name": "right-edge",
+        "wallsDoorAndNativeDimensions": "PASS",
+        "labelPreserved": "PASS",
+        "inputPreserved": "PASS",
+        "visualAcceptance": "NOT_TESTED"
+      }
+    ],
+    "installedHostSync": "NOT_TESTED"
+  },
+  "windows": {
+    "status": "PASS",
+    "run": "https://github.com/partme-ai/full-aigc-plugins/actions/runs/39083168354",
+    "result": {
+      "status": "PASS",
+      "platform": "win32",
+      "nativeProcesses": 12,
+      "variants": [
+        {
+          "name": "sample",
+          "wallsDoorAndNativeDimensions": "PASS",
+          "labelPreserved": "PASS",
+          "inputPreserved": "PASS",
+          "visualAcceptance": "NOT_TESTED"
+        },
+        {
+          "name": "left-edge",
+          "wallsDoorAndNativeDimensions": "PASS",
+          "labelPreserved": "PASS",
+          "inputPreserved": "PASS",
+          "visualAcceptance": "NOT_TESTED"
+        },
+        {
+          "name": "right-edge",
+          "wallsDoorAndNativeDimensions": "PASS",
+          "labelPreserved": "PASS",
+          "inputPreserved": "PASS",
+          "visualAcceptance": "NOT_TESTED"
+        }
+      ],
+      "installedHostSync": "NOT_TESTED"
+    }
+  },
+  "savedUnitHeaders": "all six DXF files independently verified INSUNITS=4",
+  "macosVisualReview": "sample and both edge-door drawings inspected",
+  "remaining": [
+    "actual installed host sync",
+    "market release",
+    "complex room shapes, walls and construction layouts beyond this single-line plan"
+  ]
 }
