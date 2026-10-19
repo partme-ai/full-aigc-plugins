@@ -411,7 +411,7 @@
       "displayName": "JianYing Draft",
       "repository": "full-aigc-plugins/jianying-draft-plugin",
       "localDirectory": "jianying-draft-plugin",
-      "version": "0.29.0",
+      "version": "0.29.1",
       "description": "Cross-host JianYing/CapCut workflow orchestration through the checksum-verified Rust jianying-cli Runtime Adapter: jianying-job/v2, editable drafts, captions, audio/TTS/ASR, batch recovery, approvals, and MCP stdio/HTTP/SSE. No Python engine or external fork runtime.",
       "shortDescription": "Rust-only JianYing workflow orchestration",
       "category": "Creativity",
