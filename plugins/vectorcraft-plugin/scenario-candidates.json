@@ -4,47 +4,124 @@
   "skills": [
     {
       "name": "vectorcraft-editor",
-      "sha256": "1c11185cf6cc1a08a2d7a2387425f1ea274539ec03f2300baac6c0f5a185710f"
+      "sha256": "1c11185cf6cc1a08a2d7a2387425f1ea274539ec03f2300baac6c0f5a185710f",
+      "files": {
+        "SKILL.md": "1c11185cf6cc1a08a2d7a2387425f1ea274539ec03f2300baac6c0f5a185710f"
+      }
     },
     {
       "name": "vectorcraft-logo-system",
-      "sha256": "25ade16ad9baf65bc0e06d1f252b55dd327982d6a0bef274696c988ba01c69f4"
+      "sha256": "25ade16ad9baf65bc0e06d1f252b55dd327982d6a0bef274696c988ba01c69f4",
+      "files": {
+        "SKILL.md": "25ade16ad9baf65bc0e06d1f252b55dd327982d6a0bef274696c988ba01c69f4",
+        "references/craft-command-evidence.json": "452def8c4840de844105028d0d09387f8e0cabe474f976033cdef8df15fa5dd7",
+        "references/craft-methods.md": "e506b5a9610ba24e5c1d9db92ba4fde6cdca6c5f8ab3b442f77d2eaec6864fdd",
+        "references/craft-steps.json": "a9e24a1036f6f6ffa8cffe49e5fd56fd5ddeb1934ace442dc7274efa4643e83a",
+        "references/workflow-sources.json": "0190eac813133204b7a0785f80eed7075c59654318c62aefedfcf8f6e1dd0cfb"
+      }
     },
     {
       "name": "vectorcraft-icon-set",
-      "sha256": "64de9cd56b6fdf93ead153bc11535d2294c2c162441a0ab80e6cfb9237a955b4"
+      "sha256": "64de9cd56b6fdf93ead153bc11535d2294c2c162441a0ab80e6cfb9237a955b4",
+      "files": {
+        "SKILL.md": "64de9cd56b6fdf93ead153bc11535d2294c2c162441a0ab80e6cfb9237a955b4",
+        "references/craft-command-evidence.json": "28412cc0f0433aa81efbdaa21837318549396e013367ce8ee8f21bb40033fa4c",
+        "references/craft-methods.md": "f3bbe3bad6ceaa0e0eef44d89b783b39fc944b82e802a7156b3def277bd2e044",
+        "references/craft-steps.json": "7e6ac9c12e6bb072bc6128b912f9f40dd2360291c6322e0f48e3ad863aa5f266",
+        "references/workflow-sources.json": "0190eac813133204b7a0785f80eed7075c59654318c62aefedfcf8f6e1dd0cfb"
+      }
     },
     {
       "name": "vectorcraft-infographic",
-      "sha256": "26236684da3305f08ca3aab90f7f39bb6af937dced5507a3c85af843753a4f35"
+      "sha256": "26236684da3305f08ca3aab90f7f39bb6af937dced5507a3c85af843753a4f35",
+      "files": {
+        "SKILL.md": "26236684da3305f08ca3aab90f7f39bb6af937dced5507a3c85af843753a4f35",
+        "references/craft-command-evidence.json": "58f8f4eed2fb0ea6dcdfff2a8aec17cdbacd0a96aadb825f4e3b15b940bb901b",
+        "references/craft-methods.md": "c4ffc9f7d88f1c5282fc08f40db5335545e4128a03f072284a666e25c4844493",
+        "references/craft-steps.json": "0cf847828511c0fd4ba53a34df3d0748d0030f9c15ae55f39893f62a97953cf5",
+        "references/workflow-sources.json": "0190eac813133204b7a0785f80eed7075c59654318c62aefedfcf8f6e1dd0cfb"
+      }
     },
     {
       "name": "vectorcraft-trace-artwork",
-      "sha256": "4364f678fb515724bd9e928816f0b4c47f7f695fc83fd7f12d1237c2e6eb4b0c"
+      "sha256": "4364f678fb515724bd9e928816f0b4c47f7f695fc83fd7f12d1237c2e6eb4b0c",
+      "files": {
+        "SKILL.md": "4364f678fb515724bd9e928816f0b4c47f7f695fc83fd7f12d1237c2e6eb4b0c",
+        "references/craft-command-evidence.json": "c8f3dca10c50698602dfd94173eced737f49a250a8889dc386cc1d7d1c56d8b5",
+        "references/craft-methods.md": "5622cab8f2f902e397259f3cae09955d31a2ce31ffe141c8081450f66531148b",
+        "references/craft-steps.json": "11df336dfee36b906ed1992b88ea974a59a6a27f6265843a3e85d41e833f911c",
+        "references/workflow-sources.json": "0190eac813133204b7a0785f80eed7075c59654318c62aefedfcf8f6e1dd0cfb"
+      }
     },
     {
       "name": "vectorcraft-editable-chart",
-      "sha256": "acf78032fcdfc8f5ea05b07ecf317863c9c74dc774205f8a8fea10b70e9f5c3b"
+      "sha256": "acf78032fcdfc8f5ea05b07ecf317863c9c74dc774205f8a8fea10b70e9f5c3b",
+      "files": {
+        "SKILL.md": "acf78032fcdfc8f5ea05b07ecf317863c9c74dc774205f8a8fea10b70e9f5c3b",
+        "references/craft-command-evidence.json": "ef17bcd29a107952220bea6356fc9fd4af724378093f6e1fcf312a0dd55896ec",
+        "references/craft-methods.md": "2db6bd5b46b217eac4a98f1948595c6e6b3c8039c26d792826a0567b5ab29300",
+        "references/craft-steps.json": "1f5753a6d6662d576461242c91105c7a6c39e87e2d2662b8974b654027e554ae",
+        "references/workflow-sources.json": "0190eac813133204b7a0785f80eed7075c59654318c62aefedfcf8f6e1dd0cfb"
+      }
     },
     {
       "name": "vectorcraft-svg-cleanup",
-      "sha256": "fac7b6425163a8e8ca33a385bb8b69a57eb10927b0c7767c769957f45b2a52f9"
+      "sha256": "fac7b6425163a8e8ca33a385bb8b69a57eb10927b0c7767c769957f45b2a52f9",
+      "files": {
+        "SKILL.md": "fac7b6425163a8e8ca33a385bb8b69a57eb10927b0c7767c769957f45b2a52f9",
+        "references/craft-command-evidence.json": "04a7213e3623746f8eb383ac10483f05d35e776263ced349958005eadbcb2fe4",
+        "references/craft-methods.md": "101184045b9867ddbd6ab7c669b817a2fc304d42e106da55105c420c22616998",
+        "references/craft-steps.json": "b4d133481e4da96ce4c0562ecd4a5eb00b6a4e895b93f4c5da98c77604c5563e",
+        "references/workflow-sources.json": "0190eac813133204b7a0785f80eed7075c59654318c62aefedfcf8f6e1dd0cfb"
+      }
     },
     {
       "name": "vectorcraft-scenario-playbooks",
-      "sha256": "5a375563988d97115b497cd4f39aca74fb35388b87a6a739a0b597eda09d7232"
+      "sha256": "5a375563988d97115b497cd4f39aca74fb35388b87a6a739a0b597eda09d7232",
+      "files": {
+        "SKILL.md": "5a375563988d97115b497cd4f39aca74fb35388b87a6a739a0b597eda09d7232",
+        "references/command-evidence.json": "382d334e69df65ec11ea1c2497ed466d53c2001ee41b3e1fdccb69e6259d55f7",
+        "references/market-adaptations.json": "f497142d7772ee1c1e30ef175dfa2af9f337c81754504363b2c2db7e32b1988d",
+        "references/market-workflows.md": "7245f2c1962bd25f4e814b478baec7436d67a570327876d996d2b29ab1e8e35c",
+        "references/recipes.json": "fa0927dd75565a14aca96eb724b640498c9041dbff823114187f942405675b75",
+        "references/sources.json": "e036b00b6188847c922246d24fd7701acc906860bd7cf0e6251e252b50865fd4",
+        "references/upstream-0.12-commands.json": "4d16206464bb4abcfdfa3f97b27ba43e033f7d0fd7cf1435aa1d95dac920dfdc",
+        "references/upstream-0.12.md": "ee0b120210b71f6609e06cf676f43166d33cc74920c81b31a45b34a1a320d489",
+        "references/workflows.md": "e3839ba15658f4dba472ee9edcd4598b643a45fa175a2c78e9800da6ecb4ff1f"
+      }
     },
     {
       "name": "vectorcraft-clipped-illustration",
-      "sha256": "1a25eb638e0199c7fbd783e5ffccaaf87165cf827a13bed732665a3eb7467bef"
+      "sha256": "1a25eb638e0199c7fbd783e5ffccaaf87165cf827a13bed732665a3eb7467bef",
+      "files": {
+        "SKILL.md": "1a25eb638e0199c7fbd783e5ffccaaf87165cf827a13bed732665a3eb7467bef",
+        "references/craft-command-evidence.json": "b50f5566f3a00887663054d270596121707764a830ef947bf3f48b7bf1147d98",
+        "references/craft-methods.md": "55da2a48bb7b868d99d824e81fc0988e99c4ffe7675f892311c8a5819b6c5fa5",
+        "references/craft-steps.json": "a92b15f4229fbc25e36e6281c8e98ee60bce761afeb9bc081387dd515a64ada2",
+        "references/workflow-sources.json": "1e41f070b10213af428a352af423eac7f08274d9c5303a8f3e67a0672cc6f05c"
+      }
     },
     {
       "name": "vectorcraft-sticker-grid",
-      "sha256": "da288a394074b9a6a60c7fdd3538ace001fd993eda03e77267145fc734312f17"
+      "sha256": "da288a394074b9a6a60c7fdd3538ace001fd993eda03e77267145fc734312f17",
+      "files": {
+        "SKILL.md": "da288a394074b9a6a60c7fdd3538ace001fd993eda03e77267145fc734312f17",
+        "references/craft-command-evidence.json": "1865509aeaf77e4c19019a66c568d31c4bb75e67cc68af8e89aa54978aea9acb",
+        "references/craft-methods.md": "c9865acf81ccd13be2001acd1d352eae0f6f9c65905084e02740ef4de4f3a6e5",
+        "references/craft-steps.json": "47135eb9ae0dceb48a133b8df80565193af605840a99cf760f8e5eb1bcfdd9c2",
+        "references/workflow-sources.json": "f5c45897f68a926311fdbc098740a8edcd77f6efa25557fa7f10006d923301fb"
+      }
     },
     {
       "name": "vectorcraft-sticker-offset-border",
-      "sha256": "17bf1653c3aada8ce05644114a9ceed14fb9e03de0bf3253d0425f0d050e5050"
+      "sha256": "17bf1653c3aada8ce05644114a9ceed14fb9e03de0bf3253d0425f0d050e5050",
+      "files": {
+        "SKILL.md": "17bf1653c3aada8ce05644114a9ceed14fb9e03de0bf3253d0425f0d050e5050",
+        "references/craft-command-evidence.json": "f4da45ad804a4590d6896cb39463610438d96f4d650971a4a2c36deecedc9e34",
+        "references/craft-methods.md": "afcaae00a3f136dd03c7e64f0b462a7d7bbd18d82c8ca9fc37c37ffcf844be79",
+        "references/craft-steps.json": "02bcc282a72720d6779b97825b8478542c9261d0aa60ac8f77e459b38fc70b08",
+        "references/workflow-sources.json": "bf602cf5996cd6163dcd83146bfbf18c2045cba126f6beb5749b75351428054d"
+      }
     }
   ]
 }

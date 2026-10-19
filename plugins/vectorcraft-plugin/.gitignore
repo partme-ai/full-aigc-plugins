@@ -1,0 +1,19 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+.local/
+.runtime/
+.openspec-cache/
+.codex/
+.claude/
+
+# 经脱敏、用于可复核验收的固定日志
+!docs/evidence/optimization-logs/*.log
+
+ui/dist/
+
+/ui/node_modules

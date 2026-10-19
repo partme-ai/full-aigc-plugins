@@ -1,0 +1,53 @@
+name: Skill snapshots and implementation units
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  implementation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python3 -m unittest discover -s tests -v
+      - run: python3 scripts/vendor/skill_vendor.py check
+      - name: Verify portable Agent Plugin payload
+        run: |
+          mkdir -p "$RUNNER_TEMP/vectorcraft-agent-plugin"
+          git archive HEAD plugin.json skills LICENSE scenario-candidates.json | tar -x -C "$RUNNER_TEMP/vectorcraft-agent-plugin"
+          python3 -I -B scripts/verify_portable_package.py "$RUNNER_TEMP/vectorcraft-agent-plugin" skills.lock.json
+      - run: python3 -I -B scripts/current_identity.py --check
+      - run: python3 -I -B scripts/evidence_index.py --check
+      - run: python3 -I -B scripts/verify_geometry_evidence.py
+      - run: python3 -I -B scripts/verify_boolean_evidence.py
+      - run: python3 -I -B scripts/verify_brand_text_evidence.py
+      - run: python3 -I -B scripts/verify_artboard_evidence.py
+      - run: python3 -I -B scripts/verify_exchange_evidence.py
+      - run: python3 -I -B scripts/verify_brand_variant_evidence.py
+      - run: python3 -I -B scripts/verify_lineage_evidence.py
+      - run: python3 -I -B scripts/verify_native_exchange_evidence.py
+      - run: python3 -I -B scripts/verify_quality_evidence.py
+      - run: python3 -I -B scripts/verify_revision_limits_evidence.py
+      - run: python3 -I -B scripts/verify_revision_evidence.py
+      - run: python3 -I -B scripts/verify_single_round_evidence.py
+      - run: python3 -I -B scripts/verify_command_evidence.py
+      - run: python3 -I -B scripts/verify_command_families.py
+      - run: python3 -I -B scripts/verify_mask_window_evidence.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - name: Runtime unit tests when present
+        run: |
+          if test -f package.json; then
+            npm test
+          fi
+      - run: python3 -I -B scripts/release_gate.py --require development
+      - run: python3 -I -B scripts/verify_release_evidence.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vectorcraft-agent-plugin-candidate-${{ github.sha }}
+          path: ${{ runner.temp }}/vectorcraft-agent-plugin/
+          retention-days: 7

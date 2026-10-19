@@ -3,6 +3,7 @@
 
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -27,7 +28,8 @@ def skill_digest(directory: Path) -> str:
 def verify(package: Path, lock_path: Path) -> dict:
     if package.is_symlink() or not package.is_dir():
         raise ValueError("invalid_package_root")
-    if {path.name for path in package.iterdir()} != ROOT_ENTRIES:
+    entries = {path.name for path in package.iterdir()}
+    if entries not in (ROOT_ENTRIES, ROOT_ENTRIES | {'scenario-candidates.json'}):
         raise ValueError("unsupported_root_entry")
     if any(path.is_symlink() for path in package.rglob("*")):
         raise ValueError("package_symlink")
@@ -44,8 +46,36 @@ def verify(package: Path, lock_path: Path) -> dict:
     names = source["skills"]
     if set(names) != set(source["sha256"]) or len(names) != len(set(names)):
         raise ValueError("invalid_skill_lock")
+    candidates = set()
+    if 'scenario-candidates.json' in entries:
+        declaration = json.loads((package / 'scenario-candidates.json').read_text())
+        authorities = {'vectorcraft-skills', 'full-aigc-skills/vectorcraft-skills'}
+        if source.get('package') not in authorities or declaration.get('status') != 'local-unreleased' or declaration.get('sourcePackage') not in authorities:
+            raise ValueError('invalid_candidate_authority')
+        if not isinstance(declaration.get('skills'), list):
+            raise ValueError('invalid_candidate_inventory')
+        for entry in declaration['skills']:
+            name = entry.get('name', '')
+            if not re.fullmatch(r'vectorcraft-[a-z0-9]+(?:-[a-z0-9]+)*', name) or name in names or name in candidates:
+                raise ValueError('invalid_candidate_inventory')
+            directory = package / 'skills' / name
+            path = directory / 'SKILL.md'
+            if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != entry.get('sha256'):
+                raise ValueError('candidate_digest_mismatch')
+            if not path.read_text().startswith('---\nname: ' + name + '\n'):
+                raise ValueError('invalid_candidate_skill')
+            files = {p.relative_to(directory).as_posix(): p for p in directory.rglob('*') if p.is_file()}
+            references = set(files) - {'SKILL.md', 'agents/openai.yaml'}
+            if any(not rel.startswith('references/') or Path(rel).suffix not in {'.md', '.json'} for rel in references):
+                raise ValueError('unsupported_candidate_payload')
+            if references or 'files' in entry:
+                if not isinstance(entry.get('files'), dict) or set(entry['files']) != set(files):
+                    raise ValueError('candidate_file_inventory_mismatch')
+                if any(hashlib.sha256(path.read_bytes()).hexdigest() != entry['files'][rel] for rel, path in files.items()):
+                    raise ValueError('candidate_digest_mismatch')
+            candidates.add(name)
     skills = package / "skills"
-    if not skills.is_dir() or {path.name for path in skills.iterdir()} != set(names):
+    if not skills.is_dir() or {path.name for path in skills.iterdir()} != set(names) | candidates:
         raise ValueError("skill_set_mismatch")
     for name in names:
         directory = skills / name
@@ -53,7 +83,7 @@ def verify(package: Path, lock_path: Path) -> dict:
             raise ValueError("skill_set_mismatch")
         if skill_digest(directory) != source["sha256"][name]:
             raise ValueError("skill_digest_mismatch")
-    return {"schema": "vectorcraft-portable-package/v1", "skills": len(names), "rootEntries": sorted(ROOT_ENTRIES)}
+    return {"schema": "vectorcraft-portable-package/v1", "skills": len(names), "localCandidateSkills": len(candidates), "rootEntries": sorted(entries)}
 
 
 def main() -> int:
