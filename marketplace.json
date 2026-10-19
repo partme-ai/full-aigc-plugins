@@ -421,13 +421,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/download/v0.1.0-dev.20261017.6/vectorcraft-plugin-0.1.0-dev.20261017.6.zip",
-        "sha256": "4967fb17ddecda85c2c6c885f193fd607f56216b417be361a5a35e312c39f526",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/download/v0.1.0-dev.20261019.1/vectorcraft-plugin-0.1.0-dev.20261019.1.zip",
+        "sha256": "9c55e64948b6f6435bc2f83d96dd7572a1cdd14bde0793c08bc9d672b83cffb1",
         "path": "vectorcraft-plugin"
       },
       "displayName": "VectorCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261017.6",
+      "description": "Release candidate for controlled testing; not production-ready. Development editor-fix prerelease under explicit scoped approval. Full V1 evidence gate NOT PASSED; native/host/business acceptance pending. Production release BLOCKED. Node.js 24 required; first Git startup downloads checksummed resources.",
+      "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "tags": [
         "vectorcraft",
@@ -436,7 +436,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "strict": true
     },
     {

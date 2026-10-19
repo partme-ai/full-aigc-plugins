@@ -1,0 +1,27 @@
+name: Documentation and specification integrity
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python3 scripts/validate_docs.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npx --yes @fission-ai/openspec@1.13.1 validate establish-v1-plugin --strict --no-interactive
+      - name: Check immutable public protocol owner bytes
+        uses: actions/checkout@v4
+        with:
+          repository: full-aigc-plugins/artcraft-plugin
+          ref: 09d4ac5b8ff82f8fe819189e4be487b45ab2472b
+          path: .contract-authority
+          fetch-depth: 0
+      - run: python3 -I -B scripts/contract_reference.py --authority .contract-authority

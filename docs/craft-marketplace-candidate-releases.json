@@ -363,20 +363,101 @@
   },
   {
     "plugin": "vectorcraft",
-    "version": "0.1.0-dev.20261017.6",
+    "version": "0.1.0-dev.20261019.1",
     "runtime": "vectorcraft-runtime.tgz",
-    "sha256": "d91b96ee9f03c0bcd1b7463c06e84b1f96692869cd08b6a189e74be288fb4909",
-    "bytes": 52871118,
-    "runtimeRef": "v0.1.0-dev.20261017.2",
-    "reuseRuntime": true,
-    "commit": "74b5f60f391ec0ab7107db8c1c360a50fdc70b0b",
-    "archive": "vectorcraft-plugin-0.1.0-dev.20261017.6.zip",
-    "archiveSha256": "4967fb17ddecda85c2c6c885f193fd607f56216b417be361a5a35e312c39f526",
-    "releaseUrl": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261017.6",
+    "sha256": "71243e271394638cc88bc3e36f228ea8e280ad195827b39d9fefbcceaa14b579",
+    "commit": "483f6023f8d3e2b44e9d3056339276ced45bc4e4",
+    "featureCommit": "985db0048aa097dc2dbe3122290dbf8e0deb857e",
+    "testCommit": "9b7938e23703a69ce19bb3d1521d644ce54b6327",
+    "archive": "vectorcraft-plugin-0.1.0-dev.20261019.1.zip",
+    "archiveSha256": "9c55e64948b6f6435bc2f83d96dd7572a1cdd14bde0793c08bc9d672b83cffb1",
+    "maximumZipEntryBytes": 52062897,
+    "bytes": 52870595,
+    "releaseUrl": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "runtimeRef": "v0.1.0-dev.20261019.1",
+    "reuseRuntime": false,
     "remoteTagCommit": "PASS",
     "publishedPrerelease": "PASS",
     "remoteAssetDigests": "PASS",
-    "maximumZipEntryBytes": 52062897
+    "ci": [
+      {
+        "conclusion": "failure",
+        "name": "Skill snapshots and implementation units",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39151011125"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39151011131"
+      },
+      {
+        "conclusion": "success",
+        "name": "Partme Agent Plugin Architecture v1",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39151011410"
+      },
+      {
+        "conclusion": "success",
+        "name": "Documentation and specification integrity",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39151011157"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor adapter compatibility",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39151011127"
+      },
+      {
+        "conclusion": "success",
+        "name": "Editor UI regression",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39150705596"
+      },
+      {
+        "conclusion": "success",
+        "name": "Documentation and specification integrity",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39150705586"
+      },
+      {
+        "conclusion": "success",
+        "name": "Partme Agent Plugin Architecture v1",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39150705752"
+      },
+      {
+        "conclusion": "failure",
+        "name": "Skill snapshots and implementation units",
+        "status": "completed",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/actions/runs/39150705590"
+      }
+    ],
+    "packageSmoke": {
+      "plugin": "vectorcraft",
+      "version": "0.1.0-dev.20261019.1",
+      "cold": false,
+      "bundled": true,
+      "files": 47,
+      "handshake": "PASS",
+      "catalog": "PASS",
+      "initialNoticeHidden": "PASS",
+      "openRequest": "PASS",
+      "runtimeDigests": "PASS",
+      "hostRendering": "NOT_TESTED",
+      "sourceCommit": "483f6023f8d3e2b44e9d3056339276ced45bc4e4",
+      "runtimeSha256": "71243e271394638cc88bc3e36f228ea8e280ad195827b39d9fefbcceaa14b579",
+      "scope": "bundled MCP and initial HTML; complete V1 evidence gate not passed"
+    },
+    "fullV1Gate": "NOT_PASSED",
+    "productionRelease": "BLOCKED",
+    "releaseException": {
+      "scope": "editor fix development prerelease only",
+      "authorization": "Explicit human approval in this task",
+      "nativeHostBusinessEvidence": "NOT_REVALIDATED"
+    }
   },
   {
     "plugin": "deckcraft",

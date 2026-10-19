@@ -208,10 +208,10 @@
       "displayName": "VectorCraft Use",
       "repository": "full-aigc-plugins/vectorcraft-plugin",
       "localDirectory": "vectorcraft-plugin",
-      "version": "0.1.0-dev.20261017.6",
+      "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Development editor-fix prerelease under explicit scoped approval. Full V1 evidence gate NOT PASSED; native/host/business acceptance pending. Production release BLOCKED. Node.js 24 required; first Git startup downloads checksummed resources.",
       "shortDescription": "Scene skills and a shared-session editor · Development",
       "category": "Creativity",
       "tags": [
