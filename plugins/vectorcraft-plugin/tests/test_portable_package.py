@@ -60,6 +60,64 @@ class PortablePackageTests(unittest.TestCase):
         (extra / "SKILL.md").write_text("---\nname: extra\ndescription: Extra.\n---\n")
         self.assertIn("skill_set_mismatch", self.verify().stderr)
 
+    def candidate(self):
+        directory = self.package / 'skills/vectorcraft-editor'
+        directory.mkdir()
+        path = directory / 'SKILL.md'
+        path.write_text('---\nname: vectorcraft-editor\ndescription: Local editor entry.\n---\n')
+        lock = json.loads(self.lock.read_text())
+        lock['sources'][0]['package'] = 'full-aigc-skills/vectorcraft-skills'
+        self.lock.write_text(json.dumps(lock))
+        (self.package / 'scenario-candidates.json').write_text(json.dumps({
+            'status': 'local-unreleased', 'sourcePackage': 'full-aigc-skills/vectorcraft-skills',
+            'skills': [{'name': 'vectorcraft-editor', 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}],
+        }))
+        return path
+
+    def test_declared_candidate_is_checked_separately_from_locked_skills(self):
+        self.candidate()
+        result = self.verify()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout)['skills'], 1)
+        self.assertEqual(json.loads(result.stdout)['localCandidateSkills'], 1)
+
+    def test_candidate_tampering_and_runtime_payload_are_rejected(self):
+        path = self.candidate()
+        original = path.read_bytes()
+        path.write_bytes(original + b'changed')
+        self.assertIn('candidate_digest_mismatch', self.verify().stderr)
+        path.write_bytes(original)
+        (path.parent / 'runtime.py').write_text('untrusted runtime')
+        self.assertIn('unsupported_candidate_payload', self.verify().stderr)
+
+    def test_candidate_authority_and_inventory_are_validated(self):
+        self.candidate()
+        manifest = self.package / 'scenario-candidates.json'
+        original = json.loads(manifest.read_text())
+        invalid = {**original, 'sourcePackage': 'untrusted/source'}
+        manifest.write_text(json.dumps(invalid))
+        self.assertIn('invalid_candidate_authority', self.verify().stderr)
+        invalid = {**original, 'skills': original['skills'] * 2}
+        manifest.write_text(json.dumps(invalid))
+        self.assertIn('invalid_candidate_inventory', self.verify().stderr)
+
+    def test_candidate_references_need_a_complete_digest_inventory(self):
+        path = self.candidate()
+        reference = path.parent / 'references/workflow.json'
+        reference.parent.mkdir()
+        reference.write_text('{"description":"documented workflow"}')
+        manifest = self.package / 'scenario-candidates.json'
+        self.assertIn('candidate_file_inventory_mismatch', self.verify().stderr)
+        data = json.loads(manifest.read_text())
+        data['skills'][0]['files'] = {
+            p.relative_to(path.parent).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in path.parent.rglob('*') if p.is_file()
+        }
+        manifest.write_text(json.dumps(data))
+        self.assertEqual(self.verify().returncode, 0)
+        reference.write_text('changed reference')
+        self.assertIn('candidate_digest_mismatch', self.verify().stderr)
+
     def test_symlink_escape_is_rejected(self):
         (self.package / "skills" / "vectorcraft-use" / "outside").symlink_to(self.lock)
         self.assertIn("package_symlink", self.verify().stderr)

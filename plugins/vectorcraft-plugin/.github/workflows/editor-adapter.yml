@@ -1,0 +1,25 @@
+name: Editor adapter compatibility
+on:
+  push:
+    paths: ['ui/**', '.github/workflows/editor-adapter.yml']
+  pull_request:
+    paths: ['ui/**', '.github/workflows/editor-adapter.yml']
+permissions:
+  contents: read
+jobs:
+  adapter:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - run: npm ci
+        working-directory: ui
+      - run: npm test
+        working-directory: ui
+      - run: npm run build
+        working-directory: ui

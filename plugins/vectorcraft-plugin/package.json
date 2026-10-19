@@ -8,5 +8,12 @@
   "scripts": {
     "test": "node --test tests/*.test.ts"
   },
-  "version": "0.1.0-dev.20261017.6"
+  "version": "0.1.0-dev.20261019.1",
+  "main": "./dsh/lib/index.js",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "icon": "./dsh/icon.png"
 }

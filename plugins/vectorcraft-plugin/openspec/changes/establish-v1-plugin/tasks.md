@@ -124,3 +124,11 @@
 ## 10. Agent Plugins 架构边界收敛
 
 - [x] 10.1 [VC-SK-003] 审计 13 份单技能运行资源（13×22 逐字节重复副本），收敛重复执行实现为内置 vectorcraft-harness。结果：技能源 v0.1.0-dev.47（本地 commit 3d102ce，未推送）新增 skills/vectorcraft-harness 承载唯一执行载荷（5 个文档化入口 bootstrap/cli/commands/workflow/desktop ＋ command-coverage/native-command-snapshot 执行契约 JSON；两遍法可达性核验：静态 import ＋ 带扩展名 with_name/run_path ＋ 无扩展名 load('module') 闭包，22 个脚本全部可达、无孤儿），13 个领域技能删除各自 scripts/ 并在 SKILL.md/references 按名称经 HARNESS_DIR 路由；skill-suite.json 注册 harness（kind=harness）、版本 0.1.0-dev.47；sync_skill_suite/build_command_coverage/verify_standalone_cold/acceptance_* 改从 harness 读取；上游测试 255 项通过（48 项显式 opt-in 跳过）。插件重 vendor 14 个技能（ref v0.1.0-dev.47 → 3d102ce），vendor check --offline 通过；harness 22 个脚本与迁移前逐字节一致，等价冒烟（bootstrap/cli/commands --help）通过。插件回归残差为身份冻结类发布资格门禁（host/integrity 证据绑定 tag64 历史载荷，与新 14 技能快照不一致，需另行授权的重新鉴定）与 2026-10-12 裁剪前既有失败；未伪造任何执行证据。证据 `docs/evidence/vectorcraft-harness-convergence-20261013.json`。
+
+## 2026-10-19 重复加载提示修复
+
+- [x] LN-1 添加初始 HTML、初始化通知与错误/导出重试回归，确认目标失败。
+- [x] LN-2 隐藏正常加载浮层，修正打包模板并验证生成的内嵌客户端。
+- [x] LN-3 执行受影响回归、包校验与构建验证，记录真实宿主未验收边界。
+
+本轮 LN 验证记录：`docs/verification/2026-10-19-loading-notice.md`。仅表示加载提示源码和本地回归工作已完成；原有整仓门禁失败、真实宿主与安装升级状态以该记录为准，未归档或提升发行状态。

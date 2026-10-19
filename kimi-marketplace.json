@@ -86,12 +86,6 @@
       "source": "https://github.com/full-aigc-plugins/image-factory-plugin/releases/tag/v0.9.1"
     },
     {
-      "id": "jianying-edit",
-      "displayName": "JianYing Edit",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.0/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.28.3"
-    },
-    {
       "id": "lightcraft",
       "displayName": "LightCraft Use (RC)",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
@@ -124,8 +118,8 @@
     {
       "id": "vectorcraft",
       "displayName": "VectorCraft Use (RC)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261017.6"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "video-factory",
@@ -150,6 +144,12 @@
       "displayName": "Xuanji · Cyber Divination",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.1/assets/logo.png",
       "source": "https://github.com/full-aigc-plugins/xuanji-plugin/releases/tag/v0.2.1"
+    },
+    {
+      "id": "jianying-edit",
+      "displayName": "JianYing Edit",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.0/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.28.3"
     }
   ]
 }
