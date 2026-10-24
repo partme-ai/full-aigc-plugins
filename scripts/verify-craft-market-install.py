@@ -60,5 +60,5 @@ def run(market,output,public=False,cli=None,names=None,ref=None,marketplace_name
  finally:host.close()
  assert len(rows)==len(names) and all(r.get('nativeMcp')=='PASS' for r in rows)
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('market');p.add_argument('output',type=Path);p.add_argument('--public',action='store_true');p.add_argument('--ref');p.add_argument('--codex-js');p.add_argument('--marketplace-name');p.add_argument('--app',choices=NAMES);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('market');p.add_argument('output',type=Path);p.add_argument('--public',action='store_true');p.add_argument('--ref');p.add_argument('--codex-js');p.add_argument('--marketplace-name');p.add_argument('--app',choices=NAMES+['printcraft']);a=p.parse_args()
  run(a.market,a.output.resolve(),a.public,['node',a.codex_js] if a.codex_js else None,[a.app] if a.app else None,a.ref,a.marketplace_name)

@@ -360,7 +360,7 @@
       "runtimeSha256": "ef636d600ff04ac43c506107e0245c89ed0f6a2a6843c4fdbe7000bd8623c347",
       "scope": "installed bundle MCP and initial HTML; host rendering separate"
     },
-    "archiveRoot": "printcraft-plugin"
+    "archiveRoot": "pdfcraft-plugin"
   },
   {
     "plugin": "vectorcraft",
