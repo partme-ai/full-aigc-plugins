@@ -13,7 +13,7 @@
         "path": "cadcraft-plugin"
       },
       "displayName": "CADCraft（二维制图）",
-      "description": "房间平面、法兰孔系、尺寸标注、图层清理与图框出图；毫米坐标、图层与出图比例可复核。",
+      "description": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -38,7 +38,7 @@
         "ref": "v1.0.0-rc.2"
       },
       "displayName": "Content（多平台内容生产）",
-      "description": "16 个渠道的受控内容生产：选题、写作、编辑、排版、审阅与导出，保留渠道规范。",
+      "description": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
       "version": "1.0.0-rc.2",
       "category": "Creativity",
       "line": "full-aigc",
@@ -64,7 +64,7 @@
         "path": "deckcraft-plugin"
       },
       "displayName": "DeckCraft（演示文稿）",
-      "description": "项目路演、工作周报、培训课件、数据叙事与方案对比；母版、版式与讲稿同源，导出后可继续修改。",
+      "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Productivity",
       "line": "full-aigc",
@@ -91,7 +91,7 @@
         "path": "designcraft-plugin"
       },
       "displayName": "DesignCraft（页面排版）",
-      "description": "海报、长文档、多栏刊物、商品目录与印前检查；母版、页码与出血在同一流程处理，可导出 PDF、IDML 或 EPUB。",
+      "description": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -116,7 +116,7 @@
         "ref": "v0.1.0-dev.20261018.3"
       },
       "displayName": "EffectCraft（动态图形）",
-      "description": "合成、关键帧、表达式、摄像机、遮罩与跟踪；图层、遮罩与渲染设置完整保留。",
+      "description": "做可编辑动态图形：合成、关键帧、表达式、摄像机、遮罩与跟踪，渲染设置完整保留。",
       "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
       "line": "full-aigc",
@@ -143,7 +143,7 @@
         "path": "figcraft-plugin"
       },
       "displayName": "FigCraft（设计稿编辑）",
-      "description": "线框、设计系统、明暗主题令牌、原型流与开发交接；布局保持可编辑与自适应。",
+      "description": "在对话里做可编辑设计稿：线框、设计系统、明暗主题、原型流与开发交接。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -170,7 +170,7 @@
         "path": "filmcraft-plugin"
       },
       "displayName": "FilmCraft（视频剪辑）",
-      "description": "多机位剪辑、字幕、逐词转录、调色与导出；时间线、素材引用与字幕文件一并交付。",
+      "description": "多机位剪辑、字幕、逐词转录、调色与导出，时间线和素材引用一并交付。",
       "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
       "line": "full-aigc",
@@ -197,7 +197,7 @@
         "path": "gridcraft-plugin"
       },
       "displayName": "GridCraft（电子表格）",
-      "description": "预算执行、两表对账、表格清洗、销售汇总与公式审计；保留数据单位与来源，公式可重算。",
+      "description": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Productivity",
       "line": "full-aigc",
@@ -224,7 +224,7 @@
         "path": "lightcraft-plugin"
       },
       "displayName": "LightCraft（照片调色）",
-      "description": "RAW 基础显影、风光与人像、批量调色、曲线迁移与虚拟副本审稿；编辑保持非破坏。",
+      "description": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。",
       "version": "0.1.0-dev.20261018.2",
       "category": "Creativity",
       "line": "full-aigc",
@@ -251,7 +251,7 @@
         "path": "pdfcraft-plugin"
       },
       "displayName": "PdfCraft（PDF 处理）",
-      "description": "页面重排、扫描件 OCR、表单填写、内容脱敏与印前检查；保留原件，逐页核对顺序、几何与可搜索文本。",
+      "description": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
       "version": "0.1.0-dev.20261024.1",
       "category": "Productivity",
       "line": "full-aigc",
@@ -278,7 +278,7 @@
         "path": "photocraft-plugin"
       },
       "displayName": "PhotoCraft（图片编辑）",
-      "description": "图层、蒙版、抠图、修复与滤镜，支持文字与尺寸适配；工程可继续编辑，可导出 PSD、PNG 等格式。",
+      "description": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -305,7 +305,7 @@
         "path": "soundcraft-plugin"
       },
       "displayName": "SoundCraft（音频处理）",
-      "description": "口播清理、多人响度统一、配音混音、音频剪辑与循环拼接；按段落与静音区间处理，保持对时关系。",
+      "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -332,7 +332,7 @@
         "path": "vectorcraft-plugin"
       },
       "displayName": "VectorCraft（矢量设计）",
-      "description": "标志、图标集、信息图、SVG 清理与多画板变体；导出 SVG、PDF 与 PNG，路径保持可编辑。",
+      "description": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -359,7 +359,7 @@
         "path": "wordcraft-plugin"
       },
       "displayName": "WordCraft（文档写作）",
-      "description": "工作周报、会议纪要、商业报价、验收报告、需求说明与简历；样式、目录、页码与图表题注保持一致。",
+      "description": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Productivity",
       "line": "full-aigc",
