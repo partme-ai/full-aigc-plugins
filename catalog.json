@@ -19,14 +19,14 @@
   "candidatePlugins": [
     {
       "id": "content-factory",
-      "displayName": "Content (Multi-channel Content)",
+      "displayName": "Content（多平台内容生产）",
       "repository": "full-aigc-plugins/content-factory-plugin",
       "localDirectory": "content-factory-plugin",
       "version": "1.0.0-rc.2",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Governed content production for 16 channels: topic, drafting, editing, layout, review and export with channel rules preserved.",
-      "shortDescription": "Topic, writing, editing, layout and publishing for 16 channels",
+      "description": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
+      "shortDescription": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
       "category": "Creativity",
       "tags": [
         "content",
@@ -37,8 +37,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "Content（多平台内容生产）",
-          "shortDescription": "16 渠道选题、写作、编辑、排版与发布",
-          "description": "16 个渠道的受控内容生产：选题、写作、编辑、排版、审阅与导出，保留渠道规范。"
+          "shortDescription": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
+          "description": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。"
         }
       },
       "line": "full-aigc",
@@ -49,14 +49,14 @@
     },
     {
       "id": "cadcraft",
-      "displayName": "CADCraft (2D Drafting)",
+      "displayName": "CADCraft（二维制图）",
       "repository": "full-aigc-plugins/cadcraft-plugin",
       "localDirectory": "cadcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Floor plans, hole patterns, dimensioning, layer cleanup and sheet output. Millimeter coordinates, layers and plot scales are verifiable.",
-      "shortDescription": "Floor plans, hole patterns, dimensions and sheet output",
+      "description": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
+      "shortDescription": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
       "category": "Creativity",
       "tags": [
         "cadcraft",
@@ -70,8 +70,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "CADCraft（二维制图）",
-          "shortDescription": "平面图、孔系、标注与出图，可编辑图纸",
-          "description": "房间平面、法兰孔系、尺寸标注、图层清理与图框出图；毫米坐标、图层与出图比例可复核。"
+          "shortDescription": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
+          "description": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。"
         }
       },
       "line": "full-aigc",
@@ -86,14 +86,14 @@
     },
     {
       "id": "designcraft",
-      "displayName": "DesignCraft (Page Layout)",
+      "displayName": "DesignCraft（页面排版）",
       "repository": "full-aigc-plugins/designcraft-plugin",
       "localDirectory": "designcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Posters, long documents, newsletters, catalogs and print preflight. Masters, page numbers and bleed are handled in one flow, exporting PDF, IDML or EPUB.",
-      "shortDescription": "Posters, long documents, newsletters and catalogs; export PDF/IDML/EPUB",
+      "description": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
+      "shortDescription": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
       "category": "Creativity",
       "tags": [
         "designcraft",
@@ -107,8 +107,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "DesignCraft（页面排版）",
-          "shortDescription": "海报、长文档、刊物与目录，可导出 PDF/IDML/EPUB",
-          "description": "海报、长文档、多栏刊物、商品目录与印前检查；母版、页码与出血在同一流程处理，可导出 PDF、IDML 或 EPUB。"
+          "shortDescription": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
+          "description": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。"
         }
       },
       "line": "full-aigc",
@@ -123,14 +123,14 @@
     },
     {
       "id": "effectcraft",
-      "displayName": "EffectCraft (Motion Graphics)",
+      "displayName": "EffectCraft（动态图形）",
       "repository": "full-aigc-plugins/effectcraft-plugin",
       "localDirectory": "effectcraft-plugin",
       "version": "0.1.0-dev.20261018.3",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Compositions, keyframes, expressions, cameras, masks and tracking. Layers, masks and render settings remain editable.",
-      "shortDescription": "Compositions, keyframes, expressions and tracking",
+      "description": "做可编辑动态图形：合成、关键帧、表达式、摄像机、遮罩与跟踪，渲染设置完整保留。",
+      "shortDescription": "做可编辑动态图形：合成、关键帧、表达式、摄像机、遮罩与跟踪，渲染设置完整保留。",
       "category": "Creativity",
       "tags": [
         "effectcraft",
@@ -144,8 +144,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "EffectCraft（动态图形）",
-          "shortDescription": "合成、关键帧、表达式与跟踪，可编辑动效",
-          "description": "合成、关键帧、表达式、摄像机、遮罩与跟踪；图层、遮罩与渲染设置完整保留。"
+          "shortDescription": "做可编辑动态图形：合成、关键帧、表达式、摄像机、遮罩与跟踪，渲染设置完整保留。",
+          "description": "做可编辑动态图形：合成、关键帧、表达式、摄像机、遮罩与跟踪，渲染设置完整保留。"
         }
       },
       "line": "full-aigc",
@@ -160,14 +160,14 @@
     },
     {
       "id": "photocraft",
-      "displayName": "PhotoCraft (Image Editing)",
+      "displayName": "PhotoCraft（图片编辑）",
       "repository": "full-aigc-plugins/photocraft-plugin",
       "localDirectory": "photocraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Layers, masks, cutouts, retouching and filters with text and resize variants. Projects stay editable and export to PSD, PNG and other formats.",
-      "shortDescription": "Layers, masks, cutouts and retouching into editable image projects",
+      "description": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
+      "shortDescription": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
       "category": "Creativity",
       "tags": [
         "photocraft",
@@ -181,8 +181,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "PhotoCraft（图片编辑）",
-          "shortDescription": "图层、蒙版、抠图与修复，产出可编辑图片工程",
-          "description": "图层、蒙版、抠图、修复与滤镜，支持文字与尺寸适配；工程可继续编辑，可导出 PSD、PNG 等格式。"
+          "shortDescription": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
+          "description": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。"
         }
       },
       "line": "full-aigc",
@@ -197,14 +197,14 @@
     },
     {
       "id": "figcraft",
-      "displayName": "FigCraft (Design Mockups)",
+      "displayName": "FigCraft（设计稿编辑）",
       "repository": "full-aigc-plugins/figcraft-plugin",
       "localDirectory": "figcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Wireframes, design systems, light/dark tokens, prototype flows and dev handoff. Layouts stay editable and responsive.",
-      "shortDescription": "Wireframes, design systems, tokens and prototype handoff",
+      "description": "在对话里做可编辑设计稿：线框、设计系统、明暗主题、原型流与开发交接。",
+      "shortDescription": "在对话里做可编辑设计稿：线框、设计系统、明暗主题、原型流与开发交接。",
       "category": "Creativity",
       "tags": [
         "figcraft",
@@ -218,8 +218,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "FigCraft（设计稿编辑）",
-          "shortDescription": "线框、设计系统、主题令牌与原型交付",
-          "description": "线框、设计系统、明暗主题令牌、原型流与开发交接；布局保持可编辑与自适应。"
+          "shortDescription": "在对话里做可编辑设计稿：线框、设计系统、明暗主题、原型流与开发交接。",
+          "description": "在对话里做可编辑设计稿：线框、设计系统、明暗主题、原型流与开发交接。"
         }
       },
       "line": "full-aigc",
@@ -234,14 +234,14 @@
     },
     {
       "id": "filmcraft",
-      "displayName": "FilmCraft (Video Editing)",
+      "displayName": "FilmCraft（视频剪辑）",
       "repository": "full-aigc-plugins/filmcraft-plugin",
       "localDirectory": "filmcraft-plugin",
       "version": "0.1.0-dev.20261018.3",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Multicam editing, subtitles, transcripts, grading and export. Timelines, media references and subtitle files are delivered together.",
-      "shortDescription": "Multicam, subtitles, grading and transcripts in a reopenable project",
+      "description": "多机位剪辑、字幕、逐词转录、调色与导出，时间线和素材引用一并交付。",
+      "shortDescription": "多机位剪辑、字幕、逐词转录、调色与导出，时间线和素材引用一并交付。",
       "category": "Creativity",
       "tags": [
         "filmcraft",
@@ -255,8 +255,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "FilmCraft（视频剪辑）",
-          "shortDescription": "多机位、字幕、调色与转录，可重开剪辑工程",
-          "description": "多机位剪辑、字幕、逐词转录、调色与导出；时间线、素材引用与字幕文件一并交付。"
+          "shortDescription": "多机位剪辑、字幕、逐词转录、调色与导出，时间线和素材引用一并交付。",
+          "description": "多机位剪辑、字幕、逐词转录、调色与导出，时间线和素材引用一并交付。"
         }
       },
       "line": "full-aigc",
@@ -271,14 +271,14 @@
     },
     {
       "id": "lightcraft",
-      "displayName": "LightCraft (Photo Grading)",
+      "displayName": "LightCraft（照片调色）",
       "repository": "full-aigc-plugins/lightcraft-plugin",
       "localDirectory": "lightcraft-plugin",
       "version": "0.1.0-dev.20261018.2",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "RAW develop, landscape and portrait looks, batch grading, tone-curve transfer and virtual-copy review. Edits stay non-destructive.",
-      "shortDescription": "RAW develop, batch grading and culling with non-destructive edits",
+      "description": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。",
+      "shortDescription": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。",
       "category": "Creativity",
       "tags": [
         "lightcraft",
@@ -292,8 +292,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "LightCraft（照片调色）",
-          "shortDescription": "RAW 显影、批量调色与筛选，非破坏编辑",
-          "description": "RAW 基础显影、风光与人像、批量调色、曲线迁移与虚拟副本审稿；编辑保持非破坏。"
+          "shortDescription": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。",
+          "description": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。"
         }
       },
       "line": "full-aigc",
@@ -308,14 +308,14 @@
     },
     {
       "id": "pdfcraft",
-      "displayName": "PdfCraft (PDF Toolkit)",
+      "displayName": "PdfCraft（PDF 处理）",
       "repository": "full-aigc-plugins/pdfcraft-plugin",
       "localDirectory": "pdfcraft-plugin",
       "version": "0.1.0-dev.20261024.2",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
-      "shortDescription": "Page cleanup, OCR, forms, redaction and preflight",
+      "description": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
+      "shortDescription": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
       "category": "Productivity",
       "tags": [
         "pdfcraft",
@@ -329,8 +329,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "PdfCraft（PDF 处理）",
-          "shortDescription": "页面整理、OCR、表单、脱敏与印前检查",
-          "description": "页面重排、扫描件 OCR、表单填写、内容脱敏与印前检查；保留原件，逐页核对顺序、几何与可搜索文本。"
+          "shortDescription": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
+          "description": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。"
         }
       },
       "line": "full-aigc",
@@ -345,14 +345,14 @@
     },
     {
       "id": "vectorcraft",
-      "displayName": "VectorCraft (Vector Design)",
+      "displayName": "VectorCraft（矢量设计）",
       "repository": "full-aigc-plugins/vectorcraft-plugin",
       "localDirectory": "vectorcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Logos, icon sets, infographics, SVG cleanup and multi-artboard variants. Exports SVG, PDF and PNG with editable paths.",
-      "shortDescription": "Logos, icons, infographics and SVG cleanup into editable vector projects",
+      "description": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
+      "shortDescription": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
       "category": "Creativity",
       "tags": [
         "vectorcraft",
@@ -366,8 +366,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "VectorCraft（矢量设计）",
-          "shortDescription": "标志、图标、信息图与 SVG，导出可编辑矢量工程",
-          "description": "标志、图标集、信息图、SVG 清理与多画板变体；导出 SVG、PDF 与 PNG，路径保持可编辑。"
+          "shortDescription": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
+          "description": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。"
         }
       },
       "line": "full-aigc",
@@ -382,14 +382,14 @@
     },
     {
       "id": "deckcraft",
-      "displayName": "DeckCraft (Presentations)",
+      "displayName": "DeckCraft（演示文稿）",
       "repository": "full-aigc-plugins/deckcraft-plugin",
       "localDirectory": "deckcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Pitch decks, weekly reports, training material, data stories and option comparisons. Masters, layouts and speaker notes stay editable after export.",
-      "shortDescription": "Pitches, weekly reports, training decks and option comparisons",
+      "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
+      "shortDescription": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
       "category": "Productivity",
       "tags": [
         "deckcraft",
@@ -403,8 +403,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "DeckCraft（演示文稿）",
-          "shortDescription": "路演、周报、课件与方案对比，可编辑演示",
-          "description": "项目路演、工作周报、培训课件、数据叙事与方案对比；母版、版式与讲稿同源，导出后可继续修改。"
+          "shortDescription": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
+          "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。"
         }
       },
       "line": "full-aigc",
@@ -419,14 +419,14 @@
     },
     {
       "id": "soundcraft",
-      "displayName": "SoundCraft (Audio Editing)",
+      "displayName": "SoundCraft（音频处理）",
       "repository": "full-aigc-plugins/soundcraft-plugin",
       "localDirectory": "soundcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Dialogue cleanup, loudness matching, voice-over mixing, audio edits and loop stitching. Processing follows segments and silence ranges while keeping sync.",
-      "shortDescription": "Dialogue cleanup, loudness matching, mixing and audio edits",
+      "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
+      "shortDescription": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
       "category": "Creativity",
       "tags": [
         "soundcraft",
@@ -440,8 +440,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "SoundCraft（音频处理）",
-          "shortDescription": "口播清理、响度统一、混音与音频剪辑",
-          "description": "口播清理、多人响度统一、配音混音、音频剪辑与循环拼接；按段落与静音区间处理，保持对时关系。"
+          "shortDescription": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
+          "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。"
         }
       },
       "line": "full-aigc",
@@ -456,14 +456,14 @@
     },
     {
       "id": "gridcraft",
-      "displayName": "GridCraft (Spreadsheets)",
+      "displayName": "GridCraft（电子表格）",
       "repository": "full-aigc-plugins/gridcraft-plugin",
       "localDirectory": "gridcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Budgets, reconciliation, table cleanup, sales summaries and formula audits. Values keep their units and sources, and formulas stay recalculable.",
-      "shortDescription": "Budgets, reconciliation, cleanup and summaries with live formulas",
+      "description": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
+      "shortDescription": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
       "category": "Productivity",
       "tags": [
         "gridcraft",
@@ -477,8 +477,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "GridCraft（电子表格）",
-          "shortDescription": "预算、对账、清洗与汇总，公式可重算",
-          "description": "预算执行、两表对账、表格清洗、销售汇总与公式审计；保留数据单位与来源，公式可重算。"
+          "shortDescription": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
+          "description": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。"
         }
       },
       "line": "full-aigc",
@@ -493,14 +493,14 @@
     },
     {
       "id": "wordcraft",
-      "displayName": "WordCraft (Document Writing)",
+      "displayName": "WordCraft（文档写作）",
       "repository": "full-aigc-plugins/wordcraft-plugin",
       "localDirectory": "wordcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
-      "shortDescription": "Reports, minutes, quotes, proposals and resumes as editable documents",
+      "description": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
+      "shortDescription": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
       "category": "Productivity",
       "tags": [
         "wordcraft",
@@ -514,8 +514,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "WordCraft（文档写作）",
-          "shortDescription": "周报、纪要、报价、报告与简历，可编辑文档",
-          "description": "工作周报、会议纪要、商业报价、验收报告、需求说明与简历；样式、目录、页码与图表题注保持一致。"
+          "shortDescription": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
+          "description": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。"
         }
       },
       "line": "full-aigc",
@@ -532,12 +532,12 @@
   "plugins": [
     {
       "id": "maya-design",
-      "displayName": "Maya (3D Scenes)",
+      "displayName": "Maya（三维场景）",
       "repository": "full-aigc-plugins/maya-design-plugin",
       "localDirectory": "maya-design-plugin",
       "version": "0.2.1",
-      "description": "Read-only scene inspection, reversible Playblast export and error diagnosis, handing off to the official Jimeng uploader.",
-      "shortDescription": "Scene inspection, reversible Playblast and Jimeng links",
+      "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
+      "shortDescription": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
@@ -548,8 +548,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "Maya（三维场景）",
-          "shortDescription": "场景体检、可逆 Playblast 与即梦链接",
-          "description": "只读场景体检、可逆 Playblast 导出与错误诊断，交接官方即梦上传器。"
+          "shortDescription": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
+          "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。"
         }
       },
       "line": "full-aigc",
@@ -560,12 +560,12 @@
     },
     {
       "id": "blender-design",
-      "displayName": "Blender (3D Modeling)",
+      "displayName": "Blender（三维建模）",
       "repository": "full-aigc-plugins/blender-design-plugin",
       "localDirectory": "blender-design-plugin",
       "version": "0.16.1",
-      "description": "Controlled Blender operations with milestone screenshots, transaction rollback, previs and verified multi-format export.",
-      "shortDescription": "Modeling, rigging, materials, animation, rendering and export",
+      "description": "用自然语言搭 3D 场景：建模、材质、灯光、相机与渲染，关键节点截图，导出前可回滚。",
+      "shortDescription": "用自然语言搭 3D 场景：建模、材质、灯光、相机与渲染，关键节点截图，导出前可回滚。",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
@@ -576,8 +576,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "Blender（三维建模）",
-          "shortDescription": "建模、绑定、材质、动画、渲染与导出",
-          "description": "受控 Blender 操作，含里程碑截图、事务回滚、白模预演与多格式校验导出。"
+          "shortDescription": "用自然语言搭 3D 场景：建模、材质、灯光、相机与渲染，关键节点截图，导出前可回滚。",
+          "description": "用自然语言搭 3D 场景：建模、材质、灯光、相机与渲染，关键节点截图，导出前可回滚。"
         }
       },
       "line": "full-aigc",
@@ -588,12 +588,12 @@
     },
     {
       "id": "comfy-design",
-      "displayName": "Comfy (ComfyUI Workflows)",
+      "displayName": "Comfy（ComfyUI 工作流）",
       "repository": "full-aigc-plugins/comfy-design-plugin",
       "localDirectory": "comfy-design-plugin",
       "version": "0.6.1",
-      "description": "Local-first ComfyUI workflows for images, video, audio and 3D. Partner models and uploads escalate to Comfy Cloud only when opted in.",
-      "shortDescription": "Local image, video, audio and 3D workflows",
+      "description": "一条链路跑完本地 ComfyUI 图、视频、音频与 3D 工作流；云模型只在你明确选择时启用。",
+      "shortDescription": "一条链路跑完本地 ComfyUI 图、视频、音频与 3D 工作流；云模型只在你明确选择时启用。",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
@@ -604,8 +604,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "Comfy（ComfyUI 工作流）",
-          "shortDescription": "本地图、视频、音频与 3D 工作流",
-          "description": "本地优先的 ComfyUI 图像、视频、音频与 3D 工作流；合作伙伴模型与上传仅在显式选择后升级到云端。"
+          "shortDescription": "一条链路跑完本地 ComfyUI 图、视频、音频与 3D 工作流；云模型只在你明确选择时启用。",
+          "description": "一条链路跑完本地 ComfyUI 图、视频、音频与 3D 工作流；云模型只在你明确选择时启用。"
         }
       },
       "line": "full-aigc",
@@ -616,12 +616,12 @@
     },
     {
       "id": "dreamina-canvas",
-      "displayName": "Dreamina Canvas (Canvas Orchestration)",
+      "displayName": "Dreamina Canvas（即梦画布编排）",
       "repository": "full-aigc-plugins/dreamina-canvas-plugin",
       "localDirectory": "dreamina-canvas-plugin",
       "version": "0.5.1",
-      "description": "Typed canvas nodes and timelines for Dreamina. Free saves are separated from quoted runs, and assets download with verification.",
-      "shortDescription": "Node graphs and timelines with save/run separation",
+      "description": "在即梦画布上编排节点与时间线：免费保存和付费运行分开，产物下载带校验。",
+      "shortDescription": "在即梦画布上编排节点与时间线：免费保存和付费运行分开，产物下载带校验。",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
@@ -632,8 +632,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "Dreamina Canvas（即梦画布编排）",
-          "shortDescription": "节点画布与时间线，保存与计费运行分离",
-          "description": "类型化节点与时间线编排；免费保存与计费运行分离，产物下载带校验。"
+          "shortDescription": "在即梦画布上编排节点与时间线：免费保存和付费运行分开，产物下载带校验。",
+          "description": "在即梦画布上编排节点与时间线：免费保存和付费运行分开，产物下载带校验。"
         }
       },
       "line": "full-aigc",
@@ -644,12 +644,12 @@
     },
     {
       "id": "dreamina-design",
-      "displayName": "Dreamina (Dreamina Image & Video)",
+      "displayName": "Dreamina（即梦绘图与视频）",
       "repository": "full-aigc-plugins/dreamina-design-plugin",
       "localDirectory": "dreamina-design-plugin",
       "version": "0.8.1",
-      "description": "Dreamina image and video generation with prompt libraries, shot annotation and visual evaluation. Paid runs require explicit approval and tasks are resumable.",
-      "shortDescription": "Text-to-image, image-to-image and text-to-video with prompt and shot review",
+      "description": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
+      "shortDescription": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
       "category": "Creativity",
       "logo": "assets/logo-approved.png",
       "tags": [
@@ -660,8 +660,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "Dreamina（即梦绘图与视频）",
-          "shortDescription": "文生图、图生图与文生视频，含提示词与镜头评审",
-          "description": "即梦图像与视频生成，含提示词库、分镜标注与视觉评审；付费生成前需显式确认，任务可恢复。"
+          "shortDescription": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
+          "description": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。"
         }
       },
       "line": "full-aigc",
@@ -672,12 +672,12 @@
     },
     {
       "id": "image-factory",
-      "displayName": "Image (Batch Image Generation)",
+      "displayName": "Image（批量 AI 出图）",
       "repository": "full-aigc-plugins/image-factory-plugin",
       "localDirectory": "image-factory-plugin",
       "version": "0.9.1",
-      "description": "Prompt discovery, plan validation, approval, batch generation, evaluation and recovery. Every artifact carries a hash-verified receipt.",
-      "shortDescription": "Plan approval, batch generation, evaluation and receipts",
+      "description": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
+      "shortDescription": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
       "category": "Creativity",
       "logo": "assets/logo-approved.png",
       "tags": [
@@ -688,8 +688,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "Image（批量 AI 出图）",
-          "shortDescription": "计划审批、批量生成、质量评估与产物回执",
-          "description": "提示词发现、计划校验、审批、批量生成、质量评估与中断恢复；每张图带哈希校验回执。"
+          "shortDescription": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
+          "description": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。"
         }
       },
       "line": "full-aigc",
@@ -728,12 +728,12 @@
     },
     {
       "id": "minimax-design",
-      "displayName": "MiniMax (AI Video)",
+      "displayName": "MiniMax（AI 视频生成）",
       "repository": "full-aigc-plugins/minimax-design-plugin",
       "localDirectory": "minimax-design-plugin",
       "version": "0.5.1",
-      "description": "MiniMax H3 video generation with environment-variable auth, first/last-frame anchoring, resumable queries and verified downloads.",
-      "shortDescription": "H3 text/image-to-video with white-model first/last frames",
+      "description": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
+      "shortDescription": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
@@ -744,8 +744,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "MiniMax（AI 视频生成）",
-          "shortDescription": "H3 文生/图生视频，白模首尾帧锚定",
-          "description": "MiniMax H3 视频生成，环境变量鉴权、白模首尾帧锚定、可恢复查询与校验下载。"
+          "shortDescription": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
+          "description": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。"
         }
       },
       "line": "full-aigc",
@@ -756,12 +756,12 @@
     },
     {
       "id": "video-factory",
-      "displayName": "Video (Auto Video Editing)",
+      "displayName": "Video（自动剪辑成片）",
       "repository": "full-aigc-plugins/video-factory-plugin",
       "localDirectory": "video-factory-plugin",
       "version": "0.5.1",
-      "description": "Shot analysis, edit decisions, rough and final cut approval, composition and media receipt verification.",
-      "shortDescription": "Shot analysis, rough/final cut approval, composition and receipts",
+      "description": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
+      "shortDescription": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
       "category": "Creativity",
       "logo": "assets/logo-approved.png",
       "tags": [
@@ -772,8 +772,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "Video（自动剪辑成片）",
-          "shortDescription": "拉片、粗剪精剪审批、合成与媒体回执",
-          "description": "拉片分析、剪辑决策、粗剪与精剪审批、合成与媒体回执校验。"
+          "shortDescription": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
+          "description": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。"
         }
       },
       "line": "full-aigc",
@@ -784,12 +784,12 @@
     },
     {
       "id": "volcengine-design",
-      "displayName": "Volcengine (Doubao Voice & Video)",
+      "displayName": "Volcengine（豆包语音与视频）",
       "repository": "full-aigc-plugins/volcengine-design-plugin",
       "localDirectory": "volcengine-design-plugin",
       "version": "0.2.1",
-      "description": "Doubao ASR with millisecond word timelines, TTS narration, Seedream images and Seedance video. Two credential families stay separate and tasks are submitted once.",
-      "shortDescription": "Word-level ASR, TTS narration, image and video generation",
+      "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
+      "shortDescription": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
@@ -802,8 +802,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "Volcengine（豆包语音与视频）",
-          "shortDescription": "词级时间轴 ASR、TTS 旁白与图像视频生成",
-          "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频；两套凭据分离，任务只提交一次。"
+          "shortDescription": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
+          "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。"
         }
       },
       "line": "full-aigc",
@@ -814,12 +814,12 @@
     },
     {
       "id": "xuanji",
-      "displayName": "Xuanji (Divination (Entertainment))",
+      "displayName": "Xuanji（命理排盘 · 娱乐）",
       "repository": "full-aigc-plugins/xuanji-plugin",
       "localDirectory": "xuanji-plugin",
       "version": "0.2.1",
-      "description": "Entertainment-grade Chinese metaphysics with script-verified charts and auditable classical citations. For entertainment only.",
-      "shortDescription": "Bazi, Qimen, Ziwei, marriage, Fengshui and Tarot",
+      "description": "八字、奇门、紫微、姻缘、风水和塔罗：排盘由脚本校验、引文可追溯，仅供娱乐。",
+      "shortDescription": "八字、奇门、紫微、姻缘、风水和塔罗：排盘由脚本校验、引文可追溯，仅供娱乐。",
       "category": "Creativity",
       "logo": "assets/logo.png",
       "tags": [
@@ -834,8 +834,8 @@
       "localizations": {
         "zh-CN": {
           "displayName": "Xuanji（命理排盘 · 娱乐）",
-          "shortDescription": "八字、奇门、紫微、姻缘、风水与塔罗",
-          "description": "娱乐向术数六科，排盘由脚本校验、引文可追溯；仅供娱乐，不构成专业建议。"
+          "shortDescription": "八字、奇门、紫微、姻缘、风水和塔罗：排盘由脚本校验、引文可追溯，仅供娱乐。",
+          "description": "八字、奇门、紫微、姻缘、风水和塔罗：排盘由脚本校验、引文可追溯，仅供娱乐。"
         }
       },
       "line": "full-aigc",
