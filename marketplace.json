@@ -21,7 +21,11 @@
         "previs"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.14.1/assets/official-logo.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "cadcraft",
@@ -68,7 +72,11 @@
         "workflow"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.5.0/assets/official-logo.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "content-factory",
@@ -88,7 +96,11 @@
         "workflow",
         "rc"
       ],
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "deckcraft",
@@ -162,7 +174,11 @@
         "timeline"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.4.3/assets/official-logo.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "dreamina-design",
@@ -182,7 +198,11 @@
         "text2video"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.7.0/assets/logo-approved.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "effectcraft",
@@ -308,7 +328,11 @@
         "receipts"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.8.0/assets/logo-approved.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "jianying-edit",
@@ -328,7 +352,11 @@
         "video-editing"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-edit-plugin@v0.27.9/assets/official-logo.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "lightcraft",
@@ -375,7 +403,11 @@
         "playblast"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.1.5/assets/official-logo.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "minimax-design",
@@ -395,7 +427,11 @@
         "video-generation"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.4.3/assets/official-logo.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "photocraft",
@@ -523,7 +559,11 @@
         "receipts"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.4.0/assets/logo-approved.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "volcengine-design",
@@ -545,7 +585,11 @@
         "video"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.1.2/assets/official-logo.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "wordcraft",
@@ -596,7 +640,11 @@
         "entertainment"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.1.1/assets/logo.png",
-      "strict": true
+      "strict": true,
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     }
   ]
 }
