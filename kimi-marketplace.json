@@ -1,155 +1,155 @@
 {
   "version": "2",
-  "displayName": "Full AIGC 插件",
+  "displayName": "Full AIGC Plugins",
   "plugins": [
     {
-      "id": "maya-design",
-      "displayName": "Autodesk Maya Design",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/maya-design-plugin/releases/tag/v0.2.1"
-    },
-    {
       "id": "blender-design",
-      "displayName": "Blender Design",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.16.1"
+      "displayName": "Blender Design · 3D Modeling",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.14.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.14.1"
     },
     {
       "id": "cadcraft",
-      "displayName": "CADCraft Use (RC)",
+      "displayName": "CADCraft · 2D Drafting",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "comfy-design",
-      "displayName": "Comfy Design",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/comfy-design-plugin/releases/tag/v0.6.1"
+      "displayName": "Comfy Design · ComfyUI Workflows",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.5.0/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/comfy-design-plugin/releases/tag/v0.5.0"
     },
     {
       "id": "content-factory",
-      "displayName": "Content Factory (RC)",
+      "displayName": "Content Factory · Multi-channel Content",
       "source": "https://github.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.2"
     },
     {
       "id": "deckcraft",
-      "displayName": "DeckCraft Use (RC)",
+      "displayName": "DeckCraft · Presentations",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "designcraft",
-      "displayName": "DesignCraft Use (RC)",
+      "displayName": "DesignCraft · Page Layout",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "dreamina-canvas",
-      "displayName": "Dreamina Canvas",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.5.1"
+      "displayName": "Dreamina Canvas · Canvas Orchestration",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.4.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.4.3"
     },
     {
       "id": "dreamina-design",
-      "displayName": "Dreamina Design",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.1/assets/logo-approved.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.8.1"
+      "displayName": "Dreamina Design · Dreamina Image & Video",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.7.0/assets/logo-approved.png",
+      "source": "https://github.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.7.0"
     },
     {
       "id": "effectcraft",
-      "displayName": "EffectCraft Use (RC)",
+      "displayName": "EffectCraft · Motion Graphics",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/effectcraft-plugin/releases/tag/v0.1.0-dev.20261018.3"
     },
     {
       "id": "figcraft",
-      "displayName": "FigCraft Use (RC)",
+      "displayName": "FigCraft · Design Mockups",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "filmcraft",
-      "displayName": "FilmCraft Use (RC)",
+      "displayName": "FilmCraft · Video Editing",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/tag/v0.1.0-dev.20261018.3"
     },
     {
       "id": "gridcraft",
-      "displayName": "GridCraft Use (RC)",
+      "displayName": "GridCraft · Spreadsheets",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "image-factory",
-      "displayName": "Image Factory",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.1/assets/logo-approved.png",
-      "source": "https://github.com/full-aigc-plugins/image-factory-plugin/releases/tag/v0.9.1"
+      "displayName": "Image Factory · Batch Image Generation",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.8.0/assets/logo-approved.png",
+      "source": "https://github.com/full-aigc-plugins/image-factory-plugin/releases/tag/v0.8.0"
+    },
+    {
+      "id": "jianying-edit",
+      "displayName": "JianYing Edit · Draft Orchestration",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-edit-plugin@v0.27.9/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/jianying-edit-plugin/releases/tag/v0.27.9"
     },
     {
       "id": "lightcraft",
-      "displayName": "LightCraft Use (RC)",
+      "displayName": "LightCraft · Photo Grading",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/tag/v0.1.0-dev.20261018.2"
     },
     {
-      "id": "minimax-design",
-      "displayName": "MiniMax Design",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.5.1"
+      "id": "maya-design",
+      "displayName": "Maya Design · 3D Scenes",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.1.5/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/maya-design-plugin/releases/tag/v0.1.5"
     },
     {
-      "id": "printcraft",
-      "displayName": "PdfCraft Use (RC)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+      "id": "minimax-design",
+      "displayName": "MiniMax Design · AI Video",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.4.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.4.3"
     },
     {
       "id": "photocraft",
-      "displayName": "PhotoCraft Use (RC)",
+      "displayName": "PhotoCraft · Image Editing",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
+      "id": "printcraft",
+      "displayName": "PrintCraft · PDF Toolkit",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
       "id": "soundcraft",
-      "displayName": "SoundCraft Use (RC)",
+      "displayName": "SoundCraft · Audio Editing",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "vectorcraft",
-      "displayName": "VectorCraft Use (RC)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+      "displayName": "VectorCraft · Vector Design",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261017.6"
     },
     {
       "id": "video-factory",
-      "displayName": "Video Factory",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.1/assets/logo-approved.png",
-      "source": "https://github.com/full-aigc-plugins/video-factory-plugin/releases/tag/v0.5.1"
+      "displayName": "Video Factory · Auto Video Editing",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.4.0/assets/logo-approved.png",
+      "source": "https://github.com/full-aigc-plugins/video-factory-plugin/releases/tag/v0.4.0"
     },
     {
       "id": "volcengine-design",
-      "displayName": "Volcengine Design",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.2.1"
+      "displayName": "Volcengine Design · Doubao Voice & Video",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.1.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.1.2"
     },
     {
       "id": "wordcraft",
-      "displayName": "WordCraft Use (RC)",
+      "displayName": "WordCraft · Document Writing",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "xuanji",
-      "displayName": "Xuanji · Cyber Divination",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.1/assets/logo.png",
-      "source": "https://github.com/full-aigc-plugins/xuanji-plugin/releases/tag/v0.2.1"
-    },
-    {
-      "id": "jianying-edit",
-      "displayName": "JianYing Edit",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.0/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.28.3"
+      "displayName": "Xuanji · Divination (Entertainment)",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.1.1/assets/logo.png",
+      "source": "https://github.com/full-aigc-plugins/xuanji-plugin/releases/tag/v0.1.1"
     }
   ]
 }
