@@ -11,6 +11,13 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const workspace = path.resolve(root, "..", "full-aigc-plugins-repositories");
 const catalog = JSON.parse(fs.readFileSync(path.join(root, "catalog.json"), "utf8"));
 const mode = process.argv.includes("--write") ? "write" : "check";
+const localeArg = process.argv.find((argument) => argument.startsWith("--locale="));
+const locale = localeArg ? localeArg.slice("--locale=".length) : "en";
+if (!["en", "zh-CN"].includes(locale)) throw new Error(`unsupported --locale=${locale}`);
+const localized = (plugin, field) =>
+  locale === "zh-CN"
+    ? (plugin.localizations?.["zh-CN"]?.[field] ?? plugin[field])
+    : plugin[field];
 const remoteMode = process.argv.includes("--remote");
 const remotePluginIds = new Set(
   process.argv
@@ -28,8 +35,9 @@ const installableCandidates = candidatePlugins
   .filter((candidate) => candidate.status === "release_candidate_installable");
 const isInstallableCandidate = (plugin) =>
   plugin.status === "release_candidate_installable";
+// 展示名可以随语言变化，排序必须稳定：按不可变的 id 排序。
 const marketplacePlugins = [...catalog.plugins, ...installableCandidates]
-  .sort((left, right) => left.displayName.localeCompare(right.displayName, "en", { sensitivity: "base" }));
+  .sort((left, right) => left.id.localeCompare(right.id, "en"));
 
 const releaseRef = (plugin) => `v${plugin.version}`;
 
@@ -39,13 +47,10 @@ const rawLogo = (plugin) =>
 const githubReleaseSource = (plugin) =>
   `https://github.com/${plugin.repository}/releases/tag/${releaseRef(plugin)}`;
 
-const marketplaceDisplayName = (plugin) =>
-  isInstallableCandidate(plugin) ? `${plugin.displayName} (RC)` : plugin.displayName;
+// 候选状态只保留在 catalog 的 status 字段里，不再进入展示名或描述。
+const marketplaceDisplayName = (plugin) => plugin.displayName;
 
-const marketplaceDescription = (plugin) =>
-  isInstallableCandidate(plugin)
-    ? `Release candidate for controlled testing; not production-ready. ${plugin.description}`
-    : plugin.description;
+const marketplaceDescription = (plugin) => plugin.description;
 
 const pinnedIcon = (plugin) => plugin.logo ? rawLogo(plugin) : undefined;
 
@@ -60,6 +65,8 @@ const codex = {
       : { source: "url", url: `https://github.com/${plugin.repository}.git`, ref: releaseRef(plugin) },
     policy: { installation: "AVAILABLE", authentication: "ON_USE" },
     category: plugin.category,
+    line: plugin.line,
+    ...(plugin.componentTypes ? { componentTypes: plugin.componentTypes } : {}),
     version: plugin.version,
     description: marketplaceDescription(plugin),
     ...(pinnedIcon(plugin) ? { icon: pinnedIcon(plugin) } : {}),
@@ -88,10 +95,13 @@ const zcode = {
   plugins: marketplacePlugins.map((plugin) => ({
     name: plugin.id,
     source: zcodeSource(plugin),
-    ...(publishedPackages.some((entry) => entry.plugin === plugin.id) ? { displayName: marketplaceDisplayName(plugin) } : {}),
+    // ZCode 列表以 displayName 为准；缺失时会退化成插件 id，因此每条都必须写。
+    displayName: marketplaceDisplayName(plugin),
     description: marketplaceDescription(plugin),
     version: plugin.version,
     category: plugin.category,
+    line: plugin.line,
+    ...(plugin.componentTypes ? { componentTypes: plugin.componentTypes } : {}),
     tags: plugin.tags,
     ...(pinnedIcon(plugin) ? { icon: pinnedIcon(plugin) } : {}),
     strict: true
@@ -425,9 +435,8 @@ for (let index = 0; index < catalog.plugins.length; index += 1) {
   if (filteredCandidateIds.size > 0) continue;
   if (remotePluginIds.size > 0 && !remotePluginIds.has(plugin.id)) continue;
   const previous = catalog.plugins[index - 1];
-  if (remotePluginIds.size === 0 && previous
-      && previous.displayName.localeCompare(plugin.displayName, "en", { sensitivity: "base" }) > 0) {
-    errors.push(`catalog order is not alphabetical: ${previous.displayName} before ${plugin.displayName}`);
+  if (remotePluginIds.size === 0 && previous && previous.id.localeCompare(plugin.id, "en") > 0) {
+    errors.push(`catalog order is not by id: ${previous.id} before ${plugin.id}`);
   }
 
   const repo = path.join(workspace, plugin.localDirectory);
@@ -471,10 +480,10 @@ for (let index = 0; index < catalog.plugins.length; index += 1) {
     }
     if (portable.name !== plugin.id) errors.push(`${plugin.id}: plugin.json name is ${portable.name}`);
     if (portable.version !== plugin.version) errors.push(`${plugin.id}: plugin.json version is ${portable.version}`);
-    if (portable.description !== plugin.description) errors.push(`${plugin.id}: plugin.json description differs`);
+    if (portable.description !== localized(plugin, "description")) errors.push(`${plugin.id}: plugin.json description differs`);
     const portableDisplayName = portable.extensions?.["com.openai"]?.interface?.displayName;
     const fallbackDisplayName = codexManifest?.interface?.displayName;
-    if ((portableDisplayName ?? fallbackDisplayName) !== plugin.displayName) {
+    if ((portableDisplayName ?? fallbackDisplayName) !== localized(plugin, "displayName")) {
       errors.push(`${plugin.id}: OpenAI displayName differs from catalog`);
     }
   }
@@ -486,14 +495,22 @@ for (let index = 0; index < catalog.plugins.length; index += 1) {
       continue;
     }
     const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+    const expectedDescription = localized(plugin, "description");
     if (manifest.name !== plugin.id) errors.push(`${plugin.id}: ${relative} name is ${manifest.name}`);
-    if (manifest.description !== plugin.description) errors.push(`${plugin.id}: ${relative} description differs`);
-    if (relative === ".zcode-plugin/plugin.json" && manifest.displayName !== plugin.displayName) {
+    if (manifest.description !== expectedDescription) errors.push(`${plugin.id}: ${relative} description differs`);
+    if (relative === ".zcode-plugin/plugin.json" && manifest.displayName !== localized(plugin, "displayName")) {
       errors.push(`${plugin.id}: ${relative} displayName is ${manifest.displayName}`);
     }
+    if (relative === ".zcode-plugin/plugin.json" && manifest.displayName_i18n
+        && JSON.stringify(manifest.displayName_i18n) !== JSON.stringify({ [locale]: localized(plugin, "displayName") })) {
+      errors.push(`${plugin.id}: ${relative} displayName_i18n differs`);
+    }
     if (relative === "kimi.plugin.json") {
-      if (manifest.interface?.displayName !== plugin.displayName) {
+      if (manifest.interface?.displayName !== localized(plugin, "displayName")) {
         errors.push(`${plugin.id}: ${relative} interface.displayName is ${manifest.interface?.displayName}`);
+      }
+      if (manifest.interface?.shortDescription !== localized(plugin, "shortDescription")) {
+        errors.push(`${plugin.id}: ${relative} interface.shortDescription differs`);
       }
       for (const field of ["skills", "commands", "agents"]) {
         const values = Array.isArray(manifest[field]) ? manifest[field] : manifest[field] ? [manifest[field]] : [];

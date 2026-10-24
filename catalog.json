@@ -19,32 +19,44 @@
   "candidatePlugins": [
     {
       "id": "content-factory",
-      "displayName": "Content Factory",
+      "displayName": "Content Factory · Multi-channel Content",
       "repository": "full-aigc-plugins/content-factory-plugin",
       "localDirectory": "content-factory-plugin",
       "version": "1.0.0-rc.2",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Create, review, format, and export governed content for 16 channels.",
-      "shortDescription": "Preview governed multi-channel content workflows",
+      "description": "Governed content production for 16 channels: topic, drafting, editing, layout, review and export with channel rules preserved.",
+      "shortDescription": "Topic, writing, editing, layout and publishing for 16 channels",
       "category": "Creativity",
       "tags": [
         "content",
         "editorial",
         "workflow",
         "rc"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Content Factory · 多平台内容生产",
+          "shortDescription": "16 渠道选题、写作、编辑、排版与发布",
+          "description": "16 个渠道的受控内容生产：选题、写作、编辑、排版、审阅与导出，保留渠道规范。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     },
     {
       "id": "cadcraft",
-      "displayName": "CADCraft Use",
+      "displayName": "CADCraft · 2D Drafting",
       "repository": "full-aigc-plugins/cadcraft-plugin",
       "localDirectory": "cadcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Floor plans, hole patterns, dimensioning, layer cleanup and sheet output. Millimeter coordinates, layers and plot scales are verifiable.",
+      "shortDescription": "Floor plans, hole patterns, dimensions and sheet output",
       "category": "Creativity",
       "tags": [
         "cadcraft",
@@ -54,18 +66,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/cadcraft-plugin"
+      "codexSourcePath": "./plugins/cadcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "CADCraft · 二维制图",
+          "shortDescription": "平面图、孔系、标注与出图，可编辑图纸",
+          "description": "房间平面、法兰孔系、尺寸标注、图层清理与图框出图；毫米坐标、图层与出图比例可复核。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "ruler",
+        "availability": "session"
+      }
     },
     {
       "id": "designcraft",
-      "displayName": "DesignCraft Use",
+      "displayName": "DesignCraft · Page Layout",
       "repository": "full-aigc-plugins/designcraft-plugin",
       "localDirectory": "designcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Posters, long documents, newsletters, catalogs and print preflight. Masters, page numbers and bleed are handled in one flow, exporting PDF, IDML or EPUB.",
+      "shortDescription": "Posters, long documents, newsletters and catalogs; export PDF/IDML/EPUB",
       "category": "Creativity",
       "tags": [
         "designcraft",
@@ -75,18 +103,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/designcraft-plugin"
+      "codexSourcePath": "./plugins/designcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "DesignCraft · 页面排版",
+          "shortDescription": "海报、长文档、刊物与目录，可导出 PDF/IDML/EPUB",
+          "description": "海报、长文档、多栏刊物、商品目录与印前检查；母版、页码与出血在同一流程处理，可导出 PDF、IDML 或 EPUB。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "layout",
+        "availability": "session"
+      }
     },
     {
       "id": "effectcraft",
-      "displayName": "EffectCraft Use",
+      "displayName": "EffectCraft · Motion Graphics",
       "repository": "full-aigc-plugins/effectcraft-plugin",
       "localDirectory": "effectcraft-plugin",
       "version": "0.1.0-dev.20261018.3",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Compositions, keyframes, expressions, cameras, masks and tracking. Layers, masks and render settings remain editable.",
+      "shortDescription": "Compositions, keyframes, expressions and tracking",
       "category": "Creativity",
       "tags": [
         "effectcraft",
@@ -96,18 +140,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/effectcraft-plugin"
+      "codexSourcePath": "./plugins/effectcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "EffectCraft · 动态图形",
+          "shortDescription": "合成、关键帧、表达式与跟踪，可编辑动效",
+          "description": "合成、关键帧、表达式、摄像机、遮罩与跟踪；图层、遮罩与渲染设置完整保留。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "clapperboard",
+        "availability": "session"
+      }
     },
     {
       "id": "photocraft",
-      "displayName": "PhotoCraft Use",
+      "displayName": "PhotoCraft · Image Editing",
       "repository": "full-aigc-plugins/photocraft-plugin",
       "localDirectory": "photocraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Layers, masks, cutouts, retouching and filters with text and resize variants. Projects stay editable and export to PSD, PNG and other formats.",
+      "shortDescription": "Layers, masks, cutouts and retouching into editable image projects",
       "category": "Creativity",
       "tags": [
         "photocraft",
@@ -117,18 +177,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/photocraft-plugin"
+      "codexSourcePath": "./plugins/photocraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "PhotoCraft · 图片编辑",
+          "shortDescription": "图层、蒙版、抠图与修复，产出可编辑图片工程",
+          "description": "图层、蒙版、抠图、修复与滤镜，支持文字与尺寸适配；工程可继续编辑，可导出 PSD、PNG 等格式。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "image",
+        "availability": "session"
+      }
     },
     {
       "id": "figcraft",
-      "displayName": "FigCraft Use",
+      "displayName": "FigCraft · Design Mockups",
       "repository": "full-aigc-plugins/figcraft-plugin",
       "localDirectory": "figcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Wireframes, design systems, light/dark tokens, prototype flows and dev handoff. Layouts stay editable and responsive.",
+      "shortDescription": "Wireframes, design systems, tokens and prototype handoff",
       "category": "Creativity",
       "tags": [
         "figcraft",
@@ -138,18 +214,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/figcraft-plugin"
+      "codexSourcePath": "./plugins/figcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "FigCraft · 设计稿编辑",
+          "shortDescription": "线框、设计系统、主题令牌与原型交付",
+          "description": "线框、设计系统、明暗主题令牌、原型流与开发交接；布局保持可编辑与自适应。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "pencil",
+        "availability": "session"
+      }
     },
     {
       "id": "filmcraft",
-      "displayName": "FilmCraft Use",
+      "displayName": "FilmCraft · Video Editing",
       "repository": "full-aigc-plugins/filmcraft-plugin",
       "localDirectory": "filmcraft-plugin",
       "version": "0.1.0-dev.20261018.3",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Multicam editing, subtitles, transcripts, grading and export. Timelines, media references and subtitle files are delivered together.",
+      "shortDescription": "Multicam, subtitles, grading and transcripts in a reopenable project",
       "category": "Creativity",
       "tags": [
         "filmcraft",
@@ -159,18 +251,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/filmcraft-plugin"
+      "codexSourcePath": "./plugins/filmcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "FilmCraft · 视频剪辑",
+          "shortDescription": "多机位、字幕、调色与转录，可重开剪辑工程",
+          "description": "多机位剪辑、字幕、逐词转录、调色与导出；时间线、素材引用与字幕文件一并交付。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "film",
+        "availability": "session"
+      }
     },
     {
       "id": "lightcraft",
-      "displayName": "LightCraft Use",
+      "displayName": "LightCraft · Photo Grading",
       "repository": "full-aigc-plugins/lightcraft-plugin",
       "localDirectory": "lightcraft-plugin",
       "version": "0.1.0-dev.20261018.2",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "RAW develop, landscape and portrait looks, batch grading, tone-curve transfer and virtual-copy review. Edits stay non-destructive.",
+      "shortDescription": "RAW develop, batch grading and culling with non-destructive edits",
       "category": "Creativity",
       "tags": [
         "lightcraft",
@@ -180,18 +288,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/lightcraft-plugin"
+      "codexSourcePath": "./plugins/lightcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "LightCraft · 照片调色",
+          "shortDescription": "RAW 显影、批量调色与筛选，非破坏编辑",
+          "description": "RAW 基础显影、风光与人像、批量调色、曲线迁移与虚拟副本审稿；编辑保持非破坏。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "camera",
+        "availability": "session"
+      }
     },
     {
       "id": "printcraft",
-      "displayName": "PdfCraft Use",
+      "displayName": "PrintCraft · PDF Toolkit",
       "repository": "full-aigc-plugins/printcraft-plugin",
       "localDirectory": "printcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
+      "shortDescription": "Page cleanup, OCR, forms, redaction and preflight",
       "category": "Productivity",
       "tags": [
         "printcraft",
@@ -201,18 +325,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/printcraft-plugin"
+      "codexSourcePath": "./plugins/printcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "PrintCraft · PDF 处理",
+          "shortDescription": "页面整理、OCR、表单、脱敏与印前检查",
+          "description": "页面重排、扫描件 OCR、表单填写、内容脱敏与印前检查；保留原件，逐页核对顺序、几何与可搜索文本。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "file-text",
+        "availability": "session"
+      }
     },
     {
       "id": "vectorcraft",
-      "displayName": "VectorCraft Use",
+      "displayName": "VectorCraft · Vector Design",
       "repository": "full-aigc-plugins/vectorcraft-plugin",
       "localDirectory": "vectorcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development editor-fix prerelease under explicit scoped approval. Full V1 evidence gate NOT PASSED; native/host/business acceptance pending. Production release BLOCKED. Node.js 24 required; first Git startup downloads checksummed resources.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Logos, icon sets, infographics, SVG cleanup and multi-artboard variants. Exports SVG, PDF and PNG with editable paths.",
+      "shortDescription": "Logos, icons, infographics and SVG cleanup into editable vector projects",
       "category": "Creativity",
       "tags": [
         "vectorcraft",
@@ -222,18 +362,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/vectorcraft-plugin"
+      "codexSourcePath": "./plugins/vectorcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "VectorCraft · 矢量设计",
+          "shortDescription": "标志、图标、信息图与 SVG，导出可编辑矢量工程",
+          "description": "标志、图标集、信息图、SVG 清理与多画板变体；导出 SVG、PDF 与 PNG，路径保持可编辑。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "pen-tool",
+        "availability": "session"
+      }
     },
     {
       "id": "deckcraft",
-      "displayName": "DeckCraft Use",
+      "displayName": "DeckCraft · Presentations",
       "repository": "full-aigc-plugins/deckcraft-plugin",
       "localDirectory": "deckcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Pitch decks, weekly reports, training material, data stories and option comparisons. Masters, layouts and speaker notes stay editable after export.",
+      "shortDescription": "Pitches, weekly reports, training decks and option comparisons",
       "category": "Productivity",
       "tags": [
         "deckcraft",
@@ -243,18 +399,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/deckcraft-plugin"
+      "codexSourcePath": "./plugins/deckcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "DeckCraft · 演示文稿",
+          "shortDescription": "路演、周报、课件与方案对比，可编辑演示",
+          "description": "项目路演、工作周报、培训课件、数据叙事与方案对比；母版、版式与讲稿同源，导出后可继续修改。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "presentation",
+        "availability": "session"
+      }
     },
     {
       "id": "soundcraft",
-      "displayName": "SoundCraft Use",
+      "displayName": "SoundCraft · Audio Editing",
       "repository": "full-aigc-plugins/soundcraft-plugin",
       "localDirectory": "soundcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Dialogue cleanup, loudness matching, voice-over mixing, audio edits and loop stitching. Processing follows segments and silence ranges while keeping sync.",
+      "shortDescription": "Dialogue cleanup, loudness matching, mixing and audio edits",
       "category": "Creativity",
       "tags": [
         "soundcraft",
@@ -264,18 +436,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/soundcraft-plugin"
+      "codexSourcePath": "./plugins/soundcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "SoundCraft · 音频处理",
+          "shortDescription": "口播清理、响度统一、混音与音频剪辑",
+          "description": "口播清理、多人响度统一、配音混音、音频剪辑与循环拼接；按段落与静音区间处理，保持对时关系。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "music",
+        "availability": "session"
+      }
     },
     {
       "id": "gridcraft",
-      "displayName": "GridCraft Use",
+      "displayName": "GridCraft · Spreadsheets",
       "repository": "full-aigc-plugins/gridcraft-plugin",
       "localDirectory": "gridcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Budgets, reconciliation, table cleanup, sales summaries and formula audits. Values keep their units and sources, and formulas stay recalculable.",
+      "shortDescription": "Budgets, reconciliation, cleanup and summaries with live formulas",
       "category": "Productivity",
       "tags": [
         "gridcraft",
@@ -285,18 +473,34 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/gridcraft-plugin"
+      "codexSourcePath": "./plugins/gridcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "GridCraft · 电子表格",
+          "shortDescription": "预算、对账、清洗与汇总，公式可重算",
+          "description": "预算执行、两表对账、表格清洗、销售汇总与公式审计；保留数据单位与来源，公式可重算。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "table",
+        "availability": "session"
+      }
     },
     {
       "id": "wordcraft",
-      "displayName": "WordCraft Use",
+      "displayName": "WordCraft · Document Writing",
       "repository": "full-aigc-plugins/wordcraft-plugin",
       "localDirectory": "wordcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "shortDescription": "Scene skills and a shared-session editor · Development",
+      "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
+      "shortDescription": "Reports, minutes, quotes, proposals and resumes as editable documents",
       "category": "Productivity",
       "tags": [
         "wordcraft",
@@ -306,109 +510,197 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/wordcraft-plugin"
+      "codexSourcePath": "./plugins/wordcraft-plugin",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "WordCraft · 文档写作",
+          "shortDescription": "周报、纪要、报价、报告与简历，可编辑文档",
+          "description": "工作周报、会议纪要、商业报价、验收报告、需求说明与简历；样式、目录、页码与图表题注保持一致。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "ui": {
+        "surface": "editor",
+        "icon": "file-text",
+        "availability": "session"
+      }
     }
   ],
   "plugins": [
     {
       "id": "maya-design",
-      "displayName": "Autodesk Maya Design",
+      "displayName": "Maya Design · 3D Scenes",
       "repository": "full-aigc-plugins/maya-design-plugin",
       "localDirectory": "maya-design-plugin",
       "version": "0.2.1",
-      "description": "Inspect Autodesk Maya scenes, create reversible Playblasts, and produce verified Jimeng links.",
-      "shortDescription": "Inspect scenes and create reversible Playblasts",
+      "description": "Read-only scene inspection, reversible Playblast export and error diagnosis, handing off to the official Jimeng uploader.",
+      "shortDescription": "Scene inspection, reversible Playblast and Jimeng links",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
         "maya",
         "3d",
         "playblast"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Maya Design · 三维场景",
+          "shortDescription": "场景体检、可逆 Playblast 与即梦链接",
+          "description": "只读场景体检、可逆 Playblast 导出与错误诊断，交接官方即梦上传器。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     },
     {
       "id": "blender-design",
-      "displayName": "Blender Design",
+      "displayName": "Blender Design · 3D Modeling",
       "repository": "full-aigc-plugins/blender-design-plugin",
       "localDirectory": "blender-design-plugin",
       "version": "0.16.1",
-      "description": "Design, review, and export Blender scenes through controlled operations, visual milestones, and recovery checkpoints.",
-      "shortDescription": "Design, review, and export Blender projects",
+      "description": "Controlled Blender operations with milestone screenshots, transaction rollback, previs and verified multi-format export.",
+      "shortDescription": "Modeling, rigging, materials, animation, rendering and export",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
         "blender",
         "3d",
         "previs"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Blender Design · 三维建模",
+          "shortDescription": "建模、绑定、材质、动画、渲染与导出",
+          "description": "受控 Blender 操作，含里程碑截图、事务回滚、白模预演与多格式校验导出。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     },
     {
       "id": "comfy-design",
-      "displayName": "Comfy Design",
+      "displayName": "Comfy Design · ComfyUI Workflows",
       "repository": "full-aigc-plugins/comfy-design-plugin",
       "localDirectory": "comfy-design-plugin",
       "version": "0.6.1",
-      "description": "Generate images, video, audio, and 3D through a local ComfyUI MCP, with Comfy Cloud as an opt-in escalation for partner models and uploads.",
-      "shortDescription": "Local-first ComfyUI generation workflows",
+      "description": "Local-first ComfyUI workflows for images, video, audio and 3D. Partner models and uploads escalate to Comfy Cloud only when opted in.",
+      "shortDescription": "Local image, video, audio and 3D workflows",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
         "comfy",
         "comfyui",
         "workflow"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Comfy Design · ComfyUI 工作流",
+          "shortDescription": "本地图、视频、音频与 3D 工作流",
+          "description": "本地优先的 ComfyUI 图像、视频、音频与 3D 工作流；合作伙伴模型与上传仅在显式选择后升级到云端。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     },
     {
       "id": "dreamina-canvas",
-      "displayName": "Dreamina Canvas",
+      "displayName": "Dreamina Canvas · Canvas Orchestration",
       "repository": "full-aigc-plugins/dreamina-canvas-plugin",
       "localDirectory": "dreamina-canvas-plugin",
       "version": "0.5.1",
-      "description": "Build and run Dreamina Canvas node graphs and timelines with approval-aware execution, recovery, and verified assets.",
-      "shortDescription": "Build and run structured Dreamina canvases",
+      "description": "Typed canvas nodes and timelines for Dreamina. Free saves are separated from quoted runs, and assets download with verification.",
+      "shortDescription": "Node graphs and timelines with save/run separation",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
         "dreamina",
         "canvas",
         "timeline"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Dreamina Canvas · 即梦画布编排",
+          "shortDescription": "节点画布与时间线，保存与计费运行分离",
+          "description": "类型化节点与时间线编排；免费保存与计费运行分离，产物下载带校验。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     },
     {
       "id": "dreamina-design",
-      "displayName": "Dreamina Design",
+      "displayName": "Dreamina Design · Dreamina Image & Video",
       "repository": "full-aigc-plugins/dreamina-design-plugin",
       "localDirectory": "dreamina-design-plugin",
       "version": "0.8.1",
-      "description": "Create and edit Dreamina images and videos with approval-aware, resumable operations and verified downloads.",
-      "shortDescription": "Create images and videos with Dreamina",
+      "description": "Dreamina image and video generation with prompt libraries, shot annotation and visual evaluation. Paid runs require explicit approval and tasks are resumable.",
+      "shortDescription": "Text-to-image, image-to-image and text-to-video with prompt and shot review",
       "category": "Creativity",
       "logo": "assets/logo-approved.png",
       "tags": [
         "dreamina",
         "seedance",
         "text2video"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Dreamina Design · 即梦绘图与视频",
+          "shortDescription": "文生图、图生图与文生视频，含提示词与镜头评审",
+          "description": "即梦图像与视频生成，含提示词库、分镜标注与视觉评审；付费生成前需显式确认，任务可恢复。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     },
     {
       "id": "image-factory",
-      "displayName": "Image Factory",
+      "displayName": "Image Factory · Batch Image Generation",
       "repository": "full-aigc-plugins/image-factory-plugin",
       "localDirectory": "image-factory-plugin",
       "version": "0.9.1",
-      "description": "Discover prompts, batch-produce and evaluate images, and record verified artifact receipts.",
-      "shortDescription": "Discover, batch-produce, and evaluate images",
+      "description": "Prompt discovery, plan validation, approval, batch generation, evaluation and recovery. Every artifact carries a hash-verified receipt.",
+      "shortDescription": "Plan approval, batch generation, evaluation and receipts",
       "category": "Creativity",
       "logo": "assets/logo-approved.png",
       "tags": [
         "image",
         "batch",
         "receipts"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Image Factory · 批量 AI 出图",
+          "shortDescription": "计划审批、批量生成、质量评估与产物回执",
+          "description": "提示词发现、计划校验、审批、批量生成、质量评估与中断恢复；每张图带哈希校验回执。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     },
     {
       "id": "jianying-draft",
-      "displayName": "JianYing Draft",
+      "displayName": "JianYing Draft · Draft Orchestration",
       "repository": "full-aigc-plugins/jianying-draft-plugin",
       "localDirectory": "jianying-draft-plugin",
       "version": "0.29.6",
@@ -420,48 +712,84 @@
         "jianying",
         "capcut",
         "video-editing"
-      ]
+      ],
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "JianYing Draft · 剪映草稿编排",
+          "shortDescription": "草稿、字幕、音频与特效，Rust 单栈编排",
+          "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。"
+        }
+      }
     },
     {
       "id": "minimax-design",
-      "displayName": "MiniMax Design",
+      "displayName": "MiniMax Design · AI Video",
       "repository": "full-aigc-plugins/minimax-design-plugin",
       "localDirectory": "minimax-design-plugin",
       "version": "0.5.1",
-      "description": "Generate MiniMax H3 videos with env-var auth, first/last-frame FL2VA anchoring, resumable v2 queries, 12 externally managed skills, 2 plugin-local skills, commands, and cross-platform credential setup.",
-      "shortDescription": "Generate H3 videos with MiniMax — white-model first/last-frame anchoring",
+      "description": "MiniMax H3 video generation with environment-variable auth, first/last-frame anchoring, resumable queries and verified downloads.",
+      "shortDescription": "H3 text/image-to-video with white-model first/last frames",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
         "minimax",
         "hailuo",
         "video-generation"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "MiniMax Design · AI 视频生成",
+          "shortDescription": "H3 文生/图生视频，白模首尾帧锚定",
+          "description": "MiniMax H3 视频生成，环境变量鉴权、白模首尾帧锚定、可恢复查询与校验下载。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     },
     {
       "id": "video-factory",
-      "displayName": "Video Factory",
+      "displayName": "Video Factory · Auto Video Editing",
       "repository": "full-aigc-plugins/video-factory-plugin",
       "localDirectory": "video-factory-plugin",
       "version": "0.5.1",
-      "description": "Automatic video editing, composition, synchronized review, recovery, and verified media receipts.",
-      "shortDescription": "Edit, compose, review, and verify videos",
+      "description": "Shot analysis, edit decisions, rough and final cut approval, composition and media receipt verification.",
+      "shortDescription": "Shot analysis, rough/final cut approval, composition and receipts",
       "category": "Creativity",
       "logo": "assets/logo-approved.png",
       "tags": [
         "video",
         "editing",
         "receipts"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Video Factory · 自动剪辑成片",
+          "shortDescription": "拉片、粗剪精剪审批、合成与媒体回执",
+          "description": "拉片分析、剪辑决策、粗剪与精剪审批、合成与媒体回执校验。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     },
     {
       "id": "volcengine-design",
-      "displayName": "Volcengine Design",
+      "displayName": "Volcengine Design · Doubao Voice & Video",
       "repository": "full-aigc-plugins/volcengine-design-plugin",
       "localDirectory": "volcengine-design-plugin",
       "version": "0.2.1",
-      "description": "Volcengine creation suite — Doubao ASR transcription with millisecond word timelines, TTS narration, Seedream images, Seedance video with white-model first/last-frame anchoring.",
-      "shortDescription": "Doubao ASR/TTS, image & video generation workflows",
+      "description": "Doubao ASR with millisecond word timelines, TTS narration, Seedream images and Seedance video. Two credential families stay separate and tasks are submitted once.",
+      "shortDescription": "Word-level ASR, TTS narration, image and video generation",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [
@@ -470,16 +798,28 @@
         "asr",
         "tts",
         "video"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Volcengine Design · 豆包语音与视频",
+          "shortDescription": "词级时间轴 ASR、TTS 旁白与图像视频生成",
+          "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频；两套凭据分离，任务只提交一次。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     },
     {
       "id": "xuanji",
-      "displayName": "Xuanji · Cyber Divination",
+      "displayName": "Xuanji · Divination (Entertainment)",
       "repository": "full-aigc-plugins/xuanji-plugin",
       "localDirectory": "xuanji-plugin",
       "version": "0.2.1",
-      "description": "Entertainment-grade Chinese metaphysics: Bazi, Qimen, Ziwei, marriage lots, Fengshui, and Tarot with script-verified chart computation and optional AIGC imagery.",
-      "shortDescription": "Entertainment divination skills",
+      "description": "Entertainment-grade Chinese metaphysics with script-verified charts and auditable classical citations. For entertainment only.",
+      "shortDescription": "Bazi, Qimen, Ziwei, marriage, Fengshui and Tarot",
       "category": "Creativity",
       "logo": "assets/logo.png",
       "tags": [
@@ -490,6 +830,18 @@
         "tarot",
         "divination",
         "entertainment"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Xuanji · 命理排盘（娱乐）",
+          "shortDescription": "八字、奇门、紫微、姻缘、风水与塔罗",
+          "description": "娱乐向术数六科，排盘由脚本校验、引文可追溯；仅供娱乐，不构成专业建议。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
       ]
     }
   ]
