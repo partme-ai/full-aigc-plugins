@@ -469,7 +469,7 @@
         "sha256": "1da6a205d96b7cbd4f6d57a04ecb80f1b31ab4ab6f628e37bfc3f86bec801b60",
         "path": "printcraft-plugin"
       },
-      "displayName": "PrintCraft · PDF Toolkit",
+      "displayName": "PdfCraft · PDF Toolkit",
       "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
       "version": "0.1.0-dev.20261019.1",
       "category": "Productivity",

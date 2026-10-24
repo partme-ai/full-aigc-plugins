@@ -308,7 +308,7 @@
     },
     {
       "id": "printcraft",
-      "displayName": "PrintCraft · PDF Toolkit",
+      "displayName": "PdfCraft · PDF Toolkit",
       "repository": "full-aigc-plugins/printcraft-plugin",
       "localDirectory": "printcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
@@ -328,7 +328,7 @@
       "codexSourcePath": "./plugins/printcraft-plugin",
       "localizations": {
         "zh-CN": {
-          "displayName": "PrintCraft · PDF 处理",
+          "displayName": "PdfCraft · PDF 处理",
           "shortDescription": "页面整理、OCR、表单、脱敏与印前检查",
           "description": "页面重排、扫描件 OCR、表单填写、内容脱敏与印前检查；保留原件，逐页核对顺序、几何与可搜索文本。"
         }

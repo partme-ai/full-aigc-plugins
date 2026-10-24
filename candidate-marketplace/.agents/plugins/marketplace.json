@@ -275,7 +275,7 @@
       "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "PrintCraft · PDF Toolkit",
+        "displayName": "PdfCraft · PDF Toolkit",
         "shortDescription": "Page cleanup, OCR, forms, redaction and preflight",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
