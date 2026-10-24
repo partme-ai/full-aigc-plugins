@@ -1,42 +1,26 @@
 {
   "name": "full-aigc-plugins",
-  "displayName": "Full AIGC 插件",
+  "displayName": "Full AIGC Plugins",
   "description": "Full AIGC plugin marketplace for Codex, ZCode, and Kimi Code: image, video, audio, music, 3D, and multimodal content creation.",
   "plugins": [
-    {
-      "name": "maya-design",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/maya-design-plugin",
-        "ref": "v0.2.1"
-      },
-      "description": "Inspect Autodesk Maya scenes, create reversible Playblasts, and produce verified Jimeng links.",
-      "version": "0.2.1",
-      "category": "Creativity",
-      "tags": [
-        "maya",
-        "3d",
-        "playblast"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.1/assets/official-logo.png",
-      "strict": true
-    },
     {
       "name": "blender-design",
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/blender-design-plugin",
-        "ref": "v0.16.1"
+        "ref": "v0.14.1"
       },
-      "description": "Design, review, and export Blender scenes through controlled operations, visual milestones, and recovery checkpoints.",
-      "version": "0.16.1",
+      "displayName": "Blender Design · 3D Modeling",
+      "description": "Controlled Blender operations with milestone screenshots, transaction rollback, previs and verified multi-format export.",
+      "version": "0.14.1",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "blender",
         "3d",
         "previs"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.14.1/assets/official-logo.png",
       "strict": true
     },
     {
@@ -48,10 +32,14 @@
         "sha256": "f38efe9593605845347efd5650d69704cd8d3b3d1e20c5ef98106f01fb355df2",
         "path": "cadcraft-plugin"
       },
-      "displayName": "CADCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "CADCraft · 2D Drafting",
+      "description": "Floor plans, hole patterns, dimensioning, layer cleanup and sheet output. Millimeter coordinates, layers and plot scales are verifiable.",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "cadcraft",
         "craft",
@@ -67,17 +55,19 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/comfy-design-plugin",
-        "ref": "v0.6.1"
+        "ref": "v0.5.0"
       },
-      "description": "Generate images, video, audio, and 3D through a local ComfyUI MCP, with Comfy Cloud as an opt-in escalation for partner models and uploads.",
-      "version": "0.6.1",
+      "displayName": "Comfy Design · ComfyUI Workflows",
+      "description": "Local-first ComfyUI workflows for images, video, audio and 3D. Partner models and uploads escalate to Comfy Cloud only when opted in.",
+      "version": "0.5.0",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "comfy",
         "comfyui",
         "workflow"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.5.0/assets/official-logo.png",
       "strict": true
     },
     {
@@ -87,9 +77,11 @@
         "repo": "full-aigc-plugins/content-factory-plugin",
         "ref": "v1.0.0-rc.2"
       },
-      "description": "Release candidate for controlled testing; not production-ready. Create, review, format, and export governed content for 16 channels.",
+      "displayName": "Content Factory · Multi-channel Content",
+      "description": "Governed content production for 16 channels: topic, drafting, editing, layout, review and export with channel rules preserved.",
       "version": "1.0.0-rc.2",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "content",
         "editorial",
@@ -107,10 +99,14 @@
         "sha256": "d185ed83ea1327a1459000211ceff3709a1f1257ac96a9ab0fc806e22d75c2b7",
         "path": "deckcraft-plugin"
       },
-      "displayName": "DeckCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "DeckCraft · Presentations",
+      "description": "Pitch decks, weekly reports, training material, data stories and option comparisons. Masters, layouts and speaker notes stay editable after export.",
       "version": "0.1.0-dev.20261019.1",
       "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "deckcraft",
         "craft",
@@ -130,10 +126,14 @@
         "sha256": "ca51e79a0bbc1a93507e5e5b72c35524229e218c17af6a92bd14e70123560b26",
         "path": "designcraft-plugin"
       },
-      "displayName": "DesignCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "DesignCraft · Page Layout",
+      "description": "Posters, long documents, newsletters, catalogs and print preflight. Masters, page numbers and bleed are handled in one flow, exporting PDF, IDML or EPUB.",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "designcraft",
         "craft",
@@ -149,17 +149,19 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/dreamina-canvas-plugin",
-        "ref": "v0.5.1"
+        "ref": "v0.4.3"
       },
-      "description": "Build and run Dreamina Canvas node graphs and timelines with approval-aware execution, recovery, and verified assets.",
-      "version": "0.5.1",
+      "displayName": "Dreamina Canvas · Canvas Orchestration",
+      "description": "Typed canvas nodes and timelines for Dreamina. Free saves are separated from quoted runs, and assets download with verification.",
+      "version": "0.4.3",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "dreamina",
         "canvas",
         "timeline"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.4.3/assets/official-logo.png",
       "strict": true
     },
     {
@@ -167,17 +169,19 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/dreamina-design-plugin",
-        "ref": "v0.8.1"
+        "ref": "v0.7.0"
       },
-      "description": "Create and edit Dreamina images and videos with approval-aware, resumable operations and verified downloads.",
-      "version": "0.8.1",
+      "displayName": "Dreamina Design · Dreamina Image & Video",
+      "description": "Dreamina image and video generation with prompt libraries, shot annotation and visual evaluation. Paid runs require explicit approval and tasks are resumable.",
+      "version": "0.7.0",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "dreamina",
         "seedance",
         "text2video"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.1/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.7.0/assets/logo-approved.png",
       "strict": true
     },
     {
@@ -187,10 +191,11 @@
         "repo": "full-aigc-plugins/effectcraft-plugin",
         "ref": "v0.1.0-dev.20261018.3"
       },
-      "displayName": "EffectCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "EffectCraft · Motion Graphics",
+      "description": "Compositions, keyframes, expressions, cameras, masks and tracking. Layers, masks and render settings remain editable.",
       "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "effectcraft",
         "craft",
@@ -210,10 +215,11 @@
         "sha256": "db5d4ef368e6aafb653d50863319380ccb4ecaf14d4f8008acae320e64bf2c2b",
         "path": "figcraft-plugin"
       },
-      "displayName": "FigCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "FigCraft · Design Mockups",
+      "description": "Wireframes, design systems, light/dark tokens, prototype flows and dev handoff. Layouts stay editable and responsive.",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "figcraft",
         "craft",
@@ -233,10 +239,11 @@
         "sha256": "47b7ffe7cea15b51cbdad1640701403a454608475ce016ba419d113fc28d22ea",
         "path": "filmcraft-plugin"
       },
-      "displayName": "FilmCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "FilmCraft · Video Editing",
+      "description": "Multicam editing, subtitles, transcripts, grading and export. Timelines, media references and subtitle files are delivered together.",
       "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "filmcraft",
         "craft",
@@ -256,10 +263,14 @@
         "sha256": "c1b4d8318cec676b33d209f329f285b9980050a15801c5dc856a57331f717354",
         "path": "gridcraft-plugin"
       },
-      "displayName": "GridCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "GridCraft · Spreadsheets",
+      "description": "Budgets, reconciliation, table cleanup, sales summaries and formula audits. Values keep their units and sources, and formulas stay recalculable.",
       "version": "0.1.0-dev.20261019.1",
       "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "gridcraft",
         "craft",
@@ -275,35 +286,39 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/image-factory-plugin",
-        "ref": "v0.9.1"
+        "ref": "v0.8.0"
       },
-      "description": "Discover prompts, batch-produce and evaluate images, and record verified artifact receipts.",
-      "version": "0.9.1",
+      "displayName": "Image Factory · Batch Image Generation",
+      "description": "Prompt discovery, plan validation, approval, batch generation, evaluation and recovery. Every artifact carries a hash-verified receipt.",
+      "version": "0.8.0",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "image",
         "batch",
         "receipts"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.1/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.8.0/assets/logo-approved.png",
       "strict": true
     },
     {
-      "name": "jianying-draft",
+      "name": "jianying-edit",
       "source": {
         "source": "github",
-        "repo": "full-aigc-plugins/jianying-draft-plugin",
-        "ref": "v0.29.1"
+        "repo": "full-aigc-plugins/jianying-edit-plugin",
+        "ref": "v0.27.9"
       },
-      "description": "Cross-host JianYing/CapCut workflow orchestration through the checksum-verified Rust jianying-cli Runtime Adapter: jianying-job/v2, editable drafts, captions, audio/TTS/ASR, batch recovery, approvals, and MCP stdio/HTTP/SSE. No Python engine or external fork runtime.",
-      "version": "0.29.1",
+      "displayName": "JianYing Edit · Draft Orchestration",
+      "description": "JianYing/CapCut draft orchestration through one checksum-verified Rust runtime: job schema, captions, audio, effects and approval gates.",
+      "version": "0.27.9",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "jianying",
         "capcut",
         "video-editing"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-edit-plugin@v0.27.9/assets/official-logo.png",
       "strict": true
     },
     {
@@ -315,10 +330,11 @@
         "sha256": "92bacd0fe4dfc4c44ebddb9c02e6f9f1cb1274f79caa3c5f818a1f9300344597",
         "path": "lightcraft-plugin"
       },
-      "displayName": "LightCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "LightCraft · Photo Grading",
+      "description": "RAW develop, landscape and portrait looks, batch grading, tone-curve transfer and virtual-copy review. Edits stay non-destructive.",
       "version": "0.1.0-dev.20261018.2",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "lightcraft",
         "craft",
@@ -330,44 +346,43 @@
       "strict": true
     },
     {
+      "name": "maya-design",
+      "source": {
+        "source": "github",
+        "repo": "full-aigc-plugins/maya-design-plugin",
+        "ref": "v0.1.5"
+      },
+      "displayName": "Maya Design · 3D Scenes",
+      "description": "Read-only scene inspection, reversible Playblast export and error diagnosis, handing off to the official Jimeng uploader.",
+      "version": "0.1.5",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "tags": [
+        "maya",
+        "3d",
+        "playblast"
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.1.5/assets/official-logo.png",
+      "strict": true
+    },
+    {
       "name": "minimax-design",
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/minimax-design-plugin",
-        "ref": "v0.5.1"
+        "ref": "v0.4.3"
       },
-      "description": "Generate MiniMax H3 videos with env-var auth, first/last-frame FL2VA anchoring, resumable v2 queries, 12 externally managed skills, 2 plugin-local skills, commands, and cross-platform credential setup.",
-      "version": "0.5.1",
+      "displayName": "MiniMax Design · AI Video",
+      "description": "MiniMax H3 video generation with environment-variable auth, first/last-frame anchoring, resumable queries and verified downloads.",
+      "version": "0.4.3",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "minimax",
         "hailuo",
         "video-generation"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.1/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "printcraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261019.1/printcraft-plugin-0.1.0-dev.20261019.1.zip",
-        "sha256": "1da6a205d96b7cbd4f6d57a04ecb80f1b31ab4ab6f628e37bfc3f86bec801b60",
-        "path": "printcraft-plugin"
-      },
-      "displayName": "PdfCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "version": "0.1.0-dev.20261019.1",
-      "category": "Productivity",
-      "tags": [
-        "printcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.4.3/assets/official-logo.png",
       "strict": true
     },
     {
@@ -379,10 +394,14 @@
         "sha256": "58b2f7b9923d770acb31eb91b2d6e519adb92c04ef92ff8dacb3263f7662616a",
         "path": "photocraft-plugin"
       },
-      "displayName": "PhotoCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "PhotoCraft · Image Editing",
+      "description": "Layers, masks, cutouts, retouching and filters with text and resize variants. Projects stay editable and export to PSD, PNG and other formats.",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "photocraft",
         "craft",
@@ -394,6 +413,33 @@
       "strict": true
     },
     {
+      "name": "printcraft",
+      "source": {
+        "source": "url",
+        "type": "zip",
+        "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261019.1/printcraft-plugin-0.1.0-dev.20261019.1.zip",
+        "sha256": "1da6a205d96b7cbd4f6d57a04ecb80f1b31ab4ab6f628e37bfc3f86bec801b60",
+        "path": "printcraft-plugin"
+      },
+      "displayName": "PrintCraft · PDF Toolkit",
+      "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "printcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
       "name": "soundcraft",
       "source": {
         "source": "url",
@@ -402,10 +448,14 @@
         "sha256": "7c46db6dbd487c1e516a27b9fa5d0ee307a56bc0cfa6c20f6c12466778235454",
         "path": "soundcraft-plugin"
       },
-      "displayName": "SoundCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "SoundCraft · Audio Editing",
+      "description": "Dialogue cleanup, loudness matching, voice-over mixing, audio edits and loop stitching. Processing follows segments and silence ranges while keeping sync.",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "soundcraft",
         "craft",
@@ -421,14 +471,18 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/download/v0.1.0-dev.20261019.1/vectorcraft-plugin-0.1.0-dev.20261019.1.zip",
-        "sha256": "9c55e64948b6f6435bc2f83d96dd7572a1cdd14bde0793c08bc9d672b83cffb1",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/download/v0.1.0-dev.20261017.6/vectorcraft-plugin-0.1.0-dev.20261017.6.zip",
+        "sha256": "4967fb17ddecda85c2c6c885f193fd607f56216b417be361a5a35e312c39f526",
         "path": "vectorcraft-plugin"
       },
-      "displayName": "VectorCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development editor-fix prerelease under explicit scoped approval. Full V1 evidence gate NOT PASSED; native/host/business acceptance pending. Production release BLOCKED. Node.js 24 required; first Git startup downloads checksummed resources.",
-      "version": "0.1.0-dev.20261019.1",
+      "displayName": "VectorCraft · Vector Design",
+      "description": "Logos, icon sets, infographics, SVG cleanup and multi-artboard variants. Exports SVG, PDF and PNG with editable paths.",
+      "version": "0.1.0-dev.20261017.6",
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "vectorcraft",
         "craft",
@@ -436,7 +490,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
       "strict": true
     },
     {
@@ -444,17 +498,19 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/video-factory-plugin",
-        "ref": "v0.5.1"
+        "ref": "v0.4.0"
       },
-      "description": "Automatic video editing, composition, synchronized review, recovery, and verified media receipts.",
-      "version": "0.5.1",
+      "displayName": "Video Factory · Auto Video Editing",
+      "description": "Shot analysis, edit decisions, rough and final cut approval, composition and media receipt verification.",
+      "version": "0.4.0",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "video",
         "editing",
         "receipts"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.1/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.4.0/assets/logo-approved.png",
       "strict": true
     },
     {
@@ -462,11 +518,13 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/volcengine-design-plugin",
-        "ref": "v0.2.1"
+        "ref": "v0.1.2"
       },
-      "description": "Volcengine creation suite — Doubao ASR transcription with millisecond word timelines, TTS narration, Seedream images, Seedance video with white-model first/last-frame anchoring.",
-      "version": "0.2.1",
+      "displayName": "Volcengine Design · Doubao Voice & Video",
+      "description": "Doubao ASR with millisecond word timelines, TTS narration, Seedream images and Seedance video. Two credential families stay separate and tasks are submitted once.",
+      "version": "0.1.2",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "volcengine",
         "doubao",
@@ -474,7 +532,7 @@
         "tts",
         "video"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.1.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -486,10 +544,14 @@
         "sha256": "1824ccce55da51b1568f8bab13c9ec6447563e39104ab57cf76462e6f74e08c9",
         "path": "wordcraft-plugin"
       },
-      "displayName": "WordCraft Use (RC)",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "displayName": "WordCraft · Document Writing",
+      "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
       "version": "0.1.0-dev.20261019.1",
       "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "wordcraft",
         "craft",
@@ -505,11 +567,13 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/xuanji-plugin",
-        "ref": "v0.2.1"
+        "ref": "v0.1.1"
       },
-      "description": "Entertainment-grade Chinese metaphysics: Bazi, Qimen, Ziwei, marriage lots, Fengshui, and Tarot with script-verified chart computation and optional AIGC imagery.",
-      "version": "0.2.1",
+      "displayName": "Xuanji · Divination (Entertainment)",
+      "description": "Entertainment-grade Chinese metaphysics with script-verified charts and auditable classical citations. For entertainment only.",
+      "version": "0.1.1",
       "category": "Creativity",
+      "line": "full-aigc",
       "tags": [
         "bazi",
         "qimen",
@@ -519,7 +583,7 @@
         "divination",
         "entertainment"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.1/assets/logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.1.1/assets/logo.png",
       "strict": true
     }
   ]
