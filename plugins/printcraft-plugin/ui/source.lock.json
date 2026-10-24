@@ -5,7 +5,7 @@
   "commit": "5fdd820bdb1ab9705bd2c5d956d32d195140c7d8",
   "version": "0.8.0",
   "sourceStatus": "fork",
-  "releaseRepository": "full-aigc-plugins/printcraft-plugin",
+  "releaseRepository": "full-aigc-plugins/pdfcraft-plugin",
   "patches": [],
   "fontInput": "fonts.lock.json"
 }

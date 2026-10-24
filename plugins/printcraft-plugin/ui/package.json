@@ -1,5 +1,5 @@
 {
-  "name": "@full-aigc/printcraft-editor-adapter",
+  "name": "@full-aigc/pdfcraft-editor-adapter",
   "version": "0.1.0",
   "private": true,
   "type": "module",

@@ -81,7 +81,7 @@ codex plugin add image-factory@full-aigc-plugins
 codex plugin add jianying-edit@full-aigc-plugins
 codex plugin add maya-design@full-aigc-plugins
 codex plugin add minimax-design@full-aigc-plugins
-codex plugin add printcraft@full-aigc-plugins  # 开发预发布，仅用于受控测试
+codex plugin add pdfcraft@full-aigc-plugins  # 开发预发布，仅用于受控测试
 codex plugin add video-factory@full-aigc-plugins
 codex plugin add volcengine-design@full-aigc-plugins
 ```
@@ -113,7 +113,7 @@ codex plugin add volcengine-design@full-aigc-plugins
 | [**GridCraft Use (RC)**](https://github.com/full-aigc-plugins/gridcraft-plugin) | `gridcraft` | 0.1.0-dev.20261019.1 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [gridcraft-plugin](https://github.com/full-aigc-plugins/gridcraft-plugin) |
 | [**LightCraft Use (RC)**](https://github.com/full-aigc-plugins/lightcraft-plugin) | `lightcraft` | 0.1.0-dev.20261018.2 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [lightcraft-plugin](https://github.com/full-aigc-plugins/lightcraft-plugin) |
 | [**PhotoCraft Use (RC)**](https://github.com/full-aigc-plugins/photocraft-plugin) | `photocraft` | 0.1.0-dev.20261019.1 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [photocraft-plugin](https://github.com/full-aigc-plugins/photocraft-plugin) |
-| [**PdfCraft Use (RC)**](https://github.com/full-aigc-plugins/printcraft-plugin) | `printcraft` | 0.1.0-dev.20261019.1 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [printcraft-plugin](https://github.com/full-aigc-plugins/printcraft-plugin) |
+| [**PdfCraft Use (RC)**](https://github.com/full-aigc-plugins/pdfcraft-plugin) | `pdfcraft` | 0.1.0-dev.20261019.1 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [pdfcraft-plugin](https://github.com/full-aigc-plugins/pdfcraft-plugin) |
 | [**SoundCraft Use (RC)**](https://github.com/full-aigc-plugins/soundcraft-plugin) | `soundcraft` | 0.1.0-dev.20261019.1 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [soundcraft-plugin](https://github.com/full-aigc-plugins/soundcraft-plugin) |
 | [**VectorCraft Use (RC)**](https://github.com/full-aigc-plugins/vectorcraft-plugin) | `vectorcraft` | 0.1.0-dev.20261019.1 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [vectorcraft-plugin](https://github.com/full-aigc-plugins/vectorcraft-plugin) |
 | [**WordCraft Use (RC)**](https://github.com/full-aigc-plugins/wordcraft-plugin) | `wordcraft` | 0.1.0-dev.20261019.1 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [wordcraft-plugin](https://github.com/full-aigc-plugins/wordcraft-plugin) |
@@ -124,7 +124,7 @@ codex plugin add volcengine-design@full-aigc-plugins
 | [🖼️ **即梦设计**](https://github.com/full-aigc-plugins/dreamina-design-plugin) | `dreamina-design` | 0.8.1 | 即梦图像与视频创作 | [dreamina-design-plugin](https://github.com/full-aigc-plugins/dreamina-design-plugin) |
 | [🏭 **图片工厂**](https://github.com/full-aigc-plugins/image-factory-plugin) | `image-factory` | 0.9.1 | 图像的发现、批量生产与评估闭环 | [image-factory-plugin](https://github.com/full-aigc-plugins/image-factory-plugin) |
 | [✂️ **剪映剪辑**](https://github.com/full-aigc-plugins/jianying-edit-plugin) | `jianying-edit` | 0.28.1 | Rust-only 剪映工作流编排与可编辑草稿 | [jianying-edit-plugin](https://github.com/full-aigc-plugins/jianying-edit-plugin) |
-| [**JianYing Draft**](https://github.com/full-aigc-plugins/jianying-draft-plugin) | `jianying-draft` | 0.29.0 | Cross-host JianYing/CapCut workflow orchestration through the checksum-verified Rust jianying-cli Runtime Adapter: jianying-job/v2, editable drafts, captions, audio/TTS/ASR, batch recovery, approvals, and MCP stdio/HTTP/SSE. No Python engine or external fork runtime. | [jianying-draft-plugin](https://github.com/full-aigc-plugins/jianying-draft-plugin) |
+| [**JianYing Draft**](https://github.com/full-aigc-plugins/jianying-draft-plugin) | `jianying-draft` | 0.29.6 | Cross-host JianYing/CapCut workflow orchestration through the checksum-verified Rust jianying-cli Runtime Adapter: jianying-job/v2, editable drafts, captions, audio/TTS/ASR, batch recovery, approvals, and MCP stdio/HTTP/SSE. No Python engine or external fork runtime. | [jianying-draft-plugin](https://github.com/full-aigc-plugins/jianying-draft-plugin) |
 | [🎬 **Maya 制作**](https://github.com/full-aigc-plugins/maya-design-plugin) | `maya-design` | 0.2.1 | Maya 场景检查与可逆 Playblast，产出经核验的即梦链接 | [maya-design-plugin](https://github.com/full-aigc-plugins/maya-design-plugin) |
 | [🎵 **MiniMax 设计**](https://github.com/full-aigc-plugins/minimax-design-plugin) | `minimax-design` | 0.5.1 | MiniMax H3 视频生成（白模首尾帧锚定） | [minimax-design-plugin](https://github.com/full-aigc-plugins/minimax-design-plugin) |
 | [🎥 **视频工厂**](https://github.com/full-aigc-plugins/video-factory-plugin) | `video-factory` | 0.5.1 | 视频的剪辑、合成、审校与校验 | [video-factory-plugin](https://github.com/full-aigc-plugins/video-factory-plugin) |
@@ -218,7 +218,7 @@ Made with ❤️ by PartMe.AI Team
 - **FigCraft Use**：`figcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **FilmCraft Use**：`filmcraft-plugin`，10 个候选技能（含编辑器入口）。
 - **LightCraft Use**：`lightcraft-plugin`，7 个候选技能（含编辑器入口）。
-- **PdfCraft Use**：`printcraft-plugin`，20 个候选技能（含编辑器入口）。
+- **PdfCraft Use**：`pdfcraft-plugin`，20 个候选技能（含编辑器入口）。
 - **VectorCraft Use**：`vectorcraft-plugin`，11 个候选技能（含编辑器入口）。
 - **DeckCraft Use**：`deckcraft-plugin`，7 个候选技能（含编辑器入口）。
 - **SoundCraft Use**：`soundcraft-plugin`，7 个候选技能（含编辑器入口）。

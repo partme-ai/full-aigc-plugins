@@ -56,16 +56,16 @@
       "source": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/tag/v0.1.0-dev.20261018.2"
     },
     {
+      "id": "pdfcraft",
+      "displayName": "PdfCraft · PDF Toolkit",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
       "id": "photocraft",
       "displayName": "PhotoCraft · Image Editing",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
-    },
-    {
-      "id": "printcraft",
-      "displayName": "PdfCraft · PDF Toolkit",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "soundcraft",

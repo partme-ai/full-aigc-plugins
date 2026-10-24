@@ -307,7 +307,7 @@
     "maximumZipEntryBytes": 27259177
   },
   {
-    "plugin": "printcraft",
+    "plugin": "pdfcraft",
     "version": "0.1.0-dev.20261019.1",
     "runtime": "printcraft-runtime.tgz",
     "sha256": "ef636d600ff04ac43c506107e0245c89ed0f6a2a6843c4fdbe7000bd8623c347",
@@ -318,7 +318,7 @@
     "archiveSha256": "1da6a205d96b7cbd4f6d57a04ecb80f1b31ab4ab6f628e37bfc3f86bec801b60",
     "maximumZipEntryBytes": 44209275,
     "bytes": 45178487,
-    "releaseUrl": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
+    "releaseUrl": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261019.1",
     "runtimeRef": "v0.1.0-dev.20261019.1",
     "reuseRuntime": false,
     "remoteTagCommit": "PASS",
@@ -345,7 +345,7 @@
       }
     ],
     "packageSmoke": {
-      "plugin": "printcraft",
+      "plugin": "pdfcraft",
       "version": "0.1.0-dev.20261019.1",
       "cold": false,
       "bundled": true,
@@ -359,7 +359,8 @@
       "sourceCommit": "17d5c0f1bbd9732a2ddfa1e67042105f7e9681db",
       "runtimeSha256": "ef636d600ff04ac43c506107e0245c89ed0f6a2a6843c4fdbe7000bd8623c347",
       "scope": "installed bundle MCP and initial HTML; host rendering separate"
-    }
+    },
+    "archiveRoot": "printcraft-plugin"
   },
   {
     "plugin": "vectorcraft",

@@ -441,6 +441,31 @@
       }
     },
     {
+      "name": "pdfcraft",
+      "source": {
+        "source": "url",
+        "url": "https://atomgit.com/full-aigc-plugins/pdfcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "version": "0.1.0-dev.20261019.1",
+      "description": "页面重排、扫描件 OCR、表单填写、内容脱敏与印前检查；保留原件，逐页核对顺序、几何与可搜索文本。",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/pdfcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "interface": {
+        "displayName": "PdfCraft · PDF 处理",
+        "shortDescription": "页面整理、OCR、表单、脱敏与印前检查",
+        "logo": "https://raw.atomgit.com/full-aigc-plugins/pdfcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png"
+      }
+    },
+    {
       "name": "photocraft",
       "source": {
         "source": "url",
@@ -463,31 +488,6 @@
         "displayName": "PhotoCraft · 图片编辑",
         "shortDescription": "图层、蒙版、抠图与修复，产出可编辑图片工程",
         "logo": "https://raw.atomgit.com/full-aigc-plugins/photocraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png"
-      }
-    },
-    {
-      "name": "printcraft",
-      "source": {
-        "source": "url",
-        "url": "https://atomgit.com/full-aigc-plugins/printcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_USE"
-      },
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "version": "0.1.0-dev.20261019.1",
-      "description": "页面重排、扫描件 OCR、表单填写、内容脱敏与印前检查；保留原件，逐页核对顺序、几何与可搜索文本。",
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/printcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "interface": {
-        "displayName": "PdfCraft · PDF 处理",
-        "shortDescription": "页面整理、OCR、表单、脱敏与印前检查",
-        "logo": "https://raw.atomgit.com/full-aigc-plugins/printcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
     {

@@ -242,6 +242,33 @@
       "strict": true
     },
     {
+      "name": "pdfcraft",
+      "source": {
+        "source": "url",
+        "type": "zip",
+        "url": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/download/v0.1.0-dev.20261019.1/printcraft-plugin-0.1.0-dev.20261019.1.zip",
+        "sha256": "1da6a205d96b7cbd4f6d57a04ecb80f1b31ab4ab6f628e37bfc3f86bec801b60",
+        "path": "printcraft-plugin"
+      },
+      "displayName": "PdfCraft · PDF Toolkit",
+      "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "pdfcraft",
+        "pdf",
+        "craft",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
       "name": "photocraft",
       "source": {
         "source": "url",
@@ -266,33 +293,6 @@
         "editor"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "printcraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261019.1/printcraft-plugin-0.1.0-dev.20261019.1.zip",
-        "sha256": "1da6a205d96b7cbd4f6d57a04ecb80f1b31ab4ab6f628e37bfc3f86bec801b60",
-        "path": "printcraft-plugin"
-      },
-      "displayName": "PdfCraft · PDF Toolkit",
-      "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
-      "version": "0.1.0-dev.20261019.1",
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "printcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "strict": true
     },
     {

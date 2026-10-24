@@ -231,6 +231,31 @@
       }
     },
     {
+      "name": "pdfcraft",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/pdfcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "version": "0.1.0-dev.20261019.1",
+      "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "interface": {
+        "displayName": "PdfCraft · PDF Toolkit",
+        "shortDescription": "Page cleanup, OCR, forms, redaction and preflight",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+      }
+    },
+    {
       "name": "photocraft",
       "source": {
         "source": "url",
@@ -253,31 +278,6 @@
         "displayName": "PhotoCraft · Image Editing",
         "shortDescription": "Layers, masks, cutouts and retouching into editable image projects",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
-      }
-    },
-    {
-      "name": "printcraft",
-      "source": {
-        "source": "url",
-        "url": "https://github.com/full-aigc-plugins/printcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_USE"
-      },
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "version": "0.1.0-dev.20261019.1",
-      "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "interface": {
-        "displayName": "PdfCraft · PDF Toolkit",
-        "shortDescription": "Page cleanup, OCR, forms, redaction and preflight",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
     {

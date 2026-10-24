@@ -307,10 +307,10 @@
       }
     },
     {
-      "id": "printcraft",
+      "id": "pdfcraft",
       "displayName": "PdfCraft · PDF Toolkit",
-      "repository": "full-aigc-plugins/printcraft-plugin",
-      "localDirectory": "printcraft-plugin",
+      "repository": "full-aigc-plugins/pdfcraft-plugin",
+      "localDirectory": "pdfcraft-plugin",
       "version": "0.1.0-dev.20261019.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
@@ -318,9 +318,9 @@
       "shortDescription": "Page cleanup, OCR, forms, redaction and preflight",
       "category": "Productivity",
       "tags": [
-        "printcraft",
+        "pdfcraft",
+        "pdf",
         "craft",
-        "development",
         "mcp",
         "editor"
       ],

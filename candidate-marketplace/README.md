@@ -11,4 +11,4 @@ codex plugin marketplace add ./full-aigc-plugins/candidate-marketplace
 codex plugin add photocraft@full-aigc-craft-candidates
 ```
 
-安装其他应用时把photocraft替换为对应插件ID。PdfCraft的插件ID为printcraft。Codex清单在`.agents/plugins/marketplace.json`，ZCode清单为`marketplace.json`，Kimi清单为`kimi-marketplace.json`。候选市场使用独立名称，不替换主库的来源或版本。本轮仅在隔离目录验收，没有自动修改你的全局插件配置。
+安装其他应用时把photocraft替换为对应插件ID。PdfCraft的插件ID为pdfcraft。Codex清单在`.agents/plugins/marketplace.json`，ZCode清单为`marketplace.json`，Kimi清单为`kimi-marketplace.json`。候选市场使用独立名称，不替换主库的来源或版本。本轮仅在隔离目录验收，没有自动修改你的全局插件配置。

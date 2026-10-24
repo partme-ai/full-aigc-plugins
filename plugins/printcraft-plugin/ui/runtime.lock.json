@@ -1,7 +1,7 @@
 {
-  "name": "printcraft",
+  "name": "pdfcraft",
   "version": "0.1.0-dev.20261019.1",
-  "url": "https://github.com/full-aigc-plugins/printcraft-plugin/releases/download/v0.1.0-dev.20261019.1/printcraft-runtime.tgz",
+  "url": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/download/v0.1.0-dev.20261019.1/printcraft-runtime.tgz",
   "sha256": "ef636d600ff04ac43c506107e0245c89ed0f6a2a6843c4fdbe7000bd8623c347",
   "files": {
     "adapter.mjs": "c2b4f728396914f4fab0fa7d59c6a6cd9d807c73337a4747373d546d00d84e47",
