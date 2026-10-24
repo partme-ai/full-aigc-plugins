@@ -85,7 +85,7 @@ deckcraft    DeckCraft · 演示文稿     ui://deckcraft/panel.html
 designcraft  DesignCraft · 页面排版   ui://designcraft/panel.html
 gridcraft    GridCraft · 电子表格     ui://gridcraft/panel.html
 photocraft   PhotoCraft · 图片编辑    ui://photocraft/panel.html
-printcraft   PrintCraft · PDF 处理    ui://printcraft/panel.html
+printcraft   PdfCraft · PDF 处理      ui://printcraft/panel.html
 soundcraft   SoundCraft · 音频处理    ui://soundcraft/panel.html
 vectorcraft  VectorCraft · 矢量设计   ui://vectorcraft/panel.html
 wordcraft    WordCraft · 文档写作     ui://wordcraft/panel.html
@@ -104,14 +104,13 @@ lightcraft   LightCraft · 照片调色   ui://lightcraft/panel.html
 
 ## PdfCraft 与 PrintCraft
 
-两者不是同一个产品：
+之前把它们当成两个产品是错的。`PrintCraft` 是 `PdfCraft` 的 fork/rebrand：
 
-| 名称 | 来源 | 定位 |
-| --- | --- | --- |
-| `PdfCraft` | ZCode `zai-org/zcode-plugins` 的 `pdfcraft`，上游 `storytold/pdfcraft` | ZCode 原生 PDF 编辑面板，作为 ZCode 优秀插件后续整合 |
-| `PrintCraft` | 我们的 `printcraft-plugin` | PDF 页面整理、OCR、表单、脱敏与印前检查工具 |
+- 上游：`https://github.com/storytold/pdfcraft`
+- `ui/source.lock.json` 记录 `name: pdfcraft`、`repository: full-aigc-plugins/printcraft`、`sourceStatus: fork`
+- 当前插件 id 仍为 `printcraft`（历史原因），对外展示统一为 `PdfCraft`
 
-不合并 id、不改名、不共用 catalog 条目；描述中明确区分。
+完整 id / 仓库名迁移需要同步改 `ui/source.lock.json`、`ui://printcraft/panel.html` 资源、tag 与市场 source，另行处理。
 
 ## 生成与校验
 
