@@ -48,9 +48,8 @@ const githubReleaseSource = (plugin) =>
   `https://github.com/${plugin.repository}/releases/tag/${releaseRef(plugin)}`;
 
 // 候选状态只保留在 catalog 的 status 字段里，不再进入展示名或描述。
-const marketplaceDisplayName = (plugin) => plugin.displayName;
-
-const marketplaceDescription = (plugin) => plugin.description;
+const marketplaceDisplayName = (plugin) => localized(plugin, "displayName");
+const marketplaceDescription = (plugin) => localized(plugin, "description");
 
 const pinnedIcon = (plugin) => plugin.logo ? rawLogo(plugin) : undefined;
 
@@ -72,7 +71,7 @@ const codex = {
     ...(pinnedIcon(plugin) ? { icon: pinnedIcon(plugin) } : {}),
     interface: {
       displayName: marketplaceDisplayName(plugin),
-      shortDescription: plugin.shortDescription,
+      shortDescription: localized(plugin, "shortDescription"),
       ...(pinnedIcon(plugin) ? { logo: pinnedIcon(plugin) } : {})
     }
   })),
@@ -85,7 +84,7 @@ const zcodeSource = (plugin) => {
   const release = publishedPackages.find((entry) => entry.plugin === plugin.id && entry.version === plugin.version);
   if (!release && publishedPackages.some((entry) => entry.plugin === plugin.id)) throw new Error(`${plugin.id}: publish and verify the matching complete ZIP before generating its marketplace entry`);
   if (!release || release.maximumZipEntryBytes > 50 * 1024 * 1024) return { source: "github", repo: plugin.repository, ref: releaseRef(plugin) };
-  return { source: "url", type: "zip", url: `${githubReleaseSource(plugin).replace("/tag/", "/download/")}/${release.archive}`, sha256: release.archiveSha256, path: release.archiveRoot ?? `${plugin.id}-plugin` };
+  return { source: "url", type: "zip", url: `${githubReleaseSource(plugin).replace("/tag/", "/download/")}/${release.archive}`, sha256: release.archiveSha256, path: `${plugin.id}-plugin` };
 };
 
 const zcode = {

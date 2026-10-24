@@ -4,84 +4,84 @@
   "plugins": [
     {
       "id": "cadcraft",
-      "displayName": "CADCraft · 2D Drafting",
+      "displayName": "CADCraft（二维制图）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "content-factory",
-      "displayName": "Content Factory · Multi-channel Content",
+      "displayName": "Content（多平台内容生产）",
       "source": "https://github.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.2"
     },
     {
       "id": "deckcraft",
-      "displayName": "DeckCraft · Presentations",
+      "displayName": "DeckCraft（演示文稿）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "designcraft",
-      "displayName": "DesignCraft · Page Layout",
+      "displayName": "DesignCraft（页面排版）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "effectcraft",
-      "displayName": "EffectCraft · Motion Graphics",
+      "displayName": "EffectCraft（动态图形）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/effectcraft-plugin/releases/tag/v0.1.0-dev.20261018.3"
     },
     {
       "id": "figcraft",
-      "displayName": "FigCraft · Design Mockups",
+      "displayName": "FigCraft（设计稿编辑）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "filmcraft",
-      "displayName": "FilmCraft · Video Editing",
+      "displayName": "FilmCraft（视频剪辑）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/tag/v0.1.0-dev.20261018.3"
     },
     {
       "id": "gridcraft",
-      "displayName": "GridCraft · Spreadsheets",
+      "displayName": "GridCraft（电子表格）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "lightcraft",
-      "displayName": "LightCraft · Photo Grading",
+      "displayName": "LightCraft（照片调色）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/tag/v0.1.0-dev.20261018.2"
     },
     {
       "id": "pdfcraft",
-      "displayName": "PdfCraft · PDF Toolkit",
+      "displayName": "PdfCraft（PDF 处理）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261024.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261024.1"
     },
     {
       "id": "photocraft",
-      "displayName": "PhotoCraft · Image Editing",
+      "displayName": "PhotoCraft（图片编辑）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "soundcraft",
-      "displayName": "SoundCraft · Audio Editing",
+      "displayName": "SoundCraft（音频处理）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "vectorcraft",
-      "displayName": "VectorCraft · Vector Design",
+      "displayName": "VectorCraft（矢量设计）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "wordcraft",
-      "displayName": "WordCraft · Document Writing",
+      "displayName": "WordCraft（文档写作）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     }
