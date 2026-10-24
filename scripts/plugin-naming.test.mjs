@@ -86,7 +86,7 @@ test("UI plugins declare a ZCode surface and open command", () => {
   const uiPlugins = plugins.filter((plugin) => plugin.componentTypes?.includes("ui"));
   const expectedUi = [
     "cadcraft", "deckcraft", "designcraft", "effectcraft", "figcraft", "filmcraft",
-    "gridcraft", "lightcraft", "photocraft", "printcraft", "soundcraft", "vectorcraft", "wordcraft"
+    "gridcraft", "lightcraft", "photocraft", "pdfcraft", "soundcraft", "vectorcraft", "wordcraft"
   ];
   assert.deepEqual(uiPlugins.map((plugin) => plugin.id).sort(), expectedUi.sort(), "unexpected UI plugin set");
   for (const plugin of uiPlugins) {

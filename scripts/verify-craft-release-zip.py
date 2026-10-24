@@ -20,10 +20,11 @@ def verify_tag(row):
 
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--app',default='all');p.add_argument('--output',type=Path,required=True);p.add_argument('--codex-js');a=p.parse_args();out=a.output.resolve();out.mkdir(parents=True,exist_ok=False);rows=json.loads((ROOT/'docs/craft-marketplace-candidate-releases.json').read_text());reports=[]
- if a.app!='all':rows=[r for r in rows if r['plugin']==a.app];assert len(rows)==1
+ app={'printcraft':'pdfcraft'}.get(a.app,a.app)
+ if a.app!='all':rows=[r for r in rows if r['plugin']==app];assert len(rows)==1
  for r in rows:
   remote_commit=verify_tag(r)
-  name=r['plugin'];folder=out/name;folder.mkdir();archive=folder/r['archive'];url=r['releaseUrl'].replace('/tag/','/download/')+'/'+r['archive'];download(url,archive,r['archiveSha256']);market=folder/'market';package=extract_package(archive,market/'plugins',name)
+  name=r['plugin'];folder=out/name;folder.mkdir();archive=folder/r['archive'];url=r['releaseUrl'].replace('/tag/','/download/')+'/'+r['archive'];download(url,archive,r['archiveSha256']);market=folder/'market';package=extract_package(archive,market/'plugins',name,r.get('archiveRoot','').removesuffix('-plugin'))
   manifest=market/'.agents/plugins/marketplace.json';manifest.parent.mkdir(parents=True);marketname='craft-release-zip-'+name;manifest.write_text(json.dumps({'name':marketname,'plugins':[{'name':name,'source':{'source':'local','path':'./plugins/'+name+'-plugin'},'policy':{'installation':'AVAILABLE','authentication':'ON_USE'},'category':'Creativity'}]}))
   module.run(str(market),folder/'native-host',False,['node',a.codex_js] if a.codex_js else None,[name],None,marketname)
   receipt=json.loads((folder/'native-host'/(name+'-install.json')).read_text());installed=Path(receipt['installedPath']);lock=json.loads((installed/'ui/runtime.lock.json').read_text())

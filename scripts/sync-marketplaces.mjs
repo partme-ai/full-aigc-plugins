@@ -85,7 +85,7 @@ const zcodeSource = (plugin) => {
   const release = publishedPackages.find((entry) => entry.plugin === plugin.id && entry.version === plugin.version);
   if (!release && publishedPackages.some((entry) => entry.plugin === plugin.id)) throw new Error(`${plugin.id}: publish and verify the matching complete ZIP before generating its marketplace entry`);
   if (!release || release.maximumZipEntryBytes > 50 * 1024 * 1024) return { source: "github", repo: plugin.repository, ref: releaseRef(plugin) };
-  return { source: "url", type: "zip", url: `${githubReleaseSource(plugin).replace("/tag/", "/download/")}/${release.archive}`, sha256: release.archiveSha256, path: `${plugin.id}-plugin` };
+  return { source: "url", type: "zip", url: `${githubReleaseSource(plugin).replace("/tag/", "/download/")}/${release.archive}`, sha256: release.archiveSha256, path: release.archiveRoot ?? `${plugin.id}-plugin` };
 };
 
 const zcode = {

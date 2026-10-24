@@ -105,16 +105,16 @@
       "source": "https://gitee.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.5.1"
     },
     {
+      "id": "pdfcraft",
+      "displayName": "PdfCraft · PDF 处理",
+      "icon": "https://gitee.com/full-aigc-plugins/pdfcraft-plugin/raw/v0.1.0-dev.20261024.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261024.1"
+    },
+    {
       "id": "photocraft",
       "displayName": "PhotoCraft · 图片编辑",
       "icon": "https://gitee.com/full-aigc-plugins/photocraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
       "source": "https://gitee.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
-    },
-    {
-      "id": "printcraft",
-      "displayName": "PdfCraft · PDF 处理",
-      "icon": "https://gitee.com/full-aigc-plugins/printcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "soundcraft",

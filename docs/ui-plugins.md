@@ -85,7 +85,7 @@ deckcraft    DeckCraft · 演示文稿     ui://deckcraft/panel.html
 designcraft  DesignCraft · 页面排版   ui://designcraft/panel.html
 gridcraft    GridCraft · 电子表格     ui://gridcraft/panel.html
 photocraft   PhotoCraft · 图片编辑    ui://photocraft/panel.html
-printcraft   PdfCraft · PDF 处理      ui://printcraft/panel.html
+pdfcraft     PdfCraft · PDF 处理      ui://pdfcraft/panel.html
 soundcraft   SoundCraft · 音频处理    ui://soundcraft/panel.html
 vectorcraft  VectorCraft · 矢量设计   ui://vectorcraft/panel.html
 wordcraft    WordCraft · 文档写作     ui://wordcraft/panel.html
@@ -108,9 +108,9 @@ lightcraft   LightCraft · 照片调色   ui://lightcraft/panel.html
 
 - 上游：`https://github.com/storytold/pdfcraft`
 - `ui/source.lock.json` 记录 `name: pdfcraft`、`repository: full-aigc-plugins/printcraft`、`sourceStatus: fork`
-- 当前插件 id 仍为 `printcraft`（历史原因），对外展示统一为 `PdfCraft`
+- 插件 id / 仓库已迁移为 `pdfcraft` / `pdfcraft-plugin`；源码 fork 仓库仍是 `full-aigc-plugins/printcraft`
 
-完整 id / 仓库名迁移需要同步改 `ui/source.lock.json`、`ui://printcraft/panel.html` 资源、tag 与市场 source，另行处理。
+发行 ZIP 的根目录仍是 `printcraft-plugin`，市场用 `archiveRoot` 保持兼容；tag 与运行时资源名暂不重发。
 
 ## 生成与校验
 

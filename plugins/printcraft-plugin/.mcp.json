@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "printcraft-editor": {
+    "pdfcraft-editor": {
       "type": "stdio",
       "command": "node",
       "args": [
