@@ -26,7 +26,11 @@
         "displayName": "Blender Design · 3D Modeling",
         "shortDescription": "Modeling, rigging, materials, animation, rendering and export",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.14.1/assets/official-logo.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "cadcraft",
@@ -72,7 +76,11 @@
         "displayName": "Comfy Design · ComfyUI Workflows",
         "shortDescription": "Local image, video, audio and 3D workflows",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.5.0/assets/official-logo.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "content-factory",
@@ -92,7 +100,11 @@
       "interface": {
         "displayName": "Content Factory · Multi-channel Content",
         "shortDescription": "Topic, writing, editing, layout and publishing for 16 channels"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "deckcraft",
@@ -162,7 +174,11 @@
         "displayName": "Dreamina Canvas · Canvas Orchestration",
         "shortDescription": "Node graphs and timelines with save/run separation",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.4.3/assets/official-logo.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "dreamina-design",
@@ -184,7 +200,11 @@
         "displayName": "Dreamina Design · Dreamina Image & Video",
         "shortDescription": "Text-to-image, image-to-image and text-to-video with prompt and shot review",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.7.0/assets/logo-approved.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "effectcraft",
@@ -302,7 +322,11 @@
         "displayName": "Image Factory · Batch Image Generation",
         "shortDescription": "Plan approval, batch generation, evaluation and receipts",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.8.0/assets/logo-approved.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "jianying-edit",
@@ -324,7 +348,11 @@
         "displayName": "JianYing Edit · Draft Orchestration",
         "shortDescription": "Drafts, captions, audio and effects in one Rust pipeline",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-edit-plugin@v0.27.9/assets/official-logo.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "lightcraft",
@@ -370,7 +398,11 @@
         "displayName": "Maya Design · 3D Scenes",
         "shortDescription": "Scene inspection, reversible Playblast and Jimeng links",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.1.5/assets/official-logo.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "minimax-design",
@@ -392,7 +424,11 @@
         "displayName": "MiniMax Design · AI Video",
         "shortDescription": "H3 text/image-to-video with white-model first/last frames",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.4.3/assets/official-logo.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "photocraft",
@@ -510,7 +546,11 @@
         "displayName": "Video Factory · Auto Video Editing",
         "shortDescription": "Shot analysis, rough/final cut approval, composition and receipts",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.4.0/assets/logo-approved.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "volcengine-design",
@@ -532,7 +572,11 @@
         "displayName": "Volcengine Design · Doubao Voice & Video",
         "shortDescription": "Word-level ASR, TTS narration, image and video generation",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.1.2/assets/official-logo.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "name": "wordcraft",
@@ -578,7 +622,11 @@
         "displayName": "Xuanji · Divination (Entertainment)",
         "shortDescription": "Bazi, Qimen, Ziwei, marriage, Fengshui and Tarot",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.1.1/assets/logo.png"
-      }
+      },
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     }
   ],
   "interface": {
