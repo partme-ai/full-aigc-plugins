@@ -6,9 +6,9 @@ from urllib.request import urlopen
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts/ci'))
 from craft_windows import NativeHost,wait_connected
-NAMES='cadcraft designcraft effectcraft photocraft figcraft filmcraft lightcraft printcraft vectorcraft deckcraft soundcraft gridcraft wordcraft'.split()
+NAMES='cadcraft designcraft effectcraft photocraft figcraft filmcraft lightcraft pdfcraft vectorcraft deckcraft soundcraft gridcraft wordcraft'.split()
 def run(market,output,public=False,cli=None,names=None,ref=None,marketplace_name=None):
- cli=cli or ['codex']; names=names or NAMES
+ cli=cli or ['codex']; names=[{'printcraft':'pdfcraft'}.get(n,n) for n in (names or NAMES)]
  if not public: market=str(Path(market).resolve())
  output.mkdir(parents=True,exist_ok=False);env={**os.environ,'CODEX_HOME':str(output/'home'),'CRAFT_EDITOR_UPDATE':'off'};Path(env['CODEX_HOME']).mkdir()
  result=subprocess.run(cli+['plugin','marketplace','add',str(market)]+(['--ref',ref] if ref else []),env=env,capture_output=True,text=True);(output/'market-add.log').write_text(result.stdout+result.stderr);assert result.returncode==0,result.stderr

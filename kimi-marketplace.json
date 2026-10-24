@@ -106,8 +106,8 @@
     {
       "id": "pdfcraft",
       "displayName": "PdfCraft · PDF Toolkit",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261024.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261024.1"
     },
     {
       "id": "photocraft",

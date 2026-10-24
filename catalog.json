@@ -311,7 +311,7 @@
       "displayName": "PdfCraft · PDF Toolkit",
       "repository": "full-aigc-plugins/pdfcraft-plugin",
       "localDirectory": "pdfcraft-plugin",
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261024.1",
       "status": "release_candidate_installable",
       "releaseGate": "docs/verification/release-candidate.json",
       "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",

@@ -30,7 +30,7 @@ def safe_name(name):
     return path
 
 
-def extract_package(archive, destination, name):
+def extract_package(archive, destination, name, root_name=None):
     """在任意平台检查 Windows 路径语义，缺资源或摘要不符立即失败。"""
     if destination.exists():
         raise ValueError('Destination already exists')
@@ -40,14 +40,14 @@ def extract_package(archive, destination, name):
             raise ValueError('Archive exceeds 2 GiB expanded size')
         for item in z.infolist():
             path = safe_name(item.filename)
-            if path.parts[0] != name + '-plugin' or stat.S_ISLNK(item.external_attr >> 16):
+            if path.parts[0] != (root_name or name) + '-plugin' or stat.S_ISLNK(item.external_attr >> 16):
                 raise ValueError('Unexpected package root or symlink')
             key = str(path).casefold()
             if key in seen:
                 raise ValueError('Windows case collision: ' + item.filename)
             seen.add(key)
         z.extractall(destination)
-    root = destination / (name + '-plugin')
+    root = destination / ((root_name or name) + '-plugin')
     for file in ['plugin.json', 'mcp.json', '.codex-plugin/plugin.json', '.codex-plugin/mcp.json',
                  'ui/dist/adapter.mjs', 'ui/editor.lock.json']:
         if not (root / file).is_file():

@@ -107,8 +107,8 @@
     {
       "id": "pdfcraft",
       "displayName": "PdfCraft · PDF 处理",
-      "icon": "https://gitee.com/full-aigc-plugins/pdfcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+      "icon": "https://gitee.com/full-aigc-plugins/pdfcraft-plugin/raw/v0.1.0-dev.20261024.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261024.1"
     },
     {
       "id": "photocraft",
