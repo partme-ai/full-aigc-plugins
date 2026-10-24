@@ -55,17 +55,18 @@ test("short and full descriptions keep separate roles", () => {
   }
 });
 
-test("display names follow '<product> · <domain>' with no Use/RC/benchmark suffix", () => {
+test("display names follow '<product>（<domain>）' with no Use/RC/benchmark suffix", () => {
   for (const plugin of plugins) {
     for (const [locale, label] of [["en", "English"], ["zh-CN", "Chinese"]]) {
       const name = locale === "en" ? plugin.displayName : plugin.localizations["zh-CN"].displayName;
-      assert.ok(name.includes(" · "), `${plugin.id}: ${label} displayName lacks the middle dot: ${name}`);
-      const parts = name.split(" · ");
-      assert.equal(parts.length, 2, `${plugin.id}: ${label} displayName must be '<product> · <domain>': ${name}`);
-      assert.ok(/[A-Za-z]/.test(parts[0]), `${plugin.id}: ${label} displayName must start with the code name: ${name}`);
+      const match = locale === "en" ? name.match(/^(.+) \((.+)\)$/) : name.match(/^(.+)（(.+)）$/);
+      assert.ok(match, `${plugin.id}: ${label} displayName must be '<product>（<domain>）': ${name}`);
+      const [, code, domain] = match;
+      assert.ok(/[A-Za-z]/.test(code), `${plugin.id}: ${label} displayName must start with the code name: ${name}`);
+      assert.ok(!/\s+(Design|Factory)$/.test(code), `${plugin.id}: ${label} code name still has Design/Factory: ${name}`);
       assert.ok(!name.includes("对标"), `${plugin.id}: ${label} displayName still contains a benchmark: ${name}`);
       assert.ok(!/alternative/i.test(name), `${plugin.id}: ${label} displayName still contains an alternative marker: ${name}`);
-      if (locale === "zh-CN") assert.ok(/[\u4e00-\u9fa5]/.test(parts[1]), `${plugin.id}: ${label} domain has no Chinese: ${name}`);
+      if (locale === "zh-CN") assert.ok(/[\u4e00-\u9fa5]/.test(domain), `${plugin.id}: ${label} domain has no Chinese: ${name}`);
       assert.ok(!/\bUse\b/.test(name), `${plugin.id}: ${label} displayName still contains "Use"`);
       assert.ok(!/\bRC\b/.test(name), `${plugin.id}: ${label} displayName still contains an RC marker`);
       assert.ok(!name.includes("类）"), `${plugin.id}: ${label} displayName uses the rejected 类 marker`);

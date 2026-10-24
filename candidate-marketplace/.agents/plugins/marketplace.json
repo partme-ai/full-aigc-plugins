@@ -23,11 +23,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Floor plans, hole patterns, dimensioning, layer cleanup and sheet output. Millimeter coordinates, layers and plot scales are verifiable.",
+      "description": "房间平面、法兰孔系、尺寸标注、图层清理与图框出图；毫米坐标、图层与出图比例可复核。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "CADCraft · 2D Drafting",
-        "shortDescription": "Floor plans, hole patterns, dimensions and sheet output",
+        "displayName": "CADCraft（二维制图）",
+        "shortDescription": "平面图、孔系、标注与出图，可编辑图纸",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -49,10 +49,10 @@
         "mcp"
       ],
       "version": "1.0.0-rc.2",
-      "description": "Governed content production for 16 channels: topic, drafting, editing, layout, review and export with channel rules preserved.",
+      "description": "16 个渠道的受控内容生产：选题、写作、编辑、排版、审阅与导出，保留渠道规范。",
       "interface": {
-        "displayName": "Content Factory · Multi-channel Content",
-        "shortDescription": "Topic, writing, editing, layout and publishing for 16 channels"
+        "displayName": "Content（多平台内容生产）",
+        "shortDescription": "16 渠道选题、写作、编辑、排版与发布"
       }
     },
     {
@@ -72,11 +72,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Pitch decks, weekly reports, training material, data stories and option comparisons. Masters, layouts and speaker notes stay editable after export.",
+      "description": "项目路演、工作周报、培训课件、数据叙事与方案对比；母版、版式与讲稿同源，导出后可继续修改。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "DeckCraft · Presentations",
-        "shortDescription": "Pitches, weekly reports, training decks and option comparisons",
+        "displayName": "DeckCraft（演示文稿）",
+        "shortDescription": "路演、周报、课件与方案对比，可编辑演示",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -97,11 +97,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Posters, long documents, newsletters, catalogs and print preflight. Masters, page numbers and bleed are handled in one flow, exporting PDF, IDML or EPUB.",
+      "description": "海报、长文档、多栏刊物、商品目录与印前检查；母版、页码与出血在同一流程处理，可导出 PDF、IDML 或 EPUB。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "DesignCraft · Page Layout",
-        "shortDescription": "Posters, long documents, newsletters and catalogs; export PDF/IDML/EPUB",
+        "displayName": "DesignCraft（页面排版）",
+        "shortDescription": "海报、长文档、刊物与目录，可导出 PDF/IDML/EPUB",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -122,11 +122,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261018.3",
-      "description": "Compositions, keyframes, expressions, cameras, masks and tracking. Layers, masks and render settings remain editable.",
+      "description": "合成、关键帧、表达式、摄像机、遮罩与跟踪；图层、遮罩与渲染设置完整保留。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "interface": {
-        "displayName": "EffectCraft · Motion Graphics",
-        "shortDescription": "Compositions, keyframes, expressions and tracking",
+        "displayName": "EffectCraft（动态图形）",
+        "shortDescription": "合成、关键帧、表达式与跟踪，可编辑动效",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png"
       }
     },
@@ -147,11 +147,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Wireframes, design systems, light/dark tokens, prototype flows and dev handoff. Layouts stay editable and responsive.",
+      "description": "线框、设计系统、明暗主题令牌、原型流与开发交接；布局保持可编辑与自适应。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "FigCraft · Design Mockups",
-        "shortDescription": "Wireframes, design systems, tokens and prototype handoff",
+        "displayName": "FigCraft（设计稿编辑）",
+        "shortDescription": "线框、设计系统、主题令牌与原型交付",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -172,11 +172,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261018.3",
-      "description": "Multicam editing, subtitles, transcripts, grading and export. Timelines, media references and subtitle files are delivered together.",
+      "description": "多机位剪辑、字幕、逐词转录、调色与导出；时间线、素材引用与字幕文件一并交付。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "interface": {
-        "displayName": "FilmCraft · Video Editing",
-        "shortDescription": "Multicam, subtitles, grading and transcripts in a reopenable project",
+        "displayName": "FilmCraft（视频剪辑）",
+        "shortDescription": "多机位、字幕、调色与转录，可重开剪辑工程",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png"
       }
     },
@@ -197,11 +197,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Budgets, reconciliation, table cleanup, sales summaries and formula audits. Values keep their units and sources, and formulas stay recalculable.",
+      "description": "预算执行、两表对账、表格清洗、销售汇总与公式审计；保留数据单位与来源，公式可重算。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "GridCraft · Spreadsheets",
-        "shortDescription": "Budgets, reconciliation, cleanup and summaries with live formulas",
+        "displayName": "GridCraft（电子表格）",
+        "shortDescription": "预算、对账、清洗与汇总，公式可重算",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -222,11 +222,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261018.2",
-      "description": "RAW develop, landscape and portrait looks, batch grading, tone-curve transfer and virtual-copy review. Edits stay non-destructive.",
+      "description": "RAW 基础显影、风光与人像、批量调色、曲线迁移与虚拟副本审稿；编辑保持非破坏。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
       "interface": {
-        "displayName": "LightCraft · Photo Grading",
-        "shortDescription": "RAW develop, batch grading and culling with non-destructive edits",
+        "displayName": "LightCraft（照片调色）",
+        "shortDescription": "RAW 显影、批量调色与筛选，非破坏编辑",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png"
       }
     },
@@ -247,11 +247,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261024.1",
-      "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
+      "description": "页面重排、扫描件 OCR、表单填写、内容脱敏与印前检查；保留原件，逐页核对顺序、几何与可搜索文本。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261024.1/assets/official-logo.png",
       "interface": {
-        "displayName": "PdfCraft · PDF Toolkit",
-        "shortDescription": "Page cleanup, OCR, forms, redaction and preflight",
+        "displayName": "PdfCraft（PDF 处理）",
+        "shortDescription": "页面整理、OCR、表单、脱敏与印前检查",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261024.1/assets/official-logo.png"
       }
     },
@@ -272,11 +272,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Layers, masks, cutouts, retouching and filters with text and resize variants. Projects stay editable and export to PSD, PNG and other formats.",
+      "description": "图层、蒙版、抠图、修复与滤镜，支持文字与尺寸适配；工程可继续编辑，可导出 PSD、PNG 等格式。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "PhotoCraft · Image Editing",
-        "shortDescription": "Layers, masks, cutouts and retouching into editable image projects",
+        "displayName": "PhotoCraft（图片编辑）",
+        "shortDescription": "图层、蒙版、抠图与修复，产出可编辑图片工程",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -297,11 +297,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Dialogue cleanup, loudness matching, voice-over mixing, audio edits and loop stitching. Processing follows segments and silence ranges while keeping sync.",
+      "description": "口播清理、多人响度统一、配音混音、音频剪辑与循环拼接；按段落与静音区间处理，保持对时关系。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "SoundCraft · Audio Editing",
-        "shortDescription": "Dialogue cleanup, loudness matching, mixing and audio edits",
+        "displayName": "SoundCraft（音频处理）",
+        "shortDescription": "口播清理、响度统一、混音与音频剪辑",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -322,11 +322,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Logos, icon sets, infographics, SVG cleanup and multi-artboard variants. Exports SVG, PDF and PNG with editable paths.",
+      "description": "标志、图标集、信息图、SVG 清理与多画板变体；导出 SVG、PDF 与 PNG，路径保持可编辑。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "VectorCraft · Vector Design",
-        "shortDescription": "Logos, icons, infographics and SVG cleanup into editable vector projects",
+        "displayName": "VectorCraft（矢量设计）",
+        "shortDescription": "标志、图标、信息图与 SVG，导出可编辑矢量工程",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -347,11 +347,11 @@
         "ui"
       ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
+      "description": "工作周报、会议纪要、商业报价、验收报告、需求说明与简历；样式、目录、页码与图表题注保持一致。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "WordCraft · Document Writing",
-        "shortDescription": "Reports, minutes, quotes, proposals and resumes as editable documents",
+        "displayName": "WordCraft（文档写作）",
+        "shortDescription": "周报、纪要、报价、报告与简历，可编辑文档",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     }
