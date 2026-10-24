@@ -1,0 +1,627 @@
+{
+  "name": "full-aigc-plugins-cn",
+  "displayName": "Full AIGC 插件（Gitee 镜像）",
+  "description": "Full AIGC 插件市场（Gitee 镜像）：面向 Codex、ZCode 与 Kimi Code 的图像、视频、音频、音乐、3D 与多模态内容创作插件。",
+  "plugins": [
+    {
+      "name": "blender-design",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/blender-design-plugin.git",
+        "ref": "v0.16.1"
+      },
+      "displayName": "Blender Design · 三维建模",
+      "description": "受控 Blender 操作，含里程碑截图、事务回滚、白模预演与多格式校验导出。",
+      "version": "0.16.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "blender",
+        "3d",
+        "previs"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/blender-design-plugin/raw/v0.16.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "cadcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/cadcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "displayName": "CADCraft · 二维制图",
+      "description": "房间平面、法兰孔系、尺寸标注、图层清理与图框出图；毫米坐标、图层与出图比例可复核。",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "cadcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/cadcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "comfy-design",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/comfy-design-plugin.git",
+        "ref": "v0.6.1"
+      },
+      "displayName": "Comfy Design · ComfyUI 工作流",
+      "description": "本地优先的 ComfyUI 图像、视频、音频与 3D 工作流；合作伙伴模型与上传仅在显式选择后升级到云端。",
+      "version": "0.6.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "comfy",
+        "comfyui",
+        "workflow"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/comfy-design-plugin/raw/v0.6.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "content-factory",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/content-factory-plugin.git",
+        "ref": "v1.0.0-rc.2"
+      },
+      "displayName": "Content Factory · 多平台内容生产",
+      "description": "16 个渠道的受控内容生产：选题、写作、编辑、排版、审阅与导出，保留渠道规范。",
+      "version": "1.0.0-rc.2",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "content",
+        "editorial",
+        "workflow",
+        "rc"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/content-factory-plugin/raw/v1.0.0-rc.2/undefined",
+      "strict": true
+    },
+    {
+      "name": "deckcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/deckcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "displayName": "DeckCraft · 演示文稿",
+      "description": "项目路演、工作周报、培训课件、数据叙事与方案对比；母版、版式与讲稿同源，导出后可继续修改。",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "deckcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/deckcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "designcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/designcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "displayName": "DesignCraft · 页面排版",
+      "description": "海报、长文档、多栏刊物、商品目录与印前检查；母版、页码与出血在同一流程处理，可导出 PDF、IDML 或 EPUB。",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "designcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/designcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "dreamina-canvas",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/dreamina-canvas-plugin.git",
+        "ref": "v0.5.1"
+      },
+      "displayName": "Dreamina Canvas · 即梦画布编排",
+      "description": "类型化节点与时间线编排；免费保存与计费运行分离，产物下载带校验。",
+      "version": "0.5.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "dreamina",
+        "canvas",
+        "timeline"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/dreamina-canvas-plugin/raw/v0.5.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "dreamina-design",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/dreamina-design-plugin.git",
+        "ref": "v0.8.1"
+      },
+      "displayName": "Dreamina Design · 即梦绘图与视频",
+      "description": "即梦图像与视频生成，含提示词库、分镜标注与视觉评审；付费生成前需显式确认，任务可恢复。",
+      "version": "0.8.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "dreamina",
+        "seedance",
+        "text2video"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/dreamina-design-plugin/raw/v0.8.1/assets/logo-approved.png",
+      "strict": true
+    },
+    {
+      "name": "effectcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/effectcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261018.3"
+      },
+      "displayName": "EffectCraft · 动态图形",
+      "description": "合成、关键帧、表达式、摄像机、遮罩与跟踪；图层、遮罩与渲染设置完整保留。",
+      "version": "0.1.0-dev.20261018.3",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "effectcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/effectcraft-plugin/raw/v0.1.0-dev.20261018.3/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "figcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/figcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "displayName": "FigCraft · 设计稿编辑",
+      "description": "线框、设计系统、明暗主题令牌、原型流与开发交接；布局保持可编辑与自适应。",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "figcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/figcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "filmcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/filmcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261018.3"
+      },
+      "displayName": "FilmCraft · 视频剪辑",
+      "description": "多机位剪辑、字幕、逐词转录、调色与导出；时间线、素材引用与字幕文件一并交付。",
+      "version": "0.1.0-dev.20261018.3",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "filmcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/filmcraft-plugin/raw/v0.1.0-dev.20261018.3/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "gridcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/gridcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "displayName": "GridCraft · 电子表格",
+      "description": "预算执行、两表对账、表格清洗、销售汇总与公式审计；保留数据单位与来源，公式可重算。",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "gridcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/gridcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "image-factory",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/image-factory-plugin.git",
+        "ref": "v0.9.1"
+      },
+      "displayName": "Image Factory · 批量 AI 出图",
+      "description": "提示词发现、计划校验、审批、批量生成、质量评估与中断恢复；每张图带哈希校验回执。",
+      "version": "0.9.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "image",
+        "batch",
+        "receipts"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/image-factory-plugin/raw/v0.9.1/assets/logo-approved.png",
+      "strict": true
+    },
+    {
+      "name": "jianying-draft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/jianying-draft-plugin.git",
+        "ref": "v0.29.6"
+      },
+      "displayName": "JianYing Draft · 剪映草稿编排",
+      "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。",
+      "version": "0.29.6",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "jianying",
+        "capcut",
+        "video-editing"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/jianying-draft-plugin/raw/v0.29.6/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "lightcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/lightcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261018.2"
+      },
+      "displayName": "LightCraft · 照片调色",
+      "description": "RAW 基础显影、风光与人像、批量调色、曲线迁移与虚拟副本审稿；编辑保持非破坏。",
+      "version": "0.1.0-dev.20261018.2",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "lightcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/lightcraft-plugin/raw/v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "maya-design",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/maya-design-plugin.git",
+        "ref": "v0.2.1"
+      },
+      "displayName": "Maya Design · 三维场景",
+      "description": "只读场景体检、可逆 Playblast 导出与错误诊断，交接官方即梦上传器。",
+      "version": "0.2.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "maya",
+        "3d",
+        "playblast"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/maya-design-plugin/raw/v0.2.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "minimax-design",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/minimax-design-plugin.git",
+        "ref": "v0.5.1"
+      },
+      "displayName": "MiniMax Design · AI 视频生成",
+      "description": "MiniMax H3 视频生成，环境变量鉴权、白模首尾帧锚定、可恢复查询与校验下载。",
+      "version": "0.5.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "minimax",
+        "hailuo",
+        "video-generation"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/minimax-design-plugin/raw/v0.5.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "photocraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/photocraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "displayName": "PhotoCraft · 图片编辑",
+      "description": "图层、蒙版、抠图、修复与滤镜，支持文字与尺寸适配；工程可继续编辑，可导出 PSD、PNG 等格式。",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "photocraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/photocraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "printcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/printcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "displayName": "PrintCraft · PDF 处理",
+      "description": "页面重排、扫描件 OCR、表单填写、内容脱敏与印前检查；保留原件，逐页核对顺序、几何与可搜索文本。",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "printcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/printcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "soundcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/soundcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "displayName": "SoundCraft · 音频处理",
+      "description": "口播清理、多人响度统一、配音混音、音频剪辑与循环拼接；按段落与静音区间处理，保持对时关系。",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "soundcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/soundcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "vectorcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/vectorcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "displayName": "VectorCraft · 矢量设计",
+      "description": "标志、图标集、信息图、SVG 清理与多画板变体；导出 SVG、PDF 与 PNG，路径保持可编辑。",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "vectorcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/vectorcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "video-factory",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/video-factory-plugin.git",
+        "ref": "v0.5.1"
+      },
+      "displayName": "Video Factory · 自动剪辑成片",
+      "description": "拉片分析、剪辑决策、粗剪与精剪审批、合成与媒体回执校验。",
+      "version": "0.5.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "video",
+        "editing",
+        "receipts"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/video-factory-plugin/raw/v0.5.1/assets/logo-approved.png",
+      "strict": true
+    },
+    {
+      "name": "volcengine-design",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/volcengine-design-plugin.git",
+        "ref": "v0.2.1"
+      },
+      "displayName": "Volcengine Design · 豆包语音与视频",
+      "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频；两套凭据分离，任务只提交一次。",
+      "version": "0.2.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "volcengine",
+        "doubao",
+        "asr",
+        "tts",
+        "video"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/volcengine-design-plugin/raw/v0.2.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "wordcraft",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/wordcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "displayName": "WordCraft · 文档写作",
+      "description": "工作周报、会议纪要、商业报价、验收报告、需求说明与简历；样式、目录、页码与图表题注保持一致。",
+      "version": "0.1.0-dev.20261019.1",
+      "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "tags": [
+        "wordcraft",
+        "craft",
+        "development",
+        "mcp",
+        "editor"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/wordcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
+      "name": "xuanji",
+      "source": {
+        "source": "url",
+        "url": "https://gitee.com/full-aigc-plugins/xuanji-plugin.git",
+        "ref": "v0.2.1"
+      },
+      "displayName": "Xuanji · 命理排盘（娱乐）",
+      "description": "娱乐向术数六科，排盘由脚本校验、引文可追溯；仅供娱乐，不构成专业建议。",
+      "version": "0.2.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "tags": [
+        "bazi",
+        "qimen",
+        "ziwei",
+        "fengshui",
+        "tarot",
+        "divination",
+        "entertainment"
+      ],
+      "icon": "https://gitee.com/full-aigc-plugins/xuanji-plugin/raw/v0.2.1/assets/logo.png",
+      "strict": true
+    }
+  ]
+}

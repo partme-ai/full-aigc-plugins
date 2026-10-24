@@ -1,0 +1,14 @@
+{
+  "id": "global",
+  "locale": "en",
+  "marketplaceName": "full-aigc-plugins",
+  "displayName": "Full AIGC Plugins",
+  "description": "Full AIGC plugin marketplace for Codex, ZCode, and Kimi Code: image, video, audio, music, 3D, and multimodal content creation.",
+  "provider": "github",
+  "codeHost": "https://github.com",
+  "releaseTagPath": "/releases/tag/",
+  "assetBase": "https://cdn.jsdelivr.net/gh",
+  "assetStyle": "jsdelivr",
+  "repositoryOrg": "full-aigc-plugins",
+  "output": "."
+}

@@ -18,12 +18,16 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Floor plans, hole patterns, dimensioning, layer cleanup and sheet output. Millimeter coordinates, layers and plot scales are verifiable.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "CADCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "CADCraft · 2D Drafting",
+        "shortDescription": "Floor plans, hole patterns, dimensions and sheet output",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -39,11 +43,16 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
       "version": "1.0.0-rc.2",
-      "description": "Release candidate for controlled testing; not production-ready. Create, review, format, and export governed content for 16 channels.",
+      "description": "Governed content production for 16 channels: topic, drafting, editing, layout, review and export with channel rules preserved.",
       "interface": {
-        "displayName": "Content Factory (RC)",
-        "shortDescription": "Preview governed multi-channel content workflows"
+        "displayName": "Content Factory · Multi-channel Content",
+        "shortDescription": "Topic, writing, editing, layout and publishing for 16 channels"
       }
     },
     {
@@ -58,12 +67,16 @@
         "authentication": "ON_USE"
       },
       "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Pitch decks, weekly reports, training material, data stories and option comparisons. Masters, layouts and speaker notes stay editable after export.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "DeckCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "DeckCraft · Presentations",
+        "shortDescription": "Pitches, weekly reports, training decks and option comparisons",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -79,12 +92,16 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Posters, long documents, newsletters, catalogs and print preflight. Masters, page numbers and bleed are handled in one flow, exporting PDF, IDML or EPUB.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "DesignCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "DesignCraft · Page Layout",
+        "shortDescription": "Posters, long documents, newsletters and catalogs; export PDF/IDML/EPUB",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -100,12 +117,16 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261018.3",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Compositions, keyframes, expressions, cameras, masks and tracking. Layers, masks and render settings remain editable.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "interface": {
-        "displayName": "EffectCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "EffectCraft · Motion Graphics",
+        "shortDescription": "Compositions, keyframes, expressions and tracking",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png"
       }
     },
@@ -121,12 +142,16 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Wireframes, design systems, light/dark tokens, prototype flows and dev handoff. Layouts stay editable and responsive.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "FigCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "FigCraft · Design Mockups",
+        "shortDescription": "Wireframes, design systems, tokens and prototype handoff",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -142,12 +167,16 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261018.3",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Multicam editing, subtitles, transcripts, grading and export. Timelines, media references and subtitle files are delivered together.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
       "interface": {
-        "displayName": "FilmCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "FilmCraft · Video Editing",
+        "shortDescription": "Multicam, subtitles, grading and transcripts in a reopenable project",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png"
       }
     },
@@ -163,12 +192,16 @@
         "authentication": "ON_USE"
       },
       "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Budgets, reconciliation, table cleanup, sales summaries and formula audits. Values keep their units and sources, and formulas stay recalculable.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "GridCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "GridCraft · Spreadsheets",
+        "shortDescription": "Budgets, reconciliation, cleanup and summaries with live formulas",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -184,34 +217,17 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261018.2",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "RAW develop, landscape and portrait looks, batch grading, tone-curve transfer and virtual-copy review. Edits stay non-destructive.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
       "interface": {
-        "displayName": "LightCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "LightCraft · Photo Grading",
+        "shortDescription": "RAW develop, batch grading and culling with non-destructive edits",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png"
-      }
-    },
-    {
-      "name": "printcraft",
-      "source": {
-        "source": "url",
-        "url": "https://github.com/full-aigc-plugins/printcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_USE"
-      },
-      "category": "Productivity",
-      "version": "0.1.0-dev.20261019.1",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "interface": {
-        "displayName": "PdfCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
     {
@@ -226,13 +242,42 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Layers, masks, cutouts, retouching and filters with text and resize variants. Projects stay editable and export to PSD, PNG and other formats.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "PhotoCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "PhotoCraft · Image Editing",
+        "shortDescription": "Layers, masks, cutouts and retouching into editable image projects",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+      }
+    },
+    {
+      "name": "printcraft",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/printcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261019.1"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
+      "version": "0.1.0-dev.20261019.1",
+      "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "interface": {
+        "displayName": "PrintCraft · PDF Toolkit",
+        "shortDescription": "Page cleanup, OCR, forms, redaction and preflight",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
     {
@@ -247,12 +292,16 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Dialogue cleanup, loudness matching, voice-over mixing, audio edits and loop stitching. Processing follows segments and silence ranges while keeping sync.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "SoundCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "SoundCraft · Audio Editing",
+        "shortDescription": "Dialogue cleanup, loudness matching, mixing and audio edits",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -268,12 +317,16 @@
         "authentication": "ON_USE"
       },
       "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Release candidate for controlled testing; not production-ready. Development editor-fix prerelease under explicit scoped approval. Full V1 evidence gate NOT PASSED; native/host/business acceptance pending. Production release BLOCKED. Node.js 24 required; first Git startup downloads checksummed resources.",
+      "description": "Logos, icon sets, infographics, SVG cleanup and multi-artboard variants. Exports SVG, PDF and PNG with editable paths.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "VectorCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "VectorCraft · Vector Design",
+        "shortDescription": "Logos, icons, infographics and SVG cleanup into editable vector projects",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
@@ -289,12 +342,16 @@
         "authentication": "ON_USE"
       },
       "category": "Productivity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "version": "0.1.0-dev.20261019.1",
-      "description": "Release candidate for controlled testing; not production-ready. Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
+      "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
-        "displayName": "WordCraft Use (RC)",
-        "shortDescription": "Scene skills and a shared-session editor · Development",
+        "displayName": "WordCraft · Document Writing",
+        "shortDescription": "Reports, minutes, quotes, proposals and resumes as editable documents",
         "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     }

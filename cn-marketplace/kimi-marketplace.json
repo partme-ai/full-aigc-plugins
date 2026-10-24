@@ -1,0 +1,156 @@
+{
+  "version": "2",
+  "displayName": "Full AIGC 插件（Gitee 镜像）",
+  "plugins": [
+    {
+      "id": "blender-design",
+      "displayName": "Blender Design · 三维建模",
+      "icon": "https://gitee.com/full-aigc-plugins/blender-design-plugin/raw/v0.16.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.16.1"
+    },
+    {
+      "id": "cadcraft",
+      "displayName": "CADCraft · 二维制图",
+      "icon": "https://gitee.com/full-aigc-plugins/cadcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
+      "id": "comfy-design",
+      "displayName": "Comfy Design · ComfyUI 工作流",
+      "icon": "https://gitee.com/full-aigc-plugins/comfy-design-plugin/raw/v0.6.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/comfy-design-plugin/releases/tag/v0.6.1"
+    },
+    {
+      "id": "content-factory",
+      "displayName": "Content Factory · 多平台内容生产",
+      "icon": "https://gitee.com/full-aigc-plugins/content-factory-plugin/raw/v1.0.0-rc.2/undefined",
+      "source": "https://gitee.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.2"
+    },
+    {
+      "id": "deckcraft",
+      "displayName": "DeckCraft · 演示文稿",
+      "icon": "https://gitee.com/full-aigc-plugins/deckcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
+      "id": "designcraft",
+      "displayName": "DesignCraft · 页面排版",
+      "icon": "https://gitee.com/full-aigc-plugins/designcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
+      "id": "dreamina-canvas",
+      "displayName": "Dreamina Canvas · 即梦画布编排",
+      "icon": "https://gitee.com/full-aigc-plugins/dreamina-canvas-plugin/raw/v0.5.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.5.1"
+    },
+    {
+      "id": "dreamina-design",
+      "displayName": "Dreamina Design · 即梦绘图与视频",
+      "icon": "https://gitee.com/full-aigc-plugins/dreamina-design-plugin/raw/v0.8.1/assets/logo-approved.png",
+      "source": "https://gitee.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.8.1"
+    },
+    {
+      "id": "effectcraft",
+      "displayName": "EffectCraft · 动态图形",
+      "icon": "https://gitee.com/full-aigc-plugins/effectcraft-plugin/raw/v0.1.0-dev.20261018.3/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/effectcraft-plugin/releases/tag/v0.1.0-dev.20261018.3"
+    },
+    {
+      "id": "figcraft",
+      "displayName": "FigCraft · 设计稿编辑",
+      "icon": "https://gitee.com/full-aigc-plugins/figcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
+      "id": "filmcraft",
+      "displayName": "FilmCraft · 视频剪辑",
+      "icon": "https://gitee.com/full-aigc-plugins/filmcraft-plugin/raw/v0.1.0-dev.20261018.3/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/filmcraft-plugin/releases/tag/v0.1.0-dev.20261018.3"
+    },
+    {
+      "id": "gridcraft",
+      "displayName": "GridCraft · 电子表格",
+      "icon": "https://gitee.com/full-aigc-plugins/gridcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
+      "id": "image-factory",
+      "displayName": "Image Factory · 批量 AI 出图",
+      "icon": "https://gitee.com/full-aigc-plugins/image-factory-plugin/raw/v0.9.1/assets/logo-approved.png",
+      "source": "https://gitee.com/full-aigc-plugins/image-factory-plugin/releases/tag/v0.9.1"
+    },
+    {
+      "id": "jianying-draft",
+      "displayName": "JianYing Draft · 剪映草稿编排",
+      "icon": "https://gitee.com/full-aigc-plugins/jianying-draft-plugin/raw/v0.29.6/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.29.6"
+    },
+    {
+      "id": "lightcraft",
+      "displayName": "LightCraft · 照片调色",
+      "icon": "https://gitee.com/full-aigc-plugins/lightcraft-plugin/raw/v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/lightcraft-plugin/releases/tag/v0.1.0-dev.20261018.2"
+    },
+    {
+      "id": "maya-design",
+      "displayName": "Maya Design · 三维场景",
+      "icon": "https://gitee.com/full-aigc-plugins/maya-design-plugin/raw/v0.2.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/maya-design-plugin/releases/tag/v0.2.1"
+    },
+    {
+      "id": "minimax-design",
+      "displayName": "MiniMax Design · AI 视频生成",
+      "icon": "https://gitee.com/full-aigc-plugins/minimax-design-plugin/raw/v0.5.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.5.1"
+    },
+    {
+      "id": "photocraft",
+      "displayName": "PhotoCraft · 图片编辑",
+      "icon": "https://gitee.com/full-aigc-plugins/photocraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
+      "id": "printcraft",
+      "displayName": "PrintCraft · PDF 处理",
+      "icon": "https://gitee.com/full-aigc-plugins/printcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/printcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
+      "id": "soundcraft",
+      "displayName": "SoundCraft · 音频处理",
+      "icon": "https://gitee.com/full-aigc-plugins/soundcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
+      "id": "vectorcraft",
+      "displayName": "VectorCraft · 矢量设计",
+      "icon": "https://gitee.com/full-aigc-plugins/vectorcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
+      "id": "video-factory",
+      "displayName": "Video Factory · 自动剪辑成片",
+      "icon": "https://gitee.com/full-aigc-plugins/video-factory-plugin/raw/v0.5.1/assets/logo-approved.png",
+      "source": "https://gitee.com/full-aigc-plugins/video-factory-plugin/releases/tag/v0.5.1"
+    },
+    {
+      "id": "volcengine-design",
+      "displayName": "Volcengine Design · 豆包语音与视频",
+      "icon": "https://gitee.com/full-aigc-plugins/volcengine-design-plugin/raw/v0.2.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.2.1"
+    },
+    {
+      "id": "wordcraft",
+      "displayName": "WordCraft · 文档写作",
+      "icon": "https://gitee.com/full-aigc-plugins/wordcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
+    },
+    {
+      "id": "xuanji",
+      "displayName": "Xuanji · 命理排盘（娱乐）",
+      "icon": "https://gitee.com/full-aigc-plugins/xuanji-plugin/raw/v0.2.1/assets/logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/xuanji-plugin/releases/tag/v0.2.1"
+    }
+  ]
+}

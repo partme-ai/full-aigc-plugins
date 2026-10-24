@@ -1,12 +1,12 @@
 {
   "version": "2",
-  "displayName": "Full AIGC Plugins",
+  "displayName": "Full AIGC 插件",
   "plugins": [
     {
       "id": "blender-design",
       "displayName": "Blender Design · 3D Modeling",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.14.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.14.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.16.1"
     },
     {
       "id": "cadcraft",
@@ -17,8 +17,8 @@
     {
       "id": "comfy-design",
       "displayName": "Comfy Design · ComfyUI Workflows",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.5.0/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/comfy-design-plugin/releases/tag/v0.5.0"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/comfy-design-plugin/releases/tag/v0.6.1"
     },
     {
       "id": "content-factory",
@@ -40,14 +40,14 @@
     {
       "id": "dreamina-canvas",
       "displayName": "Dreamina Canvas · Canvas Orchestration",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.4.3/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.4.3"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.5.1"
     },
     {
       "id": "dreamina-design",
       "displayName": "Dreamina Design · Dreamina Image & Video",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.7.0/assets/logo-approved.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.7.0"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.1/assets/logo-approved.png",
+      "source": "https://github.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.8.1"
     },
     {
       "id": "effectcraft",
@@ -76,14 +76,14 @@
     {
       "id": "image-factory",
       "displayName": "Image Factory · Batch Image Generation",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.8.0/assets/logo-approved.png",
-      "source": "https://github.com/full-aigc-plugins/image-factory-plugin/releases/tag/v0.8.0"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.1/assets/logo-approved.png",
+      "source": "https://github.com/full-aigc-plugins/image-factory-plugin/releases/tag/v0.9.1"
     },
     {
-      "id": "jianying-edit",
-      "displayName": "JianYing Edit · Draft Orchestration",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-edit-plugin@v0.27.9/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/jianying-edit-plugin/releases/tag/v0.27.9"
+      "id": "jianying-draft",
+      "displayName": "JianYing Draft · Draft Orchestration",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.6/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.29.6"
     },
     {
       "id": "lightcraft",
@@ -94,14 +94,14 @@
     {
       "id": "maya-design",
       "displayName": "Maya Design · 3D Scenes",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.1.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/maya-design-plugin/releases/tag/v0.1.5"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/maya-design-plugin/releases/tag/v0.2.1"
     },
     {
       "id": "minimax-design",
       "displayName": "MiniMax Design · AI Video",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.4.3/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.4.3"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.5.1"
     },
     {
       "id": "photocraft",
@@ -124,20 +124,20 @@
     {
       "id": "vectorcraft",
       "displayName": "VectorCraft · Vector Design",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261017.6"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261019.1"
     },
     {
       "id": "video-factory",
       "displayName": "Video Factory · Auto Video Editing",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.4.0/assets/logo-approved.png",
-      "source": "https://github.com/full-aigc-plugins/video-factory-plugin/releases/tag/v0.4.0"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.1/assets/logo-approved.png",
+      "source": "https://github.com/full-aigc-plugins/video-factory-plugin/releases/tag/v0.5.1"
     },
     {
       "id": "volcengine-design",
       "displayName": "Volcengine Design · Doubao Voice & Video",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.1.2/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.1.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.2.1"
     },
     {
       "id": "wordcraft",
@@ -148,8 +148,8 @@
     {
       "id": "xuanji",
       "displayName": "Xuanji · Divination (Entertainment)",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.1.1/assets/logo.png",
-      "source": "https://github.com/full-aigc-plugins/xuanji-plugin/releases/tag/v0.1.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.1/assets/logo.png",
+      "source": "https://github.com/full-aigc-plugins/xuanji-plugin/releases/tag/v0.2.1"
     }
   ]
 }

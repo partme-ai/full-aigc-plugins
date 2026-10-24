@@ -1,0 +1,14 @@
+{
+  "id": "cn",
+  "locale": "zh-CN",
+  "marketplaceName": "full-aigc-plugins-cn",
+  "displayName": "Full AIGC 插件（Gitee 镜像）",
+  "description": "Full AIGC 插件市场（Gitee 镜像）：面向 Codex、ZCode 与 Kimi Code 的图像、视频、音频、音乐、3D 与多模态内容创作插件。",
+  "provider": "gitee",
+  "codeHost": "https://gitee.com",
+  "releaseTagPath": "/releases/tag/",
+  "assetBase": "https://gitee.com",
+  "assetStyle": "gitee-raw",
+  "repositoryOrg": "full-aigc-plugins",
+  "output": "cn-marketplace"
+}

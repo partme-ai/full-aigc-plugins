@@ -11,7 +11,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/blender-design-plugin.git",
-        "ref": "v0.14.1"
+        "ref": "v0.16.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -19,18 +19,18 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.14.1",
-      "description": "Controlled Blender operations with milestone screenshots, transaction rollback, previs and verified multi-format export.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.14.1/assets/official-logo.png",
-      "interface": {
-        "displayName": "Blender Design · 3D Modeling",
-        "shortDescription": "Modeling, rigging, materials, animation, rendering and export",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.14.1/assets/official-logo.png"
-      },
       "componentTypes": [
         "skills",
         "mcp"
-      ]
+      ],
+      "version": "0.16.1",
+      "description": "Controlled Blender operations with milestone screenshots, transaction rollback, previs and verified multi-format export.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.1/assets/official-logo.png",
+      "interface": {
+        "displayName": "Blender Design · 3D Modeling",
+        "shortDescription": "Modeling, rigging, materials, animation, rendering and export",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.1/assets/official-logo.png"
+      }
     },
     {
       "name": "cadcraft",
@@ -61,7 +61,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/comfy-design-plugin.git",
-        "ref": "v0.5.0"
+        "ref": "v0.6.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -69,18 +69,18 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.5.0",
-      "description": "Local-first ComfyUI workflows for images, video, audio and 3D. Partner models and uploads escalate to Comfy Cloud only when opted in.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.5.0/assets/official-logo.png",
-      "interface": {
-        "displayName": "Comfy Design · ComfyUI Workflows",
-        "shortDescription": "Local image, video, audio and 3D workflows",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.5.0/assets/official-logo.png"
-      },
       "componentTypes": [
         "skills",
         "mcp"
-      ]
+      ],
+      "version": "0.6.1",
+      "description": "Local-first ComfyUI workflows for images, video, audio and 3D. Partner models and uploads escalate to Comfy Cloud only when opted in.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.1/assets/official-logo.png",
+      "interface": {
+        "displayName": "Comfy Design · ComfyUI Workflows",
+        "shortDescription": "Local image, video, audio and 3D workflows",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.1/assets/official-logo.png"
+      }
     },
     {
       "name": "content-factory",
@@ -95,16 +95,16 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
       "version": "1.0.0-rc.2",
       "description": "Governed content production for 16 channels: topic, drafting, editing, layout, review and export with channel rules preserved.",
       "interface": {
         "displayName": "Content Factory · Multi-channel Content",
         "shortDescription": "Topic, writing, editing, layout and publishing for 16 channels"
-      },
-      "componentTypes": [
-        "skills",
-        "mcp"
-      ]
+      }
     },
     {
       "name": "deckcraft",
@@ -159,7 +159,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin.git",
-        "ref": "v0.4.3"
+        "ref": "v0.5.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -167,25 +167,25 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.4.3",
-      "description": "Typed canvas nodes and timelines for Dreamina. Free saves are separated from quoted runs, and assets download with verification.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.4.3/assets/official-logo.png",
-      "interface": {
-        "displayName": "Dreamina Canvas · Canvas Orchestration",
-        "shortDescription": "Node graphs and timelines with save/run separation",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.4.3/assets/official-logo.png"
-      },
       "componentTypes": [
         "skills",
         "mcp"
-      ]
+      ],
+      "version": "0.5.1",
+      "description": "Typed canvas nodes and timelines for Dreamina. Free saves are separated from quoted runs, and assets download with verification.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.1/assets/official-logo.png",
+      "interface": {
+        "displayName": "Dreamina Canvas · Canvas Orchestration",
+        "shortDescription": "Node graphs and timelines with save/run separation",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.1/assets/official-logo.png"
+      }
     },
     {
       "name": "dreamina-design",
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/dreamina-design-plugin.git",
-        "ref": "v0.7.0"
+        "ref": "v0.8.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -193,18 +193,18 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.7.0",
-      "description": "Dreamina image and video generation with prompt libraries, shot annotation and visual evaluation. Paid runs require explicit approval and tasks are resumable.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.7.0/assets/logo-approved.png",
-      "interface": {
-        "displayName": "Dreamina Design · Dreamina Image & Video",
-        "shortDescription": "Text-to-image, image-to-image and text-to-video with prompt and shot review",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.7.0/assets/logo-approved.png"
-      },
       "componentTypes": [
         "skills",
         "mcp"
-      ]
+      ],
+      "version": "0.8.1",
+      "description": "Dreamina image and video generation with prompt libraries, shot annotation and visual evaluation. Paid runs require explicit approval and tasks are resumable.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.1/assets/logo-approved.png",
+      "interface": {
+        "displayName": "Dreamina Design · Dreamina Image & Video",
+        "shortDescription": "Text-to-image, image-to-image and text-to-video with prompt and shot review",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.1/assets/logo-approved.png"
+      }
     },
     {
       "name": "effectcraft",
@@ -307,7 +307,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/image-factory-plugin.git",
-        "ref": "v0.8.0"
+        "ref": "v0.9.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -315,25 +315,25 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.8.0",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ],
+      "version": "0.9.1",
       "description": "Prompt discovery, plan validation, approval, batch generation, evaluation and recovery. Every artifact carries a hash-verified receipt.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.8.0/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.1/assets/logo-approved.png",
       "interface": {
         "displayName": "Image Factory · Batch Image Generation",
         "shortDescription": "Plan approval, batch generation, evaluation and receipts",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.8.0/assets/logo-approved.png"
-      },
-      "componentTypes": [
-        "skills",
-        "mcp"
-      ]
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.1/assets/logo-approved.png"
+      }
     },
     {
-      "name": "jianying-edit",
+      "name": "jianying-draft",
       "source": {
         "source": "url",
-        "url": "https://github.com/full-aigc-plugins/jianying-edit-plugin.git",
-        "ref": "v0.27.9"
+        "url": "https://github.com/full-aigc-plugins/jianying-draft-plugin.git",
+        "ref": "v0.29.6"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -341,18 +341,18 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.27.9",
-      "description": "JianYing/CapCut draft orchestration through one checksum-verified Rust runtime: job schema, captions, audio, effects and approval gates.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-edit-plugin@v0.27.9/assets/official-logo.png",
-      "interface": {
-        "displayName": "JianYing Edit · Draft Orchestration",
-        "shortDescription": "Drafts, captions, audio and effects in one Rust pipeline",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-edit-plugin@v0.27.9/assets/official-logo.png"
-      },
       "componentTypes": [
         "skills",
         "mcp"
-      ]
+      ],
+      "version": "0.29.6",
+      "description": "Cross-host JianYing/CapCut workflow orchestration through the checksum-verified Rust jianying-cli Runtime Adapter: jianying-job/v2, editable drafts, captions, audio/TTS/ASR, batch recovery, approvals, and MCP stdio/HTTP/SSE. No Python engine or external fork runtime.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.6/assets/official-logo.png",
+      "interface": {
+        "displayName": "JianYing Draft · Draft Orchestration",
+        "shortDescription": "Rust-only JianYing workflow orchestration",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.6/assets/official-logo.png"
+      }
     },
     {
       "name": "lightcraft",
@@ -383,7 +383,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/maya-design-plugin.git",
-        "ref": "v0.1.5"
+        "ref": "v0.2.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -391,25 +391,25 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.1.5",
-      "description": "Read-only scene inspection, reversible Playblast export and error diagnosis, handing off to the official Jimeng uploader.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.1.5/assets/official-logo.png",
-      "interface": {
-        "displayName": "Maya Design · 3D Scenes",
-        "shortDescription": "Scene inspection, reversible Playblast and Jimeng links",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.1.5/assets/official-logo.png"
-      },
       "componentTypes": [
         "skills",
         "mcp"
-      ]
+      ],
+      "version": "0.2.1",
+      "description": "Read-only scene inspection, reversible Playblast export and error diagnosis, handing off to the official Jimeng uploader.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.1/assets/official-logo.png",
+      "interface": {
+        "displayName": "Maya Design · 3D Scenes",
+        "shortDescription": "Scene inspection, reversible Playblast and Jimeng links",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.1/assets/official-logo.png"
+      }
     },
     {
       "name": "minimax-design",
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/minimax-design-plugin.git",
-        "ref": "v0.4.3"
+        "ref": "v0.5.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -417,18 +417,18 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.4.3",
-      "description": "MiniMax H3 video generation with environment-variable auth, first/last-frame anchoring, resumable queries and verified downloads.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.4.3/assets/official-logo.png",
-      "interface": {
-        "displayName": "MiniMax Design · AI Video",
-        "shortDescription": "H3 text/image-to-video with white-model first/last frames",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.4.3/assets/official-logo.png"
-      },
       "componentTypes": [
         "skills",
         "mcp"
-      ]
+      ],
+      "version": "0.5.1",
+      "description": "MiniMax H3 video generation with environment-variable auth, first/last-frame anchoring, resumable queries and verified downloads.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.1/assets/official-logo.png",
+      "interface": {
+        "displayName": "MiniMax Design · AI Video",
+        "shortDescription": "H3 text/image-to-video with white-model first/last frames",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.1/assets/official-logo.png"
+      }
     },
     {
       "name": "photocraft",
@@ -517,13 +517,13 @@
       "componentTypes": [
         "ui"
       ],
-      "version": "0.1.0-dev.20261017.6",
+      "version": "0.1.0-dev.20261019.1",
       "description": "Logos, icon sets, infographics, SVG cleanup and multi-artboard variants. Exports SVG, PDF and PNG with editable paths.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
       "interface": {
         "displayName": "VectorCraft · Vector Design",
         "shortDescription": "Logos, icons, infographics and SVG cleanup into editable vector projects",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
       }
     },
     {
@@ -531,7 +531,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/video-factory-plugin.git",
-        "ref": "v0.4.0"
+        "ref": "v0.5.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -539,25 +539,25 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.4.0",
-      "description": "Shot analysis, edit decisions, rough and final cut approval, composition and media receipt verification.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.4.0/assets/logo-approved.png",
-      "interface": {
-        "displayName": "Video Factory · Auto Video Editing",
-        "shortDescription": "Shot analysis, rough/final cut approval, composition and receipts",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.4.0/assets/logo-approved.png"
-      },
       "componentTypes": [
         "skills",
         "mcp"
-      ]
+      ],
+      "version": "0.5.1",
+      "description": "Shot analysis, edit decisions, rough and final cut approval, composition and media receipt verification.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.1/assets/logo-approved.png",
+      "interface": {
+        "displayName": "Video Factory · Auto Video Editing",
+        "shortDescription": "Shot analysis, rough/final cut approval, composition and receipts",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.1/assets/logo-approved.png"
+      }
     },
     {
       "name": "volcengine-design",
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/volcengine-design-plugin.git",
-        "ref": "v0.1.2"
+        "ref": "v0.2.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -565,18 +565,18 @@
       },
       "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.1.2",
-      "description": "Doubao ASR with millisecond word timelines, TTS narration, Seedream images and Seedance video. Two credential families stay separate and tasks are submitted once.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.1.2/assets/official-logo.png",
-      "interface": {
-        "displayName": "Volcengine Design · Doubao Voice & Video",
-        "shortDescription": "Word-level ASR, TTS narration, image and video generation",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.1.2/assets/official-logo.png"
-      },
       "componentTypes": [
         "skills",
         "mcp"
-      ]
+      ],
+      "version": "0.2.1",
+      "description": "Doubao ASR with millisecond word timelines, TTS narration, Seedream images and Seedance video. Two credential families stay separate and tasks are submitted once.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.1/assets/official-logo.png",
+      "interface": {
+        "displayName": "Volcengine Design · Doubao Voice & Video",
+        "shortDescription": "Word-level ASR, TTS narration, image and video generation",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.1/assets/official-logo.png"
+      }
     },
     {
       "name": "wordcraft",
@@ -607,29 +607,29 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/xuanji-plugin.git",
-        "ref": "v0.1.1"
+        "ref": "v0.2.1"
       },
       "policy": {
         "installation": "AVAILABLE",
         "authentication": "ON_USE"
       },
-      "category": "Entertainment",
+      "category": "Creativity",
       "line": "full-aigc",
-      "version": "0.1.1",
-      "description": "Entertainment-grade Chinese metaphysics with script-verified charts and auditable classical citations. For entertainment only.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.1.1/assets/logo.png",
-      "interface": {
-        "displayName": "Xuanji · Divination (Entertainment)",
-        "shortDescription": "Bazi, Qimen, Ziwei, marriage, Fengshui and Tarot",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.1.1/assets/logo.png"
-      },
       "componentTypes": [
         "skills",
         "mcp"
-      ]
+      ],
+      "version": "0.2.1",
+      "description": "Entertainment-grade Chinese metaphysics with script-verified charts and auditable classical citations. For entertainment only.",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.1/assets/logo.png",
+      "interface": {
+        "displayName": "Xuanji · Divination (Entertainment)",
+        "shortDescription": "Bazi, Qimen, Ziwei, marriage, Fengshui and Tarot",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.1/assets/logo.png"
+      }
     }
   ],
   "interface": {
-    "displayName": "Full AIGC Plugins"
+    "displayName": "Full AIGC 插件"
   }
 }

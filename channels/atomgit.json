@@ -1,0 +1,17 @@
+{
+  "id": "atomgit",
+  "locale": "zh-CN",
+  "marketplaceName": "full-aigc-plugins",
+  "displayName": "Full AIGC 插件",
+  "description": "Full AIGC 插件市场（AtomGit 镜像）：面向 Codex、ZCode 与 Kimi Code 的图像、视频、音频、音乐、3D 与多模态内容创作插件。",
+  "provider": "atomgit",
+  "codeHost": "https://atomgit.com",
+  "releaseTagPath": "/releases/tag/",
+  "assetBase": "https://raw.atomgit.com",
+  "orgMap": {
+    "easy-4-java": "easy4j",
+    "easy-4-rust": "easy4r",
+    "ddd-4-java": "rbatis-plus"
+  },
+  "output": "atomgit-marketplace"
+}
