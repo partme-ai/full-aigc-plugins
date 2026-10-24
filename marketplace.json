@@ -196,6 +196,9 @@
       "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
       "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "effectcraft",
         "craft",
@@ -220,6 +223,9 @@
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "figcraft",
         "craft",
@@ -244,6 +250,9 @@
       "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
       "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "filmcraft",
         "craft",
@@ -335,6 +344,9 @@
       "version": "0.1.0-dev.20261018.2",
       "category": "Creativity",
       "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ],
       "tags": [
         "lightcraft",
         "craft",
