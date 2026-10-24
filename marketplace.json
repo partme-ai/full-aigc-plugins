@@ -1,6 +1,6 @@
 {
   "name": "full-aigc-plugins",
-  "displayName": "Full AIGC 插件",
+  "displayName": "Full AIGC Plugins",
   "description": "Full AIGC plugin marketplace for Codex, ZCode, and Kimi Code: image, video, audio, music, 3D, and multimodal content creation.",
   "plugins": [
     {
@@ -8,11 +8,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/blender-design-plugin",
-        "ref": "v0.16.1"
+        "ref": "v0.14.1"
       },
-      "displayName": "Blender Design · 3D Modeling",
-      "description": "Controlled Blender operations with milestone screenshots, transaction rollback, previs and verified multi-format export.",
-      "version": "0.16.1",
+      "displayName": "Blender（三维建模）",
+      "description": "受控 Blender 操作，含里程碑截图、事务回滚、白模预演与多格式校验导出。",
+      "version": "0.14.1",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -24,7 +24,7 @@
         "3d",
         "previs"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.14.1/assets/official-logo.png",
       "strict": true
     },
     {
@@ -36,8 +36,8 @@
         "sha256": "f38efe9593605845347efd5650d69704cd8d3b3d1e20c5ef98106f01fb355df2",
         "path": "cadcraft-plugin"
       },
-      "displayName": "CADCraft · 2D Drafting",
-      "description": "Floor plans, hole patterns, dimensioning, layer cleanup and sheet output. Millimeter coordinates, layers and plot scales are verifiable.",
+      "displayName": "CADCraft（二维制图）",
+      "description": "房间平面、法兰孔系、尺寸标注、图层清理与图框出图；毫米坐标、图层与出图比例可复核。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -59,11 +59,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/comfy-design-plugin",
-        "ref": "v0.6.1"
+        "ref": "v0.5.0"
       },
-      "displayName": "Comfy Design · ComfyUI Workflows",
-      "description": "Local-first ComfyUI workflows for images, video, audio and 3D. Partner models and uploads escalate to Comfy Cloud only when opted in.",
-      "version": "0.6.1",
+      "displayName": "Comfy（ComfyUI 工作流）",
+      "description": "本地优先的 ComfyUI 图像、视频、音频与 3D 工作流；合作伙伴模型与上传仅在显式选择后升级到云端。",
+      "version": "0.5.0",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -75,7 +75,7 @@
         "comfyui",
         "workflow"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.5.0/assets/official-logo.png",
       "strict": true
     },
     {
@@ -85,8 +85,8 @@
         "repo": "full-aigc-plugins/content-factory-plugin",
         "ref": "v1.0.0-rc.2"
       },
-      "displayName": "Content Factory · Multi-channel Content",
-      "description": "Governed content production for 16 channels: topic, drafting, editing, layout, review and export with channel rules preserved.",
+      "displayName": "Content（多平台内容生产）",
+      "description": "16 个渠道的受控内容生产：选题、写作、编辑、排版、审阅与导出，保留渠道规范。",
       "version": "1.0.0-rc.2",
       "category": "Creativity",
       "line": "full-aigc",
@@ -111,8 +111,8 @@
         "sha256": "d185ed83ea1327a1459000211ceff3709a1f1257ac96a9ab0fc806e22d75c2b7",
         "path": "deckcraft-plugin"
       },
-      "displayName": "DeckCraft · Presentations",
-      "description": "Pitch decks, weekly reports, training material, data stories and option comparisons. Masters, layouts and speaker notes stay editable after export.",
+      "displayName": "DeckCraft（演示文稿）",
+      "description": "项目路演、工作周报、培训课件、数据叙事与方案对比；母版、版式与讲稿同源，导出后可继续修改。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Productivity",
       "line": "full-aigc",
@@ -138,8 +138,8 @@
         "sha256": "ca51e79a0bbc1a93507e5e5b72c35524229e218c17af6a92bd14e70123560b26",
         "path": "designcraft-plugin"
       },
-      "displayName": "DesignCraft · Page Layout",
-      "description": "Posters, long documents, newsletters, catalogs and print preflight. Masters, page numbers and bleed are handled in one flow, exporting PDF, IDML or EPUB.",
+      "displayName": "DesignCraft（页面排版）",
+      "description": "海报、长文档、多栏刊物、商品目录与印前检查；母版、页码与出血在同一流程处理，可导出 PDF、IDML 或 EPUB。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -161,11 +161,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/dreamina-canvas-plugin",
-        "ref": "v0.5.1"
+        "ref": "v0.4.3"
       },
-      "displayName": "Dreamina Canvas · Canvas Orchestration",
-      "description": "Typed canvas nodes and timelines for Dreamina. Free saves are separated from quoted runs, and assets download with verification.",
-      "version": "0.5.1",
+      "displayName": "Dreamina Canvas（即梦画布编排）",
+      "description": "类型化节点与时间线编排；免费保存与计费运行分离，产物下载带校验。",
+      "version": "0.4.3",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -177,7 +177,7 @@
         "canvas",
         "timeline"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.4.3/assets/official-logo.png",
       "strict": true
     },
     {
@@ -185,11 +185,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/dreamina-design-plugin",
-        "ref": "v0.8.1"
+        "ref": "v0.7.0"
       },
-      "displayName": "Dreamina Design · Dreamina Image & Video",
-      "description": "Dreamina image and video generation with prompt libraries, shot annotation and visual evaluation. Paid runs require explicit approval and tasks are resumable.",
-      "version": "0.8.1",
+      "displayName": "Dreamina（即梦绘图与视频）",
+      "description": "即梦图像与视频生成，含提示词库、分镜标注与视觉评审；付费生成前需显式确认，任务可恢复。",
+      "version": "0.7.0",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -201,7 +201,7 @@
         "seedance",
         "text2video"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.1/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.7.0/assets/logo-approved.png",
       "strict": true
     },
     {
@@ -211,8 +211,8 @@
         "repo": "full-aigc-plugins/effectcraft-plugin",
         "ref": "v0.1.0-dev.20261018.3"
       },
-      "displayName": "EffectCraft · Motion Graphics",
-      "description": "Compositions, keyframes, expressions, cameras, masks and tracking. Layers, masks and render settings remain editable.",
+      "displayName": "EffectCraft（动态图形）",
+      "description": "合成、关键帧、表达式、摄像机、遮罩与跟踪；图层、遮罩与渲染设置完整保留。",
       "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
       "line": "full-aigc",
@@ -238,8 +238,8 @@
         "sha256": "db5d4ef368e6aafb653d50863319380ccb4ecaf14d4f8008acae320e64bf2c2b",
         "path": "figcraft-plugin"
       },
-      "displayName": "FigCraft · Design Mockups",
-      "description": "Wireframes, design systems, light/dark tokens, prototype flows and dev handoff. Layouts stay editable and responsive.",
+      "displayName": "FigCraft（设计稿编辑）",
+      "description": "线框、设计系统、明暗主题令牌、原型流与开发交接；布局保持可编辑与自适应。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -265,8 +265,8 @@
         "sha256": "47b7ffe7cea15b51cbdad1640701403a454608475ce016ba419d113fc28d22ea",
         "path": "filmcraft-plugin"
       },
-      "displayName": "FilmCraft · Video Editing",
-      "description": "Multicam editing, subtitles, transcripts, grading and export. Timelines, media references and subtitle files are delivered together.",
+      "displayName": "FilmCraft（视频剪辑）",
+      "description": "多机位剪辑、字幕、逐词转录、调色与导出；时间线、素材引用与字幕文件一并交付。",
       "version": "0.1.0-dev.20261018.3",
       "category": "Creativity",
       "line": "full-aigc",
@@ -292,8 +292,8 @@
         "sha256": "c1b4d8318cec676b33d209f329f285b9980050a15801c5dc856a57331f717354",
         "path": "gridcraft-plugin"
       },
-      "displayName": "GridCraft · Spreadsheets",
-      "description": "Budgets, reconciliation, table cleanup, sales summaries and formula audits. Values keep their units and sources, and formulas stay recalculable.",
+      "displayName": "GridCraft（电子表格）",
+      "description": "预算执行、两表对账、表格清洗、销售汇总与公式审计；保留数据单位与来源，公式可重算。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Productivity",
       "line": "full-aigc",
@@ -315,11 +315,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/image-factory-plugin",
-        "ref": "v0.9.1"
+        "ref": "v0.8.0"
       },
-      "displayName": "Image Factory · Batch Image Generation",
-      "description": "Prompt discovery, plan validation, approval, batch generation, evaluation and recovery. Every artifact carries a hash-verified receipt.",
-      "version": "0.9.1",
+      "displayName": "Image（批量 AI 出图）",
+      "description": "提示词发现、计划校验、审批、批量生成、质量评估与中断恢复；每张图带哈希校验回执。",
+      "version": "0.8.0",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -331,19 +331,19 @@
         "batch",
         "receipts"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.1/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.8.0/assets/logo-approved.png",
       "strict": true
     },
     {
-      "name": "jianying-draft",
+      "name": "jianying-edit",
       "source": {
         "source": "github",
-        "repo": "full-aigc-plugins/jianying-draft-plugin",
-        "ref": "v0.29.6"
+        "repo": "full-aigc-plugins/jianying-edit-plugin",
+        "ref": "v0.27.9"
       },
-      "displayName": "JianYing Draft · Draft Orchestration",
-      "description": "Cross-host JianYing/CapCut workflow orchestration through the checksum-verified Rust jianying-cli Runtime Adapter: jianying-job/v2, editable drafts, captions, audio/TTS/ASR, batch recovery, approvals, and MCP stdio/HTTP/SSE. No Python engine or external fork runtime.",
-      "version": "0.29.6",
+      "displayName": "JianYing Edit（剪映草稿编排）",
+      "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。",
+      "version": "0.27.9",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -355,7 +355,7 @@
         "capcut",
         "video-editing"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.6/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-edit-plugin@v0.27.9/assets/official-logo.png",
       "strict": true
     },
     {
@@ -367,8 +367,8 @@
         "sha256": "92bacd0fe4dfc4c44ebddb9c02e6f9f1cb1274f79caa3c5f818a1f9300344597",
         "path": "lightcraft-plugin"
       },
-      "displayName": "LightCraft · Photo Grading",
-      "description": "RAW develop, landscape and portrait looks, batch grading, tone-curve transfer and virtual-copy review. Edits stay non-destructive.",
+      "displayName": "LightCraft（照片调色）",
+      "description": "RAW 基础显影、风光与人像、批量调色、曲线迁移与虚拟副本审稿；编辑保持非破坏。",
       "version": "0.1.0-dev.20261018.2",
       "category": "Creativity",
       "line": "full-aigc",
@@ -390,11 +390,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/maya-design-plugin",
-        "ref": "v0.2.1"
+        "ref": "v0.1.5"
       },
-      "displayName": "Maya Design · 3D Scenes",
-      "description": "Read-only scene inspection, reversible Playblast export and error diagnosis, handing off to the official Jimeng uploader.",
-      "version": "0.2.1",
+      "displayName": "Maya（三维场景）",
+      "description": "只读场景体检、可逆 Playblast 导出与错误诊断，交接官方即梦上传器。",
+      "version": "0.1.5",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -406,7 +406,7 @@
         "3d",
         "playblast"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.1.5/assets/official-logo.png",
       "strict": true
     },
     {
@@ -414,11 +414,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/minimax-design-plugin",
-        "ref": "v0.5.1"
+        "ref": "v0.4.3"
       },
-      "displayName": "MiniMax Design · AI Video",
-      "description": "MiniMax H3 video generation with environment-variable auth, first/last-frame anchoring, resumable queries and verified downloads.",
-      "version": "0.5.1",
+      "displayName": "MiniMax（AI 视频生成）",
+      "description": "MiniMax H3 视频生成，环境变量鉴权、白模首尾帧锚定、可恢复查询与校验下载。",
+      "version": "0.4.3",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -430,20 +430,18 @@
         "hailuo",
         "video-generation"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.4.3/assets/official-logo.png",
       "strict": true
     },
     {
       "name": "pdfcraft",
       "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/download/v0.1.0-dev.20261024.1/pdfcraft-plugin-0.1.0-dev.20261024.1.zip",
-        "sha256": "d5ec630d6515f661e3f4398c84ed73f1f569fa604e98007f43ed61b0f57f4e06",
-        "path": "pdfcraft-plugin"
+        "source": "github",
+        "repo": "full-aigc-plugins/pdfcraft-plugin",
+        "ref": "v0.1.0-dev.20261024.1"
       },
-      "displayName": "PdfCraft · PDF Toolkit",
-      "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
+      "displayName": "PdfCraft（PDF 处理）",
+      "description": "页面重排、扫描件 OCR、表单填写、内容脱敏与印前检查；保留原件，逐页核对顺序、几何与可搜索文本。",
       "version": "0.1.0-dev.20261024.1",
       "category": "Productivity",
       "line": "full-aigc",
@@ -469,8 +467,8 @@
         "sha256": "58b2f7b9923d770acb31eb91b2d6e519adb92c04ef92ff8dacb3263f7662616a",
         "path": "photocraft-plugin"
       },
-      "displayName": "PhotoCraft · Image Editing",
-      "description": "Layers, masks, cutouts, retouching and filters with text and resize variants. Projects stay editable and export to PSD, PNG and other formats.",
+      "displayName": "PhotoCraft（图片编辑）",
+      "description": "图层、蒙版、抠图、修复与滤镜，支持文字与尺寸适配；工程可继续编辑，可导出 PSD、PNG 等格式。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -496,8 +494,8 @@
         "sha256": "7c46db6dbd487c1e516a27b9fa5d0ee307a56bc0cfa6c20f6c12466778235454",
         "path": "soundcraft-plugin"
       },
-      "displayName": "SoundCraft · Audio Editing",
-      "description": "Dialogue cleanup, loudness matching, voice-over mixing, audio edits and loop stitching. Processing follows segments and silence ranges while keeping sync.",
+      "displayName": "SoundCraft（音频处理）",
+      "description": "口播清理、多人响度统一、配音混音、音频剪辑与循环拼接；按段落与静音区间处理，保持对时关系。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Creativity",
       "line": "full-aigc",
@@ -519,13 +517,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/download/v0.1.0-dev.20261019.1/vectorcraft-plugin-0.1.0-dev.20261019.1.zip",
-        "sha256": "9c55e64948b6f6435bc2f83d96dd7572a1cdd14bde0793c08bc9d672b83cffb1",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/download/v0.1.0-dev.20261017.6/vectorcraft-plugin-0.1.0-dev.20261017.6.zip",
+        "sha256": "4967fb17ddecda85c2c6c885f193fd607f56216b417be361a5a35e312c39f526",
         "path": "vectorcraft-plugin"
       },
-      "displayName": "VectorCraft · Vector Design",
-      "description": "Logos, icon sets, infographics, SVG cleanup and multi-artboard variants. Exports SVG, PDF and PNG with editable paths.",
-      "version": "0.1.0-dev.20261019.1",
+      "displayName": "VectorCraft（矢量设计）",
+      "description": "标志、图标集、信息图、SVG 清理与多画板变体；导出 SVG、PDF 与 PNG，路径保持可编辑。",
+      "version": "0.1.0-dev.20261017.6",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -538,7 +536,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261017.6/assets/official-logo.png",
       "strict": true
     },
     {
@@ -546,11 +544,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/video-factory-plugin",
-        "ref": "v0.5.1"
+        "ref": "v0.4.0"
       },
-      "displayName": "Video Factory · Auto Video Editing",
-      "description": "Shot analysis, edit decisions, rough and final cut approval, composition and media receipt verification.",
-      "version": "0.5.1",
+      "displayName": "Video（自动剪辑成片）",
+      "description": "拉片分析、剪辑决策、粗剪与精剪审批、合成与媒体回执校验。",
+      "version": "0.4.0",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -562,7 +560,7 @@
         "editing",
         "receipts"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.1/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.4.0/assets/logo-approved.png",
       "strict": true
     },
     {
@@ -570,11 +568,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/volcengine-design-plugin",
-        "ref": "v0.2.1"
+        "ref": "v0.1.2"
       },
-      "displayName": "Volcengine Design · Doubao Voice & Video",
-      "description": "Doubao ASR with millisecond word timelines, TTS narration, Seedream images and Seedance video. Two credential families stay separate and tasks are submitted once.",
-      "version": "0.2.1",
+      "displayName": "Volcengine（豆包语音与视频）",
+      "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频；两套凭据分离，任务只提交一次。",
+      "version": "0.1.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -588,7 +586,7 @@
         "tts",
         "video"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.1.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -600,8 +598,8 @@
         "sha256": "1824ccce55da51b1568f8bab13c9ec6447563e39104ab57cf76462e6f74e08c9",
         "path": "wordcraft-plugin"
       },
-      "displayName": "WordCraft · Document Writing",
-      "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
+      "displayName": "WordCraft（文档写作）",
+      "description": "工作周报、会议纪要、商业报价、验收报告、需求说明与简历；样式、目录、页码与图表题注保持一致。",
       "version": "0.1.0-dev.20261019.1",
       "category": "Productivity",
       "line": "full-aigc",
@@ -623,12 +621,12 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/xuanji-plugin",
-        "ref": "v0.2.1"
+        "ref": "v0.1.1"
       },
-      "displayName": "Xuanji · Divination (Entertainment)",
-      "description": "Entertainment-grade Chinese metaphysics with script-verified charts and auditable classical citations. For entertainment only.",
-      "version": "0.2.1",
-      "category": "Creativity",
+      "displayName": "Xuanji（命理排盘 · 娱乐）",
+      "description": "娱乐向术数六科，排盘由脚本校验、引文可追溯；仅供娱乐，不构成专业建议。",
+      "version": "0.1.1",
+      "category": "Entertainment",
       "line": "full-aigc",
       "componentTypes": [
         "skills",
@@ -643,7 +641,7 @@
         "divination",
         "entertainment"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.1/assets/logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.1.1/assets/logo.png",
       "strict": true
     }
   ]
