@@ -48,10 +48,10 @@ def run(market,output,public=False,cli=None,names=None,ref=None,marketplace_name
    allowed={name+'-editor'} | ({'printcraft-editor'} if name=='pdfcraft' else set())
    assert len(configured)==1 and next(iter(configured)) in allowed, name+' MCP server identity mismatch'
    servers[name]=next(iter(configured))
-   wait_connected(host,thread,servers[name],timeout=150)
+   wait_connected(host,thread,servers[name].removesuffix('-editor'),timeout=150)
   for name in names:
    try:
-    server=wait_connected(host,thread,servers[name],timeout=150)
+    server=wait_connected(host,thread,servers[name].removesuffix('-editor'),timeout=150)
     installed=Path(json.loads((output/(name+'-install.json')).read_text())['installedPath'])
     expected_version=json.loads((installed/'ui/runtime.lock.json').read_text())['version']
     assert server['serverInfo']['version']==expected_version, 'MCP/runtime version mismatch'
