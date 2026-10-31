@@ -41,15 +41,25 @@ def run(market,output,public=False,cli=None,names=None,ref=None,marketplace_name
    assert not missing, 'Installed skills were not discovered: '+str(missing)
   (output/'skills-discovery.json').write_text(json.dumps({'scope':'real Codex skills/list; installed plugin paths only','plugins':names,'count':sum(len(list((Path(json.loads((output/(name+'-install.json')).read_text())['installedPath'])/'skills').glob('*/SKILL.md'))) for name in names),'status':'PASS'},indent=2))
   thread=host.call('thread/start',{'cwd':str(work),'approvalPolicy':'never','sandbox':'workspace-write'})['thread']['id']
-  for name in names:wait_connected(host,thread,name,timeout=150)
+  servers={}
+  for name in names:
+   installed=Path(json.loads((output/(name+'-install.json')).read_text())['installedPath'])
+   configured=json.loads((installed/'mcp.json').read_text())['mcpServers']
+   allowed={name+'-editor'} | ({'printcraft-editor'} if name=='pdfcraft' else set())
+   assert len(configured)==1 and next(iter(configured)) in allowed, name+' MCP server identity mismatch'
+   servers[name]=next(iter(configured))
+   wait_connected(host,thread,servers[name].removesuffix('-editor'),timeout=150)
   for name in names:
    try:
-    server=wait_connected(host,thread,name,timeout=150)
+    server=wait_connected(host,thread,servers[name].removesuffix('-editor'),timeout=150)
+    installed=Path(json.loads((output/(name+'-install.json')).read_text())['installedPath'])
     expected_version=json.loads((output/(name+'-install.json')).read_text())['version']
-    assert server['serverInfo']['version']==expected_version, 'MCP/plugin version mismatch'
+    runtime_version=json.loads((installed/'ui/runtime.lock.json').read_text())['version']
+    assert runtime_version==expected_version, 'MCP/plugin version mismatch: '+name
+    assert server['serverInfo']['version']==runtime_version, 'MCP/runtime version mismatch'
     values={}
     for tool,args in [('editor_status',{}),('open_browser_editor',{'workspace':str(work)})]:
-     value=host.call('mcpServer/tool/call',{'threadId':thread,'server':name+'-editor','tool':tool,'arguments':args});assert not value.get('isError'),value;values[tool]=value
+     value=host.call('mcpServer/tool/call',{'threadId':thread,'server':servers[name],'tool':tool,'arguments':args});assert not value.get('isError'),value;values[tool]=value
     assert Path(values['open_browser_editor']['structuredContent']['workspace']).resolve()==work.resolve(), 'Wrong editor workspace'
     url=values['open_browser_editor']['structuredContent']['editorUrl']
     with urlopen(url,timeout=30) as response:
