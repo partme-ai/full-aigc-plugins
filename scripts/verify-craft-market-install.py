@@ -53,8 +53,10 @@ def run(market,output,public=False,cli=None,names=None,ref=None,marketplace_name
    try:
     server=wait_connected(host,thread,servers[name].removesuffix('-editor'),timeout=150)
     installed=Path(json.loads((output/(name+'-install.json')).read_text())['installedPath'])
-    expected_version=json.loads((installed/'ui/runtime.lock.json').read_text())['version']
-    assert server['serverInfo']['version']==expected_version, 'MCP/runtime version mismatch'
+    expected_version=json.loads((output/(name+'-install.json')).read_text())['version']
+    runtime_version=json.loads((installed/'ui/runtime.lock.json').read_text())['version']
+    assert runtime_version==expected_version, 'MCP/plugin version mismatch: '+name
+    assert server['serverInfo']['version']==runtime_version, 'MCP/runtime version mismatch'
     values={}
     for tool,args in [('editor_status',{}),('open_browser_editor',{'workspace':str(work)})]:
      value=host.call('mcpServer/tool/call',{'threadId':thread,'server':servers[name],'tool':tool,'arguments':args});assert not value.get('isError'),value;values[tool]=value
