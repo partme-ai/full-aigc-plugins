@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://full-aigc-skills.example/schemas/media-preflight-v1.schema.json",
+  "title": "media-preflight/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "preflight_id", "source", "compatibility", "proposed_conversion", "approval", "derivative", "staging", "quality_comparison", "rollback"],
+  "properties": {
+    "schema": {"const": "media-preflight/v1"},
+    "preflight_id": {"type": "string", "minLength": 1},
+    "source": {"$ref": "#/$defs/media"},
+    "compatibility": {
+      "type": "object", "additionalProperties": false,
+      "required": ["target", "editor_version", "status", "reasons"],
+      "properties": {
+        "target": {"const": "jianying"},
+        "editor_version": {"type": "string", "minLength": 1},
+        "status": {"enum": ["compatible", "conversion_required", "blocked"]},
+        "reasons": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "proposed_conversion": {
+      "type": "object", "additionalProperties": false,
+      "required": ["container", "video_codec", "audio_codec", "preserve_alpha", "parameters_digest"],
+      "properties": {
+        "container": {"type": "string"}, "video_codec": {"type": "string"},
+        "audio_codec": {"type": "string"}, "preserve_alpha": {"type": "boolean"},
+        "parameters_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "approval": {
+      "type": "object", "additionalProperties": false,
+      "required": ["required", "status", "binding_hash"],
+      "properties": {
+        "required": {"const": true}, "status": {"const": "approved"},
+        "binding_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "derivative": {"$ref": "#/$defs/media"},
+    "staging": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mode", "self_contained", "target_root_hash"],
+      "properties": {
+        "mode": {"enum": ["copy", "hardlink"]}, "self_contained": {"const": true},
+        "target_root_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "quality_comparison": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "video_frame_delta", "audio_duration_delta_us"],
+      "properties": {
+        "status": {"enum": ["within_bounds", "manual_review", "failed"]},
+        "video_frame_delta": {"type": "integer"},
+        "audio_duration_delta_us": {"type": "integer"}
+      }
+    },
+    "rollback": {
+      "type": "object", "additionalProperties": false,
+      "required": ["retain_source", "remove_derivative"],
+      "properties": {"retain_source": {"const": true}, "remove_derivative": {"type": "boolean"}}
+    }
+  },
+  "$defs": {
+    "media": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256", "size_bytes", "probe"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^/"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "probe": {"$ref": "#/$defs/probe"}
+      }
+    },
+    "probe": {
+      "type": "object", "additionalProperties": false,
+      "required": ["container", "video_codec", "width", "height", "fps", "alpha", "audio_codec"],
+      "properties": {
+        "container": {"type": "string"}, "video_codec": {"type": "string"},
+        "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1},
+        "fps": {"type": "object", "required": ["num", "den"], "additionalProperties": false, "properties": {"num": {"type": "integer", "minimum": 1}, "den": {"type": "integer", "minimum": 1}}},
+        "alpha": {"type": "boolean"}, "audio_codec": {"type": "string"}
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Distribution validation
+        run: python3 scripts/validate_distribution.py
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -t . -v
+      - name: Rust runtime adapter contract tests
+        run: node --test tests/runtime_adapter.test.mjs tests/cross_host_contract.test.mjs tests/workflow_e2e.test.mjs tests/real_cli_harness.test.mjs tests/real_cross_host_cli.test.mjs tests/real_cli_bundle_install.test.mjs tests/real_cli_archive_fetch.test.mjs tests/fetch_cli_artifact.test.mjs tests/release_index.test.mjs tests/release_evidence.test.mjs
+      - name: Validate 108 video scene routes
+        run: node --test tests/video_planner.test.mjs
+      - name: Validate open routing and backward compatibility
+        run: node --test tests/open_workflow.test.mjs

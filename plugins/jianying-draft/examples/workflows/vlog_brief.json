@@ -1,0 +1,35 @@
+{
+  "schema": "jianying-creative-brief/v1",
+  "request_id": "vlog-first-increment",
+  "intent": "把普通一天剪成有起伏的生活日记",
+  "scene_ids": [
+    "VG01"
+  ],
+  "constraints": {},
+  "dimensions": {
+    "A03": [
+      "D01"
+    ]
+  },
+  "output_intents": [
+    {
+      "id": "vlog-main",
+      "purpose": "个人生活记录",
+      "format": "video",
+      "delivery": "editable_draft"
+    }
+  ],
+  "facts": [
+    {
+      "name": "素材核验",
+      "value": "尚未提供媒体和选段",
+      "source": "unknown",
+      "source_ref": "",
+      "confirmed": false
+    }
+  ],
+  "media": [],
+  "metadata": {
+    "example.kind": "planning_only"
+  }
+}

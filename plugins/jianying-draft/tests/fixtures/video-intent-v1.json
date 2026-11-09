@@ -1,0 +1,8 @@
+{
+  "schema": "jianying-video-intent/v1",
+  "scene_id": "TR01",
+  "delivery": "plan",
+  "channel": "short_vertical",
+  "media": [],
+  "requested_features": []
+}

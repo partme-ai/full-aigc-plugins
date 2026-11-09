@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-creative-brief/v1",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "jianying-creative-brief/v1"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intent": {
+      "type": "string"
+    },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "domain_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "exclude_domain_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      }
+    },
+    "output_intents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "type": "string",
+            "minLength": 1
+          },
+          "delivery": {
+            "enum": [
+              "plan",
+              "editable_draft",
+              "proxy_preview",
+              "native_export"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "purpose",
+          "format",
+          "delivery"
+        ],
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "string"
+          },
+          "source": {
+            "enum": [
+              "user",
+              "observed",
+              "human",
+              "inferred",
+              "unknown"
+            ]
+          },
+          "source_ref": {
+            "type": "string"
+          },
+          "confirmed": {
+            "type": "boolean"
+          },
+          "observed_at": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "value",
+          "source",
+          "source_ref",
+          "confirmed"
+        ],
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "scene_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema",
+    "request_id",
+    "intent",
+    "constraints",
+    "dimensions",
+    "output_intents",
+    "facts",
+    "metadata"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "jianying-plugin-rust-migration-baseline/v1",
+  "captured_from_commit": "8d1cbbc62ee860b096b0c500108036ddbc2a8b6d",
+  "target_cli_contract": {
+    "artifact": "jianying-cli",
+    "minimum_version": "1.4.0",
+    "job_schema": "jianying-job/v2",
+    "compatibility_input": "jianying-cli-plan/v1",
+    "capability_source": "jianying-cli provenance/CAPABILITIES.json",
+    "state": "source_contract_available",
+    "switch_rule": "No workflow becomes Rust-only until every required capability has supported evidence."
+  },
+  "current_cli_evidence": {
+    "vendored_version": "1.4.0",
+    "vendored_snapshot_supports_unified_job_v2": false,
+    "development_checkout_version": "1.4.0",
+    "development_checkout_supports_unified_job_v2": true,
+    "development_checkout_supports_machine_capability_manifest": true,
+    "evidence": "development checkout: jianying capabilities --json and jianying job run JOB --json black-box contracts",
+    "decision": "runtime_adapter_canary_allowed; production switch still requires verified distributed artifact"
+  },
+  "workflows": [
+    {"id":"use","skill":"jianying-draft-use","current_route":"tier router","required_capabilities":["doctor","capabilities"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"edit","skill":"jianying-draft","current_route":"pyJianYingDraft runner + optional headless","required_capabilities":["job.run","project.create","project.edit_isolated","project.verify"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"draft","skill":"jianying-draft","current_route":"Python API cookbook","required_capabilities":["schema.job_v2","schema.plan_v1_compat"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"setup","skill":"jianying-draft-setup","current_route":"Python environment checker","required_capabilities":["doctor","runtime.status"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"narration","skill":"jianying-draft-narration","current_route":"Python plan + optional headless ASR","required_capabilities":["media.probe","media.asr_ledger","timeline.edit"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"subtitles","skill":"jianying-draft-subtitles","current_route":"pyJianYingDraft text API","required_capabilities":["captions.import","captions.style","captions.verify"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"audio","skill":"jianying-draft-audio","current_route":"pyJianYingDraft audio API","required_capabilities":["media.audio","timeline.volume","timeline.audio_fade"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"motion","skill":"jianying-draft-motion","current_route":"pyJianYingDraft keyframe API","required_capabilities":["timeline.keyframe","timeline.animation","timeline.quantization_report"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"transitions","skill":"jianying-draft-transitions","current_route":"pyJianYingDraft transition API","required_capabilities":["timeline.transition","media.catalogue"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"inspect","skill":"jianying-draft-inspect","current_route":"ffprobe + mixed engines","required_capabilities":["media.probe","project.inspect","project.verify"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"export-prep","skill":"jianying-draft-export-prep","current_route":"manual checklist + optional headless export","required_capabilities":["render.proxy","render.native","runtime.profile"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"recover","skill":"jianying-draft-recover","current_route":"Python/fork-specific recovery","required_capabilities":["job.show","job.retry","job.audit","store.restore"],"migration_state":"blocked_on_cli_contract"},
+    {"id":"harness","skill":"jianying-draft-harness","current_route":"external headless command reference","required_capabilities":["job.lifecycle","approvals","config","mcp.serve"],"migration_state":"blocked_on_cli_contract"}
+  ],
+  "legacy_runtime_inventory": [
+    {"path":"scripts/jydraft_run.py","kind":"python_runner","action":"remove_after_rust_parity","source":"plugin"},
+    {"path":"scripts/jydraft_check.py","kind":"python_environment_check","action":"replace_with_cli_doctor","source":"plugin"},
+    {"path":"scripts/vendor/pyJianYingDraft","kind":"vendored_python_engine","action":"remove_after_rust_parity","source":"pyJianYingDraft@c3318066"},
+    {"path":"scripts/vendor/jianying-cli","kind":"vendored_rust_source_snapshot","action":"replace_with_verified_binary_distribution","source":"jianying-cli"},
+    {"path":"hooks/env_check.py","kind":"python_host_hook","action":"retain_only_as_thin_host_adapter_or_replace","source":"plugin"},
+    {"path":"skills/jianying-draft-harness","kind":"external_headless_route","action":"replace_from_canonical_skills_release","source":"jianying-headless capability target"},
+    {"path":"README.md","kind":"legacy_three_tier_documentation","action":"rewrite_after_workflow_switch","source":"plugin"},
+    {"path":"README.zh-CN.md","kind":"legacy_three_tier_documentation","action":"rewrite_after_workflow_switch","source":"plugin"}
+  ],
+  "legacy_environment_contracts": [
+    {"name":"JIANYING_HEADLESS_ROOT","action":"remove_after_explicit_migration_error_is_available"},
+    {"name":"JY_DRAFT_ROOT","action":"map_to_cli_profile_without_semantic_change"}
+  ],
+  "host_baseline": [
+    {"host":"Codex","manifest":".codex-plugin/plugin.json","fixture":"current manifest + commands"},
+    {"host":"ZCode","manifest":".zcode-plugin/plugin.json","fixture":"current manifest + hooks + userConfig"},
+    {"host":"Kimi","manifest":"kimi.plugin.json","fixture":"current manifest + SessionStart"}
+  ],
+  "removal_gate": "Legacy paths remain present but frozen until the corresponding Rust workflow reaches structural and host acceptance."
+}

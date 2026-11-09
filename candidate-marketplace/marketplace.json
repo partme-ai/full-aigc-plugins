@@ -4,33 +4,6 @@
   "description": "Full AIGC plugin marketplace for Codex, ZCode, and Kimi Code: image, video, audio, music, 3D, and multimodal content creation.",
   "plugins": [
     {
-      "name": "cadcraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/download/v0.1.0-dev.20261109.5/cadcraft-plugin-0.1.0-dev.20261109.5.zip",
-        "sha256": "9bd66bdc000349160a642cb46b823c54b18506927f95a8a225e9592f9e0cf5aa",
-        "path": "cadcraft-plugin"
-      },
-      "displayName": "CADCraft（三维制图）",
-      "description": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
-      "version": "0.1.0-dev.20261109.5",
-      "category": "Creativity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "cadcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "strict": true
-    },
-    {
       "name": "content-factory",
       "source": {
         "source": "github",
@@ -53,60 +26,6 @@
         "rc"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.4/assets/content-factory.svg",
-      "strict": true
-    },
-    {
-      "name": "deckcraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/download/v0.1.0-dev.20261109.5/deckcraft-plugin-0.1.0-dev.20261109.5.zip",
-        "sha256": "e3ef4a6fdc1120540041ef8aa45c22e104f2b771eb1f26450c1eb30884aed0b5",
-        "path": "deckcraft-plugin"
-      },
-      "displayName": "DeckCraft（演示文稿）",
-      "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
-      "version": "0.1.0-dev.20261109.5",
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "deckcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "designcraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/download/v0.1.0-dev.20261109.5/designcraft-plugin-0.1.0-dev.20261109.5.zip",
-        "sha256": "0a9507a4639833a508e6f7c63e8134d9109610b2e002c3c2d0c293d9e8350034",
-        "path": "designcraft-plugin"
-      },
-      "displayName": "DesignCraft（页面排版）",
-      "description": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
-      "version": "0.1.0-dev.20261109.5",
-      "category": "Creativity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "designcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
       "strict": true
     },
     {
@@ -213,33 +132,6 @@
       "strict": true
     },
     {
-      "name": "gridcraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/download/v0.1.0-dev.20261109.5/gridcraft-plugin-0.1.0-dev.20261109.5.zip",
-        "sha256": "ce97e05276174e9b02a730196b5befda35eef5c29fc110d9c25478b4bf26e83e",
-        "path": "gridcraft-plugin"
-      },
-      "displayName": "GridCraft（电子表格）",
-      "description": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
-      "version": "0.1.0-dev.20261109.5",
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "gridcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "strict": true
-    },
-    {
       "name": "lightcraft",
       "source": {
         "source": "url",
@@ -264,141 +156,6 @@
         "editor"
       ],
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.4/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "pdfcraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/download/v0.1.0-dev.20261109.4/pdfcraft-plugin-0.1.0-dev.20261109.4.zip",
-        "sha256": "2df68b9348ba23ae51288a176bf0a51f48ec6d0d60acc044f7dfe43f82e2a349",
-        "path": "pdfcraft-plugin"
-      },
-      "displayName": "PdfCraft（PDF 处理）",
-      "description": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
-      "version": "0.1.0-dev.20261109.4",
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "pdfcraft",
-        "pdf",
-        "craft",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261109.4/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "photocraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/download/v0.1.0-dev.20261109.5/photocraft-plugin-0.1.0-dev.20261109.5.zip",
-        "sha256": "bcca404526dbd408f24669e09cb0d7d1ed3bb3a978c1acec9cd4b329f7ac4a2d",
-        "path": "photocraft-plugin"
-      },
-      "displayName": "PhotoCraft（图片编辑）",
-      "description": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
-      "version": "0.1.0-dev.20261109.5",
-      "category": "Creativity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "photocraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "soundcraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/download/v0.1.0-dev.20261109.5/soundcraft-plugin-0.1.0-dev.20261109.5.zip",
-        "sha256": "73cea91c189b170c712fe65fd7448c5cc507063da2d47e7f34a858e0c07b0778",
-        "path": "soundcraft-plugin"
-      },
-      "displayName": "SoundCraft（音频处理）",
-      "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
-      "version": "0.1.0-dev.20261109.5",
-      "category": "Creativity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "soundcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "vectorcraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/download/v0.1.0-dev.20261109.5/vectorcraft-plugin-0.1.0-dev.20261109.5.zip",
-        "sha256": "41cc4780899b3c0085f800546669698972b64ce2d8a741a62a070e5bf675f52e",
-        "path": "vectorcraft-plugin"
-      },
-      "displayName": "VectorCraft（矢量设计）",
-      "description": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
-      "version": "0.1.0-dev.20261109.5",
-      "category": "Creativity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "vectorcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "wordcraft",
-      "source": {
-        "source": "url",
-        "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/download/v0.1.0-dev.20261109.5/wordcraft-plugin-0.1.0-dev.20261109.5.zip",
-        "sha256": "35345a7f43ea4728f34653f7e7b3c85f4abd43161ebd2c443d0553828af4d9e6",
-        "path": "wordcraft-plugin"
-      },
-      "displayName": "WordCraft（文档写作）",
-      "description": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
-      "version": "0.1.0-dev.20261109.5",
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "wordcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
       "strict": true
     }
   ]

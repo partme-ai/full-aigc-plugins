@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映视频剪辑规划"
+  short_description: "按渠道、用途与素材选择剪辑方案，列出素材缺口和可用能力映射"
+  default_prompt: "使用 $jianying-draft-video-planning 按渠道、用途与素材选择剪辑方案，列出素材缺口和可用能力映射；先核对输入、可用能力和交付要求。"

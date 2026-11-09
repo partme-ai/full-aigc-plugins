@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-digital-human-evidence/v1",
+  "type": "object",
+  "required": ["schema", "request_id", "status", "provider", "vendor_request_id", "remote_task_id", "actual_cost_microunits", "artifact", "evidence_digest"],
+  "properties": {
+    "schema": {"const": "jianying-digital-human-evidence/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "status": {"const": "verified"},
+    "provider": {"type": "string", "minLength": 1},
+    "vendor_request_id": {"type": "string", "minLength": 1},
+    "remote_task_id": {"type": "string", "minLength": 1},
+    "actual_cost_microunits": {"type": "number"},
+    "artifact": {"type": "object"},
+    "evidence_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "jianying-plugin-host-contract-fixture/v2",
+  "runtime": {
+    "adapter": "scripts/runtime_adapter.mjs",
+    "harness": "scripts/harness.mjs",
+    "cli_schema": "jianying-capabilities/v1",
+    "job_schema": "jianying-job/v2"
+  },
+  "hosts": [
+    {
+      "id": "codex",
+      "manifest": ".codex-plugin/plugin.json",
+      "entry": "skills/jianying-draft-use/SKILL.md"
+    },
+    {
+      "id": "zcode",
+      "manifest": ".zcode-plugin/plugin.json",
+      "entry": "skills/jianying-draft-use/SKILL.md",
+      "commands": "commands",
+      "session_hook": "hooks/hooks.json"
+    },
+    {
+      "id": "kimi",
+      "manifest": "kimi.plugin.json",
+      "entry": "skills/jianying-draft-use/SKILL.md",
+      "commands": "commands",
+      "session_hook": "hooks/hooks.json"
+    }
+  ],
+  "observable_cases": [
+    {
+      "id": "create-draft",
+      "expected_stage": "deliver",
+      "expected_terminal": "completed",
+      "expected_evidence": "editable_draft"
+    },
+    {
+      "id": "approval-scope-mismatch",
+      "expected_error": "approval_scope_mismatch",
+      "retryable": true
+    },
+    {
+      "id": "missing-capability",
+      "required_capability": "render.native",
+      "expected_error": "missing_capability",
+      "retryable": false
+    },
+    {
+      "id": "recoverable-job",
+      "expected_terminal": "recoverable",
+      "expected_recovery_stage": "approve",
+      "retryable": true
+    }
+  ],
+  "equivalence": [
+    "task_id",
+    "stage",
+    "terminal_state",
+    "evidence_level",
+    "error_type",
+    "recovery"
+  ]
+}

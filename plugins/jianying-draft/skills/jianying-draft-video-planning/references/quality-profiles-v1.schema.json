@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-quality-profile-catalog/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "profiles", "metadata"],
+  "properties": {
+    "schema": {"const": "jianying-quality-profile-catalog/v1"},
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/profile"}
+    },
+    "metadata": {"type": "object", "additionalProperties": true}
+  },
+  "$defs": {
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "profile_id", "version", "dimensions", "allowed_actions", "human_boundaries", "metadata"],
+      "properties": {
+        "schema": {"const": "jianying-quality-profile/v1"},
+        "profile_id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/dimension"}
+        },
+        "allowed_actions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "human_boundaries": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "metadata": {"type": "object", "additionalProperties": true}
+      }
+    },
+    "dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension_id", "label", "weight", "threshold", "hard_gate", "evidence_types"],
+      "properties": {
+        "dimension_id": {"type": "string", "minLength": 1},
+        "label": {"type": "string", "minLength": 1},
+        "weight": {"type": "number", "minimum": 0, "maximum": 10},
+        "threshold": {"type": "number", "minimum": 0, "maximum": 10},
+        "hard_gate": {"type": "boolean"},
+        "evidence_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "jianying-release-protection-policy/v1",
+  "repository": "full-aigc-plugins/jianying-draft-plugin",
+  "mode": "immutable_release_with_tag_commit_rechecks",
+  "approvedAt": "2026-09-22T00:00:00+08:00",
+  "approvedBy": "project-owner",
+  "requiredChecks": {
+    "immutableReleasesEnabled": true,
+    "beforeDraftTagCommit": true,
+    "beforePublishTagCommit": true,
+    "afterPublishTagCommit": true,
+    "publishedReleaseImmutable": true
+  }
+}

@@ -1,0 +1,1996 @@
+{
+  "schema": "jianying-scene-sources/v1",
+  "method": "逐场景独立检索，阅读可访问网页或索引摘录；不下载或转载媒体；未观看的视频不声称观看。108 是本库场景数，不是108项热度已验证。",
+  "sources": [
+    {
+      "id": "VG01",
+      "url": "https://www.bilibili.com/video/BV1oX4y137Ue/",
+      "title": "#VLOG教程｜5分钟新手入门｜一个人怎么拍生活美食vlog｜拍摄设备｜拍摄过程｜后期剪辑_哔哩哔哩_bilibili",
+      "query": "day in the life vlog filming editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "19.3万 播放（索引页数值）"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "VG02",
+      "url": "https://www.capcut.com/template-detail/WORK-DAY/7591906288653667600",
+      "title": "WORK DAY - CapCut",
+      "query": "work day vlog edit tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "16.48K uses",
+          "699 likes"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "VG03",
+      "url": "https://www.youtube.com/watch?v=Uz2U1om3dvY",
+      "title": "How I edit my videos | study vlog editing - YouTube",
+      "query": "study vlog editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "VG04",
+      "url": "https://www.youtube.com/watch?v=r2i7M_xDPRg",
+      "title": "BEHIND THE SCENES (Filming, Preparing, Editing) ON MY VIDEOS - YouTube",
+      "query": "behind the scenes video filming editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "109504 views",
+          "2200 likes"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "VG05",
+      "url": "https://www.benjaminkarlsson.com/30-day-video-confidence-challenge",
+      "title": "The 30 Day Video Confidence Challenge - A Full Curriculum - Benjamin Karlsson",
+      "query": "30 day challenge video storytelling filming before after youtube",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "VG06",
+      "url": "https://www.bilibili.com/video/BV1w4411t7Uj/",
+      "title": "给初学者的vlog剪辑创作指南 by 极地手记_哔哩哔哩_bilibili",
+      "query": "搬家 vlog 拍摄 剪辑 教程 bilibili",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "TR01",
+      "url": "https://www.bilibili.com/video/BV15u4y1T7g5/",
+      "title": "3分钟剪辑实战｜旅行vlog如何设计开场_哔哩哔哩_bilibili",
+      "query": "travel vlog editing tutorial storytelling",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "7.4万 播放（索引页数值）"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "TR02",
+      "url": "https://www.bilibili.com/video/BV1PF411Z72U/",
+      "title": "五分钟学会15种高阶手机运镜技巧 |〖 CITY WALK〗旅拍运镜教程_哔哩哔哩_bilibili",
+      "query": "cinematic city walk video tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "21.9万 播放（索引页数值）"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "TR03",
+      "url": "https://www.adobe.com/learn/premiere-pro/web/combine-and-trim-travel-clips",
+      "title": "Adobe Learn - Learn Premiere - Your guide to combining and trimming travel clips",
+      "query": "road trip video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "TR04",
+      "url": "https://www.bilibili.com/video/BV1uT411Z7i6/",
+      "title": "一个人怎么拍〖徒步vlog〗｜15个必拍分镜教程｜出游必藏｜新手友好_哔哩哔哩_bilibili",
+      "query": "hiking camping video filmmaking tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "20.6万 播放（索引页数值）"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "TR05",
+      "url": "https://www.youtube.com/watch?v=nray5y9N3KQ",
+      "title": "LIVE: HOW TO MAKE A TRAVEL ITINERARY - in 10 steps! - YouTube",
+      "query": "travel guide video how to make destination itinerary youtube",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "TR06",
+      "url": "https://www.youtube.com/watch?v=7ifhTIBM80E",
+      "title": "How to Make Cinematic Travel Videos for Beginners (In Depth Guide!) - YouTube",
+      "query": "cinematic landscape travel film editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "WD01",
+      "url": "https://www.youtube.com/watch?v=BBlCCCSBjwM",
+      "title": "How to edit wedding Teaser & Highlights || Premiere pro Tutorial   #premierepro  #tutorial #editing - YouTube",
+      "query": "wedding teaser editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "WD02",
+      "url": "https://vimeo.com/28298787",
+      "title": "How To Create A Wedding Same Day Edit (SDE). Canon DTS (2011) | Videos & Movies on Vimeo",
+      "query": "same day edit wedding workflow tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "WD03",
+      "url": "https://vimeo.com/42334484",
+      "title": "Desmond + Hsing Ying // Tears of Joy | Videos & Movies on Vimeo",
+      "query": "wedding love story film interview editing",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "WD04",
+      "url": "https://www.youtube.com/watch?v=Izf-1flEeB0",
+      "title": "How to Multicam Edit a Wedding Ceremony in DaVinci Resolve - YouTube",
+      "query": "full wedding ceremony multicam editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "WD05",
+      "url": "https://lensdistortions.com/cinematic-wedding-editing-tutorials/",
+      "title": "Cinematic Wedding Editing Tutorial with White In Revery | Lens Distortions",
+      "query": "wedding film editing speeches story White In Revery tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "WD06",
+      "url": "https://the-runaway-club.beehiiv.com/p/we-filmed-a-proposal-video-new-youtube-bts-soon-7fe9d66dda95db02",
+      "title": "We Filmed a Proposal Video — New YouTube BTS Soon ▶️",
+      "query": "proposal engagement film how to shoot edit tutorial youtube",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "FM01",
+      "url": "https://vimeo.com/2070166",
+      "title": "ella's first year | Videos & Movies on Vimeo",
+      "query": "baby growth first year video montage tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "FM02",
+      "url": "https://www.youtube.com/watch?v=6xIT_feKcgY",
+      "title": "How to create a birthday video message montage | Storytelling tips! - YouTube",
+      "query": "birthday video montage tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "8700 views",
+          "68 likes"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "FM03",
+      "url": "https://www.youtube.com/watch?v=fzp50w1IWsY",
+      "title": "Graduation Slideshow Video Template | Easy Canva Edit & Download - YouTube",
+      "query": "graduation video slideshow tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "FM04",
+      "url": "https://www.adobe.com/express/create/video/anniversary",
+      "title": "Free Anniversary Video Maker | Adobe Express",
+      "query": "anniversary video montage tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "FM05",
+      "url": "https://www.adobe.com/learn/photoshop-elements/web/create-slideshows",
+      "title": "Adobe Learn - Learn Photoshop Elements - Create slideshows",
+      "query": "family photo slideshow video tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "FM06",
+      "url": "https://www.youtube.com/watch?v=kmMRiKYlcXA",
+      "title": "Funeral Slideshow: How to Create a Touching Tribute Video - YouTube",
+      "query": "memorial tribute video how to make",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "EV01",
+      "url": "https://vimeo.com/blog/post/event-recap-video",
+      "title": "How to Master the Event Recap or Conference Wrap Up Video | Vimeo",
+      "query": "corporate event recap video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "EV02",
+      "url": "https://vimeo.com/1031407556",
+      "title": "Event Highlights Sizzle Reel Video Example - Lenovo Product Launch Event | Videos & Movies on Vimeo",
+      "query": "product launch event highlight video tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "EV03",
+      "url": "https://vimeo.com/205812744",
+      "title": "Make Engaging Trade Show Videos - 142 Productions | Videos & Movies on Vimeo",
+      "query": "trade show recap video production tips",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "EV04",
+      "url": "https://vimeo.com/143135092",
+      "title": "U.S. Marine Corps Conference KeyNote Speaker clip (full production) | Videos & Movies on Vimeo",
+      "query": "conference video editing multicamera highlights",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "EV05",
+      "url": "https://vimeo.com/102755751",
+      "title": "Grand Opening Event Video | Videos & Movies on Vimeo",
+      "query": "grand opening event video production",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "EV06",
+      "url": "https://vimeo.com/1127692479",
+      "title": "Crush Cancer - Fundraiser Event Film | Videos & Movies on Vimeo",
+      "query": "charity event recap video storytelling",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "BR01",
+      "url": "https://www.youtube.com/watch?v=0uni7mCQGUM",
+      "title": "Master Brand Storytelling In 13 Min (20+ Examples) - YouTube",
+      "query": "brand story video examples how to",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "BR02",
+      "url": "https://vimeo.com/438568640",
+      "title": "Corporate Brand Video | Hilo Motion Pictures | Videos & Movies on Vimeo",
+      "query": "corporate brand film production examples",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "BR03",
+      "url": "https://vimeo.com/1133705570",
+      "title": "Veld Mergers | Founder Interview on the Past, Present, and Future | Videos & Movies on Vimeo",
+      "query": "founder story video interview examples",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "BR04",
+      "url": "https://vimeo.com/644322847",
+      "title": "Huws Gray &mdash; Employer Brand (EVP) Recruitment Film (2:02) | MHF Creative | Videos & Movies on Vimeo",
+      "query": "employer branding recruitment video examples",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "BR05",
+      "url": "https://vimeo.com/1032387347",
+      "title": "Youth Engaging Philanthropy - Campaign Film | NonProfit | Videos & Movies on Vimeo",
+      "query": "nonprofit campaign video storytelling examples",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "BR06",
+      "url": "https://vimeo.com/1014265004?share=copy",
+      "title": "75 Year Anniversary Video | Videos & Movies on Vimeo",
+      "query": "company anniversary video examples",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "AD01",
+      "url": "https://ads.tiktok.com/business/en/guides/product-advertising",
+      "title": "How to Advertise a Product | TikTok for Business",
+      "query": "product video ad tutorial selling points",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "AD02",
+      "url": "https://vimeo.com/149896359",
+      "title": "DRTV Tactics That Work - Problems &amp; Solutions | Ken Kerry | Script to Screen | Videos & Movies on Vimeo",
+      "query": "problem solution video ad creative tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "AD03",
+      "url": "https://vimeo.com/1091247318",
+      "title": "Short-form Ad: On Location x Car Parts &quot;Testimonial&quot; - Standard UGC | Videos & Movies on Vimeo",
+      "query": "UGC testimonial video ad tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "AD04",
+      "url": "https://www.adobe.com/express/create/video/promo",
+      "title": "Create a Free Promo Video Online | Adobe Express",
+      "query": "sale promotional video create tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "AD05",
+      "url": "https://ads.tiktok.com/business/nl-NL/inspiration/tapnow",
+      "title": "TapNow | TikTok for Business Case Study",
+      "query": "mobile app install video ad creative",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "AD06",
+      "url": "https://www.bilibili.com/video/BV17S4y1s72F/",
+      "title": "餐饮店开业宣传片如何拍_哔哩哔哩_bilibili",
+      "query": "restaurant local business promotional video tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "2446 播放（索引页数值）"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PD01",
+      "url": "https://www.youtube.com/watch?v=HYVxFy3bfGI",
+      "title": "How to make a product unboxing video? Phone video tutorial | Unboxing video tips with ‪@ViragDesaiViragDesai‬ - YouTube",
+      "query": "unboxing video how to make tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PD02",
+      "url": "https://www.youtube.com/watch?v=zblQdr-Qd1c",
+      "title": "How to Make a Product Demo (FREE Template) - YouTube",
+      "query": "product demo video how to make",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PD03",
+      "url": "https://vimeo.com/create/marketing/reviews",
+      "title": "Free Review Video Maker & Templates",
+      "query": "product comparison review video tips",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PD04",
+      "url": "https://helpx.adobe.com/captivate/help/record-software-simulations-adobe-captivate-alt.html",
+      "title": "How to record software simulations in Adobe Captivate | Captivate",
+      "query": "software screen recording demo video tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PD05",
+      "url": "https://vimeo.com/blog/post/software-video-demos",
+      "title": "How to Create Software Demo Videos, with 8 Examples",
+      "query": "new feature announcement video examples",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PD06",
+      "url": "https://vimeo.com/1154733984",
+      "title": "INDUSTRIAL INSTALLATION PRODUCTION | Videos & Movies on Vimeo",
+      "query": "installation instructional video tutorial production",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ED01",
+      "url": "https://www.youtube.com/watch?v=nr-0Dy8sH-c",
+      "title": "How to Create Microlearning Videos in 5 Easy Steps - YouTube",
+      "query": "microlearning video how to create",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ED02",
+      "url": "https://vimeo.com/blog/post/designing-recording-instructional-course?mkc=36824",
+      "title": "The Playbook for Designing an Instructional Video Course",
+      "query": "online course video lesson production guide",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ED03",
+      "url": "https://www.youtube.com/watch?v=BDliEq_0qeQ",
+      "title": "How to Make a Tutorial Video - YouTube",
+      "query": "how to make tutorial video steps",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ED04",
+      "url": "https://vimeo.com/blog/post/how-to-make-explainer-videos",
+      "title": "How to Make a Quality Explainer Video in 8 Steps",
+      "query": "science explainer video production tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ED05",
+      "url": "https://studio.cloudemy.in/blog/how-to-record-math-lectures-with-handwriting/",
+      "title": "How to Record Math Lectures with Handwriting on Android Tablet",
+      "query": "how to record math lesson handwriting video tutorial youtube",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ED06",
+      "url": "https://vimeo.com/673656869",
+      "title": "Science experiment example | Videos & Movies on Vimeo",
+      "query": "science experiment video recording tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "CO01",
+      "url": "https://www.youtube.com/watch?v=qyXvLDo2KrI",
+      "title": "HR Employee Onboarding Video Template - Edit this Powtoon now - YouTube",
+      "query": "employee onboarding video examples",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "CO02",
+      "url": "https://assets.techsmith.com/docs/How_to_Create_Employee_Training_Videos.pdf",
+      "title": "How to Create Employee Training Videos",
+      "query": "how to make SOP training videos TechSmith",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "CO03",
+      "url": "https://vimeo.com/1192341982",
+      "title": "Employee Safety Training &amp; Site Orientation Video | Precision Environmental | Videos & Movies on Vimeo",
+      "query": "workplace safety training video production",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "CO04",
+      "url": "https://www.youtube.com/watch?v=DNkiBAKKk9Q",
+      "title": "Customer Onboarding Video | Best Customer Onboarding Video Example - YouTube",
+      "query": "customer onboarding video best examples",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "CO05",
+      "url": "https://vimeo.com/434439388",
+      "title": "How to Create an Explainer Video Step by Step | Videos & Movies on Vimeo",
+      "query": "FAQ video how to create",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "CO06",
+      "url": "https://vimeo.com/777490850",
+      "title": "TLMD \"Collaboration\" Internal Presentation Video | Videos & Movies on Vimeo",
+      "query": "internal business update video presentation",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "IV01",
+      "url": "https://www.youtube.com/watch?v=83lrpsKcbqQ",
+      "title": "How to Shoot & Edit B Roll For Beginners (Step-by-Step Tutorial) - YouTube",
+      "query": "interview video editing tutorial b roll",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "IV02",
+      "url": "https://www.youtube.com/watch?v=HvqoMLjV4R4",
+      "title": "TWO PERSON INTERVIEW (HOW TO FILM IT) - YouTube",
+      "query": "two person interview editing multicam tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "IV03",
+      "url": "https://vimeo.com/1033258568",
+      "title": "The Art of Film & TV Editing: Episodic Storytelling | Videos & Movies on Vimeo",
+      "query": "roundtable discussion video production editing",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "IV04",
+      "url": "https://www.youtube.com/watch?v=seenZS6unp0",
+      "title": "How to Edit a Video Podcast Tutorial (FREE Must-Have App) - YouTube",
+      "query": "video podcast editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "IV05",
+      "url": "https://podcast.adobe.com/en/guides/edit-videos-in-adobe-podcast-studio",
+      "title": "Edit videos in Adobe Podcast Studio",
+      "query": "podcast interview clips editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "IV06",
+      "url": "https://www.adobe.com/max/2024/sessions/shooting-and-editing-interviews-in-premiere-pro-s6609.html",
+      "title": "Shooting and Editing Interviews in Premiere Pro",
+      "query": "street interview video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "DC01",
+      "url": "https://vimeo.com/166860894",
+      "title": "Short Documentary Filmmaking: Creating Video Portraits | Videos & Movies on Vimeo",
+      "query": "short portrait documentary editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "DC02",
+      "url": "https://vimeo.com/230955484",
+      "title": "Pros in Real Life for Home Depot | Videos & Movies on Vimeo",
+      "query": "occupational documentary day in life filmmaking",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "DC03",
+      "url": "https://vimeo.com/104012182",
+      "title": "Artisan Ep.1 // The Chocolate Maker | Videos & Movies on Vimeo",
+      "query": "craft artisan documentary filmmaking",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "DC04",
+      "url": "https://vimeo.com/1176971885",
+      "title": "Christie Gardens Icon Series - Jim | Videos & Movies on Vimeo",
+      "query": "community documentary storytelling filmmaking",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "DC05",
+      "url": "https://vimeo.com/channels/396345",
+      "title": "Wildlife Documentaries: Behind The Scenes on Vimeo",
+      "query": "wildlife nature documentary editing tips",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "DC06",
+      "url": "https://blog.adobe.com/en/publish/2023/03/10/bringing-black-barbie-documentary-to-life-with-editor-heidi-zimmerman-premiere-pro",
+      "title": "Bringing Black Barbie: A Documentary to Life with Editor Heidi Zimmerman and Premiere Pro | Adobe Blog",
+      "query": "archival documentary footage editing workflow",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "NW01",
+      "url": "https://mediahelpingmedia.org/basics/constructing-a-news-package-for-tv/",
+      "title": "Constructing a TV news package - Media Helping Media",
+      "query": "how to edit a news package journalism tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "NW02",
+      "url": "https://www.voxmedia.com/2021/5/10/22428582/voxs-missing-chapter-returns-for-season-two/",
+      "title": "Vox’s Missing Chapter Returns for Season Two – Vox Media",
+      "query": "Vox timeline history explained video",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "NW03",
+      "url": "https://reutersagency.com/content/content-types/graphics/",
+      "title": "Transform Data with Reuters Graphics",
+      "query": "data journalism video storytelling data visualisation Reuters graphics",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "NW04",
+      "url": "https://vimeo.com/blog/post/how-to-make-explainer-videos",
+      "title": "How to Make a Quality Explainer Video in 8 Steps",
+      "query": "news explainer video production guide",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "NW05",
+      "url": "https://www.poynter.org/shop/broadcast-visual/powerful-writing-leverage-your-video-and-sound/",
+      "title": "Powerful Writing: Leverage Your Video and Sound - Poynter",
+      "query": "news package reporter script editing tutorial Poynter",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "NW06",
+      "url": "https://www.pbs.org/video/how-to-fact-check-like-a-journalist-with-first-drafts-laura-6z3tb2/",
+      "title": "Take on Fake | How to Fact-Check Like a Journalist with First Draft's Laura | Episode 3 | PBS",
+      "query": "First Draft verification video tutorial fact check",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ST01",
+      "url": "https://www.youtube.com/watch?v=G04_79CJqv4",
+      "title": "'Continuity editing' - Digital Film School (12/18) - YouTube",
+      "query": "short film editing continuity tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "7364 views",
+          "40 likes"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ST02",
+      "url": "https://www.bilibili.com/video/BV1Pv7DzVEjt/",
+      "title": "怎么剪好竖屏短剧？_哔哩哔哩_bilibili",
+      "query": "vertical short drama editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "4.4万 播放（索引页数值）"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ST03",
+      "url": "https://blog.adobe.com/en/publish/2021/01/05/five-editing-tips-adam-epstein-learned-from-his-time-at-snl",
+      "title": "Five editing tips Adam Epstein learned from his time at SNL",
+      "query": "comedy sketch editing timing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ST04",
+      "url": "https://www.youtube.com/watch?v=CuorsbghT5M",
+      "title": "How To Do A Plot Twist - YouTube",
+      "query": "plot twist short film editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "3306211 views",
+          "102000 likes"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ST05",
+      "url": "https://www.youtube.com/watch?v=9Wmvi7a_wlE",
+      "title": "How to Film a POV - YouTube",
+      "query": "POV short film editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "1331025 views",
+          "48000 likes"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "ST06",
+      "url": "https://www.youtube.com/watch?v=vE6qfSsgI6Y",
+      "title": "How to Edit a Movie Trailer in 4 Simple Steps - The Professional Method (Ultimate Guide) - YouTube",
+      "query": "movie trailer editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "MU01",
+      "url": "https://www.youtube.com/watch?v=Nw3pg78z6Jw",
+      "title": "Music Video Song Sync (Final Cut Pro X) - YouTube",
+      "query": "music video editing tutorial sync",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "MU02",
+      "url": "https://www.youtube.com/watch?v=SEhtcW7g57o",
+      "title": "How to Make a Lyric Video | Video Editing with Kapwing - YouTube",
+      "query": "lyric video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "MU03",
+      "url": "https://www.youtube.com/watch?v=BFa0-RUQ2ps",
+      "title": "Steps To Edit A Dance Video - Editing Workflow Tutorial And Demo [Premiere Pro] - YouTube",
+      "query": "dance video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "81226 views",
+          "1000 likes"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "MU04",
+      "url": "https://helpx.adobe.com/audition/desktop/video-and-surround-sound/importing-video-video-clips.html",
+      "title": "Import & work with video clips in Adobe Audition | Audition",
+      "query": "music performance instrument video sync editing",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "MU05",
+      "url": "https://vimeo.com/blog/post/how-to-make-a-highlight-video?msockid=16ed6bdb2e396ca50aa27d472f4b6df7",
+      "title": "How to Make a Highlight Video: Fast, Effective Tips for Engaging Edits",
+      "query": "concert highlight video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "MU06",
+      "url": "https://vimeo.com/1088378650",
+      "title": "Live Performance | Multi-Cam Editing Practice (Premiere Pro) | Videos & Movies on Vimeo",
+      "query": "stage performance multicamera video editing",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SG01",
+      "url": "https://www.youtube.com/watch?v=aKlI021BjUw",
+      "title": "How I Edit my SPORTS VIDEOS | Video Editing Breakdown - YouTube",
+      "query": "sports highlight video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SG02",
+      "url": "https://vimeo.com/890426406",
+      "title": "Scottish Athletics - Zoey Clark: Fighting Back | Videos & Movies on Vimeo",
+      "query": "athlete story sports documentary filmmaking",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SG03",
+      "url": "https://vimeo.com/1176068004",
+      "title": "ITLAS: High Jump Scissors | Videos & Movies on Vimeo",
+      "query": "sports technique instructional video tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SG04",
+      "url": "https://www.youtube.com/watch?v=VERfm7Yldgk",
+      "title": "How to Edit a Gaming Montage in 2024 (For Beginners) Adobe Premiere Pro Tutorial - YouTube",
+      "query": "esports gaming montage editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SG05",
+      "url": "https://www.youtube.com/watch?v=0P2wVamex1U",
+      "title": "How to Make a Proper Video Game Walkthrough - YouTube",
+      "query": "how to make gaming walkthrough tutorial videos youtube",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "55996 views",
+          "1400 likes"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SG06",
+      "url": "https://www.videostudiopro.com/en/tips/lets-play/",
+      "title": "Let’s Play Videos: A Guide to Making Let’s Play Videos | VideoStudio",
+      "query": "how to edit lets play gaming videos tutorial youtube",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SP01",
+      "url": "https://www.youtube.com/watch?v=P-5V6vzCTus",
+      "title": "How to Edit Real Estate Videos (Beginners Guide) - YouTube",
+      "query": "real estate walkthrough video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "7574 views",
+          "335 likes"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SP02",
+      "url": "https://www.bilibili.com/video/BV1GB2cBuEm2/",
+      "title": "酒店行业宣传片拍摄教程_哔哩哔哩_bilibili",
+      "query": "hotel promotional video production tips",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "1310 播放（索引页数值）"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SP03",
+      "url": "https://vimeo.com/244281902",
+      "title": "FKD Post Production Breakdown | Videos & Movies on Vimeo",
+      "query": "architectural filmmaking video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SP04",
+      "url": "https://www.youtube.com/watch?v=NxMPLZXwqdA",
+      "title": "How to Make a Home Renovation Video | Easy Step-by-Step Tutorial - YouTube",
+      "query": "home renovation before after video tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "4244 views",
+          "124 likes"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SP05",
+      "url": "https://vimeo.com/466365390",
+      "title": "Area 3 Tour | Videos & Movies on Vimeo",
+      "query": "museum exhibition video tour production",
+      "accessed_on": "2026-09-21",
+      "access_scope": "video_description",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "SP06",
+      "url": "https://www.youtube.com/watch?v=HFUWRlHmy1g",
+      "title": "How I Edit Cinematic Car Videos - Start to Finish - YouTube",
+      "query": "cinematic car video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PR01",
+      "url": "https://www.youtube.com/watch?v=1FB3Z4JGGLY",
+      "title": "How to Make FOOD Videos for YouTube - Video Editing Tutorials - How to Edit Cooking Video in Mobile - YouTube",
+      "query": "cooking recipe video editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PR02",
+      "url": "https://www.bilibili.com/video/BV1qY4y1N7JW/",
+      "title": "〖餐厅打卡必藏〗如何一部手机拍高级感探店VLOG｜新手入门｜手机云台｜手机运镜_哔哩哔哩_bilibili",
+      "query": "food restaurant review vlog editing tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "measured",
+        "metrics": [
+          "4.0万 播放（索引页数值）"
+        ],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PR03",
+      "url": "https://www.youtube.com/watch?v=Gz2GJLX15vQ",
+      "title": "HOW TO FILM OVERHEAD / BIRD'S EYE VIEW VIDEOS  FOR CRAFT TUTORIALS - YouTube",
+      "query": "how to film overhead craft tutorial videos youtube",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PR04",
+      "url": "https://www.patreon.com/mymechanics/about?redirect=true",
+      "title": "my mechanics | Über | Patreon",
+      "query": "restoration filming workshop video behind scenes my mechanics",
+      "accessed_on": "2026-09-21",
+      "access_scope": "page_text",
+      "video_watched": false,
+      "open_attempt": "returned_text",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PR05",
+      "url": "https://www.youtube.com/watch?v=Kh8ST6mPXeQ",
+      "title": "How to Make Great Makeup Videos Ep. 1 - Beauty Vlogging Course⎪Filmora.io - YouTube",
+      "query": "makeup beauty tutorial video editing",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    },
+    {
+      "id": "PR06",
+      "url": "https://www.youtube.com/watch?v=MCBpmvnPSds",
+      "title": "HOW TO Make Your Own Plant TIMELAPSE - YouTube",
+      "query": "gardening time lapse video tutorial",
+      "accessed_on": "2026-09-21",
+      "access_scope": "search_excerpt",
+      "video_watched": false,
+      "open_attempt": "unavailable",
+      "source_role": "method_or_creator_example",
+      "adaptation": "参考该类型的公开方法或创作者案例；下述剪辑方案为本项目独立编写，不是逐帧复刻或已执行结果。",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "仅此参考页面的可见或搜索索引快照；不代表场景热度排名、当前实时统计或效果保证"
+      }
+    }
+  ]
+}

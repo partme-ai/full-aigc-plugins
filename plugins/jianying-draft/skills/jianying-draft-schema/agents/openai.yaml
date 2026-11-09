@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映草稿规划"
+  short_description: "设计并验证剪映任务草稿，检查媒体、微秒时间与输出契约"
+  default_prompt: "使用 $jianying-draft-schema 设计并验证剪映任务草稿，检查媒体、微秒时间与输出契约；先核对输入、可用能力和交付要求。"

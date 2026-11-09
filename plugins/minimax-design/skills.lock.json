@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "package": "minimax-skills",
+      "repo": "https://github.com/full-aigc-skills/minimax-skills.git",
+      "ref": "v1.1.1",
+      "sha": "6c27146be4289280fc5bf8bed05a4c0cad4678d6",
+      "dest": "skills/",
+      "skills": [
+        "minimax-multimodal-toolkit",
+        "minimax-music-gen",
+        "minimax-music-playlist",
+        "3d-animation-short-generator",
+        "brand-promo-video-generator",
+        "co-op-game-intro-generator",
+        "handdrawn-live-video-generator",
+        "minimalist-product-ad-generator",
+        "music-video-subtitle-generator",
+        "paper-collage-explainer-generator",
+        "papercraft-stop-motion-explainer",
+        "h3-prompt-writing"
+      ],
+      "sha256": {
+        "minimax-multimodal-toolkit": "482761ccff4f53b857a93402e3008d8d13956ff628c48ba1fdc0ba044aba2093",
+        "minimax-music-gen": "8683fd407f66363c4e7c44693068b1bc39cf466a814c4492e16d5b33dc601e5c",
+        "minimax-music-playlist": "220ff1477f556c8e8935fe9da15a6031a9e5705e71309b6a29c684d7e6b38560",
+        "3d-animation-short-generator": "170ae0b5e1acfd7918156f6766f45b5cfc30f2e5dbbc60d8ea77b649f4bce3c3",
+        "brand-promo-video-generator": "b9f94ede503bf467b187a026a4875c11e07fd786657f987239724155728e15d3",
+        "co-op-game-intro-generator": "4eb581bf941dda3989ee9e7cca29856fc4955c3a100f034c9462f14efa8b3ab8",
+        "handdrawn-live-video-generator": "2d334652e5967be6e5dcaa88abfc8019bddfe6abee8bd9743921f62a6340534e",
+        "minimalist-product-ad-generator": "0235bf89748052fe05da9675db290df6a50c50ca8a73db68b45f1f4fe9d6bca7",
+        "music-video-subtitle-generator": "8ef894444bc2b6bf152d99c8664fdfe3c9c934495bc5c0c73dff7ecd96824fb7",
+        "paper-collage-explainer-generator": "cfa28744c1c571c784bacf827c7fb878a2f28159dc4448c3ce7ed1ce6b989d08",
+        "papercraft-stop-motion-explainer": "5c3ebc3e0317d35a68fb227d2e6c184c6df4a54dae4b34128efd55fb7d6101af",
+        "h3-prompt-writing": "ffac99d4f0a7c852f46500cd7cc23daace61d31475a93814d071517580e39cf4"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映效果处理"
+  short_description: "搜索和调整场景、人物或音频效果，在限定时间线范围内验证结果"
+  default_prompt: "使用 $jianying-draft-effects 搜索和调整场景、人物或音频效果，在限定时间线范围内验证结果；先核对输入、可用能力和交付要求。"

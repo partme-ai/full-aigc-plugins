@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-digital-human-artifact/v1",
+  "type": "object",
+  "required": ["schema", "request_id", "path", "sha256", "byte_length", "duration_ms", "canvas"],
+  "properties": {
+    "schema": {"const": "jianying-digital-human-artifact/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "path": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "byte_length": {"type": "number"},
+    "duration_ms": {"type": "number"},
+    "canvas": {"type": "object"}
+  },
+  "additionalProperties": false
+}

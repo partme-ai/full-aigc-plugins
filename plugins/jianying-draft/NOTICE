@@ -1,0 +1,10 @@
+JianYing Edit (partme-jianying-plugin)
+Copyright 2026 PartMe.AI
+
+This plugin is an Apache-2.0 orchestration layer for the separately distributed
+Rust jianying-cli runtime. It does not bundle pyJianYingDraft, an external
+headless checkout, JianYing/CapCut binaries, proprietary resources, credentials,
+or model weights. Third-party source and license boundaries are documented in
+THIRD_PARTY_NOTICES.md and enforced by the CLI and plugin provenance gates.
+
+JianYing, 剪映, and CapCut are trademarks of their respective owners.

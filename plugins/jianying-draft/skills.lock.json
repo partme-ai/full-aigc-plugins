@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "package": "jianying-skills",
+      "repo": "https://github.com/full-aigc-skills/jianying-skills.git",
+      "ref": "v2.5.2",
+      "skills": [
+        "jianying-draft-media",
+        "jianying-draft-audio",
+        "jianying-draft-text",
+        "jianying-draft-stickers",
+        "jianying-draft-effects",
+        "jianying-draft-transitions",
+        "jianying-draft-subtitles",
+        "jianying-draft-smart-package",
+        "jianying-draft-filters",
+        "jianying-draft-adjustments",
+        "jianying-draft-templates",
+        "jianying-draft-digital-human",
+        "jianying-draft-editing-console",
+        "jianying-draft-edit",
+        "jianying-draft-schema",
+        "jianying-draft-setup",
+        "jianying-draft-narration",
+        "jianying-draft-motion",
+        "jianying-draft-inspect",
+        "jianying-draft-export-prep",
+        "jianying-draft-recover",
+        "jianying-draft-harness",
+        "jianying-draft-video-planning"
+      ],
+      "dest": "skills/",
+      "minimumCliVersion": "1.6.19",
+      "minimumCapabilities": [
+        "capabilities",
+        "job.run",
+        "schema.job_v2"
+      ],
+      "sha": "f90abe7ddb5af6878cb21be186acc9e56d59ab48",
+      "sha256": {
+        "jianying-draft-media": "f7b743d47af4cf470421fbfeb936d004a5b0e1205d23cc7f72c26a5c049b5471",
+        "jianying-draft-audio": "016f5ffd95829f9d982fc37321fd05acbea4671b59496bf4812291c872d08b41",
+        "jianying-draft-text": "31da56194c5be0424ded70d732cc48e62de833df12fa5e7b40ae6e631cffac98",
+        "jianying-draft-stickers": "5688ea23ac07051c73570a89c1429b2ecec5fb633c36256c697fe56475ff2e2e",
+        "jianying-draft-effects": "9dff2e4e88898595b0ba6d6a20e1ed205301a960d77406dad2e01bd4f4c4a8f3",
+        "jianying-draft-transitions": "9228db6d14abab1894671313477c4a918ed11968495fd98c75db707f60b54d2b",
+        "jianying-draft-subtitles": "5354d51082a4f0b058a0e846db1b5ed736b3f686d9882bf68974289dea18ddc5",
+        "jianying-draft-smart-package": "e41acf19b1b8daccca4ed5b99922dc7263446f2e316c640e07ea366df43019b6",
+        "jianying-draft-filters": "f45efc554f70dfd1bc01a24f3ded9ab8da006fb2057bb2684a9811b65ae8bd20",
+        "jianying-draft-adjustments": "1fe18dd3b5fa0c6ce811df54ff4ab778c9cf7776259145315faa6499f0470616",
+        "jianying-draft-templates": "540b8c11d9587e2e9f7072dc5b98a9caaeebead7969a59717d264066e09205bb",
+        "jianying-draft-digital-human": "faebe52a29da7ed738f61ba8312e8e9ed0bf805ec87393a501552879163ff7a0",
+        "jianying-draft-editing-console": "3c4822bf4b4f8c4d4adc0c4ca1d482e270314b0b15f2f6b0a28d7a9fe1c6a20e",
+        "jianying-draft-edit": "dde3ec238311dd3022b5d47b8566963b0ce0ff15523cbe92e530163b1a25448c",
+        "jianying-draft-schema": "fa8f4b15c8bd6319076d83c0d235952b57e6faa68865bfbb14ac674e12c133cc",
+        "jianying-draft-setup": "83f35674c9d56c541ee5af3dcfad5b52a8e9ec617fec94e211d0fded63f49303",
+        "jianying-draft-narration": "eba1a264fa32d2bbc6819d0e0f650a9dd04c7bcc9cbb1fd9113265c60688073b",
+        "jianying-draft-motion": "e4466e6ccb59a8419f169f84bf21a50049c0206be90378d4e90f25d5ff701d8e",
+        "jianying-draft-inspect": "82653339a3c40971c310ddcc9257cd1108f8889ec6768e515d1ae4d251c3f594",
+        "jianying-draft-export-prep": "3094d3d752d3251e1240a0bf801acb3a39cdaae7fc6b3acb3d929184c6b75fb7",
+        "jianying-draft-recover": "0c818ca1947f5d9010cb45b61d3e47cdcfbaf7c618e5e41b3655a01e6faf7500",
+        "jianying-draft-harness": "89860ec34dbc3296c4130df92be4a83a77f500fd0b3bf1b174813a11ac20f627",
+        "jianying-draft-video-planning": "9f50caa75749d2e8760e079e4279075b502b5bca187f4a7ece806e459b205e36"
+      },
+      "releaseVersion": "2.5.2",
+      "manifestSchema": "jianying-skills-manifest/v1",
+      "manifestSha256": "4f70a1c9e48921dbf2e9c3415d3030ee7f950c95e21f0bc87fa31ba4da9ad578"
+    }
+  ],
+  "localSkills": [
+    "jianying-draft-use"
+  ]
+}

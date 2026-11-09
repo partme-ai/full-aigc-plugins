@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-digital-human-preview-plan/v1",
+  "type": "object",
+  "required": ["schema", "request_id", "request_digest", "steps", "upload_required", "submit_allowed", "budget"],
+  "properties": {
+    "schema": {"const": "jianying-digital-human-preview-plan/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "request_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "steps": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "upload_required": {"type": "boolean"},
+    "submit_allowed": {"const": false},
+    "budget": {"type": "object"}
+  },
+  "additionalProperties": false
+}

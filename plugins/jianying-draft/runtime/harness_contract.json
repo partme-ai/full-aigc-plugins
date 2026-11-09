@@ -1,0 +1,33 @@
+{
+  "schema": "jianying-plugin-harness/v1",
+  "stages": ["intake", "inventory", "plan", "approve", "execute", "verify", "deliver"],
+  "terminalStates": ["blocked", "recoverable", "failed", "cancelled", "completed"],
+  "promptPolicy": {
+    "factsBeforePlan": true,
+    "capabilityBeforeRoute": true,
+    "noPythonFallback": true,
+    "noExternalForkFallback": true,
+    "neverOverstateEvidence": true
+  },
+  "riskLevels": {
+    "read_only": {"approval": "none", "operations": ["doctor", "probe", "inspect", "native-controls.inspect", "native-controls.plan", "task.show"]},
+    "reversible_write": {"approval": "task_scope", "operations": ["job.run.create", "render.proxy"]},
+    "high_risk_write": {"approval": "target_once", "operations": ["publish", "rename", "delete", "job.run.edit"]},
+    "native_external": {"approval": "separate_once", "operations": ["render.native", "asr.paid", "runtime.control"]}
+  },
+  "commands": {
+    "doctor": {"capability": "capabilities", "arguments": []},
+    "job.run": {"capability": "job.run", "arguments": ["jobPath", "outputPath"]},
+    "resource.acquire": {"capability": "media.official_resource", "arguments": ["query", "candidateSet", "entitlement", "adapterEvidence"]},
+    "native-controls.inspect": {"capability": "runtime.control_catalog", "arguments": []},
+    "native-controls.plan": {"capability": "runtime.control_catalog", "arguments": ["requests", "canary"]},
+    "task.show": {"capability": "job.show", "arguments": ["taskId"]},
+    "task.retry": {"capability": "job.retry", "arguments": ["taskId"]}
+  },
+  "resultContract": {
+    "required": ["ok", "taskId", "stage", "terminalState", "evidenceLevel", "error", "recovery"],
+    "evidenceLevels": ["structural", "proxy_preview", "editable_draft", "native_export"],
+    "stdout": "single_json_document",
+    "stderr": "diagnostics_only"
+  }
+}

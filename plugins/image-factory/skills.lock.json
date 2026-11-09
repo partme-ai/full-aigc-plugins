@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "package": "image-factory-skills",
+      "repo": "https://github.com/full-aigc-skills/image-factory-skills.git",
+      "ref": "v1.1.0",
+      "sha": "b8ff7eb24db5da19216fbaec5aee6ea1eedf8f88",
+      "skills": [
+        "imagegen",
+        "image-factory-use",
+        "image-factory-run",
+        "image-factory-judge",
+        "image-factory-recover"
+      ],
+      "dest": "skills/",
+      "sha256": {
+        "imagegen": "5603af7279d4634f491d2234b3026f8b76d4b227659487bcdbbc2fb2568d29ab",
+        "image-factory-use": "e616f58ac86d5bdf11bcf7e157e791f3c8aee42ebee833ff740ce1a7bfa9c998",
+        "image-factory-run": "7215399bd60742e5d0d64d61248e2d99242523aa81f97cc41af9ae281146ba72",
+        "image-factory-judge": "e8a245668f9aefa12222f1de22c2ba57a550c8549e3753b93c6f02f77ca5ee70",
+        "image-factory-recover": "b8a776cd80e4741b6d2fd1065412e8784e6c686eb012d490374e313f226ec5bd"
+      }
+    },
+    {
+      "package": "baoyu-skills",
+      "repo": "https://github.com/partme-ai/baoyu-skills.git",
+      "ref": "v2.5.2",
+      "sha": "87866b1e36a67403d9c6f3ee75b4a16482c4f83f",
+      "skills": [
+        "baoyu-image-gen",
+        "baoyu-cover-image",
+        "baoyu-xhs-images"
+      ],
+      "dest": "skills/",
+      "sha256": {
+        "baoyu-image-gen": "5d35b284ffb90a8381aaaa4688f42703b3c4c48a663fb4f117b3692c26a09344",
+        "baoyu-cover-image": "9c3f400737968ba5054fbef5bea51e9eb813fff1e092b9f81db5824a1c4be73e",
+        "baoyu-xhs-images": "17a9109e31fde9004fbd738033dc5b5befeb2024cbe1106095ed819f164db107"
+      }
+    }
+  ]
+}

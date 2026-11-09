@@ -1,0 +1,23 @@
+{
+  "schema": "interaction-events/v1",
+  "ledger_id": "ledger-demo-001",
+  "source_media_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "timebase": "microseconds",
+  "capture": {
+    "target_type": "window",
+    "target_id_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "bounds_px": {"x": 120, "y": 80, "width": 1440, "height": 900},
+    "display_scale": 2.0,
+    "window_offset_px": {"x": 120, "y": 80},
+    "system_audio_captured": false,
+    "click_events_captured": true,
+    "keyboard_content_captured": false,
+    "privacy_preview_approved": true
+  },
+  "events": [
+    {"id": "event-001", "type": "move", "time_us": 1200000, "x": 0.28, "y": 0.36},
+    {"id": "event-002", "type": "click", "time_us": 1500000, "x": 0.30, "y": 0.38, "button": "left"},
+    {"id": "event-003", "type": "move", "time_us": 2600000, "x": 0.70, "y": 0.55},
+    {"id": "event-004", "type": "click", "time_us": 3000000, "x": 0.72, "y": 0.56, "button": "left"}
+  ]
+}

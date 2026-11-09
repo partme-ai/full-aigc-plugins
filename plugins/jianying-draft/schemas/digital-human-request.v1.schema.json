@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-digital-human-request/v1",
+  "type": "object",
+  "required": ["schema", "workflow_id", "provider", "selection", "script", "background", "usage", "entitlement", "budget", "custom_assets", "approval_ids", "request_id", "request_digest"],
+  "properties": {
+    "schema": {"const": "jianying-digital-human-request/v1"},
+    "workflow_id": {"type": "string", "minLength": 1},
+    "provider": {"type": "string", "minLength": 1},
+    "selection": {"type": "object"},
+    "script": {"type": "object"},
+    "background": {"type": "object"},
+    "usage": {"type": "object"},
+    "entitlement": {"type": "object"},
+    "budget": {"type": "object"},
+    "custom_assets": {"type": "object"},
+    "approval_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "request_id": {"type": "string", "pattern": "^digital-human-[0-9a-f]{24}$"},
+    "request_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": false
+}

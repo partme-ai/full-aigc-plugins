@@ -1,0 +1,156 @@
+{
+  "schema": "jianying-planning-catalog/v2",
+  "catalog_id": "test-catalog",
+  "revision": "fixture-1",
+  "compatibility": {
+    "legacy_schema": "jianying-video-taxonomy/v1",
+    "legacy_seed_ids": [
+      "VG01"
+    ],
+    "consumer_contracts": [
+      "jianying-open-routing/v1"
+    ]
+  },
+  "dimensions": [
+    {
+      "id": "purpose",
+      "name": "用途",
+      "values": [
+        {
+          "id": "personal",
+          "name": "私人纪念"
+        },
+        {
+          "id": "commercial",
+          "name": "商业宣传"
+        }
+      ]
+    }
+  ],
+  "domains": [
+    {
+      "id": "D01",
+      "name": "个人生活",
+      "description": "生活主线"
+    }
+  ],
+  "overlays": [],
+  "scenes": [
+    {
+      "id": "scene.life.daily",
+      "legacy_ids": [
+        "VG01"
+      ],
+      "name": "日常一天",
+      "aliases": [
+        "生活 Vlog"
+      ],
+      "tags": {
+        "purpose": [
+          "personal"
+        ]
+      },
+      "domain_ids": [
+        "D01"
+      ],
+      "applies_when": [
+        "生活日记"
+      ],
+      "not_for": [
+        "商业广告"
+      ],
+      "asset_requirements": [
+        "日常素材"
+      ],
+      "primary_recipe_id": "R01",
+      "overlay_ids": [],
+      "example_path": "examples/scenarios/vg01.md",
+      "source_ids": [
+        "source1"
+      ],
+      "acceptance": [
+        "观众能说出一个变化"
+      ],
+      "guardrails": [
+        "隐私审核"
+      ],
+      "status": "test_fixture",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "晨间状态",
+        "当天目标",
+        "意外小事",
+        "晚间回望"
+      ],
+      "editorial_intent": "用同一动作连接早晚；日常空镜只保留能说明时间变化的部分"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "R01",
+      "name": "生活旅程",
+      "goal": "事实叙事",
+      "conditions": [
+        "有生活素材"
+      ],
+      "step_requirements": [
+        {
+          "type": "editorial_selection",
+          "data_roles": [
+            "media"
+          ],
+          "preconditions": [
+            "素材核验"
+          ],
+          "required": true,
+          "capability_ids": [],
+          "human_requirements": [
+            "确认主线"
+          ],
+          "external_requirements": []
+        }
+      ],
+      "optional_overlays": [],
+      "conflicts": [],
+      "acceptance": [
+        "主线清晰"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "source1",
+      "url": "https://example.org/test-fixture",
+      "title": "测试来源，不是真实案例",
+      "query": "fixture",
+      "accessed_on": "2026-09-21",
+      "access_scope": "test_fixture",
+      "adaptation": "测试合同",
+      "popularity": {
+        "status": "popularity_unverified",
+        "metrics": [],
+        "observed_on": "2026-09-21",
+        "scope": "test_fixture"
+      }
+    }
+  ],
+  "metadata": {
+    "test.fixture": true
+  }
+}

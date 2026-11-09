@@ -8,11 +8,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/blender-design-plugin.git",
-        "ref": "v0.16.1"
+        "ref": "v0.16.2"
       },
       "displayName": "Blender（三维建模）",
       "description": "用自然语言搭 3D 场景：建模、材质、灯光、相机与渲染，关键节点截图，导出前可回滚。",
-      "version": "0.16.1",
+      "version": "0.16.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -24,32 +24,7 @@
         "3d",
         "previs"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/blender-design-plugin/raw/v0.16.1/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "cadcraft",
-      "source": {
-        "source": "url",
-        "url": "https://atomgit.com/full-aigc-plugins/cadcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "displayName": "CADCraft（二维制图）",
-      "description": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
-      "version": "0.1.0-dev.20261019.1",
-      "category": "Creativity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "cadcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/cadcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/blender-design-plugin/raw/v0.16.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -57,11 +32,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/comfy-design-plugin.git",
-        "ref": "v0.6.1"
+        "ref": "v0.6.2"
       },
       "displayName": "Comfy（ComfyUI 工作流）",
       "description": "一条链路跑完本地 ComfyUI 图、视频、音频与 3D 工作流；云模型只在你明确选择时启用。",
-      "version": "0.6.1",
+      "version": "0.6.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -73,7 +48,7 @@
         "comfyui",
         "workflow"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/comfy-design-plugin/raw/v0.6.1/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/comfy-design-plugin/raw/v0.6.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -81,11 +56,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/content-factory-plugin.git",
-        "ref": "v1.0.0-rc.2"
+        "ref": "v1.0.0-rc.4"
       },
       "displayName": "Content（多平台内容生产）",
       "description": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
-      "version": "1.0.0-rc.2",
+      "version": "1.0.0-rc.4",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -98,57 +73,7 @@
         "workflow",
         "rc"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/content-factory-plugin/raw/v1.0.0-rc.2/undefined",
-      "strict": true
-    },
-    {
-      "name": "deckcraft",
-      "source": {
-        "source": "url",
-        "url": "https://atomgit.com/full-aigc-plugins/deckcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "displayName": "DeckCraft（演示文稿）",
-      "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
-      "version": "0.1.0-dev.20261019.1",
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "deckcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/deckcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "designcraft",
-      "source": {
-        "source": "url",
-        "url": "https://atomgit.com/full-aigc-plugins/designcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "displayName": "DesignCraft（页面排版）",
-      "description": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
-      "version": "0.1.0-dev.20261019.1",
-      "category": "Creativity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "designcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/designcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/content-factory-plugin/raw/v1.0.0-rc.4/assets/content-factory.svg",
       "strict": true
     },
     {
@@ -156,11 +81,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/dreamina-canvas-plugin.git",
-        "ref": "v0.5.1"
+        "ref": "v0.6.1"
       },
       "displayName": "Dreamina Canvas（即梦画布编排）",
       "description": "在即梦画布上编排节点与时间线：免费保存和付费运行分开，产物下载带校验。",
-      "version": "0.5.1",
+      "version": "0.6.1",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -172,7 +97,7 @@
         "canvas",
         "timeline"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/dreamina-canvas-plugin/raw/v0.5.1/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/dreamina-canvas-plugin/raw/v0.6.1/assets/official-logo.png",
       "strict": true
     },
     {
@@ -180,11 +105,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/dreamina-design-plugin.git",
-        "ref": "v0.8.1"
+        "ref": "v0.8.2"
       },
       "displayName": "Dreamina（即梦绘图与视频）",
       "description": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
-      "version": "0.8.1",
+      "version": "0.8.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -196,7 +121,31 @@
         "seedance",
         "text2video"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/dreamina-design-plugin/raw/v0.8.1/assets/logo-approved.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/dreamina-design-plugin/raw/v0.8.2/assets/logo-approved.png",
+      "strict": true
+    },
+    {
+      "name": "dreamina-novel",
+      "source": {
+        "source": "url",
+        "url": "https://atomgit.com/full-aigc-plugins/dreamina-novel-plugin.git",
+        "ref": "v0.1.0-dev.20261109.2"
+      },
+      "displayName": "Dreamina Novel（即梦短剧创作）",
+      "description": "承接创意、剧本和本地素材，按集完成角色场景、分镜、批量生成与成片交付。",
+      "version": "0.1.0-dev.20261109.2",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills"
+      ],
+      "tags": [
+        "dreamina",
+        "novel",
+        "short-drama",
+        "storyboard"
+      ],
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/dreamina-novel-plugin/raw/v0.1.0-dev.20261109.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -204,11 +153,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/effectcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261018.3"
+        "ref": "v0.1.0-dev.20261018.5"
       },
       "displayName": "EffectCraft（动态图形）",
       "description": "做可编辑动态图形：合成、关键帧、表达式、摄像机、遮罩与跟踪，渲染设置完整保留。",
-      "version": "0.1.0-dev.20261018.3",
+      "version": "0.1.0-dev.20261018.5",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -221,7 +170,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/effectcraft-plugin/raw/v0.1.0-dev.20261018.3/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/effectcraft-plugin/raw/v0.1.0-dev.20261018.5/assets/official-logo.png",
       "strict": true
     },
     {
@@ -229,11 +178,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/figcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
+        "ref": "v0.1.0-dev.20261019.2"
       },
       "displayName": "FigCraft（设计稿编辑）",
       "description": "在对话里做可编辑设计稿：线框、设计系统、明暗主题、原型流与开发交接。",
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261019.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -246,7 +195,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/figcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/figcraft-plugin/raw/v0.1.0-dev.20261019.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -254,11 +203,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/filmcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261018.3"
+        "ref": "v0.1.0-dev.20261018.5"
       },
       "displayName": "FilmCraft（视频剪辑）",
       "description": "多机位剪辑、字幕、逐词转录、调色与导出，时间线和素材引用一并交付。",
-      "version": "0.1.0-dev.20261018.3",
+      "version": "0.1.0-dev.20261018.5",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -271,32 +220,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/filmcraft-plugin/raw/v0.1.0-dev.20261018.3/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "gridcraft",
-      "source": {
-        "source": "url",
-        "url": "https://atomgit.com/full-aigc-plugins/gridcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "displayName": "GridCraft（电子表格）",
-      "description": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
-      "version": "0.1.0-dev.20261019.1",
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "gridcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/gridcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/filmcraft-plugin/raw/v0.1.0-dev.20261018.5/assets/official-logo.png",
       "strict": true
     },
     {
@@ -304,11 +228,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/image-factory-plugin.git",
-        "ref": "v0.9.1"
+        "ref": "v0.9.2"
       },
       "displayName": "Image（批量 AI 出图）",
       "description": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
-      "version": "0.9.1",
+      "version": "0.9.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -320,7 +244,7 @@
         "batch",
         "receipts"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/image-factory-plugin/raw/v0.9.1/assets/logo-approved.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/image-factory-plugin/raw/v0.9.2/assets/logo-approved.png",
       "strict": true
     },
     {
@@ -328,11 +252,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/jianying-draft-plugin.git",
-        "ref": "v0.29.6"
+        "ref": "v0.29.7"
       },
       "displayName": "JianYing Draft（剪映草稿编排）",
       "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。",
-      "version": "0.29.6",
+      "version": "0.29.7",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -344,7 +268,7 @@
         "capcut",
         "video-editing"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/jianying-draft-plugin/raw/v0.29.6/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/jianying-draft-plugin/raw/v0.29.7/assets/official-logo.png",
       "strict": true
     },
     {
@@ -352,11 +276,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/lightcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261018.2"
+        "ref": "v0.1.0-dev.20261018.4"
       },
       "displayName": "LightCraft（照片调色）",
       "description": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。",
-      "version": "0.1.0-dev.20261018.2",
+      "version": "0.1.0-dev.20261018.4",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -369,7 +293,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/lightcraft-plugin/raw/v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/lightcraft-plugin/raw/v0.1.0-dev.20261018.4/assets/official-logo.png",
       "strict": true
     },
     {
@@ -377,11 +301,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/maya-design-plugin.git",
-        "ref": "v0.2.1"
+        "ref": "v0.2.2"
       },
       "displayName": "Maya（三维场景）",
       "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -393,7 +317,7 @@
         "3d",
         "playblast"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/maya-design-plugin/raw/v0.2.1/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/maya-design-plugin/raw/v0.2.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -401,11 +325,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/minimax-design-plugin.git",
-        "ref": "v0.5.1"
+        "ref": "v0.5.2"
       },
       "displayName": "MiniMax（AI 视频生成）",
       "description": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
-      "version": "0.5.1",
+      "version": "0.5.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -417,107 +341,7 @@
         "hailuo",
         "video-generation"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/minimax-design-plugin/raw/v0.5.1/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "pdfcraft",
-      "source": {
-        "source": "url",
-        "url": "https://atomgit.com/full-aigc-plugins/pdfcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261024.1"
-      },
-      "displayName": "PdfCraft（PDF 处理）",
-      "description": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
-      "version": "0.1.0-dev.20261024.1",
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "pdfcraft",
-        "pdf",
-        "craft",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/pdfcraft-plugin/raw/v0.1.0-dev.20261024.1/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "photocraft",
-      "source": {
-        "source": "url",
-        "url": "https://atomgit.com/full-aigc-plugins/photocraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "displayName": "PhotoCraft（图片编辑）",
-      "description": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
-      "version": "0.1.0-dev.20261019.1",
-      "category": "Creativity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "photocraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/photocraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "soundcraft",
-      "source": {
-        "source": "url",
-        "url": "https://atomgit.com/full-aigc-plugins/soundcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "displayName": "SoundCraft（音频处理）",
-      "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
-      "version": "0.1.0-dev.20261019.1",
-      "category": "Creativity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "soundcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/soundcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "vectorcraft",
-      "source": {
-        "source": "url",
-        "url": "https://atomgit.com/full-aigc-plugins/vectorcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "displayName": "VectorCraft（矢量设计）",
-      "description": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
-      "version": "0.1.0-dev.20261019.1",
-      "category": "Creativity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "vectorcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/vectorcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/minimax-design-plugin/raw/v0.5.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -525,11 +349,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/video-factory-plugin.git",
-        "ref": "v0.5.1"
+        "ref": "v0.5.2"
       },
       "displayName": "Video（自动剪辑成片）",
       "description": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
-      "version": "0.5.1",
+      "version": "0.5.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -541,7 +365,7 @@
         "editing",
         "receipts"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/video-factory-plugin/raw/v0.5.1/assets/logo-approved.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/video-factory-plugin/raw/v0.5.2/assets/logo-approved.png",
       "strict": true
     },
     {
@@ -549,11 +373,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/volcengine-design-plugin.git",
-        "ref": "v0.2.1"
+        "ref": "v0.2.2"
       },
       "displayName": "Volcengine（豆包语音与视频）",
       "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -567,32 +391,7 @@
         "tts",
         "video"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/volcengine-design-plugin/raw/v0.2.1/assets/official-logo.png",
-      "strict": true
-    },
-    {
-      "name": "wordcraft",
-      "source": {
-        "source": "url",
-        "url": "https://atomgit.com/full-aigc-plugins/wordcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
-      },
-      "displayName": "WordCraft（文档写作）",
-      "description": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
-      "version": "0.1.0-dev.20261019.1",
-      "category": "Productivity",
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "tags": [
-        "wordcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/wordcraft-plugin/raw/v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/volcengine-design-plugin/raw/v0.2.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -600,11 +399,11 @@
       "source": {
         "source": "url",
         "url": "https://atomgit.com/full-aigc-plugins/xuanji-plugin.git",
-        "ref": "v0.2.1"
+        "ref": "v0.2.2"
       },
       "displayName": "Xuanji（命理排盘 · 娱乐）",
       "description": "八字、奇门、紫微、姻缘、风水和塔罗：排盘由脚本校验、引文可追溯，仅供娱乐。",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -620,7 +419,7 @@
         "divination",
         "entertainment"
       ],
-      "icon": "https://raw.atomgit.com/full-aigc-plugins/xuanji-plugin/raw/v0.2.1/assets/logo.png",
+      "icon": "https://raw.atomgit.com/full-aigc-plugins/xuanji-plugin/raw/v0.2.2/assets/logo.png",
       "strict": true
     }
   ]

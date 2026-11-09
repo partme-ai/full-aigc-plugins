@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映口播精剪"
+  short_description: "依据媒体与语音边界精剪口播，保持对话完整并进行播放验收"
+  default_prompt: "使用 $jianying-draft-narration 依据媒体与语音边界精剪口播，保持对话完整并进行播放验收；先核对输入、可用能力和交付要求。"

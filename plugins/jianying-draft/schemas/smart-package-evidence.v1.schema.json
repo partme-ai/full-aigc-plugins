@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-smart-package-evidence/v1",
+  "type": "object",
+  "required": ["schema", "request_id", "status", "approval_id", "snapshot_id", "preview_digest", "change_set_digest", "application", "inspection", "evidence_digest"],
+  "properties": {
+    "schema": {"const": "jianying-smart-package-evidence/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "status": {"const": "verified"},
+    "approval_id": {"type": "string", "minLength": 1},
+    "snapshot_id": {"type": "string", "minLength": 1},
+    "preview_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "change_set_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "application": {"type": "object"},
+    "inspection": {"type": "object"},
+    "state_trace": {"type": "array", "minItems": 5, "items": {"type": "object", "additionalProperties": false, "required": ["stage", "status"], "properties": {
+      "stage": {"enum": ["plan", "preview", "approve", "apply", "verify", "recover"]},
+      "status": {"enum": ["planned", "ready", "approved", "applied", "ambiguous", "verified", "failed", "restored"]}
+    }}},
+    "evidence_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-native-edition-observation/v1",
+  "type": "object",
+  "properties": {
+    "schema": {"const": "jianying-native-edition-observation/v1"},
+    "application": {
+      "type": "object",
+      "properties": {
+        "display_name": {"type": "string", "minLength": 1},
+        "bundle_id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1}
+      },
+      "required": ["display_name", "bundle_id", "version"],
+      "additionalProperties": false
+    },
+    "session": {
+      "type": "object",
+      "properties": {
+        "login_state": {"enum": ["logged_in", "logged_out", "unknown"]}
+      },
+      "required": ["login_state"],
+      "additionalProperties": false
+    },
+    "account": {
+      "type": "object",
+      "properties": {
+        "edition": {"enum": ["basic", "professional", "unknown"]},
+        "status": {"enum": ["active", "expired", "inactive", "unknown"]},
+        "capabilities": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "source": {"const": "gui_observed"},
+        "observed_at": {"type": "string", "minLength": 1},
+        "expires_at": {"type": "string", "minLength": 1}
+      },
+      "required": ["edition", "status", "capabilities", "source", "observed_at"],
+      "additionalProperties": false
+    },
+    "observation_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "required": ["schema", "application", "session", "account", "observation_digest"],
+  "additionalProperties": false
+}

@@ -1,0 +1,81 @@
+{
+  "visual_reference_set": {
+    "schema": "jianying-visual-reference-set/v1",
+    "reference_set_id": "reference-set-fixture",
+    "workflow_id": "VLOG-01",
+    "revision": 2,
+    "output_id": "main",
+    "target_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+    "references": [
+      {
+        "reference_id": "storyboard-main",
+        "type": "storyboard",
+        "artifact_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+        "source_type": "user_supplied",
+        "usage": "narrative order",
+        "license_status": "cleared",
+        "allowed_deviations": ["weather"]
+      }
+    ],
+    "metadata": {"partme.source": "fixture"}
+  },
+  "comparative_context": {
+    "schema": "jianying-comparative-evaluation-context/v1",
+    "context_id": "comparison-fixture",
+    "workflow_id": "VLOG-01",
+    "revision": 2,
+    "output_id": "main",
+    "target_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+    "profile_digest": "3333333333333333333333333333333333333333333333333333333333333333",
+    "reference_set_digest": "4444444444444444444444444444444444444444444444444444444444444444",
+    "current": {
+      "evaluation_input_digest": "5555555555555555555555555555555555555555555555555555555555555555",
+      "proxy_digest": "6666666666666666666666666666666666666666666666666666666666666666"
+    },
+    "previous": {
+      "revision": 1,
+      "evaluation_input_digest": "7777777777777777777777777777777777777777777777777777777777777777",
+      "proxy_digest": "8888888888888888888888888888888888888888888888888888888888888888",
+      "verdict_digest": "9999999999999999999999999999999999999999999999999999999999999999"
+    },
+    "comparison_dimensions": ["absolute_quality", "target_gap", "prior_delta"],
+    "critic": {
+      "session_id": "critic-fixture-2",
+      "fresh_context": true,
+      "write_access": false,
+      "allowed_tools": ["artifact.inspect", "evidence.read", "quality.profile.read"]
+    },
+    "metadata": {}
+  },
+  "macro_revision_request": {
+    "schema": "jianying-macro-revision-request/v1",
+    "request_id": "macro-fixture",
+    "workflow_id": "VLOG-01",
+    "output_id": "main",
+    "from_revision": 2,
+    "to_revision": 3,
+    "stall_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "context_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "strategies": ["restructure_timeline", "rebuild_pacing"],
+    "reason_codes": ["minimum_material_improvement"],
+    "maximum_once": true,
+    "required_approvals": ["human_macro_revision"],
+    "metadata": {}
+  },
+  "retarget_proposal": {
+    "schema": "jianying-retarget-proposal/v1",
+    "proposal_id": "retarget-fixture",
+    "workflow_id": "VLOG-01",
+    "output_id": "main",
+    "from_revision": 2,
+    "to_revision": 3,
+    "from_target_digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "proposed_target_digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "proposed_reference_set_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "reason": "approved source media cannot satisfy the original ending",
+    "evidence_refs": ["missing-shot-audit"],
+    "required_approval": "human_retarget",
+    "status": "proposed",
+    "metadata": {}
+  }
+}

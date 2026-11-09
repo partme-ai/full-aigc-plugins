@@ -1,0 +1,22 @@
+{
+  "schema": "media-preflight/v1",
+  "preflight_id": "preflight-web-vfx-001",
+  "source": {
+    "path": "/workspace/render/chart.webm",
+    "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "size_bytes": 1048576,
+    "probe": {"container": "webm", "video_codec": "vp9", "width": 1920, "height": 1080, "fps": {"num": 30, "den": 1}, "alpha": true, "audio_codec": "none"}
+  },
+  "compatibility": {"target": "jianying", "editor_version": "verified-at-runtime", "status": "conversion_required", "reasons": ["当前发布 capability 未证明直接导入 VP9 alpha WebM"]},
+  "proposed_conversion": {"container": "mov", "video_codec": "prores_ks", "audio_codec": "none", "preserve_alpha": true, "parameters_digest": "3333333333333333333333333333333333333333333333333333333333333333"},
+  "approval": {"required": true, "status": "approved", "binding_hash": "4444444444444444444444444444444444444444444444444444444444444444"},
+  "derivative": {
+    "path": "/workspace/render/chart-normalized.mov",
+    "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+    "size_bytes": 4194304,
+    "probe": {"container": "mov", "video_codec": "prores_ks", "width": 1920, "height": 1080, "fps": {"num": 30, "den": 1}, "alpha": true, "audio_codec": "none"}
+  },
+  "staging": {"mode": "copy", "self_contained": true, "target_root_hash": "6666666666666666666666666666666666666666666666666666666666666666"},
+  "quality_comparison": {"status": "manual_review", "video_frame_delta": 0, "audio_duration_delta_us": 0},
+  "rollback": {"retain_source": true, "remove_derivative": true}
+}

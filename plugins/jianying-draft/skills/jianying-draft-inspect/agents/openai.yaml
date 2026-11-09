@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映只读检查"
+  short_description: "只读探测剪映媒体和草稿，提供结构摘要、验证与证据层级报告"
+  default_prompt: "使用 $jianying-draft-inspect 只读探测剪映媒体和草稿，提供结构摘要、验证与证据层级报告；先核对输入、可用能力和交付要求。"

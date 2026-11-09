@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "toolingSha256": {
+    "workbuddy.py": "b28ba0f1008856ffdf7c7ee75fbb447f4202fa191389de15e222b77c53aecd84",
+    "workbuddy_launch.mjs": "1e3cdca6c3eb8947ec5508bb7eedce4350c0b6a9eddc5d24a7395c1820416af7"
+  },
+  "connectors": [
+    {
+      "source": "partme-jianying-edit",
+      "type": "skill-only",
+      "name_zh": "剪映编辑工作流",
+      "name_en": "JianYing Edit",
+      "description_zh": "通过既有剪映 CLI 工作流创建和验证剪辑产物。",
+      "description_en": "Cross-host JianYing/CapCut workflow orchestration through the checksum-verified Rust jianying-cli Runtime Adapter: jianying-job/v2, editable drafts, captions, audio/TTS/ASR, batch recovery, approvals, and MCP stdio/HTTP/SSE. No Python engine or external fork runtime.",
+      "examples_zh": [
+        "检查剪映编辑工作流的环境和当前可用能力",
+        "按剪映编辑工作流技能说明完成任务并验证实际产物"
+      ],
+      "examples_en": [
+        "Check JianYing Edit environment and available capabilities",
+        "Use JianYing Edit skills and verify the actual result"
+      ],
+      "requirements": [
+        "按原 README 准备校验和固定的 Rust jianying-cli >= 1.6.13、Node 和原宿主软件依赖；包不提供未验证的安装命令。"
+      ],
+      "limitations": [
+        "NOT_RUN: WorkBuddy 安装、技能发现、认证和真实业务执行均待实机验收。",
+        "原宿主 Hooks、Slash Commands 和专有工具不随连接器自动接入；所有实际执行仍需原授权与校验。"
+      ],
+      "authentication": {
+        "mode": "workflow-delegated",
+        "evidence": [
+          "skills/jianying-draft-adjustments/SKILL.md"
+        ],
+        "notes": "仅提供技能与资源；本包没有 WorkBuddy 托管的认证生命周期。实际 CLI、宿主模型、渠道或外部服务由各自执行器负责登录；使用前逐项检查，不代表无需认证或已获授权。"
+      }
+    }
+  ],
+  "icon": "assets/official-logo.png"
+}

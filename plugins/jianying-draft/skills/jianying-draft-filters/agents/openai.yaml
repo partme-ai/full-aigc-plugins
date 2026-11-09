@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映滤镜处理"
+  short_description: "搜索、预览和调整时间线滤镜，保留可恢复编辑与效果核验记录"
+  default_prompt: "使用 $jianying-draft-filters 搜索、预览和调整时间线滤镜，保留可恢复编辑与效果核验记录；先核对输入、可用能力和交付要求。"

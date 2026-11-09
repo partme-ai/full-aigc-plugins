@@ -1,0 +1,35 @@
+{
+  "schema": "jianying-job/v2",
+  "operation": "create",
+  "project": {
+    "type": "new",
+    "project": {
+      "name": "VLOG-01-r1",
+      "width": 1280,
+      "height": 720,
+      "frame_rate": { "numerator": 30, "denominator": 1 },
+      "timeline": {
+        "tracks": [
+          {
+            "id": "video-main",
+            "kind": "video",
+            "segments": [
+              {
+                "type": "video",
+                "id": "opening-too-long",
+                "range": { "start_us": 0, "duration_us": 6000000 },
+                "material_id": "vlog-source",
+                "source_range": { "start_us": 0, "duration_us": 6000000 },
+                "speed": 1.0,
+                "volume": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      "materials": [
+        { "type": "video", "id": "vlog-source", "path": "input.mp4" }
+      ]
+    }
+  }
+}
