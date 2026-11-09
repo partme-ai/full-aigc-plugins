@@ -13,7 +13,7 @@ This plugin belongs to **AIGC content creation**.
 
 > Turn a brand brief into an editable native VectorCraft project — logo, icon set, infographic or chart — and revise it object by object instead of re-drawing it.
 
-[![Version](https://img.shields.io/badge/release-0.1.0--dev.20261019.1-1A73E8)](https://github.com/full-aigc-plugins/vectorcraft-plugin/releases)
+[![Version](https://img.shields.io/badge/release-0.1.0--dev.20261109.2-1A73E8)](https://github.com/full-aigc-plugins/vectorcraft-plugin/releases)
 [![Skills](https://img.shields.io/badge/skills-25-00A67E)](#skills)
 [![MCP tools](https://img.shields.io/badge/MCP%20tools-40-00A67E)](#mcp-tools)
 [![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
@@ -27,18 +27,18 @@ This plugin belongs to **AIGC content creation**.
 | Property | Value |
 | :--- | :--- |
 | Plugin ID | `vectorcraft` |
-| Version | `0.1.0-dev.20261018.2` |
+| Version | `0.1.0-dev.20261109.3` |
 | Status | Development preview; full domain and all-host acceptance still open |
 | Editor runtime | Node.js 24, started from `ui/bootstrap.mjs` |
 | Native CLI | `vectorcraft-cli` maintained build `0.2.0-craft.2`, derived from upstream `v0.2.0` |
 | Verified CLI platform | macOS arm64 with Python 3.11 or newer |
 | License | Apache-2.0 |
 
-Current plugin: `0.1.0-dev.20261019.1`; skill source: `0.1.0-dev.47`; version roles are independent.
+Current plugin: `0.1.0-dev.20261109.3`; skill source: `0.1.0-dev.47`; version roles are independent.
 
 | Identity | Current value |
 | --- | --- |
-| Metadata version | 0.1.0-dev.20261019.1 |
+| Metadata version | 0.1.0-dev.20261109.3 |
 | Skills source | vectorcraft-skills / 0.1.0-dev.47 |
 
 

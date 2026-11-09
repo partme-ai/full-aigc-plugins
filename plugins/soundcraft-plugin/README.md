@@ -1,195 +1,164 @@
-# SoundCraft Use
+# SoundCraft（音频处理）
 
-## Plugin marketplaces
+> 口播清理、响度统一、混音与音频剪辑
 
-This plugin belongs to **AIGC content creation**.
+**版本**：0.1.0-dev.20261109.3 · **许可证**：Apache-2.0 · **技能**：10 个 · **MCP 服务**：1 个
 
-| Category | Marketplace | Purpose |
-| --- | --- | --- |
-| Full-stack development | [Full Stack Plugins](https://github.com/partme-ai/full-stack-plugins) | Architecture and UI design, code understanding, quality checks, code review, workflow governance, and server operations |
-| AIGC content creation | [Full AIGC Plugins](https://github.com/partme-ai/full-aigc-plugins) | Image, video, audio, music, 3D, and multimodal content creation |
+[English](README.en.md) · [安装](#安装) · [快速开始](#快速开始) · [项目结构](#项目结构)
 
-![SoundCraft Use — audio editing with verified artifacts](assets/official-logo.png)
+## 项目定位
 
-> Edit speech, music, and sound effects in one shared editor session, with explicit tracks, sample ranges, and checks that survive save and reopen.
+口播清理、多人响度统一、配音混音、音频剪辑与循环拼接；按段落与静音区间处理，保持对时关系。
 
-[![Version](https://img.shields.io/badge/release-0.1.0--dev.20261019.1-1A73E8)](#positioning)
-[![Skills](https://img.shields.io/badge/skills-10-00A67E)](#skills)
-[![MCP servers](https://img.shields.io/badge/MCP%20servers-1-6E56CF)](#mcp-tools)
-[![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
+本插件属于内容创作线，面向需要直接得到可编辑成果、而不是一段脚本或图片的用户。
 
-[English](README.md) | [简体中文](README.zh-CN.md) · [Install](#installation) · [Quick start](#quick-start) · [Skills](#skills) · [MCP tools](#mcp-tools) · [Limits](#troubleshooting)
+## 一眼看懂
 
-## Positioning
+```text
+素材 / 需求 / 旧稿
+        │
+        ▼
+SoundCraft（音频处理） 技能（检查 → 计划 → 执行 → 回读）
+        │
+        ├── 原生 CLI / MCP 工具
+        └── MCP 编辑器（浏览器内查看与局部调整）
+        │
+        ▼
+可编辑工程 + 导出文件 + 复核结果
+```
 
-`soundcraft` lets an agent work on audio the way an editor does: inspect the session, select real tracks and clips, cut, fade, level, mix, export, then reopen the project and check what actually changed. It wraps the native SoundCraft engine and CLI in ten skills and one embedded editor, and keeps native execution, host rendering, and listening acceptance as separate claims.
+## 能力与边界
 
-This is an installable development candidate. Production promotion is blocked, the package is recorded as local-unreleased, and the recorded technical regressions use synthetic signals rather than a full creative acceptance.
+| 能力 | 说明 | 边界 |
+|---|---|---|
+| 检查 | 读取现有工程与素材状态 | 不修改未授权文件 |
+| 创建 | 按目标生成可编辑结构 | 事实与素材需来自输入 |
+| 编辑 | 局部修改并保留未涉及内容 | 修改后必须重新打开 |
+| 导出 | 输出目标格式并核对 | 导出成功不等于版面正确 |
+| 评审 | 按明确标准检查结果 | 不替代最终人工验收 |
 
-| Property | Value |
-| --- | --- |
-| Plugin ID | `soundcraft` |
-| Display name | SoundCraft Use |
-| Version | `0.1.0-dev.20261018.5` |
-| Stage | Installable development candidate, production promotion blocked |
-| Native engine | SoundCraft 0.7.0 via `soundcraft-cli` |
-| Marketplace | `soundcraft-marketplace` |
-| License | Apache-2.0 |
+## 架构与核心流程
 
-## Installation
+```text
+宿主 / Agent
+   │  调用技能
+   ▼
+skills/soundcraft-*  ──►  MCP 编辑器 / 原生 CLI
+                              │
+                              ▼
+                     可编辑工程 + 导出
+                              │
+                              ▼
+                     回读、检查、交付
+```
 
-### Prerequisites
+原则：
 
-- Codex is the host with recorded same-session evidence. Other hosts are not accepted.
-- Node.js 24 or newer is required by the embedded editor. The distributed package already contains the editor build; no Rust toolchain and no `npm install` are needed at runtime.
-- Native file workflows use `soundcraft-cli`, which is not installed by this plugin. Query the actual version and command schema before running a recipe.
-- The first Git-based launch needs network access or an existing verified editor cache. Complete release ZIPs can start offline from bundled assets.
-- Source builds additionally need the project JavaScript dependencies, the Rust `wasm32` target, and a `wasm-bindgen` CLI matching `Cargo.lock`.
+1. 先只读检查，再计划，再执行。
+2. 每次写入保留原件或可回退版本。
+3. 导出后重新打开核对。
+4. 不确定的结果标记为待核对，不自动重放。
 
-### From the plugin marketplace
+## 兼容性
+
+| 项目 | 状态 |
+|---|---|
+| 宿主 | 支持 MCP Apps 或内置浏览器的宿主 |
+| Node.js | 24+（编辑器） |
+| 平台 | 以实际安装包与发行说明为准 |
+
+## 安装
 
 ```bash
 codex plugin marketplace add partme-ai/full-aigc-plugins
 codex plugin add soundcraft@full-aigc-plugins
 ```
 
-The repository also ships its own marketplace metadata (`soundcraft-marketplace`) pinned to `v0.1.0-dev.20261018.5`. Restart the host, open a new task, and ask for a read-only session inspection first.
+安装后重启宿主，先做只读检查。
 
-## Quick start
+## 快速开始
 
-1. Open the editor with an absolute workspace path: “Open SoundCraft for this folder and show me the current session.”
-2. Wait for `editor_status` to report `attached: true` before editing. A successful tool response does not mean the page has rendered.
-3. Work from real object IDs. Ask for one bounded operation, such as “on the Voice track, split at 2 seconds and add a 50 ms complementary linear crossfade”.
-4. Save the project, reopen it in a new process, and re-inspect. Then bounce the mix and check the decoded audio rather than the dialog text.
+1. 确认目标、输入素材和交付格式。
+2. 先检查现有工程，列出缺失项。
+3. 执行一次有界修改。
+4. 重新打开输出，核对结构与关键内容。
+5. 完成视觉或内容复核后交付。
+
+## 配置
+
+| 变量 | 用途 | 默认 |
+|---|---|---|
+| `CRAFT_WORKSPACE_ROOT` | 编辑器绑定的工作区 | 当前项目 |
+| `CRAFT_EDITOR_UPDATE` | 设为 `off` 跳过增强包下载 | 开启 |
+
+不要在工程或配置中写入密钥、令牌和私有路径。
+
+## 扩展契约
+
+新增技能时应使用 `soundcraft-` 前缀，声明触发条件和边界，通过 MCP 或固定 CLI 操作真实工程，修改后重新打开核验。
+
+## 重试、幂等与恢复
+
+- 失败后先检查当前工程状态。
+- 不自动重复已产生副作用的操作。
+- 重试使用新输出路径并保留旧回执。
+
+## 数据与状态
+
+- 输入素材只读。
+- 输出工程、导出文件和临时目录分开。
+- 交付前确认文件可打开、内容完整。
+
+## 安全
+
+- 不把未授权素材上传到第三方服务。
+- 敏感内容脱敏后再交付。
+- 发现泄露先轮换凭据，再清理文件。
+
+## 可观测性与运行
+
+记录命令、输出文件、关键结构和复核结果；交付前至少检查一次真实输出。
+
+## 开发与验证
+
+```bash
+node --test
+python3 -m pytest
+```
+
+## 打包与发布
+
+版本与清单、市场、tag 一致；ZIP 根目录为 `soundcraft-plugin`。
+
+## 升级与迁移
+
+升级前备份工程；旧版本文件保持可打开；迁移后重新检查结构和导出。
+
+## 故障排查
+
+| 现象 | 检查 |
+|---|---|
+| 打不开工程 | 文件完整性、版本兼容 |
+| 编辑器空白 | Node.js 版本与工作区权限 |
+| 导出异常 | 字体、素材、输出路径 |
+| 结果不一致 | 重新打开并核对 |
+
+## 项目结构
 
 ```text
-Inspect: List tracks, clips, sample rate, and any selection I should not reuse.
-Edit: Cut the Voice clip at 2 s and crossfade 50 ms on both sides.
-Level: Match two speakers to the same perceived level without clipping.
-Deliver: Bounce a 48 kHz 24-bit WAV and confirm its length and format.
+soundcraft-plugin/
+├── .zcode-plugin/      # ZCode 清单与 UI surface
+├── skills/             # 10 个技能
+├── ui/                 # MCP Apps 编辑器
+├── commands/open.md    # 打开编辑器命令
+├── docs/               # 架构与验证记录
+└── assets/             # 图标与模板
 ```
 
-Direct CLI form for file tasks, using one argv argument per method:
+## 贡献与支持
 
-```bash
-soundcraft-cli info input.wav
-soundcraft-cli run --in session.scraft --cmd 'session.inspect={"detail":"full"}' --save out.scraft
-```
+提交问题时附上插件版本、宿主、输入类型、命令、输出文件和预期结果。不要附敏感素材。
 
-## What you can build
+## 许可证
 
-| Workflow | Built-in path | Verifiable output |
-|:---|:---|:---|
-| Clean up a podcast episode | `soundcraft-podcast-cleanup` | Edited speech, pauses, and loudness with a reopened project |
-| Mix voice over music | `soundcraft-voice-over-mix` | Dialogue clarity and music bed checked as separate tracks |
-| Level multiple speakers | `soundcraft-dialogue-leveling` | Per-speaker gain decisions and a clip-level recheck |
-| Cut and join audio | `soundcraft-audio-edit` | Trim, join, and fades verified against source offsets |
-| Shape a music demo | `soundcraft-music-demo` | Track balance, pan, and basic effects on editable clips |
-| Deliver a format | `soundcraft-audio-delivery` | Sample rate, bit depth, naming, and decoded output |
-| Preserve sync while gating silence | `soundcraft-voice-silence-gaps` | Visible gaps with later speech still on the original timeline |
-| Repeat a short sound exactly | `soundcraft-finite-audio-loop` | Exact total count, sample length, and seam check |
-| Work from a playbook | `soundcraft-scenario-playbooks` | Eight recipes with real methods, parameters, and checks |
-
-## Skills
-
-### Session and playbooks
-
-| Skill | What it does |
-|---|---|
-| `soundcraft-editor` | Open the real editor in an MCP Apps host or host browser and share one workspace session |
-| `soundcraft-scenario-playbooks` | Eight recipes for voice level, cut fades, interview quotes, stem delivery, reversed effects, DC offset, and polarity |
-
-### Speech production
-
-| Skill | What it does |
-|---|---|
-| `soundcraft-podcast-cleanup` | Edit spoken content, pauses, and loudness for a podcast episode |
-| `soundcraft-voice-over-mix` | Balance narration against a music bed without losing intelligibility |
-| `soundcraft-dialogue-leveling` | Unify level and tonal continuity across several speakers |
-
-### Editing and delivery
-
-| Skill | What it does |
-|---|---|
-| `soundcraft-audio-edit` | Trim, join, and fade clips while checking source offsets |
-| `soundcraft-music-demo` | Balance multiple tracks, set pan, and apply basic effects |
-| `soundcraft-audio-delivery` | Choose sample rate and bit depth, name files, and verify the export |
-
-### Timeline utilities
-
-| Skill | What it does |
-|---|---|
-| `soundcraft-voice-silence-gaps` | Turn long low-level regions into visible gaps without shifting later dialogue |
-| `soundcraft-finite-audio-loop` | Repeat a short checked sound an exact number of times and expand it later |
-
-## MCP tools
-
-`.codex-plugin/mcp.json` starts one stdio server, `soundcraft-editor`, from `ui/bootstrap.mjs`. The adapter adds three stable tools and passes through the pinned engine's command catalog.
-
-| Tool | Purpose |
-|---|---|
-| `open_editor` | Open the editor for an absolute `workspace`; the first call binds the workspace |
-| `open_browser_editor` | Return an `editorUrl` for the same session when the host has a built-in browser |
-| `editor_status` | Report whether the editor actually attached and is ready to accept edits |
-
-Inside the session, the engine catalog in `ui/catalog.lock.json` provides `list_commands`, the `execute` wrapper, batch execution, session open/save, audio import, mix bounce, and UI automation tools. Query the live schema before calling; the skill recipes show the wrapper as `execute {"command":"…","params":{…}}`.
-
-## Configuration
-
-| Setting | Meaning |
-|---|---|
-| `${PLUGIN_ROOT}` | Expanded by the portable `plugin.json` and `mcp.json` |
-| `${CLAUDE_PLUGIN_ROOT}` | Expanded by the Claude Code manifest and root `.mcp.json` |
-| `CRAFT_EDITOR_UPDATE=off` | Use the bundled editor only and skip the update query |
-| `CRAFT_EDITOR_CACHE_DIR` | Alternate absolute cache directory; default is `~/.cache/full-aigc/editors` |
-| `CRAFT_WORKSPACE_ROOT` | Workspace root when the adapter is started directly |
-| `CRAFT_PANEL_METADATA_FILE` | Host panel metadata used by the ZCode and Claude Code entries |
-
-## Architecture and security
-
-```mermaid
-flowchart LR
-    U[User] --> H[Agent host]
-    H --> S[10 skills]
-    S --> M[stdio MCP soundcraft-editor]
-    M --> E[Pinned editor engine]
-    E --> F[Editable .scraft project]
-    F --> B[Bounce and decode check]
-    S --> C[soundcraft-cli for file tasks]
-    C --> F
-```
-
-- The plugin does not implement an audio engine. It packages guidance and a verified editor build, then delegates execution to the pinned engine or the external CLI.
-- MCP runs over stdio. The editor page uses a loopback HTTP server with a random token and Host/Origin checks; paths outside the workspace are rejected.
-- Manual browser exports land in `craft-exports/` under the workspace with new file names. Closing the MCP process ends the session, so save before you exit.
-- A CLI run against a file is not the same session as an open editor. Do not claim on-screen synchronization from a separate file process.
-- The update path verifies metadata, downloads a pinned WASM/JS archive, and falls back to bundled assets on failure, missing digest, bad ZIP, or schema change.
-
-## Troubleshooting
-
-| Symptom | Cause | What to do |
-|---|---|---|
-| You need separate mic tracks from one stereo file | 0.7.0 export does not isolate left and right content | This batch ships no track-splitting skill; do not treat track metadata as proof of separated audio |
-| A mix sounds fine in the tool but wrong on playback | No real-material listening or loudness acceptance is recorded | Listen end to end and measure loudness yourself; `session.audio_health` only checks references |
-| The embedded panel never appears | The host does not render MCP Apps | Use the `open_browser_editor` URL; a text result is not a rendered panel |
-| Edits vanished after closing the tool | The session ended with the MCP process | Save the project before closing and reopen it to verify |
-| The CLI and the open editor disagree | They are different states | Pick one path, save, and explicitly reopen in the other |
-| First launch fails offline | A Git install needs the verified archive | Start online once, or install a complete release ZIP with bundled assets |
-| Another host cannot load the plugin | Only Codex has recorded acceptance | Treat other hosts as unverified and report the exact host and version |
-
-## Upgrade
-
-```bash
-codex plugin marketplace upgrade full-aigc-plugins
-codex plugin add soundcraft@full-aigc-plugins
-```
-
-The editor update is independent of the plugin version. `editor_status` reports the runtime `source` (`download`, `cache`, or `bundled`) and the version actually in use.
-
-## Contributing and support
-
-Open issues at <https://github.com/full-aigc-plugins/soundcraft-plugin/issues>. Include the engine and plugin version, the session mode (embedded editor or CLI), the method ID, the actual parameters, and the reopened-result evidence. Synthetic-signal regressions do not replace real-material listening.
-
-## License
-
-Apache-2.0. The plugin bundles guidance and an editor build; the native engine and CLI remain external. Icon provenance and the MIT notice are recorded in `assets/official-icon-source.json` and the adjacent license file. See [LICENSE](LICENSE).
+Apache-2.0，见 [LICENSE](LICENSE)。
