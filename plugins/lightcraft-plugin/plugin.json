@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "lightcraft",
   "version": "0.1.0-dev.20261018.4",
-  "description": "RAW 基础显影、风光与人像、批量调色、曲线迁移与虚拟副本审稿；编辑保持非破坏。",
+  "description": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。",
   "license": "Apache-2.0",
   "extensions": {
     "ai.nanoco.nanoclaw": {
@@ -15,7 +15,7 @@
         "logoDark": "./assets/official-logo.png",
         "composerIcon": "./assets/official-logo.png",
         "composerIconDark": "./assets/official-logo.png",
-        "shortDescription": "RAW 显影、批量调色与筛选，非破坏编辑"
+        "shortDescription": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。"
       }
     }
   }
