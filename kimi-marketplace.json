@@ -39,9 +39,9 @@
     },
     {
       "id": "dreamina-canvas",
-      "displayName": "Dreamina Canvas（即梦画布编排）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.5.1"
+      "displayName": "Dreamina Canvas",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.0/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.6.0"
     },
     {
       "id": "dreamina-design",
