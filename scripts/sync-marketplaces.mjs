@@ -495,7 +495,7 @@ for (let index = 0; index < catalog.plugins.length; index += 1) {
     if (portable.description !== localized(plugin, "description")) errors.push(`${plugin.id}: plugin.json description differs`);
     const portableDisplayName = portable.extensions?.["com.openai"]?.interface?.displayName;
     const fallbackDisplayName = codexManifest?.interface?.displayName;
-    if ((portableDisplayName ?? fallbackDisplayName) !== localized(plugin, "displayName")) {
+    if ((portableDisplayName ?? fallbackDisplayName) !== codexDisplayCopy(plugin, "displayName")) {
       errors.push(`${plugin.id}: OpenAI displayName differs from catalog`);
     }
   }
@@ -514,7 +514,7 @@ for (let index = 0; index < catalog.plugins.length; index += 1) {
       errors.push(`${plugin.id}: ${relative} displayName is ${manifest.displayName}`);
     }
     if (relative === ".zcode-plugin/plugin.json" && manifest.displayName_i18n
-        && JSON.stringify(manifest.displayName_i18n) !== JSON.stringify({ [locale]: localized(plugin, "displayName") })) {
+        && manifest.displayName_i18n[locale] !== localized(plugin, "displayName")) {
       errors.push(`${plugin.id}: ${relative} displayName_i18n differs`);
     }
     if (relative === "kimi.plugin.json") {

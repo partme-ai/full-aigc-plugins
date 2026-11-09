@@ -11,7 +11,8 @@
     {
       "id": "content-factory",
       "displayName": "Content（多平台内容生产）",
-      "source": "https://github.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.4/assets/content-factory.svg",
+      "source": "https://github.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.4"
     },
     {
       "id": "deckcraft",
@@ -28,8 +29,8 @@
     {
       "id": "dreamina-novel",
       "displayName": "Dreamina Novel（即梦短剧创作）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-novel-plugin/releases/tag/v0.1.0-dev.20261109.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/dreamina-novel-plugin/releases/tag/v0.1.0-dev.20261109.2"
     },
     {
       "id": "effectcraft",

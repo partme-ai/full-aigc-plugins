@@ -35,11 +35,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/content-factory-plugin",
-        "ref": "v1.0.0-rc.2"
+        "ref": "v1.0.0-rc.4"
       },
       "displayName": "Content（多平台内容生产）",
       "description": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
-      "version": "1.0.0-rc.2",
+      "version": "1.0.0-rc.4",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -52,6 +52,7 @@
         "workflow",
         "rc"
       ],
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.4/assets/content-factory.svg",
       "strict": true
     },
     {
@@ -113,11 +114,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/dreamina-novel-plugin",
-        "ref": "v0.1.0-dev.20261109.1"
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "displayName": "Dreamina Novel（即梦短剧创作）",
       "description": "承接创意、剧本和本地素材，按集完成角色场景、分镜、批量生成与成片交付。",
-      "version": "0.1.0-dev.20261109.1",
+      "version": "0.1.0-dev.20261109.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -129,7 +130,7 @@
         "short-drama",
         "storyboard"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
       "strict": true
     },
     {
