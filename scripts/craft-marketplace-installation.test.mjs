@@ -11,7 +11,8 @@ test('standalone candidate marketplace contains all 13 pinned plugins without re
 test('Craft host ZIP listings bind complete release archives and exact digests',()=>{
  const releases=read('docs/craft-marketplace-candidate-releases.json');
  for(const prefix of ['', 'candidate-marketplace/'])for(const name of names){
-  const row=releases.find(r=>r.plugin===name),entry=read(prefix+'marketplace.json').plugins.find(p=>p.name===name);
+  const entry=read(prefix+'marketplace.json').plugins.find(p=>p.name===name),row=releases.find(r=>r.plugin===name&&r.version===entry.version);
+  assert.ok(row,name+' release missing for '+entry.version);
   if(row.maximumZipEntryBytes>50*1024*1024){assert.equal(entry.source.source,'github');assert.equal(entry.source.ref,'v'+row.version);continue;}
   assert.equal(entry.source.source,'url');assert.equal(entry.source.type,'zip');assert.equal(entry.source.sha256,row.archiveSha256);assert.equal(entry.source.path,row.archiveRoot??name+'-plugin');assert.equal(entry.source.url,row.releaseUrl.replace('/tag/','/download/')+'/'+row.archive);
  }

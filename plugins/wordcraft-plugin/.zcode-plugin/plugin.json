@@ -1,7 +1,7 @@
 {
   "name": "wordcraft",
-  "version": "0.1.0-dev.20261109.3",
-  "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
+  "version": "0.1.0-dev.20261109.4",
+  "description": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
   "license": "Apache-2.0",
   "skills": "./skills/",
   "displayName": "WordCraft",

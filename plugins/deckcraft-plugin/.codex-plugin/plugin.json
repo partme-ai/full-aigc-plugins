@@ -1,6 +1,6 @@
 {
   "name": "deckcraft",
-  "version": "0.1.0-dev.20261109.3",
+  "version": "0.1.0-dev.20261109.4",
   "skills": "./skills/",
   "mcpServers": "./.codex-plugin/mcp.json",
   "interface": {
@@ -11,5 +11,5 @@
     "composerIconDark": "./assets/official-logo.png",
     "shortDescription": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。"
   },
-  "description": "Pitch decks, weekly reports, training material, data stories and option comparisons. Masters, layouts and speaker notes stay editable after export."
+  "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。"
 }
