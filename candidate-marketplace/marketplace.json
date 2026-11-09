@@ -109,6 +109,30 @@
       "strict": true
     },
     {
+      "name": "dreamina-novel",
+      "source": {
+        "source": "github",
+        "repo": "full-aigc-plugins/dreamina-novel-plugin",
+        "ref": "v0.1.0-dev.20261109.1"
+      },
+      "displayName": "Dreamina Novel（即梦短剧创作）",
+      "description": "承接创意、剧本和本地素材，按集完成角色场景、分镜、批量生成与成片交付。",
+      "version": "0.1.0-dev.20261109.1",
+      "category": "Creativity",
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills"
+      ],
+      "tags": [
+        "dreamina",
+        "novel",
+        "short-drama",
+        "storyboard"
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
+      "strict": true
+    },
+    {
       "name": "effectcraft",
       "source": {
         "source": "github",

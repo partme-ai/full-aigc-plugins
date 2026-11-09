@@ -122,6 +122,36 @@
       }
     },
     {
+      "id": "dreamina-novel",
+      "displayName": "Dreamina Novel（即梦短剧创作）",
+      "repository": "full-aigc-plugins/dreamina-novel-plugin",
+      "localDirectory": "dreamina-novel-plugin",
+      "version": "0.1.0-dev.20261109.1",
+      "status": "release_candidate_installable",
+      "releaseGate": "docs/verification/release-candidate.json",
+      "description": "承接创意、剧本和本地素材，按集完成角色场景、分镜、批量生成与成片交付。",
+      "shortDescription": "即梦短剧从剧本到成片，支持多集批量生产和局部返修。",
+      "category": "Creativity",
+      "tags": [
+        "dreamina",
+        "novel",
+        "short-drama",
+        "storyboard"
+      ],
+      "logo": "assets/official-logo.png",
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Dreamina Novel（即梦短剧创作）",
+          "shortDescription": "即梦短剧从剧本到成片，支持多集批量生产和局部返修。",
+          "description": "承接创意、剧本和本地素材，按集完成角色场景、分镜、批量生成与成片交付。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills"
+      ]
+    },
+    {
       "id": "effectcraft",
       "displayName": "EffectCraft（动态图形）",
       "repository": "full-aigc-plugins/effectcraft-plugin",
