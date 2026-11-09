@@ -27,6 +27,9 @@ def archived_package(plugin, destination):
                 relative = pathlib.PurePosixPath(member.name)
                 if relative.is_absolute() or ".." in relative.parts:
                     raise RuntimeError(f"{plugin['id']}: unsafe archive path {member.name}")
+                # 上游标签混入本地运行日志/缓存；这些不是插件分发内容。
+                if (relative.parts and relative.parts[0] == ".mimosa") or (plugin["id"] == "dreamina-design" and relative.parts and relative.parts[0] == ".superpowers") or "__pycache__" in relative.parts or relative.name == ".DS_Store" or relative.name.endswith(".pyc"):
+                    continue
                 target = destination.joinpath(*relative.parts)
                 if member.isdir():
                     target.mkdir(parents=True, exist_ok=True)
@@ -73,10 +76,21 @@ def check_equal(expected, actual, name):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--write", action="store_true")
+    parser.add_argument("--skip-repository", action="append", default=[])
     args = parser.parse_args()
+    unknown = set(args.skip_repository) - {plugin["id"] for plugin in CATALOG["plugins"]}
+    if unknown:
+        raise RuntimeError(f"unknown skipped packages: {sorted(unknown)}")
     with tempfile.TemporaryDirectory(prefix="full-aigc-aggregate-") as temporary:
         stage = pathlib.Path(temporary)
         for plugin in CATALOG["plugins"]:
+            if plugin["id"] in args.skip_repository:
+                target = ROOT / "plugins" / plugin["id"]
+                manifest = json.loads((target / "plugin.json").read_text(encoding="utf-8"))
+                codex_manifest = json.loads((target / ".codex-plugin/plugin.json").read_text(encoding="utf-8"))
+                if manifest["name"] != plugin["id"] or manifest["version"] != plugin["version"] or codex_manifest["name"] != plugin["id"] or not (target / "skills").is_dir():
+                    raise RuntimeError(f"{plugin['id']}: incomplete committed private package")
+                continue
             expected = stage / plugin["id"]
             expected.mkdir()
             archived_package(plugin, expected)
@@ -87,7 +101,7 @@ def main():
                 shutil.copytree(expected, target)
             else:
                 check_equal(expected, target, plugin["id"])
-    print(f"{'Synchronized' if args.write else 'Validated'} {len(CATALOG['plugins'])} aggregated packages")
+    print(f"{'Synchronized' if args.write else 'Validated'} {len(CATALOG['plugins']) - len(args.skip_repository)} release archives and {len(args.skip_repository)} committed private packages")
 
 
 if __name__ == "__main__":

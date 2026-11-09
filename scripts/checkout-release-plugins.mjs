@@ -7,6 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json'), 'utf8'));
 const selected = new Set(process.argv.filter(arg => arg.startsWith('--plugin=')).map(arg => arg.slice(9)));
 if (process.argv.includes('--all')) for (const plugin of catalog.plugins) selected.add(plugin.id);
+for (const arg of process.argv.filter(arg => arg.startsWith('--skip='))) selected.delete(arg.slice(7));
 if (!selected.size) throw new Error('Select explicit --plugin ids to avoid unrelated checkouts.');
 for (const id of selected) {
   const plugin = catalog.plugins.find(entry => entry.id === id);
