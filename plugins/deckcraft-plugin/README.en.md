@@ -2,7 +2,7 @@
 
 > Pitches, weekly reports, training decks and option comparisons
 
-**Version**: 0.1.0-dev.20261109.4 · **License**: Apache-2.0 · **Skills**: 10 · **MCP server**: 1
+**Version**: 0.1.0-dev.20261109.5 · **License**: Apache-2.0 · **Skills**: 10 · **MCP server**: 1
 
 [简体中文](README.md) · [Install](#installation) · [Quick start](#quick-start) · [Project layout](#project-layout)
 

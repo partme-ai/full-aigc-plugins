@@ -1,6 +1,6 @@
 {
   "name": "vectorcraft",
-  "version": "0.1.0-dev.20261109.4",
+  "version": "0.1.0-dev.20261109.5",
   "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/download/v0.1.0-dev.20261019.1/vectorcraft-runtime.tgz",
   "sha256": "71243e271394638cc88bc3e36f228ea8e280ad195827b39d9fefbcceaa14b579",
   "files": {

@@ -1,7 +1,7 @@
 {
   "protocol": "pdfcraft.evidence/1",
   "date": "2026-11-09",
-  "version": "0.1.0-dev.20261109.2",
+  "version": "0.1.0-dev.20261109.4",
   "sourceSha256": {
     "skills/pdfcraft-cli/SKILL.md": "1e5e6a7db0ed4444a3e5dc2ff650c36a8b699be294d89d6d5d1b87a7bbabec42",
     "skills/pdfcraft-cli/agents/openai.yaml": "21d5468b5bbce6096d09d7fc5367564354531f7bcf5ad6587b2331f1c86affce",
@@ -197,13 +197,14 @@
     "ui/runtime/server.mjs": "d190ed0dd50b13d9bd355bca8e488227016fbf3e8f3f24637f3a525059eb8b15",
     "ui/tests/form-refresh.test.mjs": "a292b9c70adac425832f2b29c8c5e4b008f2209fbcfc23d8da7b230a06f189bf",
     "ui/tests/loading-notice.test.mjs": "8b5d846fb565732269eabd87f05732a71670d7175f612bab69f1e993b28bf5f8",
+    "ui/tests/zcode-bootstrap-resources.test.mjs": "384358a2e7ab373297a01ef63f0544b89f582811230f14aeb4303734aa979f55",
     "ui/tests/zcode-parity.test.mjs": "e2c8b707410306c4ff8b2d324ecf56892e0fc11cc45c50d0a926d60d94371a67",
-    "plugin.json": "3e98b3c57c5218146d6d6e870b0186619229c9f47089ed87bb4df95afb641352",
+    "plugin.json": "663b438ba488e26f47e0f4650d525146378f7c0e72fcbde32a6ead6e64d4c7f0",
     "candidate-source.json": "027f72cd4f40924d48ec1102f9518b169e836a00a30d4fcce03bce4b783800b5",
-    ".codex-plugin/plugin.json": "1635db2780b3259c5f17657da102502278b1a562886d4307217a78f607e71f45",
+    ".codex-plugin/plugin.json": "9279c18291d9119902ffe2a72e60f37a94f0475a45409ed5d3305ff503527f45",
     "ui/adapter.mjs": "9c30a438b78914d2256f1ca68ae76336306a57e0b923b31556a8ee3e530c2513",
     "ui/package-editor.mjs": "71facc909e121a2ee0a8c06655110cb4f871a8fab0a3fa08de1e7ed6333c8128",
-    "ui/runtime.lock.json": "fabb3fd59df8b4d6159d9f434e7279d389691b45a3b6469e55d30b20c768ee36",
+    "ui/runtime.lock.json": "3774766ad7e7c07d3950c70fc5fc40c401bda1c231bd894c9a83ce4587977fad",
     "ui/catalog.lock.json": "f66c56ab90ea99366e7dc531f9e8fae8767049384cee3d6154f1abc5d1f0b5b7",
     "ui/editor.lock.json": "5cd3038030edbc9928fe783080e09434433563b5aa04c609971611e519e14594"
   },
@@ -215,13 +216,13 @@
   "layers": {
     "localTests": {
       "status": "PASS",
-      "count": 20
+      "count": 21
     },
     "editorTests": {
       "status": "PASS",
-      "count": 7
+      "count": 11
     },
-    "bundleMCP": "PASS_INITIAL_HTML_AND_OPEN_REQUEST_ONLY",
+    "bundleMCP": "PASS_LOCAL_RESOURCE_DISCOVERY_ONLY",
     "nativeRuntime": "NOT_REVALIDATED_FOR_CURRENT_VERSION",
     "host": "NOT_RUN_FOR_CURRENT_VERSION",
     "model": "NOT_RUN_FOR_CURRENT_VERSION",

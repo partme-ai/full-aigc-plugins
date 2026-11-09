@@ -1,10 +1,10 @@
 {
   "name": "gridcraft",
-  "version": "0.1.0-dev.20261109.4",
+  "version": "0.1.0-dev.20261109.5",
   "description": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
   "license": "Apache-2.0",
   "skills": "./skills/",
-  "displayName": "GridCraft",
+  "displayName": "GridCraft（电子表格）",
   "icon": "./assets/official-logo.png",
   "mcpServers": {
     "gridcraft-editor": {
@@ -22,7 +22,7 @@
   },
   "displayName_i18n": {
     "en": "GridCraft",
-    "zh-CN": "GridCraft"
+    "zh-CN": "GridCraft（电子表格）"
   },
   "ui": {
     "surfaces": [
@@ -30,7 +30,7 @@
         "id": "editor",
         "title": {
           "en-US": "GridCraft",
-          "zh-CN": "GridCraft"
+          "zh-CN": "GridCraft（电子表格）"
         },
         "icon": "table",
         "server": "gridcraft-editor",

@@ -2,7 +2,7 @@
 
 > Inspect, edit, OCR, and deliver PDFs from a coding agent. Keep the original, then verify page order, geometry, and searchable text.
 
-**Version**: 0.1.0-dev.20261109.3 · **License**: Apache-2.0 · **Skills**: 20 · **MCP server**: 1
+**Version**: 0.1.0-dev.20261109.4 · **License**: Apache-2.0 · **Skills**: 20 · **MCP server**: 1
 
 [简体中文](README.md) · [Install](#installation) · [Quick start](#quick-start) · [Project layout](#project-layout)
 

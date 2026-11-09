@@ -1,6 +1,6 @@
 {
   "name": "pdfcraft",
-  "version": "0.1.0-dev.20261109.3",
+  "version": "0.1.0-dev.20261109.4",
   "description": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
   "homepage": "https://github.com/full-aigc-plugins/pdfcraft-plugin",
   "repository": "https://github.com/full-aigc-plugins/pdfcraft-plugin",

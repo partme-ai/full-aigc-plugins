@@ -1,10 +1,10 @@
 {
   "name": "deckcraft",
-  "version": "0.1.0-dev.20261109.4",
+  "version": "0.1.0-dev.20261109.5",
   "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
   "license": "Apache-2.0",
   "skills": "./skills/",
-  "displayName": "DeckCraft",
+  "displayName": "DeckCraft（演示文稿）",
   "icon": "./assets/official-logo.png",
   "mcpServers": {
     "deckcraft-editor": {
@@ -22,7 +22,7 @@
   },
   "displayName_i18n": {
     "en": "DeckCraft",
-    "zh-CN": "DeckCraft"
+    "zh-CN": "DeckCraft（演示文稿）"
   },
   "ui": {
     "surfaces": [
@@ -30,7 +30,7 @@
         "id": "editor",
         "title": {
           "en-US": "DeckCraft",
-          "zh-CN": "DeckCraft"
+          "zh-CN": "DeckCraft（演示文稿）"
         },
         "icon": "presentation",
         "server": "deckcraft-editor",
