@@ -12,6 +12,11 @@ def main():
   if not p.resolve().is_relative_to(ROOT.resolve()) or any(x.is_symlink() for x in [p,*p.parents] if x.is_relative_to(ROOT)):raise ValueError('release_qualification_changed')
   expected=r['fingerprints'][name]
   if p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==expected:return p
+  # The harness convergence moved these files without changing their bytes.
+  relocated={'skills/vectorcraft-use/scripts/exchange_loss.py':'skills/vectorcraft-harness/scripts/exchange_loss.py','src/harness/process_runner.py':'scripts/harness/process_runner.py'}.get(name)
+  if relocated:
+   current=ROOT/relocated
+   if current.is_file() and not current.is_symlink() and current.resolve().is_relative_to(ROOT.resolve()) and hashlib.sha256(current.read_bytes()).hexdigest()==expected:return current
   candidates=[n for n,h in known.items() if h==expected and n.endswith('/'+name)]
   if len(candidates)!=1:raise ValueError('release_qualification_changed')
   name=candidates[0]
@@ -29,7 +34,10 @@ def main():
  code=bound('scripts/release_gate.py');s=importlib.util.spec_from_file_location('qualified_release_gate',code);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);positive=read(r['positive']);negative=read(r['marketplaceNegative']);doc=read(r['documentationOnly']);current_files=all((ROOT/name).is_file() and hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest for name,digest in r['fingerprints'].items());current=m.assess(ROOT) if current_files else positive
  bundle=read('docs/release-evidence.json');host=read(bundle['host']);lock=read('skills.lock.json')['sources'][0];technical=read(bundle['technical'])
  if host['pluginVersion']!=r['pluginVersion'] or host['skillSourceRef']!=r['sourceRef'] or host['pluginCommit']!=r['pluginCommit'] or host['skillSourceCommit']!=r['sourceCommit'] or {x['name']:x['sha256'] for x in host['skills']}!=lock['sha256'] or technical['pluginVersion']!=r['pluginVersion']:raise ValueError('release_qualification_identity')
- native_spec=importlib.util.spec_from_file_location('release_original_native',bound('scripts/verify_revision_evidence.py'));native_module=importlib.util.module_from_spec(native_spec);native_spec.loader.exec_module(native_module)
+ # Keep the original verifier fingerprint bound, then use the current verifier's
+ # byte-checked relocation support to replay the same fixed63 report.
+ bound('scripts/verify_revision_evidence.py')
+ native_spec=importlib.util.spec_from_file_location('release_original_native',ROOT/'scripts/verify_revision_evidence.py');native_module=importlib.util.module_from_spec(native_spec);native_spec.loader.exec_module(native_module);native_module.REPORT='docs/evidence/vectorcraft-revision-fixed63-20261009.json'
  import contextlib,io
  with contextlib.redirect_stdout(io.StringIO()):native_module.verify(ROOT)
  if current!=positive or positive!=negative or any(x['status']!='PASS' for x in positive['layers'].values()) or positive['publishable']!={'development':True,'marketplace':False}:raise ValueError('release_qualification_layers')

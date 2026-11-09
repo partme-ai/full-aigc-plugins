@@ -1,16 +1,16 @@
 {
-  "domain": "printcraft",
+  "domain": "pdfcraft",
   "version": "0.1.0-dev.6",
   "nativeVersion": "0.2.1",
   "skills": [
-    "printcraft-cli",
-    "printcraft-cli-automation",
-    "printcraft-cli-inspect",
-    "printcraft-cli-pages",
-    "printcraft-cli-setup",
-    "printcraft-use"
+    "pdfcraft-cli",
+    "pdfcraft-cli-automation",
+    "pdfcraft-cli-inspect",
+    "pdfcraft-cli-pages",
+    "pdfcraft-cli-setup",
+    "pdfcraft-use"
   ],
   "sourceStatus": "published-release",
-  "repository": "https://github.com/full-aigc-skills/printcraft-skills",
+  "repository": "https://github.com/full-aigc-skills/pdfcraft-skills",
   "releaseTag": "v0.1.0-dev.6"
 }

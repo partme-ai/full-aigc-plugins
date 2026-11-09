@@ -23,7 +23,10 @@ def verify(root=ROOT):
         if Path(name).is_absolute() or '..' in Path(name).parts or path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):raise ValueError('single_round_path')
         digest=report['fingerprints'][name]
         if path.is_file() and sha(path)==digest:return path
-        archived=[root/p for p,h in known.items() if h==digest and p.endswith('/'+name)]
+        relocated=('scripts/harness/'+name.split('src/harness/',1)[1]
+                   if name.startswith('src/harness/') else None)
+        archived=[root/p for p,h in known.items()
+                  if h==digest and (p.endswith('/'+name) or p==relocated)]
         if len(archived)!=1 or sha(archived[0])!=digest:raise ValueError('single_round_stale')
         return archived[0]
     for name in report['fingerprints']:bound(name)

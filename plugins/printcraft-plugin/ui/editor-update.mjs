@@ -40,7 +40,7 @@ async function download(url,limit,timeout,fetcher){
 }
 async function latest(name,mode,fetcher){
  if(mode==='enhanced'){
-  const plugin=name==='pdfcraft'?'printcraft':name;
+  const plugin=name==='pdfcraft'?'pdfcraft':name;
   const repository=`full-aigc-plugins/${plugin}-plugin`;
   const release=JSON.parse(await download(`https://api.github.com/repos/${repository}/releases/latest`,8*1024*1024,5000,fetcher));
   const version=release.tag_name?.replace(/^v/,'');

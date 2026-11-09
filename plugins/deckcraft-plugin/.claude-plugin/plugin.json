@@ -1,7 +1,7 @@
 {
   "name": "deckcraft",
-  "version": "0.1.0-dev.20261019.1",
-  "description": "通过 DeckCraft 原生 MCP 和技能创建、检查与导出演示文稿。",
+  "version": "0.1.0-dev.20261109.2",
+  "description": "Pitch decks, weekly reports, training material, data stories and option comparisons. Masters, layouts and speaker notes stay editable after export.",
   "license": "Apache-2.0",
   "skills": "./skills/",
   "author": {

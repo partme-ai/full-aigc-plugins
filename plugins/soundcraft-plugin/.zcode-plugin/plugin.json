@@ -1,10 +1,43 @@
 {
   "name": "soundcraft",
-  "version": "0.1.0-dev.20261019.1",
-  "description": "soundcraft 工作区编辑器与场景技能，本地开发候选。",
+  "version": "0.1.0-dev.20261109.2",
+  "description": "Dialogue cleanup, loudness matching, voice-over mixing, audio edits and loop stitching. Processing follows segments and silence ranges while keeping sync.",
   "license": "Apache-2.0",
   "skills": "./skills/",
-  "displayName": "SoundCraft Use",
+  "displayName": "SoundCraft",
   "icon": "./assets/official-logo.png",
-  "mcpServers": "./.mcp.json"
+  "mcpServers": {
+    "soundcraft-editor": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${ZCODE_PLUGIN_ROOT}/ui/bootstrap.mjs"
+      ],
+      "cwd": "${ZCODE_PROJECT_DIR}",
+      "env": {
+        "CRAFT_PANEL_METADATA_FILE": "${ZCODE_PLUGIN_ROOT}/.zcode-plugin/panel-meta.json",
+        "CRAFT_WORKSPACE_ROOT": "${ZCODE_PROJECT_DIR}"
+      }
+    }
+  },
+  "displayName_i18n": {
+    "en": "SoundCraft",
+    "zh-CN": "SoundCraft"
+  },
+  "ui": {
+    "surfaces": [
+      {
+        "id": "editor",
+        "title": {
+          "en-US": "SoundCraft",
+          "zh-CN": "SoundCraft"
+        },
+        "icon": "music",
+        "server": "soundcraft-editor",
+        "resourceUri": "ui://soundcraft/panel.html",
+        "availability": "session"
+      }
+    ]
+  },
+  "commands": "commands"
 }

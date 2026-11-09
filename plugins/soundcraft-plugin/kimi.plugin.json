@@ -1,13 +1,14 @@
 {
   "name": "soundcraft",
-  "version": "0.1.0-dev.20261019.1",
-  "description": "soundcraft 工作区编辑器与场景技能，本地开发候选。",
+  "version": "0.1.0-dev.20261109.2",
+  "description": "Dialogue cleanup, loudness matching, voice-over mixing, audio edits and loop stitching. Processing follows segments and silence ranges while keeping sync.",
   "license": "Apache-2.0",
   "skills": "./skills/",
   "interface": {
-    "displayName": "SoundCraft Use",
+    "displayName": "SoundCraft · Audio Editing",
     "logo": "./assets/official-logo.png",
-    "logoDark": "./assets/official-logo.png"
+    "logoDark": "./assets/official-logo.png",
+    "shortDescription": "Dialogue cleanup, loudness matching, mixing and audio edits"
   },
   "mcpServers": {
     "soundcraft-editor": {

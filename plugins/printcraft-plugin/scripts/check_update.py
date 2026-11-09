@@ -4,11 +4,11 @@ import importlib.util
 import json
 from pathlib import Path
 import re
-CONTRACTS={'execution':'printcraft.execution/1','verification':'printcraft.verification/1'}
-OPTIONAL_CONTRACTS={'ocr':'printcraft.ocr/1','ocrBackend':'printcraft.ocr-backend/1'}
+CONTRACTS={'execution':'pdfcraft.execution/1','verification':'pdfcraft.verification/1'}
+OPTIONAL_CONTRACTS={'ocr':'pdfcraft.ocr/1','ocrBackend':'pdfcraft.ocr-backend/1'}
 
 def validate_contracts(manifest):
-    contracts=manifest.get('extensions',{}).get('org.full-aigc.printcraft',{}).get('contracts')
+    contracts=manifest.get('extensions',{}).get('org.full-aigc.pdfcraft',{}).get('contracts')
     if (not isinstance(contracts,dict) or any(contracts.get(key)!=value for key,value in CONTRACTS.items())
             or set(contracts)-set(CONTRACTS)-set(OPTIONAL_CONTRACTS)
             or any(contracts[key]!=OPTIONAL_CONTRACTS[key] for key in set(contracts)&set(OPTIONAL_CONTRACTS))):raise ValueError('legacy_or_incompatible_contract_readonly')

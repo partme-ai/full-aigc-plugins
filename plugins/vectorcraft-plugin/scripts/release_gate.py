@@ -3,6 +3,7 @@
 import argparse,contextlib,hashlib,importlib.util,io,json,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+PLUGIN_VERSION_PATTERN=re.compile(r'0\.1\.0-dev\.\d+(?:\.\d+)?')
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def tree_digest(directory):
  if directory.is_symlink() or any(p.is_symlink() for p in directory.rglob('*')):raise ValueError('linked_skill')
@@ -37,7 +38,7 @@ def assess(root=ROOT):
  def structure():
   if set(bundle)!={'schema','pluginVersion','sourceRef','sourceCommit','host','technical','integrity','fingerprints'} or bundle['schema']!='vectorcraft-release-evidence/v1':raise ValueError('invalid_release_bundle')
   p=bjson('plugin.json');identity=bjson('docs/current-identity.json');bound('scripts/release_gate.py')
-  if p['name']!='vectorcraft' or not re.fullmatch(r'0\.1\.0-dev\.\d+',p['version']) or p['version']!=bundle['pluginVersion'] or identity['pluginVersion']!=p['version'] or not p.get('license') or not p.get('description'):raise ValueError('release_manifest_identity')
+  if p['name']!='vectorcraft' or not PLUGIN_VERSION_PATTERN.fullmatch(p['version']) or p['version']!=bundle['pluginVersion'] or identity['pluginVersion']!=p['version'] or not p.get('license') or not p.get('description'):raise ValueError('release_manifest_identity')
   return {'evidence':['plugin.json','docs/current-identity.json'],'pluginVersion':p['version']}
  def skills():
   lock=bjson('skills.lock.json')['sources']

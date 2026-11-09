@@ -35,9 +35,12 @@ def main():
     index=json.loads((ROOT/'docs/evidence-index.json').read_text())
     known=next(entry['dependencies'] for entry in index['entries'] if entry['path']==str(path.relative_to(ROOT)))
     for name,digest in report['fingerprints'].items():
-        if sha(local(name))==digest:continue
+        if local(name).is_file() and sha(local(name))==digest:continue
         # 只接受既有索引指向的真实原字节；不能用当前源码重新生成旧摘要。
-        archived=[candidate for candidate,saved in known.items() if saved==digest and candidate.endswith('/'+name)]
+        relocated = ('scripts/harness/' + name.split('src/harness/', 1)[1]
+                     if name.startswith('src/harness/') else None)
+        archived=[candidate for candidate,saved in known.items()
+                  if saved==digest and (candidate.endswith('/'+name) or candidate==relocated)]
         if len(archived)!=1 or sha(local(archived[0]))!=digest:raise ValueError('stale_recovery_evidence: '+name)
     matrix=json.loads(local(report['scenarioMatrix']).read_text());current=contracts()
     if matrix['scenarioContracts']!=current or {row['scenario'] for row in matrix['entries']}!=set(current):raise ValueError('scenario_coverage_mismatch')

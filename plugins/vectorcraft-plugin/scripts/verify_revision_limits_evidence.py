@@ -28,8 +28,10 @@ def verify(root=ROOT):
  index=json.loads((root/'docs/evidence-index.json').read_text()) if (root/'docs/evidence-index.json').is_file() else {'entries':[]}
  known=builtins.next((x['dependencies'] for x in index['entries'] if x['path']==REPORT),{})
  def bound(name):
-  expected=r['fingerprints'][name];p=local(name)
-  if sha(p)==expected:return p
+  expected=r['fingerprints'][name]
+  try:p=local(name)
+  except ValueError:p=None
+  if p is not None and sha(p)==expected:return p
   candidates=[n for n,h in known.items() if h==expected and n.endswith('/'+name)]
   if len(candidates)!=1 or sha(local(candidates[0]))!=expected:raise ValueError('stale_revision_limits_evidence')
   return local(candidates[0])

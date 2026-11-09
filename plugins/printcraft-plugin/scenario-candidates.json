@@ -1,58 +1,58 @@
 {
   "status": "local-unreleased",
-  "sourcePackage": "full-aigc-skills/printcraft-skills",
+  "sourcePackage": "full-aigc-skills/pdfcraft-skills",
   "skills": [
     {
-      "name": "printcraft-editor",
-      "sha256": "bbc0fa4716e277fe32c36617f112c0d3261519077e2efc615f7e847de514697f"
+      "name": "pdfcraft-editor",
+      "sha256": "dc73726eb712ff7927b6008daddaca59cb7ba14b03e90d3ebfd63932efd8dd49"
     },
     {
-      "name": "printcraft-organize-pdf",
-      "sha256": "03a523e51be58fcf089fb9830aa0822415791a2e08171c87628b0951a9a343f6"
+      "name": "pdfcraft-organize-pdf",
+      "sha256": "4749b6d8873825d71117ebb2582f9809d5245b5c5fa834238e1d6b6636b653a6"
     },
     {
-      "name": "printcraft-ocr-scans",
-      "sha256": "2809a325a662f8ce1fca87916999ce239a3dcccb539587062bad390c4ea78357"
+      "name": "pdfcraft-ocr-scans",
+      "sha256": "c03ed979a202f461f99015e353c380702fd52ae42826f95235bf5184ee899218"
     },
     {
-      "name": "printcraft-redact-pdf",
-      "sha256": "4e31c55151ecb030fa6dbb7cb0b1da719970356117bb213657d452b4e5cab6b9"
+      "name": "pdfcraft-redact-pdf",
+      "sha256": "e1c558eef558258ccd599e6793b2591e48dab2158c441accb1cca8dea3f2398e"
     },
     {
-      "name": "printcraft-compress-pdf",
-      "sha256": "05891880c2e8c8cfad826f943292d93075e535f5ae013593cc789af2e81ef7dd"
+      "name": "pdfcraft-compress-pdf",
+      "sha256": "49467dbb52bacb165dd976408e44af0644bde16157163144c12e7ce26e91ff5d"
     },
     {
-      "name": "printcraft-fill-pdf-forms",
-      "sha256": "8b3e06565e7ba5a408f0d773fd290df7713453a795b9f002876fc5c8e90be9d8"
+      "name": "pdfcraft-fill-pdf-forms",
+      "sha256": "1c9e2e9baa6b13a3ab11931ccc69a2f241ff50de229a0f8076a5e509e28dc787"
     },
     {
-      "name": "printcraft-pdf-preflight",
-      "sha256": "ad9abed5002cd16d6b2efc1d37565959611f9d0201e3bdfb8aaabba4c36046ef"
+      "name": "pdfcraft-pdf-preflight",
+      "sha256": "08dbdefe96f323781a373eccdff6d67ac445457b6334bba33c23c28c4925827d"
     },
     {
-      "name": "printcraft-report-bookmarks",
-      "sha256": "c8ea5e92729aa59a7f04d7a435f4139390b56684b5f5dc5a88f125d6c82d068b"
+      "name": "pdfcraft-report-bookmarks",
+      "sha256": "86a0e60c0e958df515391156bb99d39a3e1ead9af757c37c54b6b4cc93e261a6"
     },
     {
-      "name": "printcraft-review-watermark",
-      "sha256": "9c6c8b1b7226bb85af066e3279079b0110575de300401cb881119e1035d4d246"
+      "name": "pdfcraft-review-watermark",
+      "sha256": "bda964e872a4880e1c3e86b598c9679bf227e0ca32b4445bff59899485b1b1db"
     },
     {
-      "name": "printcraft-invoice-split",
-      "sha256": "c13459dba6883f38667207b1c19d199510c2febd32f8a6d5e5281f9c3cc640d9"
+      "name": "pdfcraft-invoice-split",
+      "sha256": "c0fee5ebe4646bfd3f71ada8634ff1ee4bd77835ee17fa1b7af81403398ccba5"
     },
     {
-      "name": "printcraft-section-pagination",
-      "sha256": "267ff0b2ddbb3c2b958a78be968ee96564dae582956bf760b196dcd708355794"
+      "name": "pdfcraft-section-pagination",
+      "sha256": "6156ee552f997c6bc3f4ede376486851fc02a2d41d79aa3e26d557716b5f43ac"
     },
     {
-      "name": "printcraft-linked-agenda",
-      "sha256": "f7dac3cb913986ca29e362b538665b2156a6139a8b8024f6c282b382f2462cd6"
+      "name": "pdfcraft-linked-agenda",
+      "sha256": "7f5e52389cf7289a22d84c16c158a105739c24b641c08fb8cc4ed6600e89859b"
     },
     {
-      "name": "printcraft-revision-compare",
-      "sha256": "4e36a55da244dd25ca25a239c9df929049b546a53e6e24efdcd5afecff3f70ec"
+      "name": "pdfcraft-revision-compare",
+      "sha256": "4a49e39703be4a8b7aa48939d2728ff11b8a4a02e220f457c0ea5746b2728786"
     }
   ]
 }

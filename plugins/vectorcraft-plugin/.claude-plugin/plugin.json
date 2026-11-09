@@ -1,7 +1,7 @@
 {
   "name": "vectorcraft",
-  "version": "0.1.0-dev.20261019.1",
-  "description": "VectorCraft creative workflows with pinned first-use installation and independent skill snapshots; development release, full domain and host acceptance pending.",
+  "version": "0.1.0-dev.20261109.2",
+  "description": "Logos, icon sets, infographics, SVG cleanup and multi-artboard variants. Exports SVG, PDF and PNG with editable paths.",
   "author": {
     "name": "Full AIGC Plugins",
     "url": "https://github.com/full-aigc-plugins"
