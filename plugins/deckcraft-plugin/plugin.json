@@ -1,18 +1,18 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "deckcraft",
-  "version": "0.1.0-dev.20261019.1",
-  "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
+  "version": "0.1.0-dev.20261109.2",
+  "description": "Pitch decks, weekly reports, training material, data stories and option comparisons. Masters, layouts and speaker notes stay editable after export.",
   "license": "Apache-2.0",
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "DeckCraft（演示文稿）",
+        "displayName": "DeckCraft · Presentations",
         "logo": "./assets/official-logo.png",
         "logoDark": "./assets/official-logo.png",
         "composerIcon": "./assets/official-logo.png",
         "composerIconDark": "./assets/official-logo.png",
-        "shortDescription": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。"
+        "shortDescription": "Pitches, weekly reports, training decks and option comparisons"
       }
     }
   }

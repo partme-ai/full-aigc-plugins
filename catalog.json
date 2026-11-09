@@ -82,7 +82,8 @@
         "surface": "editor",
         "icon": "ruler",
         "availability": "session"
-      }
+      },
+      "codexSourcePath": "./plugins/cadcraft-plugin"
     },
     {
       "id": "designcraft",
@@ -118,7 +119,8 @@
         "surface": "editor",
         "icon": "layout",
         "availability": "session"
-      }
+      },
+      "codexSourcePath": "./plugins/designcraft-plugin"
     },
     {
       "id": "dreamina-novel",
@@ -221,7 +223,8 @@
         "surface": "editor",
         "icon": "image",
         "availability": "session"
-      }
+      },
+      "codexSourcePath": "./plugins/photocraft-plugin"
     },
     {
       "id": "figcraft",
@@ -368,7 +371,8 @@
         "surface": "editor",
         "icon": "file-text",
         "availability": "session"
-      }
+      },
+      "codexSourcePath": "./plugins/printcraft-plugin"
     },
     {
       "id": "vectorcraft",
@@ -404,7 +408,8 @@
         "surface": "editor",
         "icon": "pen-tool",
         "availability": "session"
-      }
+      },
+      "codexSourcePath": "./plugins/vectorcraft-plugin"
     },
     {
       "id": "deckcraft",
@@ -440,7 +445,8 @@
         "surface": "editor",
         "icon": "presentation",
         "availability": "session"
-      }
+      },
+      "codexSourcePath": "./plugins/deckcraft-plugin"
     },
     {
       "id": "soundcraft",
@@ -476,7 +482,8 @@
         "surface": "editor",
         "icon": "music",
         "availability": "session"
-      }
+      },
+      "codexSourcePath": "./plugins/soundcraft-plugin"
     },
     {
       "id": "gridcraft",
@@ -512,7 +519,8 @@
         "surface": "editor",
         "icon": "table",
         "availability": "session"
-      }
+      },
+      "codexSourcePath": "./plugins/gridcraft-plugin"
     },
     {
       "id": "wordcraft",
@@ -548,7 +556,8 @@
         "surface": "editor",
         "icon": "file-text",
         "availability": "session"
-      }
+      },
+      "codexSourcePath": "./plugins/wordcraft-plugin"
     }
   ],
   "plugins": [

@@ -1,5 +1,5 @@
 {
-  "domain": "printcraft",
+  "domain": "pdfcraft",
   "version": "0.1.0-dev.6",
   "status": "PRERELEASE_PUBLISHED_MOBILE_GATE_OPEN",
   "gitRepository": "PUBLIC_REMOTE_MAIN_TRACKED",
@@ -9,7 +9,7 @@
   "modelDispatch": "PASS_SCOPED_INSTALLED_PLUGIN_DEV_6_SIM_TRA_WITH_CONTEXT_WARNING",
   "creativeAcceptance": "PASS_ORIGINAL_PDF_FIXTURES_ONLY",
   "published": true,
-  "openspecChange": "harden-printcraft-plugin-delivery",
+  "openspecChange": "harden-pdfcraft-plugin-delivery",
   "tasksCompleted": 23,
   "tasksTotal": 24,
   "openTasks": [
@@ -24,7 +24,7 @@
     "failed": 0
   },
   "independentCheckout": "PASS_DEV_6_PUBLIC_TAG_INDEPENDENT_18_TESTS",
-  "repository": "https://github.com/full-aigc-plugins/printcraft-plugin",
+  "repository": "https://github.com/full-aigc-plugins/pdfcraft-plugin",
   "sourceRelease": "PASS_REMOTE_DEV_6_TAG_RELEASE_ARCHIVE_AND_78_FILES",
   "releaseTag": "v0.1.0-dev.6",
   "releaseCommit": "8b1091dced36b11c44dcaff108c9394555977831",

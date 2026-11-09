@@ -2,12 +2,12 @@
   "version": 1,
   "dest": "skills/",
   "skills": [
-    "printcraft-compress-pdf",
-    "printcraft-editor",
-    "printcraft-fill-pdf-forms",
-    "printcraft-ocr-scans",
-    "printcraft-organize-pdf",
-    "printcraft-pdf-preflight",
-    "printcraft-redact-pdf"
+    "pdfcraft-compress-pdf",
+    "pdfcraft-editor",
+    "pdfcraft-fill-pdf-forms",
+    "pdfcraft-ocr-scans",
+    "pdfcraft-organize-pdf",
+    "pdfcraft-pdf-preflight",
+    "pdfcraft-redact-pdf"
   ]
 }

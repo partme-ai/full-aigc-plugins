@@ -1,15 +1,15 @@
 {
   "name": "soundcraft",
-  "version": "0.1.0-dev.20261019.1",
+  "version": "0.1.0-dev.20261109.2",
   "skills": "./skills/",
   "mcpServers": "./.codex-plugin/mcp.json",
   "interface": {
-    "displayName": "SoundCraft（音频处理）",
+    "displayName": "SoundCraft · Audio Editing",
     "logo": "./assets/official-logo.png",
     "logoDark": "./assets/official-logo.png",
     "composerIcon": "./assets/official-logo.png",
     "composerIconDark": "./assets/official-logo.png",
-    "shortDescription": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。"
+    "shortDescription": "Dialogue cleanup, loudness matching, mixing and audio edits"
   },
-  "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。"
+  "description": "Dialogue cleanup, loudness matching, voice-over mixing, audio edits and loop stitching. Processing follows segments and silence ranges while keeping sync."
 }

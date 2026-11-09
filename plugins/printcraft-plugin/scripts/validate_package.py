@@ -5,8 +5,8 @@ import hashlib
 import json
 import re
 ROOT=Path(__file__).resolve().parents[1]
-UPSTREAM={'printcraft-use','printcraft-cli','printcraft-cli-setup','printcraft-cli-inspect','printcraft-cli-pages','printcraft-cli-automation'}
-LOCAL={'printcraft-harness'}
+UPSTREAM={'pdfcraft-use','pdfcraft-cli','pdfcraft-cli-setup','pdfcraft-cli-inspect','pdfcraft-cli-pages','pdfcraft-cli-automation'}
+LOCAL={'pdfcraft-harness'}
 
 def inventory(root):
     entries=sorted(root.rglob('*'))
@@ -16,7 +16,7 @@ def inventory(root):
 def validate_source_release_identity(formal,provenance):
     """核验冻结技能源，不将历史插件版本误当作当前宿主发行版本。"""
     historical=formal.get('pluginVersion')
-    if formal.get('protocol')!='printcraft.source-release/1' or formal.get('source')!=provenance:
+    if formal.get('protocol')!='pdfcraft.source-release/1' or formal.get('source')!=provenance:
         raise ValueError('release_lock_identity_drift')
     if not isinstance(historical,str) or not re.fullmatch(r'\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?',historical):
         raise ValueError('release_lock_identity_drift')
@@ -28,7 +28,10 @@ def validate():
     if manifest.get('$schema')!='https://agent-plugins.org/schemas/1.0.0/plugin.schema.json':raise ValueError('unsupported_plugin_schema')
     for key in ('name','version','description'):
         if not isinstance(manifest.get(key),str) or not manifest[key]:raise ValueError('invalid_manifest_'+key)
-    if manifest['name']!='printcraft' or not re.fullmatch(r'\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?',manifest['version']):raise ValueError('manifest_identity_invalid')
+    if manifest['name']!='pdfcraft' or not re.fullmatch(r'\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?',manifest['version']):raise ValueError('manifest_identity_invalid')
+    runtime=json.loads((ROOT/'ui/runtime.lock.json').read_text())
+    if runtime.get('name')!=manifest['name'] or runtime.get('version')!=manifest['version']:raise ValueError('mcp_runtime_identity_drift')
+    if runtime.get('url')!='https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/download/v0.1.0-dev.20261019.1/printcraft-runtime.tgz':raise ValueError('mcp_runtime_asset_drift')
     core=manifest['version'].split('+',1)[0];base,sep,pre=core.partition('-')
     if any(len(x)>1 and x.startswith('0') for x in base.split('.')) or sep and any(x.isdigit() and len(x)>1 and x.startswith('0') for x in pre.split('.')):raise ValueError('invalid_semver_leading_zero')
     for key in ('homepage','repository','license'):
@@ -49,14 +52,14 @@ def validate():
             if ROOT.resolve() not in resource.parents or not resource.is_file() or (ROOT/value).is_symlink():raise ValueError('missing_or_unsafe_interface_resource')
     source=json.loads((ROOT/'upstream/skill-suite.json').read_text())
     provenance=json.loads((ROOT/'candidate-source.json').read_text())
-    if provenance.get('sourceProject')!='printcraft-skills' or provenance.get('sourceVersion')!=source.get('version') or set(source.get('skills',[]))!=UPSTREAM:raise ValueError('source_identity_mismatch')
+    if provenance.get('sourceProject')!='pdfcraft-skills' or provenance.get('sourceVersion')!=source.get('version') or set(source.get('skills',[]))!=UPSTREAM:raise ValueError('source_identity_mismatch')
     status=provenance.get('sourceStatus')
     if status=='local-unpublished-candidate':
         if provenance.get('releaseTag') is not None or provenance.get('sourceCommit') is not None:raise ValueError('false_release_identity')
         release='UNPUBLISHED'
     elif status=='published-release':
         if provenance.get('releaseTag')!='v'+source['version'] or not re.fullmatch('[0-9a-f]{40}',provenance.get('sourceCommit','')):raise ValueError('release_identity_invalid')
-        if provenance.get('sourceRepository')!='https://github.com/full-aigc-skills/printcraft-skills':raise ValueError('release_repository_invalid')
+        if provenance.get('sourceRepository')!='https://github.com/full-aigc-skills/pdfcraft-skills':raise ValueError('release_repository_invalid')
         lock_path=ROOT/'source-release.lock.json'
         if not lock_path.is_file() or lock_path.is_symlink():raise ValueError('release_lock_missing_or_unsafe')
         formal=json.loads(lock_path.read_text())

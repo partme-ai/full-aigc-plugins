@@ -1,14 +1,14 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pdfcraft",
-  "version": "0.1.0-dev.20261024.1",
-  "description": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
+  "version": "0.1.0-dev.20261109.1",
+  "description": "Page reordering, OCR for scans, form filling, redaction and preflight. Originals are preserved and every page is checked for order, geometry and searchable text.",
   "license": "Apache-2.0",
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "PdfCraft（PDF 处理）",
-        "shortDescription": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
+        "displayName": "PdfCraft · PDF Toolkit",
+        "shortDescription": "Page cleanup, OCR, forms, redaction and preflight",
         "category": "Productivity",
         "capabilities": [
           "Read",
@@ -20,12 +20,12 @@
         "composerIconDark": "./assets/official-logo.png"
       }
     },
-    "org.full-aigc.printcraft": {
+    "org.full-aigc.pdfcraft": {
       "contracts": {
-        "execution": "printcraft.execution/1",
-        "verification": "printcraft.verification/1",
-        "ocr": "printcraft.ocr/1",
-        "ocrBackend": "printcraft.ocr-backend/1"
+        "execution": "pdfcraft.execution/1",
+        "verification": "pdfcraft.verification/1",
+        "ocr": "pdfcraft.ocr/1",
+        "ocrBackend": "pdfcraft.ocr-backend/1"
       }
     },
     "ai.nanoco.nanoclaw": {

@@ -3,12 +3,12 @@ import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
-import {Controller,skillDigest} from '../../src/harness/controller.ts';
+import {Controller,skillDigest} from '../../scripts/harness/controller.ts';
 import {RuntimeGate,validateCapabilities} from '../../src/runtime/runtime_gate.ts';
 const [output,skillArg,executable,home,python]=process.argv.slice(2);
 if(!output||!skillArg||!executable||!home||!python)throw new Error('usage: runtime_gate.ts NEW_ROOT SKILL EXECUTABLE RUNTIME_HOME PYTHON');
 const root=resolve(output),skill=resolve(skillArg);mkdirSync(root);const sha=(p:string)=>createHash('sha256').update(readFileSync(p)).digest('hex');
-const inputs=['src/runtime/runtime_gate.ts','src/runtime/runtime_probe.py','src/cli.ts','src/harness/ledger.ts','src/harness/controller.ts','scripts/acceptance/runtime_gate.ts','tests/runtime_gate.test.ts','tests/runtime_selection.test.ts'];
+const inputs=['src/runtime/runtime_gate.ts','src/runtime/runtime_probe.py','src/cli.ts','scripts/harness/ledger.ts','scripts/harness/controller.ts','scripts/acceptance/runtime_gate.ts','tests/runtime_gate.test.ts','tests/runtime_selection.test.ts'];
 const fingerprints=Object.fromEntries(inputs.map(p=>[p,sha(p)])),expectedSkillSha256=skillDigest(skill);
 const catalog=JSON.parse(readFileSync(join(skill,'references/command-coverage.json'),'utf8'));
 const requirements={mode:'headless',commands:Object.fromEntries(catalog.commands.map((r:any)=>[r.id,r.params])),tools:{}};
@@ -25,6 +25,12 @@ try{
  const plan=join(root,'plan.json');writeFileSync(plan,JSON.stringify({document:{width:32,height:32,units:'Points'},operations:[{command:'shape.rectangle',params:{x:2,y:2,width:12,height:12},as:'box'}]}));
  const request={key:'native',skill,expectedSkillSha256,plan,output:join(root,'delivery'),runtimeHome:resolve(home),python,estimatedBytes:16*1024*1024,authorization:{objects:[],fields:[],deadline:Date.now()+60000,maxAttempts:2,maxBytes:32*1024*1024,readRoots:[root],writeRoots:[root,resolve(home)]}};
  const running=controller.run(request);
+ let claimed=false;
+ for(let attempt=0;attempt<200&&!claimed;attempt++){
+  claimed=Number((controller.ledger.db.prepare("SELECT COUNT(*) AS n FROM tasks WHERE state IN ('ready','running')").get() as any).n)>0;
+  if(!claimed)await new Promise(resolve=>setTimeout(resolve,5));
+ }
+ assert.ok(claimed,'native task was not claimed before the drain check');
  assert.throws(()=>gate.activate(probe,requirements,[3]),/runtime_tasks_not_drained/);
  const task=await running;assert.equal(task.state,'review_ready');
  assert.ok(task.binding.inputHashes['runtime:capabilities']);

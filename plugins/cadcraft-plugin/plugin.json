@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cadcraft",
-  "version": "0.1.0-dev.20261019.1",
-  "description": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
+  "version": "0.1.0-dev.20261109.2",
+  "description": "Floor plans, hole patterns, dimensioning, layer cleanup and sheet output. Millimeter coordinates, layers and plot scales are verifiable.",
   "author": {
     "name": "Full AIGC Plugins",
     "url": "https://github.com/full-aigc-plugins"
@@ -19,18 +19,12 @@
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "CADCraft（二维制图）",
-        "shortDescription": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
-        "longDescription": "Use CADCraft's native command engine through MCP to draw, inspect, render, and save 2D CAD documents. Requires cadcraft-cli on the host.",
-        "developerName": "Full AIGC Plugins",
+        "displayName": "CADCraft · 2D Drafting",
+        "shortDescription": "Floor plans, hole patterns, dimensions and sheet output",
         "category": "Productivity",
         "capabilities": [
           "Read",
           "Write"
-        ],
-        "websiteURL": "https://github.com/full-aigc-plugins/cadcraft-plugin",
-        "defaultPrompt": [
-          "Create a CADCraft drawing and verify its geometry"
         ],
         "logo": "./assets/official-logo.png",
         "logoDark": "./assets/official-logo.png",

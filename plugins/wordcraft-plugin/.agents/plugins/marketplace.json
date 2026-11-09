@@ -6,13 +6,28 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/wordcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "interface": {
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261018.5/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
+        "displayName": "WordCraft · Document Writing",
+        "shortDescription": "Reports, minutes, quotes, proposals and resumes as editable documents"
       },
-      "version": "0.1.0-dev.20261019.1",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+      "version": "0.1.0-dev.20261109.2",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity",
+      "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ]
     }
-  ]
+  ],
+  "interface": {
+    "displayName": "WordCraft · Document Writing"
+  }
 }

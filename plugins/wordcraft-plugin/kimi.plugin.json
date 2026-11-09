@@ -1,13 +1,14 @@
 {
   "name": "wordcraft",
-  "version": "0.1.0-dev.20261019.1",
-  "description": "wordcraft 工作区编辑器与场景技能，本地开发候选。",
+  "version": "0.1.0-dev.20261109.2",
+  "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
   "license": "Apache-2.0",
   "skills": "./skills/",
   "interface": {
-    "displayName": "WordCraft Use",
+    "displayName": "WordCraft · Document Writing",
     "logo": "./assets/official-logo.png",
-    "logoDark": "./assets/official-logo.png"
+    "logoDark": "./assets/official-logo.png",
+    "shortDescription": "Reports, minutes, quotes, proposals and resumes as editable documents"
   },
   "mcpServers": {
     "wordcraft-editor": {

@@ -1,17 +1,17 @@
-# printcraft — DeepSeek Harness host
+# pdfcraft — DeepSeek Harness host
 
 This directory adds a DeepSeek Harness host to the existing Agent Plugin. It does
 not replace `plugin.json`, `mcp.json`, `hooks/`, or the other host manifests:
 Claude Code, Codex, ZCode and Kimi keep using those.
 
-The DSH package name is the bare plugin id, `printcraft`.
+The DSH package name is the bare plugin id, `pdfcraft`.
 
 ## Install
 
 Install the plugin repository, not the marketplace repository:
 
 ```sh
-dsh plugin --profile desktop add https://github.com/full-aigc-plugins/printcraft-plugin.git
+dsh plugin --profile desktop add https://github.com/full-aigc-plugins/pdfcraft-plugin.git
 ```
 
 For local development, link this directory instead:
@@ -25,7 +25,7 @@ does not declare a DSH bundle, so it cannot be installed as a plugin.
 
 ## Editor panel (right Sidebar Browser)
 
-The `printcraft-editor` MCP server is enabled by default. To turn it off, start DSH
+The `pdfcraft-editor` MCP server is enabled by default. To turn it off, start DSH
 with `DSH_MCP_PRINTCRAFT=0`.
 
 1. Ask the agent for the task. It calls `open_browser_editor` and returns an
@@ -42,5 +42,5 @@ with `DSH_MCP_PRINTCRAFT=0`.
 
 - every `skills/<name>/SKILL.md` (read live, no copy)
 - every `commands/*.json` as a user-invocable `/name` skill
-- one DSH-only skill, `printcraft-dsh`, that explains the Sidebar Browser handoff
-- MCP server `printcraft-editor` (enabled by default, `DSH_MCP_PRINTCRAFT=0` to disable)
+- one DSH-only skill, `pdfcraft-dsh`, that explains the Sidebar Browser handoff
+- MCP server `pdfcraft-editor` (enabled by default, `DSH_MCP_PRINTCRAFT=0` to disable)

@@ -6,17 +6,17 @@ import assert from 'node:assert/strict';
 import { ReviewStore } from '../../src/evaluation/review_store.ts';
 import { RevisionCycle } from '../../src/evaluation/revision_cycle.ts';
 import { TechnicalReview } from '../../src/evaluation/technical_review.ts';
-import { skillDigest } from '../../src/harness/controller.ts';
+import { skillDigest } from '../../scripts/harness/controller.ts';
 
 /** 两项真实原生返工；评分为显式测试注入，不证明真实创作验收或完整6.6。 */
 const [original,outputRoot,skillPath,runtimePath,python]=process.argv.slice(2);
 if(!original||!outputRoot||!skillPath||!runtimePath||!python)throw new Error('usage: revision_cycle.ts ORIGINAL NEW_ROOT SKILL WARM_RUNTIME PYTHON');
 const root=resolve(outputRoot),skill=resolve(skillPath),runtimeHome=resolve(runtimePath);mkdirSync(root);
 const digest=(value:Buffer|string)=>createHash('sha256').update(value).digest('hex');
-const dependencies=['src/planning/geometry.ts','skills.lock.json','src/cli.ts','src/evaluation/revision_cycle.ts','src/evaluation/review_store.ts','src/evaluation/technical_review.ts','src/evaluation/delivery_quality.py','src/harness/controller.ts','src/harness/ledger.ts','src/harness/process_registry.ts','src/harness/process_runner.py','tests/revision_cycle.test.ts','tests/controller.test.ts','scripts/acceptance/revision_cycle.ts'];
+const dependencies=['src/planning/geometry.ts','skills.lock.json','src/cli.ts','src/evaluation/revision_cycle.ts','src/evaluation/review_store.ts','src/evaluation/technical_review.ts','src/evaluation/delivery_quality.py','scripts/harness/controller.ts','scripts/harness/ledger.ts','scripts/harness/process_registry.ts','scripts/harness/process_runner.py','tests/revision_cycle.test.ts','tests/controller.test.ts','scripts/acceptance/revision_cycle.ts'];
 const fingerprints=Object.fromEntries(dependencies.map(p=>[p,digest(readFileSync(p))]));
 const startingSkillSha256=skillDigest(skill);
-assert.equal(startingSkillSha256,JSON.parse(readFileSync('skills.lock.json','utf8')).sources[0].sha256['vectorcraft-use'],'acceptance requires exact pinned skill bytes');
+assert.equal(startingSkillSha256,JSON.parse(readFileSync('skills.lock.json','utf8')).sources[0].sha256['vectorcraft-harness'],'acceptance requires exact pinned skill bytes');
 const targetColor={model:'rgb',r:Math.fround(34/255),g:Math.fround(85/255),b:Math.fround(136/255)};
 const changes=[{objectId:4,field:'appearance.items.0.paint.color',value:targetColor},{objectId:5,field:'kind.runs.0.style.fill.color',value:targetColor},{objectId:7,field:'appearance.items.0.paint.color',value:targetColor}];
 const cases:any[]=[];
