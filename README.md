@@ -101,16 +101,12 @@ codex plugin add volcengine-design@full-aigc-plugins
 
 ## 插件目录
 
-CADCraft、DeckCraft、DesignCraft、GridCraft、PdfCraft、PhotoCraft、SoundCraft、VectorCraft、WordCraft 的市场入口已迁至 [Full Work Plugins](https://github.com/partme-ai/full-work-plugins)；独立插件仓和预发布 Release 仍由 [full-aigc-plugins](https://github.com/full-aigc-plugins) 维护。
+CADCraft、DeckCraft、DesignCraft、EffectCraft、FigCraft、FilmCraft、GridCraft、LightCraft、PdfCraft、PhotoCraft、SoundCraft、VectorCraft、WordCraft 的市场入口已迁至 [Full Work Plugins](https://github.com/partme-ai/full-work-plugins)；独立插件仓和预发布 Release 仍由 [full-aigc-plugins](https://github.com/full-aigc-plugins) 维护。
 
 以下为 **AIGC** 插件；点击插件名称或仓库链接查看各插件文档，另一分类请使用上方市场入口。
 
 | 插件 | ID | 版本 | 定位 | 仓库 |
 |------|----|:----:|------|------|
-| [**EffectCraft Use (RC)**](https://github.com/full-aigc-plugins/effectcraft-plugin) | `effectcraft` | 0.1.0-dev.20261018.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [effectcraft-plugin](https://github.com/full-aigc-plugins/effectcraft-plugin) |
-| [**FigCraft Use (RC)**](https://github.com/full-aigc-plugins/figcraft-plugin) | `figcraft` | 0.1.0-dev.20261019.2 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [figcraft-plugin](https://github.com/full-aigc-plugins/figcraft-plugin) |
-| [**FilmCraft Use (RC)**](https://github.com/full-aigc-plugins/filmcraft-plugin) | `filmcraft` | 0.1.0-dev.20261018.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [filmcraft-plugin](https://github.com/full-aigc-plugins/filmcraft-plugin) |
-| [**LightCraft Use (RC)**](https://github.com/full-aigc-plugins/lightcraft-plugin) | `lightcraft` | 0.1.0-dev.20261018.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [lightcraft-plugin](https://github.com/full-aigc-plugins/lightcraft-plugin) |
 | [🧱 **Blender 制作**](https://github.com/full-aigc-plugins/blender-design-plugin) | `blender-design` | 0.16.2 | Blender 场景的受控设计、审阅与导出（四 Tab 工作台、供应商能力、视觉里程碑与恢复检查点）；新增 `blender-ai-replication`（LLM + VLM-critic 复刻参考图） | [blender-design-plugin](https://github.com/full-aigc-plugins/blender-design-plugin) |
 | [🎞️ **Comfy 生成**](https://github.com/full-aigc-plugins/comfy-design-plugin) | `comfy-design` | 0.6.2 | Comfy Cloud 生成工作流（图像 / 视频 / 音频 / 3D） | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
 | [🧪 **内容工厂（RC）**](https://github.com/full-aigc-plugins/content-factory-plugin) | `content-factory` | 1.0.0-rc.4 | 16 渠道的受控内容创作、审阅、排版与导出；预发布测试版，非生产就绪 | [content-factory-plugin](https://github.com/full-aigc-plugins/content-factory-plugin) |
