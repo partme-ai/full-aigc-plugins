@@ -1,7 +1,7 @@
 {
   "name": "figcraft",
-  "version": "0.1.0-dev.20261019.1",
-  "url": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/download/v0.1.0-dev.20261019.1/figcraft-runtime.tgz",
+  "version": "0.1.0-dev.20261019.2",
+  "url": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/download/v0.1.0-dev.20261019.2/figcraft-runtime.tgz",
   "sha256": "e1753abbed6893b047de703a442120ba26500fe94dbdce091f6e04b8f0312191",
   "files": {
     "adapter.mjs": "9a53ce99e5f8a91d3da7b55ac753df944da5f689959b17501797f4e3aea7b7f6",
