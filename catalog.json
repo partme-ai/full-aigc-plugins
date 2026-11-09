@@ -616,12 +616,12 @@
     },
     {
       "id": "dreamina-canvas",
-      "displayName": "Dreamina Canvas（即梦画布编排）",
+      "displayName": "Dreamina Canvas",
       "repository": "full-aigc-plugins/dreamina-canvas-plugin",
       "localDirectory": "dreamina-canvas-plugin",
-      "version": "0.5.1",
-      "description": "在即梦画布上编排节点与时间线：免费保存和付费运行分开，产物下载带校验。",
-      "shortDescription": "在即梦画布上编排节点与时间线：免费保存和付费运行分开，产物下载带校验。",
+      "version": "0.6.0",
+      "description": "类型化节点与时间线编排；免费保存与计费运行分离，产物下载带校验。",
+      "shortDescription": "节点画布与时间线，保存与计费运行分离",
       "category": "Creativity",
       "logo": "assets/official-logo.png",
       "tags": [

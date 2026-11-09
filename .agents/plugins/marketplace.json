@@ -159,7 +159,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin.git",
-        "ref": "v0.5.1"
+        "ref": "v0.6.0"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -171,13 +171,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.5.1",
-      "description": "在即梦画布上编排节点与时间线：免费保存和付费运行分开，产物下载带校验。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.1/assets/official-logo.png",
+      "version": "0.6.0",
+      "description": "类型化节点与时间线编排；免费保存与计费运行分离，产物下载带校验。",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.0/assets/official-logo.png",
       "interface": {
-        "displayName": "Dreamina Canvas（即梦画布编排）",
+        "displayName": "Dreamina Canvas",
         "shortDescription": "节点画布与时间线，保存与计费运行分离",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.0/assets/official-logo.png"
       }
     },
     {

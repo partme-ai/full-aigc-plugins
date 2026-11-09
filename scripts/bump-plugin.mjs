@@ -169,12 +169,18 @@ catalogText = catalogText.slice(0, segStart) + `"version": "${newVersion}"` + ca
 fs.writeFileSync(catalogPath, catalogText);
 
 // 2) 各仓 manifest
-const bumpPlain = (text) => text.replace(`"version": "${oldVersion}"`, `"version": "${newVersion}"`);
+const bumpPlain = (text, manifest) => {
+  const currentVersion = JSON.parse(text).version;
+  if (typeof currentVersion !== "string") throw new Error(`${manifest}: missing version`);
+  const oldField = `"version": "${currentVersion}"`;
+  if (!text.includes(oldField)) throw new Error(`${manifest}: cannot locate version field`);
+  return text.replace(oldField, `"version": "${newVersion}"`);
+};
 const bumpCodex = (text) => text.replace(/"version": "\d+\.\d+\.\d+(?:\+codex\.\d+)?"/, `"version": "${newVersion}+codex.${today}"`);
 
 for (const rel of plainManifestRels) {
   const manifest = path.join(repoDir, rel);
-  fs.writeFileSync(manifest, bumpPlain(fs.readFileSync(manifest, "utf8")));
+  fs.writeFileSync(manifest, bumpPlain(fs.readFileSync(manifest, "utf8"), manifest));
 }
 const repositoryMarketplace = path.join(repoDir, ".agents/plugins/marketplace.json");
 const marketplace = JSON.parse(fs.readFileSync(repositoryMarketplace, "utf8"));
