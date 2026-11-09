@@ -1,6 +1,6 @@
 {
   "name": "figcraft",
-  "version": "0.1.0-dev.20261019.1",
+  "version": "0.1.0-dev.20261019.2",
   "buildKind": "full-aigc-enhanced",
   "upstream": {
     "repository": "https://github.com/storytold/figcraft",
