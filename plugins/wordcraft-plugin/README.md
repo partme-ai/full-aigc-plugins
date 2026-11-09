@@ -1,200 +1,209 @@
-# WordCraft Use
+# WordCraft（文档写作）
 
-## Plugin marketplaces
+> 在智能体会话中起草、排版并交付可编辑的 Word 文档。保留章节结构、原生表格和页码，交付前重新打开核对。
 
-This plugin belongs to **AIGC content creation**.
+**版本**：0.1.0-dev.20261109.3 · **许可证**：Apache-2.0 · **技能**：16 个 · **MCP 服务**：1 个
 
-| Category | Marketplace | Purpose |
-| --- | --- | --- |
-| Full-stack development | [Full Stack Plugins](https://github.com/partme-ai/full-stack-plugins) | Architecture and UI design, code understanding, quality checks, code review, workflow governance, and server operations |
-| AIGC content creation | [Full AIGC Plugins](https://github.com/partme-ai/full-aigc-plugins) | Image, video, audio, music, 3D, and multimodal content creation |
+[English](README.en.md) · [安装](#安装) · [快速开始](#快速开始) · [项目结构](#项目结构)
 
-![WordCraft Use — editable business documents](assets/official-logo.png)
+## 项目定位
 
-> Draft, lay out, and deliver editable Word documents from an agent session, with real section structures, native tables, and a reopened-file check before handoff.
+WordCraft 面向需要直接得到可编辑 Word 文档的用户，而不是一段 Markdown 或纯文本。它先收集并核对事实，再建立章节与字段结构，用原生标题、表格、页码和页眉页脚完成排版，最后重新打开文件检查读者实际看到的内容。
 
-[![Version](https://img.shields.io/badge/release-0.1.0--dev.20261019.1-1A73E8)](#positioning)
-[![Skills](https://img.shields.io/badge/skills-16-00A67E)](#skills)
-[![MCP servers](https://img.shields.io/badge/MCP%20servers-1-6E56CF)](#mcp-tools)
-[![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
+适用场景：
 
-[English](README.md) | [简体中文](README.zh-CN.md) · [Install](#installation) · [Quick start](#quick-start) · [Skills](#skills) · [MCP tools](#mcp-tools) · [Limits](#troubleshooting)
+- 工作周报、会议纪要、项目说明
+- 商业报价、验收报告、需求说明
+- 简历、培训讲义、研究报告
+- 目录、页码、图表题注与样式统一
+- 已有文档的局部修改与版本比对
 
-## Positioning
+不适用：
 
-`wordcraft` turns source material into an editable document rather than a text dump: it collects the real facts, fills a section and field structure, lays the result out with native headings, tables, page numbers, and headers, then reopens the file and checks what the reader will actually see. It wraps the native WordCraft engine in sixteen skills and one embedded editor.
+- 把长文档简单拼接成一段文字
+- 在没有事实来源时编造业务数据
+- 用截图代替可编辑文档
 
-This is an installable development candidate. Production promotion is blocked, embedded host synchronization is not accepted, and short one-page samples do not prove that arbitrary long documents paginate correctly.
+## 一眼看懂
 
-| Property | Value |
-| --- | --- |
-| Plugin ID | `wordcraft` |
-| Display name | WordCraft Use |
-| Version | `0.1.0-dev.20261018.5` |
-| Stage | Installable development candidate, production promotion blocked |
-| Native engine | WordCraft 0.7.0 via `wordcraft-cli` |
-| Marketplace | `wordcraft-marketplace` |
-| License | Apache-2.0 |
+```text
+访谈 / 记录 / 数据 / 旧稿
+        │
+        ▼
+WordCraft 技能（收集 → 结构 → 排版 → 回读）
+        │
+        ├── wordcraft-cli（原生文档操作）
+        └── MCP 编辑器（浏览器内查看与局部调整）
+        │
+        ▼
+DOCX + 重新打开检查 + 交付说明
+```
 
-## Installation
+## 能力与边界
 
-### Prerequisites
+| 能力 | 说明 | 边界 |
+|---|---|---|
+| 起草 | 按目标、读者和材料生成章节 | 事实必须来自输入或明确标注 |
+| 结构 | 标题层级、目录、页码、页眉页脚 | 长文档分页需实际打开检查 |
+| 表格 | 原生表格、合并单元格、题注 | 复杂公式与图表需单独核对 |
+| 样式 | 段落、字体、编号、间距统一 | 不替代品牌设计规范 |
+| 局部修改 | 保留未涉及内容，只改指定范围 | 修改后必须重新打开 |
+| 版本比对 | 两版文字与结构差异 | 不判断业务上谁对 |
+| 导出 | DOCX，必要时 PDF | PDF 需检查字体嵌入 |
 
-- Codex is the host with recorded evidence. Other hosts are not accepted.
-- Node.js 24 or newer is required by the embedded editor. The distributed package already contains the editor build; no Rust toolchain and no `npm install` are needed at runtime.
-- Native file workflows use `wordcraft-cli`, which this plugin does not install. Query the installed version and command schema before running a recipe.
-- The first Git-based launch needs network access or an existing verified editor cache. Complete release ZIPs can start offline from bundled assets.
-- Windows Git installs need long-path support: `git config --global core.longpaths true`.
+## 架构与核心流程
 
-### From the plugin marketplace
+```text
+宿主 / Agent
+   │  调用技能
+   ▼
+skills/wordcraft-*  ──►  MCP 编辑器 / wordcraft-cli
+                              │
+                              ▼
+                     DOCX + 结构检查
+                              │
+                              ▼
+                     重新打开、逐页核对、交付
+```
+
+原则：
+
+1. 先确认目标、读者、篇幅和交付格式。
+2. 先生成结构，再填内容，最后统一排版。
+3. 每次修改保留可回退版本。
+4. 退出码成功不等于版面正确，必须重新打开检查。
+
+## 兼容性
+
+| 项目 | 状态 |
+|---|---|
+| 宿主 | Codex 有完整证据；其他宿主未验证 |
+| Node.js | 24+（编辑器） |
+| 原生引擎 | WordCraft 0.7.0 / wordcraft-cli |
+| 平台 | 以实际安装包与发行说明为准 |
+| Windows Git | 需要开启 longpaths |
+
+## 安装
 
 ```bash
 codex plugin marketplace add partme-ai/full-aigc-plugins
 codex plugin add wordcraft@full-aigc-plugins
 ```
 
-The repository also ships its own marketplace metadata (`wordcraft-marketplace`) pinned to `v0.1.0-dev.20261018.5`. Restart the host, open a new task, and state the document type and the real source material.
+安装后重启宿主，先做只读检查：
 
-## Quick start
+> 打开这份文档，告诉我章节结构、页数和现有样式，不要修改。
 
-1. Say what to produce and from what: “Write this week's report from these work notes; mark anything missing as pending confirmation.”
-2. Let the agent choose the document skill and fill real fields. Templates describe sections, required fields, and native layout operations; they are not empty outlines with a new title.
-3. Ask for a new editable DOCX plus a review PDF. Templates are designed for new documents, not for overwriting an existing file.
-4. Reopen the DOCX, check heading levels, cell-by-cell table content, and column counts, then compare against the PDF page.
+## 快速开始
+
+1. **确认目标**：文档类型、读者、篇幅、必须包含的章节。
+2. **收集事实**：会议记录、数据、旧稿、品牌规范。
+3. **生成结构**：先目录和章节，再逐节填内容。
+4. **统一排版**：标题、正文、表格、页码、页眉页脚。
+5. **重新打开**：检查分页、目录、表格跨页和字体。
+6. **交付**：给出 DOCX，必要时导出 PDF。
+
+## 配置
+
+| 变量 | 用途 | 默认 |
+|---|---|---|
+| `CRAFT_WORKSPACE_ROOT` | 编辑器绑定的工作区 | 当前项目 |
+| `CRAFT_EDITOR_UPDATE` | 设为 `off` 跳过增强包下载 | 开启 |
+
+不要在文档或配置中写入密钥、令牌和私有路径。
+
+## 扩展契约
+
+新增技能时应：
+
+- 使用 `wordcraft-` 前缀
+- 在 `SKILL.md` 声明触发条件和边界
+- 通过 MCP 或固定 CLI 操作真实文档
+- 修改后重新打开并核对结构
+- 不把“生成成功”写成“交付完成”
+
+## 重试、幂等与恢复
+
+- 修改前保存版本或副本。
+- 失败后先检查当前文档状态，不自动重复写入。
+- 重新执行时使用新输出路径。
+- 不确定的结果标记为待核对。
+
+## 数据与状态
+
+- 原始材料只读。
+- 输出文档与临时文件分开。
+- 保留修改记录和最终版本。
+- 删除临时文件前确认交付文件已保存。
+
+## 安全
+
+- 不把未授权材料上传到第三方服务。
+- 敏感字段脱敏后再交付。
+- 宏、外部链接和嵌入对象需显式确认。
+- 发现泄露先轮换凭据，再清理文档。
+
+## 可观测性与运行
+
+- 记录命令、输出文件、页数和结构检查结果。
+- 交付前确认文件可打开、目录可更新、页码正确。
+- 长文档至少抽查首页、中间页和末页。
+
+## 开发与验证
+
+```bash
+node --test
+python3 -m pytest
+```
+
+提交前确认技能清单、目录和 README 一致。
+
+## 打包与发布
+
+- 版本与 `plugin.json`、市场清单、tag 一致。
+- ZIP 根目录为 `wordcraft-plugin`。
+- 发布后重新安装并做一次只读检查。
+
+## 升级与迁移
+
+- 升级前备份工作区文档。
+- 旧版本生成的文件保持可打开。
+- 迁移后重新检查模板、页码和目录。
+
+## 故障排查
+
+| 现象 | 检查 |
+|---|---|
+| 文档打不开 | 文件是否完整、是否被占用 |
+| 目录不更新 | 在 Word 中更新域 |
+| 页码错乱 | 分节符与页码起始值 |
+| 表格跨页异常 | 行属性与重复标题行 |
+| 字体缺失 | 嵌入字体或替换字体 |
+
+## 项目结构
 
 ```text
-Meeting minutes: turn these notes into minutes with decisions and action items.
-Weekly report: summarize progress, blockers, and next week's plan.
-Proposal: produce a project proposal with phases, deliverables, and owners.
-Quotation: build a line-item table with quantities and decimal prices; do not infer tax.
+wordcraft-plugin/
+├── .zcode-plugin/      # ZCode 清单与 UI surface
+├── .codex-plugin/      # Codex 清单
+├── .claude-plugin/     # Claude 清单
+├── skills/             # 16 个技能
+├── ui/                 # MCP Apps 编辑器
+├── commands/open.md    # 打开编辑器命令
+├── docs/               # 架构与验证记录
+└── assets/             # 图标与模板
 ```
 
-Direct CLI form for file tasks, one method per argv argument; verify text afterwards with `wordcraft-cli text out.docx`:
+## 深入文档
 
-```bash
-wordcraft-cli run --cmd 'text.insert={"text":"Body text"}' --save out.docx
-```
+- [架构](docs/architecture.zh-CN.md)
+- [场景技能](docs/scene-skills.md)
+- [任务回执](docs/task-receipts.zh-CN.md)
 
-## What you can build
+## 贡献与支持
 
-| Workflow | Built-in path | Verifiable output |
-|:---|:---|:---|
-| Meeting minutes | `wordcraft-meeting-minutes` | Decisions, owners, and action items in an editable table |
-| Weekly report | `wordcraft-weekly-report` | Completed, in-progress, blocked, and next-step sections kept separate |
-| Project proposal | `wordcraft-business-proposal` | Goals, phases, deliverables, and planned dates |
-| Requirements document | `wordcraft-requirements-document` | Numbered requirements with observable acceptance conditions |
-| Acceptance report | `wordcraft-acceptance-report` | Expected versus actual results, with failed items preserved |
-| Business letter | `wordcraft-business-letter` | Recipient, subject, confirmed facts, and requested reply |
-| Commercial quotation | `wordcraft-quotation` | Native line-item table, per-line amounts, and a checked total |
-| Research and resume layout | `wordcraft-research-report`, `wordcraft-resume-layout` | Structured sections, figures, references, and a compact layout |
-| Long-form structure | `wordcraft-toc-handbook`, `wordcraft-illustrated-guide`, `wordcraft-landscape-appendix` | Updatable table of contents, captioned figures, and portrait body with landscape appendix |
-| Revision and playbooks | `wordcraft-document-comparison`, `wordcraft-document-style`, `wordcraft-scenario-playbooks` | Text and structure diff, unified styles, eight checked recipes |
+提交问题时附上插件版本、宿主、文档类型、命令、输出文件和预期结果。不要附真实敏感文档。
 
-## Skills
+## 许可证
 
-### Document templates
-
-| Skill | What it does |
-|---|---|
-| `wordcraft-meeting-minutes` | Build minutes from discussion, decisions, and action items |
-| `wordcraft-weekly-report` | Build a weekly report from work records, progress, and next-week plans |
-| `wordcraft-business-proposal` | Build a proposal with goals, approach, plan, and delivery |
-| `wordcraft-requirements-document` | Turn interviews or drafts into numbered, testable requirements |
-| `wordcraft-acceptance-report` | Record acceptance criteria, measured results, and open issues |
-| `wordcraft-business-letter` | Draft a business letter from recipient, subject, and confirmed facts |
-
-### Commercial and layout
-
-| Skill | What it does |
-|---|---|
-| `wordcraft-quotation` | Compile explicit line items into a native table and verify decimal totals |
-| `wordcraft-research-report` | Lay out abstract, sections, figures, tables, and references |
-| `wordcraft-resume-layout` | Lay out experience and outcomes in a compact resume |
-| `wordcraft-document-style` | Unify headings, paragraphs, lists, and tables across a document |
-
-### Long-form and comparison
-
-| Skill | What it does |
-|---|---|
-| `wordcraft-toc-handbook` | Produce a handbook with an updatable table of contents |
-| `wordcraft-illustrated-guide` | Produce a guide with images and captions |
-| `wordcraft-landscape-appendix` | Combine a portrait body with a landscape matrix appendix |
-| `wordcraft-document-comparison` | Compare two versions for textual and structural differences |
-
-### Session and playbooks
-
-| Skill | What it does |
-|---|---|
-| `wordcraft-editor` | Open the real editor in an MCP Apps host or host browser and share one workspace session |
-| `wordcraft-scenario-playbooks` | Eight recipes for project briefs, SOPs, release notes, decision tables, letters, training decks, and two-column briefs |
-
-## MCP tools
-
-`.codex-plugin/mcp.json` starts one stdio server, `wordcraft-editor`, from `ui/bootstrap.mjs`. The adapter adds three stable tools and passes through the pinned engine's document tool catalog.
-
-| Tool | Purpose |
-|---|---|
-| `open_editor` | Open the editor for an absolute `workspace`; the first call binds the workspace |
-| `open_browser_editor` | Return an `editorUrl` for the same session when the host has a built-in browser |
-| `editor_status` | Report whether the editor actually attached and is ready to accept edits |
-
-Inside the session, the catalog in `ui/catalog.lock.json` provides `list_commands`, an execution wrapper, batch mode, document open/save, text entry and selection, inspection, and page rendering. The wrapper is exposed as `execute` in the shipped catalog and referenced as `run_command` in some recipes; read the live tool schema before calling rather than assuming either name.
-
-## Configuration
-
-| Setting | Meaning |
-|---|---|
-| `${PLUGIN_ROOT}` | Expanded by the portable `plugin.json` and `mcp.json` |
-| `${CLAUDE_PLUGIN_ROOT}` | Expanded by the Claude Code manifest and root `.mcp.json` |
-| `CRAFT_EDITOR_UPDATE=off` | Use the bundled editor only and skip the update query |
-| `CRAFT_EDITOR_CACHE_DIR` | Alternate absolute cache directory; default is `~/.cache/full-aigc/editors` |
-| `CRAFT_WORKSPACE_ROOT` | Workspace root when the adapter is started directly |
-| `CRAFT_PANEL_METADATA_FILE` | Host panel metadata used by the ZCode and Claude Code entries |
-
-## Architecture and security
-
-```mermaid
-flowchart LR
-    U[User] --> H[Agent host]
-    H --> S[16 skills]
-    S --> M[stdio MCP wordcraft-editor]
-    M --> E[Pinned editor engine]
-    E --> D[Editable DOCX]
-    D --> P[Review PDF]
-    S --> C[wordcraft-cli for file tasks]
-    C --> D
-```
-
-- The plugin does not implement a document engine. It ships template guidance and a verified editor build, and delegates execution to the pinned engine or external CLI.
-- MCP runs over stdio. The editor page uses a loopback HTTP server with a random token and Host/Origin checks; paths outside the workspace are rejected.
-- Manual browser exports land in `craft-exports/` under the workspace with new file names. Closing the MCP process ends the session, so save before you exit.
-- A CLI run against a file is not the same session as an open editor; do not claim on-screen synchronization from a separate file process.
-- Template examples are fictional. Agent output must mark unknown facts as pending rather than inventing them, and failed acceptance items must stay visible.
-
-## Troubleshooting
-
-| Symptom | Cause | What to do |
-|---|---|---|
-| A long document breaks across pages badly | Pagination was validated on one-page A4 samples only | Inspect every page in the PDF; long-document pagination is not proven |
-| The host does not show the editor panel | The host does not render MCP Apps | Use the `open_browser_editor` URL; a text result is not a rendered panel |
-| Edits vanished after closing the tool | The session ended with the MCP process | Save the document before closing and reopen it |
-| A template overwrote my existing file | Templates are intended for new documents | Work on a new file and target an existing document explicitly |
-| A quotation total is wrong for my tax rules | The skill does not infer tax | Provide explicit tax lines or compute tax outside the skill |
-| Chinese or table layout looks wrong | Only the recorded six-sample set was reviewed | Check the actual page; do not assume the sample result generalizes |
-
-## Upgrade
-
-```bash
-codex plugin marketplace upgrade full-aigc-plugins
-codex plugin add wordcraft@full-aigc-plugins
-```
-
-The editor update is independent of the plugin version. `editor_status` reports the runtime `source` (`download`, `cache`, or `bundled`) and the version actually in use.
-
-## Contributing and support
-
-Open issues at <https://github.com/full-aigc-plugins/wordcraft-plugin/issues>. Include the plugin and engine version, the template or skill, the real input shape, the generated DOCX and PDF, and the reopened-check evidence. A rendered sample does not prove every document length or host.
-
-## License
-
-Apache-2.0. Template metadata, fictional examples, and the editor build ship with the plugin; the native engine and CLI remain external. Icon provenance and the MIT notice are recorded in `assets/official-icon-source.json` and the adjacent license file. See [LICENSE](LICENSE).
+Apache-2.0，见 [LICENSE](LICENSE)。

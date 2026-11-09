@@ -1,6 +1,6 @@
 {
   "name": "wordcraft",
-  "version": "0.1.0-dev.20261109.2",
+  "version": "0.1.0-dev.20261109.3",
   "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
   "license": "Apache-2.0",
   "skills": "./skills/",

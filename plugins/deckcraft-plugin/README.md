@@ -1,173 +1,164 @@
-# DeckCraft Use
+# DeckCraft（演示文稿）
 
-## Plugin marketplaces
+> 路演、周报、课件与方案对比，可编辑演示
 
-This plugin belongs to **AIGC content creation**.
+**版本**：0.1.0-dev.20261109.3 · **许可证**：Apache-2.0 · **技能**：10 个 · **MCP 服务**：1 个
 
-| Category | Marketplace | Purpose |
-| --- | --- | --- |
-| Full-stack development | [Full Stack Plugins](https://github.com/partme-ai/full-stack-plugins) | Architecture and UI design, code understanding, quality checks, code review, workflow governance, and server operations |
-| AIGC content creation | [Full AIGC Plugins](https://github.com/partme-ai/full-aigc-plugins) | Image, video, audio, music, 3D, and multimodal content creation |
+[English](README.en.md) · [安装](#安装) · [快速开始](#快速开始) · [项目结构](#项目结构)
 
-![DeckCraft Use — editable presentations from a coding agent](assets/official-logo.png)
+## 项目定位
 
-> Author, inspect and export a real presentation from your agent host — one slide at a time, with the editable source deck kept as the deliverable.
+项目路演、工作周报、培训课件、数据叙事与方案对比；母版、版式与讲稿同源，导出后可继续修改。
 
-[![Version](https://img.shields.io/badge/release-0.1.0--dev.20261019.1-1A73E8)](https://github.com/full-aigc-plugins/deckcraft-plugin/releases)
-[![Skills](https://img.shields.io/badge/skills-10-00A67E)](#skills)
-[![MCP tools](https://img.shields.io/badge/MCP%20tools-33-00A67E)](#mcp-tools)
-[![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
+本插件属于内容创作线，面向需要直接得到可编辑成果、而不是一段脚本或图片的用户。
 
-[English](README.md) | [简体中文](README.zh-CN.md) · [Install](#installation) · [Quick start](#quick-start) · [Skills](#skills) · [Troubleshooting](#troubleshooting)
+## 一眼看懂
 
-## Positioning
+```text
+素材 / 需求 / 旧稿
+        │
+        ▼
+DeckCraft（演示文稿） 技能（检查 → 计划 → 执行 → 回读）
+        │
+        ├── 原生 CLI / MCP 工具
+        └── MCP 编辑器（浏览器内查看与局部调整）
+        │
+        ▼
+可编辑工程 + 导出文件 + 复核结果
+```
 
-`deckcraft` lets an agent host drive the DeckCraft engine through a bundled stdio MCP server and a set of presentation skills, so a request ends with an editable `.deckcraft` deck plus the exports you asked for. The plugin owns skill routing, the same-session editor bridge and package pinning. It does not replace DeckCraft, its engine, or the host runtime.
+## 能力与边界
 
-| Property | Value |
-| :--- | :--- |
-| Plugin ID | `deckcraft` |
-| Version | `0.1.0-dev.20261018.4` |
-| Status | Development preview; production promotion blocked, all-host acceptance open |
-| Editor runtime | Node.js 24, started from `ui/bootstrap.mjs` |
-| Upstream reference | DeckCraft `0.3.0` (`d0e57d7e25f9852179cc66be12dd6188f1c05535`) |
-| Optional CLI | `deckcraft-cli`, if your host already has it on `PATH` |
-| License | Apache-2.0 |
+| 能力 | 说明 | 边界 |
+|---|---|---|
+| 检查 | 读取现有工程与素材状态 | 不修改未授权文件 |
+| 创建 | 按目标生成可编辑结构 | 事实与素材需来自输入 |
+| 编辑 | 局部修改并保留未涉及内容 | 修改后必须重新打开 |
+| 导出 | 输出目标格式并核对 | 导出成功不等于版面正确 |
+| 评审 | 按明确标准检查结果 | 不替代最终人工验收 |
 
-## Installation
+## 架构与核心流程
 
-### Prerequisites
+```text
+宿主 / Agent
+   │  调用技能
+   ▼
+skills/deckcraft-*  ──►  MCP 编辑器 / 原生 CLI
+                              │
+                              ▼
+                     可编辑工程 + 导出
+                              │
+                              ▼
+                     回读、检查、交付
+```
 
-- Node.js 24 on `PATH`; the bundled stdio MCP server runs on it.
-- Network access on the first editor launch. The plugin downloads and verifies the pinned editor archive; a complete release ZIP already contains it, so no Rust toolchain and no `npm install` are required.
-- A `deckcraft-cli` installation only if you want the native CLI path. The plugin never installs or upgrades it.
-- A host that supports plugins or stdio MCP. Embedded panels additionally require MCP Apps or a built-in browser.
+原则：
 
-### From the plugin marketplace
+1. 先只读检查，再计划，再执行。
+2. 每次写入保留原件或可回退版本。
+3. 导出后重新打开核对。
+4. 不确定的结果标记为待核对，不自动重放。
+
+## 兼容性
+
+| 项目 | 状态 |
+|---|---|
+| 宿主 | 支持 MCP Apps 或内置浏览器的宿主 |
+| Node.js | 24+（编辑器） |
+| 平台 | 以实际安装包与发行说明为准 |
+
+## 安装
 
 ```bash
 codex plugin marketplace add partme-ai/full-aigc-plugins
 codex plugin add deckcraft@full-aigc-plugins
 ```
 
-Restart the host, open a new task, and ask DeckCraft to start a deck.
+安装后重启宿主，先做只读检查。
 
-### Other host manifests
+## 快速开始
 
-| Host | Manifest | Path base |
-| --- | --- | --- |
-| Standard Agent Plugins 1.0.0 | `plugin.json`, `mcp.json` | `${PLUGIN_ROOT}` |
-| Codex | `.codex-plugin/plugin.json`, `.codex-plugin/mcp.json` | plugin root relative to `cwd` |
-| Claude Code | `.claude-plugin/plugin.json`, `.mcp.json` | `${CLAUDE_PLUGIN_ROOT}` |
+1. 确认目标、输入素材和交付格式。
+2. 先检查现有工程，列出缺失项。
+3. 执行一次有界修改。
+4. 重新打开输出，核对结构与关键内容。
+5. 完成视觉或内容复核后交付。
 
-Kimi (`kimi.plugin.json`), DeepSeek Harness (`dsh/`) and the WorkBuddy example (`hosts/workbuddy/mcp.json`) are also present. `hosts/native-cli/mcp.json` shows the optional `deckcraft-cli mcp` server instead of the bundled editor.
+## 配置
 
-## Quick start
+| 变量 | 用途 | 默认 |
+|---|---|---|
+| `CRAFT_WORKSPACE_ROOT` | 编辑器绑定的工作区 | 当前项目 |
+| `CRAFT_EDITOR_UPDATE` | 设为 `off` 跳过增强包下载 | 开启 |
 
-```mermaid
-flowchart LR
-    A[Install plugin] --> B[Restart and open a task]
-    B --> C[open_editor]
-    C --> D{editor_status ready?}
-    D -->|No| C
-    D -->|Yes| E[new_presentation]
-    E --> F[add_slide / add_shape / insert_chart]
-    F --> G[inspect_slide]
-    G --> H[save_presentation / export]
-```
+不要在工程或配置中写入密钥、令牌和私有路径。
 
-1. Open the editor with an explicit `workspace` argument.
-2. Start a deck with `new_presentation`, or open an existing one with `open_presentation`.
-3. Read `list_commands` before complex edits; command IDs and `enabled` state come from the live registry.
-4. After each block of edits, call `inspect_document` or `inspect_slide`, and `render_slide` when you need a picture.
-5. Save the `.deckcraft` source, then export. Reopen the source to confirm the slides are still editable.
+## 扩展契约
 
-## What you can build
+新增技能时应使用 `deckcraft-` 前缀，声明触发条件和边界，通过 MCP 或固定 CLI 操作真实工程，修改后重新打开核验。
 
-| Workflow | Built-in path | Verifiable output |
-| :--- | :--- | :--- |
-| Pitch deck with problem, evidence and ask | `deckcraft-pitch-deck` | Slide-per-message deck with speaker notes |
-| Weekly or status report | `deckcraft-weekly-report` | Progress, risk and next-step slides |
-| Training courseware | `deckcraft-training-slides` | Explanation, example, exercise and recap slides |
-| Data narrative | `deckcraft-data-story` + `insert_chart` | Chart bound to your data with title and labels |
-| Brand template reuse | `deckcraft-brand-template` | Master-styled slides, consistent layouts |
-| Redesign an existing deck | `deckcraft-slide-redesign` | Restructured deck, original retained |
-| Option comparison | `deckcraft-option-comparison` + `insert_table` | Editable comparison table with units and sources |
-| Delivery | `save_presentation`, `export` | Editable source plus PPTX, PDF or image output |
+## 重试、幂等与恢复
 
-## Skills
+- 失败后先检查当前工程状态。
+- 不自动重复已产生副作用的操作。
+- 重试使用新输出路径并保留旧回执。
 
-| Skill | What it does |
-| :--- | :--- |
-| `deckcraft-use` | Main entry: create, modify, inspect or export a deck through the connected MCP or an installed CLI |
-| `deckcraft-editor` | Open the real editor in the host and keep agent edits on the same page |
-| `deckcraft-pitch-deck` | Problem, solution, evidence and ask for a project pitch |
-| `deckcraft-weekly-report` | Progress, issues, metrics and next-week plan |
-| `deckcraft-training-slides` | Explanation, examples, exercises and recap |
-| `deckcraft-data-story` | Data conclusion and business interpretation, with chart plans |
-| `deckcraft-brand-template` | Master style and recurring layouts for a brand |
-| `deckcraft-slide-redesign` | Restructure and visually improve an existing deck |
-| `deckcraft-option-comparison` | Cost, lead time and risk compared in an editable table |
-| `deckcraft-scenario-playbooks` | Step-by-step recipes for metric briefing, comparison, flow, risk matrix, trend, training Q&A and handoff |
+## 数据与状态
 
-Skills come from the independent `deckcraft-skills` source and are pinned by `scenario-candidates.json` with per-skill SHA-256 digests. They carry scenario knowledge and execution contracts, not a second engine.
+- 输入素材只读。
+- 输出工程、导出文件和临时目录分开。
+- 交付前确认文件可打开、内容完整。
 
-## MCP tools
+## 安全
 
-One bundled server, `deckcraft-editor`, speaking **stdio**. The local HTTP listener only serves the editor page and its same-session bridge. The catalogue exposes 33 tools: 28 agent-callable tools and 5 `_editor_*` bridge tools the panel uses internally.
+- 不把未授权素材上传到第三方服务。
+- 敏感内容脱敏后再交付。
+- 发现泄露先轮换凭据，再清理文件。
 
-| Family | Tools | Purpose |
-| :--- | :--- | :--- |
-| Session | `open_editor`, `open_browser_editor`, `editor_status` | Open the editor and confirm that it attached |
-| Discovery | `list_commands`, `call_app` | List live commands; `call_app` reaches app-level control methods (desktop app only) |
-| Command gateway | `run_command`, `batch` | Run one command, or an ordered batch with explicit failure semantics |
-| Deck management | `new_presentation`, `open_presentation`, `save_presentation`, `export` | Create, open, save and export |
-| Slides | `add_slide`, `go_to_slide`, `inspect_slide`, `render_slide` | Add, navigate, read and render one slide |
-| Content | `add_shape`, `add_text_box`, `set_text`, `insert_picture`, `insert_table`, `insert_chart` | Place and edit the objects a slide is made of |
-| Inspection | `inspect_document` | Titles, page count, objects and text of the whole deck |
-| Interaction | `select`, `select_tool`, `pointer`, `key`, `type_text`, `screenshot` | Drive the same paths a mouse and keyboard would; `screenshot` captures the whole window and needs the desktop app |
+## 可观测性与运行
 
-## Configuration
+记录命令、输出文件、关键结构和复核结果；交付前至少检查一次真实输出。
 
-| Setting | Where | Effect |
-| :--- | :--- | :--- |
-| `workspace` argument | `open_editor` / `open_browser_editor` | Binds the task folder; paths outside it are refused |
-| `CRAFT_EDITOR_UPDATE=off` | stdio MCP `env` | Use the bundled editor only; no download attempt |
-| `CRAFT_EDITOR_CACHE_DIR` | Environment | Absolute directory for verified editor archives |
-| `CRAFT_WORKSPACE_ROOT` | Host MCP config | Workspace root for hosts that cannot pass it in a tool call |
-
-Claude Code also reads `CRAFT_PANEL_METADATA_FILE` from `.mcp.json`. Verified archives are cached under `~/.cache/full-aigc/editors`; an active session keeps its version until closed, and a corrupt cache falls back to the bundled build.
-
-## Architecture and security
-
-Agent ↔ plugin traffic is stdio MCP; the browser bridge listens on `127.0.0.1` only, with a random token and Host/Origin checks. Downloads are SHA-256 verified, and the bundled editor is always kept as a fallback. Skills are instructions and do not enforce policy at runtime. The plugin stores no credential and forwards no traffic to the authors.
-
-The editor never claims a capability the upstream engine does not have. Format-specific limits, headless behaviour and unverified modes are recorded in [compatibility](docs/compatibility.md), [operation contract](docs/operation-contract.md) and [verification](docs/verification.md). Source and licence details are in [ATTRIBUTION.md](ATTRIBUTION.md).
-
-## Troubleshooting
-
-| Symptom | Action |
-| :--- | :--- |
-| Editor tools are missing | Confirm the plugin is enabled, restart the host, open a new task |
-| The panel does not render inside the host | Use the URL from `open_browser_editor`; the terminal provides no browser panel |
-| First open stalls | The first launch downloads the pinned archive; retry with network, or set `CRAFT_EDITOR_UPDATE=off` |
-| A PPTX import looks incomplete | Import is lenient and skips unknown or corrupt parts; validate the reopened deck |
-| A write times out | Reopen or inspect the deck before retrying; the engine cannot promise exactly-once execution |
-| `deckcraft-cli` is not found | Install it yourself, or stay on the bundled MCP server |
-
-## Upgrade
+## 开发与验证
 
 ```bash
-codex plugin marketplace upgrade full-aigc-plugins
-codex plugin add deckcraft@full-aigc-plugins
+node --test
+python3 -m pytest
 ```
 
-Release notes are in [CHANGELOG.md](CHANGELOG.md); the published limits are recorded in `docs/verification/release-candidate.json`.
+## 打包与发布
 
-## Contributing and support
+版本与清单、市场、tag 一致；ZIP 根目录为 `deckcraft-plugin`。
 
-Open issues at <https://github.com/full-aigc-plugins/deckcraft-plugin/issues>. Read `AGENTS.md` before touching skills or manifests, keep the root `plugin.json` as the identity source, and never commit user decks, credentials or local session data. Security and privacy expectations are in [SECURITY.md](SECURITY.md) and [PRIVACY.md](PRIVACY.md).
+## 升级与迁移
 
-## License
+升级前备份工程；旧版本文件保持可打开；迁移后重新检查结构和导出。
 
-Original repository content is [Apache-2.0](LICENSE). The icon is upstream DeckCraft artwork under MIT, recorded in `assets/official-icon-source.json`. Upstream DeckCraft is a separate project at <https://github.com/storytold/deckcraft> under MIT OR Apache-2.0; this plugin is an integration, not an endorsement.
+## 故障排查
+
+| 现象 | 检查 |
+|---|---|
+| 打不开工程 | 文件完整性、版本兼容 |
+| 编辑器空白 | Node.js 版本与工作区权限 |
+| 导出异常 | 字体、素材、输出路径 |
+| 结果不一致 | 重新打开并核对 |
+
+## 项目结构
+
+```text
+deckcraft-plugin/
+├── .zcode-plugin/      # ZCode 清单与 UI surface
+├── skills/             # 10 个技能
+├── ui/                 # MCP Apps 编辑器
+├── commands/open.md    # 打开编辑器命令
+├── docs/               # 架构与验证记录
+└── assets/             # 图标与模板
+```
+
+## 贡献与支持
+
+提交问题时附上插件版本、宿主、输入类型、命令、输出文件和预期结果。不要附敏感素材。
+
+## 许可证
+
+Apache-2.0，见 [LICENSE](LICENSE)。

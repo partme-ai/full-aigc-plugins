@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "vectorcraft",
-  "version": "0.1.0-dev.20261109.2",
+  "version": "0.1.0-dev.20261109.3",
   "description": "Logos, icon sets, infographics, SVG cleanup and multi-artboard variants. Exports SVG, PDF and PNG with editable paths.",
   "author": {
     "name": "Full AIGC Plugins",

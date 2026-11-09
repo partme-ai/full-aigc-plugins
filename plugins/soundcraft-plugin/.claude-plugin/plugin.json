@@ -1,6 +1,6 @@
 {
   "name": "soundcraft",
-  "version": "0.1.0-dev.20261109.2",
+  "version": "0.1.0-dev.20261109.3",
   "description": "Dialogue cleanup, loudness matching, voice-over mixing, audio edits and loop stitching. Processing follows segments and silence ranges while keeping sync.",
   "license": "Apache-2.0",
   "skills": "./skills/",

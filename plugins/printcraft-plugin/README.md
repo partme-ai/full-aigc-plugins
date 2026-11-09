@@ -1,200 +1,230 @@
-# PdfCraft Use
+# PdfCraft（PDF 处理）
 
-## Plugin marketplaces
+> 在编码智能体中检查、编辑、OCR 与交付 PDF。保留原件，逐页核对顺序、几何与可搜索文本。
 
-This plugin belongs to **AIGC content creation**.
+**版本**：0.1.0-dev.20261109.2 · **许可证**：Apache-2.0 · **技能**：20 个 · **MCP 服务**：1 个
 
-| Category | Marketplace | Purpose |
-| --- | --- | --- |
-| Full-stack development | [Full Stack Plugins](https://github.com/partme-ai/full-stack-plugins) | Architecture and UI design, code understanding, quality checks, code review, workflow governance, and server operations |
-| AIGC content creation | [Full AIGC Plugins](https://github.com/partme-ai/full-aigc-plugins) | Image, video, audio, music, 3D, and multimodal content creation |
+[English](README.en.md) · [安装](#安装) · [快速开始](#快速开始) · [项目结构](#项目结构)
 
-![PdfCraft Use — PDF tasks with verified artifacts](assets/official-logo.png)
+## 项目定位
 
-> Inspect, edit, OCR, and deliver PDFs from a coding agent, with a pinned native CLI, session-bound plans, and review gates that keep uncertain results uncertain.
+PdfCraft 面向需要把 PDF 真正处理完、而不是只生成一段脚本的用户。它不重新实现 PDF 引擎，而是固定并校验 `pdfcraft-cli` 0.2.1，用 20 个技能和一层轻量 Harness 把检查、页面操作、表单、脱敏、OCR、书签、印前检查和编辑器串起来。
 
-[![Version](https://img.shields.io/badge/release-0.1.0--dev.20261019.1-1A73E8)](#positioning)
-[![Skills](https://img.shields.io/badge/skills-20-00A67E)](#skills)
-[![MCP servers](https://img.shields.io/badge/MCP%20servers-1-6E56CF)](#mcp-tools)
-[![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
+适用场景：
 
-[English](README.md) | [简体中文](README.zh-CN.md) · [Install](#installation) · [Quick start](#quick-start) · [Skills](#skills) · [MCP tools](#mcp-tools) · [Limits](#troubleshooting)
+- 页面重排、旋转、删除、拆分与合并
+- 扫描件 OCR 与可搜索文本检查
+- 表单字段填写、导出与回读
+- 内容脱敏、水印与审阅稿
+- 书签、内部链接与目录
+- 印前检查与交付核验
 
-## Positioning
+不适用：
 
-`printcraft` gives an agent a controlled way to work on PDF files: inspect before editing, operate on pages, fill forms, redact, build bookmarks and internal links, OCR scans, check print readiness, and finish in an embedded editor. It does not reimplement a PDF engine. It pins and verifies `printcraft-cli` 0.2.1, wraps it in 20 skills plus one thin local Harness, and treats process exit zero as `REVIEW_REQUIRED`, never as delivery.
+- 替代专业排版软件做复杂版面设计
+- 在没有原件或明确授权的情况下修改他人文档
+- 把进程退出码 0 当成交付完成
 
-The plugin is a controlled development prerelease. Host loading, model selection, native execution, and creative review are recorded as separate gates; passing one does not prove the others.
+## 一眼看懂
 
-| Property | Value |
-| --- | --- |
-| Plugin ID | `printcraft` |
-| Display name | PdfCraft Use |
-| Version | `0.1.0-dev.20261018.2` |
-| Stage | Development prerelease, production promotion blocked |
-| Native runtime | `printcraft-cli` 0.2.1, digest-pinned |
-| License | Apache-2.0 |
+```text
+输入 PDF / 扫描件 / 表单
+        │
+        ▼
+PdfCraft 技能（检查 → 计划 → 执行 → 回读）
+        │
+        ├── pdfcraft-cli（固定版本，原生 PDF 操作）
+        ├── OCR / Tesseract（仅扫描件需要）
+        └── MCP 编辑器（浏览器内查看与局部调整）
+        │
+        ▼
+新文件 + 回执 + 逐页复核
+```
 
-## Installation
+## 能力与边界
 
-### Prerequisites
+| 能力 | 说明 | 边界 |
+|---|---|---|
+| 检查 | 页数、元数据、文本、扫描/OCR 状态 | 空文本不等于空白页 |
+| 页面操作 | 旋转、重排、删除、拆分、合并 | 写入新文件，不覆盖原件 |
+| 表单 | 填写、导出、回读字段值 | 字段缺失或类型不符时停止 |
+| 脱敏 | 指定区域或文本删除 | 需明确范围与复核 |
+| OCR | 扫描件增加可搜索文本层 | 中文 OCR 需显式 Tesseract 后端 |
+| 书签/链接 | 目录、书签、内部跳转 | 页码变化后需重建 |
+| 印前检查 | 页面框、字体、图像、出血 | 不替代印刷厂最终检查 |
+| 编辑器 | 浏览器内打开当前工作区 | 保存后仍需重新打开核验 |
 
-- Codex is the only host with recorded installation and model evidence. Claude Code, Gemini, OpenCode, and Kimi are `NOT_RUN`.
-- Python 3.11 or newer for the skills, the local Harness, and receipts.
-- Node.js 24 or newer for the embedded editor; no Rust build and no `npm install` are required at runtime.
-- The verified installer lock is **macOS arm64 only**. Upstream native runs exist for Linux x64/arm64, Windows x64, macOS Intel, and macOS arm64, but those results exercise the CLI directly, not this plugin's installer.
-- Chinese OCR needs an explicit Tesseract backend. The recorded combination is Tesseract 5.5.3 with `tessdata_fast` 4.1.0 on macOS arm64; the pinned native engine itself is English-only.
-- The first editor open tries to download a pinned enhanced build. Without network it falls back to the bundled assets; `CRAFT_EDITOR_UPDATE=off` skips the attempt.
+## 架构与核心流程
 
-### From the plugin marketplace
+```text
+宿主 / Agent
+   │  调用技能
+   ▼
+skills/pdfcraft-*  ──►  skills/pdfcraft-harness
+                              │
+                              ▼
+                     pdfcraft-cli 0.2.1
+                              │
+                              ▼
+                     PDF 输出 + receipt.json
+                              │
+                              ▼
+                     回读、逐页检查、人工复核
+```
+
+核心原则：
+
+1. 先只读检查，再计划，再执行。
+2. 每次写入产生新文件，原件保持不变。
+3. 退出码 0 只表示命令完成，交付状态仍是 `REVIEW_REQUIRED`。
+4. 结果不确定时标记 `UNKNOWN`，只做只读核对，不自动重放。
+
+## 兼容性
+
+| 项目 | 状态 |
+|---|---|
+| 已验证安装器 | macOS arm64 |
+| 上游 CLI 原生运行 | Linux x64/arm64、Windows x64、macOS Intel/arm64 |
+| 宿主 | Codex 有完整安装与模型证据；Claude Code、Gemini、OpenCode、Kimi 未验证 |
+| Python | 3.11+ |
+| Node.js | 24+（编辑器） |
+| 中文 OCR | Tesseract 5.5.3 + tessdata_fast 4.1.0（macOS arm64 记录） |
+
+## 安装
+
+### 前置条件
+
+- Python 3.11 或更新版本
+- Node.js 24 或更新版本（仅编辑器需要）
+- 可访问 GitHub Releases，用于下载固定版本 CLI
+
+### 从市场安装
 
 ```bash
 codex plugin marketplace add partme-ai/full-aigc-plugins
-codex plugin add printcraft@full-aigc-plugins
+codex plugin add pdfcraft@full-aigc-plugins
 ```
 
-The repository also ships its own marketplace metadata (`full-aigc-plugins-printcraft`) pinned to `v0.1.0-dev.20261018.2`. Restart the host, open a new task, and start with a read-only request such as “Inspect this PDF and tell me whether it needs OCR.”
+安装后重启宿主，在新任务中先做只读检查：
 
-## Quick start
+> 检查这份 PDF 的页数、元数据、文本和 OCR 状态，不要修改。
 
-1. Ask for inspection before any edit. The agent registers the input, runs read-only `info`/`text`, and reports page count, metadata, and whether empty text means “needs OCR” rather than “blank page”.
-2. Ask for one bounded edit that writes a new file, for example: “Rotate page 2, reorder the pages to 3, 1, 2, save as a new PDF, reopen it, and verify the page order and geometry.”
-3. Check the receipt before trusting the output. A zero exit reaches `REVIEW_REQUIRED`; the agent must inspect the explicit output list, sizes and digests, reopen in a new process, and complete a visual review bound to the current digest.
-4. If a result is `UNKNOWN`, reconcile read-only. Do not replay the plan under a new directory or run ID.
+## 快速开始
+
+1. **只读检查**：确认页数、页面尺寸、文本层和扫描状态。
+2. **一次有界修改**：例如“旋转第 2 页，把顺序改为 3、1、2，另存为新文件，重新打开核对页序和几何”。
+3. **核对回执**：查看输出文件、大小、摘要和页级结果。
+4. **重新打开**：在新进程中回读，确认不是只改了内存状态。
+5. **视觉复核**：对版面、遮挡、字体和可读性做人工检查。
+
+## 配置
+
+| 变量 | 用途 | 默认 |
+|---|---|---|
+| `CRAFT_EDITOR_UPDATE` | 设为 `off` 跳过编辑器增强包下载 | 开启 |
+| `CRAFT_WORKSPACE_ROOT` | 编辑器绑定的工作区 | 当前项目 |
+| `CRAFT_PANEL_METADATA_FILE` | 编辑器面板元数据 | 插件内置 |
+
+密钥、令牌和私有路径不要写入计划文件或回执。
+
+## 扩展契约
+
+新增技能时应：
+
+- 使用 `pdfcraft-` 前缀（迁移完成后）
+- 在 `SKILL.md` 中声明触发条件和边界
+- 通过 Harness 调用固定 CLI，不直接拼接 shell
+- 写入后必须回读并给出可核验结果
+- 不把“命令成功”写成“交付完成”
+
+## 重试、幂等与恢复
+
+- 失败后先读取 `receipt.json`，确认已完成到哪一步。
+- 不自动重放已产生副作用的操作。
+- 需要重试时使用新的输出路径，保留旧回执。
+- `UNKNOWN` 状态只做只读核对，不重复执行。
+
+## 数据与状态
+
+- 输入文件只读。
+- 输出文件、回执和临时目录分开存放。
+- 回执包含命令、输入、输出、摘要和状态。
+- 删除临时文件前先确认回执已保存。
+
+## 安全
+
+- 脱敏结果必须人工复核，不能只看命令成功。
+- 不上传未授权的文档到第三方服务。
+- OCR 语言包和外部二进制需来自可信来源。
+- 发现敏感信息泄露时先轮换凭据，再清理文件。
+
+## 可观测性与运行
+
+- 每次操作保留命令、退出码、stdout/stderr 和回执。
+- 页面级结果记录页码、尺寸和文本状态。
+- 交付前检查输出文件是否存在、可打开、页数正确。
+
+## 开发与验证
+
+```bash
+node --test
+python3 -m pytest
+```
+
+提交前至少验证：
+
+- 技能清单与目录一致
+- CLI 版本与摘要固定
+- 安装器在支持平台可运行
+- README 命令与实际入口一致
+
+## 打包与发布
+
+- 版本号与 `plugin.json`、市场清单、release tag 一致。
+- ZIP 根目录为 `pdfcraft-plugin`。
+- 发布后重新安装并做一次只读检查。
+
+## 升级与迁移
+
+- 从旧 `pdfcraft` 安装迁移时，先卸载旧插件，再安装 `pdfcraft`。
+- 旧任务目录和回执保留，不覆盖。
+- 技能名迁移完成后，旧 `pdfcraft-*` 名称不再作为入口。
+
+## 故障排查
+
+| 现象 | 检查 |
+|---|---|
+| 命令找不到 | 确认插件已安装、宿主已重启 |
+| OCR 无文本 | 检查 Tesseract 与语言包 |
+| 编辑器空白 | 检查 Node.js 版本与工作区权限 |
+| 输出页序错误 | 重新打开输出文件，核对页级回执 |
+| 中文乱码 | 检查字体与 OCR 语言包 |
+
+## 项目结构
 
 ```text
-Read-only: Inspect report.pdf — pages, metadata, text, and scan or OCR status.
-Edit: Rotate page 2, reorder to 3,1,2, and save as a new file.
-Batch: Fill these form fields, export, then reopen and list the field values.
-Delivery: Check page boxes, fonts, images, and print readiness before I send it out.
+pdfcraft-plugin/
+├── .zcode-plugin/        # ZCode 清单与 UI surface
+├── .codex-plugin/        # Codex 清单
+├── .claude-plugin/       # Claude 清单
+├── skills/               # 20 个技能
+├── ui/                   # MCP Apps 编辑器
+├── commands/open.md      # 打开编辑器命令
+├── docs/                 # 架构、回执、宿主支持
+└── assets/               # 图标与静态资源
 ```
 
-Direct local entry, using the plugin root the host actually loaded:
+## 深入文档
 
-```bash
-python3 -I -B "$PLUGIN_ROOT/skills/printcraft-harness/scripts/harness.py" route pages
-python3 -I -B "$PLUGIN_ROOT/skills/printcraft-harness/scripts/harness.py" show "$TASK_DIR/receipt.json"
-```
+- [架构](docs/architecture.zh-CN.md)
+- [任务回执](docs/task-receipts.zh-CN.md)
+- [编辑器集成](docs/editor-integration.md)
+- [宿主支持](docs/host-support.md)
 
-## What you can build
+## 贡献与支持
 
-| Workflow | Built-in path | Verifiable output |
-|:---|:---|:---|
-| Inspect before editing | `printcraft-cli-inspect` with native `info`/`text` | Page count, metadata, scan-versus-blank classification |
-| Page surgery | `printcraft-cli-pages`: extract, merge, split, reorder, rotate, crop | New file plus page order, boxes, and truncation checks |
-| Multi-step automation | `printcraft-cli-automation`: one process, one session, explicit outputs | `STARTED` receipt, timeout log, `UNKNOWN` that forbids replay |
-| Forms and redaction | `printcraft-fill-pdf-forms` and `printcraft-redact-pdf` with `redact_mark`/`redact_apply` | Field values, exported data, removed content plus redaction audit |
-| OCR scanned pages | `printcraft-ocr-scans` with the explicit Tesseract backend | Rasterized searchable copy, TXT lines, backend identity |
-| Structure and pagination | `printcraft-report-bookmarks`, `section-pagination`, `linked-agenda`, `invoice-split` | Outline, visible labels, bidirectional hotspots, no dropped pages |
-| Revision and delivery review | `printcraft-revision-compare`, `review-watermark`, `pdf-preflight`, `compress-pdf` | Text diff report, targeted watermark, preflight findings, sized output |
-| Visual editing | `printcraft-editor` with `open_editor` / `open_browser_editor` | Same-session UI plus a saved workspace artifact |
+提交问题前请附上：插件版本、宿主、操作系统、输入类型、命令、回执和预期结果。不要附真实敏感文档。
 
-## Skills
+## 许可证
 
-### Routing and native contracts
-
-| Skill | What it does |
-|---|---|
-| `printcraft-use` | Default entry: verify input, inspect read-only, route, register originals and outputs |
-| `printcraft-cli` | Pinned CLI contract: list and describe real schemas before specialized operations |
-| `printcraft-cli-setup` | First install, missing runtime, version or digest mismatch, offline archive, platform diagnosis |
-| `printcraft-cli-inspect` | Metadata, page count, text, scan detection, previews, Chinese scan OCR routing |
-| `printcraft-cli-pages` | Extract, merge, split, reorder, rotate, crop, and page-box adjustment |
-| `printcraft-cli-automation` | Session document IDs, task receipts, timeouts, read-only reconciliation after interruption |
-
-### Document delivery scenarios
-
-| Skill | What it does |
-|---|---|
-| `printcraft-organize-pdf` | Merge, split, sort, and rotate pages while keeping the original |
-| `printcraft-ocr-scans` | Recognize scanned PDFs and produce a searchable output |
-| `printcraft-redact-pdf` | Permanently remove sensitive content rather than covering it |
-| `printcraft-compress-pdf` | Reduce size while balancing image compression and reading quality |
-| `printcraft-fill-pdf-forms` | Fill form fields and check boxes against the actual field inventory |
-| `printcraft-pdf-preflight` | Check page boxes, fonts, images, and print readiness before delivery |
-
-### Structured document tasks, orchestration, and editor
-
-| Skill | What it does |
-|---|---|
-| `printcraft-report-bookmarks` | Build hierarchical bookmarks from confirmed chapter and appendix pages |
-| `printcraft-review-watermark` | Watermark only the selected review pages and verify the rest are unchanged |
-| `printcraft-invoice-split` | Split an invoice pack at confirmed start pages without dropping or mixing pages |
-| `printcraft-section-pagination` | Give the preface its own labeling while the body starts at reading page 1 |
-| `printcraft-linked-agenda` | Add bidirectional internal links between an agenda and its appendices |
-| `printcraft-revision-compare` | Produce a text-difference report from two PDFs while keeping both originals |
-| `printcraft-harness` | Thin plugin orchestration over the six pinned upstream skills and versioned protocols |
-| `printcraft-editor` | Open the real editor in an MCP Apps host or a host browser and share one workspace session |
-
-## MCP tools
-
-`.codex-plugin/mcp.json` starts one stdio server, `printcraft-editor`, from `ui/bootstrap.mjs`. The adapter adds three stable tools and passes through the pinned editor's own tool catalog.
-
-| Tool | Purpose |
-|---|---|
-| `open_editor` | Open the editor for an absolute `workspace`; the first call binds the workspace |
-| `open_browser_editor` | Return an `editorUrl` for the same session when the host has a built-in browser |
-| `editor_status` | Report whether the editor actually attached and whether it is ready |
-
-The upstream catalog is recorded in `ui/catalog.lock.json` and covers document, page, bookmark, form, redaction, OCR, accessibility, print, and export operations. Query the live tool list instead of assuming a name from another build; a text-only tool result does not prove the panel rendered.
-
-## Configuration
-
-| Setting | Meaning |
-|---|---|
-| `${PLUGIN_ROOT}` | Expanded by the host; used by the portable `plugin.json` and `mcp.json` |
-| `CRAFT_EDITOR_UPDATE=off` | Use the bundled editor only; skip the download-and-verify update |
-| `CRAFT_EDITOR_CACHE_DIR` | Alternate absolute cache directory; default is `~/.cache/full-aigc/editors` |
-| `--runtime-home` | Skill scripts keep the pinned runtime outside the plugin package; `--input` and `--expect` register files to protect and outputs to inspect |
-
-## Architecture and security
-
-```mermaid
-flowchart LR
-    U[User] --> H[Agent host]
-    H --> S[20 skills and thin Harness]
-    S --> B[Checksummed bootstrap]
-    B --> N[Pinned printcraft-cli 0.2.1]
-    N --> R[execution/1 and verification/1 receipts]
-    R --> G{Outcome}
-    G -->|Zero exit| V[Artifact and visual review]
-    G -->|UNKNOWN| C[Read-only reconcile, no replay]
-    H --> E[MCP printcraft-editor]
-    E --> P[Editor page on 127.0.0.1]
-```
-
-- The plugin does not implement PDF execution. It delegates to pinned native entry points, keeps execution and verification protocols separate, and verifies the release tag, archive, and binary digests before runtime creation.
-- stdio carries MCP only. The editor page uses a loopback HTTP server with a random token and Host/Origin checks; workspace escapes are rejected.
-- Secret-looking fields (`password`, `token`, `api_key`, `credential`, and similar) are redacted from public receipts; private execution material is `0600` and cleaned up after normal or catchable failure.
-- The wrapper does not upload PDFs. Local PDF operations can still reach the network or system capabilities through the native program, and host model logs may contain file content or paths.
-- Task directories, produced PDFs, and `.printcraft-runs` identity records stay outside the package cache, so updates do not delete them.
-
-## Troubleshooting
-
-| Symptom | Cause | What to do |
-|---|---|---|
-| Installer rejects the platform | The installer lock is macOS arm64 only | Run the native CLI directly on other platforms, or wait for a lock; do not treat five-platform CLI evidence as installer support |
-| Chinese scan returns no text | Pinned 0.2.1 OCR is English-only and rejects Chinese | Use the explicit Tesseract path, then expect `REVIEW_REQUIRED` |
-| OCR text is correct but PDF search fails | Known PDF reading-order defect; long-phrase search is unreliable | Verify the page visually, use short search terms, and do not equate TXT output with PDF searchability |
-| Form text looks wrong in Chinese | Chinese form font appearance has not passed acceptance | Use English content or an external workflow; this is a known gap |
-| The embedded panel never appears | The host does not render MCP Apps | Use the `open_browser_editor` URL; a text result alone is not proof of a rendered panel |
-| A write times out | The outcome is unknown | Run read-only reconciliation; never replay automatically |
-| Git install fails on Windows | Long paths | Run `git config --global core.longpaths true`, or use the release ZIP |
-| Mobile or tablet delivery | Not run; the Android device was not authorized | Treat mobile delivery as open |
-
-## Upgrade
-
-```bash
-codex plugin marketplace upgrade full-aigc-plugins
-codex plugin add printcraft@full-aigc-plugins
-```
-
-Updates remove the old package cache. Keep task data outside the cache; the update checker rejects task data inside it and does not migrate old or incompatible receipts.
-
-## Contributing and support
-
-Open issues at <https://github.com/full-aigc-plugins/printcraft-plugin/issues>. A change proposal must state which skill, protocol, or receipt field it affects, whether it alters execution or verification semantics, and which validation commands were actually run. Static validation does not replace host acceptance.
-
-## License
-
-Apache-2.0. The six upstream skill sources come from `full-aigc-skills/printcraft-skills`; the native `printcraft-cli` is fetched from its official release and keeps its own license. See [LICENSE](LICENSE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), and [assets/official-icon-source.json](assets/official-icon-source.json).
+Apache-2.0，见 [LICENSE](LICENSE)。
