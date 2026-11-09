@@ -19,6 +19,7 @@ const localized = (plugin, field) =>
     ? (plugin.localizations?.["zh-CN"]?.[field] ?? plugin[field])
     : plugin[field];
 const remoteMode = process.argv.includes("--remote");
+const refreshCodexCopy = process.argv.includes("--refresh-codex-copy");
 const remotePluginIds = new Set(
   process.argv
     .filter((argument) => argument.startsWith("--plugin="))
@@ -50,6 +51,8 @@ const githubReleaseSource = (plugin) =>
 // 候选状态只保留在 catalog 的 status 字段里，不再进入展示名或描述。
 const marketplaceDisplayName = (plugin) => localized(plugin, "displayName");
 const marketplaceDescription = (plugin) => localized(plugin, "description");
+const codexDisplayCopy = (plugin, field) =>
+  plugin.localizations?.["zh-CN"]?.[field] ?? plugin[field];
 
 const pinnedIcon = (plugin) => plugin.logo ? rawLogo(plugin) : undefined;
 
@@ -67,11 +70,11 @@ const codex = {
     line: plugin.line,
     ...(plugin.componentTypes ? { componentTypes: plugin.componentTypes } : {}),
     version: plugin.version,
-    description: marketplaceDescription(plugin),
+    description: codexDisplayCopy(plugin, "description"),
     ...(pinnedIcon(plugin) ? { icon: pinnedIcon(plugin) } : {}),
     interface: {
-      displayName: marketplaceDisplayName(plugin),
-      shortDescription: localized(plugin, "shortDescription"),
+      displayName: codexDisplayCopy(plugin, "displayName"),
+      shortDescription: codexDisplayCopy(plugin, "shortDescription"),
       ...(pinnedIcon(plugin) ? { logo: pinnedIcon(plugin) } : {})
     }
   })),
@@ -171,9 +174,10 @@ if (remotePluginIds.size > 0) {
     }
     const current = JSON.parse(fs.readFileSync(file, "utf8"));
     const identityKey = path.basename(file) === "kimi-marketplace.json" ? "id" : "name";
+    const includeAll = refreshCodexCopy && file.endsWith(".agents/plugins/marketplace.json");
     const replacements = new Map(
       generated.plugins
-        .filter((entry) => remotePluginIds.has(entry[identityKey]))
+        .filter((entry) => includeAll || remotePluginIds.has(entry[identityKey]))
         .map((entry) => [entry[identityKey], entry])
     );
     current.plugins = current.plugins.map((entry) =>
