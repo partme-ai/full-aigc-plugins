@@ -2,16 +2,17 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "soundcraft",
   "version": "0.1.0-dev.20261019.1",
-  "description": "soundcraft 工作区编辑器与场景技能，本地开发候选。",
+  "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
   "license": "Apache-2.0",
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "SoundCraft Use",
+        "displayName": "SoundCraft（音频处理）",
         "logo": "./assets/official-logo.png",
         "logoDark": "./assets/official-logo.png",
         "composerIcon": "./assets/official-logo.png",
-        "composerIconDark": "./assets/official-logo.png"
+        "composerIconDark": "./assets/official-logo.png",
+        "shortDescription": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。"
       }
     }
   }
