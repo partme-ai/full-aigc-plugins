@@ -82,9 +82,10 @@ const codex = {
   interface: { displayName: catalog.displayName }
 };
 
-// 已发布完整包使用宿主原生 ZIP 分发协议；源码 Git 安装仍用于 Codex。
+// 已发布完整包由根市场目录直接分发；候选包保留远程来源。
 const publishedPackages = JSON.parse(fs.readFileSync(path.join(root, "docs/craft-marketplace-candidate-releases.json"), "utf8"));
 const zcodeSource = (plugin) => {
+  if (catalog.plugins.some(published => published.id === plugin.id)) return `./plugins/${plugin.id}`;
   const release = publishedPackages.find((entry) => entry.plugin === plugin.id && entry.version === plugin.version);
   if (!release && publishedPackages.some((entry) => entry.plugin === plugin.id)) {
     if ((remotePluginIds.size > 0 && !remotePluginIds.has(plugin.id))

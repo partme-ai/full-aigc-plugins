@@ -5,11 +5,7 @@
   "plugins": [
     {
       "name": "blender-design",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/blender-design-plugin",
-        "ref": "v0.16.2"
-      },
+      "source": "./plugins/blender-design",
       "displayName": "Blender（三维建模）",
       "description": "用自然语言搭 3D 场景：建模、材质、灯光、相机与渲染，关键节点截图，导出前可回滚。",
       "version": "0.16.2",
@@ -29,11 +25,7 @@
     },
     {
       "name": "comfy-design",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/comfy-design-plugin",
-        "ref": "v0.6.2"
-      },
+      "source": "./plugins/comfy-design",
       "displayName": "Comfy（ComfyUI 工作流）",
       "description": "一条链路跑完本地 ComfyUI 图、视频、音频与 3D 工作流；云模型只在你明确选择时启用。",
       "version": "0.6.2",
@@ -78,11 +70,7 @@
     },
     {
       "name": "dreamina-canvas",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/dreamina-canvas-plugin",
-        "ref": "v0.6.1"
-      },
+      "source": "./plugins/dreamina-canvas",
       "displayName": "Dreamina Canvas",
       "description": "类型化节点与时间线编排；免费保存与计费运行分离，产物下载带校验。",
       "version": "0.6.1",
@@ -102,11 +90,7 @@
     },
     {
       "name": "dreamina-design",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/dreamina-design-plugin",
-        "ref": "v0.8.2"
-      },
+      "source": "./plugins/dreamina-design",
       "displayName": "Dreamina（即梦绘图与视频）",
       "description": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
       "version": "0.8.2",
@@ -150,11 +134,7 @@
     },
     {
       "name": "image-factory",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/image-factory-plugin",
-        "ref": "v0.9.2"
-      },
+      "source": "./plugins/image-factory",
       "displayName": "Image（批量 AI 出图）",
       "description": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
       "version": "0.9.2",
@@ -174,11 +154,7 @@
     },
     {
       "name": "jianying-draft",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/jianying-draft-plugin",
-        "ref": "v0.29.7"
-      },
+      "source": "./plugins/jianying-draft",
       "displayName": "JianYing Draft（剪映草稿编排）",
       "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。",
       "version": "0.29.7",
@@ -198,11 +174,7 @@
     },
     {
       "name": "maya-design",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/maya-design-plugin",
-        "ref": "v0.2.2"
-      },
+      "source": "./plugins/maya-design",
       "displayName": "Maya（三维场景）",
       "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
       "version": "0.2.2",
@@ -222,11 +194,7 @@
     },
     {
       "name": "minimax-design",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/minimax-design-plugin",
-        "ref": "v0.5.2"
-      },
+      "source": "./plugins/minimax-design",
       "displayName": "MiniMax（AI 视频生成）",
       "description": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
       "version": "0.5.2",
@@ -246,11 +214,7 @@
     },
     {
       "name": "video-factory",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/video-factory-plugin",
-        "ref": "v0.5.2"
-      },
+      "source": "./plugins/video-factory",
       "displayName": "Video（自动剪辑成片）",
       "description": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
       "version": "0.5.2",
@@ -270,11 +234,7 @@
     },
     {
       "name": "volcengine-design",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/volcengine-design-plugin",
-        "ref": "v0.2.2"
-      },
+      "source": "./plugins/volcengine-design",
       "displayName": "Volcengine（豆包语音与视频）",
       "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
       "version": "0.2.2",
@@ -296,11 +256,7 @@
     },
     {
       "name": "xuanji",
-      "source": {
-        "source": "github",
-        "repo": "full-aigc-plugins/xuanji-plugin",
-        "ref": "v0.2.2"
-      },
+      "source": "./plugins/xuanji",
       "displayName": "Xuanji（命理排盘 · 娱乐）",
       "description": "八字、奇门、紫微、姻缘、风水和塔罗：排盘由脚本校验、引文可追溯，仅供娱乐。",
       "version": "0.2.2",
