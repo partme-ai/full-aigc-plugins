@@ -24,3 +24,24 @@ test("Codex cards use the Chinese display copy from the catalog", () => {
     assert.equal(entry.version, plugin.version, `${plugin.id}: version`);
   }
 });
+
+test("local Codex packages display the same names and descriptions as ZCode", () => {
+  const zcode = JSON.parse(fs.readFileSync(path.join(root, "marketplace.json"), "utf8"));
+  const zcodeEntries = new Map(zcode.plugins.map((plugin) => [plugin.name, plugin]));
+  for (const entry of marketplace.plugins) {
+    if (entry.source.source !== "local") continue;
+    const packageRoot = path.resolve(root, entry.source.path);
+    assert.ok(packageRoot.startsWith(`${path.join(root, "plugins")}${path.sep}`), `${entry.name}: local path`);
+    const zcodeEntry = zcodeEntries.get(entry.name);
+    assert.ok(zcodeEntry, `${entry.name}: missing ZCode entry`);
+    for (const relative of ["plugin.json", ".codex-plugin/plugin.json"]) {
+      const manifest = JSON.parse(fs.readFileSync(path.join(packageRoot, relative), "utf8"));
+      const interfaceCopy = relative === "plugin.json"
+        ? manifest.extensions?.["com.openai"]?.interface
+        : manifest.interface;
+      assert.equal(interfaceCopy?.displayName, zcodeEntry.displayName, `${entry.name}: ${relative} displayName`);
+      assert.equal(interfaceCopy?.shortDescription, zcodeEntry.description, `${entry.name}: ${relative} shortDescription`);
+      assert.equal(manifest.description, zcodeEntry.description, `${entry.name}: ${relative} description`);
+    }
+  }
+});

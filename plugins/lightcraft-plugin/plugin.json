@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "lightcraft",
   "version": "0.1.0-dev.20261018.2",
-  "description": "Lightcraft 照片管理与无损显影；CLI 0.2.1/macOS arm64 开发预发行，扩展能力未启用。",
+  "description": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。",
   "license": "Apache-2.0",
   "extensions": {
     "ai.nanoco.nanoclaw": {
@@ -10,11 +10,12 @@
     },
     "com.openai": {
       "interface": {
-        "displayName": "LightCraft Use",
+        "displayName": "LightCraft（照片调色）",
         "logo": "./assets/official-logo.png",
         "logoDark": "./assets/official-logo.png",
         "composerIcon": "./assets/official-logo.png",
-        "composerIconDark": "./assets/official-logo.png"
+        "composerIconDark": "./assets/official-logo.png",
+        "shortDescription": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。"
       }
     }
   }
