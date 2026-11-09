@@ -49,80 +49,6 @@
       "logo": "assets/content-factory.svg"
     },
     {
-      "id": "cadcraft",
-      "displayName": "CADCraft（三维制图）",
-      "repository": "full-aigc-plugins/cadcraft-plugin",
-      "localDirectory": "cadcraft-plugin",
-      "version": "0.1.0-dev.20261109.5",
-      "status": "release_candidate_installable",
-      "releaseGate": "docs/verification/release-candidate.json",
-      "description": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
-      "shortDescription": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
-      "category": "Creativity",
-      "tags": [
-        "cadcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "logo": "assets/official-logo.png",
-      "localizations": {
-        "zh-CN": {
-          "displayName": "CADCraft（三维制图）",
-          "shortDescription": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
-          "description": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。"
-        }
-      },
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "ui": {
-        "surface": "editor",
-        "icon": "ruler",
-        "availability": "session"
-      },
-      "codexSourcePath": "./plugins/cadcraft-plugin"
-    },
-    {
-      "id": "designcraft",
-      "displayName": "DesignCraft（页面排版）",
-      "repository": "full-aigc-plugins/designcraft-plugin",
-      "localDirectory": "designcraft-plugin",
-      "version": "0.1.0-dev.20261109.5",
-      "status": "release_candidate_installable",
-      "releaseGate": "docs/verification/release-candidate.json",
-      "description": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
-      "shortDescription": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
-      "category": "Creativity",
-      "tags": [
-        "designcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "logo": "assets/official-logo.png",
-      "localizations": {
-        "zh-CN": {
-          "displayName": "DesignCraft（页面排版）",
-          "shortDescription": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
-          "description": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。"
-        }
-      },
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "ui": {
-        "surface": "editor",
-        "icon": "layout",
-        "availability": "session"
-      },
-      "codexSourcePath": "./plugins/designcraft-plugin"
-    },
-    {
       "id": "dreamina-novel",
       "displayName": "Dreamina Novel（即梦短剧创作）",
       "repository": "full-aigc-plugins/dreamina-novel-plugin",
@@ -171,7 +97,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/effectcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "EffectCraft（动态图形）",
@@ -188,43 +113,6 @@
         "icon": "clapperboard",
         "availability": "session"
       }
-    },
-    {
-      "id": "photocraft",
-      "displayName": "PhotoCraft（图片编辑）",
-      "repository": "full-aigc-plugins/photocraft-plugin",
-      "localDirectory": "photocraft-plugin",
-      "version": "0.1.0-dev.20261109.5",
-      "status": "release_candidate_installable",
-      "releaseGate": "docs/verification/release-candidate.json",
-      "description": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
-      "shortDescription": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
-      "category": "Creativity",
-      "tags": [
-        "photocraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "logo": "assets/official-logo.png",
-      "localizations": {
-        "zh-CN": {
-          "displayName": "PhotoCraft（图片编辑）",
-          "shortDescription": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
-          "description": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。"
-        }
-      },
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "ui": {
-        "surface": "editor",
-        "icon": "image",
-        "availability": "session"
-      },
-      "codexSourcePath": "./plugins/photocraft-plugin"
     },
     {
       "id": "figcraft",
@@ -245,7 +133,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/figcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "FigCraft（设计稿编辑）",
@@ -282,7 +169,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/filmcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "FilmCraft（视频剪辑）",
@@ -319,7 +205,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/lightcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "LightCraft（照片调色）",
@@ -336,259 +221,9 @@
         "icon": "camera",
         "availability": "session"
       }
-    },
-    {
-      "id": "pdfcraft",
-      "displayName": "PdfCraft（PDF 处理）",
-      "repository": "full-aigc-plugins/pdfcraft-plugin",
-      "localDirectory": "pdfcraft-plugin",
-      "version": "0.1.0-dev.20261109.4",
-      "status": "release_candidate_installable",
-      "releaseGate": "docs/verification/release-candidate.json",
-      "description": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
-      "shortDescription": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
-      "category": "Productivity",
-      "tags": [
-        "pdfcraft",
-        "pdf",
-        "craft",
-        "mcp",
-        "editor"
-      ],
-      "logo": "assets/official-logo.png",
-      "localizations": {
-        "zh-CN": {
-          "displayName": "PdfCraft（PDF 处理）",
-          "shortDescription": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
-          "description": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。"
-        }
-      },
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "ui": {
-        "surface": "editor",
-        "icon": "file-text",
-        "availability": "session"
-      },
-      "codexSourcePath": "./plugins/printcraft-plugin"
-    },
-    {
-      "id": "vectorcraft",
-      "displayName": "VectorCraft（矢量设计）",
-      "repository": "full-aigc-plugins/vectorcraft-plugin",
-      "localDirectory": "vectorcraft-plugin",
-      "version": "0.1.0-dev.20261109.5",
-      "status": "release_candidate_installable",
-      "releaseGate": "docs/verification/release-candidate.json",
-      "description": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
-      "shortDescription": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
-      "category": "Creativity",
-      "tags": [
-        "vectorcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "logo": "assets/official-logo.png",
-      "localizations": {
-        "zh-CN": {
-          "displayName": "VectorCraft（矢量设计）",
-          "shortDescription": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
-          "description": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。"
-        }
-      },
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "ui": {
-        "surface": "editor",
-        "icon": "pen-tool",
-        "availability": "session"
-      },
-      "codexSourcePath": "./plugins/vectorcraft-plugin"
-    },
-    {
-      "id": "deckcraft",
-      "displayName": "DeckCraft（演示文稿）",
-      "repository": "full-aigc-plugins/deckcraft-plugin",
-      "localDirectory": "deckcraft-plugin",
-      "version": "0.1.0-dev.20261109.5",
-      "status": "release_candidate_installable",
-      "releaseGate": "docs/verification/release-candidate.json",
-      "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
-      "shortDescription": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
-      "category": "Productivity",
-      "tags": [
-        "deckcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "logo": "assets/official-logo.png",
-      "localizations": {
-        "zh-CN": {
-          "displayName": "DeckCraft（演示文稿）",
-          "shortDescription": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
-          "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。"
-        }
-      },
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "ui": {
-        "surface": "editor",
-        "icon": "presentation",
-        "availability": "session"
-      },
-      "codexSourcePath": "./plugins/deckcraft-plugin"
-    },
-    {
-      "id": "soundcraft",
-      "displayName": "SoundCraft（音频处理）",
-      "repository": "full-aigc-plugins/soundcraft-plugin",
-      "localDirectory": "soundcraft-plugin",
-      "version": "0.1.0-dev.20261109.5",
-      "status": "release_candidate_installable",
-      "releaseGate": "docs/verification/release-candidate.json",
-      "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
-      "shortDescription": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
-      "category": "Creativity",
-      "tags": [
-        "soundcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "logo": "assets/official-logo.png",
-      "localizations": {
-        "zh-CN": {
-          "displayName": "SoundCraft（音频处理）",
-          "shortDescription": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
-          "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。"
-        }
-      },
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "ui": {
-        "surface": "editor",
-        "icon": "music",
-        "availability": "session"
-      },
-      "codexSourcePath": "./plugins/soundcraft-plugin"
-    },
-    {
-      "id": "gridcraft",
-      "displayName": "GridCraft（电子表格）",
-      "repository": "full-aigc-plugins/gridcraft-plugin",
-      "localDirectory": "gridcraft-plugin",
-      "version": "0.1.0-dev.20261109.5",
-      "status": "release_candidate_installable",
-      "releaseGate": "docs/verification/release-candidate.json",
-      "description": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
-      "shortDescription": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
-      "category": "Productivity",
-      "tags": [
-        "gridcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "logo": "assets/official-logo.png",
-      "localizations": {
-        "zh-CN": {
-          "displayName": "GridCraft（电子表格）",
-          "shortDescription": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
-          "description": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。"
-        }
-      },
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "ui": {
-        "surface": "editor",
-        "icon": "table",
-        "availability": "session"
-      },
-      "codexSourcePath": "./plugins/gridcraft-plugin"
-    },
-    {
-      "id": "wordcraft",
-      "displayName": "WordCraft（文档写作）",
-      "repository": "full-aigc-plugins/wordcraft-plugin",
-      "localDirectory": "wordcraft-plugin",
-      "version": "0.1.0-dev.20261109.5",
-      "status": "release_candidate_installable",
-      "releaseGate": "docs/verification/release-candidate.json",
-      "description": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
-      "shortDescription": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
-      "category": "Productivity",
-      "tags": [
-        "wordcraft",
-        "craft",
-        "development",
-        "mcp",
-        "editor"
-      ],
-      "logo": "assets/official-logo.png",
-      "localizations": {
-        "zh-CN": {
-          "displayName": "WordCraft（文档写作）",
-          "shortDescription": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
-          "description": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。"
-        }
-      },
-      "line": "full-aigc",
-      "componentTypes": [
-        "ui"
-      ],
-      "ui": {
-        "surface": "editor",
-        "icon": "file-text",
-        "availability": "session"
-      },
-      "codexSourcePath": "./plugins/wordcraft-plugin"
     }
   ],
   "plugins": [
-    {
-      "id": "maya-design",
-      "displayName": "Maya（三维场景）",
-      "repository": "full-aigc-plugins/maya-design-plugin",
-      "localDirectory": "maya-design-plugin",
-      "version": "0.2.2",
-      "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
-      "shortDescription": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
-      "category": "Creativity",
-      "logo": "assets/official-logo.png",
-      "tags": [
-        "maya",
-        "3d",
-        "playblast"
-      ],
-      "localizations": {
-        "zh-CN": {
-          "displayName": "Maya（三维场景）",
-          "shortDescription": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
-          "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。"
-        }
-      },
-      "line": "full-aigc",
-      "componentTypes": [
-        "skills",
-        "mcp"
-      ]
-    },
     {
       "id": "blender-design",
       "displayName": "Blender（三维建模）",
@@ -756,6 +391,34 @@
           "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。"
         }
       }
+    },
+    {
+      "id": "maya-design",
+      "displayName": "Maya（三维场景）",
+      "repository": "full-aigc-plugins/maya-design-plugin",
+      "localDirectory": "maya-design-plugin",
+      "version": "0.2.2",
+      "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
+      "shortDescription": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
+      "category": "Creativity",
+      "logo": "assets/official-logo.png",
+      "tags": [
+        "maya",
+        "3d",
+        "playblast"
+      ],
+      "localizations": {
+        "zh-CN": {
+          "displayName": "Maya（三维场景）",
+          "shortDescription": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
+          "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。"
+        }
+      },
+      "line": "full-aigc",
+      "componentTypes": [
+        "skills",
+        "mcp"
+      ]
     },
     {
       "id": "minimax-design",

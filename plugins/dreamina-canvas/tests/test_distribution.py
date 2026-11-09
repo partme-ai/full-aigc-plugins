@@ -1,0 +1,122 @@
+import json
+import re
+import struct
+import subprocess
+import sys
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+PLUGIN_ID = "dreamina-canvas"
+DISPLAY_NAME = "Dreamina Canvas（即梦画布编排）"
+REPOSITORY = "https://github.com/full-aigc-plugins/dreamina-canvas-plugin"
+BRAND_COLOR = "#25E1FB"
+
+def load_json(relative: str) -> dict:
+    target = ROOT / relative
+    if not target.is_file():
+        raise AssertionError(f"missing distribution file: {relative}")
+    return json.loads(target.read_text(encoding="utf-8"))
+
+def png_shape(relative: str) -> tuple[int, int, int]:
+    data = (ROOT / relative).read_bytes()
+    if data[:8] != b"\x89PNG\r\n\x1a\n":
+        raise AssertionError(f"not PNG: {relative}")
+    width, height = struct.unpack(">II", data[16:24])
+    return width, height, data[25]
+
+class DistributionTests(unittest.TestCase):
+    def test_readme_versions_follow_current_manifests(self) -> None:
+        plugin_version = load_json('plugin.json')['version']
+        package_version = load_json('package.json')['version']
+        codex_version = load_json('.codex-plugin/plugin.json')['version']
+        self.assertRegex(codex_version, rf'^{re.escape(plugin_version)}\+codex\.\d{{8}}$')
+        for filename, label in (('README.md', 'Current plugin manifest version: '),
+                                ('README.zh-CN.md', '当前插件清单版本：')):
+            content = (ROOT / filename).read_text(encoding='utf-8')
+            self.assertIn(f'{label}`{plugin_version}`', content)
+            self.assertIn(f'`{codex_version}`', content)
+            self.assertIn(f'`{package_version}`', content)
+            self.assertNotIn('0.5.1+codex.20261018', content)
+    def test_production_readiness_files(self) -> None:
+        requirements = (ROOT / "requirements-dev.txt").read_text(encoding="utf-8")
+        self.assertIn("-r requirements.txt", requirements)
+        self.assertIn("jsonschema>=4.21,<5", (ROOT / "requirements.txt").read_text())
+        self.assertIn("PyYAML>=6,<7", requirements)
+
+        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+        for expected in (
+            "python -m unittest discover -s tests -v",
+            "python -m unittest discover -s tests/scenarios -v",
+            "python scripts/verify_dreamina_canvas_skills.py",
+            "python scripts/validate_distribution.py",
+        ):
+            self.assertIn(expected, workflow)
+        self.assertNotIn("uses: actions/checkout@v", workflow)
+        self.assertNotIn("uses: actions/setup-python@v", workflow)
+        self.assertIn("actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5", workflow)
+        self.assertIn("actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6", workflow)
+        self.assertIn("cache-dependency-path: requirements-dev.txt", workflow)
+
+        for filename in ("SECURITY.md", "CONTRIBUTING.md"):
+            self.assertTrue((ROOT / filename).is_file(), filename)
+        self.assertIn("out/", (ROOT / ".gitignore").read_text(encoding="utf-8"))
+
+    def test_status_documents_match_verified_runtime_evidence(self) -> None:
+        for filename in ("README.md", "README.zh-CN.md"):
+            content = (ROOT / filename).read_text(encoding="utf-8")
+            self.assertNotIn("`NOT_RUN`", content, filename)
+            self.assertIn("PASS", content, filename)
+
+        plan = (
+            ROOT
+            / "docs/superpowers/plans/2026-09-11-dreamina-canvas-plugin-implementation.md"
+        ).read_text(encoding="utf-8")
+        self.assertFalse(
+            any(line.startswith("- [ ]") for line in plan.splitlines())
+        )
+        self.assertNotIn("remain unimplemented", plan)
+
+    def test_validator_accepts_distribution(self) -> None:
+        result = subprocess.run([sys.executable, str(ROOT / "scripts/validate_distribution.py"), str(ROOT)], capture_output=True, text=True, check=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_manifest_and_marketplace(self) -> None:
+        manifest = load_json(".codex-plugin/plugin.json")
+        self.assertEqual(manifest["name"], PLUGIN_ID)
+        self.assertEqual(manifest["version"].split("+", 1)[0], load_json("plugin.json")["version"])
+        self.assertEqual(manifest["repository"], REPOSITORY)
+        self.assertEqual(manifest["skills"], "./skills/")
+        self.assertNotIn("mcpServers", manifest)
+        interface = manifest["interface"]
+        self.assertEqual(interface["displayName"], DISPLAY_NAME)
+        self.assertEqual(interface["brandColor"], BRAND_COLOR)
+        self.assertEqual(interface["logo"], "./assets/official-logo.png")
+        self.assertEqual(interface["logoDark"], "./assets/official-logo.png")
+        self.assertEqual(interface["composerIcon"], "./assets/composer-icon.png")
+        self.assertLessEqual(len(interface["defaultPrompt"]), 3)
+        self.assertTrue(all(len(prompt) <= 128 for prompt in interface["defaultPrompt"]))
+        marketplace = load_json(".agents/plugins/marketplace.json")
+        entries = [entry for entry in marketplace["plugins"] if entry["name"] == PLUGIN_ID]
+        self.assertEqual(len(entries), 1)
+        self.assertEqual(entries[0]["source"], {"source": "url", "url": REPOSITORY + ".git", "ref": "v" + load_json("plugin.json")["version"]})
+        self.assertEqual(entries[0]["policy"], {"installation": "AVAILABLE", "authentication": "ON_USE"})
+
+    def test_structure_legal_and_brand_assets(self) -> None:
+        for directory in ("assets", "skills", "schemas", "scripts", "tests"):
+            self.assertTrue((ROOT / directory).is_dir(), directory)
+        for filename in ("LICENSE", "NOTICE", "PRIVACY.md", "TERMS.md", "THIRD_PARTY_NOTICES.md", ".gitignore", "docs/portable-migration.md", "scripts/validate_distribution.py"):
+            self.assertTrue((ROOT / filename).is_file(), filename)
+        # The canonical portable manifest now ships alongside the
+        # compatibility fallback; parity is covered by test_portable_parity.py.
+        self.assertTrue((ROOT / "plugin.json").is_file())
+        self.assertTrue((ROOT / ".codex-plugin" / "plugin.json").is_file())
+        # This plugin bundles no MCP servers and no apps, so neither
+        # companion file may exist.
+        for forbidden in ("mcp.json", ".mcp.json", ".app.json", "app.json"):
+            self.assertFalse((ROOT / forbidden).exists(), forbidden)
+        self.assertEqual(png_shape("assets/official-logo.png"), (900, 900, 6))
+        self.assertEqual(png_shape("assets/composer-icon.png"), (256, 256, 6))
+
+if __name__ == "__main__":
+    unittest.main()

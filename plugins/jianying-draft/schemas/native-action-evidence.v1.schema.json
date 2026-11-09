@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-native-action-evidence/v1",
+  "type": "object",
+  "properties": {
+    "schema": {"const": "jianying-native-action-evidence/v1"},
+    "action": {"enum": ["search", "filter", "preview", "download", "apply", "remove", "inspect", "recover"]},
+    "semantic_id": {"type": "string", "minLength": 1},
+    "resource_id": {"type": "string", "minLength": 1},
+    "adapter_identity": {"type": "object", "additionalProperties": true},
+    "observation": {"type": "object", "additionalProperties": true},
+    "observed_at": {"type": "string", "minLength": 1},
+    "outcome": {"enum": ["succeeded", "failed", "ambiguous"]}
+  },
+  "required": ["schema", "action", "semantic_id", "resource_id", "adapter_identity", "observation", "observed_at", "outcome"],
+  "additionalProperties": false
+}

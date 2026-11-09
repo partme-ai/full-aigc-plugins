@@ -1,4 +1,0 @@
-{"command": "library.select", "params": {"ids": [1], "active": 1}}
-{"command": "photo.inspect", "params": {"id": 1}}
-{"command": "develop.get", "params": {"id": 1}}
-{"command": "library.info", "params": {}}

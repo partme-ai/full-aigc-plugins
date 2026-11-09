@@ -1,0 +1,203 @@
+{
+  "schema": "jianying-quality-profile-catalog/v1",
+  "profiles": [
+    {
+      "schema": "jianying-quality-profile/v1",
+      "profile_id": "vlog.personal-story",
+      "version": "1.0.0",
+      "dimensions": [
+        {
+          "dimension_id": "narrative_establishment",
+          "label": "开头建立人物、地点或当日目标",
+          "weight": 1,
+          "threshold": 7,
+          "hard_gate": false,
+          "evidence_types": ["timeline_map", "proxy_video"]
+        },
+        {
+          "dimension_id": "narrative_change",
+          "label": "中段呈现可由素材证明的变化或推进",
+          "weight": 1,
+          "threshold": 7,
+          "hard_gate": true,
+          "evidence_types": ["timeline_map", "proxy_video", "review_note"]
+        },
+        {
+          "dimension_id": "ending_reflection",
+          "label": "结尾回应开头或给出真实回望",
+          "weight": 1,
+          "threshold": 6,
+          "hard_gate": false,
+          "evidence_types": ["timeline_map", "proxy_video"]
+        },
+        {
+          "dimension_id": "verified_time_ranges",
+          "label": "选段时间范围均来自已核验素材",
+          "weight": 2,
+          "threshold": 10,
+          "hard_gate": true,
+          "evidence_types": ["source_probe", "selection_manifest"]
+        },
+        {
+          "dimension_id": "audio_visual_coherence",
+          "label": "音画关系与对白可懂度",
+          "weight": 2,
+          "threshold": 7,
+          "hard_gate": false,
+          "evidence_types": ["proxy_video", "audio_metrics"]
+        },
+        {
+          "dimension_id": "pacing_and_repetition",
+          "label": "节奏变化与重复镜头控制",
+          "weight": 1,
+          "threshold": 6,
+          "hard_gate": false,
+          "evidence_types": ["proxy_video", "shot_boundary_report"]
+        },
+        {
+          "dimension_id": "personal_privacy",
+          "label": "门牌、定位与旁人隐私保护",
+          "weight": 1,
+          "threshold": 10,
+          "hard_gate": true,
+          "evidence_types": ["human_privacy_review", "proxy_frame_samples"]
+        }
+      ],
+      "allowed_actions": ["trim", "reorder", "replace_clip", "adjust_volume", "caption_edit", "crop", "scale", "color_adjust", "music_edit"],
+      "human_boundaries": [
+        "素材没有明确转折时由用户决定调整主线或补拍，评估器不得虚构事件。",
+        "人物身份、门牌、精确位置及旁人出镜由人工确认是否可公开。",
+        "音乐版权和最终叙事取舍由用户确认，自动分数不能代表授权。"
+      ],
+      "metadata": {
+        "partme.workflow_ids": ["VLOG-01"],
+        "partme.source_ids": ["VG01"],
+        "partme.purpose": "personal",
+        "partme.output_ids": ["vlog-main"]
+      }
+    },
+    {
+      "schema": "jianying-quality-profile/v1",
+      "profile_id": "course.multi-delivery",
+      "version": "1.0.0",
+      "dimensions": [
+        {
+          "dimension_id": "instructional_completeness",
+          "label": "课程母版的教学步骤和因果关系完整",
+          "weight": 3,
+          "threshold": 8,
+          "hard_gate": true,
+          "evidence_types": ["lesson_outline", "transcript_alignment", "proxy_video"]
+        },
+        {
+          "dimension_id": "teaser_context_fidelity",
+          "label": "预告不截断限定条件或扭曲课程语境",
+          "weight": 2,
+          "threshold": 9,
+          "hard_gate": true,
+          "evidence_types": ["master_teaser_mapping", "human_context_review"]
+        },
+        {
+          "dimension_id": "subtitle_timing_and_layout",
+          "label": "四份输出的字幕时序、断句和安全区",
+          "weight": 2,
+          "threshold": 8,
+          "hard_gate": false,
+          "evidence_types": ["subtitle_report", "proxy_frame_samples"]
+        },
+        {
+          "dimension_id": "bilingual_accuracy",
+          "label": "中英术语和语义经独立语言审校",
+          "weight": 2,
+          "threshold": 9,
+          "hard_gate": true,
+          "evidence_types": ["bilingual_review_record", "terminology_list"]
+        },
+        {
+          "dimension_id": "delivery_isolation",
+          "label": "母版与三个预告保持独立输出和证据",
+          "weight": 1,
+          "threshold": 10,
+          "hard_gate": true,
+          "evidence_types": ["output_manifest", "artifact_digest"]
+        }
+      ],
+      "allowed_actions": ["trim", "reorder", "replace_clip", "adjust_volume", "caption_edit", "crop", "scale", "color_adjust", "music_edit"],
+      "human_boundaries": [
+        "课程事实、专业术语和教学顺序由课程负责人确认。",
+        "双语语义必须由具备相应语言能力的人复核，生成器不得自证。",
+        "新增或删除交付物必须重新批准，档案不能隐含创建第五份输出。"
+      ],
+      "metadata": {
+        "partme.workflow_ids": ["COURSE-01"],
+        "partme.source_ids": ["ED01"],
+        "partme.purpose": "education_and_promotion",
+        "partme.output_ids": ["course-master", "course-teaser-1", "course-teaser-2", "course-teaser-3"]
+      }
+    },
+    {
+      "schema": "jianying-quality-profile/v1",
+      "profile_id": "wedding.multi-purpose",
+      "version": "1.0.0",
+      "dimensions": [
+        {
+          "dimension_id": "ceremony_continuity",
+          "label": "仪式关键环节、人物与时间顺序连续",
+          "weight": 3,
+          "threshold": 9,
+          "hard_gate": true,
+          "evidence_types": ["ceremony_event_map", "proxy_video", "human_event_review"]
+        },
+        {
+          "dimension_id": "emotional_arc",
+          "label": "私人纪念版情绪递进与人物关系准确",
+          "weight": 2,
+          "threshold": 7,
+          "hard_gate": false,
+          "evidence_types": ["proxy_video", "couple_review_note"]
+        },
+        {
+          "dimension_id": "commercial_usage_authorization",
+          "label": "商业广告的人物、音乐、场地与用途授权",
+          "weight": 2,
+          "threshold": 10,
+          "hard_gate": true,
+          "evidence_types": ["purpose_specific_release", "music_license", "venue_permission"]
+        },
+        {
+          "dimension_id": "purpose_isolation",
+          "label": "仪式、私人纪念与商业广告逐用途独立批准",
+          "weight": 2,
+          "threshold": 10,
+          "hard_gate": true,
+          "evidence_types": ["approval_ledger", "output_manifest"]
+        },
+        {
+          "dimension_id": "multi_camera_integrity",
+          "label": "多机位同步状态和不可验证边界如实披露",
+          "weight": 1,
+          "threshold": 8,
+          "hard_gate": true,
+          "evidence_types": ["camera_sync_report", "capability_snapshot"]
+        }
+      ],
+      "allowed_actions": ["trim", "reorder", "replace_clip", "adjust_volume", "caption_edit", "crop", "scale", "color_adjust", "music_edit"],
+      "human_boundaries": [
+        "真实人物关系、誓言含义和仪式关键事件由新人或授权负责人确认。",
+        "私人用途批准不得继承为商业用途批准；授权缺失时商业分支保持阻塞。",
+        "多机位能力不足时转人工或外部同步，不得用单机位结果冒充已同步。"
+      ],
+      "metadata": {
+        "partme.workflow_ids": ["WEDDING-01"],
+        "partme.source_ids": ["WD01"],
+        "partme.purpose": "ceremony_personal_commercial",
+        "partme.output_ids": ["ceremony", "private-memory", "commercial-ad"]
+      }
+    }
+  ],
+  "metadata": {
+    "partme.revision": "2026-09-21",
+    "partme.execution_authority": "none",
+    "partme.coverage": "three_representative_workflows"
+  }
+}

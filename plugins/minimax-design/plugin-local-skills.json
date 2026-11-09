@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "dest": "skills/",
+  "skills": [
+    "minimax-design-use",
+    "minimax-video-generation"
+  ]
+}

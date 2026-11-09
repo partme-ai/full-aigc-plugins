@@ -1,0 +1,10 @@
+{
+  "schema": "jianying-plugin-feature-flags/v1",
+  "features": {
+    "iterative_video_quality_loop": {
+      "default_enabled": false,
+      "stage": "preview",
+      "rollback": "preserve_ledgers_and_pending_occupancy"
+    }
+  }
+}

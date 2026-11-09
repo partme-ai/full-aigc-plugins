@@ -5,30 +5,9 @@
   "metadata": {},
   "plugins": [
     {
-      "name": "maya-design",
-      "title": "Autodesk Maya Design",
-      "description": "Inspect Autodesk Maya scenes, create reversible Playblasts, and produce verified Jimeng links.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.0/assets/official-logo.png",
-      "repository": {
-        "url": "https://github.com/full-aigc-plugins/maya-design-plugin"
-      },
-      "versions": [
-        {
-          "version": "0.2.0",
-          "publishTimestamp": 1792332879,
-          "source": {
-            "type": "git",
-            "url": "https://github.com/full-aigc-plugins/maya-design-plugin",
-            "commit": "96d90e2f51d6a3f44b3963ab6fb3dcd6289043ae",
-            "path": "dsh"
-          }
-        }
-      ]
-    },
-    {
       "name": "blender-design",
-      "title": "Blender Design",
-      "description": "Design, review, and export Blender scenes through controlled operations, visual milestones, and recovery checkpoints.",
+      "title": "Blender（三维建模）",
+      "description": "用自然语言搭 3D 场景：建模、材质、灯光、相机与渲染，关键节点截图，导出前可回滚。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.0/assets/official-logo.png",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/blender-design-plugin"
@@ -36,11 +15,11 @@
       "versions": [
         {
           "version": "0.16.0",
-          "publishTimestamp": 1792332840,
+          "publishTimestamp": 1794218355,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/blender-design-plugin",
-            "commit": "2fb511fd70244f5162b083a017083b2945dd9cd2",
+            "commit": "e6413cd1784b03b28ab87bd92ae0187004a276b3",
             "path": "dsh"
           }
         }
@@ -48,8 +27,8 @@
     },
     {
       "name": "comfy-design",
-      "title": "Comfy Design",
-      "description": "Generate images, video, audio, and 3D through a local ComfyUI MCP, with Comfy Cloud as an opt-in escalation for partner models and uploads.",
+      "title": "Comfy（ComfyUI 工作流）",
+      "description": "一条链路跑完本地 ComfyUI 图、视频、音频与 3D 工作流；云模型只在你明确选择时启用。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.0/assets/official-logo.png",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/comfy-design-plugin"
@@ -57,11 +36,11 @@
       "versions": [
         {
           "version": "0.6.0",
-          "publishTimestamp": 1792332845,
+          "publishTimestamp": 1794215768,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/comfy-design-plugin",
-            "commit": "eb5a667fbb6e9eb50dd4b54694d1d63f0ad1f888",
+            "commit": "c7d410fcbe7556e659df6db19d085be8aad59e56",
             "path": "dsh"
           }
         }
@@ -70,7 +49,7 @@
     {
       "name": "dreamina-canvas",
       "title": "Dreamina Canvas",
-      "description": "Build and run Dreamina Canvas node graphs and timelines with approval-aware execution, recovery, and verified assets.",
+      "description": "类型化节点与时间线编排；免费保存与计费运行分离，产物下载带校验。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.0/assets/official-logo.png",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin"
@@ -78,11 +57,11 @@
       "versions": [
         {
           "version": "0.5.0",
-          "publishTimestamp": 1792332856,
+          "publishTimestamp": 1794215772,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin",
-            "commit": "f336c8aa1f7f62cf159bbfed0c2d2f9a793f03a9",
+            "commit": "73358941b3fbe9052a4ba8c53e1617526c7c0e03",
             "path": "dsh"
           }
         }
@@ -90,8 +69,8 @@
     },
     {
       "name": "dreamina-design",
-      "title": "Dreamina Design",
-      "description": "Create and edit Dreamina images and videos with approval-aware, resumable operations and verified downloads.",
+      "title": "Dreamina（即梦绘图与视频）",
+      "description": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.0/assets/logo-approved.png",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/dreamina-design-plugin"
@@ -99,11 +78,11 @@
       "versions": [
         {
           "version": "0.8.0",
-          "publishTimestamp": 1792332859,
+          "publishTimestamp": 1794218590,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/dreamina-design-plugin",
-            "commit": "bc919239e4a38752a51fa8b6d4cc349120e19e77",
+            "commit": "24c827850e28d626df9b7898a15363b826fcb4b2",
             "path": "dsh"
           }
         }
@@ -111,8 +90,8 @@
     },
     {
       "name": "image-factory",
-      "title": "Image Factory",
-      "description": "Discover prompts, batch-produce and evaluate images, and record verified artifact receipts.",
+      "title": "Image（批量 AI 出图）",
+      "description": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.0/assets/logo-approved.png",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/image-factory-plugin"
@@ -120,32 +99,53 @@
       "versions": [
         {
           "version": "0.9.0",
-          "publishTimestamp": 1792332872,
+          "publishTimestamp": 1794218364,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/image-factory-plugin",
-            "commit": "0d180cb131fae5da3416a8009c8263faeded49cb",
+            "commit": "a52af7a1906833645596b05ec58b0e613a82d7c2",
             "path": "dsh"
           }
         }
       ]
     },
     {
-      "name": "jianying-edit",
-      "title": "JianYing Edit",
-      "description": "Cross-host JianYing/CapCut workflow orchestration through the checksum-verified Rust jianying-cli Runtime Adapter: jianying-job/v2, editable drafts, captions, audio/TTS/ASR, batch recovery, approvals, and MCP stdio/HTTP/SSE. No Python engine or external fork runtime.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-edit-plugin@v0.28.0/assets/official-logo.png",
+      "name": "jianying-draft",
+      "title": "JianYing Draft（剪映草稿编排）",
+      "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.28.0/assets/official-logo.png",
       "repository": {
-        "url": "https://github.com/full-aigc-plugins/jianying-edit-plugin"
+        "url": "https://github.com/full-aigc-plugins/jianying-draft-plugin"
       },
       "versions": [
         {
           "version": "0.28.0",
-          "publishTimestamp": 1792332874,
+          "publishTimestamp": 1794218368,
           "source": {
             "type": "git",
-            "url": "https://github.com/full-aigc-plugins/jianying-edit-plugin",
-            "commit": "b801847fbaf3011f458e85dcd4e36bb86c4f0daf",
+            "url": "https://github.com/full-aigc-plugins/jianying-draft-plugin",
+            "commit": "79056c12e9931125497f05bbb41c17658e7a60b8",
+            "path": "dsh"
+          }
+        }
+      ]
+    },
+    {
+      "name": "maya-design",
+      "title": "Maya（三维场景）",
+      "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.0/assets/official-logo.png",
+      "repository": {
+        "url": "https://github.com/full-aigc-plugins/maya-design-plugin"
+      },
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishTimestamp": 1794218373,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/full-aigc-plugins/maya-design-plugin",
+            "commit": "b9c20a704ccf0a791d1e540d3ceb115491a49910",
             "path": "dsh"
           }
         }
@@ -153,8 +153,8 @@
     },
     {
       "name": "minimax-design",
-      "title": "MiniMax Design",
-      "description": "Generate MiniMax H3 videos with env-var auth, first/last-frame FL2VA anchoring, resumable v2 queries, 12 externally managed skills, 2 plugin-local skills, commands, and cross-platform credential setup.",
+      "title": "MiniMax（AI 视频生成）",
+      "description": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.0/assets/official-logo.png",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/minimax-design-plugin"
@@ -162,11 +162,11 @@
       "versions": [
         {
           "version": "0.5.0",
-          "publishTimestamp": 1792332882,
+          "publishTimestamp": 1794218377,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/minimax-design-plugin",
-            "commit": "0278f42f94236b28fef405b6d78aefe747b956d6",
+            "commit": "6cc1d90da5c13a5a85a24bf2684d4eda890833f0",
             "path": "dsh"
           }
         }
@@ -174,8 +174,8 @@
     },
     {
       "name": "video-factory",
-      "title": "Video Factory",
-      "description": "Automatic video editing, composition, synchronized review, recovery, and verified media receipts.",
+      "title": "Video（自动剪辑成片）",
+      "description": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.0/assets/logo-approved.png",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/video-factory-plugin"
@@ -183,11 +183,11 @@
       "versions": [
         {
           "version": "0.5.0",
-          "publishTimestamp": 1792332896,
+          "publishTimestamp": 1794218381,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/video-factory-plugin",
-            "commit": "3e4196e90310fa0b686445bc934a6cd164d467e8",
+            "commit": "a25e0d97d76bbfbac9f18534c2288fc7a359b780",
             "path": "dsh"
           }
         }
@@ -195,8 +195,8 @@
     },
     {
       "name": "volcengine-design",
-      "title": "Volcengine Design",
-      "description": "Volcengine creation suite — Doubao ASR transcription with millisecond word timelines, TTS narration, Seedream images, Seedance video with white-model first/last-frame anchoring.",
+      "title": "Volcengine（豆包语音与视频）",
+      "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.0/assets/official-logo.png",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/volcengine-design-plugin"
@@ -204,11 +204,11 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishTimestamp": 1792332898,
+          "publishTimestamp": 1794218385,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/volcengine-design-plugin",
-            "commit": "fbf7ef4e9c61bc5866ddc9a39fcdaa70d97f3326",
+            "commit": "454ef346103c4d15cb631c8b8b1249083b0cf878",
             "path": "dsh"
           }
         }
@@ -216,8 +216,8 @@
     },
     {
       "name": "xuanji",
-      "title": "Xuanji · Cyber Divination",
-      "description": "Entertainment-grade Chinese metaphysics: Bazi, Qimen, Ziwei, marriage lots, Fengshui, and Tarot with script-verified chart computation and optional AIGC imagery.",
+      "title": "Xuanji（命理排盘 · 娱乐）",
+      "description": "八字、奇门、紫微、姻缘、风水和塔罗：排盘由脚本校验、引文可追溯，仅供娱乐。",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.0/assets/logo.png",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/xuanji-plugin"
@@ -225,11 +225,11 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishTimestamp": 1792332903,
+          "publishTimestamp": 1794218389,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/xuanji-plugin",
-            "commit": "4dba97d26cd25a93899b85afb4ade1adbc3b86bb",
+            "commit": "90d97ad426a5fc48b8b055387ff3bec803ed20d3",
             "path": "dsh"
           }
         }
@@ -237,61 +237,20 @@
     },
     {
       "name": "content-factory",
-      "title": "Content Factory",
-      "description": "Create, review, format, and export governed content for 16 channels.",
+      "title": "Content（多平台内容生产）",
+      "description": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.3/assets/content-factory.svg",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/content-factory-plugin"
       },
       "versions": [
         {
           "version": "1.0.0-rc.3",
-          "publishTimestamp": 1792332848,
+          "publishTimestamp": 1794218360,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/content-factory-plugin",
-            "commit": "b24ceae902db9b37782b9c9db18967ccbb9e2ffc",
-            "path": "dsh"
-          }
-        }
-      ]
-    },
-    {
-      "name": "cadcraft",
-      "title": "CADCraft Use",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
-      "repository": {
-        "url": "https://github.com/full-aigc-plugins/cadcraft-plugin"
-      },
-      "versions": [
-        {
-          "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792332842,
-          "source": {
-            "type": "git",
-            "url": "https://github.com/full-aigc-plugins/cadcraft-plugin",
-            "commit": "81f07dfacb33b8fb08c2b1dd3e80644194f3eccf",
-            "path": "dsh"
-          }
-        }
-      ]
-    },
-    {
-      "name": "designcraft",
-      "title": "DesignCraft Use",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
-      "repository": {
-        "url": "https://github.com/full-aigc-plugins/designcraft-plugin"
-      },
-      "versions": [
-        {
-          "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792332853,
-          "source": {
-            "type": "git",
-            "url": "https://github.com/full-aigc-plugins/designcraft-plugin",
-            "commit": "122c3fed13c94747a389ef0e613e5fb3b0fafd9e",
+            "commit": "2b9a5940af019712487cbe9cdaec06151c036789",
             "path": "dsh"
           }
         }
@@ -313,27 +272,6 @@
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/effectcraft-plugin",
             "commit": "eea9c46ea3231045cf64eb92a979f996a91c5ac8",
-            "path": "dsh"
-          }
-        }
-      ]
-    },
-    {
-      "name": "photocraft",
-      "title": "PhotoCraft Use",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
-      "repository": {
-        "url": "https://github.com/full-aigc-plugins/photocraft-plugin"
-      },
-      "versions": [
-        {
-          "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792332885,
-          "source": {
-            "type": "git",
-            "url": "https://github.com/full-aigc-plugins/photocraft-plugin",
-            "commit": "61af0a9a7682879d7845130ebdb0bc01470fe15b",
             "path": "dsh"
           }
         }
@@ -397,132 +335,6 @@
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/lightcraft-plugin",
             "commit": "411b6ae92464d3fefa77522a363ba55263b3f54a",
-            "path": "dsh"
-          }
-        }
-      ]
-    },
-    {
-      "name": "printcraft",
-      "title": "PdfCraft Use",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/printcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
-      "repository": {
-        "url": "https://github.com/full-aigc-plugins/printcraft-plugin"
-      },
-      "versions": [
-        {
-          "version": "0.1.0-dev.20261018.2",
-          "publishTimestamp": 1792332888,
-          "source": {
-            "type": "git",
-            "url": "https://github.com/full-aigc-plugins/printcraft-plugin",
-            "commit": "1a8f287ab243fecfc619b94db40371c406cc08da",
-            "path": "dsh"
-          }
-        }
-      ]
-    },
-    {
-      "name": "vectorcraft",
-      "title": "VectorCraft Use",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
-      "repository": {
-        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin"
-      },
-      "versions": [
-        {
-          "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792332893,
-          "source": {
-            "type": "git",
-            "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin",
-            "commit": "b2aeb2ac48319a0036e68081546eb1b1ec6c3ecf",
-            "path": "dsh"
-          }
-        }
-      ]
-    },
-    {
-      "name": "deckcraft",
-      "title": "DeckCraft Use",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
-      "repository": {
-        "url": "https://github.com/full-aigc-plugins/deckcraft-plugin"
-      },
-      "versions": [
-        {
-          "version": "0.1.0-dev.20261018.3",
-          "publishTimestamp": 1792332851,
-          "source": {
-            "type": "git",
-            "url": "https://github.com/full-aigc-plugins/deckcraft-plugin",
-            "commit": "6d4979cee2202e982edc1f5b825d06c359899093",
-            "path": "dsh"
-          }
-        }
-      ]
-    },
-    {
-      "name": "soundcraft",
-      "title": "SoundCraft Use",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
-      "repository": {
-        "url": "https://github.com/full-aigc-plugins/soundcraft-plugin"
-      },
-      "versions": [
-        {
-          "version": "0.1.0-dev.20261018.2",
-          "publishTimestamp": 1792332890,
-          "source": {
-            "type": "git",
-            "url": "https://github.com/full-aigc-plugins/soundcraft-plugin",
-            "commit": "22a8e9645a952acc57c3cdc3c7f6b5bd4595afdd",
-            "path": "dsh"
-          }
-        }
-      ]
-    },
-    {
-      "name": "gridcraft",
-      "title": "GridCraft Use",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261018.1/assets/official-logo.png",
-      "repository": {
-        "url": "https://github.com/full-aigc-plugins/gridcraft-plugin"
-      },
-      "versions": [
-        {
-          "version": "0.1.0-dev.20261018.1",
-          "publishTimestamp": 1792332869,
-          "source": {
-            "type": "git",
-            "url": "https://github.com/full-aigc-plugins/gridcraft-plugin",
-            "commit": "7b7c20a146e0765b51e35f7bbd7f3acf437b8dd9",
-            "path": "dsh"
-          }
-        }
-      ]
-    },
-    {
-      "name": "wordcraft",
-      "title": "WordCraft Use",
-      "description": "Development prerelease: scene skills, stdio MCP and an editor sharing the Agent session. Node.js 24 required; first Git startup downloads checksummed resources. Full creative and all-host acceptance pending.",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261018.4/assets/official-logo.png",
-      "repository": {
-        "url": "https://github.com/full-aigc-plugins/wordcraft-plugin"
-      },
-      "versions": [
-        {
-          "version": "0.1.0-dev.20261018.4",
-          "publishTimestamp": 1792332901,
-          "source": {
-            "type": "git",
-            "url": "https://github.com/full-aigc-plugins/wordcraft-plugin",
-            "commit": "3cff9f96a68f7377baa15cd99ce302bb77e9d7c8",
             "path": "dsh"
           }
         }

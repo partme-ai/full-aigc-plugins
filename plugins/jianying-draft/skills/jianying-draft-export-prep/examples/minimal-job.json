@@ -1,0 +1,13 @@
+{
+  "schema": "jianying-job/v2",
+  "operation": "export",
+  "project": {
+    "type": "existing",
+    "source": "/absolute/path/to/draft"
+  },
+  "export": {
+    "kind": "native",
+    "output": "/absolute/path/to/final.mp4",
+    "overwrite": false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-native-resource-acquisition/v1",
+  "type": "object",
+  "properties": {
+    "schema": {"const": "jianying-native-resource-acquisition/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "state": {"enum": ["ready", "failed", "ambiguous"]},
+    "adapter": {"type": "object", "additionalProperties": true},
+    "candidates": {"type": "object", "additionalProperties": true},
+    "selected": {"type": "object", "additionalProperties": true},
+    "download_trace": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "receipt": {"type": "object", "additionalProperties": true},
+    "native_action_evidence": {"type": "object", "additionalProperties": true},
+    "cli": {"type": "object", "additionalProperties": true},
+    "artifacts": {"type": "object", "additionalProperties": true}
+  },
+  "required": ["schema", "request_id", "state", "adapter", "candidates", "selected", "download_trace", "receipt", "native_action_evidence", "cli", "artifacts"],
+  "additionalProperties": false
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-smart-package-proposal/v1",
+  "type": "object",
+  "required": ["schema", "request_digest", "change_set_id", "status", "preview", "changes", "unexplained_changes", "estimated_cost"],
+  "properties": {
+    "schema": {"const": "jianying-smart-package-proposal/v1"},
+    "request_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "change_set_id": {"type": "string", "minLength": 1},
+    "status": {"const": "preview_ready"},
+    "preview": {"type": "object", "additionalProperties": false, "required": ["artifact_digest"], "properties": {"artifact_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}},
+    "changes": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": true}},
+    "unexplained_changes": {"type": "array", "items": {"type": "object"}},
+    "estimated_cost": {"type": "number"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映画面调节"
+  short_description: "规划曝光、对比、色彩与锐化操作，按版本适配并检查前后证据"
+  default_prompt: "使用 $jianying-draft-adjustments 规划曝光、对比、色彩与锐化操作，按版本适配并检查前后证据；先核对输入、可用能力和交付要求。"

@@ -1,0 +1,214 @@
+{
+  "creative_target": {
+    "schema": "jianying-creative-target/v1",
+    "target_id": "target-vlog-01",
+    "workflow_id": "VLOG-01",
+    "revision": 1,
+    "narrative_goal": "记录周末露营从出发到日落的真实变化",
+    "audience": "家人与朋友",
+    "channel": "personal",
+    "target_duration_us": 60000000,
+    "references": [
+      {
+        "reference_id": "ref-color",
+        "type": "image",
+        "artifact_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+        "usage": "color"
+      }
+    ],
+    "constraints": [
+      {
+        "constraint_id": "keep-sunset",
+        "kind": "must_keep",
+        "value": "日落",
+        "source_status": "user_confirmed",
+        "source_ref": "brief.must_keep[0]"
+      },
+      {
+        "constraint_id": "hide-plate",
+        "kind": "must_avoid",
+        "value": "清晰车牌",
+        "source_status": "observed",
+        "source_ref": "privacy-review"
+      }
+    ],
+    "quality_profiles": [
+      {
+        "output_id": "main",
+        "profile_id": "vlog.personal-story",
+        "version": "1.0.0",
+        "digest": "2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    ],
+    "metadata": {
+      "partme.source": "fixture"
+    }
+  },
+  "quality_profile": {
+    "schema": "jianying-quality-profile/v1",
+    "profile_id": "vlog.personal-story",
+    "version": "1.0.0",
+    "dimensions": [
+      {
+        "dimension_id": "narrative",
+        "label": "叙事完整性",
+        "weight": 4,
+        "threshold": 7,
+        "hard_gate": false,
+        "evidence_types": ["proxy_media", "keyframes"]
+      },
+      {
+        "dimension_id": "privacy",
+        "label": "隐私",
+        "weight": 0,
+        "threshold": 10,
+        "hard_gate": true,
+        "evidence_types": ["keyframes"]
+      }
+    ],
+    "allowed_actions": ["trim", "reorder", "replace_clip", "adjust_volume"],
+    "human_boundaries": ["版权判断", "主观最终审美"],
+    "metadata": {
+      "partme.source": "locked-skill"
+    }
+  },
+  "evaluation_input": {
+    "schema": "jianying-evaluation-input/v1",
+    "workflow_id": "VLOG-01",
+    "revision": 1,
+    "output_id": "main",
+    "target_digest": "3333333333333333333333333333333333333333333333333333333333333333",
+    "profile_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+    "artifacts": [
+      {
+        "artifact_id": "proxy-main",
+        "type": "proxy_media",
+        "digest": "4444444444444444444444444444444444444444444444444444444444444444",
+        "bytes": 4096
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "probe-main",
+        "type": "media_probe",
+        "artifact_id": "proxy-main",
+        "digest": "5555555555555555555555555555555555555555555555555555555555555555",
+        "role": "technical"
+      }
+    ],
+    "content_review": {
+      "captions": {"status": "absent"},
+      "transcript": {"status": "absent"},
+      "languages": []
+    },
+    "evaluator_scope": {
+      "provider": "manual",
+      "model": "human-review",
+      "maximum_cost": 0,
+      "upload_allowed": false
+    },
+    "metadata": {}
+  },
+  "evaluation_verdict": {
+    "schema": "jianying-evaluation-verdict/v1",
+    "workflow_id": "VLOG-01",
+    "revision": 1,
+    "output_id": "main",
+    "input_digest": "6666666666666666666666666666666666666666666666666666666666666666",
+    "evaluator": {
+      "type": "human",
+      "provider": "manual",
+      "model": "reviewer",
+      "version": "1"
+    },
+    "decision": "revise",
+    "evidence_refs": ["probe-main"],
+    "scores": [
+      {
+        "dimension_id": "narrative",
+        "value": 6,
+        "passed": false
+      }
+    ],
+    "hard_gates": [
+      {
+        "rule_id": "privacy",
+        "passed": true,
+        "evidence_refs": ["probe-main"]
+      }
+    ],
+    "findings": [
+      {
+        "code": "opening_too_slow",
+        "severity": "major",
+        "output_id": "main",
+        "time_range": {
+          "start_us": 0,
+          "end_us": 8000000
+        },
+        "observation": "前八秒没有建立旅程目标",
+        "rule_id": "narrative",
+        "evidence_refs": ["probe-main"],
+        "suggested_action": "trim"
+      }
+    ],
+    "limitations": [],
+    "metadata": {}
+  },
+  "revision_request": {
+    "schema": "jianying-revision-request/v1",
+    "workflow_id": "VLOG-01",
+    "from_revision": 1,
+    "to_revision": 2,
+    "verdict_digest": "7777777777777777777777777777777777777777777777777777777777777777",
+    "actions": [
+      {
+        "action_id": "action-1",
+        "type": "trim",
+        "output_id": "main",
+        "target": "opening_sequence",
+        "constraints": ["保留出发事实", "开头不超过四秒"]
+      }
+    ],
+    "unsupported_suggestions": [],
+    "required_capabilities": ["timeline.edit"],
+    "required_approvals": ["draft_write"],
+    "metadata": {}
+  },
+  "iteration_policy": {
+    "schema": "jianying-iteration-policy/v1",
+    "maximum_revisions": 3,
+    "maximum_model_calls": 2,
+    "maximum_budget": {
+      "currency": "CNY",
+      "amount": 0
+    },
+    "deadline": "2099-01-01T00:00:00.000Z",
+    "minimum_material_improvement": 1,
+    "repeated_finding_limit": 2,
+    "regression_tolerance": 0,
+    "required_human_review_points": ["before_revision_execution"]
+  },
+  "evidence_bundle": {
+    "schema": "jianying-evidence-bundle/v1",
+    "workflow_id": "VLOG-01",
+    "revision": 1,
+    "output_id": "main",
+    "artifact_digest": "4444444444444444444444444444444444444444444444444444444444444444",
+    "items": [
+      {
+        "evidence_id": "structural-main",
+        "type": "structural",
+        "digest": "8888888888888888888888888888888888888888888888888888888888888888",
+        "validator": "draft-structural/v1",
+        "environment": "fixture",
+        "observed_at": "2026-09-21T00:00:00.000Z",
+        "passed": true,
+        "artifact_ref": "draft-main",
+        "limitations": ["不能证明真实剪映播放"]
+      }
+    ],
+    "conclusion": "incomplete",
+    "metadata": {}
+  }
+}

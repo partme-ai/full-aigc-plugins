@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-native-resource-query/v1",
+  "type": "object",
+  "properties": {
+    "schema": {"const": "jianying-native-resource-query/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "domain": {"enum": ["media", "music", "text", "sticker", "effect", "transition", "caption", "smart_package", "filter", "adjustment", "template", "digital_human"]},
+    "keywords": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "filters": {"type": "object", "additionalProperties": true},
+    "selection": {"type": "object", "additionalProperties": true}
+  },
+  "required": ["schema", "request_id", "domain", "keywords", "filters", "selection"],
+  "additionalProperties": false
+}

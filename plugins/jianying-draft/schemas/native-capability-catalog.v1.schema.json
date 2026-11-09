@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-native-capability-catalog/v1",
+  "type": "object",
+  "properties": {
+    "schema": {"const": "jianying-native-capability-catalog/v1"},
+    "editor_identity": {"type": "object", "additionalProperties": true},
+    "edition_observation": {"type": "object", "additionalProperties": true},
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "domain": {"enum": ["media", "music", "text", "sticker", "effect", "transition", "caption", "smart_package", "filter", "adjustment", "template", "digital_human"]},
+          "visibility": {"enum": ["visible", "hidden", "unknown"]},
+          "edition": {"enum": ["basic", "professional", "mixed", "unknown"]},
+          "actions": {"type": "array", "items": {"enum": ["search", "filter", "preview", "download", "apply", "remove", "inspect", "recover"]}, "uniqueItems": true},
+          "evidence_level": {"enum": ["structural", "visual", "state_readback", "draft_verified"]},
+          "raw_identifier": {"type": "string", "minLength": 1}
+        },
+        "required": ["domain", "visibility", "edition", "actions", "evidence_level", "raw_identifier"],
+        "additionalProperties": false
+      }
+    },
+    "unknown_domains": {"type": "array", "items": {"type": "object", "additionalProperties": true}}
+  },
+  "required": ["schema", "editor_identity", "edition_observation", "domains", "unknown_domains"],
+  "additionalProperties": false
+}

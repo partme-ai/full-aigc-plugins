@@ -1,0 +1,9 @@
+{
+  "schema": "jianying-job/v2",
+  "operation": "edit",
+  "project": {
+    "type": "existing",
+    "source": "/absolute/path/to/audio-source",
+    "output": "/absolute/path/to/audio-mix"
+  }
+}

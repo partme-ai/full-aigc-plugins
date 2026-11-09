@@ -1,0 +1,53 @@
+{
+  "name": "image-factory",
+  "version": "0.9.2+codex.20261109",
+  "description": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
+  "author": {
+    "name": "Full Stack Skills / PartMe.AI",
+    "url": "https://github.com/partme-ai"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/image-factory-plugin",
+  "repository": "https://github.com/full-aigc-plugins/image-factory-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "image",
+    "batch",
+    "generation",
+    "recipe",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Image（批量 AI 出图）",
+    "shortDescription": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
+    "longDescription": "Prefer Codex built-in imagegen for direct image generation, offer unchanged Baoyu workflows only after explicit image-quota exhaustion, or run Image Factory's governed production loop with plan validation, approval, verified receipts, evaluation, and recovery.",
+    "developerName": "Full Stack Skills / PartMe.AI",
+    "category": "Creativity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/full-aigc-plugins/image-factory-plugin",
+    "privacyPolicyURL": "https://github.com/full-aigc-plugins/image-factory-plugin/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/full-aigc-plugins/image-factory-plugin/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Generate an image, article cover, or social image-card series",
+      "Plan and run a governed image batch with verified receipts",
+      "Evaluate, optimize, or recover an existing image batch"
+    ],
+    "brandColor": "#10B981",
+    "composerIcon": "./assets/composer-icon.png",
+    "logo": "./assets/logo-approved.png",
+    "logoDark": "./assets/logo-approved.png",
+    "screenshots": [],
+    "composerIconDark": "./assets/composer-icon.png"
+  },
+  "displayName": "Image（批量 AI 出图）",
+  "displayName_i18n": {
+    "zh-CN": "Image（批量 AI 出图）"
+  },
+  "description_i18n": {
+    "zh-CN": "提示词发现、计划校验、审批、批量生成、质量评估与中断恢复；每张图带哈希校验回执。"
+  }
+}

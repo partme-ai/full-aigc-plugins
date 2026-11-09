@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映贴纸处理"
+  short_description: "搜索、预览、放置和调整剪映贴纸，核对资源回执与时间线效果"
+  default_prompt: "使用 $jianying-draft-stickers 搜索、预览、放置和调整剪映贴纸，核对资源回执与时间线效果；先核对输入、可用能力和交付要求。"

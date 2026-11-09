@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映时间线控制"
+  short_description: "操作轨道、片段、关键帧与会话控制，按版本核对原生运行能力"
+  default_prompt: "使用 $jianying-draft-editing-console 操作轨道、片段、关键帧与会话控制，按版本核对原生运行能力；先核对输入、可用能力和交付要求。"

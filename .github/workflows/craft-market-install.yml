@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        app: [cadcraft, designcraft, effectcraft, photocraft, figcraft, filmcraft, lightcraft, printcraft, vectorcraft, deckcraft, soundcraft, gridcraft, wordcraft]
+        app: [effectcraft, figcraft, filmcraft, lightcraft]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -64,7 +64,7 @@ jobs:
           node-version: '24.18.0'
       - name: Install pinned Codex host
         run: npm install --global @openai/codex@0.162.1
-      - name: Install all 13 marketplace candidates, check icons and call native MCP from cold cache
+      - name: Install all four AIGC Craft candidates, check icons and call native MCP from cold cache
         run: python3 scripts/verify-craft-market-install.py . cold-acceptance --marketplace-name full-aigc-plugins
       - uses: actions/upload-artifact@v4
         if: always()
@@ -84,7 +84,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        app: [cadcraft, designcraft, effectcraft, photocraft, figcraft, filmcraft, lightcraft, printcraft, vectorcraft, deckcraft, soundcraft, gridcraft, wordcraft]
+        app: [effectcraft, figcraft, filmcraft, lightcraft]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

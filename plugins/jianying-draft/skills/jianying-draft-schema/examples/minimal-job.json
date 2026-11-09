@@ -1,0 +1,15 @@
+{
+  "schema": "jianying-job/v2",
+  "operation": "create",
+  "project": {
+    "type": "new",
+    "project": {
+      "name": "example",
+      "width": 1920,
+      "height": 1080,
+      "frame_rate": { "numerator": 30, "denominator": 1 },
+      "timeline": { "tracks": [] },
+      "materials": []
+    }
+  }
+}

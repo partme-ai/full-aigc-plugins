@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映导出准备"
+  short_description: "按能力、运行环境与授权准备导出，区分预览产物和最终交付"
+  default_prompt: "使用 $jianying-draft-export-prep 按能力、运行环境与授权准备导出，区分预览产物和最终交付；先核对输入、可用能力和交付要求。"

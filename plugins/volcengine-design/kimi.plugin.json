@@ -1,0 +1,44 @@
+{
+  "name": "volcengine-design",
+  "version": "0.2.2",
+  "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
+  "author": {
+    "name": "Full Stack Skills / PartMe.AI"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/volcengine-design-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "volcengine",
+    "doubao",
+    "asr",
+    "tts",
+    "seedance"
+  ],
+  "interface": {
+    "displayName": "Volcengine（豆包语音与视频）",
+    "shortDescription": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
+    "longDescription": "Operate Volcengine creation services from your coding agent: Doubao bigmodel ASR with millisecond word timelines (the slicing base for talking-head editing), TTS narration, Seedream image generation, and Seedance video generation with white-model first/last-frame anchoring.",
+    "developerName": "Full Stack Skills / PartMe.AI",
+    "websiteURL": "https://github.com/full-aigc-plugins/volcengine-design-plugin"
+  },
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "hooks": [
+    {
+      "event": "SessionStart",
+      "command": "python3 ./hooks/env_check.py",
+      "timeout": 30
+    },
+    {
+      "event": "UserPromptSubmit",
+      "command": "python3 ./hooks/check_volcengine_intent.py",
+      "timeout": 15
+    }
+  ],
+  "displayName_i18n": {
+    "zh-CN": "Volcengine（豆包语音与视频）"
+  },
+  "description_i18n": {
+    "zh-CN": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频；两套凭据分离，任务只提交一次。"
+  }
+}

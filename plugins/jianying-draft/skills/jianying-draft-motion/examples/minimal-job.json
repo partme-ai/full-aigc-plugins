@@ -1,0 +1,9 @@
+{
+  "schema": "jianying-job/v2",
+  "operation": "edit",
+  "project": {
+    "type": "existing",
+    "source": "/absolute/path/to/motion-source",
+    "output": "/absolute/path/to/motion-copy"
+  }
+}

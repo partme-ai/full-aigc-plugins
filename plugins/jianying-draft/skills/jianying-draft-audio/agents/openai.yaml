@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映音频处理"
+  short_description: "规划音频层、音量、淡入淡出与配音，核对媒体信息和播放结果"
+  default_prompt: "使用 $jianying-draft-audio 规划音频层、音量、淡入淡出与配音，核对媒体信息和播放结果；先核对输入、可用能力和交付要求。"

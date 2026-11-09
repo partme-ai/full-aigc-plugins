@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.partme.ai/jianying/host-observation-v1.schema.json",
+  "title": "JianYing real host observation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "host",
+    "pluginVersion",
+    "cliVersion",
+    "skillsVersion",
+    "jobSchema",
+    "executedAt",
+    "checks",
+    "jobInput",
+    "semanticResult"
+  ],
+  "properties": {
+    "schema": {"const": "jianying-host-observation/v1"},
+    "host": {"enum": ["codex", "zcode", "kimi"]},
+    "pluginVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "cliVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "skillsVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "jobSchema": {"const": "jianying-job/v2"},
+    "executedAt": {"type": "string", "format": "date-time"},
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "freshInstall",
+        "doctor",
+        "simpleJob",
+        "recovery",
+        "nativeExportApproval"
+      ],
+      "properties": {
+        "freshInstall": {"const": true},
+        "doctor": {"const": true},
+        "simpleJob": {"const": true},
+        "recovery": {"const": true},
+        "nativeExportApproval": {"const": true}
+      }
+    },
+    "jobInput": {"type": "object"},
+    "semanticResult": {"type": "object"}
+  }
+}

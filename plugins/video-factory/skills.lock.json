@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "package": "video-factory-skills",
+      "repo": "https://github.com/full-aigc-skills/video-factory-skills.git",
+      "ref": "v1.0.2",
+      "sha": "083f1e0af434433ae3a394d075ab67793fae6d95",
+      "skills": [
+        "video-factory-use",
+        "video-factory-plan",
+        "video-factory-run",
+        "video-factory-judge",
+        "video-factory-recover"
+      ],
+      "dest": "skills/",
+      "sha256": {
+        "video-factory-use": "2cab7ca24cf4c5730365e365378bdcdc409ff7039c79bb4aa364b370a73242cb",
+        "video-factory-plan": "95a07c6d319d877163fe3213d027fd298c53d9a524d02865f9ee778fb76c2593",
+        "video-factory-run": "91a74284d8ba66d70b2368c12d7442663944dd4a397bd4d52f8289b6581a2f0d",
+        "video-factory-judge": "7cba09781552b3641c9bb9c5af693ef237381b9edc88eb5b609c4f9c47b4ca5a",
+        "video-factory-recover": "a97cea805767a22d53d58da67270c321dd0161ead99b949bc296109f043c2db5"
+      }
+    }
+  ]
+}

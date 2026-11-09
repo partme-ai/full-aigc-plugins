@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://full-aigc-skills.example/schemas/smart-zoom-plan-v1.schema.json",
+  "title": "smart-zoom-plan/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "plan_id", "source_ledger_id", "source_media_sha256", "segment_id", "project_fps", "constraints", "sessions", "quantization_report", "target_evidence", "plan_only"],
+  "properties": {
+    "schema": {"const": "smart-zoom-plan/v1"},
+    "plan_id": {"type": "string", "minLength": 1},
+    "source_ledger_id": {"type": "string", "minLength": 1},
+    "source_media_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "segment_id": {"type": "string", "minLength": 1},
+    "project_fps": {"$ref": "#/$defs/rational"},
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_scale", "edge_margin_ratio", "debounce_us", "session_gap_us", "accessibility_mode"],
+      "properties": {
+        "max_scale": {"type": "number", "minimum": 1, "maximum": 2},
+        "edge_margin_ratio": {"type": "number", "minimum": 0, "maximum": 0.2},
+        "debounce_us": {"type": "integer", "minimum": 0},
+        "session_gap_us": {"type": "integer", "minimum": 1},
+        "accessibility_mode": {"enum": ["standard", "reduced_motion"]}
+      }
+    },
+    "sessions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "start_us", "end_us", "keyframes", "human_review"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "start_us": {"type": "integer", "minimum": 0},
+          "end_us": {"type": "integer", "minimum": 1},
+          "human_review": {"type": "boolean"},
+          "keyframes": {
+            "type": "array", "minItems": 2,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["time_us", "scale", "position_x", "position_y", "source_event_ids"],
+              "properties": {
+                "time_us": {"type": "integer", "minimum": 0},
+                "scale": {"type": "number", "minimum": 1, "maximum": 2},
+                "position_x": {"type": "number", "minimum": -1, "maximum": 1},
+                "position_y": {"type": "number", "minimum": -1, "maximum": 1},
+                "source_event_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+              }
+            }
+          }
+        }
+      }
+    },
+    "quantization_report": {
+      "type": "object", "additionalProperties": false,
+      "required": ["max_error_us", "unsafe_offsets"],
+      "properties": {
+        "max_error_us": {"type": "integer", "minimum": 0},
+        "unsafe_offsets": {"type": "array", "items": {"type": "integer"}}
+      }
+    },
+    "target_evidence": {"const": "playback"},
+    "plan_only": {"const": true}
+  },
+  "$defs": {
+    "rational": {
+      "type": "object", "additionalProperties": false,
+      "required": ["num", "den"],
+      "properties": {"num": {"type": "integer", "minimum": 1}, "den": {"type": "integer", "minimum": 1}}
+    }
+  }
+}

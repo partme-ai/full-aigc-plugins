@@ -23,6 +23,11 @@ jobs:
           repository: full-aigc-skills/designcraft-skills
           ref: f65d798b8df53da25ee7fbf9013259cf1e315eb8
           path: story-source
+      - uses: actions/checkout@v4
+        with:
+          repository: full-aigc-plugins/designcraft-plugin
+          ref: v0.1.0-dev.20261109.5
+          path: plugins/designcraft-plugin
       - name: Validate actual skill input handling
         run: python -m unittest discover -s story-source/skills/designcraft-brochure/tests -v
       - name: Install isolated PDF verifier

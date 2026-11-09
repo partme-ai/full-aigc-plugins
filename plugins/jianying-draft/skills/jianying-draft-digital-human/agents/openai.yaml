@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映数字人"
+  short_description: "按授权选择、预览和提交数字人任务，核对预算、恢复状态与产物"
+  default_prompt: "使用 $jianying-draft-digital-human 按授权选择、预览和提交数字人任务，核对预算、恢复状态与产物；先核对输入、可用能力和交付要求。"

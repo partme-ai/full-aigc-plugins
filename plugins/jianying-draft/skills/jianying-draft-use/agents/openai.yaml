@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映剪辑需求导航"
+  short_description: "按剪辑需求选择 Rust CLI 工作流，遇到能力或证据缺失时明确报告"
+  default_prompt: "使用 $jianying-draft-use 按剪辑需求选择 Rust CLI 工作流，遇到能力或证据缺失时明确报告；先核对输入、可用能力和交付要求。"

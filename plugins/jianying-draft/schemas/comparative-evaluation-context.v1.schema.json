@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-comparative-evaluation-context/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "context_id", "workflow_id", "revision", "output_id", "target_digest", "profile_digest", "reference_set_digest", "current", "previous", "comparison_dimensions", "critic", "metadata"],
+  "properties": {
+    "schema": {"const": "jianying-comparative-evaluation-context/v1"},
+    "context_id": {"type": "string", "minLength": 1},
+    "workflow_id": {"type": "string", "minLength": 1},
+    "revision": {"type": "number"},
+    "output_id": {"type": "string", "minLength": 1},
+    "target_digest": {"$ref": "#/$defs/digest"},
+    "profile_digest": {"$ref": "#/$defs/digest"},
+    "reference_set_digest": {"$ref": "#/$defs/digest"},
+    "current": {"$ref": "#/$defs/current"},
+    "previous": {"$ref": "#/$defs/previous"},
+    "comparison_dimensions": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"enum": ["absolute_quality", "target_gap", "prior_delta"]}},
+    "critic": {"$ref": "#/$defs/critic"},
+    "metadata": {"type": "object", "additionalProperties": true}
+  },
+  "$defs": {
+    "digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "current": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evaluation_input_digest", "proxy_digest"],
+      "properties": {
+        "evaluation_input_digest": {"$ref": "#/$defs/digest"},
+        "proxy_digest": {"$ref": "#/$defs/digest"}
+      }
+    },
+    "previous": {
+      "type": "object", "additionalProperties": false,
+      "required": ["revision", "evaluation_input_digest", "proxy_digest", "verdict_digest"],
+      "properties": {
+        "revision": {"type": "number"},
+        "evaluation_input_digest": {"$ref": "#/$defs/digest"},
+        "proxy_digest": {"$ref": "#/$defs/digest"},
+        "verdict_digest": {"$ref": "#/$defs/digest"}
+      }
+    },
+    "critic": {
+      "type": "object", "additionalProperties": false,
+      "required": ["session_id", "fresh_context", "write_access", "allowed_tools"],
+      "properties": {
+        "session_id": {"type": "string", "minLength": 1},
+        "fresh_context": {"const": true},
+        "write_access": {"const": false},
+        "allowed_tools": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["artifact.inspect", "evidence.read", "quality.profile.read"]}}
+      }
+    }
+  }
+}

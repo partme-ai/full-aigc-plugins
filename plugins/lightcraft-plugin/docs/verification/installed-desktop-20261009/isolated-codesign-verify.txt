@@ -1,3 +1,0 @@
-exitCode=0
-evaluation-results/lightcraft-installed-desktop-20261009/LightCraft.app: valid on disk
-evaluation-results/lightcraft-installed-desktop-20261009/LightCraft.app: satisfies its Designated Requirement

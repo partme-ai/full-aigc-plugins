@@ -1,0 +1,116 @@
+{
+  "schema": "jianying-assisted-production-catalog/v1",
+  "version": "1.0.0",
+  "source_baseline": {
+    "repository": "https://github.com/luoluoluo22/jianying-editor-skill",
+    "commit": "32c56928ded4f9e2c2b80e099dc7abb793d2c30b",
+    "license": "MIT",
+    "adoption_mode": "knowledge_rewrite_only",
+    "forbidden_runtime_imports": [
+      "Python JyProject runtime",
+      "vendored pyJianYingDraft",
+      "UI automation and auto-export scripts",
+      "cloud download scripts and captured API parameters",
+      "cached resource databases",
+      "proprietary media and artistEffect assets"
+    ]
+  },
+  "runtime_policy": {
+    "draft_mutator": "immutable_released_jianying_cli",
+    "job_schema": "jianying-job/v2",
+    "provider_owner": "jianying-edit-plugin",
+    "knowledge_owner": "jianying-skills",
+    "compound_clip": "plan_only"
+  },
+  "step_contracts": {
+    "screen_capture.prepare": {"owner": "harness", "status": "provider_required"},
+    "screen_capture.execute": {"owner": "screen_capture_provider", "status": "provider_required"},
+    "interaction_events.ingest": {"owner": "harness", "status": "provider_required"},
+    "smart_zoom.plan": {"owner": "harness", "status": "provider_required"},
+    "web_vfx.render": {"owner": "sandbox_browser_provider", "status": "provider_required"},
+    "media.preflight_normalize": {"owner": "controlled_media_provider", "status": "provider_required"},
+    "native_asset.discover": {"owner": "runtime_adapter", "status": "provider_required"},
+    "commentary.storyboard": {"owner": "planner", "status": "knowledge_ready"},
+    "exposure.analyze": {"owner": "approved_analysis_provider", "status": "provider_required"},
+    "narration.align": {"owner": "harness", "status": "provider_required"},
+    "template.clone_first": {"owner": "harness", "status": "capability_gated"},
+    "workflow.compile": {"owner": "harness", "status": "provider_required"},
+    "job.compile": {"owner": "harness", "status": "provider_required"},
+    "cli.execute": {"owner": "jianying_cli", "status": "capability_gated"},
+    "playback.verify": {"owner": "runtime_adapter", "status": "approval_required"},
+    "native_export.verify": {"owner": "runtime_adapter", "status": "approval_required"},
+    "compound_clip.compile": {"owner": "jianying_cli", "status": "plan_only"}
+  },
+  "recipes": [
+    {
+      "id": "APW01",
+      "name": "软件教程录屏与智能缩放",
+      "status": "provider_required",
+      "intents": ["录制软件教程", "按点击位置自动放大", "产品操作演示"],
+      "owner_skills": ["jianying-draft-video-planning", "jianying-draft-media", "jianying-draft-motion", "jianying-draft-harness"],
+      "required_inputs": ["capture_scope", "privacy_review", "target_channel", "project_fps"],
+      "steps": ["screen_capture.prepare", "screen_capture.execute", "interaction_events.ingest", "smart_zoom.plan", "workflow.compile", "job.compile", "cli.execute", "playback.verify"],
+      "required_capabilities": ["media.probe", "timeline.keyframe", "timeline.quantization_report", "project.edit_isolated"],
+      "human_gates": ["录屏范围和隐私", "点击账本保留", "缩放删减", "草稿写入", "播放验证"],
+      "target_evidence": "playback",
+      "limits": ["按键内容默认不捕获", "Provider 缺失时只输出计划", "关键帧能力非 supported 时停止"]
+    },
+    {
+      "id": "APW02",
+      "name": "README 到安装教程",
+      "status": "provider_required",
+      "intents": ["把 README 做成教程", "制作安装演示", "命令行教学视频"],
+      "owner_skills": ["jianying-draft-video-planning", "jianying-draft-media", "jianying-draft-narration", "jianying-draft-subtitles", "jianying-draft-harness"],
+      "required_inputs": ["reviewed_readme", "tested_install_steps", "capture_scope", "narration_language"],
+      "steps": ["commentary.storyboard", "screen_capture.prepare", "screen_capture.execute", "interaction_events.ingest", "smart_zoom.plan", "narration.align", "workflow.compile", "job.compile", "cli.execute", "playback.verify"],
+      "required_capabilities": ["media.probe", "timeline.edit", "timeline.keyframe", "captions.import", "captions.verify"],
+      "human_gates": ["命令已在隔离环境验证", "凭据已打码", "旁白和字幕复核", "草稿写入"],
+      "target_evidence": "playback",
+      "limits": ["不从 README 推断命令成功", "不录制 Token 或个人信息", "ASR/TTS 需独立能力与费用门禁"]
+    },
+    {
+      "id": "APW03",
+      "name": "产品演示与交互聚焦",
+      "status": "provider_required",
+      "intents": ["产品功能演示", "SaaS 功能介绍", "交互高亮视频"],
+      "owner_skills": ["jianying-draft-video-planning", "jianying-draft-media", "jianying-draft-motion", "jianying-draft-audio", "jianying-draft-harness"],
+      "required_inputs": ["feature_script", "capture_scope", "brand_safe_area", "accessibility_mode"],
+      "steps": ["screen_capture.prepare", "screen_capture.execute", "interaction_events.ingest", "smart_zoom.plan", "exposure.analyze", "workflow.compile", "job.compile", "cli.execute", "playback.verify", "native_export.verify"],
+      "required_capabilities": ["media.probe", "timeline.keyframe", "timeline.quantization_report", "timeline.volume", "render.native"],
+      "human_gates": ["隐私和测试账号", "品牌与可访问性", "缩放观感", "原生导出"],
+      "target_evidence": "native_export",
+      "limits": ["不夸大未演示功能", "不自动上传录屏", "曝光建议不能替代人工画面判断"]
+    },
+    {
+      "id": "APW04",
+      "name": "Web 数据可视化片头",
+      "status": "provider_required",
+      "intents": ["动态图表片头", "网页动效转视频", "透明数据可视化叠加"],
+      "owner_skills": ["jianying-draft-video-planning", "jianying-draft-media", "jianying-draft-motion", "jianying-draft-harness"],
+      "required_inputs": ["local_html_or_allowed_origin", "network_policy", "render_contract", "font_and_script_sources"],
+      "steps": ["web_vfx.render", "media.preflight_normalize", "workflow.compile", "job.compile", "cli.execute", "playback.verify"],
+      "required_capabilities": ["media.probe", "media.add", "timeline.keyframe", "project.verify"],
+      "human_gates": ["Origin 和网络", "第三方字体/脚本许可", "转码", "草稿写入"],
+      "target_evidence": "playback",
+      "limits": ["浏览器必须沙箱", "不允许任意 CDN", "完成信号、超时、FPS 和 Alpha 必须显式"]
+    },
+    {
+      "id": "APW05",
+      "name": "影视解说与 B-roll 匹配",
+      "status": "provider_required",
+      "intents": ["影视解说", "旁白配画面", "故事板匹配 B-roll"],
+      "owner_skills": ["jianying-draft-video-planning", "jianying-draft-media", "jianying-draft-narration", "jianying-draft-subtitles", "jianying-draft-audio", "jianying-draft-harness"],
+      "required_inputs": ["authorized_source_media", "reviewed_commentary", "usage_rights", "delivery_channel"],
+      "steps": ["commentary.storyboard", "native_asset.discover", "narration.align", "media.preflight_normalize", "workflow.compile", "job.compile", "cli.execute", "playback.verify"],
+      "required_capabilities": ["media.probe", "timeline.edit", "captions.import", "captions.verify", "timeline.volume"],
+      "human_gates": ["素材版权与人物授权", "解说事实和剧透", "B-roll 语义匹配", "叙事与音画"],
+      "target_evidence": "playback",
+      "limits": ["不下载未授权影视素材", "旁白字幕按实际音频时长对齐", "资源发现不等于可商用"]
+    }
+  ],
+  "supporting_patterns": [
+    {"id": "APW-P01", "name": "多镜头曝光匹配", "step": "exposure.analyze", "owner_skill": "jianying-draft-adjustments", "status": "provider_required"},
+    {"id": "APW-P02", "name": "Clone-first 批量制作", "step": "template.clone_first", "owner_skill": "jianying-draft-templates", "status": "capability_gated"},
+    {"id": "APW-P03", "name": "Compound Clip", "step": "compound_clip.compile", "owner_skill": "jianying-draft-templates", "status": "plan_only"}
+  ]
+}

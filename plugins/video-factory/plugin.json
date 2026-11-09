@@ -1,0 +1,60 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "video-factory",
+  "version": "0.5.2",
+  "description": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
+  "author": {
+    "name": "Full Stack Skills / PartMe.AI",
+    "url": "https://github.com/partme-ai"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/video-factory-plugin",
+  "repository": "https://github.com/full-aigc-plugins/video-factory-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "video",
+    "editing",
+    "ffmpeg",
+    "reelbench",
+    "codex"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Video（自动剪辑成片）",
+        "shortDescription": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
+        "longDescription": "Use original ReelBench skills for shot analysis and synchronized review, then create approved rough and final edits with deterministic FFmpeg execution, recovery, and verified media receipts.",
+        "developerName": "Full Stack Skills / PartMe.AI",
+        "category": "Creativity",
+        "capabilities": [
+          "Interactive",
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/full-aigc-plugins/video-factory-plugin",
+        "privacyPolicyURL": "https://github.com/full-aigc-plugins/video-factory-plugin/blob/main/PRIVACY.md",
+        "termsOfServiceURL": "https://github.com/full-aigc-plugins/video-factory-plugin/blob/main/TERMS.md",
+        "defaultPrompt": [
+          "Analyze this video into verified shots",
+          "Create an approved rough cut from these local assets",
+          "Evaluate this final video and verify its media receipt"
+        ],
+        "brandColor": "#285444",
+        "composerIcon": "./assets/logo-approved.png",
+        "logo": "./assets/logo-approved.png",
+        "logoDark": "./assets/logo-approved.png",
+        "screenshots": [],
+        "composerIconDark": "./assets/logo-approved.png"
+      }
+    },
+    "ai.nanoco.nanoclaw": {
+      "agentName": "Video Factory"
+    }
+  },
+  "displayName": "Video（自动剪辑成片）",
+  "displayName_i18n": {
+    "zh-CN": "Video（自动剪辑成片）"
+  },
+  "description_i18n": {
+    "zh-CN": "拉片分析、剪辑决策、粗剪与精剪审批、合成与媒体回执校验。"
+  }
+}

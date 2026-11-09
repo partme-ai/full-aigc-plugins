@@ -1,0 +1,4480 @@
+{
+  "schema": "jianying-video-taxonomy/v1",
+  "version": "1.0.0",
+  "families": [
+    "个人生活 Vlog",
+    "旅行与户外",
+    "婚礼与仪式",
+    "家庭与纪念",
+    "活动与会展",
+    "品牌与组织形象",
+    "广告与电商转化",
+    "产品与软件",
+    "教育与知识",
+    "企业内部与服务",
+    "访谈与播客",
+    "纪录与人物",
+    "新闻与公共解释",
+    "剧情与喜剧",
+    "音乐与表演",
+    "体育与游戏",
+    "空间与资产展示",
+    "制作过程与体验"
+  ],
+  "scenes": [
+    {
+      "id": "VG01",
+      "family": "个人生活 Vlog",
+      "name": "日常一天",
+      "recipe": "R01",
+      "example": "examples/scenarios/vg01.md",
+      "source_id": "VG01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "把普通一天剪成有起伏的生活日记",
+      "assets": [
+        "起床环境",
+        "出门动作",
+        "当天转折",
+        "夜间收尾"
+      ],
+      "beats": [
+        "晨间状态",
+        "当天目标",
+        "意外小事",
+        "晚间回望"
+      ],
+      "edit": "用同一动作连接早晚；日常空镜只保留能说明时间变化的部分",
+      "acceptance": "观众能说出这一天发生的一个变化",
+      "guardrail": "避开门牌、通勤定位和旁人隐私"
+    },
+    {
+      "id": "VG02",
+      "family": "个人生活 Vlog",
+      "name": "工作日记",
+      "recipe": "R01",
+      "example": "examples/scenarios/vg02.md",
+      "source_id": "VG02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "用一个工作难题串起工作日",
+      "assets": [
+        "任务简述",
+        "办公过程",
+        "休息片段",
+        "完成结果"
+      ],
+      "beats": [
+        "问题出现",
+        "尝试处理",
+        "短暂休息",
+        "工作结果"
+      ],
+      "edit": "保留解决问题的关键动作；屏幕敏感区域先由人工提供已脱敏素材",
+      "acceptance": "不把重复办公空镜当进展；结果镜头与任务对应",
+      "guardrail": "公司文件、客户信息未经确认不得展示"
+    },
+    {
+      "id": "VG03",
+      "family": "个人生活 Vlog",
+      "name": "学习记录",
+      "recipe": "R01",
+      "example": "examples/scenarios/vg03.md",
+      "source_id": "VG03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "呈现一段学习目标与反馈",
+      "assets": [
+        "学习目标卡",
+        "书写特写",
+        "计时记录",
+        "练习结果"
+      ],
+      "beats": [
+        "目标",
+        "专注段落",
+        "卡点",
+        "复盘"
+      ],
+      "edit": "压缩重复书写但保留关键解题变化；计时加速须明确标注",
+      "acceptance": "能看清目标和最后的掌握情况",
+      "guardrail": "不要把加速片段包装为实时学习时长"
+    },
+    {
+      "id": "VG04",
+      "family": "个人生活 Vlog",
+      "name": "创作幕后",
+      "recipe": "R01",
+      "example": "examples/scenarios/vg04.md",
+      "source_id": "VG04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "以成片开头揭示制作幕后",
+      "assets": [
+        "最终片段",
+        "布景",
+        "灯位",
+        "失败尝试",
+        "成功过程"
+      ],
+      "beats": [
+        "结果钩子",
+        "现场搭建",
+        "失败修正",
+        "前后对照"
+      ],
+      "edit": "成片和幕后使用同一镜头配对；补录音效注明是后期设计",
+      "acceptance": "每个幕后步骤能对应可见的成片改变",
+      "guardrail": "剧组人员及未公开项目须获展示许可"
+    },
+    {
+      "id": "VG05",
+      "family": "个人生活 Vlog",
+      "name": "挑战成长",
+      "recipe": "R01",
+      "example": "examples/scenarios/vg05.md",
+      "source_id": "VG05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "展示挑战周期中的真实成长",
+      "assets": [
+        "首日基线",
+        "中途记录",
+        "失败节点",
+        "最终同条件记录"
+      ],
+      "beats": [
+        "起点",
+        "阶段困难",
+        "调整",
+        "终点比较"
+      ],
+      "edit": "对比统一机位与任务；跳过日期加时间标记，不编造连续性",
+      "acceptance": "起终点条件一致且保留失败记录",
+      "guardrail": "不能用剪辑捏造健康、学习或收入效果"
+    },
+    {
+      "id": "VG06",
+      "family": "个人生活 Vlog",
+      "name": "搬家生活变化",
+      "recipe": "R01",
+      "example": "examples/scenarios/vg06.md",
+      "source_id": "VG06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "把搬家剪成告别与重新开始",
+      "assets": [
+        "旧居空镜",
+        "打包清单",
+        "搬运",
+        "空房",
+        "入住细节"
+      ],
+      "beats": [
+        "告别旧处",
+        "打包奔波",
+        "抵达",
+        "首个安定瞬间"
+      ],
+      "edit": "旧房与新房选相似构图呼应；杂乱搬运用声音延续叙事",
+      "acceptance": "观众知道空间和情绪如何变化",
+      "guardrail": "公开前检查门牌、快递单与钥匙特写"
+    },
+    {
+      "id": "TR01",
+      "family": "旅行与户外",
+      "name": "旅行日记",
+      "recipe": "R01",
+      "example": "examples/scenarios/tr01.md",
+      "source_id": "TR01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "用一件旅途意外串起旅行",
+      "assets": [
+        "出发",
+        "目的地建立镜头",
+        "意外",
+        "解决",
+        "返程"
+      ],
+      "beats": [
+        "精彩瞬间",
+        "出发缘由",
+        "旅行波折",
+        "旅后感受"
+      ],
+      "edit": "开头倒叙片段在正文回收；地点字幕只标已核实地名",
+      "acceptance": "看得懂路线而非纯景点堆砌",
+      "guardrail": "素材拍摄日期与解说不得错配"
+    },
+    {
+      "id": "TR02",
+      "family": "旅行与户外",
+      "name": "城市漫游",
+      "recipe": "R12",
+      "example": "examples/scenarios/tr02.md",
+      "source_id": "TR02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "剪出一条可跟随的城市步行路线",
+      "assets": [
+        "入口",
+        "街道转角",
+        "地标",
+        "店铺",
+        "终点"
+      ],
+      "beats": [
+        "出发点",
+        "沿途发现",
+        "停留体验",
+        "终点"
+      ],
+      "edit": "保持行进方向；转角用相邻街景建立空间连续",
+      "acceptance": "顺序能对应实际步行路线",
+      "guardrail": "路人脸部、店内拍摄和地图授权需确认"
+    },
+    {
+      "id": "TR03",
+      "family": "旅行与户外",
+      "name": "自驾记录",
+      "recipe": "R01",
+      "example": "examples/scenarios/tr03.md",
+      "source_id": "TR03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "用车程与停靠节奏讲一次自驾",
+      "assets": [
+        "出发检查",
+        "固定机位路景",
+        "停靠",
+        "抵达"
+      ],
+      "beats": [
+        "准备",
+        "第一段路",
+        "休息插曲",
+        "终点"
+      ],
+      "edit": "道路镜头压缩但保留地貌变化；路线图由外部提供成图",
+      "acceptance": "驾驶段与停靠段不混淆实际顺序",
+      "guardrail": "不能鼓励手持驾驶拍摄；遮蔽车牌等隐私"
+    },
+    {
+      "id": "TR04",
+      "family": "旅行与户外",
+      "name": "徒步露营",
+      "recipe": "R01",
+      "example": "examples/scenarios/tr04.md",
+      "source_id": "TR04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "讲清一次徒步露营的完整体验",
+      "assets": [
+        "路线入口",
+        "行走",
+        "补给",
+        "营地搭建",
+        "撤营"
+      ],
+      "beats": [
+        "目标",
+        "上山过程",
+        "扎营体验",
+        "无痕离开"
+      ],
+      "edit": "脚步环境音做连接；搭帐篷快切保留关键结构状态",
+      "acceptance": "出发、营地、撤营有对应画面",
+      "guardrail": "不伪造路线难度与安全信息，不显示敏感生态位置"
+    },
+    {
+      "id": "TR05",
+      "family": "旅行与户外",
+      "name": "目的地攻略",
+      "recipe": "R06",
+      "example": "examples/scenarios/tr05.md",
+      "source_id": "TR05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "把目的地经验剪成可用攻略",
+      "assets": [
+        "路线",
+        "交通信息",
+        "费用凭据",
+        "景点实拍",
+        "核验日期"
+      ],
+      "beats": [
+        "适合谁",
+        "怎么到",
+        "怎么玩",
+        "避坑总结"
+      ],
+      "edit": "每个建议配对应实拍与信息卡；动态价格标采集日期",
+      "acceptance": "路线与预算清楚区分事实和个人建议",
+      "guardrail": "时效性信息须发布前重查，不保证现行价格"
+    },
+    {
+      "id": "TR06",
+      "family": "旅行与户外",
+      "name": "风光短片",
+      "recipe": "R10",
+      "example": "examples/scenarios/tr06.md",
+      "source_id": "TR06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "制作有天气与光线递进的风光片",
+      "assets": [
+        "远景",
+        "中景",
+        "自然细节",
+        "不同光线",
+        "环境音"
+      ],
+      "beats": [
+        "空间建立",
+        "细节观察",
+        "光线高潮",
+        "静景结束"
+      ],
+      "edit": "按光线而非文件顺序编排；长镜头保留呼吸，不每拍强切",
+      "acceptance": "没有明显曝光跳变且地景关系成立",
+      "guardrail": "音乐与航拍素材版权独立核验"
+    },
+    {
+      "id": "WD01",
+      "family": "婚礼与仪式",
+      "name": "婚礼预告",
+      "recipe": "R02",
+      "example": "examples/scenarios/wd01.md",
+      "source_id": "WD01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "剪一支保留期待感的婚礼预告",
+      "assets": [
+        "新人特写",
+        "场地",
+        "仪式关键瞬间",
+        "一句誓言"
+      ],
+      "beats": [
+        "一句承诺",
+        "准备碎片",
+        "情绪高点",
+        "婚礼信息"
+      ],
+      "edit": "不给全场流程流水账；誓言停顿后再切反应镜头",
+      "acceptance": "身份日期准确，高潮不靠夸张乱序制造",
+      "guardrail": "亲密镜头和宾客露脸须按新人许可"
+    },
+    {
+      "id": "WD02",
+      "family": "婚礼与仪式",
+      "name": "当日快剪",
+      "recipe": "R02",
+      "example": "examples/scenarios/wd02.md",
+      "source_id": "WD02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "在婚礼当天限定时间内交付快剪",
+      "assets": [
+        "已回收卡素材",
+        "仪式安全音轨",
+        "片尾名单"
+      ],
+      "beats": [
+        "准备",
+        "入场",
+        "关键仪式",
+        "祝福"
+      ],
+      "edit": "先锁可播放粗剪再补细节；多机未同步时只选可靠机位",
+      "acceptance": "现场设备完整播放一遍，缺段如实说明",
+      "guardrail": "时间压力不能跳过备份和新人审看"
+    },
+    {
+      "id": "WD03",
+      "family": "婚礼与仪式",
+      "name": "爱情故事",
+      "recipe": "R02",
+      "example": "examples/scenarios/wd03.md",
+      "source_id": "WD03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "把两个人的回答交织成爱情故事",
+      "assets": [
+        "双人分开访谈",
+        "旧照",
+        "共同生活",
+        "婚礼空镜"
+      ],
+      "beats": [
+        "初遇",
+        "分歧与陪伴",
+        "共同决定",
+        "未来"
+      ],
+      "edit": "按问题主题交叉回答，不拼接成对方未说的意思",
+      "acceptance": "人物关系与时间线能独立理解",
+      "guardrail": "私人经历与旧照需双方确认"
+    },
+    {
+      "id": "WD04",
+      "family": "婚礼与仪式",
+      "name": "仪式全程",
+      "recipe": "R03",
+      "example": "examples/scenarios/wd04.md",
+      "source_id": "WD04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "交付不遗漏关键环节的仪式记录",
+      "assets": [
+        "主机位连续录像",
+        "侧机位",
+        "独立收音",
+        "流程表"
+      ],
+      "beats": [
+        "入场",
+        "致辞",
+        "誓言交换",
+        "礼成"
+      ],
+      "edit": "先人工校准机位与音轨；以连续主音轨覆盖机位切换",
+      "acceptance": "流程表每项有时间码；关键讲话不缺字",
+      "guardrail": "没有自动多机同步承诺；断录须明确披露"
+    },
+    {
+      "id": "WD05",
+      "family": "婚礼与仪式",
+      "name": "誓言致辞精选",
+      "recipe": "R07",
+      "example": "examples/scenarios/wd05.md",
+      "source_id": "WD05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-narration",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "让誓言与致辞成为情绪主线",
+      "assets": [
+        "完整讲话音轨",
+        "誓言文本",
+        "讲话者与被讲话者反应"
+      ],
+      "beats": [
+        "关系铺垫",
+        "具体回忆",
+        "承诺",
+        "回应"
+      ],
+      "edit": "先纸上剪辑完整句意，再用B-roll遮蔽合法删节",
+      "acceptance": "删节后人称与因果仍然成立",
+      "guardrail": "禁止把不同讲话拼成虚假承诺"
+    },
+    {
+      "id": "WD06",
+      "family": "婚礼与仪式",
+      "name": "求婚订婚记录",
+      "recipe": "R02",
+      "example": "examples/scenarios/wd06.md",
+      "source_id": "WD06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "完整保留求婚惊喜和真实回应",
+      "assets": [
+        "布置",
+        "等待",
+        "求婚连续镜头",
+        "同期声",
+        "庆祝"
+      ],
+      "beats": [
+        "准备期待",
+        "相遇",
+        "求婚回应",
+        "庆祝"
+      ],
+      "edit": "回应段保留连续声音；前奏压缩，核心反应不重复误导",
+      "acceptance": "能听清提问和回答且双方反应同步",
+      "guardrail": "公开发布必须获当事人确认"
+    },
+    {
+      "id": "FM01",
+      "family": "家庭与纪念",
+      "name": "亲子成长",
+      "recipe": "R02",
+      "example": "examples/scenarios/fm01.md",
+      "source_id": "FM01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "按成长里程碑组织宝宝一年",
+      "assets": [
+        "按月日期",
+        "成长动作",
+        "家庭互动",
+        "家长短语"
+      ],
+      "beats": [
+        "初生",
+        "首次尝试",
+        "成长变化",
+        "生日"
+      ],
+      "edit": "优先不同动作里程碑；用相同构图作月龄对比",
+      "acceptance": "日期月龄一致，避免重复镜头造成错序",
+      "guardrail": "未成年人影像默认私密交付"
+    },
+    {
+      "id": "FM02",
+      "family": "家庭与纪念",
+      "name": "生日纪念",
+      "recipe": "R02",
+      "example": "examples/scenarios/fm02.md",
+      "source_id": "FM02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "剪一段多人祝福生日片",
+      "assets": [
+        "祝福竖横视频",
+        "姓名读音",
+        "寿星照片",
+        "结尾合影"
+      ],
+      "beats": [
+        "寿星引入",
+        "亲友祝福",
+        "共同回忆",
+        "祝愿"
+      ],
+      "edit": "音量逐人平衡；祝福按关系而不是上传顺序排列",
+      "acceptance": "姓名正确、祝福不截断、最后一条完整",
+      "guardrail": "私人祝福不默认授权公开或模型上传"
+    },
+    {
+      "id": "FM03",
+      "family": "家庭与纪念",
+      "name": "毕业回忆",
+      "recipe": "R02",
+      "example": "examples/scenarios/fm03.md",
+      "source_id": "FM03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "制作班级或个人毕业回忆",
+      "assets": [
+        "入学旧照",
+        "课程活动",
+        "同学留言",
+        "毕业合照"
+      ],
+      "beats": [
+        "初入校园",
+        "共同经历",
+        "毕业当日",
+        "未来"
+      ],
+      "edit": "用相同人物前后照片对应；名单停留时间足够阅读",
+      "acceptance": "人名学年准确，重要参与者未漏",
+      "guardrail": "校徽、学生姓名与肖像发布需确认"
+    },
+    {
+      "id": "FM04",
+      "family": "家庭与纪念",
+      "name": "周年纪念",
+      "recipe": "R02",
+      "example": "examples/scenarios/fm04.md",
+      "source_id": "FM04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "讲述周年里共同经历的变化",
+      "assets": [
+        "起点照片",
+        "每年节点",
+        "共同地点",
+        "现时祝词"
+      ],
+      "beats": [
+        "最初",
+        "难忘节点",
+        "今天",
+        "下一年"
+      ],
+      "edit": "用地点或物件作为时间线锚点，避免纯日期翻页",
+      "acceptance": "周年年数和事件时间一致",
+      "guardrail": "不虚构当事人台词或关系变化"
+    },
+    {
+      "id": "FM05",
+      "family": "家庭与纪念",
+      "name": "家庭相册影片",
+      "recipe": "R02",
+      "example": "examples/scenarios/fm05.md",
+      "source_id": "FM05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "把旧相册整理成家庭故事",
+      "assets": [
+        "照片扫描件",
+        "人物关系",
+        "约略年代",
+        "家人口述"
+      ],
+      "beats": [
+        "人物介绍",
+        "家庭章节",
+        "共同事件",
+        "合影收尾"
+      ],
+      "edit": "照片缓慢推拉只在主体范围；未知年代标约或待核实",
+      "acceptance": "照片人物标注经家庭确认",
+      "guardrail": "修复和补帧不得被宣称为原始真实影像"
+    },
+    {
+      "id": "FM06",
+      "family": "家庭与纪念",
+      "name": "追思纪念",
+      "recipe": "R02",
+      "example": "examples/scenarios/fm06.md",
+      "source_id": "FM06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "制作克制的追思纪念片",
+      "assets": [
+        "家属选定照片",
+        "生平节点",
+        "授权音乐",
+        "纪念文字"
+      ],
+      "beats": [
+        "姓名与生平",
+        "生活记忆",
+        "亲友追思",
+        "安静收束"
+      ],
+      "edit": "保持足够阅读与停留时间；避免夸张转场及欢快卡点",
+      "acceptance": "姓名日期及敏感内容由家属最后签认",
+      "guardrail": "不擅自合成逝者声音或面容"
+    },
+    {
+      "id": "EV01",
+      "family": "活动与会展",
+      "name": "年会回顾",
+      "recipe": "R03",
+      "example": "examples/scenarios/ev01.md",
+      "source_id": "EV01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "交付有业务成果的年会回顾",
+      "assets": [
+        "会场",
+        "年度成绩",
+        "颁奖",
+        "节目",
+        "集体画面"
+      ],
+      "beats": [
+        "年度主题",
+        "成果",
+        "员工时刻",
+        "集体收尾"
+      ],
+      "edit": "成绩配对应画面或原图；名单使用正式版本",
+      "acceptance": "成果数字与奖项一一核验",
+      "guardrail": "内部财务和未公布战略须脱敏"
+    },
+    {
+      "id": "EV02",
+      "family": "活动与会展",
+      "name": "发布会精华",
+      "recipe": "R11",
+      "example": "examples/scenarios/ev02.md",
+      "source_id": "EV02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "剪出发布会最值得传播的信息",
+      "assets": [
+        "产品亮相",
+        "演示",
+        "关键讲话",
+        "观众反应"
+      ],
+      "beats": [
+        "问题背景",
+        "产品亮相",
+        "核心演示",
+        "下一步"
+      ],
+      "edit": "保留真正演示结果；将长讲话压成完整结论而非口号拼贴",
+      "acceptance": "卖点和发布状态不超出原讲话",
+      "guardrail": "不能把概念演示当量产能力"
+    },
+    {
+      "id": "EV03",
+      "family": "活动与会展",
+      "name": "展会巡礼",
+      "recipe": "R12",
+      "example": "examples/scenarios/ev03.md",
+      "source_id": "EV03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "按观众路线串起展会巡礼",
+      "assets": [
+        "入口",
+        "展区图",
+        "展位",
+        "产品演示",
+        "访谈"
+      ],
+      "beats": [
+        "展会定位",
+        "重点展区",
+        "代表产品",
+        "参观建议"
+      ],
+      "edit": "每个展位先给名称再展示内容；避免不同企业标识串位",
+      "acceptance": "展商、产品、展区对应正确",
+      "guardrail": "展品与受访者拍摄许可逐项确认"
+    },
+    {
+      "id": "EV04",
+      "family": "活动与会展",
+      "name": "论坛会议",
+      "recipe": "R03",
+      "example": "examples/scenarios/ev04.md",
+      "source_id": "EV04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "把论坛内容做成可导航章节",
+      "assets": [
+        "主讲连续录像",
+        "PPT原件",
+        "议程",
+        "问答音轨"
+      ],
+      "beats": [
+        "议题",
+        "分论点",
+        "案例",
+        "问答总结"
+      ],
+      "edit": "演讲音轨作主线；PPT插入对齐讲话主题",
+      "acceptance": "章节时间码可跳转，问题与回答配对",
+      "guardrail": "不得把质疑片段剪成赞同结论"
+    },
+    {
+      "id": "EV05",
+      "family": "活动与会展",
+      "name": "庆典开幕",
+      "recipe": "R03",
+      "example": "examples/scenarios/ev05.md",
+      "source_id": "EV05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "突出开幕仪式与现场体验",
+      "assets": [
+        "场馆",
+        "主持",
+        "剪彩连续段",
+        "嘉宾",
+        "群众"
+      ],
+      "beats": [
+        "场地与主题",
+        "倒计时",
+        "开幕动作",
+        "现场反馈"
+      ],
+      "edit": "剪彩等一次性动作保持连续；庆祝素材不冒充同期反应",
+      "acceptance": "名称时间正确，关键动作完整",
+      "guardrail": "使用者提供已授权人群与音乐素材"
+    },
+    {
+      "id": "EV06",
+      "family": "活动与会展",
+      "name": "公益活动记录",
+      "recipe": "R08",
+      "example": "examples/scenarios/ev06.md",
+      "source_id": "EV06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "让受助者和行动成果被尊重地呈现",
+      "assets": [
+        "活动过程",
+        "志愿者采访",
+        "成果凭据",
+        "同意记录"
+      ],
+      "beats": [
+        "现实需求",
+        "具体行动",
+        "受助反馈",
+        "后续"
+      ],
+      "edit": "不给苦难特写强行情绪化；用可核对成果结束",
+      "acceptance": "资金物资数字有来源，人物称谓经确认",
+      "guardrail": "保护弱势群体身份，不制造同意或效果证据"
+    },
+    {
+      "id": "BR01",
+      "family": "品牌与组织形象",
+      "name": "品牌故事",
+      "recipe": "R08",
+      "example": "examples/scenarios/br01.md",
+      "source_id": "BR01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "用一个具体问题讲品牌诞生",
+      "assets": [
+        "创立经历",
+        "真实客户问题",
+        "解决过程",
+        "证据"
+      ],
+      "beats": [
+        "用户困境",
+        "品牌选择",
+        "行动证明",
+        "价值主张"
+      ],
+      "edit": "少用空泛宣传词；价值观对应可见行为",
+      "acceptance": "每个主张都有画面或事实支持",
+      "guardrail": "引用客户经历需同意，不制造历史"
+    },
+    {
+      "id": "BR02",
+      "family": "品牌与组织形象",
+      "name": "企业形象",
+      "recipe": "R08",
+      "example": "examples/scenarios/br02.md",
+      "source_id": "BR02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "展示企业如何实际交付价值",
+      "assets": [
+        "业务场景",
+        "团队",
+        "生产服务流程",
+        "验收结果"
+      ],
+      "beats": [
+        "服务对象",
+        "业务链路",
+        "团队能力",
+        "交付成果"
+      ],
+      "edit": "流程按真实因果排序，空镜只做连接",
+      "acceptance": "观众能理解企业提供什么服务",
+      "guardrail": "生产秘密与客户标识须审查"
+    },
+    {
+      "id": "BR03",
+      "family": "品牌与组织形象",
+      "name": "创始人故事",
+      "recipe": "R07",
+      "example": "examples/scenarios/br03.md",
+      "source_id": "BR03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-narration",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "把创始人访谈剪成关键选择",
+      "assets": [
+        "创始人原话",
+        "创业节点",
+        "失败记录",
+        "现在业务"
+      ],
+      "beats": [
+        "初衷",
+        "困境",
+        "关键决定",
+        "今天"
+      ],
+      "edit": "保留决定前后的因果与代价；不要只剪成功金句",
+      "acceptance": "重要时间和身份可核对",
+      "guardrail": "不要把自述当独立核实事实"
+    },
+    {
+      "id": "BR04",
+      "family": "品牌与组织形象",
+      "name": "雇主品牌",
+      "recipe": "R07",
+      "example": "examples/scenarios/br04.md",
+      "source_id": "BR04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-narration",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "用员工真实工作呈现雇主品牌",
+      "assets": [
+        "员工访谈",
+        "工作环境",
+        "协作",
+        "岗位日常"
+      ],
+      "beats": [
+        "员工是谁",
+        "真实一天",
+        "支持与挑战",
+        "岗位邀请"
+      ],
+      "edit": "不同岗位各给具体工作镜头；不隐藏必要工作条件",
+      "acceptance": "岗位信息与招聘事实一致",
+      "guardrail": "员工可拒绝露脸，不替员工编写好评"
+    },
+    {
+      "id": "BR05",
+      "family": "品牌与组织形象",
+      "name": "公益倡议",
+      "recipe": "R08",
+      "example": "examples/scenarios/br05.md",
+      "source_id": "BR05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "把公益倡议剪成清晰参与行动",
+      "assets": [
+        "议题事实",
+        "当事人许可",
+        "组织行动",
+        "参与渠道"
+      ],
+      "beats": [
+        "问题",
+        "为何有关",
+        "可以做什么",
+        "行动入口"
+      ],
+      "edit": "每个倡议只保留一个主行动，渠道卡足够阅读",
+      "acceptance": "参与路径有效且行动主体明确",
+      "guardrail": "不能夸大捐助效果或暴露受助者"
+    },
+    {
+      "id": "BR06",
+      "family": "品牌与组织形象",
+      "name": "品牌周年",
+      "recipe": "R02",
+      "example": "examples/scenarios/br06.md",
+      "source_id": "BR06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "brief": "展示组织多年演进而非图片堆砌",
+      "assets": [
+        "年份节点",
+        "旧影像",
+        "员工回忆",
+        "现状"
+      ],
+      "beats": [
+        "成立",
+        "转折",
+        "共同成就",
+        "未来"
+      ],
+      "edit": "按阶段选一件代表事件；老素材年代明确标注",
+      "acceptance": "周年数字、历史名称与人物准确",
+      "guardrail": "旧素材版权不因年代久远而自动豁免"
+    },
+    {
+      "id": "AD01",
+      "family": "广告与电商转化",
+      "name": "单品卖点",
+      "recipe": "R04",
+      "example": "examples/scenarios/ad01.md",
+      "source_id": "AD01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "为单品做一个清晰卖点广告",
+      "assets": [
+        "产品实拍",
+        "单一卖点演示",
+        "规格",
+        "行动信息"
+      ],
+      "beats": [
+        "使用情境",
+        "卖点演示",
+        "证据",
+        "行动"
+      ],
+      "edit": "对比镜头控制条件；一条片不塞入全部卖点",
+      "acceptance": "静音观看能理解卖点与下一步",
+      "guardrail": "功效和性能表述必须有依据"
+    },
+    {
+      "id": "AD02",
+      "family": "广告与电商转化",
+      "name": "问题解决广告",
+      "recipe": "R04",
+      "example": "examples/scenarios/ad02.md",
+      "source_id": "AD02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "围绕一个真实痛点展示解决方案",
+      "assets": [
+        "问题现场",
+        "产品操作",
+        "结果",
+        "限制条件"
+      ],
+      "beats": [
+        "问题",
+        "尝试",
+        "解决",
+        "适用边界"
+      ],
+      "edit": "问题与结果用同一对象；避免靠调色伪造效果",
+      "acceptance": "观众能看到产品介入及真实结果",
+      "guardrail": "不得制造恐惧或夸大解决范围"
+    },
+    {
+      "id": "AD03",
+      "family": "广告与电商转化",
+      "name": "使用者体验广告",
+      "recipe": "R04",
+      "example": "examples/scenarios/ad03.md",
+      "source_id": "AD03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "剪出可信的使用者体验",
+      "assets": [
+        "已授权用户原话",
+        "实际使用",
+        "效果证据",
+        "赞助声明"
+      ],
+      "beats": [
+        "使用前需求",
+        "体验细节",
+        "优缺点",
+        "建议"
+      ],
+      "edit": "保留具体体验与限制；演员演绎必须标识",
+      "acceptance": "引述与原始采访一致且有授权",
+      "guardrail": "禁止合成虚假评价或抹去商业合作标识"
+    },
+    {
+      "id": "AD04",
+      "family": "广告与电商转化",
+      "name": "活动促销",
+      "recipe": "R04",
+      "example": "examples/scenarios/ad04.md",
+      "source_id": "AD04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "让活动优惠和限制一眼可读",
+      "assets": [
+        "商品素材",
+        "活动规则",
+        "期限",
+        "价格审核稿"
+      ],
+      "beats": [
+        "活动是什么",
+        "优惠内容",
+        "适用限制",
+        "入口"
+      ],
+      "edit": "价格日期用统一卡片，不能一闪而过；规则末屏可暂停阅读",
+      "acceptance": "价格、时间、门槛与官方规则一致",
+      "guardrail": "发布前重新核对活动是否仍有效"
+    },
+    {
+      "id": "AD05",
+      "family": "广告与电商转化",
+      "name": "应用获客广告",
+      "recipe": "R04",
+      "example": "examples/scenarios/ad05.md",
+      "source_id": "AD05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "用真实操作展示应用价值",
+      "assets": [
+        "应用录屏",
+        "目标任务",
+        "输出结果",
+        "下载入口"
+      ],
+      "beats": [
+        "用户需求",
+        "操作路径",
+        "结果",
+        "安装邀请"
+      ],
+      "edit": "去掉等待但注明加速；保留关键操作反馈",
+      "acceptance": "画面与当前版本一致，不把原型当上线功能",
+      "guardrail": "应用商店与平台广告规则需另行核验"
+    },
+    {
+      "id": "AD06",
+      "family": "广告与电商转化",
+      "name": "门店团购推广",
+      "recipe": "R04",
+      "example": "examples/scenarios/ad06.md",
+      "source_id": "AD06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "为本地门店做可行动的团购片",
+      "assets": [
+        "门店外观",
+        "套餐实物",
+        "核销条件",
+        "路线信息"
+      ],
+      "beats": [
+        "门店特色",
+        "套餐体验",
+        "使用条件",
+        "到店信息"
+      ],
+      "edit": "实拍分量和套餐名称一致；限制条件不能藏小字",
+      "acceptance": "地址、营业时间、套餐与有效期准确",
+      "guardrail": "不暗示未授权代言，不夸大套餐优惠"
+    },
+    {
+      "id": "PD01",
+      "family": "产品与软件",
+      "name": "产品开箱",
+      "recipe": "R05",
+      "example": "examples/scenarios/pd01.md",
+      "source_id": "PD01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "让开箱回答收到什么和怎么用",
+      "assets": [
+        "封装外箱",
+        "配件",
+        "开封过程",
+        "首次使用"
+      ],
+      "beats": [
+        "包装",
+        "配件清点",
+        "细节",
+        "上手"
+      ],
+      "edit": "开封关键动作保留连续；配件图与实物逐项对应",
+      "acceptance": "观众能区分标配与另购件",
+      "guardrail": "礼赠或赞助关系明确说明"
+    },
+    {
+      "id": "PD02",
+      "family": "产品与软件",
+      "name": "功能演示",
+      "recipe": "R05",
+      "example": "examples/scenarios/pd02.md",
+      "source_id": "PD02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "演示产品完成一项任务",
+      "assets": [
+        "真实产品",
+        "操作步骤",
+        "结果",
+        "限制"
+      ],
+      "beats": [
+        "任务",
+        "准备",
+        "操作",
+        "结果验证"
+      ],
+      "edit": "每个动作后给反馈镜头；不只给外观特写",
+      "acceptance": "用户能按画面复现任务",
+      "guardrail": "未经证实的功能不可用字幕补出"
+    },
+    {
+      "id": "PD03",
+      "family": "产品与软件",
+      "name": "对比评测",
+      "recipe": "R08",
+      "example": "examples/scenarios/pd03.md",
+      "source_id": "PD03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "用统一条件对比两件产品",
+      "assets": [
+        "同环境素材",
+        "测试条件",
+        "测量结果",
+        "样机版本"
+      ],
+      "beats": [
+        "需求维度",
+        "同条件测试",
+        "结果",
+        "适用人群"
+      ],
+      "edit": "两侧按同一指标排序；外部图表先生成再作为素材导入",
+      "acceptance": "条件和误差公开，结论不超出样本",
+      "guardrail": "不能把不同条件的镜头剪成公平对比"
+    },
+    {
+      "id": "PD04",
+      "family": "产品与软件",
+      "name": "软件录屏介绍",
+      "recipe": "R05",
+      "example": "examples/scenarios/pd04.md",
+      "source_id": "PD04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "用录屏讲清软件一条业务路径",
+      "assets": [
+        "无隐私录屏",
+        "界面版本",
+        "操作旁白",
+        "结果页"
+      ],
+      "beats": [
+        "问题",
+        "入口",
+        "关键操作",
+        "成功状态"
+      ],
+      "edit": "放大关注区域但不遮挡状态反馈；长加载可压缩并标记",
+      "acceptance": "按钮与版本匹配，观众看得清点击目标",
+      "guardrail": "账号、令牌、客户数据先脱敏"
+    },
+    {
+      "id": "PD05",
+      "family": "产品与软件",
+      "name": "新功能发布",
+      "recipe": "R05",
+      "example": "examples/scenarios/pd05.md",
+      "source_id": "PD05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "让老用户快速理解新功能变化",
+      "assets": [
+        "旧行为",
+        "新界面",
+        "发布说明",
+        "使用权限"
+      ],
+      "beats": [
+        "以前障碍",
+        "新增能力",
+        "实际演示",
+        "启用条件"
+      ],
+      "edit": "旧新画面配对；明确版本与灰度限制",
+      "acceptance": "观众知道自己是否能使用及入口在哪里",
+      "guardrail": "不能把待上线功能说成全量开放"
+    },
+    {
+      "id": "PD06",
+      "family": "产品与软件",
+      "name": "安装使用指南",
+      "recipe": "R06",
+      "example": "examples/scenarios/pd06.md",
+      "source_id": "PD06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "制作可安全复现的安装指南",
+      "assets": [
+        "零件清单",
+        "工具",
+        "完整步骤",
+        "验收演示"
+      ],
+      "beats": [
+        "准备检查",
+        "依序安装",
+        "连接",
+        "验收"
+      ],
+      "edit": "螺丝方向、线缆接口用特写；关键紧固不跳步",
+      "acceptance": "零件无遗漏，完成状态可目测或测量验证",
+      "guardrail": "高风险安装由合格人员审稿，视频不替代说明书"
+    },
+    {
+      "id": "ED01",
+      "family": "教育与知识",
+      "name": "微课",
+      "recipe": "R06",
+      "example": "examples/scenarios/ed01.md",
+      "source_id": "ED01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "围绕一个知识点做微课",
+      "assets": [
+        "学习目标",
+        "一例解释",
+        "一题练习",
+        "答案"
+      ],
+      "beats": [
+        "问题",
+        "概念",
+        "例子",
+        "自测"
+      ],
+      "edit": "删去无关铺垫，关键概念给阅读停顿",
+      "acceptance": "学习者能回答对应的一个问题",
+      "guardrail": "不能仅靠字幕堆满屏幕"
+    },
+    {
+      "id": "ED02",
+      "family": "教育与知识",
+      "name": "系列课程单节",
+      "recipe": "R06",
+      "example": "examples/scenarios/ed02.md",
+      "source_id": "ED02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "形成可独立学习的一节课程",
+      "assets": [
+        "课程大纲",
+        "讲解",
+        "演示",
+        "练习",
+        "前置知识"
+      ],
+      "beats": [
+        "回顾前提",
+        "本节目标",
+        "讲解实践",
+        "练习总结"
+      ],
+      "edit": "章节边界明确；演示与口述同步",
+      "acceptance": "完成练习所需信息都在本节或已说明前置中",
+      "guardrail": "不把章节片段标成完整课程"
+    },
+    {
+      "id": "ED03",
+      "family": "教育与知识",
+      "name": "操作教程",
+      "recipe": "R06",
+      "example": "examples/scenarios/ed03.md",
+      "source_id": "ED03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "把操作教程剪到新手能跟做",
+      "assets": [
+        "步骤清单",
+        "连续操作",
+        "常见错误",
+        "成功画面"
+      ],
+      "beats": [
+        "准备",
+        "逐步操作",
+        "错误处理",
+        "成功检查"
+      ],
+      "edit": "一步一个动作及反馈；易错处保留近景与停顿",
+      "acceptance": "无隐藏步骤，跟做者能判断成功",
+      "guardrail": "工具版本和操作环境必须说明"
+    },
+    {
+      "id": "ED04",
+      "family": "教育与知识",
+      "name": "科普解释",
+      "recipe": "R08",
+      "example": "examples/scenarios/ed04.md",
+      "source_id": "ED04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "用一个问题解释科学概念",
+      "assets": [
+        "核实资料",
+        "原创示意图",
+        "生活例子",
+        "适用范围"
+      ],
+      "beats": [
+        "疑问",
+        "直观比喻",
+        "原理",
+        "比喻边界"
+      ],
+      "edit": "图示每次只改变一个变量；音画解释一致",
+      "acceptance": "比喻与科学事实能区分",
+      "guardrail": "示意动画不是实验记录；不伪造研究结论"
+    },
+    {
+      "id": "ED05",
+      "family": "教育与知识",
+      "name": "题目讲解",
+      "recipe": "R06",
+      "example": "examples/scenarios/ed05.md",
+      "source_id": "ED05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "让学生跟得上题目推导",
+      "assets": [
+        "题目",
+        "清晰书写",
+        "完整推导",
+        "验算"
+      ],
+      "beats": [
+        "读题",
+        "思路",
+        "分步推导",
+        "验算"
+      ],
+      "edit": "推导关键行不可跳切；符号变化配语音停顿",
+      "acceptance": "每一步来源明确，最终答案经复核",
+      "guardrail": "不能使用模糊OCR结果替代数学审校"
+    },
+    {
+      "id": "ED06",
+      "family": "教育与知识",
+      "name": "实验演示",
+      "recipe": "R06",
+      "example": "examples/scenarios/ed06.md",
+      "source_id": "ED06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "展示实验条件和可观察结果",
+      "assets": [
+        "安全说明",
+        "器材",
+        "变量",
+        "连续实验",
+        "结果记录"
+      ],
+      "beats": [
+        "问题",
+        "条件控制",
+        "实验",
+        "观察与解释"
+      ],
+      "edit": "关键反应保持连续；加速镜头标明倍率或时间跨度",
+      "acceptance": "对照组与实验组不串位，数据单位清楚",
+      "guardrail": "安全步骤不能为了节奏删除"
+    },
+    {
+      "id": "CO01",
+      "family": "企业内部与服务",
+      "name": "新员工培训",
+      "recipe": "R06",
+      "example": "examples/scenarios/co01.md",
+      "source_id": "CO01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "帮新人完成第一天必需动作",
+      "assets": [
+        "欢迎语",
+        "环境",
+        "入职步骤",
+        "联系人"
+      ],
+      "beats": [
+        "团队介绍",
+        "第一天事项",
+        "常用入口",
+        "求助渠道"
+      ],
+      "edit": "按新人实际办事顺序，不按部门组织图堆砌",
+      "acceptance": "账号、入口、联系人在受控环境有效",
+      "guardrail": "内部入口与身份数据不公开分发"
+    },
+    {
+      "id": "CO02",
+      "family": "企业内部与服务",
+      "name": "SOP 培训",
+      "recipe": "R06",
+      "example": "examples/scenarios/co02.md",
+      "source_id": "CO02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "把正式SOP转换为可执行培训",
+      "assets": [
+        "受控SOP版本",
+        "操作实拍",
+        "检查表",
+        "异常分支"
+      ],
+      "beats": [
+        "前提",
+        "标准步骤",
+        "检查点",
+        "异常上报"
+      ],
+      "edit": "步骤编号与SOP对应；危险分支不可快进省略",
+      "acceptance": "逐项能回溯SOP条目且版本一致",
+      "guardrail": "视频不覆盖正式制度，冲突时停止核实"
+    },
+    {
+      "id": "CO03",
+      "family": "企业内部与服务",
+      "name": "安全培训",
+      "recipe": "R06",
+      "example": "examples/scenarios/co03.md",
+      "source_id": "CO03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "让人员识别危险并采取正确措施",
+      "assets": [
+        "安全标准",
+        "合规演示",
+        "错误示意",
+        "应急联系人"
+      ],
+      "beats": [
+        "危险识别",
+        "防护",
+        "正确操作",
+        "异常处置"
+      ],
+      "edit": "错误示意加明显标识；把禁止动作与正确动作分开",
+      "acceptance": "安全负责人逐项审稿，字幕不遮挡防护细节",
+      "guardrail": "不为拍摄制造真实危险或鼓励模仿"
+    },
+    {
+      "id": "CO04",
+      "family": "企业内部与服务",
+      "name": "客户入门",
+      "recipe": "R06",
+      "example": "examples/scenarios/co04.md",
+      "source_id": "CO04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "帮助客户完成首次成功使用",
+      "assets": [
+        "登录后录屏",
+        "初始化",
+        "核心任务",
+        "帮助入口"
+      ],
+      "beats": [
+        "准备",
+        "首次配置",
+        "完成一项任务",
+        "求助"
+      ],
+      "edit": "缩短概念介绍，保留首次成功的完整闭环",
+      "acceptance": "客户能看出配置成功而非仅点过按钮",
+      "guardrail": "演示账户不可包含真实客户信息"
+    },
+    {
+      "id": "CO05",
+      "family": "企业内部与服务",
+      "name": "常见问题解答",
+      "recipe": "R06",
+      "example": "examples/scenarios/co05.md",
+      "source_id": "CO05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "一条视频解决一个高频问题",
+      "assets": [
+        "真实问题",
+        "适用版本",
+        "原因",
+        "解决操作"
+      ],
+      "beats": [
+        "症状",
+        "适用条件",
+        "处理",
+        "仍失败怎么办"
+      ],
+      "edit": "先展示症状便于识别；不混入多个不相关故障",
+      "acceptance": "观众知道何时适用及何时转人工",
+      "guardrail": "不要用通用步骤覆盖高风险异常"
+    },
+    {
+      "id": "CO06",
+      "family": "企业内部与服务",
+      "name": "内部业务汇报",
+      "recipe": "R08",
+      "example": "examples/scenarios/co06.md",
+      "source_id": "CO06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "用证据讲清汇报中的进展与阻塞",
+      "assets": [
+        "本期目标",
+        "进度数据",
+        "交付截图",
+        "问题与请求"
+      ],
+      "beats": [
+        "目标",
+        "成果",
+        "差距",
+        "下一步决策"
+      ],
+      "edit": "数字和画面按同一周期；把完成和计划分屏标识",
+      "acceptance": "结论可追溯原始数据，决策请求明确",
+      "guardrail": "未完成事项不可包装成已交付"
+    },
+    {
+      "id": "IV01",
+      "family": "访谈与播客",
+      "name": "人物专访",
+      "recipe": "R07",
+      "example": "examples/scenarios/iv01.md",
+      "source_id": "IV01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-narration",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "围绕人物核心经历剪专访",
+      "assets": [
+        "完整采访",
+        "人物活动B-roll",
+        "身份信息"
+      ],
+      "beats": [
+        "人物是谁",
+        "关键经历",
+        "变化",
+        "当下观点"
+      ],
+      "edit": "先保句意再遮跳切；反应镜头不跨语境误配",
+      "acceptance": "问题与回答逻辑成立，身份和引语核对",
+      "guardrail": "被访者敏感表述按约定复核"
+    },
+    {
+      "id": "IV02",
+      "family": "访谈与播客",
+      "name": "双人对谈",
+      "recipe": "R07",
+      "example": "examples/scenarios/iv02.md",
+      "source_id": "IV02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-narration",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "保持双人对话的互动与空间",
+      "assets": [
+        "两人独立音轨",
+        "双人全景",
+        "单人近景"
+      ],
+      "beats": [
+        "话题引入",
+        "观点交换",
+        "分歧展开",
+        "共识或留问"
+      ],
+      "edit": "按发言与反应选机位；避免切到另一时刻制造态度",
+      "acceptance": "对话时间连续性可审计，音量平衡",
+      "guardrail": "人工校准同步，不能承诺自动识别说话人"
+    },
+    {
+      "id": "IV03",
+      "family": "访谈与播客",
+      "name": "圆桌讨论",
+      "recipe": "R07",
+      "example": "examples/scenarios/iv03.md",
+      "source_id": "IV03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-narration",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "让多人的圆桌讨论可追踪",
+      "assets": [
+        "全景",
+        "各席位",
+        "话筒音轨",
+        "姓名席位表"
+      ],
+      "beats": [
+        "议题",
+        "轮次发言",
+        "交锋",
+        "主持总结"
+      ],
+      "edit": "姓名首次出现标注；保留必要接话以避免断章取义",
+      "acceptance": "每个观点归属明确，重叠讲话可听",
+      "guardrail": "发言者识别与同步由人工确认"
+    },
+    {
+      "id": "IV04",
+      "family": "访谈与播客",
+      "name": "视频播客整期",
+      "recipe": "R07",
+      "example": "examples/scenarios/iv04.md",
+      "source_id": "IV04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-narration",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "剪一整期视频播客并保留章节",
+      "assets": [
+        "完整录制",
+        "嘉宾信息",
+        "章节提纲",
+        "片头尾"
+      ],
+      "beats": [
+        "开场",
+        "核心话题",
+        "延伸",
+        "总结"
+      ],
+      "edit": "先处理技术中断，再按主题设章；保留有意义停顿",
+      "acceptance": "完整话题没被短视频节奏截断",
+      "guardrail": "音频处理不等于已取得所有音乐版权"
+    },
+    {
+      "id": "IV05",
+      "family": "访谈与播客",
+      "name": "访谈金句片段",
+      "recipe": "R11",
+      "example": "examples/scenarios/iv05.md",
+      "source_id": "IV05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "从长访谈提取独立成立的金句片",
+      "assets": [
+        "原始整期",
+        "金句前后文",
+        "嘉宾名",
+        "原节目链接"
+      ],
+      "beats": [
+        "问题背景",
+        "关键观点",
+        "解释证据",
+        "出处"
+      ],
+      "edit": "短片首句补足指代，结尾保留限制条件",
+      "acceptance": "脱离整期看也不会误解受访者意思",
+      "guardrail": "传播性不能凌驾于原话准确性"
+    },
+    {
+      "id": "IV06",
+      "family": "访谈与播客",
+      "name": "街头采访",
+      "recipe": "R07",
+      "example": "examples/scenarios/iv06.md",
+      "source_id": "IV06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-narration",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "按同一问题组织街访观点",
+      "assets": [
+        "授权采访",
+        "统一问题",
+        "地点氛围",
+        "回答记录"
+      ],
+      "beats": [
+        "问题",
+        "不同回答",
+        "代表性追问",
+        "开放结尾"
+      ],
+      "edit": "回答按观点聚类但保留样本边界；切掉采访者诱导时需保留背景",
+      "acceptance": "不把少量受访者说成普遍民意",
+      "guardrail": "行人可撤回露脸许可，避免曝光未成年人"
+    },
+    {
+      "id": "DC01",
+      "family": "纪录与人物",
+      "name": "人物小传",
+      "recipe": "R08",
+      "example": "examples/scenarios/dc01.md",
+      "source_id": "DC01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "用一个关键经历刻画人物",
+      "assets": [
+        "访谈",
+        "生活观察",
+        "旧资料",
+        "关系人物"
+      ],
+      "beats": [
+        "当下状态",
+        "关键往事",
+        "选择代价",
+        "开放未来"
+      ],
+      "edit": "用行动支撑自述；旧资料与现在明确分层",
+      "acceptance": "人物变化有证据且不替人物下结论",
+      "guardrail": "不同年代与演绎画面必须标记"
+    },
+    {
+      "id": "DC02",
+      "family": "纪录与人物",
+      "name": "职业纪实",
+      "recipe": "R08",
+      "example": "examples/scenarios/dc02.md",
+      "source_id": "DC02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "记录一个职业真实的一天",
+      "assets": [
+        "上岗准备",
+        "任务全过程",
+        "职业困难",
+        "下班"
+      ],
+      "beats": [
+        "准备",
+        "核心劳动",
+        "突发问题",
+        "交班复盘"
+      ],
+      "edit": "保留劳动步骤和环境音；避免只拍漂亮动作",
+      "acceptance": "工作流程经从业者确认，不误导风险",
+      "guardrail": "商业秘密、顾客身份和危险工序须审查"
+    },
+    {
+      "id": "DC03",
+      "family": "纪录与人物",
+      "name": "工艺传承",
+      "recipe": "R08",
+      "example": "examples/scenarios/dc03.md",
+      "source_id": "DC03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "呈现手艺传承中的人和工序",
+      "assets": [
+        "师傅访谈",
+        "材料",
+        "关键工序",
+        "学徒",
+        "成品"
+      ],
+      "beats": [
+        "手艺背景",
+        "关键技法",
+        "传承困难",
+        "成品与下一代"
+      ],
+      "edit": "关键手部动作留足观察时间；难点用实拍而非空泛旁白",
+      "acceptance": "工序顺序真实，技法名称准确",
+      "guardrail": "传统知识与匠人授权不能默认商业开放"
+    },
+    {
+      "id": "DC04",
+      "family": "纪录与人物",
+      "name": "社区故事",
+      "recipe": "R08",
+      "example": "examples/scenarios/dc04.md",
+      "source_id": "DC04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "用不同居民声音讲社区变化",
+      "assets": [
+        "社区旧照",
+        "居民采访",
+        "公共空间",
+        "现状资料"
+      ],
+      "beats": [
+        "社区背景",
+        "不同生活经验",
+        "变化冲突",
+        "共同问题"
+      ],
+      "edit": "平衡不同群体素材，不以一人代表全部",
+      "acceptance": "人物观点归属明确，公共信息可核查",
+      "guardrail": "敏感住址和弱势群体身份保护"
+    },
+    {
+      "id": "DC05",
+      "family": "纪录与人物",
+      "name": "自然观察",
+      "recipe": "R08",
+      "example": "examples/scenarios/dc05.md",
+      "source_id": "DC05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "记录自然行为而非编造故事",
+      "assets": [
+        "带日期观察素材",
+        "物种确认",
+        "环境声",
+        "观察日志"
+      ],
+      "beats": [
+        "环境",
+        "发现",
+        "行为过程",
+        "观察边界"
+      ],
+      "edit": "保持行为先后，不能把无关个体剪成同一过程",
+      "acceptance": "物种与地点核验，推测明确标注",
+      "guardrail": "不诱导伤害野生动物，不暴露脆弱栖息地"
+    },
+    {
+      "id": "DC06",
+      "family": "纪录与人物",
+      "name": "历史档案叙事",
+      "recipe": "R08",
+      "example": "examples/scenarios/dc06.md",
+      "source_id": "DC06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "用档案证据复原历史脉络",
+      "assets": [
+        "档案来源",
+        "授权",
+        "日期",
+        "研究材料",
+        "旁白"
+      ],
+      "beats": [
+        "问题",
+        "时间线",
+        "相互印证",
+        "仍未知部分"
+      ],
+      "edit": "档案每次出现带来源；示意重演单独标识",
+      "acceptance": "时间线无矛盾，引文可追溯",
+      "guardrail": "不得把生成或修复影像当原始档案"
+    },
+    {
+      "id": "NW01",
+      "family": "新闻与公共解释",
+      "name": "事件简报",
+      "recipe": "R08",
+      "example": "examples/scenarios/nw01.md",
+      "source_id": "NW01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "快速交代事件事实与已知边界",
+      "assets": [
+        "已核实事实",
+        "现场画面",
+        "当事人原话",
+        "更新时间"
+      ],
+      "beats": [
+        "发生什么",
+        "何时何地",
+        "已知进展",
+        "待确认"
+      ],
+      "edit": "画面必须对应所述事件；未核实部分不配肯定标题",
+      "acceptance": "人名地点日期准确，事实与说法区分",
+      "guardrail": "不能用旧视频冒充现场，不以速度代替核实"
+    },
+    {
+      "id": "NW02",
+      "family": "新闻与公共解释",
+      "name": "时间线梳理",
+      "recipe": "R08",
+      "example": "examples/scenarios/nw02.md",
+      "source_id": "NW02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "把复杂事件剪成可核查时间线",
+      "assets": [
+        "带时间来源",
+        "各节点素材",
+        "时间线图",
+        "争议记录"
+      ],
+      "beats": [
+        "起点",
+        "关键节点",
+        "转折",
+        "当前状态"
+      ],
+      "edit": "按发生时间非报道时间排序；同日事件注明时区需求",
+      "acceptance": "每个节点有来源，未知时间不强排因果",
+      "guardrail": "时间相邻不等于因果关系"
+    },
+    {
+      "id": "NW03",
+      "family": "新闻与公共解释",
+      "name": "数据新闻",
+      "recipe": "R08",
+      "example": "examples/scenarios/nw03.md",
+      "source_id": "NW03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "用一个图表回答一个数据问题",
+      "assets": [
+        "原始数据",
+        "单位",
+        "统计口径",
+        "图表成图"
+      ],
+      "beats": [
+        "问题",
+        "数据口径",
+        "主要发现",
+        "局限"
+      ],
+      "edit": "图表由外部工具制作；展示坐标与基数，不用裁切夸大差距",
+      "acceptance": "数据可复算，分母、时间窗和单位齐全",
+      "guardrail": "CLI不自动统计核验，不把相关性说成因果"
+    },
+    {
+      "id": "NW04",
+      "family": "新闻与公共解释",
+      "name": "公共议题解释",
+      "recipe": "R08",
+      "example": "examples/scenarios/nw04.md",
+      "source_id": "NW04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "解释公共议题中的机制与分歧",
+      "assets": [
+        "一手资料",
+        "专家引述",
+        "示意图",
+        "影响实例"
+      ],
+      "beats": [
+        "问题",
+        "机制",
+        "不同影响",
+        "争议与未知"
+      ],
+      "edit": "区分政策文本、个人观点和推演；术语配解释卡",
+      "acceptance": "来源可追溯，反方观点不被断章取义",
+      "guardrail": "涉及法律医疗金融结论应交专业人员复核"
+    },
+    {
+      "id": "NW05",
+      "family": "新闻与公共解释",
+      "name": "现场报道整理",
+      "recipe": "R08",
+      "example": "examples/scenarios/nw05.md",
+      "source_id": "NW05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "整理记者现场报道形成完整消息",
+      "assets": [
+        "出镜段",
+        "现场声",
+        "采访",
+        "核实笔记"
+      ],
+      "beats": [
+        "现场引入",
+        "事实说明",
+        "采访证据",
+        "最新情况"
+      ],
+      "edit": "记者出镜与B-roll对位；保留现场声证明环境但不冒充证据",
+      "acceptance": "现场时地一致，出镜结论有支持",
+      "guardrail": "灾难与受害者画面需尊重隐私及伤害边界"
+    },
+    {
+      "id": "NW06",
+      "family": "新闻与公共解释",
+      "name": "辟谣核查",
+      "recipe": "R08",
+      "example": "examples/scenarios/nw06.md",
+      "source_id": "NW06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "展示一条说法如何被核查",
+      "assets": [
+        "原说法",
+        "原始链接",
+        "核查步骤",
+        "证据截图"
+      ],
+      "beats": [
+        "待核说法",
+        "溯源",
+        "交叉验证",
+        "结论与局限"
+      ],
+      "edit": "引用误传时加待核标记；证据页面带时间与来源",
+      "acceptance": "读者能复核推理路径，不只看到结论",
+      "guardrail": "不得二次扩散敏感信息或伪造核查证据"
+    },
+    {
+      "id": "ST01",
+      "family": "剧情与喜剧",
+      "name": "剧情短片",
+      "recipe": "R09",
+      "example": "examples/scenarios/st01.md",
+      "source_id": "ST01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "剪出空间和动作连续的剧情短片",
+      "assets": [
+        "场记",
+        "分镜",
+        "多个take",
+        "同期声"
+      ],
+      "beats": [
+        "情境",
+        "人物目标",
+        "冲突",
+        "结果"
+      ],
+      "edit": "建立轴线与视线关系；动作接点逐帧检查",
+      "acceptance": "观众不因无意跳轴误解空间",
+      "guardrail": "采用已授权演员和剧本，不编造现实人物行为"
+    },
+    {
+      "id": "ST02",
+      "family": "剧情与喜剧",
+      "name": "微短剧单集",
+      "recipe": "R09",
+      "example": "examples/scenarios/st02.md",
+      "source_id": "ST02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "把单集微短剧剪出明确悬念",
+      "assets": [
+        "竖屏分镜",
+        "对话",
+        "冲突动作",
+        "下集边界"
+      ],
+      "beats": [
+        "快速交代关系",
+        "冲突升级",
+        "选择",
+        "悬念"
+      ],
+      "edit": "构图保证双方反应；字幕避开平台遮挡区",
+      "acceptance": "本集冲突完整可懂，悬念不靠缺关键事实",
+      "guardrail": "不可用夸张标题误导成真实新闻"
+    },
+    {
+      "id": "ST03",
+      "family": "剧情与喜剧",
+      "name": "情景喜剧",
+      "recipe": "R09",
+      "example": "examples/scenarios/st03.md",
+      "source_id": "ST03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "让喜剧笑点落在准确节奏",
+      "assets": [
+        "完整表演",
+        "反应镜头",
+        "笑点标记",
+        "环境声"
+      ],
+      "beats": [
+        "设定",
+        "预期",
+        "偏差",
+        "反应"
+      ],
+      "edit": "先无配乐测试停顿；反应镜头长度服务笑点而非填空",
+      "acceptance": "试看片能理解包袱，台词未被音效盖住",
+      "guardrail": "笑点不能依赖羞辱无同意的真人"
+    },
+    {
+      "id": "ST04",
+      "family": "剧情与喜剧",
+      "name": "反转小剧场",
+      "recipe": "R09",
+      "example": "examples/scenarios/st04.md",
+      "source_id": "ST04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "让反转既意外又能回看自洽",
+      "assets": [
+        "伏笔镜头",
+        "正常叙事",
+        "揭示镜头",
+        "线索表"
+      ],
+      "beats": [
+        "建立预期",
+        "埋线索",
+        "误导但不撒谎",
+        "揭示"
+      ],
+      "edit": "反转前不提前泄露画面；揭示后允许一镜回收伏笔",
+      "acceptance": "回看时线索真实存在，因果能解释",
+      "guardrail": "不要伪装真实事件证据"
+    },
+    {
+      "id": "ST05",
+      "family": "剧情与喜剧",
+      "name": "POV 情境片",
+      "recipe": "R09",
+      "example": "examples/scenarios/st05.md",
+      "source_id": "ST05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "拍出观众置身其中的POV情境",
+      "assets": [
+        "主观机位",
+        "手部动作",
+        "对方反应",
+        "方位声"
+      ],
+      "beats": [
+        "身份设定",
+        "交互",
+        "情境变化",
+        "选择结果"
+      ],
+      "edit": "视线高度和运动一致；客观镜头插入需有动机",
+      "acceptance": "观众始终知道自己代表哪个角色",
+      "guardrail": "涉及危险动作仅使用安全表演素材"
+    },
+    {
+      "id": "ST06",
+      "family": "剧情与喜剧",
+      "name": "预告片",
+      "recipe": "R09",
+      "example": "examples/scenarios/st06.md",
+      "source_id": "ST06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "用预告片展示冲突而不泄露结局",
+      "assets": [
+        "剧情授权素材",
+        "关键台词",
+        "氛围音",
+        "片名"
+      ],
+      "beats": [
+        "世界与人物",
+        "冲突",
+        "节奏升级",
+        "片名悬念"
+      ],
+      "edit": "音桥连接不同片段但不拼造台词；避开结局镜头",
+      "acceptance": "人物动机清楚，片名上线信息准确",
+      "guardrail": "预告素材版权及发行信息单独确认"
+    },
+    {
+      "id": "MU01",
+      "family": "音乐与表演",
+      "name": "音乐 MV",
+      "recipe": "R10",
+      "example": "examples/scenarios/mu01.md",
+      "source_id": "MU01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "将表演与音乐情绪组织成MV",
+      "assets": [
+        "授权母带",
+        "多机表演",
+        "概念镜头",
+        "歌词许可"
+      ],
+      "beats": [
+        "前奏氛围",
+        "主歌叙事",
+        "副歌高潮",
+        "尾声"
+      ],
+      "edit": "先人工同步口型；音乐段落决定镜头密度，非每拍都切",
+      "acceptance": "开头中段末尾同步抽检无漂移",
+      "guardrail": "不承诺自动节拍检测或口型校正"
+    },
+    {
+      "id": "MU02",
+      "family": "音乐与表演",
+      "name": "歌词视频",
+      "recipe": "R10",
+      "example": "examples/scenarios/mu02.md",
+      "source_id": "MU02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "做清晰准确的歌词视频",
+      "assets": [
+        "已授权歌词",
+        "母带",
+        "时间码",
+        "背景素材"
+      ],
+      "beats": [
+        "前奏",
+        "逐句歌词",
+        "副歌变化",
+        "曲目信息"
+      ],
+      "edit": "按人工核准句级时间导入字幕；换行以语义为单位",
+      "acceptance": "歌词文字与唱词一致，进出时间不抢读",
+      "guardrail": "歌词和音乐需要各自授权"
+    },
+    {
+      "id": "MU03",
+      "family": "音乐与表演",
+      "name": "舞蹈作品",
+      "recipe": "R10",
+      "example": "examples/scenarios/mu03.md",
+      "source_id": "MU03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "突出舞蹈动作和队形",
+      "assets": [
+        "完整舞蹈",
+        "正面全景",
+        "细节机位",
+        "音乐"
+      ],
+      "beats": [
+        "开场队形",
+        "动作发展",
+        "高潮",
+        "收势"
+      ],
+      "edit": "动作完成点再切镜；全景保留脚步与队形，不只拍表情",
+      "acceptance": "不裁掉关键肢体，音乐与动作连续",
+      "guardrail": "自动追踪不是默认能力，裁切须人工预览"
+    },
+    {
+      "id": "MU04",
+      "family": "音乐与表演",
+      "name": "乐器演奏",
+      "recipe": "R10",
+      "example": "examples/scenarios/mu04.md",
+      "source_id": "MU04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "展示可相信的乐器演奏",
+      "assets": [
+        "连续演奏",
+        "独立录音",
+        "手部近景",
+        "总谱位置"
+      ],
+      "beats": [
+        "乐句引入",
+        "主题",
+        "发展",
+        "收尾"
+      ],
+      "edit": "优先声音连续性；近景必须对应当下指法或击打",
+      "acceptance": "抽检瞬态与手部动作同步",
+      "guardrail": "不能以替代音轨冒充现场演奏而不说明"
+    },
+    {
+      "id": "MU05",
+      "family": "音乐与表演",
+      "name": "演唱会精选",
+      "recipe": "R10",
+      "example": "examples/scenarios/mu05.md",
+      "source_id": "MU05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "压缩演唱会但保留现场感",
+      "assets": [
+        "授权现场",
+        "观众声",
+        "舞台多角度",
+        "曲目单"
+      ],
+      "beats": [
+        "场馆气氛",
+        "代表歌曲",
+        "高潮",
+        "谢幕"
+      ],
+      "edit": "曲目切换设明确边界；现场声与音乐分层",
+      "acceptance": "曲名艺人正确，高潮不是跨场拼造",
+      "guardrail": "演出录制与传播授权分别确认"
+    },
+    {
+      "id": "MU06",
+      "family": "音乐与表演",
+      "name": "舞台完整节目",
+      "recipe": "R03",
+      "example": "examples/scenarios/mu06.md",
+      "source_id": "MU06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "交付完整舞台节目而非集锦",
+      "assets": [
+        "全景安全机位",
+        "多机位",
+        "连续音轨",
+        "节目单"
+      ],
+      "beats": [
+        "开场",
+        "完整表演",
+        "结束姿态",
+        "谢幕"
+      ],
+      "edit": "以全景兜底避免漏动作；跨机位连续性逐段检查",
+      "acceptance": "从开始至谢幕无非预期缺失",
+      "guardrail": "同步与场记人工确认，不能用代理预览替原生验收"
+    },
+    {
+      "id": "SG01",
+      "family": "体育与游戏",
+      "name": "赛事集锦",
+      "recipe": "R11",
+      "example": "examples/scenarios/sg01.md",
+      "source_id": "SG01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "让赛事集锦保留每次得分的上下文",
+      "assets": [
+        "比赛原片",
+        "记分",
+        "事件时间码",
+        "授权"
+      ],
+      "beats": [
+        "比赛背景",
+        "关键回合",
+        "转折",
+        "结果"
+      ],
+      "edit": "精彩动作前保留发起过程；重播标明重播",
+      "acceptance": "比分与比赛阶段对应，结果未被错剪",
+      "guardrail": "赛事版权和运动员肖像需确认"
+    },
+    {
+      "id": "SG02",
+      "family": "体育与游戏",
+      "name": "运动员故事",
+      "recipe": "R08",
+      "example": "examples/scenarios/sg02.md",
+      "source_id": "SG02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "用挫折与训练讲运动员成长",
+      "assets": [
+        "访谈",
+        "训练",
+        "比赛",
+        "伤病公开信息"
+      ],
+      "beats": [
+        "目标",
+        "挫折",
+        "调整训练",
+        "回归"
+      ],
+      "edit": "用真实训练变化支撑人物弧线；不以别场比赛替代关键结果",
+      "acceptance": "人物经历和成绩可核实",
+      "guardrail": "伤病信息须本人许可，不提出医疗结论"
+    },
+    {
+      "id": "SG03",
+      "family": "体育与游戏",
+      "name": "动作教学",
+      "recipe": "R06",
+      "example": "examples/scenarios/sg03.md",
+      "source_id": "SG03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "把动作教学剪成可观察可练习步骤",
+      "assets": [
+        "专业示范",
+        "侧面正面",
+        "常见错例",
+        "安全提示"
+      ],
+      "beats": [
+        "完整示范",
+        "分解",
+        "错例纠正",
+        "练习要求"
+      ],
+      "edit": "同一动作角度配对；慢放注明且保留正常速度示范",
+      "acceptance": "关键关节和动作阶段无遮挡",
+      "guardrail": "专业教练审查；视频不替代个体安全评估"
+    },
+    {
+      "id": "SG04",
+      "family": "体育与游戏",
+      "name": "电竞精彩片段",
+      "recipe": "R11",
+      "example": "examples/scenarios/sg04.md",
+      "source_id": "SG04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "制作有战术铺垫的电竞高光",
+      "assets": [
+        "授权游戏录屏",
+        "HUD",
+        "回合记录",
+        "语音"
+      ],
+      "beats": [
+        "局势",
+        "操作铺垫",
+        "高光",
+        "回合结果"
+      ],
+      "edit": "保留必要小地图与比分；击杀前后动作不能错序",
+      "acceptance": "HUD可读、结果真实、剪辑效果不遮关键操作",
+      "guardrail": "游戏音乐和语音隐私需核验"
+    },
+    {
+      "id": "SG05",
+      "family": "体育与游戏",
+      "name": "游戏攻略",
+      "recipe": "R06",
+      "example": "examples/scenarios/sg05.md",
+      "source_id": "SG05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "让玩家能按攻略完成关卡",
+      "assets": [
+        "游戏版本",
+        "装备条件",
+        "路线录屏",
+        "失败示例"
+      ],
+      "beats": [
+        "条件",
+        "路线",
+        "难点解法",
+        "完成"
+      ],
+      "edit": "关键按键与反馈同期展示；失败段说明原因",
+      "acceptance": "版本与难度一致，跳步不影响复现",
+      "guardrail": "不把外挂操作当正常攻略"
+    },
+    {
+      "id": "SG06",
+      "family": "体育与游戏",
+      "name": "游戏实况精编",
+      "recipe": "R11",
+      "example": "examples/scenarios/sg06.md",
+      "source_id": "SG06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "brief": "把长实况剪成一段完整冒险",
+      "assets": [
+        "游戏录屏",
+        "主播音轨",
+        "关键事件",
+        "结局"
+      ],
+      "beats": [
+        "本期目标",
+        "尝试与意外",
+        "转机",
+        "本期结果"
+      ],
+      "edit": "删等待但保留任务状态变化；笑点保留触发上下文",
+      "acceptance": "观众能跟上任务进度，音画同步",
+      "guardrail": "聊天记录及其他玩家身份先审查"
+    },
+    {
+      "id": "SP01",
+      "family": "空间与资产展示",
+      "name": "房源导览",
+      "recipe": "R12",
+      "example": "examples/scenarios/sp01.md",
+      "source_id": "SP01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "制作空间关系清楚的房源导览",
+      "assets": [
+        "入口",
+        "各房间",
+        "连接路径",
+        "面积核实信息"
+      ],
+      "beats": [
+        "楼栋外观",
+        "入户",
+        "公共区",
+        "私密区",
+        "总结"
+      ],
+      "edit": "沿真实路线剪辑；广角素材不得夸大尺寸",
+      "acceptance": "房间方位能串起来，面积等信息有依据",
+      "guardrail": "隐去住户物品与安防细节，不保证交易事实"
+    },
+    {
+      "id": "SP02",
+      "family": "空间与资产展示",
+      "name": "酒店民宿",
+      "recipe": "R12",
+      "example": "examples/scenarios/sp02.md",
+      "source_id": "SP02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "展示一次真实入住体验",
+      "assets": [
+        "入口",
+        "客房",
+        "设施",
+        "服务",
+        "周边"
+      ],
+      "beats": [
+        "抵达",
+        "入住",
+        "房间",
+        "公共设施",
+        "体验总结"
+      ],
+      "edit": "按住客路径呈现；房型与配套不能跨套餐误配",
+      "acceptance": "每项设施注明是否包含及开放条件",
+      "guardrail": "酒店授权与住客隐私独立处理"
+    },
+    {
+      "id": "SP03",
+      "family": "空间与资产展示",
+      "name": "建筑空间",
+      "recipe": "R12",
+      "example": "examples/scenarios/sp03.md",
+      "source_id": "SP03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "用空间尺度和光线表现建筑",
+      "assets": [
+        "外观",
+        "入口",
+        "流线",
+        "材质",
+        "使用者"
+      ],
+      "beats": [
+        "整体体量",
+        "进入",
+        "空间递进",
+        "材质细节",
+        "回望"
+      ],
+      "edit": "由大到小组织景别；保持垂直线和运动方向一致",
+      "acceptance": "空间关系与实际建筑一致",
+      "guardrail": "建筑摄影与人员肖像授权须明确"
+    },
+    {
+      "id": "SP04",
+      "family": "空间与资产展示",
+      "name": "家居改造",
+      "recipe": "R12",
+      "example": "examples/scenarios/sp04.md",
+      "source_id": "SP04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "用可核对的前后对照讲改造",
+      "assets": [
+        "改造前后同机位",
+        "工序",
+        "预算边界",
+        "时间"
+      ],
+      "beats": [
+        "原问题",
+        "改造过程",
+        "关键改变",
+        "同角度对比"
+      ],
+      "edit": "先匹配机位再做前后切换；工期压缩需注明",
+      "acceptance": "同空间同角度，预算范围清楚",
+      "guardrail": "不能用镜头或光线差异冒充结构改善"
+    },
+    {
+      "id": "SP05",
+      "family": "空间与资产展示",
+      "name": "展馆导览",
+      "recipe": "R12",
+      "example": "examples/scenarios/sp05.md",
+      "source_id": "SP05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "让观众沿导览顺序理解展馆",
+      "assets": [
+        "入口图",
+        "展区",
+        "展品标签",
+        "讲解",
+        "出口"
+      ],
+      "beats": [
+        "展览主题",
+        "路线",
+        "重点展品",
+        "策展联系",
+        "结束"
+      ],
+      "edit": "先建立展区再给展品近景；标签核对后再加字幕",
+      "acceptance": "作品名作者年份准确，观展关系清楚",
+      "guardrail": "展品复制权与馆内拍摄规定单独确认"
+    },
+    {
+      "id": "SP06",
+      "family": "空间与资产展示",
+      "name": "车辆展示",
+      "recipe": "R05",
+      "example": "examples/scenarios/sp06.md",
+      "source_id": "SP06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "brief": "突出车辆外观细节与使用情境",
+      "assets": [
+        "静态外观",
+        "内饰",
+        "功能演示",
+        "安全行驶镜头"
+      ],
+      "beats": [
+        "车型识别",
+        "设计细节",
+        "使用体验",
+        "总结"
+      ],
+      "edit": "同一车辆版本保持一致；引擎声不要冒充实录",
+      "acceptance": "配置与实拍版本对应，行驶段来源可核实",
+      "guardrail": "不鼓励危险驾驶，牌照与车主隐私保护"
+    },
+    {
+      "id": "PR01",
+      "family": "制作过程与体验",
+      "name": "菜谱制作",
+      "recipe": "R06",
+      "example": "examples/scenarios/pr01.md",
+      "source_id": "PR01",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "把菜谱剪到观众能做出来",
+      "assets": [
+        "食材计量",
+        "准备",
+        "烹饪",
+        "熟度",
+        "成品"
+      ],
+      "beats": [
+        "成品预览",
+        "配料",
+        "关键操作",
+        "火候",
+        "装盘"
+      ],
+      "edit": "关键状态变化不能省略；等待可加速但时间温度明示",
+      "acceptance": "配料用量、火候和步骤前后一致",
+      "guardrail": "食品安全事项须可靠来源，不做无依据功效宣传"
+    },
+    {
+      "id": "PR02",
+      "family": "制作过程与体验",
+      "name": "餐饮体验",
+      "recipe": "R01",
+      "example": "examples/scenarios/pr02.md",
+      "source_id": "PR02",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "brief": "以真实就餐过程分享体验",
+      "assets": [
+        "店外",
+        "菜单",
+        "上菜",
+        "试吃",
+        "账单"
+      ],
+      "beats": [
+        "到店缘由",
+        "环境",
+        "菜品体验",
+        "消费总结"
+      ],
+      "edit": "主观感受与可核实价格分开；不跨菜品拼接口感评价",
+      "acceptance": "菜品与账单对应，赞助关系清楚",
+      "guardrail": "他人就餐画面需处理隐私，体验不是普遍保证"
+    },
+    {
+      "id": "PR03",
+      "family": "制作过程与体验",
+      "name": "手工制作",
+      "recipe": "R06",
+      "example": "examples/scenarios/pr03.md",
+      "source_id": "PR03",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "把手工制作步骤剪得可跟随",
+      "assets": [
+        "工具材料",
+        "俯拍",
+        "难点近景",
+        "失败样",
+        "成品"
+      ],
+      "beats": [
+        "材料",
+        "基础步骤",
+        "难点",
+        "修正",
+        "成品"
+      ],
+      "edit": "手部不遮关键操作；复杂重复动作至少保留一遍完整示范",
+      "acceptance": "尺寸用量齐全，工具方向清晰",
+      "guardrail": "涉及刀具热熔等危险步骤须有防护提示"
+    },
+    {
+      "id": "PR04",
+      "family": "制作过程与体验",
+      "name": "维修翻新",
+      "recipe": "R06",
+      "example": "examples/scenarios/pr04.md",
+      "source_id": "PR04",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "记录物件维修翻新的因果链",
+      "assets": [
+        "原状",
+        "故障诊断",
+        "拆装",
+        "处理",
+        "测试"
+      ],
+      "beats": [
+        "损坏状态",
+        "诊断",
+        "维修",
+        "装回",
+        "功能测试"
+      ],
+      "edit": "拆下和装回零件对应；保留测试失败及再次修复",
+      "acceptance": "功能恢复有实测，不只靠外观前后对比",
+      "guardrail": "不得制造故障作假；电气等高风险维修交专业复核"
+    },
+    {
+      "id": "PR05",
+      "family": "制作过程与体验",
+      "name": "妆造过程",
+      "recipe": "R06",
+      "example": "examples/scenarios/pr05.md",
+      "source_id": "PR05",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "展示妆造步骤与真实效果",
+      "assets": [
+        "素颜或原始状态",
+        "产品",
+        "步骤特写",
+        "同光成片"
+      ],
+      "beats": [
+        "目标妆容",
+        "基础",
+        "重点步骤",
+        "整体检查"
+      ],
+      "edit": "前后保持光线与滤镜一致；关键手法完整展示",
+      "acceptance": "色号步骤可读，效果未被滤镜夸大",
+      "guardrail": "皮肤功效不作医疗承诺，人物授权明确"
+    },
+    {
+      "id": "PR06",
+      "family": "制作过程与体验",
+      "name": "园艺种植",
+      "recipe": "R06",
+      "example": "examples/scenarios/pr06.md",
+      "source_id": "PR06",
+      "skills": [
+        "jianying-draft-video-planning",
+        "jianying-draft-inspect",
+        "jianying-draft-schema",
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "brief": "记录植物生长与养护过程",
+      "assets": [
+        "固定机位序列",
+        "日期",
+        "环境",
+        "养护记录"
+      ],
+      "beats": [
+        "种植起点",
+        "生长阶段",
+        "异常与调整",
+        "结果"
+      ],
+      "edit": "按真实时间排序；缺帧段标日期跨度，曝光跳变先外部处理",
+      "acceptance": "生长天数和养护记录对应，未替换样本",
+      "guardrail": "不能用别株或生成帧冒充连续生长"
+    }
+  ]
+}
