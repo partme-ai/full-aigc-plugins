@@ -11,7 +11,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/blender-design-plugin.git",
-        "ref": "v0.16.1"
+        "ref": "v0.16.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -23,13 +23,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.16.1",
+      "version": "0.16.2",
       "description": "用自然语言搭 3D 场景：建模、材质、灯光、相机与渲染，关键节点截图，导出前可回滚。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.2/assets/official-logo.png",
       "interface": {
         "displayName": "Blender（三维建模）",
         "shortDescription": "用自然语言搭 3D 场景：建模、材质、灯光、相机与渲染，关键节点截图，导出前可回滚。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.2/assets/official-logo.png"
       }
     },
     {
@@ -61,7 +61,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/comfy-design-plugin.git",
-        "ref": "v0.6.1"
+        "ref": "v0.6.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -73,13 +73,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.6.1",
+      "version": "0.6.2",
       "description": "一条链路跑完本地 ComfyUI 图、视频、音频与 3D 工作流；云模型只在你明确选择时启用。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.2/assets/official-logo.png",
       "interface": {
         "displayName": "Comfy（ComfyUI 工作流）",
         "shortDescription": "一条链路跑完本地 ComfyUI 图、视频、音频与 3D 工作流；云模型只在你明确选择时启用。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.2/assets/official-logo.png"
       }
     },
     {
@@ -87,7 +87,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/content-factory-plugin.git",
-        "ref": "v1.0.0-rc.2"
+        "ref": "v1.0.0-rc.4"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -99,11 +99,13 @@
         "skills",
         "mcp"
       ],
-      "version": "1.0.0-rc.2",
+      "version": "1.0.0-rc.4",
       "description": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.4/assets/content-factory.svg",
       "interface": {
         "displayName": "Content（多平台内容生产）",
-        "shortDescription": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。"
+        "shortDescription": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.4/assets/content-factory.svg"
       }
     },
     {
@@ -159,7 +161,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin.git",
-        "ref": "v0.6.0"
+        "ref": "v0.6.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -171,13 +173,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.6.0",
+      "version": "0.6.1",
       "description": "在即梦画布上编排节点与时间线：免费保存和付费运行分开，产物下载带校验。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.0/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.1/assets/official-logo.png",
       "interface": {
         "displayName": "Dreamina Canvas（即梦画布编排）",
         "shortDescription": "在即梦画布上编排节点与时间线：免费保存和付费运行分开，产物下载带校验。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.0/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.1/assets/official-logo.png"
       }
     },
     {
@@ -185,7 +187,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/dreamina-design-plugin.git",
-        "ref": "v0.8.1"
+        "ref": "v0.8.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -197,13 +199,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.8.1",
+      "version": "0.8.2",
       "description": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.1/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.2/assets/logo-approved.png",
       "interface": {
         "displayName": "Dreamina（即梦绘图与视频）",
         "shortDescription": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.1/assets/logo-approved.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.2/assets/logo-approved.png"
       }
     },
     {
@@ -211,7 +213,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/dreamina-novel-plugin.git",
-        "ref": "v0.1.0-dev.20261109.1"
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -222,13 +224,13 @@
       "componentTypes": [
         "skills"
       ],
-      "version": "0.1.0-dev.20261109.1",
+      "version": "0.1.0-dev.20261109.2",
       "description": "承接创意、剧本和本地素材，按集完成角色场景、分镜、批量生成与成片交付。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
       "interface": {
         "displayName": "Dreamina Novel（即梦短剧创作）",
         "shortDescription": "即梦短剧从剧本到成片，支持多集批量生产和局部返修。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png"
       }
     },
     {
@@ -332,7 +334,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/image-factory-plugin.git",
-        "ref": "v0.9.1"
+        "ref": "v0.9.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -344,13 +346,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.9.1",
+      "version": "0.9.2",
       "description": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.1/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.2/assets/logo-approved.png",
       "interface": {
         "displayName": "Image（批量 AI 出图）",
         "shortDescription": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.1/assets/logo-approved.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.2/assets/logo-approved.png"
       }
     },
     {
@@ -358,7 +360,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/jianying-draft-plugin.git",
-        "ref": "v0.29.6"
+        "ref": "v0.29.7"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -370,13 +372,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.29.6",
+      "version": "0.29.7",
       "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.6/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.7/assets/official-logo.png",
       "interface": {
         "displayName": "JianYing Draft（剪映草稿编排）",
         "shortDescription": "草稿、字幕、音频与特效，Rust 单栈编排",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.6/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.7/assets/official-logo.png"
       }
     },
     {
@@ -408,7 +410,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/maya-design-plugin.git",
-        "ref": "v0.2.1"
+        "ref": "v0.2.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -420,13 +422,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.2.1",
+      "version": "0.2.2",
       "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.2/assets/official-logo.png",
       "interface": {
         "displayName": "Maya（三维场景）",
         "shortDescription": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.2/assets/official-logo.png"
       }
     },
     {
@@ -434,7 +436,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/minimax-design-plugin.git",
-        "ref": "v0.5.1"
+        "ref": "v0.5.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -446,13 +448,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.5.1",
+      "version": "0.5.2",
       "description": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.2/assets/official-logo.png",
       "interface": {
         "displayName": "MiniMax（AI 视频生成）",
         "shortDescription": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.2/assets/official-logo.png"
       }
     },
     {
@@ -556,7 +558,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/video-factory-plugin.git",
-        "ref": "v0.5.1"
+        "ref": "v0.5.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -568,13 +570,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.5.1",
+      "version": "0.5.2",
       "description": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.1/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.2/assets/logo-approved.png",
       "interface": {
         "displayName": "Video（自动剪辑成片）",
         "shortDescription": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.1/assets/logo-approved.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.2/assets/logo-approved.png"
       }
     },
     {
@@ -582,7 +584,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/volcengine-design-plugin.git",
-        "ref": "v0.2.1"
+        "ref": "v0.2.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -594,13 +596,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.2.1",
+      "version": "0.2.2",
       "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.2/assets/official-logo.png",
       "interface": {
         "displayName": "Volcengine（豆包语音与视频）",
         "shortDescription": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.2/assets/official-logo.png"
       }
     },
     {
@@ -632,7 +634,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/xuanji-plugin.git",
-        "ref": "v0.2.1"
+        "ref": "v0.2.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -644,13 +646,13 @@
         "skills",
         "mcp"
       ],
-      "version": "0.2.1",
+      "version": "0.2.2",
       "description": "八字、奇门、紫微、姻缘、风水和塔罗：排盘由脚本校验、引文可追溯，仅供娱乐。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.1/assets/logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.2/assets/logo.png",
       "interface": {
         "displayName": "Xuanji（命理排盘 · 娱乐）",
         "shortDescription": "八字、奇门、紫微、姻缘、风水和塔罗：排盘由脚本校验、引文可追溯，仅供娱乐。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.1/assets/logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.2/assets/logo.png"
       }
     }
   ],
