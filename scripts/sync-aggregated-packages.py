@@ -69,8 +69,14 @@ def check_equal(expected, actual, name):
     if left.keys() != right.keys():
         raise RuntimeError(f"{name}: aggregate file list differs from release tag")
     for relative in left:
-        if left[relative].read_bytes() != right[relative].read_bytes():
-            raise RuntimeError(f"{name}: aggregate differs at {relative}")
+        expected_bytes = left[relative].read_bytes()
+        actual_bytes = right[relative].read_bytes()
+        if expected_bytes == actual_bytes:
+            continue
+        # Windows checkout can translate text newlines despite parent attributes.
+        if b"\0" not in expected_bytes and b"\0" not in actual_bytes and expected_bytes.replace(b"\r\n", b"\n") == actual_bytes.replace(b"\r\n", b"\n"):
+            continue
+        raise RuntimeError(f"{name}: aggregate differs at {relative} (expected {len(expected_bytes)} bytes, got {len(actual_bytes)} bytes)")
 
 
 def main():
