@@ -1,0 +1,54 @@
+{
+  "name": "dreamina-design",
+  "version": "0.8.2",
+  "description": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
+  "author": {
+    "name": "Full Stack Skills / PartMe.AI"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/dreamina-design-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "dreamina",
+    "jimeng",
+    "seedance"
+  ],
+  "interface": {
+    "displayName": "Dreamina（即梦绘图与视频）",
+    "shortDescription": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
+    "longDescription": "Operate Dreamina (即梦) from your coding agent: text2image, image2image, text2video, image2video, Seedance pipeline orchestration with submit-once recovery, and prompt guidance for every mode.",
+    "developerName": "Full Stack Skills / PartMe.AI",
+    "websiteURL": "https://github.com/full-aigc-plugins/dreamina-design-plugin"
+  },
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "mcpServers": {
+    "dreamina_design": {
+      "command": "python3",
+      "args": [
+        "-m",
+        "scripts.dreamina_mcp_server"
+      ],
+      "env": {
+        "PYTHONPATH": "."
+      }
+    }
+  },
+  "hooks": [
+    {
+      "event": "SessionStart",
+      "command": "python3 ./hooks/env_check.py",
+      "timeout": 30
+    },
+    {
+      "event": "UserPromptSubmit",
+      "command": "python3 ./hooks/check_dreamina_intent.py",
+      "timeout": 15
+    }
+  ],
+  "displayName_i18n": {
+    "zh-CN": "Dreamina（即梦绘图与视频）"
+  },
+  "description_i18n": {
+    "zh-CN": "即梦图像与视频生成，含提示词库、分镜标注与视觉评审；付费生成前需显式确认，任务可恢复。"
+  }
+}

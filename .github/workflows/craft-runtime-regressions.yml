@@ -1,0 +1,26 @@
+name: Craft runtime regressions
+on:
+  push:
+    paths:
+      - '.github/workflows/craft-runtime-regressions.yml'
+      - 'scripts/craft-runtime-bootstrap.test.mjs'
+      - 'scripts/templates/craft-runtime-bootstrap.mjs'
+      - 'scripts/portable-mcp-config.test.mjs'
+  pull_request:
+    paths:
+      - '.github/workflows/craft-runtime-regressions.yml'
+      - 'scripts/craft-runtime-bootstrap.test.mjs'
+      - 'scripts/templates/craft-runtime-bootstrap.mjs'
+      - 'scripts/portable-mcp-config.test.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+      - run: node --test scripts/craft-runtime-bootstrap.test.mjs scripts/portable-mcp-config.test.mjs

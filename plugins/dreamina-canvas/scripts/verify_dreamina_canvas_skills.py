@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+"""Verify that packaged Skills match upstream/dreamina-skills.lock.json.
+
+Reads upstream/dreamina-skills.lock.json, re-hashes every managed skill file,
+and permits only the plugin-local skills declared in plugin-local-skills.json.
+Returns exit 0 iff every managed file's SHA-256 equals the locked value and the
+combined inventory is exact.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+LOCK = ROOT / "upstream" / "dreamina-skills.lock.json"
+SKILLS = ROOT / "skills"
+LOCAL_SKILLS = ROOT / "plugin-local-skills.json"
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    h.update(path.read_bytes())
+    return h.hexdigest()
+
+
+def main() -> None:
+    if not LOCK.is_file():
+        print(f"FAIL: missing lock file: {LOCK}", file=sys.stderr)
+        sys.exit(1)
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+    declared = set(lock["skills"].keys())
+    local = set(
+        json.loads(LOCAL_SKILLS.read_text(encoding="utf-8")).get("skills", [])
+    )
+    actual = {
+        p.name
+        for p in SKILLS.iterdir()
+        if p.is_dir() and p.name.startswith("dreamina-canvas-")
+    }
+    expected_inventory = declared | local
+    missing = expected_inventory - actual
+    extra = actual - expected_inventory
+    if missing or extra:
+        print(
+            f"FAIL: skill set mismatch missing={sorted(missing)} extra={sorted(extra)}",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    failures: list[str] = []
+    for name in sorted(declared):
+        expected = lock["skills"][name]
+        skill_dir = SKILLS / name
+        seen: set[str] = set()
+        for relpath, expected_sha in expected.items():
+            file_path = skill_dir / relpath
+            if not file_path.is_file():
+                failures.append(f"{name}: missing file {relpath}")
+                continue
+            actual_sha = sha256_file(file_path)
+            if actual_sha != expected_sha:
+                failures.append(
+                    f"{name}: hash mismatch on {relpath} "
+                    f"(expected {expected_sha[:12]}, got {actual_sha[:12]})"
+                )
+            seen.add(relpath)
+        # Detect extra files in the packaged skill not in the lock
+        for path in sorted(skill_dir.rglob("*")):
+            if not path.is_file():
+                continue
+            rel = path.relative_to(skill_dir).as_posix()
+            # Host/build noise is never package content, so a stray .DS_Store
+            # in a checkout is not an undeclared file.
+            if any(part.startswith(".") for part in path.relative_to(skill_dir).parts):
+                continue
+            if path.suffix in {".pyc", ".pyo"} or "__pycache__" in path.parts:
+                continue
+            if rel not in seen:
+                failures.append(f"{name}: undeclared file {rel}")
+    if failures:
+        for line in failures:
+            print(f"FAIL: {line}", file=sys.stderr)
+        sys.exit(1)
+    print(
+        f"OK: {len(declared)} skills, "
+        f"{sum(len(v) for v in lock['skills'].values())} files match upstream "
+        f"commit {lock['commit'][:12]}"
+    )
+
+
+if __name__ == "__main__":
+    main()

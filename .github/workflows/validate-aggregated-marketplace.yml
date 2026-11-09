@@ -1,0 +1,25 @@
+name: Validate aggregated marketplace
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  aggregate:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      # jianying-draft-plugin is private to another org; this token cannot clone it.
+      - run: node scripts/checkout-release-plugins.mjs --all --skip=jianying-draft
+      - run: python scripts/sync-aggregated-packages.py --skip-repository=jianying-draft
+      - run: node scripts/sync-marketplaces.mjs --catalog-only
+      - run: node scripts/sync-codex-local-manifests.mjs
+      - run: node scripts/build-local-marketplace.mjs
+      - run: node --test scripts/codex-marketplace-localization.test.mjs scripts/craft-marketplace-installation.test.mjs scripts/marketplace-readme.test.mjs

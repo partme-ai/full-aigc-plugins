@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映 Agent 编排"
+  short_description: "管理剪映持久任务、精确授权、隔离配置、工具传输与恢复契约"
+  default_prompt: "使用 $jianying-draft-harness 管理剪映持久任务、精确授权、隔离配置、工具传输与恢复契约；先核对输入、可用能力和交付要求。"

@@ -1,0 +1,32 @@
+{
+  "schema": "smart-zoom-plan/v1",
+  "plan_id": "zoom-plan-demo-001",
+  "source_ledger_id": "ledger-demo-001",
+  "source_media_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "segment_id": "segment-screen-demo",
+  "project_fps": {"num": 30, "den": 1},
+  "constraints": {
+    "max_scale": 1.5,
+    "edge_margin_ratio": 0.05,
+    "debounce_us": 250000,
+    "session_gap_us": 5000000,
+    "accessibility_mode": "standard"
+  },
+  "sessions": [
+    {
+      "id": "zoom-session-001",
+      "start_us": 1200000,
+      "end_us": 4500000,
+      "human_review": true,
+      "keyframes": [
+        {"time_us": 1200000, "scale": 1.0, "position_x": 0.0, "position_y": 0.0, "source_event_ids": ["event-001"]},
+        {"time_us": 1500000, "scale": 1.5, "position_x": 0.20, "position_y": 0.12, "source_event_ids": ["event-002"]},
+        {"time_us": 3000000, "scale": 1.5, "position_x": -0.22, "position_y": -0.06, "source_event_ids": ["event-003", "event-004"]},
+        {"time_us": 4500000, "scale": 1.0, "position_x": 0.0, "position_y": 0.0, "source_event_ids": ["event-004"]}
+      ]
+    }
+  ],
+  "quantization_report": {"max_error_us": 16667, "unsafe_offsets": []},
+  "target_evidence": "playback",
+  "plan_only": true
+}

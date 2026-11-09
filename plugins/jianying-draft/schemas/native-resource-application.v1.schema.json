@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-native-resource-application/v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "request_id",
+    "state",
+    "resource_id",
+    "domain",
+    "draft_path",
+    "target_digest",
+    "approval_id",
+    "snapshot_id",
+    "preview_digest",
+    "application_id",
+    "adapter_identity",
+    "cli_handoff",
+    "actions",
+    "application_digest",
+    "artifacts"
+  ],
+  "properties": {
+    "schema": {"const": "jianying-native-resource-application/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "state": {"const": "verified"},
+    "resource_id": {"type": "string", "minLength": 1},
+    "domain": {"type": "string", "minLength": 1},
+    "draft_path": {"type": "string", "minLength": 1},
+    "target_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "approval_id": {"type": "string", "minLength": 1},
+    "snapshot_id": {"type": "string", "minLength": 1},
+    "preview_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "application_id": {"type": "string", "minLength": 1},
+    "adapter_identity": {"type": "object", "additionalProperties": true},
+    "cli_handoff": {"type": "object", "additionalProperties": true},
+    "actions": {
+      "type": "array",
+      "minItems": 3,
+      "items": {"type": "object", "additionalProperties": true}
+    },
+    "application_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "artifacts": {
+      "type": "object",
+      "required": ["application_path"],
+      "properties": {
+        "application_path": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -9,12 +9,6 @@
       "source": "https://github.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.16.2"
     },
     {
-      "id": "cadcraft",
-      "displayName": "CADCraft（三维制图）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261109.5"
-    },
-    {
       "id": "comfy-design",
       "displayName": "Comfy（ComfyUI 工作流）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.2/assets/official-logo.png",
@@ -27,20 +21,8 @@
       "source": "https://github.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.4"
     },
     {
-      "id": "deckcraft",
-      "displayName": "DeckCraft（演示文稿）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261109.5"
-    },
-    {
-      "id": "designcraft",
-      "displayName": "DesignCraft（页面排版）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261109.5"
-    },
-    {
       "id": "dreamina-canvas",
-      "displayName": "Dreamina Canvas（即梦画布编排）",
+      "displayName": "Dreamina Canvas",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.1/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.6.1"
     },
@@ -57,30 +39,6 @@
       "source": "https://github.com/full-aigc-plugins/dreamina-novel-plugin/releases/tag/v0.1.0-dev.20261109.2"
     },
     {
-      "id": "effectcraft",
-      "displayName": "EffectCraft（动态图形）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261018.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/effectcraft-plugin/releases/tag/v0.1.0-dev.20261018.5"
-    },
-    {
-      "id": "figcraft",
-      "displayName": "FigCraft（设计稿编辑）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.2/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/tag/v0.1.0-dev.20261019.2"
-    },
-    {
-      "id": "filmcraft",
-      "displayName": "FilmCraft（视频剪辑）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261018.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/tag/v0.1.0-dev.20261018.5"
-    },
-    {
-      "id": "gridcraft",
-      "displayName": "GridCraft（电子表格）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261109.5"
-    },
-    {
       "id": "image-factory",
       "displayName": "Image（批量 AI 出图）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.2/assets/logo-approved.png",
@@ -91,12 +49,6 @@
       "displayName": "JianYing Draft（剪映草稿编排）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.7/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.29.7"
-    },
-    {
-      "id": "lightcraft",
-      "displayName": "LightCraft（照片调色）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.4/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/tag/v0.1.0-dev.20261018.4"
     },
     {
       "id": "maya-design",
@@ -111,30 +63,6 @@
       "source": "https://github.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.5.2"
     },
     {
-      "id": "pdfcraft",
-      "displayName": "PdfCraft（PDF 处理）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261109.4/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261109.4"
-    },
-    {
-      "id": "photocraft",
-      "displayName": "PhotoCraft（图片编辑）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261109.5"
-    },
-    {
-      "id": "soundcraft",
-      "displayName": "SoundCraft（音频处理）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261109.5"
-    },
-    {
-      "id": "vectorcraft",
-      "displayName": "VectorCraft（矢量设计）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261109.5"
-    },
-    {
       "id": "video-factory",
       "displayName": "Video（自动剪辑成片）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.2/assets/logo-approved.png",
@@ -145,12 +73,6 @@
       "displayName": "Volcengine（豆包语音与视频）",
       "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.2/assets/official-logo.png",
       "source": "https://github.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.2.2"
-    },
-    {
-      "id": "wordcraft",
-      "displayName": "WordCraft（文档写作）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261109.5/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261109.5"
     },
     {
       "id": "xuanji",

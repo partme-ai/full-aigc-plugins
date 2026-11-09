@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.partme.ai/jianying/host-run-evidence-v2.schema.json",
+  "title": "JianYing real host run evidence v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "host",
+    "evidenceLevel",
+    "pluginVersion",
+    "cliVersion",
+    "skillsVersion",
+    "jobSchema",
+    "jobInput",
+    "semanticResult",
+    "jobInputSha256",
+    "resultSemanticSha256",
+    "executedAt",
+    "checks",
+    "checkEvidence"
+  ],
+  "properties": {
+    "schema": {"const": "jianying-host-run-evidence/v2"},
+    "host": {"enum": ["codex", "zcode", "kimi"]},
+    "evidenceLevel": {"const": "real_host"},
+    "pluginVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "cliVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "skillsVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "jobSchema": {"const": "jianying-job/v2"},
+    "jobInput": {"type": "object"},
+    "semanticResult": {"type": "object"},
+    "jobInputSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "resultSemanticSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "executedAt": {"type": "string", "format": "date-time"},
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "freshInstall",
+        "doctor",
+        "skillDiscovery",
+        "singleSkillInstall",
+        "categoryDiscovery",
+        "categoryRouting",
+        "selectionExplanation",
+        "approval",
+        "simpleJob",
+        "stop",
+        "recovery",
+        "evidenceDisplay",
+        "nativeExportApproval"
+      ],
+      "properties": {
+        "freshInstall": {"const": true},
+        "doctor": {"const": true},
+        "skillDiscovery": {"const": true},
+        "singleSkillInstall": {"const": true},
+        "categoryDiscovery": {"const": true},
+        "categoryRouting": {"const": true},
+        "selectionExplanation": {"const": true},
+        "approval": {"const": true},
+        "simpleJob": {"const": true},
+        "stop": {"const": true},
+        "recovery": {"const": true},
+        "evidenceDisplay": {"const": true},
+        "nativeExportApproval": {"const": true}
+      }
+    },
+    "checkEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "freshInstall",
+        "doctor",
+        "skillDiscovery",
+        "singleSkillInstall",
+        "categoryDiscovery",
+        "categoryRouting",
+        "selectionExplanation",
+        "approval",
+        "simpleJob",
+        "stop",
+        "recovery",
+        "evidenceDisplay",
+        "nativeExportApproval"
+      ],
+      "properties": {
+        "freshInstall": {"$ref": "#/$defs/checkEvidence"},
+        "doctor": {"$ref": "#/$defs/checkEvidence"},
+        "skillDiscovery": {"$ref": "#/$defs/checkEvidence"},
+        "singleSkillInstall": {"$ref": "#/$defs/checkEvidence"},
+        "categoryDiscovery": {"$ref": "#/$defs/checkEvidence"},
+        "categoryRouting": {"$ref": "#/$defs/checkEvidence"},
+        "selectionExplanation": {"$ref": "#/$defs/checkEvidence"},
+        "approval": {"$ref": "#/$defs/checkEvidence"},
+        "simpleJob": {"$ref": "#/$defs/checkEvidence"},
+        "stop": {"$ref": "#/$defs/checkEvidence"},
+        "recovery": {"$ref": "#/$defs/checkEvidence"},
+        "evidenceDisplay": {"$ref": "#/$defs/checkEvidence"},
+        "nativeExportApproval": {"$ref": "#/$defs/checkEvidence"}
+      }
+    }
+  },
+  "$defs": {
+    "checkEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "observedAt", "artifact", "artifactSha256"],
+      "properties": {
+        "kind": {"enum": ["host_command", "host_ui", "host_api", "artifact"]},
+        "observedAt": {"type": "string", "format": "date-time"},
+        "artifact": {"type": "object"},
+        "artifactSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

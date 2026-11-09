@@ -1,0 +1,417 @@
+{
+  "schema": "jianying-edit-recipes/v1",
+  "version": "1.0.0",
+  "delivery_capabilities": {
+    "plan": [],
+    "structural": [
+      "schema.job_v2",
+      "job.run",
+      "project.create",
+      "project.verify",
+      "media.probe"
+    ],
+    "proxy_preview": [
+      "schema.job_v2",
+      "job.run",
+      "project.create",
+      "project.verify",
+      "media.probe",
+      "render.proxy"
+    ],
+    "native_export": [
+      "schema.job_v2",
+      "job.run",
+      "project.create",
+      "project.verify",
+      "media.probe",
+      "render.native",
+      "runtime.profile",
+      "runtime.status"
+    ]
+  },
+  "recipes": [
+    {
+      "id": "R01",
+      "name": "生活旅程",
+      "purpose": "一个目标的开始、波折和回望",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "human_steps": [
+        "人工选择叙事主线和镜头"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R02",
+      "name": "情绪纪念",
+      "purpose": "人物关系与时间节点串联",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-audio",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "human_steps": [
+        "人工确认日期、关系及情绪节奏"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R03",
+      "name": "完整事件",
+      "purpose": "连续主音轨与完整流程优先",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "human_steps": [
+        "人工多机同步、机位选择及流程对照"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R04",
+      "name": "转化广告",
+      "purpose": "问题、证明、限制和单一行动",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "human_steps": [
+        "人工审核广告主张及商业授权"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R05",
+      "name": "产品演示",
+      "purpose": "目标任务、操作反馈与验证结果",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "human_steps": [
+        "人工检查产品版本和真实效果"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R06",
+      "name": "步骤教学",
+      "purpose": "前提、可跟随步骤和结果检验",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "human_steps": [
+        "人工专业审稿和步骤完整性检查"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R07",
+      "name": "访谈对话",
+      "purpose": "以完整句意组织主题和B-roll",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-narration",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "human_steps": [
+        "人工说话人标记、同步及语境复核"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R08",
+      "name": "事实叙事",
+      "purpose": "来源、因果、不同观点及未知边界",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-subtitles"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "human_steps": [
+        "人工事实核查；图表地图由外部工具提供"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R09",
+      "name": "剧情节奏",
+      "purpose": "人物目标、连续动作和情绪转折",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "human_steps": [
+        "人工审看轴线、动作衔接和表演"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R10",
+      "name": "音乐表演",
+      "purpose": "音乐段落与表演同步优先",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "human_steps": [
+        "人工节拍标记、口型同步及版权核验"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R11",
+      "name": "精彩摘编",
+      "purpose": "上下文、精彩事件与完整结果",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-audio"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "human_steps": [
+        "人工挑选事件并保留足够上下文"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    },
+    {
+      "id": "R12",
+      "name": "空间导览",
+      "purpose": "建立位置、连续路线与空间细节",
+      "skills": [
+        "jianying-draft-edit",
+        "jianying-draft-motion"
+      ],
+      "required_capabilities": [
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "human_steps": [
+        "人工确认空间关系与镜头方向"
+      ],
+      "optional_capabilities": {
+        "asr": [
+          "media.asr_whisper_cpp",
+          "media.asr_ledger"
+        ],
+        "tts": [
+          "media.tts_local"
+        ],
+        "transitions": [
+          "timeline.transition"
+        ],
+        "auto_caption_verification": [
+          "captions.verify"
+        ]
+      }
+    }
+  ]
+}

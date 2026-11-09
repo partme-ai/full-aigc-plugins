@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映素材管理"
+  short_description: "导入、检查、替换和重连媒体素材，核对资源回执与实际可用能力"
+  default_prompt: "使用 $jianying-draft-media 导入、检查、替换和重连媒体素材，核对资源回执与实际可用能力；先核对输入、可用能力和交付要求。"

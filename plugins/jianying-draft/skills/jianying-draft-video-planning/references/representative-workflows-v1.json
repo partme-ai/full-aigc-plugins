@@ -1,0 +1,55 @@
+{
+  "schema": "jianying-representative-workflows/v1",
+  "workflows": [
+    {
+      "id": "VLOG-01",
+      "name": "生活 Vlog 单输出",
+      "scene_ids": ["VG01"],
+      "recipe_ids": ["R01"],
+      "asset_requirements": ["四段已核验生活素材", "每段人工确认一个三秒选段"],
+      "asset_gaps": ["缺少转折素材时必须请求调整主线，不能虚构事件"],
+      "outputs": [
+        {"id": "vlog-main", "purpose": "personal", "delivery": "editable_draft"}
+      ],
+      "subtitle_languages": [],
+      "acceptance": ["生活主线", "每个时间码来自素材", "叙事与音画独立检查"],
+      "guardrails": ["隐藏门牌、定位和旁人隐私", "选段未确认时不可编译"],
+      "multi_camera": "not_requested"
+    },
+    {
+      "id": "COURSE-01",
+      "name": "课程母版与三个预告",
+      "scene_ids": ["ED01"],
+      "recipe_ids": ["R06", "R11"],
+      "asset_requirements": ["120 秒已核验课程素材", "三个预告选段", "中英双语审校文本"],
+      "asset_gaps": ["缺术语或语境审校时对应输出保持等待"],
+      "outputs": [
+        {"id": "course-master", "purpose": "education", "delivery": "editable_draft"},
+        {"id": "course-teaser-1", "purpose": "promotion", "delivery": "editable_draft"},
+        {"id": "course-teaser-2", "purpose": "promotion", "delivery": "editable_draft"},
+        {"id": "course-teaser-3", "purpose": "promotion", "delivery": "editable_draft"}
+      ],
+      "subtitle_languages": ["zh-CN", "en"],
+      "acceptance": ["完整版教学完整", "预告不扭曲语境", "四份字幕时序和布局分别验收"],
+      "guardrails": ["R06 与 R11 不得隐含创建第五份输出", "双语质量不得由生成器自证"],
+      "multi_camera": "not_requested"
+    },
+    {
+      "id": "WEDDING-01",
+      "name": "婚礼三用途交付",
+      "scene_ids": ["WD01"],
+      "recipe_ids": ["R03", "R02", "R04"],
+      "asset_requirements": ["已核验婚礼素材", "仪式、私人纪念和商业广告分别选段"],
+      "asset_gaps": ["商业用途授权缺失时商业分支保持阻塞", "多机位能力不足时等待人工或外部同步"],
+      "outputs": [
+        {"id": "ceremony", "purpose": "ceremony_record", "delivery": "editable_draft"},
+        {"id": "private-memory", "purpose": "personal", "delivery": "editable_draft"},
+        {"id": "commercial-ad", "purpose": "commercial", "delivery": "native_export"}
+      ],
+      "subtitle_languages": [],
+      "acceptance": ["三种用途分别审核", "私人批准不继承为商业批准", "父工作流如实报告受阻分支"],
+      "guardrails": ["真实人物和音乐授权逐用途确认", "缺原生能力不能伪报全部完成"],
+      "multi_camera": "awaiting_capability"
+    }
+  ]
+}

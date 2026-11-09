@@ -1,0 +1,148 @@
+name: skills-sync
+
+on:
+  repository_dispatch:
+    types: [skills-updated]
+  schedule:
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+    inputs:
+      release_ref:
+        description: Immutable jianying-skills v<version> tag
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: jianying-skills-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.FULL_AIGC_SKILLS_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          token: ${{ secrets.FULL_AIGC_SKILLS_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Resolve released skill version
+        id: release
+        env:
+          DISPATCH_REF: ${{ github.event.client_payload.release_ref }}
+          INPUT_REF: ${{ inputs.release_ref }}
+        run: |
+          set -euo pipefail
+          release_ref="${DISPATCH_REF:-${INPUT_REF:-}}"
+          if [ -z "$release_ref" ]; then
+            release_ref="$(gh release view --repo full-aigc-skills/jianying-skills --json tagName --jq .tagName)"
+          fi
+          if [[ ! "$release_ref" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::release_ref must be an immutable v<semver> tag"
+            exit 1
+          fi
+          echo "release_ref=$release_ref" >> "$GITHUB_OUTPUT"
+      - name: Require a published immutable stable release
+        run: |
+          set -euo pipefail
+          release_ref="${{ steps.release.outputs.release_ref }}"
+          release_metadata="$RUNNER_TEMP/jianying-skills-release.json"
+          gh release view "$release_ref" \
+            --repo full-aigc-skills/jianying-skills \
+            --json tagName,isDraft,isPrerelease,isImmutable,publishedAt,assets \
+            > "$release_metadata"
+          test "$(jq -r .tagName "$release_metadata")" = "$release_ref"
+          test "$(jq -r .isDraft "$release_metadata")" = "false"
+          test "$(jq -r .isPrerelease "$release_metadata")" = "false"
+          test "$(jq -r .isImmutable "$release_metadata")" = "true"
+      - name: Fetch exact source tag and release manifest
+        run: |
+          set -euo pipefail
+          git clone --quiet --depth 1 \
+            --branch "${{ steps.release.outputs.release_ref }}" \
+            https://github.com/full-aigc-skills/jianying-skills.git \
+            "$RUNNER_TEMP/jianying-skills"
+          mkdir -p "$RUNNER_TEMP/jianying-skills-release"
+          gh release download "${{ steps.release.outputs.release_ref }}" \
+            --repo full-aigc-skills/jianying-skills \
+            --pattern jianying-skills.manifest.json \
+            --dir "$RUNNER_TEMP/jianying-skills-release"
+      - name: Verify dispatch evidence when supplied
+        env:
+          EXPECTED_SOURCE_COMMIT: ${{ github.event.client_payload.sha }}
+          EXPECTED_MANIFEST_SHA256: ${{ github.event.client_payload.manifest_sha256 }}
+        run: |
+          python3 scripts/verify_skill_dispatch_evidence.py \
+            --source-root "$RUNNER_TEMP/jianying-skills" \
+            --manifest "$RUNNER_TEMP/jianying-skills-release/jianying-skills.manifest.json" \
+            --expected-source-commit "${EXPECTED_SOURCE_COMMIT:-}" \
+            --expected-manifest-sha256 "${EXPECTED_MANIFEST_SHA256:-}"
+      - name: Bind downloaded manifest bytes to GitHub release metadata
+        run: |
+          python3 scripts/verify_github_release_asset.py \
+            --metadata "$RUNNER_TEMP/jianying-skills-release.json" \
+            --asset "$RUNNER_TEMP/jianying-skills-release/jianying-skills.manifest.json" \
+            --repository full-aigc-skills/jianying-skills \
+            --release-ref "${{ steps.release.outputs.release_ref }}" \
+            --output "$RUNNER_TEMP/jianying-skills-asset-verification.json"
+          cat "$RUNNER_TEMP/jianying-skills-asset-verification.json"
+      - name: Verify the GitHub release attestation
+        run: |
+          gh release verify-asset "${{ steps.release.outputs.release_ref }}" \
+            "$RUNNER_TEMP/jianying-skills-release/jianying-skills.manifest.json" \
+            --repo full-aigc-skills/jianying-skills
+      - name: Import immutable released skills
+        run: |
+          python3 scripts/import_skill_release_manifest.py \
+            --manifest "$RUNNER_TEMP/jianying-skills-release/jianying-skills.manifest.json" \
+            --source-root "$RUNNER_TEMP/jianying-skills"
+      - name: Verify the fresh snapshot
+        run: python3 scripts/vendor/skill_vendor.py check
+      - name: Push the sync branch when the snapshot changed
+        id: push
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "vendored skills already current; nothing to sync"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B chore/skills-sync
+          git add skills/ skills.lock.json
+          git commit -m "chore: sync vendored skills from source packages"
+          remote_sha="$(git ls-remote --heads origin refs/heads/chore/skills-sync | cut -f1)"
+          git push \
+            "--force-with-lease=refs/heads/chore/skills-sync:${remote_sha}" \
+            origin HEAD:refs/heads/chore/skills-sync
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Open the sync PR if none exists
+        if: steps.push.outputs.changed == 'true'
+        run: |
+          set -uo pipefail
+          # 用 API 查已有 PR：`gh pr view <branch>` 在 main 检出时不一定能按分支名命中。
+          open_prs="$(gh pr list --head chore/skills-sync --state open --json number --jq 'length')"
+          if [ "${open_prs:-0}" -gt 0 ]; then
+            echo "sync PR already open (#${open_prs}); branch updated"
+            exit 0
+          fi
+          # 组织级策略禁止 Actions 建 PR（返回 409/GraphQL createPullRequest）。
+          # 这时不能让每天的定时任务都红掉：分支已经推上去，人工开 PR 即可。
+          if ! out="$(gh pr create \
+            --title "chore: sync vendored skills" \
+            --body "Automated refresh of the vendored skill snapshot from skills.lock.json sources. All gates must be green before merge." \
+            --head chore/skills-sync --base main 2>&1)"; then
+            echo "$out" >&2
+            if printf '%s' "$out" | grep -qiE 'not permitted to create|createPullRequest|Resource not accessible|already exists'; then
+              echo "::warning title=sync branch needs a human PR::Actions may not create pull requests in this organization; branch chore/skills-sync is up to date, open the PR manually"
+              exit 0
+            fi
+            exit 1
+          fi
+          echo "$out"

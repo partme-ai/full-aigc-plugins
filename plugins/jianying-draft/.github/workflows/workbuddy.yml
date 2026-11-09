@@ -1,0 +1,13 @@
+name: WorkBuddy connector candidate
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  workbuddy:
+    uses: full-aigc-plugins/.github/.github/workflows/workbuddy-connectors.yml@main
+    with:
+      plugin-root: .

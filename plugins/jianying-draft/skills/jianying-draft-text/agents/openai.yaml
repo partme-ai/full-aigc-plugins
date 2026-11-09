@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映文字元素"
+  short_description: "创建、编辑和动画化文字，按字幕原语与可用官方资源路径执行"
+  default_prompt: "使用 $jianying-draft-text 创建、编辑和动画化文字，按字幕原语与可用官方资源路径执行；先核对输入、可用能力和交付要求。"

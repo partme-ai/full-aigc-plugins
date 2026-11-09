@@ -1,0 +1,160 @@
+name: cli-sync
+
+on:
+  repository_dispatch:
+    types: [cli-released]
+  schedule:
+    - cron: "47 3 * * *"
+  workflow_dispatch:
+    inputs:
+      release_ref:
+        description: Immutable jianying-cli v<version> tag
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: jianying-cli-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.CLI_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          token: ${{ secrets.CLI_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Resolve immutable CLI release ref
+        id: release
+        env:
+          DISPATCH_REF: ${{ github.event.client_payload.release_ref }}
+          INPUT_REF: ${{ inputs.release_ref }}
+        run: |
+          set -euo pipefail
+          release_ref="${DISPATCH_REF:-${INPUT_REF:-}}"
+          if [ -z "$release_ref" ]; then
+            release_ref="$(gh release list \
+              --repo full-aigc-plugins/jianying-draft \
+              --exclude-drafts --exclude-pre-releases --limit 1 \
+              --json tagName --jq '.[0].tagName')"
+          fi
+          if [[ ! "$release_ref" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::release_ref must be an immutable v<semver> tag"
+            exit 1
+          fi
+          echo "release_ref=$release_ref" >> "$GITHUB_OUTPUT"
+      - name: Require a published immutable stable release
+        run: |
+          set -euo pipefail
+          release_ref="${{ steps.release.outputs.release_ref }}"
+          release_metadata="$RUNNER_TEMP/jianying-cli-release.json"
+          gh api "repos/full-aigc-plugins/jianying-draft/releases/tags/$release_ref" \
+            > "$release_metadata"
+          test "$(jq -r .tag_name "$release_metadata")" = "$release_ref"
+          test "$(jq -r .draft "$release_metadata")" = "false"
+          test "$(jq -r .prerelease "$release_metadata")" = "false"
+          test "$(jq -r .immutable "$release_metadata")" = "true"
+          test -n "$(jq -r '.published_at // empty' "$release_metadata")"
+      - name: Download the exact canonical release index
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/jianying-cli-release"
+          release_ref="${{ steps.release.outputs.release_ref }}"
+          release_id="$(jq -er .id "$RUNNER_TEMP/jianying-cli-release.json")"
+          assets_metadata="$RUNNER_TEMP/jianying-cli-assets.json"
+          gh api "repos/full-aigc-plugins/jianying-draft/releases/$release_id/assets?per_page=100" \
+            > "$assets_metadata"
+          asset_url="$(jq -er \
+            '[.[] | select(.name == "jianying-cli-release-index.json" and .state == "uploaded") | .browser_download_url] | if length == 1 then .[0] else error("release index asset must be unique") end' \
+            "$assets_metadata")"
+          test "$asset_url" = "https://github.com/full-aigc-plugins/jianying-draft/releases/download/$release_ref/jianying-cli-release-index.json"
+          curl --fail --location --retry 3 --silent --show-error \
+            --output "$RUNNER_TEMP/jianying-cli-release/jianying-cli-release-index.json" \
+            "$asset_url"
+      - name: Verify dispatch evidence when supplied
+        env:
+          EXPECTED_INDEX_SHA256: ${{ github.event.client_payload.index_sha256 }}
+          EXPECTED_SOURCE_COMMIT: ${{ github.event.client_payload.source_commit }}
+        run: |
+          node --input-type=module <<'NODE'
+          import crypto from "node:crypto";
+          import fs from "node:fs";
+          import path from "node:path";
+          const indexPath = path.join(
+            process.env.RUNNER_TEMP,
+            "jianying-cli-release",
+            "jianying-cli-release-index.json",
+          );
+          const bytes = fs.readFileSync(indexPath);
+          const index = JSON.parse(bytes);
+          const digest = crypto.createHash("sha256").update(bytes).digest("hex");
+          if (process.env.EXPECTED_INDEX_SHA256
+              && digest !== process.env.EXPECTED_INDEX_SHA256) {
+            throw new Error("release index digest differs from dispatch evidence");
+          }
+          if (process.env.EXPECTED_SOURCE_COMMIT
+              && index.sourceCommit !== process.env.EXPECTED_SOURCE_COMMIT) {
+            throw new Error("release index commit differs from dispatch evidence");
+          }
+          NODE
+      - name: Bind downloaded index bytes to GitHub release metadata
+        run: |
+          python3 scripts/verify_github_release_asset.py \
+            --metadata "$RUNNER_TEMP/jianying-cli-release.json" \
+            --assets-metadata "$RUNNER_TEMP/jianying-cli-assets.json" \
+            --asset "$RUNNER_TEMP/jianying-cli-release/jianying-cli-release-index.json" \
+            --repository full-aigc-plugins/jianying-draft \
+            --release-ref "${{ steps.release.outputs.release_ref }}" \
+            --output "$RUNNER_TEMP/jianying-cli-asset-verification.json"
+          cat "$RUNNER_TEMP/jianying-cli-asset-verification.json"
+      - name: Verify the GitHub release attestation
+        run: |
+          gh release verify-asset "${{ steps.release.outputs.release_ref }}" \
+            "$RUNNER_TEMP/jianying-cli-release/jianying-cli-release-index.json" \
+            --repo full-aigc-plugins/jianying-draft
+      - name: Atomically import all three platform artifacts
+        run: |
+          node scripts/import_cli_release_index.mjs \
+            --index "$RUNNER_TEMP/jianying-cli-release/jianying-cli-release-index.json" \
+            --lock runtime/jianying-cli.lock.json
+      - name: Verify the updated lock and distribution contract
+        run: |
+          node --test tests/release_index.test.mjs
+          python3 scripts/validate_distribution.py
+      - name: Push the CLI lock synchronization branch when changed
+        id: push
+        run: |
+          if git diff --quiet -- runtime/jianying-cli.lock.json runtime/host-acceptance.json; then
+            echo "CLI lock already current; nothing to sync"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B chore/cli-sync
+          git add runtime/jianying-cli.lock.json runtime/host-acceptance.json
+          git commit -m "chore: sync released jianying-cli artifacts"
+          remote_sha="$(git ls-remote --heads origin refs/heads/chore/cli-sync | cut -f1)"
+          git push \
+            "--force-with-lease=refs/heads/chore/cli-sync:${remote_sha}" \
+            origin HEAD:refs/heads/chore/cli-sync
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Open the CLI lock synchronization PR if none exists
+        if: steps.push.outputs.changed == 'true'
+        run: |
+          if gh pr view chore/cli-sync >/dev/null 2>&1; then
+            echo "CLI sync PR already open; branch updated"
+            exit 0
+          fi
+          gh pr create \
+            --title "chore: sync released jianying-cli artifacts" \
+            --body "Imports the immutable three-platform release index. Release gates must pass before merge." \
+            --head chore/cli-sync --base main

@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映草稿编辑"
+  short_description: "在隔离工作流中创建或修改剪映草稿，使用测量媒体信息核对结果"
+  default_prompt: "使用 $jianying-draft-edit 在隔离工作流中创建或修改剪映草稿，使用测量媒体信息核对结果；先核对输入、可用能力和交付要求。"

@@ -1,0 +1,427 @@
+{
+  "schema": "jianying-capability-snapshot/v1",
+  "cli_version": "1.6.13",
+  "release_ref": "v1.6.13",
+  "source_commit": "c9ba52ad8a359b6938275438c1e41a11b31f1765",
+  "capabilities": [
+    {
+      "id": "doctor",
+      "status": "supported"
+    },
+    {
+      "id": "capabilities",
+      "status": "supported"
+    },
+    {
+      "id": "schema.job_v2",
+      "status": "supported"
+    },
+    {
+      "id": "schema.plan_v1_compat",
+      "status": "supported"
+    },
+    {
+      "id": "schema.compile_v1_compat",
+      "status": "supported"
+    },
+    {
+      "id": "protocol.pyjyd_wire",
+      "status": "supported"
+    },
+    {
+      "id": "project.create",
+      "status": "supported"
+    },
+    {
+      "id": "project.edit_isolated",
+      "status": "supported"
+    },
+    {
+      "id": "project.inspect",
+      "status": "supported"
+    },
+    {
+      "id": "project.diagnose",
+      "status": "supported"
+    },
+    {
+      "id": "project.fixture",
+      "status": "supported"
+    },
+    {
+      "id": "project.compile",
+      "status": "supported"
+    },
+    {
+      "id": "project.export_timeline",
+      "status": "supported"
+    },
+    {
+      "id": "project.import_timeline",
+      "status": "supported"
+    },
+    {
+      "id": "project.prune",
+      "status": "supported"
+    },
+    {
+      "id": "project.cover",
+      "status": "supported"
+    },
+    {
+      "id": "project.cut",
+      "status": "supported"
+    },
+    {
+      "id": "project.verify",
+      "status": "supported"
+    },
+    {
+      "id": "job.run",
+      "status": "supported"
+    },
+    {
+      "id": "job.edit.replace_text",
+      "status": "supported"
+    },
+    {
+      "id": "job.edit.move_segment",
+      "status": "supported"
+    },
+    {
+      "id": "job.edit.remove_segment",
+      "status": "supported"
+    },
+    {
+      "id": "job.edit.add_material",
+      "status": "partial"
+    },
+    {
+      "id": "job.edit.add_segment",
+      "status": "partial"
+    },
+    {
+      "id": "job.lifecycle",
+      "status": "supported"
+    },
+    {
+      "id": "job.show",
+      "status": "supported"
+    },
+    {
+      "id": "job.retry",
+      "status": "supported"
+    },
+    {
+      "id": "job.audit",
+      "status": "supported"
+    },
+    {
+      "id": "job.batch",
+      "status": "supported"
+    },
+    {
+      "id": "job.serve",
+      "status": "supported"
+    },
+    {
+      "id": "media.probe",
+      "status": "supported"
+    },
+    {
+      "id": "media.catalogue",
+      "status": "supported"
+    },
+    {
+      "id": "media.enums",
+      "status": "supported"
+    },
+    {
+      "id": "media.harvest_enums",
+      "status": "supported"
+    },
+    {
+      "id": "media.materials",
+      "status": "supported"
+    },
+    {
+      "id": "media.material",
+      "status": "supported"
+    },
+    {
+      "id": "media.add",
+      "status": "supported"
+    },
+    {
+      "id": "media.replace",
+      "status": "supported"
+    },
+    {
+      "id": "media.relink",
+      "status": "supported"
+    },
+    {
+      "id": "media.audio",
+      "status": "supported"
+    },
+    {
+      "id": "media.analysis",
+      "status": "supported"
+    },
+    {
+      "id": "media.tts_local",
+      "status": "supported"
+    },
+    {
+      "id": "media.tts_provider",
+      "status": "partial"
+    },
+    {
+      "id": "media.sfx",
+      "status": "supported"
+    },
+    {
+      "id": "media.sticker",
+      "status": "supported"
+    },
+    {
+      "id": "captions.list",
+      "status": "supported"
+    },
+    {
+      "id": "captions.get",
+      "status": "supported"
+    },
+    {
+      "id": "captions.edit",
+      "status": "supported"
+    },
+    {
+      "id": "captions.import",
+      "status": "supported"
+    },
+    {
+      "id": "captions.export",
+      "status": "supported"
+    },
+    {
+      "id": "captions.style",
+      "status": "supported"
+    },
+    {
+      "id": "captions.style_ranges",
+      "status": "supported"
+    },
+    {
+      "id": "captions.bubble",
+      "status": "supported"
+    },
+    {
+      "id": "captions.animation",
+      "status": "supported"
+    },
+    {
+      "id": "captions.translate",
+      "status": "supported"
+    },
+    {
+      "id": "captions.verify",
+      "status": "partial"
+    },
+    {
+      "id": "template.library",
+      "status": "supported"
+    },
+    {
+      "id": "template.preset",
+      "status": "supported"
+    },
+    {
+      "id": "template.duplicate",
+      "status": "supported"
+    },
+    {
+      "id": "template.import_track",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.edit",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.show",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.duplicate",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.remove",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.matting",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.chroma",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.mask",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.background_blur",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.volume",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.audio_fade",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.filter",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.effect",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.crop",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.keyframe",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.animation",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.quantization_report",
+      "status": "supported"
+    },
+    {
+      "id": "timeline.transition",
+      "status": "supported"
+    },
+    {
+      "id": "render.proxy",
+      "status": "supported"
+    },
+    {
+      "id": "render.batch_proxy",
+      "status": "supported"
+    },
+    {
+      "id": "render.native",
+      "status": "external_dependency"
+    },
+    {
+      "id": "render.native_task",
+      "status": "partial"
+    },
+    {
+      "id": "runtime.status",
+      "status": "partial"
+    },
+    {
+      "id": "runtime.discovery",
+      "status": "supported"
+    },
+    {
+      "id": "runtime.profile",
+      "status": "partial"
+    },
+    {
+      "id": "runtime.profile.windows",
+      "status": "external_dependency"
+    },
+    {
+      "id": "runtime.edit_isolated",
+      "status": "partial"
+    },
+    {
+      "id": "media.asr_provider",
+      "status": "partial"
+    },
+    {
+      "id": "media.asr_whisper_cpp",
+      "status": "supported"
+    },
+    {
+      "id": "media.asr_ledger",
+      "status": "supported"
+    },
+    {
+      "id": "store.list",
+      "status": "supported"
+    },
+    {
+      "id": "store.register",
+      "status": "supported"
+    },
+    {
+      "id": "store.rename",
+      "status": "supported"
+    },
+    {
+      "id": "store.sync",
+      "status": "supported"
+    },
+    {
+      "id": "store.backup",
+      "status": "supported"
+    },
+    {
+      "id": "store.restore",
+      "status": "supported"
+    },
+    {
+      "id": "store.decrypt_detection",
+      "status": "supported"
+    },
+    {
+      "id": "store.directories",
+      "status": "supported"
+    },
+    {
+      "id": "approvals",
+      "status": "supported"
+    },
+    {
+      "id": "config",
+      "status": "supported"
+    },
+    {
+      "id": "mcp.serve",
+      "status": "supported"
+    },
+    {
+      "id": "mcp.stdio",
+      "status": "supported"
+    },
+    {
+      "id": "mcp.streamable_http",
+      "status": "supported"
+    },
+    {
+      "id": "mcp.sse_response",
+      "status": "supported"
+    },
+    {
+      "id": "mcp.job_lifecycle",
+      "status": "supported"
+    }
+  ],
+  "captured_on": "2026-09-21",
+  "binary_sha256": "474b84e4d704dc47921cb1e0414afcd06257cc606cb0e5b19b4ba092e4557d60",
+  "warning": "历史二进制观察仅用于引用校验；执行前重新握手，不证明场景原生验收"
+}

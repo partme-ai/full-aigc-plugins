@@ -1,0 +1,13 @@
+{
+  "name": "jianying-draft-plugin",
+  "version": "0.29.7",
+  "private": true,
+  "type": "module",
+  "main": "./dsh/lib/index.js",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "icon": "./dsh/icon.png"
+}

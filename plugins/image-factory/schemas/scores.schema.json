@@ -1,0 +1,420 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/full-aigc-plugins/image-factory-plugin/schemas/scores.schema.json",
+  "title": "BatchScores",
+  "description": "Evaluation output for one batch round. Deterministic gates are the primary verdict; the model-authored advisory score is recorded as a signal only, and human labels are captured so the advisory can be calibrated against real decisions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "batch_id",
+    "round",
+    "pass_threshold",
+    "deterministic_gates",
+    "advisory",
+    "reviewer_reports",
+    "human_labels",
+    "decision"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.4.0"
+    },
+    "batch_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]{2,63}$"
+    },
+    "round": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "pass_threshold": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "deterministic_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_passed",
+        "per_item"
+      ],
+      "properties": {
+        "all_passed": {
+          "type": "boolean"
+        },
+        "per_item": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/gateResult"
+          }
+        }
+      }
+    },
+    "advisory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "items"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/advisoryScore"
+          }
+        }
+      }
+    },
+    "human_labels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/humanLabel"
+      }
+    },
+    "reviewer_reports": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "$ref": "#/$defs/reviewerReport"
+      }
+    },
+    "near_duplicate_policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "algorithms", "thresholds", "min_matches"],
+      "properties": {
+        "version": {"enum": ["average-hash-8x8-luma-v1", "multi-hash-v1"]},
+        "algorithms": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "ahash": {"const": "average-hash-8x8-luma-v1"},
+            "dhash": {"const": "difference-hash-9x8-luma-v1"},
+            "phash": {"const": "dct-phash-32x32-luma-v1"}
+          }
+        },
+        "thresholds": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "ahash": {"type": "integer", "minimum": 0, "maximum": 64},
+            "dhash": {"type": "integer", "minimum": 0, "maximum": 64},
+            "phash": {"type": "integer", "minimum": 0, "maximum": 64}
+          }
+        },
+        "min_matches": {"type": "integer", "minimum": 1, "maximum": 3}
+      }
+    },
+    "decision": {
+      "enum": [
+        "pass",
+        "fail",
+        "pending_approval"
+      ]
+    }
+  },
+  "$defs": {
+    "gateResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "item_id",
+        "passed",
+        "failures"
+      ],
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "failures": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "not_a_png",
+              "below_min_dimension",
+              "duplicate_content",
+              "hash_mismatch",
+              "missing_artifact",
+              "failed_pixel_check"
+              ,"aspect_ratio_out_of_range"
+              ,"near_duplicate_content"
+              ,"perceptual_hash_unavailable"
+            ]
+          }
+        },
+        "pixel_checks": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "passed",
+              "measured",
+              "expected"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "corner-colour",
+                  "min-margin",
+                  "ink-colour"
+                ]
+              },
+              "passed": {
+                "type": "boolean"
+              },
+              "measured": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "expected": {
+                "type": "string",
+                "maxLength": 200
+              }
+            }
+          }
+        },
+        "aspect_ratio": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["measured", "expected"],
+          "properties": {
+            "measured": {"type": "number", "exclusiveMinimum": 0},
+            "expected": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["min", "max"],
+              "properties": {
+                "min": {"type": "number", "exclusiveMinimum": 0},
+                "max": {"type": "number", "exclusiveMinimum": 0}
+              }
+            }
+          }
+        },
+        "perceptual_hash": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["algorithm", "value"],
+          "properties": {
+            "algorithm": {"const": "average-hash-8x8-luma-v1"},
+            "value": {"type": "string", "pattern": "^[0-9a-f]{16}$"}
+          }
+        },
+        "perceptual_hashes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ahash", "dhash", "phash"],
+          "properties": {
+            "ahash": {"$ref": "#/$defs/averageHash"},
+            "dhash": {"$ref": "#/$defs/differenceHash"},
+            "phash": {"$ref": "#/$defs/perceptualHash"}
+          }
+        },
+        "near_duplicate_evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["peer_item_id", "policy_version", "distances", "matched"],
+            "properties": {
+              "peer_item_id": {"type": "string", "minLength": 1},
+              "policy_version": {"enum": ["average-hash-8x8-luma-v1", "multi-hash-v1"]},
+              "distances": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ahash": {"type": "integer", "minimum": 0, "maximum": 64},
+                  "dhash": {"type": "integer", "minimum": 0, "maximum": 64},
+                  "phash": {"type": "integer", "minimum": 0, "maximum": 64}
+                }
+              },
+              "matched": {"type": "boolean"}
+            }
+          }
+        },
+        "near_duplicate_with": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "averageHash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "value"],
+      "properties": {
+        "algorithm": {"const": "average-hash-8x8-luma-v1"},
+        "value": {"type": "string", "pattern": "^[0-9a-f]{16}$"}
+      }
+    },
+    "differenceHash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "value"],
+      "properties": {
+        "algorithm": {"const": "difference-hash-9x8-luma-v1"},
+        "value": {"type": "string", "pattern": "^[0-9a-f]{16}$"}
+      }
+    },
+    "perceptualHash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "value"],
+      "properties": {
+        "algorithm": {"const": "dct-phash-32x32-luma-v1"},
+        "value": {"type": "string", "pattern": "^[0-9a-f]{16}$"}
+      }
+    },
+    "advisoryScore": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "item_id",
+        "score",
+        "reason"
+      ],
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reason": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "dimensions": {
+          "type": "array",
+          "maxItems": 16,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "score"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "evidence": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "complete": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "reviewerReport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "batch_id", "round", "reviewer", "items", "authority"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "batch_id": {"type": "string", "minLength": 1},
+        "round": {"type": "integer", "minimum": 1},
+        "authority": {"const": "advisory"},
+        "reviewer": {"$ref": "#/$defs/reviewerIdentity"},
+        "items": {"type": "array", "items": {"$ref": "#/$defs/reviewerItem"}}
+      }
+    },
+    "reviewerIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "capabilities", "model", "provider", "confidence_threshold"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1},
+        "capabilities": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "model": {"type": ["string", "null"], "minLength": 1},
+        "provider": {"type": ["string", "null"], "minLength": 1},
+        "confidence_threshold": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "reviewerItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item_id", "findings"],
+      "properties": {
+        "item_id": {"type": "string", "minLength": 1},
+        "findings": {"type": "array", "items": {"$ref": "#/$defs/reviewerFinding"}}
+      }
+    },
+    "reviewerFinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "score", "confidence", "evidence", "region", "uncertain"],
+      "properties": {
+        "dimension": {"type": "string", "minLength": 1},
+        "score": {"type": "number", "minimum": 0, "maximum": 1},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "evidence": {"type": "string", "minLength": 1, "maxLength": 2000},
+        "uncertain": {"type": "boolean"},
+        "region": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["x", "y", "width", "height"],
+          "properties": {
+            "x": {"type": "number", "minimum": 0, "maximum": 1},
+            "y": {"type": "number", "minimum": 0, "maximum": 1},
+            "width": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+            "height": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}
+          }
+        }
+      }
+    },
+    "humanLabel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "item_id",
+        "label"
+      ],
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "enum": [
+            "approved",
+            "rejected",
+            "unlabeled"
+          ]
+        },
+        "at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {"type": "string", "maxLength": 2000}
+      }
+    }
+  }
+}

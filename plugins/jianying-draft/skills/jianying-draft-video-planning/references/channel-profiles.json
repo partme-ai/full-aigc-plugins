@@ -1,0 +1,41 @@
+{
+  "schema": "jianying-channel-profiles/v1",
+  "policy": "比例和节奏仅为编辑建议；发布时由宿主查验平台当前规则。模板不声明实时官方限制。",
+  "profiles": [
+    {
+      "id": "custom",
+      "name": "自定义/未定",
+      "suggested_ratio": null
+    },
+    {
+      "id": "short_vertical",
+      "name": "短视频竖屏",
+      "suggested_ratio": "9:16",
+      "notes": "优先主体可见、字幕安全区和静音可读；UI遮挡按实际平台预览"
+    },
+    {
+      "id": "long_horizontal",
+      "name": "长视频横屏",
+      "suggested_ratio": "16:9",
+      "notes": "保留章节、上下文和清晰的空间关系"
+    },
+    {
+      "id": "private_event",
+      "name": "婚礼/家庭/活动私密播放",
+      "suggested_ratio": null,
+      "notes": "先确认现场屏幕、播放设备、音轨和隐私范围"
+    },
+    {
+      "id": "course",
+      "name": "课程/企业培训",
+      "suggested_ratio": "16:9",
+      "notes": "步骤可跟随与屏幕内容清晰优先"
+    },
+    {
+      "id": "ad",
+      "name": "广告投放",
+      "suggested_ratio": null,
+      "notes": "按投放版位确认规格，独立审核主张、资质和行动入口"
+    }
+  ]
+}

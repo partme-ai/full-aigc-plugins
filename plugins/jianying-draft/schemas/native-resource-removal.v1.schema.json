@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-native-resource-removal/v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "request_id",
+    "state",
+    "resource_id",
+    "draft_path",
+    "target_digest",
+    "application_digest",
+    "approval_id",
+    "snapshot_id",
+    "removal_id",
+    "adapter_identity",
+    "actions",
+    "removal_digest",
+    "artifacts"
+  ],
+  "properties": {
+    "schema": {"const": "jianying-native-resource-removal/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "state": {"const": "verified_removed"},
+    "resource_id": {"type": "string", "minLength": 1},
+    "draft_path": {"type": "string", "minLength": 1},
+    "target_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "application_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "approval_id": {"type": "string", "minLength": 1},
+    "snapshot_id": {"type": "string", "minLength": 1},
+    "removal_id": {"type": "string", "minLength": 1},
+    "adapter_identity": {"type": "object", "additionalProperties": true},
+    "actions": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"type": "object", "additionalProperties": true}
+    },
+    "removal_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "artifacts": {
+      "type": "object",
+      "required": ["removal_path"],
+      "properties": {
+        "removal_path": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

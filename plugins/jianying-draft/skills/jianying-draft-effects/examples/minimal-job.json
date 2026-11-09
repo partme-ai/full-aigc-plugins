@@ -1,0 +1,9 @@
+{
+  "schema": "jianying-job/v2",
+  "operation": "edit",
+  "project": {
+    "type": "existing",
+    "source": "/absolute/path/to/effect-source-draft",
+    "output": "/absolute/path/to/effect-working-copy"
+  }
+}

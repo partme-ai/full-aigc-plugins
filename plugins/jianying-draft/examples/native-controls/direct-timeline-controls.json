@@ -1,0 +1,20 @@
+[
+  {
+    "request_id": "split-intro",
+    "semantic_id": "timeline.segment.split",
+    "arguments": {
+      "draft": "/tmp/jianying-example-draft",
+      "segment_id": "segment-intro",
+      "at": "1s"
+    }
+  },
+  {
+    "request_id": "move-title",
+    "semantic_id": "timeline.segment.move",
+    "arguments": {
+      "draft": "/tmp/jianying-example-draft",
+      "segment_id": "segment-title",
+      "offset": "500ms"
+    }
+  }
+]

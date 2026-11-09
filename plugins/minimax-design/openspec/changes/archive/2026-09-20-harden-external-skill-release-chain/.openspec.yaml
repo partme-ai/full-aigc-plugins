@@ -1,0 +1,3 @@
+schema: spec-driven
+created: 2026-09-20
+goal: MiniMax 外部技能只从不可变正式发布同步，插件专属技能和三端分发契约可验证。

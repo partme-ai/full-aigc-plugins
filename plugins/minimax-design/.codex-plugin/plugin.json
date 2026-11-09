@@ -1,0 +1,53 @@
+{
+  "name": "minimax-design",
+  "version": "0.5.2+codex.20261109",
+  "description": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
+  "author": {
+    "name": "Full Stack Skills / PartMe.AI",
+    "url": "https://github.com/partme-ai"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/minimax-design-plugin",
+  "repository": "https://github.com/full-aigc-plugins/minimax-design-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "minimax",
+    "hailuo",
+    "design",
+    "video-generation",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "MiniMax（AI 视频生成）",
+    "shortDescription": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
+    "longDescription": "Generate MiniMax Hailuo videos through a deterministic client with environment-variable authentication, first/last-frame composition anchored by white-model previs frames, resumable async queries, and verbatim vendored mmx toolkit skills for text, image, speech, and music generation.",
+    "developerName": "Full Stack Skills / PartMe.AI",
+    "category": "Creativity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/full-aigc-plugins/minimax-design-plugin",
+    "privacyPolicyURL": "https://github.com/full-aigc-plugins/minimax-design-plugin/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/full-aigc-plugins/minimax-design-plugin/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Check my MiniMax credentials and generate a test video",
+      "Turn these white-model first/last frames into a Hailuo video",
+      "Generate background music for my episode with MiniMax"
+    ],
+    "brandColor": "#7C5CFF",
+    "composerIcon": "./assets/official-logo.png",
+    "logo": "./assets/official-logo.png",
+    "logoDark": "./assets/official-logo.png",
+    "screenshots": [],
+    "composerIconDark": "./assets/official-logo.png"
+  },
+  "displayName": "MiniMax（AI 视频生成）",
+  "displayName_i18n": {
+    "zh-CN": "MiniMax（AI 视频生成）"
+  },
+  "description_i18n": {
+    "zh-CN": "MiniMax H3 视频生成，环境变量鉴权、白模首尾帧锚定、可恢复查询与校验下载。"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映动画与变速"
+  short_description: "规划变换、关键帧、动画和速度变化，检查帧量化与播放效果"
+  default_prompt: "使用 $jianying-draft-motion 规划变换、关键帧、动画和速度变化，检查帧量化与播放效果；先核对输入、可用能力和交付要求。"

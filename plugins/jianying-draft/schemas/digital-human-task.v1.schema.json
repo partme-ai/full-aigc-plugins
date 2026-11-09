@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-digital-human-task/v1",
+  "type": "object",
+  "required": ["schema", "request_id", "request_digest", "provider", "provider_version", "status", "vendor_request_id", "remote_task_id", "estimated_cost_microunits", "actual_cost_microunits", "artifact"],
+  "properties": {
+    "schema": {"const": "jianying-digital-human-task/v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "request_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "provider": {"type": "string", "minLength": 1},
+    "provider_version": {"type": "string", "minLength": 1},
+    "status": {"enum": ["submitted", "running", "completed", "failed", "cancelled", "ambiguous"]},
+    "vendor_request_id": {"type": ["string", "null"]},
+    "remote_task_id": {"type": ["string", "null"]},
+    "estimated_cost_microunits": {"type": "number"},
+    "actual_cost_microunits": {"type": ["number", "null"]},
+    "artifact": {"type": ["object", "null"]}
+  },
+  "additionalProperties": false
+}

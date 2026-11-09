@@ -14,19 +14,23 @@ import { execFileSync } from 'node:child_process'
 
 const root = path.resolve(import.meta.dirname, '..')
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json'), 'utf8'))
-const repos = path.resolve(root, '..', `${catalog.name}-repositories`)
+const previous = JSON.parse(execFileSync('git', ['-C', root, 'show', 'HEAD:dsh/index.json'], { encoding: 'utf8' })).plugins
 const entries = [...(catalog.plugins ?? []), ...(catalog.candidatePlugins ?? [])]
 const plugins = []
 for (const entry of entries) {
-  const repoDir = path.join(repos, entry.localDirectory)
-  const pkgFile = path.join(repoDir, 'dsh/package.json')
-  if (!fs.existsSync(pkgFile)) {
-    console.warn(`skip ${entry.id}: no dsh/package.json`)
+  const repoDir = path.resolve(root, '..', `${entry.repository.split('/')[0]}-repositories`, entry.localDirectory)
+  const ref = `v${entry.version}`
+  let pkg
+  try {
+    pkg = JSON.parse(execFileSync('git', ['-C', repoDir, 'show', `${ref}:dsh/package.json`], { encoding: 'utf8' }))
+  } catch {
+    const retained = previous.find(plugin => plugin.name === entry.id)
+    if (retained) plugins.push(retained)
+    else console.warn(`skip ${entry.id}: no dsh/package.json`)
     continue
   }
-  const pkg = JSON.parse(fs.readFileSync(pkgFile, 'utf8'))
-  const commit = execFileSync('git', ['-C', repoDir, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()
-  const timestamp = Number(execFileSync('git', ['-C', repoDir, 'show', '-s', '--format=%ct', 'HEAD'], { encoding: 'utf8' }).trim())
+  const commit = execFileSync('git', ['-C', repoDir, 'rev-parse', `${ref}^{commit}`], { encoding: 'utf8' }).trim()
+  const timestamp = Number(execFileSync('git', ['-C', repoDir, 'show', '-s', '--format=%ct', commit], { encoding: 'utf8' }).trim())
   const logo = typeof entry.logo === 'string' ? entry.logo.replace(/^\.\//, '') : undefined
   plugins.push({
     name: pkg.name,

@@ -29,7 +29,7 @@
 
 本仓库与技能侧的 [Full AIGC Skills](https://github.com/partme-ai/full-aigc-skills) 对位：技能侧沉淀「怎么想」的领域知识（提示词工程、工作流方法论），插件侧提供「能做到」的可执行能力（MCP 工具、生成流水线、审批与校验门禁）。两者按同一套领域划分共建同一个生态。
 
-> 本仓库只包含市场元数据（catalog 与三平台清单），不包含插件运行时代码。每个插件在各自独立仓库中维护，通过 `catalog.json` 单一事实源对齐 ID、名称、版本、分类与仓库地址。
+> 本仓库包含市场元数据和已发布插件的固定版本聚合包；Craft 候选包仍从远程 Release 安装。每个插件在各自独立仓库中维护，通过 `catalog.json` 单一事实源对齐 ID、名称、版本、分类与仓库地址。
 
 ### 覆盖领域
 
@@ -66,6 +66,8 @@
 
 ---
 
+聚合目录与本地市场的构建方式参考 [ZCode 官方插件仓的市场结构](https://github.com/zai-org/zcode-plugins)：市场清单使用相对 `./plugins/<id>` 来源，完整插件目录随本地分发目录复制。独立插件代码和历史来源见各包仓库；本仓只生成固定版本副本。
+
 ## 安装
 
 ### Codex
@@ -81,7 +83,6 @@ codex plugin add image-factory@full-aigc-plugins
 codex plugin add jianying-edit@full-aigc-plugins
 codex plugin add maya-design@full-aigc-plugins
 codex plugin add minimax-design@full-aigc-plugins
-codex plugin add pdfcraft@full-aigc-plugins  # 开发预发布，仅用于受控测试
 codex plugin add video-factory@full-aigc-plugins
 codex plugin add volcengine-design@full-aigc-plugins
 ```
@@ -100,23 +101,12 @@ codex plugin add volcengine-design@full-aigc-plugins
 
 ## 插件目录
 
+CADCraft、DeckCraft、DesignCraft、EffectCraft、FigCraft、FilmCraft、GridCraft、LightCraft、PdfCraft、PhotoCraft、SoundCraft、VectorCraft、WordCraft 的市场入口已迁至 [Full Work Plugins](https://github.com/partme-ai/full-work-plugins)；独立插件仓和预发布 Release 仍由 [full-aigc-plugins](https://github.com/full-aigc-plugins) 维护。
+
 以下为 **AIGC** 插件；点击插件名称或仓库链接查看各插件文档，另一分类请使用上方市场入口。
 
 | 插件 | ID | 版本 | 定位 | 仓库 |
 |------|----|:----:|------|------|
-| [**CADCraft（三维制图）**](https://github.com/full-aigc-plugins/cadcraft-plugin) | `cadcraft` | 0.1.0-dev.20261109.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [cadcraft-plugin](https://github.com/full-aigc-plugins/cadcraft-plugin) |
-| [**DeckCraft（演示文稿）**](https://github.com/full-aigc-plugins/deckcraft-plugin) | `deckcraft` | 0.1.0-dev.20261109.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [deckcraft-plugin](https://github.com/full-aigc-plugins/deckcraft-plugin) |
-| [**DesignCraft（页面排版）**](https://github.com/full-aigc-plugins/designcraft-plugin) | `designcraft` | 0.1.0-dev.20261109.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [designcraft-plugin](https://github.com/full-aigc-plugins/designcraft-plugin) |
-| [**EffectCraft Use (RC)**](https://github.com/full-aigc-plugins/effectcraft-plugin) | `effectcraft` | 0.1.0-dev.20261018.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [effectcraft-plugin](https://github.com/full-aigc-plugins/effectcraft-plugin) |
-| [**FigCraft Use (RC)**](https://github.com/full-aigc-plugins/figcraft-plugin) | `figcraft` | 0.1.0-dev.20261019.2 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [figcraft-plugin](https://github.com/full-aigc-plugins/figcraft-plugin) |
-| [**FilmCraft Use (RC)**](https://github.com/full-aigc-plugins/filmcraft-plugin) | `filmcraft` | 0.1.0-dev.20261018.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [filmcraft-plugin](https://github.com/full-aigc-plugins/filmcraft-plugin) |
-| [**GridCraft（电子表格）**](https://github.com/full-aigc-plugins/gridcraft-plugin) | `gridcraft` | 0.1.0-dev.20261109.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [gridcraft-plugin](https://github.com/full-aigc-plugins/gridcraft-plugin) |
-| [**LightCraft Use (RC)**](https://github.com/full-aigc-plugins/lightcraft-plugin) | `lightcraft` | 0.1.0-dev.20261018.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [lightcraft-plugin](https://github.com/full-aigc-plugins/lightcraft-plugin) |
-| [**PhotoCraft（图片编辑）**](https://github.com/full-aigc-plugins/photocraft-plugin) | `photocraft` | 0.1.0-dev.20261109.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [photocraft-plugin](https://github.com/full-aigc-plugins/photocraft-plugin) |
-| [**PdfCraft（PDF 处理）**](https://github.com/full-aigc-plugins/pdfcraft-plugin) | `pdfcraft` | 0.1.0-dev.20261109.4 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [pdfcraft-plugin](https://github.com/full-aigc-plugins/pdfcraft-plugin) |
-| [**SoundCraft（音频处理）**](https://github.com/full-aigc-plugins/soundcraft-plugin) | `soundcraft` | 0.1.0-dev.20261109.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [soundcraft-plugin](https://github.com/full-aigc-plugins/soundcraft-plugin) |
-| [**VectorCraft（矢量设计）**](https://github.com/full-aigc-plugins/vectorcraft-plugin) | `vectorcraft` | 0.1.0-dev.20261109.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [vectorcraft-plugin](https://github.com/full-aigc-plugins/vectorcraft-plugin) |
-| [**WordCraft（文档写作）**](https://github.com/full-aigc-plugins/wordcraft-plugin) | `wordcraft` | 0.1.0-dev.20261109.5 | 场景技能、stdio MCP 与同会话编辑器；开发候选，完整创作验收未完成 | [wordcraft-plugin](https://github.com/full-aigc-plugins/wordcraft-plugin) |
 | [🧱 **Blender 制作**](https://github.com/full-aigc-plugins/blender-design-plugin) | `blender-design` | 0.16.2 | Blender 场景的受控设计、审阅与导出（四 Tab 工作台、供应商能力、视觉里程碑与恢复检查点）；新增 `blender-ai-replication`（LLM + VLM-critic 复刻参考图） | [blender-design-plugin](https://github.com/full-aigc-plugins/blender-design-plugin) |
 | [🎞️ **Comfy 生成**](https://github.com/full-aigc-plugins/comfy-design-plugin) | `comfy-design` | 0.6.2 | Comfy Cloud 生成工作流（图像 / 视频 / 音频 / 3D） | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
 | [🧪 **内容工厂（RC）**](https://github.com/full-aigc-plugins/content-factory-plugin) | `content-factory` | 1.0.0-rc.4 | 16 渠道的受控内容创作、审阅、排版与导出；预发布测试版，非生产就绪 | [content-factory-plugin](https://github.com/full-aigc-plugins/content-factory-plugin) |
@@ -134,13 +124,15 @@ codex plugin add volcengine-design@full-aigc-plugins
 
 > 规划仓 [`cine-planning`](https://github.com/full-aigc-plugins/cine-planning)（`director` / `script` / `storyboard` 纯规格）按 `design_baseline_not_released` 状态跟随本市场管理，在自身发布边界完成前不进入任何可安装清单。
 
-> 候选插件 [`content-factory-plugin`](https://github.com/full-aigc-plugins/content-factory-plugin) 仍由 `candidatePlugins` 独立管理。`1.0.0-rc.2` 以 `release_candidate_installable` 状态进入 现有宿主清单，可用于受控测试安装；其正式发布门禁仍为 `BLOCKED`，不得视为生产就绪或稳定版。
+> 候选插件 [`content-factory-plugin`](https://github.com/full-aigc-plugins/content-factory-plugin) 仍由 `candidatePlugins` 独立管理。`1.0.0-rc.4` 以 `release_candidate_installable` 状态进入 现有宿主清单，可用于受控测试安装；其正式发布门禁仍为 `BLOCKED`，不得视为生产就绪或稳定版。
 
 ---
 
 ## 架构
 
 ### 市场如何工作
+
+`python3 scripts/sync-aggregated-packages.py --write` 从独立仓库版本标签重建 `plugins/`；`node scripts/build-local-marketplace.mjs` 构建 `dist/local-marketplace/`，将完整插件目录复制进去。默认不传 `--write` 时，聚合脚本只校验。Craft 候选仅保留远程市场源，不复制包内容。
 
 `catalog.json` 是唯一事实源。`scripts/sync-marketplaces.mjs` 从它生成三平台清单，并校验每个插件仓的 skills 目录（frontmatter、命名一致性）、候选插件的明确状态（隐藏阻断或 RC 测试安装）、不可变发布身份与规划仓约束（不得发布 manifest）：
 

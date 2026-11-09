@@ -1,0 +1,53 @@
+{
+  "name": "jianying-draft",
+  "version": "0.29.7+codex.20261109",
+  "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。",
+  "author": {
+    "name": "Full Stack Skills / PartMe.AI",
+    "url": "https://github.com/partme-ai"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/jianying-draft-plugin",
+  "repository": "https://github.com/full-aigc-plugins/jianying-draft-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "jianying",
+    "capcut",
+    "video-editing",
+    "draft-generation",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "JianYing Draft（剪映草稿编排）",
+    "shortDescription": "草稿、字幕、音频与特效，Rust 单栈编排",
+    "longDescription": "Cross-host JianYing automation through one checksum-verified Rust jianying-cli Runtime Adapter. The plugin compiles jianying-job/v2, preserves task IDs and structured errors, verifies capability and skill locks, and distinguishes editable drafts, proxy previews, playback evidence, and approval-gated native export.",
+    "developerName": "Full Stack Skills / PartMe.AI",
+    "category": "Creativity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/full-aigc-plugins/jianying-draft-plugin",
+    "privacyPolicyURL": "https://github.com/full-aigc-plugins/jianying-draft-plugin/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/full-aigc-plugins/jianying-draft-plugin/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Detect my JianYing environment",
+      "Turn this edit plan into a JianYing draft",
+      "Assemble my episode clips into a JianYing draft"
+    ],
+    "brandColor": "#1E90FF",
+    "composerIcon": "./assets/official-logo.png",
+    "logo": "./assets/official-logo.png",
+    "logoDark": "./assets/official-logo.png",
+    "screenshots": [],
+    "composerIconDark": "./assets/official-logo.png"
+  },
+  "displayName": "JianYing Draft（剪映草稿编排）",
+  "displayName_i18n": {
+    "zh-CN": "JianYing Draft（剪映草稿编排）"
+  },
+  "description_i18n": {
+    "zh-CN": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。"
+  }
+}

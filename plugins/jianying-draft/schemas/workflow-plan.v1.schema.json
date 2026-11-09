@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-workflow-plan/v1",
+  "type": "object",
+  "properties": {
+    "schema": {"const": "jianying-workflow-plan/v1"},
+    "workflow_id": {"type": "string", "minLength": 1},
+    "revision": {"type": "number"},
+    "catalog_ref": {"type": "object", "additionalProperties": true},
+    "tool_requirements": {"type": "object", "additionalProperties": true},
+    "brief": {"type": "object", "additionalProperties": true},
+    "assets": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "route": {"type": "object", "additionalProperties": true},
+    "outputs": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "steps": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "limits": {"type": "object", "additionalProperties": true},
+    "risk_requirements": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "proof_requirements": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "metadata": {"type": "object", "additionalProperties": true},
+    "creative_targets": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "iteration_policy": {"type": "object", "additionalProperties": true}
+  },
+  "required": [
+    "schema", "workflow_id", "revision", "catalog_ref", "tool_requirements", "brief",
+    "assets", "route", "outputs", "steps", "limits", "risk_requirements",
+    "proof_requirements", "metadata"
+  ],
+  "additionalProperties": false
+}

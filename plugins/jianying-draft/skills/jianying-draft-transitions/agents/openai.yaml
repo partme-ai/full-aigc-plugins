@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映转场处理"
+  short_description: "为相邻片段选择转场，核对资源授权、时长范围与播放效果"
+  default_prompt: "使用 $jianying-draft-transitions 为相邻片段选择转场，核对资源授权、时长范围与播放效果；先核对输入、可用能力和交付要求。"

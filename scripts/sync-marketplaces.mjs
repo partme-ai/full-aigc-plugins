@@ -11,6 +11,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const workspace = path.resolve(root, "..", "full-aigc-plugins-repositories");
 const catalog = JSON.parse(fs.readFileSync(path.join(root, "catalog.json"), "utf8"));
 const mode = process.argv.includes("--write") ? "write" : "check";
+const catalogOnly = process.argv.includes("--catalog-only");
 const localeArg = process.argv.find((argument) => argument.startsWith("--locale="));
 const locale = localeArg ? localeArg.slice("--locale=".length) : "en";
 if (!["en", "zh-CN"].includes(locale)) throw new Error(`unsupported --locale=${locale}`);
@@ -62,8 +63,8 @@ const codex = {
   owner: { name: "PartMe.AI", url: "https://github.com/partme-ai" },
   plugins: marketplacePlugins.map((plugin) => ({
     name: plugin.id,
-    source: plugin.codexSourcePath
-      ? { source: "local", path: plugin.codexSourcePath }
+    source: catalog.plugins.some((published) => published.id === plugin.id)
+      ? { source: "local", path: `./plugins/${plugin.id}` }
       : { source: "url", url: `https://github.com/${plugin.repository}.git`, ref: releaseRef(plugin) },
     policy: { installation: "AVAILABLE", authentication: "ON_USE" },
     category: plugin.category,
@@ -299,7 +300,7 @@ const validateSkills = (plugin, repo) => {
   }
 };
 
-for (const planningRepo of filteredCandidateIds.size > 0 ? [] : (catalog.planningRepositories ?? [])) {
+for (const planningRepo of catalogOnly || filteredCandidateIds.size > 0 ? [] : (catalog.planningRepositories ?? [])) {
   const repo = path.join(workspace, planningRepo.localDirectory);
   if (!fs.existsSync(repo)) {
     errors.push(`${planningRepo.name}: missing planning repository ${repo}`);
@@ -320,7 +321,7 @@ for (const planningRepo of filteredCandidateIds.size > 0 ? [] : (catalog.plannin
 
 const installablePluginIds = new Set(catalog.plugins.map(plugin => plugin.id));
 const candidatePluginIds = new Set();
-for (const candidate of candidatePlugins) {
+for (const candidate of catalogOnly ? [] : candidatePlugins) {
   if (remotePluginIds.size > 0) continue;
   if (filteredCandidateIds.size > 0 && !filteredCandidateIds.has(candidate.id)) continue;
   const missingFields = ["id", "displayName", "repository", "localDirectory", "version", "status", "releaseGate"]
@@ -442,7 +443,7 @@ for (const [file, value] of outputs) {
   }
 }
 
-for (let index = 0; index < catalog.plugins.length; index += 1) {
+for (let index = 0; index < (catalogOnly ? 0 : catalog.plugins.length); index += 1) {
   const plugin = catalog.plugins[index];
   if (filteredCandidateIds.size > 0) continue;
   if (remotePluginIds.size > 0 && !remotePluginIds.has(plugin.id)) continue;

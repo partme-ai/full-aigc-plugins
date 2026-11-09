@@ -1,0 +1,484 @@
+{
+  "schema": "jianying-host-run-evidence/v2",
+  "host": "kimi",
+  "evidenceLevel": "real_host",
+  "pluginVersion": "0.27.0",
+  "cliVersion": "1.6.24",
+  "skillsVersion": "2.3.0",
+  "jobSchema": "jianying-job/v2",
+  "jobInput": {
+    "schema": "jianying-job/v2",
+    "operation": "create",
+    "project": {
+      "type": "new",
+      "project": {
+        "name": "formal-three-host-acceptance",
+        "width": 320,
+        "height": 240,
+        "frame_rate": {
+          "numerator": 30,
+          "denominator": 1
+        },
+        "timeline": {
+          "tracks": [
+            {
+              "id": "main-0",
+              "kind": "video",
+              "segments": [
+                {
+                  "type": "video",
+                  "id": "segment-0-0",
+                  "range": {
+                    "start_us": 0,
+                    "duration_us": 1000000
+                  },
+                  "material_id": "material-0-0",
+                  "source_range": {
+                    "start_us": 0,
+                    "duration_us": 1000000
+                  },
+                  "speed": 1,
+                  "volume": 1
+                }
+              ]
+            }
+          ]
+        },
+        "materials": [
+          {
+            "type": "video",
+            "id": "material-0-0",
+            "path": "/tmp/jianying-v0270-release.aTVP2U/host-acceptance-v0270/shared-clip.mp4"
+          }
+        ]
+      }
+    },
+    "compatibility": {
+      "schema": "jianying-cli-plan/v1",
+      "payload": {
+        "schema": "jianying-cli-plan/v1",
+        "name": "formal-three-host-acceptance",
+        "canvas": {
+          "width": 320,
+          "height": 240,
+          "fps": 30
+        },
+        "tracks": [
+          {
+            "type": "video",
+            "name": "main",
+            "segments": [
+              {
+                "source": "/tmp/jianying-v0270-release.aTVP2U/host-acceptance-v0270/shared-clip.mp4",
+                "start_us": 0,
+                "duration_us": 1000000
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "semanticResult": {
+    "jobSchema": "jianying-job/v2",
+    "operation": "create",
+    "verificationOk": true,
+    "evidenceLevel": "editable_draft",
+    "verifiedStages": [
+      "intake",
+      "inventory",
+      "plan",
+      "approve",
+      "execute",
+      "verify",
+      "deliver"
+    ],
+    "cliVersion": "1.6.24"
+  },
+  "jobInputSha256": "afde03f207f2026aeb172e345159bbeaad187c845530723864710450b3c484c7",
+  "resultSemanticSha256": "328eb56f8716ad9e22deee15fa5ef84c6d2753e42bc505bf1391ca1bfcb27349",
+  "executedAt": "2026-09-22T18:15:23.536Z",
+  "checks": {
+    "freshInstall": true,
+    "doctor": true,
+    "skillDiscovery": true,
+    "singleSkillInstall": true,
+    "categoryDiscovery": true,
+    "categoryRouting": true,
+    "selectionExplanation": true,
+    "approval": true,
+    "simpleJob": true,
+    "stop": true,
+    "recovery": true,
+    "evidenceDisplay": true,
+    "nativeExportApproval": true
+  },
+  "checkEvidence": {
+    "freshInstall": {
+      "kind": "host_api",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "host": "kimi",
+        "hostVersion": "0.43.1",
+        "pluginVersion": "0.27.0",
+        "enabled": true,
+        "source": "immutable_release_archive",
+        "releaseTag": "v0.27.0",
+        "releaseUrl": "https://github.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.27.0",
+        "releaseArchiveSha256": "f67a6644bbb92b5541fdbd51e382ba8544a49f8070c496fbeca24b52af32b45d",
+        "sourceCommit": "71b7b7766357f59e06c375f331c4681a11ce5f1a",
+        "state": "ok",
+        "diagnostics": []
+      },
+      "artifactSha256": "f6a2c827e7316c1604e196566b600d8433f02bc918a02709d8fe763a48bd83da"
+    },
+    "doctor": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "ready": true,
+        "cliVersion": "1.6.24",
+        "capabilitySchema": "jianying-capabilities/v1",
+        "skillsReady": true,
+        "mediaToolsReady": true,
+        "qualityLoopGate": {
+          "defaultEnabled": false,
+          "stage": "preview",
+          "defaultFailure": "quality_loop_disabled",
+          "explicitActivation": "explicit_opt_in",
+          "configDigest": "3f5ddb8974cb30dc040eb29e8cbd67d1dde16a0736f81b89d7eac4ea0e4010fb"
+        }
+      },
+      "artifactSha256": "86d904c361a5692a1cd19e6f6a5baca97276b00ce7edb643fc879e83f2b1ddc7"
+    },
+    "skillDiscovery": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "skillCount": 24,
+        "readyCount": 24,
+        "lockedRelease": "v2.3.0"
+      },
+      "artifactSha256": "3d34056d69d0f86a690b4c2ab208f7928aaf8b54ce7c774271f6d7aa751a9a84"
+    },
+    "singleSkillInstall": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "requestedSkill": "jianying-draft-media",
+        "resolvedSkillCount": 1,
+        "ready": true,
+        "digest": "467967d116d56ad1dc1bdbcac5f62c78f9329b56ca2195e667e58cc180fe2628"
+      },
+      "artifactSha256": "b9e26500d4405f2ba01ceb4cdfe680d7af60f1028d676f75d0a95aae8a26ac45"
+    },
+    "categoryDiscovery": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "categoryCount": 13,
+        "categories": [
+          "jianying-draft-media",
+          "jianying-draft-audio",
+          "jianying-draft-text",
+          "jianying-draft-stickers",
+          "jianying-draft-effects",
+          "jianying-draft-transitions",
+          "jianying-draft-subtitles",
+          "jianying-draft-smart-package",
+          "jianying-draft-filters",
+          "jianying-draft-adjustments",
+          "jianying-draft-templates",
+          "jianying-draft-digital-human",
+          "jianying-draft-editing-console"
+        ]
+      },
+      "artifactSha256": "9253f665350479e62c6676a9a2e55262f9e72ee07532f00a314063b07d469f77"
+    },
+    "categoryRouting": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "categoryCount": 13,
+        "actionCount": 106,
+        "routes": [
+          {
+            "skill": "jianying-draft-media",
+            "actionCount": 8,
+            "actions": [
+              "media.import.asset",
+              "media.import.subdraft",
+              "media.import.official",
+              "media.library.inspect",
+              "media.replace.asset",
+              "media.relink.asset",
+              "media.remove.segment",
+              "media.analyze.scenes"
+            ]
+          },
+          {
+            "skill": "jianying-draft-audio",
+            "actionCount": 8,
+            "actions": [
+              "audio.import.asset",
+              "audio.music.search",
+              "audio.sfx.add",
+              "audio.segment.volume",
+              "audio.segment.fade",
+              "audio.asset.replace",
+              "audio.tts.generate",
+              "audio.analysis.silence"
+            ]
+          },
+          {
+            "skill": "jianying-draft-text",
+            "actionCount": 8,
+            "actions": [
+              "text.create.default",
+              "text.create.template",
+              "text.style.base",
+              "text.style.ranges",
+              "text.decorate.bubble",
+              "text.animate.segment",
+              "text.edit.content",
+              "text.remove.segment"
+            ]
+          },
+          {
+            "skill": "jianying-draft-stickers",
+            "actionCount": 8,
+            "actions": [
+              "sticker.catalog.search",
+              "sticker.resource.preview",
+              "sticker.resource.download",
+              "sticker.timeline.add",
+              "sticker.timeline.move",
+              "sticker.timeline.duplicate",
+              "sticker.timeline.remove",
+              "sticker.timeline.inspect"
+            ]
+          },
+          {
+            "skill": "jianying-draft-effects",
+            "actionCount": 8,
+            "actions": [
+              "effect.catalog.search",
+              "effect.resource.preview",
+              "effect.resource.download",
+              "effect.timeline.add_scene",
+              "effect.timeline.add_character",
+              "effect.audio.add",
+              "effect.timeline.inspect",
+              "effect.timeline.remove"
+            ]
+          },
+          {
+            "skill": "jianying-draft-transitions",
+            "actionCount": 7,
+            "actions": [
+              "transition.catalog.search",
+              "transition.resource.preview",
+              "transition.resource.download",
+              "transition.timeline.apply",
+              "transition.timeline.replace",
+              "transition.timeline.remove",
+              "transition.timeline.inspect"
+            ]
+          },
+          {
+            "skill": "jianying-draft-subtitles",
+            "actionCount": 8,
+            "actions": [
+              "caption.timeline.inspect",
+              "caption.timeline.add",
+              "caption.file.import",
+              "caption.content.edit",
+              "caption.style.apply",
+              "caption.translation.apply",
+              "caption.file.export",
+              "caption.timeline.verify"
+            ]
+          },
+          {
+            "skill": "jianying-draft-smart-package",
+            "actionCount": 7,
+            "actions": [
+              "smart_package.style.select",
+              "smart_package.preview.request",
+              "smart_package.proposal.decompose",
+              "smart_package.proposal.approve",
+              "smart_package.apply.changes",
+              "smart_package.review.result",
+              "smart_package.task.resume"
+            ]
+          },
+          {
+            "skill": "jianying-draft-filters",
+            "actionCount": 7,
+            "actions": [
+              "filter.catalog.search",
+              "filter.resource.preview",
+              "filter.resource.download",
+              "filter.timeline.apply",
+              "filter.timeline.replace",
+              "filter.timeline.inspect",
+              "filter.timeline.remove"
+            ]
+          },
+          {
+            "skill": "jianying-draft-adjustments",
+            "actionCount": 6,
+            "actions": [
+              "adjustment.inspect.parameters",
+              "adjustment.basic.set",
+              "adjustment.color.set",
+              "adjustment.detail.set",
+              "adjustment.scope.copy",
+              "adjustment.reset.parameters"
+            ]
+          },
+          {
+            "skill": "jianying-draft-templates",
+            "actionCount": 9,
+            "actions": [
+              "template.library.inspect",
+              "template.library.save",
+              "template.library.apply",
+              "template.draft.duplicate",
+              "template.content.replace_text",
+              "template.content.replace_material",
+              "template.track.import",
+              "template.preset.apply",
+              "template.official.acquire"
+            ]
+          },
+          {
+            "skill": "jianying-draft-digital-human",
+            "actionCount": 9,
+            "actions": [
+              "digital_human.catalog.search",
+              "digital_human.persona.select",
+              "digital_human.voice.select",
+              "digital_human.custom.authorize",
+              "digital_human.preview.request",
+              "digital_human.task.submit",
+              "digital_human.task.resume",
+              "digital_human.artifact.verify",
+              "digital_human.timeline.apply"
+            ]
+          },
+          {
+            "skill": "jianying-draft-editing-console",
+            "actionCount": 13,
+            "actions": [
+              "console.timeline.inspect",
+              "console.segment.split",
+              "console.segment.trim",
+              "console.segment.move",
+              "console.segment.duplicate",
+              "console.segment.remove",
+              "console.track.add",
+              "console.keyframe.add",
+              "console.session.undo",
+              "console.session.redo",
+              "console.session.snap",
+              "console.audio.record",
+              "console.view.zoom"
+            ]
+          }
+        ]
+      },
+      "artifactSha256": "d282d5235b870f0db6b429a13d0b6295581a59cb9f7bd9df37df55ceffce0e1d"
+    },
+    "selectionExplanation": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "status": "planned",
+        "sceneId": "VG01",
+        "sceneName": "日常一天",
+        "recipeId": "R01",
+        "editorialChoice": "用同一动作连接早晚；日常空镜只保留能说明时间变化的部分",
+        "sourceId": "VG01",
+        "nextSteps": [
+          "probe actual media and confirm semantic selections",
+          "construct concrete job/v2 separately",
+          "approve writes and external execution separately"
+        ]
+      },
+      "artifactSha256": "516c6b36e73d70b1c5a68c8ddc37277a6a32b63738c867351e8e169839f20e4b"
+    },
+    "approval": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "mismatchCode": "approval_scope_mismatch",
+        "command": "job.run.create",
+        "targetBound": true,
+        "consumed": true
+      },
+      "artifactSha256": "ff6d15591223976921578b506cfd82ebf3be96fa2b2e477ba32000a2e95b1e15"
+    },
+    "simpleJob": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "jobSchema": "jianying-job/v2",
+        "operation": "create",
+        "verificationOk": true,
+        "terminalState": "completed",
+        "evidenceLevel": "editable_draft"
+      },
+      "artifactSha256": "c8188e20d125b419f10d9438eb360f8640dcecdd4d87a4fdfd0afd89da81adf0"
+    },
+    "stop": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "terminalState": "cancelled",
+        "finalEvent": "task.cancelled"
+      },
+      "artifactSha256": "361ca060ca4e151f45e019ee72dce81054677b6ba4a8639cc47aeefd97f9ba65"
+    },
+    "recovery": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "failedState": "failed",
+        "retryStage": "approve",
+        "approvalsAfterRetry": 0,
+        "finalState": "completed"
+      },
+      "artifactSha256": "ec0480a7abfd215bc044dee118d80ced9a24a476ea9adc1af9ee23a5a5c59793"
+    },
+    "evidenceDisplay": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "auditTerminalState": "completed",
+        "auditHistoryEvents": [
+          "task.started",
+          "approval.granted",
+          "task.completed"
+        ],
+        "requestedLevel": "editable_draft",
+        "actualLevel": "editable_draft",
+        "editableSatisfied": true,
+        "nativeSatisfied": false
+      },
+      "artifactSha256": "cd2bc923e7b05c9f26c27a2c2aaf16cdeafe596ec109c9355b0cd1433795ded4"
+    },
+    "nativeExportApproval": {
+      "kind": "host_command",
+      "observedAt": "2026-09-22T18:15:23.536Z",
+      "artifact": {
+        "target": "/tmp/jianying-v0270-release.aTVP2U/host-acceptance-v0270/formal-native-export.mov",
+        "mismatchCode": "approval_scope_mismatch",
+        "targetBound": true,
+        "approvalStage": "ready",
+        "executionPerformed": false
+      },
+      "artifactSha256": "dd95e0fbfdca1901ef17f2376ab73fa119da0160b62ec31036db035cf01c3cd6"
+    }
+  }
+}

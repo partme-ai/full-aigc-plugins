@@ -1,43 +1,30 @@
-import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
-const names='cadcraft designcraft effectcraft photocraft figcraft filmcraft lightcraft pdfcraft vectorcraft deckcraft soundcraft gridcraft wordcraft'.split(' ');
-const read=p=>JSON.parse(fs.readFileSync(new URL('../'+p,import.meta.url)));
-test('nine Craft names keep their agreed Chinese suffixes in every market',()=>{
- const expected={cadcraft:'CADCraft（三维制图）',deckcraft:'DeckCraft（演示文稿）',designcraft:'DesignCraft（页面排版）',gridcraft:'GridCraft（电子表格）',pdfcraft:'PdfCraft（PDF 处理）',photocraft:'PhotoCraft（图片编辑）',soundcraft:'SoundCraft（音频处理）',vectorcraft:'VectorCraft（矢量设计）',wordcraft:'WordCraft（文档写作）'};
- const catalog=read('catalog.json');
- for(const [name,label] of Object.entries(expected)){
-  const candidate=catalog.candidatePlugins.find(x=>x.id===name);
-  assert.equal(candidate.displayName,label,name+' catalog');
-  assert.equal(candidate.localizations?.['zh-CN']?.displayName,label,name+' localized catalog');
-  for(const prefix of ['', 'candidate-marketplace/']){
-   assert.equal(read(prefix+'marketplace.json').plugins.find(x=>x.name===name).displayName,label,name+' ZCode');
-   assert.equal(read(prefix+'.agents/plugins/marketplace.json').plugins.find(x=>x.name===name).interface.displayName,label,name+' Codex');
-   assert.equal(read(prefix+'kimi-marketplace.json').plugins.find(x=>x.id===name).displayName,label,name+' Kimi');
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const read = relative => JSON.parse(fs.readFileSync(path.join(root, relative), 'utf8'));
+const moved = ['cadcraft', 'deckcraft', 'designcraft', 'effectcraft', 'figcraft', 'filmcraft', 'gridcraft', 'lightcraft', 'pdfcraft', 'photocraft', 'soundcraft', 'vectorcraft', 'wordcraft'];
+
+test('AIGC market excludes all 13 Craft entries now owned by the office market', () => {
+  const catalog = read('catalog.json');
+  for (const id of moved) assert.ok(!catalog.candidatePlugins.some(plugin => plugin.id === id), id);
+  for (const file of ['.agents/plugins/marketplace.json', 'marketplace.json', 'kimi-marketplace.json', 'candidate-marketplace/.agents/plugins/marketplace.json', 'candidate-marketplace/marketplace.json', 'candidate-marketplace/kimi-marketplace.json']) {
+    const entries = read(file).plugins;
+    for (const id of moved) assert.ok(!entries.some(entry => (entry.name ?? entry.id) === id), `${file}: ${id}`);
   }
- }
-});
-test('13 Craft development candidates are discoverable, immutable and use official icons',()=>{
- const catalog=read('catalog.json');for(const name of names){const c=catalog.candidatePlugins.find(x=>x.id===name);assert.ok(c,name+' absent');assert.equal(c.status,'release_candidate_installable');assert.match(c.version,/dev\./);assert.equal(c.logo,'assets/official-logo.png');for(const file of ['.agents/plugins/marketplace.json','marketplace.json','kimi-marketplace.json']){const e=read(file).plugins.find(x=>(x.name||x.id)===name);assert.ok(e,file+' missing '+name);assert.ok((e.description||c.description).length>0);if(e.source?.ref)assert.equal(e.source.ref,'v'+c.version);}}
-});
-test('standalone candidate marketplace contains all 13 pinned plugins without replacing the main marketplace identity',()=>{
- const candidate=read('candidate-marketplace/.agents/plugins/marketplace.json');assert.equal(candidate.name,'full-aigc-craft-candidates');assert.notEqual(candidate.name,read('.agents/plugins/marketplace.json').name);const expected=read('catalog.json').candidatePlugins.filter(p=>p.status==='release_candidate_installable').map(p=>p.id).sort();assert.deepEqual(candidate.plugins.map(p=>p.name).sort(),expected);
- for(const name of names){const c=candidate.plugins.find(e=>e.name===name);const main=read('.agents/plugins/marketplace.json').plugins.find(e=>e.name===name);const repo=read('catalog.json').candidatePlugins.find(p=>p.id===name);assert.deepEqual(c,{...main,source:main.source.source==='local'?{source:'url',url:'https://github.com/'+repo.repository+'.git',ref:'v'+repo.version}:main.source});}
-});
-test('Craft host ZIP listings bind complete release archives and exact digests',()=>{
- const releases=read('docs/craft-marketplace-candidate-releases.json');
- for(const prefix of ['', 'candidate-marketplace/'])for(const name of names){
-  const entry=read(prefix+'marketplace.json').plugins.find(p=>p.name===name),row=releases.find(r=>r.plugin===name&&r.version===entry.version);
-  assert.ok(row,name+' release missing for '+entry.version);
-  if(row.maximumZipEntryBytes>50*1024*1024){assert.equal(entry.source.source,'github');assert.equal(entry.source.ref,'v'+row.version);continue;}
-  assert.equal(entry.source.source,'url');assert.equal(entry.source.type,'zip');assert.equal(entry.source.sha256,row.archiveSha256);assert.equal(entry.source.path,row.archiveRoot??name+'-plugin');assert.equal(entry.source.url,row.releaseUrl.replace('/tag/','/download/')+'/'+row.archive);
- }
+  for (const id of moved) assert.ok(!fs.existsSync(path.join(root, 'plugins', `${id}-plugin`)));
 });
 
-test('Codex Craft entries resolve package icons before installation',()=>{
- for(const name of names){
-  const entry=read('.agents/plugins/marketplace.json').plugins.find(p=>p.name===name);
-  assert.equal(entry.source.source,'local',name+' cannot expose local logo from a Git fallback listing');
-  const manifest=read(entry.source.path+'/plugin.json');
-  assert.equal(manifest.name,name);assert.equal(manifest.version,entry.version);
-  for(const field of ['logo','composerIcon']){const icon=manifest.extensions['com.openai'].interface[field];assert.ok(icon?.startsWith('./'));assert.ok(fs.existsSync(new URL('../'+entry.source.path+'/'+icon,import.meta.url)));}
- }
+test('local ZCode distribution contains published packages without Craft payloads', () => {
+  const distribution = read('dist/local-marketplace/marketplace.json');
+  const catalog = read('catalog.json');
+  for (const plugin of catalog.plugins) {
+    const entry = distribution.plugins.find(item => item.name === plugin.id);
+    assert.equal(entry.source, `./plugins/${plugin.id}`);
+    assert.ok(fs.existsSync(path.join(root, 'dist/local-marketplace/plugins', plugin.id, 'plugin.json')));
+  }
+  for (const id of moved) assert.ok(!fs.existsSync(path.join(root, 'dist/local-marketplace/plugins', id)));
 });

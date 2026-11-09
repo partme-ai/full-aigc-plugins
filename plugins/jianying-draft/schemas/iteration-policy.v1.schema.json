@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-iteration-policy/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "maximum_revisions", "maximum_model_calls", "maximum_budget", "deadline", "minimum_material_improvement", "repeated_finding_limit", "regression_tolerance", "required_human_review_points"],
+  "properties": {
+    "schema": {"const": "jianying-iteration-policy/v1"},
+    "maximum_revisions": {"type": "number"},
+    "maximum_model_calls": {"type": "number"},
+    "maximum_budget": {"$ref": "#/$defs/budget"},
+    "deadline": {"type": "string", "minLength": 1},
+    "minimum_material_improvement": {"type": "number"},
+    "repeated_finding_limit": {"type": "number"},
+    "regression_tolerance": {"type": "number"},
+    "required_human_review_points": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "budget": {
+      "type": "object", "additionalProperties": false,
+      "required": ["currency", "amount"],
+      "properties": {"currency": {"type": "string", "minLength": 1}, "amount": {"type": "number"}}
+    }
+  }
+}

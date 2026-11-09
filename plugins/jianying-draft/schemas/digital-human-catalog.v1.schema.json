@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jianying-digital-human-catalog/v1",
+  "type": "object",
+  "required": ["schema", "editor_identity", "edition_observation", "personas", "voices", "observed_at"],
+  "properties": {
+    "schema": {"const": "jianying-digital-human-catalog/v1"},
+    "editor_identity": {"type": "object"},
+    "edition_observation": {"type": "object"},
+    "personas": {"type": "array", "items": {"type": "object"}},
+    "voices": {"type": "array", "items": {"type": "object"}},
+    "observed_at": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

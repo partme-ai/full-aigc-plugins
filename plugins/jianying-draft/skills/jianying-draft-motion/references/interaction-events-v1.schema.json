@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://full-aigc-skills.example/schemas/interaction-events-v1.schema.json",
+  "title": "interaction-events/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "ledger_id", "source_media_sha256", "timebase", "capture", "events"],
+  "properties": {
+    "schema": {"const": "interaction-events/v1"},
+    "ledger_id": {"type": "string", "minLength": 1},
+    "source_media_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "timebase": {"const": "microseconds"},
+    "capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_type", "target_id_hash", "bounds_px", "display_scale", "window_offset_px", "system_audio_captured", "click_events_captured", "keyboard_content_captured", "privacy_preview_approved"],
+      "properties": {
+        "target_type": {"enum": ["screen", "window", "region"]},
+        "target_id_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "bounds_px": {"$ref": "#/$defs/rect"},
+        "display_scale": {"type": "number", "exclusiveMinimum": 0},
+        "window_offset_px": {"$ref": "#/$defs/point"},
+        "system_audio_captured": {"type": "boolean"},
+        "click_events_captured": {"type": "boolean"},
+        "keyboard_content_captured": {"const": false},
+        "privacy_preview_approved": {"const": true}
+      }
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "time_us", "x", "y"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "type": {"enum": ["click", "move"]},
+          "time_us": {"type": "integer", "minimum": 0},
+          "x": {"type": "number", "minimum": 0, "maximum": 1},
+          "y": {"type": "number", "minimum": 0, "maximum": 1},
+          "button": {"enum": ["left", "right", "middle"]}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y"],
+      "properties": {"x": {"type": "integer"}, "y": {"type": "integer"}}
+    },
+    "rect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "width", "height"],
+      "properties": {
+        "x": {"type": "integer"}, "y": {"type": "integer"},
+        "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

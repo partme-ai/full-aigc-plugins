@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.partme.ai/jianying/host-run-evidence-v1.schema.json",
+  "title": "JianYing real host run evidence v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "host",
+    "evidenceLevel",
+    "pluginVersion",
+    "cliVersion",
+    "skillsVersion",
+    "jobSchema",
+    "jobInput",
+    "semanticResult",
+    "jobInputSha256",
+    "resultSemanticSha256",
+    "executedAt",
+    "checks"
+  ],
+  "properties": {
+    "schema": {"const": "jianying-host-run-evidence/v1"},
+    "host": {"enum": ["codex", "zcode", "kimi"]},
+    "evidenceLevel": {"const": "real_host"},
+    "pluginVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "cliVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "skillsVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "jobSchema": {"const": "jianying-job/v2"},
+    "jobInput": {"type": "object"},
+    "semanticResult": {"type": "object"},
+    "jobInputSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "resultSemanticSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "executedAt": {"type": "string", "format": "date-time"},
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "freshInstall",
+        "doctor",
+        "simpleJob",
+        "recovery",
+        "nativeExportApproval"
+      ],
+      "properties": {
+        "freshInstall": {"const": true},
+        "doctor": {"const": true},
+        "simpleJob": {"const": true},
+        "recovery": {"const": true},
+        "nativeExportApproval": {"const": true}
+      }
+    }
+  }
+}

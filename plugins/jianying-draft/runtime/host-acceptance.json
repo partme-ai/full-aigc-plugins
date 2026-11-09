@@ -1,0 +1,9 @@
+{
+  "schema": "jianying-host-release-acceptance/v1",
+  "status": "pending",
+  "pluginVersion": "0.29.7",
+  "cliVersion": "1.7.0",
+  "skillsVersion": "2.5.2",
+  "jobSchema": "jianying-job/v2",
+  "hosts": []
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "剪映智能包装"
+  short_description: "规划与审核智能包装或补充镜头，保护对白、品牌、锁定镜头与预算"
+  default_prompt: "使用 $jianying-draft-smart-package 规划与审核智能包装或补充镜头，保护对白、品牌、锁定镜头与预算；先核对输入、可用能力和交付要求。"

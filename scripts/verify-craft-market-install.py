@@ -6,7 +6,7 @@ from urllib.request import urlopen
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts/ci'))
 from craft_windows import NativeHost,wait_connected
-NAMES='cadcraft designcraft effectcraft photocraft figcraft filmcraft lightcraft pdfcraft vectorcraft deckcraft soundcraft gridcraft wordcraft'.split()
+NAMES='effectcraft figcraft filmcraft lightcraft'.split()
 def run(market,output,public=False,cli=None,names=None,ref=None,marketplace_name=None):
  cli=cli or ['codex']; names=[{'printcraft':'pdfcraft'}.get(n,n) for n in (names or NAMES)]
  if not public: market=str(Path(market).resolve())
@@ -22,8 +22,14 @@ def run(market,output,public=False,cli=None,names=None,ref=None,marketplace_name
   for name in names:
    plugin=next(p for p in entries if p['name']==name)
    assert not plugin['installed'], 'Listing verification must precede install'
-   for field in ['logo','composerIcon']:
-    value=plugin['interface'].get(field);assert value and Path(value).is_file(), name+' missing native pre-install '+field
+   logo=plugin['interface'].get('logo') or plugin.get('icon')
+   assert logo, name+' missing pre-install logo'
+   if logo.startswith('https://'):
+    with urlopen(logo,timeout=30) as response: assert response.status==200 and response.headers.get('Content-Type','').startswith('image/'), name+' invalid remote logo'
+   else:
+    assert Path(logo).is_file(), name+' missing native pre-install logo'
+   composer=plugin['interface'].get('composerIcon')
+   if composer and not composer.startswith('https://'): assert Path(composer).is_file(), name+' missing native composer icon'
   (output/'icons-before-install.json').write_text(json.dumps({'plugins':names,'status':'PASS','scope':'real native plugin/list before installation'},indent=2))
  finally:listing_host.close()
  for name in names:

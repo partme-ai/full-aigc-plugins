@@ -1,0 +1,36 @@
+{
+  "name": "volcengine-design",
+  "version": "0.2.2+codex.20261109",
+  "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
+  "author": {
+    "name": "Full Stack Skills / PartMe.AI",
+    "url": "https://github.com/partme-ai"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/volcengine-design-plugin",
+  "repository": "https://github.com/full-aigc-plugins/volcengine-design-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "volcengine",
+    "doubao",
+    "asr",
+    "tts",
+    "seedance",
+    "seedream"
+  ],
+  "interface": {
+    "displayName": "Volcengine（豆包语音与视频）",
+    "shortDescription": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
+    "logo": "./assets/official-logo.png",
+    "logoDark": "./assets/official-logo.png",
+    "composerIcon": "./assets/official-logo.png",
+    "composerIconDark": "./assets/official-logo.png"
+  },
+  "skills": "./skills/",
+  "displayName": "Volcengine（豆包语音与视频）",
+  "displayName_i18n": {
+    "zh-CN": "Volcengine（豆包语音与视频）"
+  },
+  "description_i18n": {
+    "zh-CN": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频；两套凭据分离，任务只提交一次。"
+  }
+}
