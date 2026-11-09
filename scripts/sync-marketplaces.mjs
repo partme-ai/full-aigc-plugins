@@ -82,7 +82,14 @@ const codex = {
 const publishedPackages = JSON.parse(fs.readFileSync(path.join(root, "docs/craft-marketplace-candidate-releases.json"), "utf8"));
 const zcodeSource = (plugin) => {
   const release = publishedPackages.find((entry) => entry.plugin === plugin.id && entry.version === plugin.version);
-  if (!release && publishedPackages.some((entry) => entry.plugin === plugin.id)) throw new Error(`${plugin.id}: publish and verify the matching complete ZIP before generating its marketplace entry`);
+  if (!release && publishedPackages.some((entry) => entry.plugin === plugin.id)) {
+    if (remotePluginIds.size > 0 && !remotePluginIds.has(plugin.id)) {
+      const existing = JSON.parse(fs.readFileSync(path.join(root, "marketplace.json"), "utf8"));
+      const previous = existing.plugins?.find((entry) => entry.name === plugin.id);
+      if (previous?.source) return previous.source;
+    }
+    throw new Error(`${plugin.id}: publish and verify the matching complete ZIP before generating its marketplace entry`);
+  }
   if (!release || release.maximumZipEntryBytes > 50 * 1024 * 1024) return { source: "github", repo: plugin.repository, ref: releaseRef(plugin) };
   return { source: "url", type: "zip", url: `${githubReleaseSource(plugin).replace("/tag/", "/download/")}/${release.archive}`, sha256: release.archiveSha256, path: `${plugin.id}-plugin` };
 };
@@ -309,6 +316,7 @@ for (const planningRepo of filteredCandidateIds.size > 0 ? [] : (catalog.plannin
 const installablePluginIds = new Set(catalog.plugins.map(plugin => plugin.id));
 const candidatePluginIds = new Set();
 for (const candidate of candidatePlugins) {
+  if (remotePluginIds.size > 0) continue;
   if (filteredCandidateIds.size > 0 && !filteredCandidateIds.has(candidate.id)) continue;
   const missingFields = ["id", "displayName", "repository", "localDirectory", "version", "status", "releaseGate"]
     .filter(field => typeof candidate[field] !== "string" || candidate[field].trim() === "");
