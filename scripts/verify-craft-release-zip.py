@@ -20,6 +20,9 @@ def verify_tag(row):
 
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--app',default='all');p.add_argument('--output',type=Path,required=True);p.add_argument('--codex-js');a=p.parse_args();out=a.output.resolve();out.mkdir(parents=True,exist_ok=False);rows=json.loads((ROOT/'docs/craft-marketplace-candidate-releases.json').read_text());reports=[]
+ catalog=json.loads((ROOT/'catalog.json').read_text())
+ current={plugin['id']:plugin['version'] for plugin in catalog.get('candidatePlugins',[]) if plugin.get('status')=='release_candidate_installable'}
+ rows=[row for row in rows if current.get(row['plugin'])==row['version']]
  app={'printcraft':'pdfcraft'}.get(a.app,a.app)
  if a.app!='all':rows=[r for r in rows if r['plugin']==app];assert len(rows)==1
  for r in rows:
