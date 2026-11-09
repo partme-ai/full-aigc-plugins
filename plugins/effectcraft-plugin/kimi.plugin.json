@@ -1,7 +1,7 @@
 {
   "name": "effectcraft",
-  "version": "0.1.0-dev.20261018.3",
-  "description": "EffectCraft creative workflows with pinned first-use installation and independent skill snapshots; development release, full domain and host acceptance pending.",
+  "version": "0.1.0-dev.20261018.5",
+  "description": "合成、关键帧、表达式、摄像机、遮罩与跟踪；图层、遮罩与渲染设置完整保留。",
   "author": {
     "name": "Full AIGC Plugins"
   },
@@ -14,8 +14,8 @@
     "development-release"
   ],
   "interface": {
-    "displayName": "EffectCraft Use",
-    "shortDescription": "Editable creative workflows and pinned setup",
+    "displayName": "EffectCraft（动态图形）",
+    "shortDescription": "做可编辑动态图形：合成、关键帧、表达式、摄像机、遮罩与跟踪，渲染设置完整保留。",
     "longDescription": "Use independently maintained, checksummed skills to install official CLIs and create editable native projects. Development release; complete capability and host acceptance remain in progress.",
     "developerName": "Full AIGC Plugins",
     "websiteURL": "https://github.com/full-aigc-plugins/effectcraft-plugin",

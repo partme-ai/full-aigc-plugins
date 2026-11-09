@@ -1,177 +1,164 @@
-# FigCraft Use
+# FigCraft（设计稿编辑）
 
-## Plugin marketplaces
+> 线框、设计系统、主题令牌与原型交付
 
-This plugin belongs to **AIGC content creation**.
+**版本**：0.1.0-dev.20261019.2 · **许可证**：Apache-2.0 · **技能**：11 个 · **MCP 服务**：1 个
 
-| Category | Marketplace | Purpose |
-| --- | --- | --- |
-| Full-stack development | [Full Stack Plugins](https://github.com/partme-ai/full-stack-plugins) | Architecture and UI design, code understanding, quality checks, code review, workflow governance, and server operations |
-| AIGC content creation | [Full AIGC Plugins](https://github.com/partme-ai/full-aigc-plugins) | Image, video, audio, music, 3D, and multimodal content creation |
+[English](README.en.md) · [安装](#安装) · [快速开始](#快速开始) · [项目结构](#项目结构)
 
-![FigCraft Use — interface design in your agent workspace](assets/official-logo.png)
+## 项目定位
 
-> Design, restructure and hand off an interface inside your agent host, with the editable FigCraft document and its tokens kept as the source of truth.
+线框、设计系统、明暗主题令牌、原型流与开发交接；布局保持可编辑与自适应。
 
-[![Version](https://img.shields.io/badge/release-0.1.0--dev.20261019.1-1A73E8)](https://github.com/full-aigc-plugins/figcraft-plugin/releases)
-[![Skills](https://img.shields.io/badge/skills-11-00A67E)](#skills)
-[![MCP tools](https://img.shields.io/badge/MCP%20tools-26-00A67E)](#mcp-tools)
-[![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
+本插件属于内容创作线，面向需要直接得到可编辑成果、而不是一段脚本或图片的用户。
 
-[English](README.md) | [简体中文](README.zh-CN.md) · [Install](#installation) · [Quick start](#quick-start) · [Skills](#skills) · [Troubleshooting](#troubleshooting)
+## 一眼看懂
 
-## Positioning
+```text
+素材 / 需求 / 旧稿
+        │
+        ▼
+FigCraft（设计稿编辑） 技能（检查 → 计划 → 执行 → 回读）
+        │
+        ├── 原生 CLI / MCP 工具
+        └── MCP 编辑器（浏览器内查看与局部调整）
+        │
+        ▼
+可编辑工程 + 导出文件 + 复核结果
+```
 
-`figcraft` turns a page requirement into an editable interface document and carries it through design system, responsive layout, prototype and handoff. The plugin bundles a source-built FigCraft Web with same-session MCP automation and workspace file operations; it does not re-implement the design engine or claim pixel fidelity it has not checked.
+## 能力与边界
 
-| Property | Value |
-| :--- | :--- |
-| Plugin ID | `figcraft` |
-| Version | `0.1.0-dev.20261018.3` |
-| Status | Development preview; all-host acceptance still open |
-| Editor runtime | Node.js 24, started from `ui/bootstrap.mjs` |
-| Editor baseline | FigCraft `v0.6.0` fixed source plus this plugin's automation build |
-| Optional CLI | `figcraft-cli`, used by recipe scripts as `--cli` |
-| License | Apache-2.0 |
+| 能力 | 说明 | 边界 |
+|---|---|---|
+| 检查 | 读取现有工程与素材状态 | 不修改未授权文件 |
+| 创建 | 按目标生成可编辑结构 | 事实与素材需来自输入 |
+| 编辑 | 局部修改并保留未涉及内容 | 修改后必须重新打开 |
+| 导出 | 输出目标格式并核对 | 导出成功不等于版面正确 |
+| 评审 | 按明确标准检查结果 | 不替代最终人工验收 |
 
-## Installation
+## 架构与核心流程
 
-### Prerequisites
+```text
+宿主 / Agent
+   │  调用技能
+   ▼
+skills/figcraft-*  ──►  MCP 编辑器 / 原生 CLI
+                              │
+                              ▼
+                     可编辑工程 + 导出
+                              │
+                              ▼
+                     回读、检查、交付
+```
 
-- Node.js 24 on `PATH`; the bundled stdio MCP server runs on it.
-- Network access on the first editor launch. The plugin downloads and verifies the pinned editor archive; a complete release ZIP already contains it, so no Rust toolchain and no `npm install` are required.
-- `python3` on `PATH` only if you run the optional recipe scripts that ship with four skills.
-- `figcraft-cli` only if a recipe should drive the native CLI; the plugin does not install it.
-- A host that supports plugins or stdio MCP. Embedded panels additionally require MCP Apps or a built-in browser.
+原则：
 
-### From the plugin marketplace
+1. 先只读检查，再计划，再执行。
+2. 每次写入保留原件或可回退版本。
+3. 导出后重新打开核对。
+4. 不确定的结果标记为待核对，不自动重放。
+
+## 兼容性
+
+| 项目 | 状态 |
+|---|---|
+| 宿主 | 支持 MCP Apps 或内置浏览器的宿主 |
+| Node.js | 24+（编辑器） |
+| 平台 | 以实际安装包与发行说明为准 |
+
+## 安装
 
 ```bash
 codex plugin marketplace add partme-ai/full-aigc-plugins
 codex plugin add figcraft@full-aigc-plugins
 ```
 
-Restart the host, open a new task, and ask FigCraft to open the editor for your workspace.
+安装后重启宿主，先做只读检查。
 
-### Other host manifests
+## 快速开始
 
-| Host | Manifest | Path base |
-| --- | --- | --- |
-| Standard Agent Plugins 1.0.0 | `plugin.json`, `mcp.json` | `${PLUGIN_ROOT}` |
-| Codex | `.codex-plugin/plugin.json`, `.codex-plugin/mcp.json` | plugin root relative to `cwd` |
-| Claude Code | `.claude-plugin/plugin.json`, `.mcp.json` | `${CLAUDE_PLUGIN_ROOT}` |
+1. 确认目标、输入素材和交付格式。
+2. 先检查现有工程，列出缺失项。
+3. 执行一次有界修改。
+4. 重新打开输出，核对结构与关键内容。
+5. 完成视觉或内容复核后交付。
 
-Kimi (`kimi.plugin.json`), DeepSeek Harness (`dsh/`) and the WorkBuddy example (`hosts/workbuddy/mcp.json`) are also present. In a development checkout you must build the editor assets first; cloning the source is not an installed runtime.
+## 配置
 
-## Quick start
+| 变量 | 用途 | 默认 |
+|---|---|---|
+| `CRAFT_WORKSPACE_ROOT` | 编辑器绑定的工作区 | 当前项目 |
+| `CRAFT_EDITOR_UPDATE` | 设为 `off` 跳过增强包下载 | 开启 |
 
-```mermaid
-flowchart LR
-    A[Install plugin] --> B[Restart and open a task]
-    B --> C[open_editor]
-    C --> D{editor_status ready?}
-    D -->|No| C
-    D -->|Yes| E[create_node / set_properties]
-    E --> F[inspect_document / get_node]
-    F --> G[save_file]
-    G --> H[export]
-```
+不要在工程或配置中写入密钥、令牌和私有路径。
 
-1. Open the editor with an explicit `workspace` argument.
-2. Build the first frame with `create_node`, then style it with `set_properties`; complex structures go through `run_command` or `batch`.
-3. Read `inspect_document` for structure and `screenshot` for the actual image.
-4. Save with `save_file`, reopen with `open_file`, and confirm the layers are still editable.
-5. Export for handoff only after the reopened document matches what you approved.
+## 扩展契约
 
-## What you can build
+新增技能时应使用 `figcraft-` 前缀，声明触发条件和边界，通过 MCP 或固定 CLI 操作真实工程，修改后重新打开核验。
 
-| Workflow | Built-in path | Verifiable output |
-| :--- | :--- | :--- |
-| Low-fidelity wireframe | `figcraft-wireframe` | Structured frames and blocks, no invented content |
-| Design system with variables | `figcraft-design-system` | Component library, states, colour and text variables |
-| Light and dark token card | `figcraft-light-dark-token-card` | Semantic aliases with CSS or JSON delivery |
-| Responsive layout | `figcraft-responsive-layout` | Auto-layout frames with wrap and overflow handled |
-| Clickable prototype | `figcraft-prototype-flow` | Pages connected with entry, back and overlay states |
-| Import an existing Figma file | `figcraft-import-fig` | Imported nodes plus a loss report for fonts and images |
-| Editable chart | `figcraft-signed-bar-chart` | Positive, negative and zero values as editable bars |
-| Swappable icon button | `figcraft-swappable-icon-button` | Instance swap and boolean visibility, text kept separate |
-| Developer handoff | `figcraft-dev-handoff` | Annotations, measurements, CSS or React references |
+## 重试、幂等与恢复
 
-## Skills
+- 失败后先检查当前工程状态。
+- 不自动重复已产生副作用的操作。
+- 重试使用新输出路径并保留旧回执。
 
-| Skill | What it does |
-| :--- | :--- |
-| `figcraft-editor` | Open FigCraft in the host, check same-session MCP, diagnose workspace save |
-| `figcraft-wireframe` | Turn a page requirement into a low-fidelity wireframe or first interface |
-| `figcraft-responsive-layout` | Mobile, tablet and desktop adaptation, auto layout, wrap and overflow |
-| `figcraft-design-system` | Component library, button states, colour and text variables, light/dark themes |
-| `figcraft-prototype-flow` | Connect pages into a clickable prototype with entry and overlay states |
-| `figcraft-import-fig` | Import Figma `.fig`, REST file JSON or SVG and report fidelity loss |
-| `figcraft-dev-handoff` | Editable UI, annotations, assets and CSS or React references |
-| `figcraft-scenario-playbooks` | Recipes for login, plan card, metric component, navigation, container, dialog, empty and error states |
-| `figcraft-light-dark-token-card` | Light/dark theme and semantic colour tokens with real command bindings |
-| `figcraft-swappable-icon-button` | Icon swap plus hideable icon, with return-ID binding and re-check |
-| `figcraft-signed-bar-chart` | Editable bars including positive, negative and zero values |
+## 数据与状态
 
-Skills come from the independent `figcraft-skills` source and are pinned by `scenario-candidates.json` with per-skill SHA-256 digests.
+- 输入素材只读。
+- 输出工程、导出文件和临时目录分开。
+- 交付前确认文件可打开、内容完整。
 
-## MCP tools
+## 安全
 
-One bundled server, `figcraft-editor`, speaking **stdio**. The local HTTP listener only serves the editor page and its same-session bridge. The catalogue exposes 26 tools: 21 agent-callable tools and 5 `_editor_*` bridge tools the panel uses internally.
+- 不把未授权素材上传到第三方服务。
+- 敏感内容脱敏后再交付。
+- 发现泄露先轮换凭据，再清理文件。
 
-| Family | Tools | Purpose |
-| :--- | :--- | :--- |
-| Session | `open_editor`, `open_browser_editor`, `editor_status` | Open the editor and confirm that it attached |
-| Discovery | `list_commands` | List live command IDs, parameters and enabled state |
-| Command gateway | `run_command`, `batch` | Run one command, or an ordered batch |
-| Authoring | `create_node`, `set_properties` | Create nodes and set their properties, returning IDs |
-| Inspection | `inspect_document`, `get_node`, `inspect_ui` | Document tree, one node, and interface state |
-| Selection and input | `select`, `pointer`, `key`, `type_text` | Select objects and drive the same input paths as a user |
-| Files | `open_file`, `save_file`, `export`, `screenshot` | Open, save, export and capture the canvas |
-| History | `undo`, `redo` | Step back and forward one change |
+## 可观测性与运行
 
-## Configuration
+记录命令、输出文件、关键结构和复核结果；交付前至少检查一次真实输出。
 
-| Setting | Where | Effect |
-| :--- | :--- | :--- |
-| `workspace` argument | `open_editor` / `open_browser_editor` | Binds the task folder; paths outside it are refused |
-| `CRAFT_EDITOR_UPDATE=off` | stdio MCP `env` | Use the bundled editor only; no download attempt |
-| `CRAFT_EDITOR_CACHE_DIR` | Environment | Absolute directory for verified editor archives |
-| `CRAFT_WORKSPACE_ROOT` | Host MCP config | Workspace root for hosts that cannot pass it in a tool call |
-| `--cli` | `scripts/run_recipe.py` | Path or name of the native CLI a recipe should drive |
-
-Verified archives are cached under `~/.cache/full-aigc/editors`; an active session keeps its version until closed, and a corrupt cache falls back to the bundled build.
-
-## Architecture and security
-
-Agent ↔ plugin traffic is stdio MCP; the browser bridge listens on `127.0.0.1` only, with a random token and Host/Origin checks. Downloads are SHA-256 verified and the bundled editor is always kept as a fallback. Skills are instructions and do not enforce policy at runtime. The plugin stores no credential and forwards no traffic to the authors.
-
-The editor is an enhanced build from fixed upstream source, not the official Web ZIP; `ui/source.lock.json` records the source commit and `ui/editor.lock.json` the bundled artifact digests. Build steps are in [ui/README.md](ui/README.md).
-
-## Troubleshooting
-
-| Symptom | Action |
-| :--- | :--- |
-| Editor tools are missing | Confirm the plugin is enabled, restart the host, open a new task |
-| The panel does not render inside the host | Use the URL from `open_browser_editor`; the terminal provides no browser panel |
-| First open stalls | The first launch downloads the pinned archive; retry with network, or set `CRAFT_EDITOR_UPDATE=off` |
-| An imported `.fig` lost fonts or images | Expected for sampled files; read the loss report and fix the affected layers |
-| A recipe script cannot find the CLI | Pass `--cli /absolute/path/to/figcraft-cli`, or stay on MCP tools |
-| A write times out | Reopen or inspect the document before retrying; do not replay blindly |
-
-## Upgrade
+## 开发与验证
 
 ```bash
-codex plugin marketplace upgrade full-aigc-plugins
-codex plugin add figcraft@full-aigc-plugins
+node --test
+python3 -m pytest
 ```
 
-The editor archive and skill digests are pinned per release; upgrading the plugin replaces the bundled runtime rather than patching it in place.
+## 打包与发布
 
-## Contributing and support
+版本与清单、市场、tag 一致；ZIP 根目录为 `figcraft-plugin`。
 
-Open issues at <https://github.com/full-aigc-plugins/figcraft-plugin/issues>. Read `AGENTS.md` before editing skills, `ui/` build inputs or manifests, and keep the Chinese and English documents aligned. New scene skills must be validated against real commands before they are described as working.
+## 升级与迁移
 
-## License
+升级前备份工程；旧版本文件保持可打开；迁移后重新检查结构和导出。
 
-Original repository content is [Apache-2.0](LICENSE). The icon is upstream FigCraft artwork under Apache-2.0 OR MIT, recorded in `assets/official-icon-source.json`. Upstream FigCraft is a separate project at <https://github.com/storytold/figcraft>; this plugin is an integration, not an endorsement.
+## 故障排查
+
+| 现象 | 检查 |
+|---|---|
+| 打不开工程 | 文件完整性、版本兼容 |
+| 编辑器空白 | Node.js 版本与工作区权限 |
+| 导出异常 | 字体、素材、输出路径 |
+| 结果不一致 | 重新打开并核对 |
+
+## 项目结构
+
+```text
+figcraft-plugin/
+├── .zcode-plugin/      # ZCode 清单与 UI surface
+├── skills/             # 11 个技能
+├── ui/                 # MCP Apps 编辑器
+├── commands/open.md    # 打开编辑器命令
+├── docs/               # 架构与验证记录
+└── assets/             # 图标与模板
+```
+
+## 贡献与支持
+
+提交问题时附上插件版本、宿主、输入类型、命令、输出文件和预期结果。不要附敏感素材。
+
+## 许可证
+
+Apache-2.0，见 [LICENSE](LICENSE)。

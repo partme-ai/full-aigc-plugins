@@ -1,7 +1,7 @@
 {
   "name": "figcraft",
-  "version": "0.1.0-dev.20261019.1",
-  "description": "FigCraft 界面设计：内嵌编辑、同会话 MCP、工作区保存，以及主题变量、图标组件和数据图等场景技能；开发预发布。",
+  "version": "0.1.0-dev.20261019.2",
+  "description": "线框、设计系统、明暗主题令牌、原型流与开发交接；布局保持可编辑与自适应。",
   "author": {
     "name": "Full AIGC Plugins",
     "url": "https://github.com/full-aigc-plugins"
@@ -17,8 +17,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "FigCraft Use",
-    "shortDescription": "Interface design in your agent workspace",
+    "displayName": "FigCraft（设计稿编辑）",
+    "shortDescription": "在对话里做可编辑设计稿：线框、设计系统、明暗主题、原型流与开发交接。",
     "longDescription": "Source-built FigCraft Web with same-session MCP editing and workspace file operations. Local development candidate; host acceptance remains separate.",
     "developerName": "Full AIGC Plugins",
     "category": "Creativity",

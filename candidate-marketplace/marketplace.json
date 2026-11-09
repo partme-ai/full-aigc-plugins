@@ -138,11 +138,11 @@
       "source": {
         "source": "github",
         "repo": "full-aigc-plugins/effectcraft-plugin",
-        "ref": "v0.1.0-dev.20261018.3"
+        "ref": "v0.1.0-dev.20261018.5"
       },
       "displayName": "EffectCraft（动态图形）",
       "description": "做可编辑动态图形：合成、关键帧、表达式、摄像机、遮罩与跟踪，渲染设置完整保留。",
-      "version": "0.1.0-dev.20261018.3",
+      "version": "0.1.0-dev.20261018.5",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -155,7 +155,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/effectcraft-plugin@v0.1.0-dev.20261018.5/assets/official-logo.png",
       "strict": true
     },
     {
@@ -163,13 +163,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/download/v0.1.0-dev.20261019.1/figcraft-plugin-0.1.0-dev.20261019.1.zip",
-        "sha256": "db5d4ef368e6aafb653d50863319380ccb4ecaf14d4f8008acae320e64bf2c2b",
+        "url": "https://github.com/full-aigc-plugins/figcraft-plugin/releases/download/v0.1.0-dev.20261019.2/figcraft-plugin-0.1.0-dev.20261019.2.zip",
+        "sha256": "cca70029170d72a6f65a0c4510668c674738143a51a4ba6c36a7dc1caa53e015",
         "path": "figcraft-plugin"
       },
       "displayName": "FigCraft（设计稿编辑）",
       "description": "在对话里做可编辑设计稿：线框、设计系统、明暗主题、原型流与开发交接。",
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261019.2",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -182,7 +182,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.2/assets/official-logo.png",
       "strict": true
     },
     {
@@ -190,13 +190,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/download/v0.1.0-dev.20261018.3/filmcraft-plugin-0.1.0-dev.20261018.3.zip",
-        "sha256": "47b7ffe7cea15b51cbdad1640701403a454608475ce016ba419d113fc28d22ea",
+        "url": "https://github.com/full-aigc-plugins/filmcraft-plugin/releases/download/v0.1.0-dev.20261018.5/filmcraft-plugin-0.1.0-dev.20261018.5.zip",
+        "sha256": "2c7e31af877961e1c8fab1b71e591a2f70c03f8d8b34b874a0a8178b1437b486",
         "path": "filmcraft-plugin"
       },
       "displayName": "FilmCraft（视频剪辑）",
       "description": "多机位剪辑、字幕、逐词转录、调色与导出，时间线和素材引用一并交付。",
-      "version": "0.1.0-dev.20261018.3",
+      "version": "0.1.0-dev.20261018.5",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -209,7 +209,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/filmcraft-plugin@v0.1.0-dev.20261018.5/assets/official-logo.png",
       "strict": true
     },
     {
@@ -244,13 +244,13 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/download/v0.1.0-dev.20261018.2/lightcraft-plugin-0.1.0-dev.20261018.2.zip",
-        "sha256": "92bacd0fe4dfc4c44ebddb9c02e6f9f1cb1274f79caa3c5f818a1f9300344597",
+        "url": "https://github.com/full-aigc-plugins/lightcraft-plugin/releases/download/v0.1.0-dev.20261018.4/lightcraft-plugin-0.1.0-dev.20261018.4.zip",
+        "sha256": "b054f84a9020fd4fe3c5023dd233e8e329a89c7788305b5407a1a7bf664fd355",
         "path": "lightcraft-plugin"
       },
       "displayName": "LightCraft（照片调色）",
       "description": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。",
-      "version": "0.1.0-dev.20261018.2",
+      "version": "0.1.0-dev.20261018.4",
       "category": "Creativity",
       "line": "full-aigc",
       "componentTypes": [
@@ -263,7 +263,7 @@
         "mcp",
         "editor"
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.2/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/lightcraft-plugin@v0.1.0-dev.20261018.4/assets/official-logo.png",
       "strict": true
     },
     {

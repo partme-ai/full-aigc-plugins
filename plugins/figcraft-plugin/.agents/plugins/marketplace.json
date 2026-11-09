@@ -6,13 +6,28 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/figcraft-plugin.git",
-        "ref": "v0.1.0-dev.20261019.1"
+        "ref": "v0.1.0-dev.20261019.2"
       },
       "interface": {
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261018.3/assets/official-logo.png",
+        "displayName": "FigCraft（设计稿编辑）",
+        "shortDescription": "线框、设计系统、主题令牌与原型交付"
       },
-      "version": "0.1.0-dev.20261019.1",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+      "version": "0.1.0-dev.20261019.2",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/figcraft-plugin@v0.1.0-dev.20261019.2/assets/official-logo.png",
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Creativity",
+      "description": "线框、设计系统、明暗主题令牌、原型流与开发交接；布局保持可编辑与自适应。",
+      "line": "full-aigc",
+      "componentTypes": [
+        "ui"
+      ]
     }
-  ]
+  ],
+  "interface": {
+    "displayName": "FigCraft（设计稿编辑）"
+  }
 }

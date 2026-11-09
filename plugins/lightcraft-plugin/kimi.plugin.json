@@ -1,7 +1,7 @@
 {
   "name": "lightcraft",
-  "version": "0.1.0-dev.20261018.2",
-  "description": "Lightcraft 照片管理与无损显影；CLI 0.2.1/macOS arm64 开发预发行，扩展能力未启用。",
+  "version": "0.1.0-dev.20261018.4",
+  "description": "RAW 基础显影、风光与人像、批量调色、曲线迁移与虚拟副本审稿；编辑保持非破坏。",
   "author": {
     "name": "Full AIGC Plugins"
   },
@@ -13,8 +13,8 @@
     "development-release"
   ],
   "interface": {
-    "displayName": "LightCraft Use",
-    "shortDescription": "Photo management and non-destructive development",
+    "displayName": "LightCraft（照片调色）",
+    "shortDescription": "RAW 显影、风光人像、批量调色、曲线迁移与虚拟副本审稿，编辑全程非破坏。",
     "longDescription": "Lightcraft 照片管理与无损显影：持久任务锁、原子状态、只读核对、停止请求、明确剩余步骤建议、有界修订、绑定目标/原片/候选/设置的审阅，以及独立重开交付门禁；CLI 0.2.1/macOS arm64 开发预发行，不添加自动 hooks。",
     "developerName": "Full AIGC Plugins",
     "websiteURL": "https://github.com/full-aigc-plugins/lightcraft-plugin",
