@@ -4,10 +4,12 @@
   "skills": "./skills/",
   "mcpServers": "./.codex-plugin/mcp.json",
   "interface": {
-    "displayName": "GridCraft Use",
+    "displayName": "GridCraft（电子表格）",
     "logo": "./assets/official-logo.png",
     "logoDark": "./assets/official-logo.png",
     "composerIcon": "./assets/official-logo.png",
-    "composerIconDark": "./assets/official-logo.png"
-  }
+    "composerIconDark": "./assets/official-logo.png",
+    "shortDescription": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。"
+  },
+  "description": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。"
 }
