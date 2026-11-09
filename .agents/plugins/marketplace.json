@@ -47,13 +47,13 @@
       "componentTypes": [
         "ui"
       ],
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261109.1",
       "description": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
       "interface": {
-        "displayName": "CADCraft（二维制图）",
+        "displayName": "CADCraft",
         "shortDescription": "画房间平面、法兰孔系和零件标注：毫米坐标、图层与出图比例都能逐项复核。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
       }
     },
     {
@@ -121,13 +121,13 @@
       "componentTypes": [
         "ui"
       ],
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261109.1",
       "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
       "interface": {
-        "displayName": "DeckCraft（演示文稿）",
+        "displayName": "DeckCraft",
         "shortDescription": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
       }
     },
     {
@@ -145,13 +145,13 @@
       "componentTypes": [
         "ui"
       ],
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261109.1",
       "description": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
       "interface": {
-        "displayName": "DesignCraft（页面排版）",
+        "displayName": "DesignCraft",
         "shortDescription": "海报、长文档、刊物和画册一次排好：母版、页码与出血统一处理，导出 PDF、IDML 或 EPUB。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
       }
     },
     {
@@ -318,13 +318,13 @@
       "componentTypes": [
         "ui"
       ],
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261109.1",
       "description": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
       "interface": {
-        "displayName": "GridCraft（电子表格）",
+        "displayName": "GridCraft",
         "shortDescription": "预算、对账、清洗、销售汇总与公式审计：单位和来源保留，公式随时可重算。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
       }
     },
     {
@@ -470,13 +470,13 @@
       "componentTypes": [
         "ui"
       ],
-      "version": "0.1.0-dev.20261024.2",
+      "version": "0.1.0-dev.20261109.1",
       "description": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261024.2/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
       "interface": {
-        "displayName": "PdfCraft（PDF 处理）",
+        "displayName": "PdfCraft",
         "shortDescription": "PDF 重排、扫描件 OCR、表单填写、脱敏与印前检查，原件保留，逐页核对。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261024.2/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
       }
     },
     {
@@ -494,13 +494,13 @@
       "componentTypes": [
         "ui"
       ],
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261109.1",
       "description": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
       "interface": {
-        "displayName": "PhotoCraft（图片编辑）",
+        "displayName": "PhotoCraft",
         "shortDescription": "图层、蒙版、抠图、修复与滤镜，支持文字和尺寸适配，工程可继续编辑并导出 PSD/PNG。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
       }
     },
     {
@@ -518,13 +518,13 @@
       "componentTypes": [
         "ui"
       ],
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261109.1",
       "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
       "interface": {
-        "displayName": "SoundCraft（音频处理）",
+        "displayName": "SoundCraft",
         "shortDescription": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
       }
     },
     {
@@ -542,13 +542,13 @@
       "componentTypes": [
         "ui"
       ],
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261109.1",
       "description": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
       "interface": {
-        "displayName": "VectorCraft（矢量设计）",
+        "displayName": "VectorCraft",
         "shortDescription": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
       }
     },
     {
@@ -618,13 +618,13 @@
       "componentTypes": [
         "ui"
       ],
-      "version": "0.1.0-dev.20261019.1",
+      "version": "0.1.0-dev.20261109.1",
       "description": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
       "interface": {
-        "displayName": "WordCraft（文档写作）",
+        "displayName": "WordCraft",
         "shortDescription": "周报、纪要、报价、验收报告与简历：样式、目录、页码和题注保持一致，导出可编辑 Word。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261019.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
       }
     },
     {
