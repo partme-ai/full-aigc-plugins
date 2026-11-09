@@ -86,7 +86,8 @@ const publishedPackages = JSON.parse(fs.readFileSync(path.join(root, "docs/craft
 const zcodeSource = (plugin) => {
   const release = publishedPackages.find((entry) => entry.plugin === plugin.id && entry.version === plugin.version);
   if (!release && publishedPackages.some((entry) => entry.plugin === plugin.id)) {
-    if (remotePluginIds.size > 0 && !remotePluginIds.has(plugin.id)) {
+    if ((remotePluginIds.size > 0 && !remotePluginIds.has(plugin.id))
+        || (filteredCandidateIds.size > 0 && !filteredCandidateIds.has(plugin.id))) {
       const existing = JSON.parse(fs.readFileSync(path.join(root, "marketplace.json"), "utf8"));
       const previous = existing.plugins?.find((entry) => entry.name === plugin.id);
       if (previous?.source) return previous.source;
