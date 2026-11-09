@@ -1,6 +1,6 @@
 {
   "name": "vectorcraft",
-  "version": "0.1.0-dev.20261109.4",
+  "version": "0.1.0-dev.20261109.5",
   "description": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
   "author": {
     "name": "Full AIGC Plugins"
@@ -14,7 +14,7 @@
     "development-release"
   ],
   "interface": {
-    "displayName": "VectorCraft",
+    "displayName": "VectorCraft（矢量设计）",
     "shortDescription": "标志、图标集、信息图与 SVG 清理，多画板变体，导出 SVG/PDF/PNG 且路径可编辑。",
     "longDescription": "Use independently maintained, checksummed skills to install pinned native CLIs and create editable native projects. Development release; complete capability and host acceptance remain in progress.",
     "developerName": "Full AIGC Plugins",

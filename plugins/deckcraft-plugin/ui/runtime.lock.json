@@ -1,6 +1,6 @@
 {
   "name": "deckcraft",
-  "version": "0.1.0-dev.20261109.4",
+  "version": "0.1.0-dev.20261109.5",
   "url": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/download/v0.1.0-dev.20261019.1/deckcraft-runtime.tgz",
   "sha256": "60b1cf27cb1da14bb07391584cf50a2660f333a0250d54f533d998d5d5ab102e",
   "files": {

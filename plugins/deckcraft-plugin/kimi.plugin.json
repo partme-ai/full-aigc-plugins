@@ -1,11 +1,11 @@
 {
   "name": "deckcraft",
-  "version": "0.1.0-dev.20261109.4",
+  "version": "0.1.0-dev.20261109.5",
   "description": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。",
   "license": "Apache-2.0",
   "skills": "./skills/",
   "interface": {
-    "displayName": "DeckCraft",
+    "displayName": "DeckCraft（演示文稿）",
     "logo": "./assets/official-logo.png",
     "logoDark": "./assets/official-logo.png",
     "shortDescription": "一句话生成可编辑演示文稿：路演、周报、培训和数据叙事，母版、版式与讲稿都能继续改。"

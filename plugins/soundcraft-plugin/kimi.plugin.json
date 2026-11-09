@@ -1,11 +1,11 @@
 {
   "name": "soundcraft",
-  "version": "0.1.0-dev.20261109.4",
+  "version": "0.1.0-dev.20261109.5",
   "description": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。",
   "license": "Apache-2.0",
   "skills": "./skills/",
   "interface": {
-    "displayName": "SoundCraft",
+    "displayName": "SoundCraft（音频处理）",
     "logo": "./assets/official-logo.png",
     "logoDark": "./assets/official-logo.png",
     "shortDescription": "口播清理、多人响度、配音混音、剪辑与循环拼接，按段落和静音区间处理。"

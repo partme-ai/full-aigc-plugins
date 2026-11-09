@@ -1,6 +1,6 @@
 {
   "name": "soundcraft",
-  "version": "0.1.0-dev.20261109.4",
+  "version": "0.1.0-dev.20261109.5",
   "url": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/download/v0.1.0-dev.20261019.1/soundcraft-runtime.tgz",
   "sha256": "15069b7311a2c80f2e64573a1adebb2aed5c4dd99b6a285f94cb516ac319a0a3",
   "files": {
