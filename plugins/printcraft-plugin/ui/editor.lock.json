@@ -3,7 +3,7 @@
   "version": "0.1.0-dev.20261019.1",
   "buildKind": "full-aigc-enhanced",
   "upstream": {
-    "repository": "https://github.com/full-aigc-plugins/printcraft",
+    "repository": "https://github.com/full-aigc-plugins/pdfcraft",
     "commit": "5fdd820bdb1ab9705bd2c5d956d32d195140c7d8",
     "version": "0.8.0"
   },

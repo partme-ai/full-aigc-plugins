@@ -28,7 +28,11 @@ def main():
  def bound(name):
   expected=r['fingerprints'][name];p=local(name)
   if p.is_file() and sha(p)==expected:return p
-  candidates=[n for n,h in known.items() if h==expected and n.endswith('/'+name)]
+  relocated=('scripts/harness/'+name.split('src/harness/',1)[1]
+             if name.startswith('src/harness/') else
+             'skills/vectorcraft-harness/scripts/'+name.split('/scripts/',1)[1]
+             if name.startswith('skills/vectorcraft-') and '/scripts/' in name else None)
+  candidates=[n for n,h in known.items() if h==expected and (n.endswith('/'+name) or n==relocated)]
   if len(candidates)!=1 or sha(local(candidates[0]))!=expected:raise ValueError('stale_quality_evidence')
   return local(candidates[0])
  def read(name):return json.loads(bound(name).read_text())

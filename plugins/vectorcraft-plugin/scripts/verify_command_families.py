@@ -137,12 +137,23 @@ def validate_layer_render(root,report,cases,family):
 
 def verify(root=ROOT):
     """复用已通过且原字节不变的paint证据，补充新的实际命令族。"""
+    index=json.loads((root/'docs/evidence-index.json').read_text())
+    known=next(e['dependencies'] for e in index['entries'] if e['path']==MATRIX)
     base=load('family_base',root/BASE);previous=base.verify(root);accepted={r['id'] for r in previous['commands'] if r['executionAcceptance']=='PASS'}
     reports={base.REPORT:sha(root/base.REPORT)};fingerprints={BASE:sha(root/BASE),'scripts/verify_command_families.py':sha(root/'scripts/verify_command_families.py'),'docs/current-identity.json':sha(root/'docs/current-identity.json'),'skills/vectorcraft-use/references/command-coverage.json':sha(root/base.CATALOG)}
     for family,path in FAMILIES.items():
         accepted=merge_ids(accepted,validate_family(root,family,path));reports[path]=sha(root/path)
         for name,digest in json.loads((root/path).read_text())['fingerprints'].items():
-            if sha(root/name)!=digest:raise ValueError('family_dependency_drift')
+            current=root/name
+            if current.is_file() and sha(current)==digest:
+                fingerprints[name]=digest
+                continue
+            relocated=('skills/vectorcraft-harness/scripts/'+name.split('/scripts/',1)[1]
+                       if name.startswith('skills/vectorcraft-') and '/scripts/' in name else None)
+            archived=[p for p,h in known.items()
+                      if h==digest and (p.endswith('/'+name) or p==relocated)]
+            if len(archived)!=1 or sha(root/archived[0])!=digest:
+                raise ValueError('family_dependency_drift')
             fingerprints[name]=digest
     catalog=json.loads((root/base.CATALOG).read_text());entries=base.matrix_rows(catalog,accepted)
     for name,digest in reports.items():fingerprints[name]=digest

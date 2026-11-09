@@ -1,10 +1,43 @@
 {
   "name": "wordcraft",
-  "version": "0.1.0-dev.20261019.1",
-  "description": "wordcraft 工作区编辑器与场景技能，本地开发候选。",
+  "version": "0.1.0-dev.20261109.2",
+  "description": "Weekly reports, minutes, quotations, proposals, acceptance reports and resumes. Styles, TOC, page numbers and captions stay consistent.",
   "license": "Apache-2.0",
   "skills": "./skills/",
-  "displayName": "WordCraft Use",
+  "displayName": "WordCraft",
   "icon": "./assets/official-logo.png",
-  "mcpServers": "./.mcp.json"
+  "mcpServers": {
+    "wordcraft-editor": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${ZCODE_PLUGIN_ROOT}/ui/bootstrap.mjs"
+      ],
+      "cwd": "${ZCODE_PROJECT_DIR}",
+      "env": {
+        "CRAFT_PANEL_METADATA_FILE": "${ZCODE_PLUGIN_ROOT}/.zcode-plugin/panel-meta.json",
+        "CRAFT_WORKSPACE_ROOT": "${ZCODE_PROJECT_DIR}"
+      }
+    }
+  },
+  "displayName_i18n": {
+    "en": "WordCraft",
+    "zh-CN": "WordCraft"
+  },
+  "ui": {
+    "surfaces": [
+      {
+        "id": "editor",
+        "title": {
+          "en-US": "WordCraft",
+          "zh-CN": "WordCraft"
+        },
+        "icon": "file-text",
+        "server": "wordcraft-editor",
+        "resourceUri": "ui://wordcraft/panel.html",
+        "availability": "session"
+      }
+    ]
+  },
+  "commands": "commands"
 }

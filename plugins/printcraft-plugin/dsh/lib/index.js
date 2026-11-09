@@ -27,10 +27,10 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const REPO_ROOT = fileURLToPath(new URL('../../', import.meta.url))
 const SKILLS_DIR = join(REPO_ROOT, 'skills')
 const COMMANDS_DIR = join(REPO_ROOT, 'commands')
-const DATA_DIR = process.env.DSH_PLUGIN_DATA || join(homedir(), '.dsh', 'plugin-data', 'printcraft')
+const DATA_DIR = process.env.DSH_PLUGIN_DATA || join(homedir(), '.dsh', 'plugin-data', 'pdfcraft')
 
-const PROVIDER = 'printcraft'
-const SOURCE = 'agent-plugin:printcraft'
+const PROVIDER = 'pdfcraft'
+const SOURCE = 'agent-plugin:pdfcraft'
 const RANK = 600 // BUNDLED_SKILL_RANK from @deepseek-ai/dsh-skill
 const SKILL_NAME = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 const DSH_SKILL = {
@@ -291,7 +291,7 @@ const provider = {
 }
 
 /** Cordis plugin metadata. */
-export const name = 'printcraft'
+export const name = 'pdfcraft'
 export const inject = ['skills']
 
 /** Register the repository-backed provider on `ctx.skills`. */

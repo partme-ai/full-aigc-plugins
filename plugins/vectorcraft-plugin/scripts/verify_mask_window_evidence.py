@@ -44,7 +44,10 @@ def verify(root=ROOT):
     def bound(name,digest):
         path=root/name
         if path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==digest:return
-        archived=[base/p for base in (root,ROOT) for p,h in known.items() if h==digest and p.endswith('/'+name) and (base/p).is_file()]
+        relocated=('skills/vectorcraft-harness/scripts/'+name.split('/scripts/',1)[1]
+                   if name.startswith('skills/vectorcraft-') and '/scripts/' in name else None)
+        archived=[base/p for base in (root,ROOT) for p,h in known.items()
+                  if h==digest and (p.endswith('/'+name) or p==relocated) and (base/p).is_file()]
         archived+=[p for base in (root,ROOT) if (base/'docs/evidence/pre-harness-convergence-identity').is_dir() for p in sorted((base/'docs/evidence/pre-harness-convergence-identity').glob('*/'+name)) if p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==digest]
         if len({p.read_bytes() for p in archived})!=1:raise ValueError('mask_window_dependency')
     for name,digest in r['fingerprints'].items():bound(name,digest)

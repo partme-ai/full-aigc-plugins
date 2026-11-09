@@ -131,6 +131,13 @@ else:
             observed = re.findall(version_pattern, rows[0]) if len(rows) == 1 else []
             if observed != [expected] or field == 'skills' and source['package'] not in rows[0]:
                 errors.append(f'{language}: current README identity {field} differs from manifest/lock')
+        property_label = 'Version' if language == 'README.md' else '版本'
+        property_rows = re.findall(r'^\| ' + property_label + r' \| `([^`]+)` \|$', text, re.M)
+        if property_rows != [manifest['version']]:
+            errors.append(f'{language}: current README identity property version differs from manifest')
+        badge = 'badge/release-' + manifest['version'].replace('-', '--') + '-1A73E8'
+        if badge not in text:
+            errors.append(f'{language}: current README identity badge differs from manifest')
         current = re.search(r'^Current plugin: `([^`]+)`; skill source: `([^`]+)`;', text, re.M)
         if current and current.groups() != (manifest['version'], source['ref'].removeprefix('v')):
             errors.append(f'{language}: current README identity paragraph differs from manifest/lock')

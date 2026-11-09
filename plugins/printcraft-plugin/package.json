@@ -1,6 +1,6 @@
 {
-  "name": "printcraft-plugin",
-  "version": "0.1.0-dev.20261019.1",
+  "name": "pdfcraft-plugin",
+  "version": "0.1.0-dev.20261109.1",
   "private": true,
   "type": "module",
   "main": "./dsh/lib/index.js",

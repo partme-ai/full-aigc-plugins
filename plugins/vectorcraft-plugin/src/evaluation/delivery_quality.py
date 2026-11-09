@@ -77,6 +77,24 @@ def check_exchange_report(directory,manifest,file):
         if loss.get(key)!={'location':name,'sha256':declared.get(name)} or name not in declared:raise ValueError('exchange_report_'+key+'_mismatch')
     inspection=strict_json(file('native.json').read_text())
     if not isinstance(inspection,dict):raise ValueError('exchange_report_invalid_inspection')
+    # The native document JSON does not persist export settings. For a delivery
+    # that includes the workflow journal, bind each SVG mode to the actual
+    # document.setup result immediately preceding its export.
+    svg_modes={}
+    if 'operations.json' in declared:
+        operations=strict_json(file('operations.json').read_text())
+        if not isinstance(operations,list):raise ValueError('exchange_report_invalid_operations')
+        current_mode=None
+        for operation in operations:
+            if not isinstance(operation,dict):raise ValueError('exchange_report_invalid_operations')
+            if operation.get('command')=='document.setup':
+                result=operation.get('result')
+                if not isinstance(result,dict) or result.get('exportText') not in ('editable','appearance'):raise ValueError('exchange_report_invalid_setup')
+                current_mode=result['exportText']
+            if operation.get('command')=='document.export' and isinstance(operation.get('params'),dict) and operation['params'].get('format')=='svg':
+                name=operation['params'].get('path')
+                if not isinstance(name,str) or name in svg_modes or current_mode is None:raise ValueError('exchange_report_invalid_operations')
+                svg_modes[name]=current_mode
     rows=loss.get('outputs');wanted=[r['path'] for r in manifest['outputs']]
     if not isinstance(rows,list) or len(rows)!=len(wanted) or any(not isinstance(r,dict) for r in rows) or sorted(r.get('location','') for r in rows)!=sorted(wanted):raise ValueError('exchange_report_output_coverage')
     required={
@@ -98,7 +116,7 @@ def check_exchange_report(directory,manifest,file):
             counts={tag:tags.count(tag) for tag in ['path','text','image','filter','mask','clipPath']}
             observation=row['observations'];setup=inspection.get('setup',{})
             if not isinstance(setup,dict):raise ValueError('exchange_report_invalid_setup')
-            mode=setup.get('exportText')
+            mode=svg_modes.get(name,setup.get('exportText'))
             def text_ids(value):
                 found=[]
                 if isinstance(value,dict):
