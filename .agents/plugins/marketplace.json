@@ -35,8 +35,9 @@
     {
       "name": "cadcraft",
       "source": {
-        "source": "local",
-        "path": "./plugins/cadcraft-plugin"
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/cadcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -109,8 +110,9 @@
     {
       "name": "deckcraft",
       "source": {
-        "source": "local",
-        "path": "./plugins/deckcraft-plugin"
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/deckcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -133,8 +135,9 @@
     {
       "name": "designcraft",
       "source": {
-        "source": "local",
-        "path": "./plugins/designcraft-plugin"
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/designcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -306,8 +309,9 @@
     {
       "name": "gridcraft",
       "source": {
-        "source": "local",
-        "path": "./plugins/gridcraft-plugin"
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/gridcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -458,8 +462,9 @@
     {
       "name": "pdfcraft",
       "source": {
-        "source": "local",
-        "path": "./plugins/printcraft-plugin"
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/pdfcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261109.1"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -482,8 +487,9 @@
     {
       "name": "photocraft",
       "source": {
-        "source": "local",
-        "path": "./plugins/photocraft-plugin"
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/photocraft-plugin.git",
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -506,8 +512,9 @@
     {
       "name": "soundcraft",
       "source": {
-        "source": "local",
-        "path": "./plugins/soundcraft-plugin"
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/soundcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -530,8 +537,9 @@
     {
       "name": "vectorcraft",
       "source": {
-        "source": "local",
-        "path": "./plugins/vectorcraft-plugin"
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/vectorcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -606,8 +614,9 @@
     {
       "name": "wordcraft",
       "source": {
-        "source": "local",
-        "path": "./plugins/wordcraft-plugin"
+        "source": "url",
+        "url": "https://github.com/full-aigc-plugins/wordcraft-plugin.git",
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "policy": {
         "installation": "AVAILABLE",

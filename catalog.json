@@ -66,7 +66,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/cadcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "CADCraft",
@@ -103,7 +102,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/designcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "DesignCraft",
@@ -207,7 +205,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/photocraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "PhotoCraft",
@@ -355,7 +352,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/printcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "PdfCraft",
@@ -392,7 +388,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/vectorcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "VectorCraft",
@@ -429,7 +424,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/deckcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "DeckCraft",
@@ -466,7 +460,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/soundcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "SoundCraft",
@@ -503,7 +496,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/gridcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "GridCraft",
@@ -540,7 +532,6 @@
         "editor"
       ],
       "logo": "assets/official-logo.png",
-      "codexSourcePath": "./plugins/wordcraft-plugin",
       "localizations": {
         "zh-CN": {
           "displayName": "WordCraft",
