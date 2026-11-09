@@ -1,6 +1,6 @@
 {
   "name": "deckcraft",
-  "version": "0.1.0-dev.20261109.2",
+  "version": "0.1.0-dev.20261109.3",
   "description": "Pitch decks, weekly reports, training material, data stories and option comparisons. Masters, layouts and speaker notes stay editable after export.",
   "license": "Apache-2.0",
   "skills": "./skills/",

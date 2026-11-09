@@ -5,8 +5,8 @@
     {
       "id": "cadcraft",
       "displayName": "CADCraft",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261109.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/cadcraft-plugin@v0.1.0-dev.20261109.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/cadcraft-plugin/releases/tag/v0.1.0-dev.20261109.3"
     },
     {
       "id": "content-factory",
@@ -17,14 +17,14 @@
     {
       "id": "deckcraft",
       "displayName": "DeckCraft",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261109.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/deckcraft-plugin@v0.1.0-dev.20261109.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/deckcraft-plugin/releases/tag/v0.1.0-dev.20261109.3"
     },
     {
       "id": "designcraft",
       "displayName": "DesignCraft",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261109.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/designcraft-plugin@v0.1.0-dev.20261109.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/designcraft-plugin/releases/tag/v0.1.0-dev.20261109.3"
     },
     {
       "id": "dreamina-novel",
@@ -53,8 +53,8 @@
     {
       "id": "gridcraft",
       "displayName": "GridCraft",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261109.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/gridcraft-plugin@v0.1.0-dev.20261109.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/gridcraft-plugin/releases/tag/v0.1.0-dev.20261109.3"
     },
     {
       "id": "lightcraft",
@@ -65,32 +65,32 @@
     {
       "id": "pdfcraft",
       "displayName": "PdfCraft",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261109.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/pdfcraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/pdfcraft-plugin/releases/tag/v0.1.0-dev.20261109.2"
     },
     {
       "id": "photocraft",
       "displayName": "PhotoCraft",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261109.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/photocraft-plugin@v0.1.0-dev.20261109.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/photocraft-plugin/releases/tag/v0.1.0-dev.20261109.3"
     },
     {
       "id": "soundcraft",
       "displayName": "SoundCraft",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261109.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/soundcraft-plugin@v0.1.0-dev.20261109.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/soundcraft-plugin/releases/tag/v0.1.0-dev.20261109.3"
     },
     {
       "id": "vectorcraft",
       "displayName": "VectorCraft",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261109.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/vectorcraft-plugin@v0.1.0-dev.20261109.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/vectorcraft-plugin/releases/tag/v0.1.0-dev.20261109.3"
     },
     {
       "id": "wordcraft",
       "displayName": "WordCraft",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261109.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/wordcraft-plugin@v0.1.0-dev.20261109.3/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/tag/v0.1.0-dev.20261109.3"
     }
   ]
 }

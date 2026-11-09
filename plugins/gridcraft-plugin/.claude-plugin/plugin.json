@@ -1,6 +1,6 @@
 {
   "name": "gridcraft",
-  "version": "0.1.0-dev.20261109.2",
+  "version": "0.1.0-dev.20261109.3",
   "description": "Budgets, reconciliation, table cleanup, sales summaries and formula audits. Values keep their units and sources, and formulas stay recalculable.",
   "license": "Apache-2.0",
   "skills": "./skills/",

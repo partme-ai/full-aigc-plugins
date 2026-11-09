@@ -1,176 +1,164 @@
-# GridCraft Use
+# GridCraft（电子表格）
 
-## Plugin marketplaces
+> 预算、对账、清洗与汇总，公式可重算
 
-This plugin belongs to **AIGC content creation**.
+**版本**：0.1.0-dev.20261109.3 · **许可证**：Apache-2.0 · **技能**：11 个 · **MCP 服务**：1 个
 
-| Category | Marketplace | Purpose |
-| --- | --- | --- |
-| Full-stack development | [Full Stack Plugins](https://github.com/partme-ai/full-stack-plugins) | Architecture and UI design, code understanding, quality checks, code review, workflow governance, and server operations |
-| AIGC content creation | [Full AIGC Plugins](https://github.com/partme-ai/full-aigc-plugins) | Image, video, audio, music, 3D, and multimodal content creation |
+[English](README.en.md) · [安装](#安装) · [快速开始](#快速开始) · [项目结构](#项目结构)
 
-![GridCraft Use — editable workbooks from a coding agent](assets/official-logo.png)
+## 项目定位
 
-> Build and audit a real spreadsheet from your agent host — cells, formulas, tables and charts stay editable instead of arriving as a screenshot.
+预算执行、两表对账、表格清洗、销售汇总与公式审计；保留数据单位与来源，公式可重算。
 
-[![Version](https://img.shields.io/badge/release-0.1.0--dev.20261019.1-1A73E8)](https://github.com/full-aigc-plugins/gridcraft-plugin/releases)
-[![Skills](https://img.shields.io/badge/skills-11-00A67E)](#skills)
-[![MCP tools](https://img.shields.io/badge/MCP%20tools-29-00A67E)](#mcp-tools)
-[![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
+本插件属于内容创作线，面向需要直接得到可编辑成果、而不是一段脚本或图片的用户。
 
-[English](README.md) | [简体中文](README.zh-CN.md) · [Install](#installation) · [Quick start](#quick-start) · [Skills](#skills) · [Troubleshooting](#troubleshooting)
+## 一眼看懂
 
-## Positioning
+```text
+素材 / 需求 / 旧稿
+        │
+        ▼
+GridCraft（电子表格） 技能（检查 → 计划 → 执行 → 回读）
+        │
+        ├── 原生 CLI / MCP 工具
+        └── MCP 编辑器（浏览器内查看与局部调整）
+        │
+        ▼
+可编辑工程 + 导出文件 + 复核结果
+```
 
-`gridcraft` connects an agent host to the GridCraft workbook engine, so a request ends with an editable workbook whose formulas still recalculate. The plugin owns spreadsheet skills, a same-session editor bridge and package pinning; it does not re-implement the engine, the formula evaluator or the file format.
+## 能力与边界
 
-| Property | Value |
-| :--- | :--- |
-| Plugin ID | `gridcraft` |
-| Version | `0.1.0-dev.20261018.3` |
-| Status | Development preview; all-host acceptance still open |
-| Editor runtime | Node.js 24, started from `ui/bootstrap.mjs` |
-| Host requirements | Plugin or stdio MCP host; MCP Apps or a built-in browser for the panel |
-| License | Apache-2.0 |
+| 能力 | 说明 | 边界 |
+|---|---|---|
+| 检查 | 读取现有工程与素材状态 | 不修改未授权文件 |
+| 创建 | 按目标生成可编辑结构 | 事实与素材需来自输入 |
+| 编辑 | 局部修改并保留未涉及内容 | 修改后必须重新打开 |
+| 导出 | 输出目标格式并核对 | 导出成功不等于版面正确 |
+| 评审 | 按明确标准检查结果 | 不替代最终人工验收 |
 
-## Installation
+## 架构与核心流程
 
-### Prerequisites
+```text
+宿主 / Agent
+   │  调用技能
+   ▼
+skills/gridcraft-*  ──►  MCP 编辑器 / 原生 CLI
+                              │
+                              ▼
+                     可编辑工程 + 导出
+                              │
+                              ▼
+                     回读、检查、交付
+```
 
-- Node.js 24 on `PATH`; the bundled stdio MCP server runs on it.
-- Network access on the first editor launch. The plugin downloads and verifies the pinned editor archive; a complete release ZIP already contains it, so no Rust toolchain, `npm install` or Python runtime is required.
-- A host that supports plugins or stdio MCP. Embedded panels additionally require MCP Apps or a built-in browser.
-- No separate spreadsheet application is needed; the workbook engine is bundled.
+原则：
 
-### From the plugin marketplace
+1. 先只读检查，再计划，再执行。
+2. 每次写入保留原件或可回退版本。
+3. 导出后重新打开核对。
+4. 不确定的结果标记为待核对，不自动重放。
+
+## 兼容性
+
+| 项目 | 状态 |
+|---|---|
+| 宿主 | 支持 MCP Apps 或内置浏览器的宿主 |
+| Node.js | 24+（编辑器） |
+| 平台 | 以实际安装包与发行说明为准 |
+
+## 安装
 
 ```bash
 codex plugin marketplace add partme-ai/full-aigc-plugins
 codex plugin add gridcraft@full-aigc-plugins
 ```
 
-Restart the host, open a new task, and ask GridCraft to open a workbook for your workspace.
+安装后重启宿主，先做只读检查。
 
-### Other host manifests
+## 快速开始
 
-| Host | Manifest | Path base |
-| --- | --- | --- |
-| Standard Agent Plugins 1.0.0 | `plugin.json`, `mcp.json` | `${PLUGIN_ROOT}` |
-| Codex | `.codex-plugin/plugin.json`, `.codex-plugin/mcp.json` | plugin root relative to `cwd` |
-| Claude Code | `.claude-plugin/plugin.json`, `.mcp.json` | `${CLAUDE_PLUGIN_ROOT}` |
+1. 确认目标、输入素材和交付格式。
+2. 先检查现有工程，列出缺失项。
+3. 执行一次有界修改。
+4. 重新打开输出，核对结构与关键内容。
+5. 完成视觉或内容复核后交付。
 
-Kimi (`kimi.plugin.json`), DeepSeek Harness (`dsh/`) and the WorkBuddy example (`hosts/workbuddy/mcp.json`) are also present. In a development checkout you must build the editor assets first; cloning the source is not an installed runtime.
+## 配置
 
-## Quick start
+| 变量 | 用途 | 默认 |
+|---|---|---|
+| `CRAFT_WORKSPACE_ROOT` | 编辑器绑定的工作区 | 当前项目 |
+| `CRAFT_EDITOR_UPDATE` | 设为 `off` 跳过增强包下载 | 开启 |
 
-```mermaid
-flowchart LR
-    A[Install plugin] --> B[Restart and open a task]
-    B --> C[open_editor]
-    C --> D{editor_status ready?}
-    D -->|No| C
-    D -->|Yes| E[new_workbook]
-    E --> F[set_cell / write_range]
-    F --> G[evaluate_formula]
-    G --> H[inspect_workbook / save_workbook]
-```
+不要在工程或配置中写入密钥、令牌和私有路径。
 
-1. Open the editor with an explicit `workspace` argument.
-2. Create a workbook with `new_workbook`, or open an existing file with `open_workbook`.
-3. Read the available commands first with `list_commands`, then use `execute_command` for anything the direct tools do not cover.
-4. Write values with `set_cell` or `write_range`, and confirm calculations with `evaluate_formula` — never assume a formula recalculated.
-5. Save with `save_workbook`, reopen, and check that formulas and formats survived.
+## 扩展契约
 
-## What you can build
+新增技能时应使用 `gridcraft-` 前缀，声明触发条件和边界，通过 MCP 或固定 CLI 操作真实工程，修改后重新打开核验。
 
-| Workflow | Built-in path | Verifiable output |
-| :--- | :--- | :--- |
-| Clean a messy table | `gridcraft-clean-table` | Deduplicated, gap-checked, format-normalised sheet |
-| Sales summary | `gridcraft-sales-summary` | Totals by period, product or region with live formulas |
-| Budget versus actual | `gridcraft-budget-tracker` | Budget, actual and variance columns that recalculate |
-| Reconcile two tables | `gridcraft-reconcile-data` | Matched, unmatched and exception rows |
-| Formula audit | `gridcraft-formula-audit` | Broken references, hardcoded values and missing ranges listed |
-| Business dashboard | `gridcraft-dashboard` | Metric cells, charts and filters on one sheet |
-| Shift timesheet | `gridcraft-shift-timesheet` | Cross-midnight hours and break handling |
-| Fixed-rate payment schedule | `gridcraft-fixed-payment` | Principal, rate and term turned into monthly rows |
-| Month calendar | `gridcraft-month-calendar` | Weekday-accurate grid including leap years |
+## 重试、幂等与恢复
 
-## Skills
+- 失败后先检查当前工程状态。
+- 不自动重复已产生副作用的操作。
+- 重试使用新输出路径并保留旧回执。
 
-| Skill | What it does |
-| :--- | :--- |
-| `gridcraft-editor` | Open the editor in the host and keep agent edits on the same page |
-| `gridcraft-clean-table` | Handle duplicates, missing values and inconsistent formats |
-| `gridcraft-sales-summary` | Aggregate sales by time, product or region |
-| `gridcraft-budget-tracker` | Manage budget, actual and variance |
-| `gridcraft-reconcile-data` | Compare orders, statements or stock between two tables |
-| `gridcraft-formula-audit` | Find broken references, hardcoded numbers and range gaps |
-| `gridcraft-dashboard` | Metrics, charts and filters on one sheet |
-| `gridcraft-shift-timesheet` | Cross-midnight shifts, break hours, missing and invalid rows |
-| `gridcraft-fixed-payment` | Fixed nominal annual rate and equal monthly payments |
-| `gridcraft-month-calendar` | Month grid with Monday start, weekend columns and leap years |
-| `gridcraft-scenario-playbooks` | Recipes for quotes, replenishment, weighted scoring, expense review, duplicate keys and task tables |
+## 数据与状态
 
-Skills come from the independent `gridcraft-skills` source and are pinned by `scenario-candidates.json` with per-skill SHA-256 digests.
+- 输入素材只读。
+- 输出工程、导出文件和临时目录分开。
+- 交付前确认文件可打开、内容完整。
 
-## MCP tools
+## 安全
 
-One bundled server, `gridcraft-editor`, speaking **stdio**. The local HTTP listener only serves the editor page and its same-session bridge. The catalogue exposes 29 tools: 24 agent-callable tools and 5 `_editor_*` bridge tools the panel uses internally.
+- 不把未授权素材上传到第三方服务。
+- 敏感内容脱敏后再交付。
+- 发现泄露先轮换凭据，再清理文件。
 
-| Family | Tools | Purpose |
-| :--- | :--- | :--- |
-| Session | `open_editor`, `open_browser_editor`, `editor_status` | Open the editor and confirm that it attached |
-| Discovery | `list_commands`, `list_functions` | Live command IDs, parameters, and supported spreadsheet functions |
-| Command gateway | `execute_command` | Run any registered engine command with JSON params |
-| Workbook | `new_workbook`, `open_workbook`, `save_workbook`, `inspect_workbook` | Create, open, save and summarise a workbook |
-| Cells and ranges | `set_cell`, `get_cell`, `read_range`, `write_range` | Read and write individual cells or rectangular ranges |
-| Calculation | `evaluate_formula` | Evaluate a formula expression without changing any cell |
-| Structure | `create_table`, `sort_range`, `filter`, `format_range` | Tables, ordering, filtering and cell formatting |
-| Charts | `insert_chart` | Insert a chart bound to a range |
-| Interaction | `select`, `screenshot` | Select a range; `screenshot` saves a window PNG (desktop app) |
-| History | `undo`, `redo` | Step back and forward one change |
+## 可观测性与运行
 
-## Configuration
+记录命令、输出文件、关键结构和复核结果；交付前至少检查一次真实输出。
 
-| Setting | Where | Effect |
-| :--- | :--- | :--- |
-| `workspace` argument | `open_editor` / `open_browser_editor` | Binds the task folder; paths outside it are refused |
-| `CRAFT_EDITOR_UPDATE=off` | stdio MCP `env` | Use the bundled editor only; no download attempt |
-| `CRAFT_EDITOR_CACHE_DIR` | Environment | Absolute directory for verified editor archives |
-| `CRAFT_WORKSPACE_ROOT` | Host MCP config | Workspace root for hosts that cannot pass it in a tool call |
-
-Verified archives are cached under `~/.cache/full-aigc/editors`; an active session keeps its version until closed, and a corrupt cache falls back to the bundled build.
-
-## Architecture and security
-
-Agent ↔ plugin traffic is stdio MCP; the browser bridge listens on `127.0.0.1` only, with a random token and Host/Origin checks. Downloads are SHA-256 verified and the bundled editor is always kept as a fallback. Skills are instructions and do not enforce policy at runtime. The plugin stores no credential and forwards no traffic to the authors.
-
-Format behaviour and the current acceptance scope are described in [editor integration](docs/editor-integration.md) and `docs/verification/release-candidate.json`. A workbook that opens is not proof that every formula, format or external reference survived; check after reopening.
-
-## Troubleshooting
-
-| Symptom | Action |
-| :--- | :--- |
-| Editor tools are missing | Confirm the plugin is enabled, restart the host, open a new task |
-| The panel does not render inside the host | Use the URL from `open_browser_editor`; the terminal provides no browser panel |
-| First open stalls | The first launch downloads the pinned archive; retry with network, or set `CRAFT_EDITOR_UPDATE=off` |
-| A formula shows a stale value | Re-run `evaluate_formula` after the write; do not trust a cached cell |
-| A reopened workbook lost formatting | Re-check the affected range after `open_workbook` and reapply the format |
-| A write times out | Reopen or inspect the workbook before retrying; do not replay blindly |
-
-## Upgrade
+## 开发与验证
 
 ```bash
-codex plugin marketplace upgrade full-aigc-plugins
-codex plugin add gridcraft@full-aigc-plugins
+node --test
+python3 -m pytest
 ```
 
-The editor archive and skill digests are pinned per release; upgrading the plugin replaces the bundled runtime rather than patching it in place.
+## 打包与发布
 
-## Contributing and support
+版本与清单、市场、tag 一致；ZIP 根目录为 `gridcraft-plugin`。
 
-Open issues at <https://github.com/full-aigc-plugins/gridcraft-plugin/issues>. Read `AGENTS.md` before editing skills or manifests, and keep the Chinese and English documents aligned. A scene skill is described as working only after a real command run and a reopen check.
+## 升级与迁移
 
-## License
+升级前备份工程；旧版本文件保持可打开；迁移后重新检查结构和导出。
 
-Original repository content is [Apache-2.0](LICENSE). The icon is upstream GridCraft artwork under MIT, recorded in `assets/official-icon-source.json`. Upstream GridCraft is a separate project at <https://github.com/storytold/gridcraft>; this plugin is an integration, not an endorsement.
+## 故障排查
+
+| 现象 | 检查 |
+|---|---|
+| 打不开工程 | 文件完整性、版本兼容 |
+| 编辑器空白 | Node.js 版本与工作区权限 |
+| 导出异常 | 字体、素材、输出路径 |
+| 结果不一致 | 重新打开并核对 |
+
+## 项目结构
+
+```text
+gridcraft-plugin/
+├── .zcode-plugin/      # ZCode 清单与 UI surface
+├── skills/             # 11 个技能
+├── ui/                 # MCP Apps 编辑器
+├── commands/open.md    # 打开编辑器命令
+├── docs/               # 架构与验证记录
+└── assets/             # 图标与模板
+```
+
+## 贡献与支持
+
+提交问题时附上插件版本、宿主、输入类型、命令、输出文件和预期结果。不要附敏感素材。
+
+## 许可证
+
+Apache-2.0，见 [LICENSE](LICENSE)。

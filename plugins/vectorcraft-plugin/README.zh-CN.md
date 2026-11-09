@@ -13,7 +13,7 @@
 
 > 把品牌需求变成可继续编辑的原生 VectorCraft 工程——标志、图标集、信息图或图表——并按对象局部返工，而不是重新画一遍。
 
-[![版本](https://img.shields.io/badge/release-0.1.0--dev.20261019.1-1A73E8)](https://github.com/full-aigc-plugins/vectorcraft-plugin/releases)
+[![版本](https://img.shields.io/badge/release-0.1.0--dev.20261109.2-1A73E8)](https://github.com/full-aigc-plugins/vectorcraft-plugin/releases)
 [![技能](https://img.shields.io/badge/skills-25-00A67E)](#技能)
 [![MCP 工具](https://img.shields.io/badge/MCP%20tools-40-00A67E)](#mcp-工具)
 [![许可证](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
@@ -27,18 +27,18 @@
 | 属性 | 取值 |
 | :--- | :--- |
 | 插件 ID | `vectorcraft` |
-| 版本 | `0.1.0-dev.20261018.2` |
+| 版本 | `0.1.0-dev.20261109.3` |
 | 状态 | 开发预览；完整领域验收与全部宿主验收仍未完成 |
 | 编辑器运行时 | Node.js 24，由 `ui/bootstrap.mjs` 启动 |
 | 原生 CLI | 维护版 `vectorcraft-cli` `0.2.0-craft.2`，基于上游 `v0.2.0` |
 | 已核验 CLI 平台 | macOS arm64，Python 3.11 或更新版本 |
 | 许可证 | Apache-2.0 |
 
-当前插件：`0.1.0-dev.20261019.1`；技能源：`0.1.0-dev.47`；插件与技能保持独立版本。
+当前插件：`0.1.0-dev.20261109.3`；技能源：`0.1.0-dev.47`；插件与技能保持独立版本。
 
 | Identity | Current value |
 | --- | --- |
-| Metadata version | 0.1.0-dev.20261019.1 |
+| Metadata version | 0.1.0-dev.20261109.3 |
 | Skills source | vectorcraft-skills / 0.1.0-dev.47 |
 
 

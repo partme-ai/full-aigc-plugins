@@ -1,6 +1,6 @@
 {
   "name": "wordcraft",
-  "version": "0.1.0-dev.20261109.2",
+  "version": "0.1.0-dev.20261109.3",
   "url": "https://github.com/full-aigc-plugins/wordcraft-plugin/releases/download/v0.1.0-dev.20261019.1/wordcraft-runtime.tgz",
   "sha256": "dfc3bf965a51f49af65f68e9aa15dc1981a29b35ede29ebd138d63057c9eafaa",
   "files": {
