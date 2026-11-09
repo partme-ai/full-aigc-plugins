@@ -41,3 +41,14 @@ test("local Codex packages display the same names and descriptions as their card
     }
   }
 });
+
+test("published ZCode plugins use their aggregated package directories", () => {
+  const zcode = JSON.parse(fs.readFileSync(path.join(root, "marketplace.json"), "utf8"));
+  const entries = new Map(zcode.plugins.map((plugin) => [plugin.name, plugin]));
+  for (const plugin of catalog.plugins) {
+    const entry = entries.get(plugin.id);
+    assert.ok(entry, `${plugin.id}: missing ZCode entry`);
+    assert.equal(entry.source, `./plugins/${plugin.id}`);
+    assert.ok(fs.existsSync(path.join(root, "plugins", plugin.id, "plugin.json")));
+  }
+});
