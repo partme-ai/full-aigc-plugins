@@ -36,7 +36,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/content-factory-plugin.git",
-        "ref": "v1.0.0-rc.2"
+        "ref": "v1.0.0-rc.4"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -48,11 +48,13 @@
         "skills",
         "mcp"
       ],
-      "version": "1.0.0-rc.2",
+      "version": "1.0.0-rc.4",
       "description": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.4/assets/content-factory.svg",
       "interface": {
         "displayName": "Content（多平台内容生产）",
-        "shortDescription": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。"
+        "shortDescription": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.4/assets/content-factory.svg"
       }
     },
     {
@@ -110,7 +112,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/full-aigc-plugins/dreamina-novel-plugin.git",
-        "ref": "v0.1.0-dev.20261109.1"
+        "ref": "v0.1.0-dev.20261109.2"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -121,13 +123,13 @@
       "componentTypes": [
         "skills"
       ],
-      "version": "0.1.0-dev.20261109.1",
+      "version": "0.1.0-dev.20261109.2",
       "description": "承接创意、剧本和本地素材，按集完成角色场景、分镜、批量生成与成片交付。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
       "interface": {
         "displayName": "Dreamina Novel（即梦短剧创作）",
         "shortDescription": "即梦短剧从剧本到成片，支持多集批量生产和局部返修。",
-        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png"
+        "logo": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png"
       }
     },
     {

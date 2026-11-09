@@ -5,8 +5,8 @@
     {
       "id": "blender-design",
       "displayName": "Blender（三维建模）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.16.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.16.2"
     },
     {
       "id": "cadcraft",
@@ -17,13 +17,14 @@
     {
       "id": "comfy-design",
       "displayName": "Comfy（ComfyUI 工作流）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/comfy-design-plugin/releases/tag/v0.6.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/comfy-design-plugin/releases/tag/v0.6.2"
     },
     {
       "id": "content-factory",
       "displayName": "Content（多平台内容生产）",
-      "source": "https://github.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.2"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.4/assets/content-factory.svg",
+      "source": "https://github.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.4"
     },
     {
       "id": "deckcraft",
@@ -39,21 +40,21 @@
     },
     {
       "id": "dreamina-canvas",
-      "displayName": "Dreamina Canvas",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.0/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.6.0"
+      "displayName": "Dreamina Canvas（即梦画布编排）",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.1/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.6.1"
     },
     {
       "id": "dreamina-design",
       "displayName": "Dreamina（即梦绘图与视频）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.1/assets/logo-approved.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.8.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.2/assets/logo-approved.png",
+      "source": "https://github.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.8.2"
     },
     {
       "id": "dreamina-novel",
       "displayName": "Dreamina Novel（即梦短剧创作）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/dreamina-novel-plugin/releases/tag/v0.1.0-dev.20261109.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261109.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/dreamina-novel-plugin/releases/tag/v0.1.0-dev.20261109.2"
     },
     {
       "id": "effectcraft",
@@ -82,14 +83,14 @@
     {
       "id": "image-factory",
       "displayName": "Image（批量 AI 出图）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.1/assets/logo-approved.png",
-      "source": "https://github.com/full-aigc-plugins/image-factory-plugin/releases/tag/v0.9.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.2/assets/logo-approved.png",
+      "source": "https://github.com/full-aigc-plugins/image-factory-plugin/releases/tag/v0.9.2"
     },
     {
       "id": "jianying-draft",
       "displayName": "JianYing Draft（剪映草稿编排）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.6/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.29.6"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.7/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.29.7"
     },
     {
       "id": "lightcraft",
@@ -100,14 +101,14 @@
     {
       "id": "maya-design",
       "displayName": "Maya（三维场景）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/maya-design-plugin/releases/tag/v0.2.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/maya-design-plugin/releases/tag/v0.2.2"
     },
     {
       "id": "minimax-design",
       "displayName": "MiniMax（AI 视频生成）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.5.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.5.2"
     },
     {
       "id": "pdfcraft",
@@ -136,14 +137,14 @@
     {
       "id": "video-factory",
       "displayName": "Video（自动剪辑成片）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.1/assets/logo-approved.png",
-      "source": "https://github.com/full-aigc-plugins/video-factory-plugin/releases/tag/v0.5.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.2/assets/logo-approved.png",
+      "source": "https://github.com/full-aigc-plugins/video-factory-plugin/releases/tag/v0.5.2"
     },
     {
       "id": "volcengine-design",
       "displayName": "Volcengine（豆包语音与视频）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.1/assets/official-logo.png",
-      "source": "https://github.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.2.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.2/assets/official-logo.png",
+      "source": "https://github.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.2.2"
     },
     {
       "id": "wordcraft",
@@ -154,8 +155,8 @@
     {
       "id": "xuanji",
       "displayName": "Xuanji（命理排盘 · 娱乐）",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.1/assets/logo.png",
-      "source": "https://github.com/full-aigc-plugins/xuanji-plugin/releases/tag/v0.2.1"
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.2/assets/logo.png",
+      "source": "https://github.com/full-aigc-plugins/xuanji-plugin/releases/tag/v0.2.2"
     }
   ]
 }
