@@ -31,9 +31,9 @@
 
 This repository is the plugin-side counterpart of [Full AIGC Skills](https://github.com/partme-ai/full-aigc-skills): the skills side captures domain knowledge ("how to think"), while the plugin side ships executable capability ("what you can do") — MCP tools, generation pipelines, and approval/verification gates. Both follow the same domain layout within one ecosystem.
 
-> This repository aggregates complete tagged releases of published plugins and builds a local marketplace distribution. Each plugin remains maintained in its own repository. Large Craft candidates continue to install from pinned remote releases.
+> This repository aggregates complete tagged releases of published plugins and builds a local marketplace distribution. Each plugin remains maintained in its own repository. All 13 Craft marketplace entries now belong to Full Work Plugins; their source repositories and prerelease assets remain in the original organization.
 
-The CADCraft, DeckCraft, DesignCraft, GridCraft, PdfCraft, PhotoCraft, SoundCraft, VectorCraft, and WordCraft marketplace entries have moved to [Full Work Plugins](https://github.com/partme-ai/full-work-plugins). Their source repositories and prerelease assets remain under [full-aigc-plugins](https://github.com/full-aigc-plugins).
+The CADCraft, DeckCraft, DesignCraft, EffectCraft, FigCraft, FilmCraft, GridCraft, LightCraft, PdfCraft, PhotoCraft, SoundCraft, VectorCraft, and WordCraft marketplace entries have moved to [Full Work Plugins](https://github.com/partme-ai/full-work-plugins). Their source repositories and prerelease assets remain under [full-aigc-plugins](https://github.com/full-aigc-plugins).
 
 ### Coverage
 
@@ -107,10 +107,6 @@ The plugins below belong to **AIGC**. Open a plugin name or repository link for 
 
 | Plugin | ID | Version | Focus | Repository |
 |--------|----|:-------:|-------|------------|
-| [**EffectCraft Use (RC)**](https://github.com/full-aigc-plugins/effectcraft-plugin) | `effectcraft` | 0.1.0-dev.20261018.5 | Scenario skills, stdio MCP and a shared-session editor; development candidate, creative acceptance incomplete | [effectcraft-plugin](https://github.com/full-aigc-plugins/effectcraft-plugin) |
-| [**FigCraft Use (RC)**](https://github.com/full-aigc-plugins/figcraft-plugin) | `figcraft` | 0.1.0-dev.20261019.2 | Scenario skills, stdio MCP and a shared-session editor; development candidate, creative acceptance incomplete | [figcraft-plugin](https://github.com/full-aigc-plugins/figcraft-plugin) |
-| [**FilmCraft Use (RC)**](https://github.com/full-aigc-plugins/filmcraft-plugin) | `filmcraft` | 0.1.0-dev.20261018.5 | Scenario skills, stdio MCP and a shared-session editor; development candidate, creative acceptance incomplete | [filmcraft-plugin](https://github.com/full-aigc-plugins/filmcraft-plugin) |
-| [**LightCraft Use (RC)**](https://github.com/full-aigc-plugins/lightcraft-plugin) | `lightcraft` | 0.1.0-dev.20261018.4 | Scenario skills, stdio MCP and a shared-session editor; development candidate, creative acceptance incomplete | [lightcraft-plugin](https://github.com/full-aigc-plugins/lightcraft-plugin) |
 | [🧱 **Blender Production**](https://github.com/full-aigc-plugins/blender-design-plugin) | `blender-design` | 0.16.2 | Controlled Blender production with a four-tab workbench, provider capabilities, visual milestones, and recovery checkpoints; adds `blender-ai-replication` (LLM + VLM critic reference-image replication) | [blender-design-plugin](https://github.com/full-aigc-plugins/blender-design-plugin) |
 | [🎞️ **Comfy Generation**](https://github.com/full-aigc-plugins/comfy-design-plugin) | `comfy-design` | 0.6.2 | Comfy Cloud generation workflows (image / video / audio / 3D) | [comfy-design-plugin](https://github.com/full-aigc-plugins/comfy-design-plugin) |
 | [🧪 **Content Factory (RC)**](https://github.com/full-aigc-plugins/content-factory-plugin) | `content-factory` | 1.0.0-rc.4 | Governed creation, review, formatting, and export for 16 channels; preview testing only, not production-ready | [content-factory-plugin](https://github.com/full-aigc-plugins/content-factory-plugin) |
