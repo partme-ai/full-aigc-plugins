@@ -1,6 +1,6 @@
 {
   "name": "full-aigc-plugins",
-  "displayName": "Full AIGC 插件",
+  "displayName": "Full AIGC Plugins（内容生成工具）",
   "description": "Full AIGC plugin marketplace for Codex, ZCode, and Kimi Code: image, video, audio, music, 3D, and multimodal content creation.",
   "descriptionZhCn": "Full AIGC 插件市场：面向 Codex、ZCode 与 Kimi Code 的图像、视频、音频、音乐、3D 与多模态内容创作插件。",
   "planningRepositories": [
