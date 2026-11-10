@@ -1,6 +1,6 @@
 {
   "version": "2",
-  "displayName": "Full AIGC 插件",
+  "displayName": "Full AIGC Plugins（内容生成工具）",
   "plugins": [
     {
       "id": "blender-design",

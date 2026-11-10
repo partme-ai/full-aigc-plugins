@@ -334,6 +334,6 @@
     }
   ],
   "interface": {
-    "displayName": "Full AIGC 插件"
+    "displayName": "Full AIGC Plugins（内容生成工具）"
   }
 }
