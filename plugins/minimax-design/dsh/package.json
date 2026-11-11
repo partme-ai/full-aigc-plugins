@@ -1,6 +1,6 @@
 {
   "name": "minimax-design",
-  "version": "0.5.0",
+  "version": "0.5.3",
   "description": "Generate MiniMax H3 videos with env-var auth, first/last-frame FL2VA anchoring, resumable v2 queries, 12 externally managed skills, 2 plugin-local skills, commands, and cross-platform credential setup.",
   "type": "module",
   "main": "lib/index.js",

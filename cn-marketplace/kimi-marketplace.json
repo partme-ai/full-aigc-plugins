@@ -5,80 +5,80 @@
     {
       "id": "blender-design",
       "displayName": "Blender（三维建模）",
-      "icon": "https://gitee.com/full-aigc-plugins/blender-design-plugin/raw/v0.16.2/assets/official-logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.16.2"
+      "icon": "https://gitee.com/full-aigc-plugins/blender-design-plugin/raw/v0.16.3/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/blender-design-plugin/releases/tag/v0.16.3"
     },
     {
       "id": "comfy-design",
       "displayName": "Comfy（ComfyUI 工作流）",
-      "icon": "https://gitee.com/full-aigc-plugins/comfy-design-plugin/raw/v0.6.2/assets/official-logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/comfy-design-plugin/releases/tag/v0.6.2"
+      "icon": "https://gitee.com/full-aigc-plugins/comfy-design-plugin/raw/v0.6.3/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/comfy-design-plugin/releases/tag/v0.6.3"
     },
     {
       "id": "content-factory",
       "displayName": "Content（多平台内容生产）",
-      "icon": "https://gitee.com/full-aigc-plugins/content-factory-plugin/raw/v1.0.0-rc.4/assets/content-factory.svg",
-      "source": "https://gitee.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.4"
+      "icon": "https://gitee.com/full-aigc-plugins/content-factory-plugin/raw/v1.0.0-rc.6/assets/content-factory.svg",
+      "source": "https://gitee.com/full-aigc-plugins/content-factory-plugin/releases/tag/v1.0.0-rc.6"
     },
     {
       "id": "dreamina-canvas",
       "displayName": "Dreamina Canvas（即梦画布编排）",
-      "icon": "https://gitee.com/full-aigc-plugins/dreamina-canvas-plugin/raw/v0.6.1/assets/official-logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.6.1"
+      "icon": "https://gitee.com/full-aigc-plugins/dreamina-canvas-plugin/raw/v0.6.2/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/dreamina-canvas-plugin/releases/tag/v0.6.2"
     },
     {
       "id": "dreamina-design",
       "displayName": "Dreamina（即梦绘图与视频）",
-      "icon": "https://gitee.com/full-aigc-plugins/dreamina-design-plugin/raw/v0.8.2/assets/logo-approved.png",
-      "source": "https://gitee.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.8.2"
+      "icon": "https://gitee.com/full-aigc-plugins/dreamina-design-plugin/raw/v0.8.3/assets/logo-approved.png",
+      "source": "https://gitee.com/full-aigc-plugins/dreamina-design-plugin/releases/tag/v0.8.3"
     },
     {
       "id": "dreamina-novel",
       "displayName": "Dreamina Novel（即梦短剧创作）",
-      "icon": "https://gitee.com/full-aigc-plugins/dreamina-novel-plugin/raw/v0.1.0-dev.20261109.2/assets/official-logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/dreamina-novel-plugin/releases/tag/v0.1.0-dev.20261109.2"
+      "icon": "https://gitee.com/full-aigc-plugins/dreamina-novel-plugin/raw/v0.1.0-dev.20261111.1/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/dreamina-novel-plugin/releases/tag/v0.1.0-dev.20261111.1"
     },
     {
       "id": "image-factory",
       "displayName": "Image（批量 AI 出图）",
-      "icon": "https://gitee.com/full-aigc-plugins/image-factory-plugin/raw/v0.9.2/assets/logo-approved.png",
-      "source": "https://gitee.com/full-aigc-plugins/image-factory-plugin/releases/tag/v0.9.2"
+      "icon": "https://gitee.com/full-aigc-plugins/image-factory-plugin/raw/v0.9.3/assets/logo-approved.png",
+      "source": "https://gitee.com/full-aigc-plugins/image-factory-plugin/releases/tag/v0.9.3"
     },
     {
       "id": "jianying-draft",
       "displayName": "JianYing Draft（剪映草稿编排）",
-      "icon": "https://gitee.com/full-aigc-plugins/jianying-draft-plugin/raw/v0.29.7/assets/official-logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.29.7"
+      "icon": "https://gitee.com/full-aigc-plugins/jianying-draft-plugin/raw/v0.29.8/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/jianying-draft-plugin/releases/tag/v0.29.8"
     },
     {
       "id": "maya-design",
       "displayName": "Maya（三维场景）",
-      "icon": "https://gitee.com/full-aigc-plugins/maya-design-plugin/raw/v0.2.2/assets/official-logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/maya-design-plugin/releases/tag/v0.2.2"
+      "icon": "https://gitee.com/full-aigc-plugins/maya-design-plugin/raw/v0.2.3/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/maya-design-plugin/releases/tag/v0.2.3"
     },
     {
       "id": "minimax-design",
       "displayName": "MiniMax（AI 视频生成）",
-      "icon": "https://gitee.com/full-aigc-plugins/minimax-design-plugin/raw/v0.5.2/assets/official-logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.5.2"
+      "icon": "https://gitee.com/full-aigc-plugins/minimax-design-plugin/raw/v0.5.3/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/minimax-design-plugin/releases/tag/v0.5.3"
     },
     {
       "id": "video-factory",
       "displayName": "Video（自动剪辑成片）",
-      "icon": "https://gitee.com/full-aigc-plugins/video-factory-plugin/raw/v0.5.2/assets/logo-approved.png",
-      "source": "https://gitee.com/full-aigc-plugins/video-factory-plugin/releases/tag/v0.5.2"
+      "icon": "https://gitee.com/full-aigc-plugins/video-factory-plugin/raw/v0.5.3/assets/logo-approved.png",
+      "source": "https://gitee.com/full-aigc-plugins/video-factory-plugin/releases/tag/v0.5.3"
     },
     {
       "id": "volcengine-design",
       "displayName": "Volcengine（豆包语音与视频）",
-      "icon": "https://gitee.com/full-aigc-plugins/volcengine-design-plugin/raw/v0.2.2/assets/official-logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.2.2"
+      "icon": "https://gitee.com/full-aigc-plugins/volcengine-design-plugin/raw/v0.2.3/assets/official-logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/volcengine-design-plugin/releases/tag/v0.2.3"
     },
     {
       "id": "xuanji",
       "displayName": "Xuanji（命理排盘 · 娱乐）",
-      "icon": "https://gitee.com/full-aigc-plugins/xuanji-plugin/raw/v0.2.2/assets/logo.png",
-      "source": "https://gitee.com/full-aigc-plugins/xuanji-plugin/releases/tag/v0.2.2"
+      "icon": "https://gitee.com/full-aigc-plugins/xuanji-plugin/raw/v0.2.3/assets/logo.png",
+      "source": "https://gitee.com/full-aigc-plugins/xuanji-plugin/releases/tag/v0.2.3"
     }
   ]
 }
