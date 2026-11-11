@@ -13,6 +13,16 @@ CATALOG = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
 WORKSPACE = ROOT.parent / "full-aigc-plugins-repositories"
 
 
+def omitted_from_aggregate(plugin, relative):
+    # Image Factory 的上游快照只供独立源码仓研究与校验；Codex 临时检出路径
+    # 叠加这些深目录会超过 Windows 的路径长度限制。
+    return plugin["id"] == "image-factory" and (
+        relative.parts[:2] == ("vendor", "upstream") and len(relative.parts) > 3
+        or relative.parts == ("tests", "test_upstream_snapshot_baseline.py")
+        or relative.parts == ("tests", "test_use_case_docs.py")
+    )
+
+
 def archived_package(plugin, destination):
     repository = WORKSPACE / plugin["localDirectory"]
     ref = f"v{plugin['version']}"
@@ -30,6 +40,8 @@ def archived_package(plugin, destination):
                 # 上游标签混入本地运行日志/缓存；这些不是插件分发内容。
                 if (relative.parts and relative.parts[0] == ".mimosa") or (plugin["id"] == "dreamina-design" and relative.parts and relative.parts[0] == ".superpowers") or "__pycache__" in relative.parts or relative.name == ".DS_Store" or relative.name.endswith(".pyc"):
                     continue
+                if omitted_from_aggregate(plugin, relative):
+                    continue
                 target = destination.joinpath(*relative.parts)
                 if member.isdir():
                     target.mkdir(parents=True, exist_ok=True)
@@ -40,6 +52,25 @@ def archived_package(plugin, destination):
                     target.chmod(member.mode & 0o777)
                 else:
                     raise RuntimeError(f"{plugin['id']}: unsupported archive entry {member.name}")
+    if plugin["id"] == "image-factory":
+        (destination / "vendor/upstream/README.md").write_text(
+            "# Upstream snapshot provenance\n\n"
+            "This aggregated package keeps `sources.json` and `BLOB_SHA1SUMS` as provenance "
+            "records. The inactive snapshot files remain in the independent Image Factory "
+            "source repository and are omitted here to keep Codex Windows checkout paths short. "
+            "The `vendored` fields in `sources.json` describe that source repository.\n",
+            encoding="utf-8",
+        )
+        notice = destination / "THIRD_PARTY_NOTICES.md"
+        original = "Original, inactive upstream snapshots are preserved under `vendor/upstream/`:"
+        replacement = ("Original, inactive upstream snapshots are preserved in the independent "
+                       "Image Factory source repository. The aggregated marketplace omits their "
+                       "files and two snapshot-only tests to keep Windows clone paths short; provenance "
+                       "remains in `vendor/upstream/sources.json` and `BLOB_SHA1SUMS`:")
+        content = notice.read_text(encoding="utf-8")
+        if original not in content:
+            raise RuntimeError("image-factory: upstream snapshot notice changed")
+        notice.write_text(content.replace(original, replacement), encoding="utf-8")
     root_manifest = destination / "plugin.json"
     codex_manifest = destination / ".codex-plugin/plugin.json"
     if not root_manifest.is_file() or not codex_manifest.is_file():

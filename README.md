@@ -66,7 +66,7 @@
 
 ---
 
-聚合目录与本地市场的构建方式参考 [ZCode 官方插件仓的市场结构](https://github.com/zai-org/zcode-plugins)：市场清单使用相对 `./plugins/<id>` 来源，完整插件目录随本地分发目录复制。独立插件代码和历史来源见各包仓库；本仓只生成固定版本副本。
+聚合目录与本地市场的构建方式参考 [ZCode 官方插件仓的市场结构](https://github.com/zai-org/zcode-plugins)：市场清单使用相对 `./plugins/<id>` 来源，插件运行目录随本地分发目录复制。Image Factory 的非运行时上游研究快照留在独立源码仓，聚合时省略以避免 Windows 临时检出路径过长。独立插件代码和历史来源见各包仓库；本仓只生成固定版本副本。
 
 ## 安装
 
@@ -132,7 +132,7 @@ CADCraft、DeckCraft、DesignCraft、EffectCraft、FigCraft、FilmCraft、GridCr
 
 ### 市场如何工作
 
-`python3 scripts/sync-aggregated-packages.py --write` 从独立仓库版本标签重建 `plugins/`；`node scripts/build-local-marketplace.mjs` 构建 `dist/local-marketplace/`，将完整插件目录复制进去。默认不传 `--write` 时，聚合脚本只校验。Craft 候选仅保留远程市场源，不复制包内容。
+`python3 scripts/sync-aggregated-packages.py --write` 从独立仓库版本标签重建 `plugins/`；`node scripts/build-local-marketplace.mjs` 构建 `dist/local-marketplace/`，复制聚合后的插件目录。默认不传 `--write` 时，聚合脚本只校验。Craft 候选仅保留远程市场源，不复制包内容。
 
 `catalog.json` 是唯一事实源。`scripts/sync-marketplaces.mjs` 从它生成三平台清单，并校验每个插件仓的 skills 目录（frontmatter、命名一致性）、候选插件的明确状态（隐藏阻断或 RC 测试安装）、不可变发布身份与规划仓约束（不得发布 manifest）：
 

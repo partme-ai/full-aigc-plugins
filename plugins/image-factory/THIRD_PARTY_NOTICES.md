@@ -24,7 +24,7 @@ data/prompt-categories.json is the unmodified category manifest from
 https://github.com/YouMind-OpenLab/ai-image-prompts-skill at
 6e8339bbfda7ed3f21978df84f266f1c393f5918; see licenses/youmind-MIT.txt.
 
-Original, inactive upstream snapshots are preserved under `vendor/upstream/`:
+Original, inactive upstream snapshots are preserved in the independent Image Factory source repository. The aggregated marketplace omits their files and two snapshot-only tests to keep Windows clone paths short; provenance remains in `vendor/upstream/sources.json` and `BLOB_SHA1SUMS`:
 
 - freestylefly/awesome-gpt-image-2: its complete
   `gpt-image-2-style-library` Skill at the pinned commit above, MIT.
