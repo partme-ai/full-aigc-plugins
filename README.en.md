@@ -132,6 +132,8 @@ The plugins below belong to **AIGC**. Open a plugin name or repository link for 
 
 ### How the marketplace works
 
+The aggregated Image Factory package omits inactive upstream research snapshots and two tests that require those snapshots. The independent Image Factory repository retains the original files and provenance. This keeps the marketplace checkout within the Windows path budget used by Codex.
+
 `catalog.json` is the single source of truth. `scripts/sync-marketplaces.mjs` generates the three platform manifests from it and validates each plugin repository's skills directories (frontmatter, naming consistency), explicit candidate state (hidden blocked or installable RC), immutable release identity, and planning-repo constraints (no published manifests):
 
 ```
