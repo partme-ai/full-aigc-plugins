@@ -29,6 +29,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           if ((git -C $checkout rev-parse HEAD) -ne (git rev-parse HEAD)) { throw 'Clone revision differs' }
       - run: node scripts/sync-marketplaces.mjs --catalog-only
+      - run: node scripts/validate-dsh-index.mjs
       - run: node scripts/sync-codex-local-manifests.mjs
       - run: node scripts/build-local-marketplace.mjs
       - run: node --test scripts/codex-marketplace-localization.test.mjs scripts/craft-marketplace-installation.test.mjs scripts/marketplace-readme.test.mjs

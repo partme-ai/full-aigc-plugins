@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "title": "Full AIGC 插件",
+  "title": "Full AIGC Plugins（内容生成工具）",
   "description": "Full AIGC plugin marketplace for Codex, ZCode, and Kimi Code: image, video, audio, music, 3D, and multimodal content creation.",
   "metadata": {},
   "plugins": [
@@ -8,19 +8,19 @@
       "name": "blender-design",
       "title": "Blender（三维建模）",
       "description": "用自然语言搭 3D 场景：建模、材质、灯光、相机与渲染，关键节点截图，导出前可回滚。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.0/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/blender-design-plugin@v0.16.3/assets/official-logo.png",
+      "homepage": "https://github.com/full-aigc-plugins/blender-design-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/blender-design-plugin"
       },
       "versions": [
         {
-          "version": "0.16.0",
-          "publishTimestamp": 1794218355,
+          "version": "0.16.3",
+          "publishTimestamp": 1794389451,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/blender-design-plugin",
-            "commit": "e6413cd1784b03b28ab87bd92ae0187004a276b3",
-            "path": "dsh"
+            "commit": "db74dab136267ec44551d10dfe034321811ae61b"
           }
         }
       ]
@@ -29,19 +29,19 @@
       "name": "comfy-design",
       "title": "Comfy（ComfyUI 工作流）",
       "description": "一条链路跑完本地 ComfyUI 图、视频、音频与 3D 工作流；云模型只在你明确选择时启用。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.0/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/comfy-design-plugin@v0.6.3/assets/official-logo.png",
+      "homepage": "https://github.com/full-aigc-plugins/comfy-design-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/comfy-design-plugin"
       },
       "versions": [
         {
-          "version": "0.6.0",
-          "publishTimestamp": 1794215768,
+          "version": "0.6.3",
+          "publishTimestamp": 1794389455,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/comfy-design-plugin",
-            "commit": "c7d410fcbe7556e659df6db19d085be8aad59e56",
-            "path": "dsh"
+            "commit": "19769904f7273d091ff969fa1b8d5399bed1dd21"
           }
         }
       ]
@@ -50,19 +50,19 @@
       "name": "dreamina-canvas",
       "title": "Dreamina Canvas",
       "description": "类型化节点与时间线编排；免费保存与计费运行分离，产物下载带校验。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.5.0/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-canvas-plugin@v0.6.2/assets/official-logo.png",
+      "homepage": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin"
       },
       "versions": [
         {
-          "version": "0.5.0",
-          "publishTimestamp": 1794215772,
+          "version": "0.6.2",
+          "publishTimestamp": 1794389459,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/dreamina-canvas-plugin",
-            "commit": "73358941b3fbe9052a4ba8c53e1617526c7c0e03",
-            "path": "dsh"
+            "commit": "e381ec93efb4e188fe09443a59c8676b145efa86"
           }
         }
       ]
@@ -71,19 +71,19 @@
       "name": "dreamina-design",
       "title": "Dreamina（即梦绘图与视频）",
       "description": "即梦文生图、图生图和文生视频：提示词、分镜标注与镜头评审走同一条链路。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.0/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-design-plugin@v0.8.3/assets/logo-approved.png",
+      "homepage": "https://github.com/full-aigc-plugins/dreamina-design-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/dreamina-design-plugin"
       },
       "versions": [
         {
-          "version": "0.8.0",
-          "publishTimestamp": 1794218590,
+          "version": "0.8.3",
+          "publishTimestamp": 1794389463,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/dreamina-design-plugin",
-            "commit": "24c827850e28d626df9b7898a15363b826fcb4b2",
-            "path": "dsh"
+            "commit": "15f25dccad8981d0afc994cf13aa40ff1e9789ac"
           }
         }
       ]
@@ -92,19 +92,19 @@
       "name": "image-factory",
       "title": "Image（批量 AI 出图）",
       "description": "批量出图先计划再执行：提示词、审批、生成、质量评估与中断恢复，每张图都有回执。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.0/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/image-factory-plugin@v0.9.3/assets/logo-approved.png",
+      "homepage": "https://github.com/full-aigc-plugins/image-factory-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/image-factory-plugin"
       },
       "versions": [
         {
-          "version": "0.9.0",
-          "publishTimestamp": 1794218364,
+          "version": "0.9.3",
+          "publishTimestamp": 1794389469,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/image-factory-plugin",
-            "commit": "a52af7a1906833645596b05ec58b0e613a82d7c2",
-            "path": "dsh"
+            "commit": "20d0d8c84620081b775d9c1854b698d25ffb9e1b"
           }
         }
       ]
@@ -113,19 +113,19 @@
       "name": "jianying-draft",
       "title": "JianYing Draft（剪映草稿编排）",
       "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.28.0/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/jianying-draft-plugin@v0.29.8/assets/official-logo.png",
+      "homepage": "https://github.com/full-aigc-plugins/jianying-draft-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/jianying-draft-plugin"
       },
       "versions": [
         {
-          "version": "0.28.0",
-          "publishTimestamp": 1794218368,
+          "version": "0.29.8",
+          "publishTimestamp": 1794389475,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/jianying-draft-plugin",
-            "commit": "79056c12e9931125497f05bbb41c17658e7a60b8",
-            "path": "dsh"
+            "commit": "18de4cc9935008190bcf816d1b8573e284470014"
           }
         }
       ]
@@ -134,19 +134,19 @@
       "name": "maya-design",
       "title": "Maya（三维场景）",
       "description": "先体检 Maya 场景再导出：只读检查、可逆 Playblast、错误诊断，交接官方即梦上传。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.0/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/maya-design-plugin@v0.2.3/assets/official-logo.png",
+      "homepage": "https://github.com/full-aigc-plugins/maya-design-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/maya-design-plugin"
       },
       "versions": [
         {
-          "version": "0.2.0",
-          "publishTimestamp": 1794218373,
+          "version": "0.2.3",
+          "publishTimestamp": 1794389478,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/maya-design-plugin",
-            "commit": "b9c20a704ccf0a791d1e540d3ceb115491a49910",
-            "path": "dsh"
+            "commit": "28c50fa4150ef39683c75d518cee34d22dff66e5"
           }
         }
       ]
@@ -155,19 +155,19 @@
       "name": "minimax-design",
       "title": "MiniMax（AI 视频生成）",
       "description": "H3 文生/图生视频：白模首尾帧锚定、可恢复查询与校验下载，凭据走环境变量。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.0/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/minimax-design-plugin@v0.5.3/assets/official-logo.png",
+      "homepage": "https://github.com/full-aigc-plugins/minimax-design-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/minimax-design-plugin"
       },
       "versions": [
         {
-          "version": "0.5.0",
-          "publishTimestamp": 1794218377,
+          "version": "0.5.3",
+          "publishTimestamp": 1794389483,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/minimax-design-plugin",
-            "commit": "6cc1d90da5c13a5a85a24bf2684d4eda890833f0",
-            "path": "dsh"
+            "commit": "aa34af20f3673a20327524bab3e1ba26b755ecf0"
           }
         }
       ]
@@ -176,19 +176,19 @@
       "name": "video-factory",
       "title": "Video（自动剪辑成片）",
       "description": "从拉片到成片：剪辑决策、粗剪/精剪审批、合成与媒体回执，关键步骤可回退。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.0/assets/logo-approved.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/video-factory-plugin@v0.5.3/assets/logo-approved.png",
+      "homepage": "https://github.com/full-aigc-plugins/video-factory-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/video-factory-plugin"
       },
       "versions": [
         {
-          "version": "0.5.0",
-          "publishTimestamp": 1794218381,
+          "version": "0.5.3",
+          "publishTimestamp": 1794389487,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/video-factory-plugin",
-            "commit": "a25e0d97d76bbfbac9f18534c2288fc7a359b780",
-            "path": "dsh"
+            "commit": "ca044efa4460907c0e6aaebe1b85d1977c7af35e"
           }
         }
       ]
@@ -197,19 +197,19 @@
       "name": "volcengine-design",
       "title": "Volcengine（豆包语音与视频）",
       "description": "豆包 ASR 词级时间轴、TTS 旁白、Seedream 生图与 Seedance 生视频，两套凭据分离。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.0/assets/official-logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/volcengine-design-plugin@v0.2.3/assets/official-logo.png",
+      "homepage": "https://github.com/full-aigc-plugins/volcengine-design-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/volcengine-design-plugin"
       },
       "versions": [
         {
-          "version": "0.2.0",
-          "publishTimestamp": 1794218385,
+          "version": "0.2.3",
+          "publishTimestamp": 1794389491,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/volcengine-design-plugin",
-            "commit": "454ef346103c4d15cb631c8b8b1249083b0cf878",
-            "path": "dsh"
+            "commit": "96eb2287181d776341de1b03b5015c5f78109638"
           }
         }
       ]
@@ -218,40 +218,61 @@
       "name": "xuanji",
       "title": "Xuanji（命理排盘 · 娱乐）",
       "description": "八字、奇门、紫微、姻缘、风水和塔罗：排盘由脚本校验、引文可追溯，仅供娱乐。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.0/assets/logo.png",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/xuanji-plugin@v0.2.3/assets/logo.png",
+      "homepage": "https://github.com/full-aigc-plugins/xuanji-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/xuanji-plugin"
       },
       "versions": [
         {
-          "version": "0.2.0",
-          "publishTimestamp": 1794218389,
+          "version": "0.2.3",
+          "publishTimestamp": 1794389496,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/xuanji-plugin",
-            "commit": "90d97ad426a5fc48b8b055387ff3bec803ed20d3",
-            "path": "dsh"
+            "commit": "0c7a6d26a88cceedc641c77460fe185adc192411"
           }
         }
       ]
     },
     {
-      "name": "content-factory",
+      "name": "@full-aigc-plugins/content-factory-plugin",
       "title": "Content（多平台内容生产）",
       "description": "16 个渠道的内容生产线：选题、写作、排版、审阅到导出，渠道规范始终保留。",
-      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.3/assets/content-factory.svg",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/content-factory-plugin@v1.0.0-rc.6/assets/content-factory.svg",
+      "homepage": "https://github.com/full-aigc-plugins/content-factory-plugin",
       "repository": {
         "url": "https://github.com/full-aigc-plugins/content-factory-plugin"
       },
       "versions": [
         {
-          "version": "1.0.0-rc.3",
-          "publishTimestamp": 1794218360,
+          "version": "1.0.0-rc.6",
+          "publishTimestamp": 1794390188,
           "source": {
             "type": "git",
             "url": "https://github.com/full-aigc-plugins/content-factory-plugin",
-            "commit": "2b9a5940af019712487cbe9cdaec06151c036789",
-            "path": "dsh"
+            "commit": "a1cb75ec11696b3841abc43aeb53657ee5cf17dd"
+          }
+        }
+      ]
+    },
+    {
+      "name": "dreamina-novel",
+      "title": "Dreamina Novel（即梦短剧创作）",
+      "description": "承接创意、剧本和本地素材，按集完成角色场景、分镜、批量生成与成片交付。",
+      "icon": "https://cdn.jsdelivr.net/gh/full-aigc-plugins/dreamina-novel-plugin@v0.1.0-dev.20261111.1/assets/official-logo.png",
+      "homepage": "https://github.com/full-aigc-plugins/dreamina-novel-plugin",
+      "repository": {
+        "url": "https://github.com/full-aigc-plugins/dreamina-novel-plugin"
+      },
+      "versions": [
+        {
+          "version": "0.1.0-dev.20261111.1",
+          "publishTimestamp": 1794389504,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/full-aigc-plugins/dreamina-novel-plugin",
+            "commit": "2ee184e2ebcd1dc48aec9f80a11ede8cda38bf97"
           }
         }
       ]

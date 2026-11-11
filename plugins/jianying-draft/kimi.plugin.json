@@ -1,6 +1,6 @@
 {
   "name": "jianying-draft",
-  "version": "0.29.7",
+  "version": "0.29.8",
   "description": "剪映/卡普草稿编排，单一校验的 Rust 运行时：任务 schema、字幕、音频、特效与审批门禁。",
   "author": {
     "name": "Full Stack Skills / PartMe.AI"

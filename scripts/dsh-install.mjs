@@ -7,7 +7,7 @@
  *   node scripts/dsh-install.mjs --profile desktop --all
  *   node scripts/dsh-install.mjs --profile desktop --all --dry-run
  *
- * Each plugin is installed as its own package (git + path:/dsh), so it can be
+ * Each plugin is installed as its own package (Git repository root), so it can be
  * removed or updated independently afterwards. `DSH_CLI` overrides the dsh
  * executable; `DSH_HOME` is inherited by the child process.
  */
@@ -63,7 +63,9 @@ const runDsh = (args) => {
 const specs = []
 for (const plugin of index.plugins) {
   const slug = plugin.name.split('/').pop()
-  if (!all && !only.has(slug)) continue
+  const repositoryName = plugin.repository.url.split('/').pop()
+  const catalogSlug = repositoryName.replace(/-plugin$/, '')
+  if (!all && !only.has(slug) && !only.has(repositoryName) && !only.has(catalogSlug)) continue
   const version = plugin.versions[0]
   if (version.source.type === 'npm') {
     specs.push({ slug, spec: `${plugin.name}@${version.version}` })

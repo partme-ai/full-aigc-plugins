@@ -1,13 +1,14 @@
 {
-  "name": "minimax-design-plugin",
-  "version": "0.5.2",
+  "name": "minimax-design",
+  "version": "0.5.3",
   "private": true,
   "type": "module",
   "main": "./dsh/lib/index.js",
   "dsh": {
     "bundle": {
-      "patch": "./cordis.patch.yml"
+      "patch": "./dsh/cordis.patch.yml"
     }
   },
-  "icon": "./dsh/icon.png"
+  "icon": "./dsh/icon.png",
+  "description": "Generate MiniMax H3 videos with env-var auth, first/last-frame FL2VA anchoring, resumable v2 queries, 12 externally managed skills, 2 plugin-local skills, commands, and cross-platform credential setup."
 }
