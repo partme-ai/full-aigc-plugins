@@ -20,6 +20,14 @@ jobs:
       - run: node scripts/checkout-release-plugins.mjs --all --skip=jianying-draft
       - run: python scripts/sync-aggregated-packages.py --skip-repository=jianying-draft
       - run: python scripts/test_windows_clone_paths.py
+      - name: Verify Codex-length Windows clone
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $checkout = Join-Path $env:RUNNER_TEMP ('m' * [Math]::Max(1, 90 - $env:RUNNER_TEMP.Length - 1))
+          git clone --quiet . $checkout
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if ((git -C $checkout rev-parse HEAD) -ne (git rev-parse HEAD)) { throw 'Clone revision differs' }
       - run: node scripts/sync-marketplaces.mjs --catalog-only
       - run: node scripts/sync-codex-local-manifests.mjs
       - run: node scripts/build-local-marketplace.mjs
